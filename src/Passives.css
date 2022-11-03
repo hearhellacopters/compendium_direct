@@ -1,0 +1,108 @@
+.passivefilterbuttonholder{
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ADDED_LINE{
+    color: white;
+    background-color: #47ab9a;
+}
+
+.REMOVED_LINE{
+    color: white;
+    background-color: #e87973;
+    text-decoration: line-through;
+}
+
+.size12{
+    font-size: 12px;
+}
+
+.CrystalWhitebanner{
+    background-color: #bccee0;
+}
+.CrystalGreenbanner{
+    background-color: #47ab9a;
+}
+.CrystalRedbanner{
+    background-color: #be3f52;
+}
+.CrystalBlackbanner{
+    background-color: #5d38f1;
+}
+.CrystalBluebanner{
+    background-color: #2767dc;
+}
+.CrystalYellowbanner{
+    background-color: #ab9447;
+}
+.board4banner{
+    background-color: #5d38f1;
+}
+.board3banner{
+    background-color: #5d38f1;
+}
+.board2banner{
+    background-color: #5d38f1;
+}
+.board1banner{
+    background-color: #5d38f1;
+}
+.board5banner{
+    background-color: #5d38f1;
+}
+.ArtRedbanner{
+    background-color: #bccee0;
+}
+.ArtGreybanner{
+    background-color: #bccee0;
+}
+/**/
+.CrystalWhitebase{
+    background-color: #5d646b;
+}
+.CrystalGreenbase{
+    background-color: #346746f0;
+}
+.CrystalRedbase{
+    background-color: #773040f0;
+}
+.CrystalBlackbase{
+    background-color: #473494;
+}
+.CrystalBluebase{
+    background-color: #3a578c;
+}
+.CrystalYellowbase{
+    background-color: #675f34f0;
+}
+.board4base{
+    background-color: #473494;
+}
+.board3base{
+    background-color: #473494;
+}
+.board2base{
+    background-color: #473494;
+}
+.board1base{
+    background-color: #473494;
+}
+.board5base{
+    background-color: #473494;
+}
+.ArtGreybase{
+    background-color: #5d646b;
+}   
+.ArtRedbase{
+    background-color: #5d646b;
+}   
+
+.glpassivetitle {
+    background: linear-gradient(90deg, #272727 0%, #272727 16%, rgba(77,86,97,0) 100%);
+    display: block;
+    filter: drop-shadow(1px 1px 1px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+    padding-left: 2px;
+}

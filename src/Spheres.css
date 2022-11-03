@@ -1,0 +1,106 @@
+.aSpheresButton{
+    background-image: url(https://dissidiacompendium.com/images/static/icons/spheres/SphereLetterA.png);
+}
+
+.bSpheresButton{
+    background-image: url(https://dissidiacompendium.com/images/static/icons/spheres/SphereLetterB.png);
+}
+.cSpheresButton{
+    background-image: url(https://dissidiacompendium.com/images/static/icons/spheres/SphereLetterC.png);
+}
+.dSpheresButton{
+    background-image: url(https://dissidiacompendium.com/images/static/icons/spheres/SphereLetterD.png);
+}
+.eSpheresButton{
+    background-image: url(https://dissidiacompendium.com/images/static/icons/spheres/SphereLetterE.png);
+}
+.exSpheresButton{
+    background-image: url(https://dissidiacompendium.com/images/static/icons/spheres/SphereEX.png);
+}
+.rfSpheresButton{
+    background-image: url(https://dissidiacompendium.com/images/static/icons/spheres/SphereRF.png);
+}
+
+.spheresbutton{
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    margin-right: 3px;
+    margin-left: 3px;
+    background-repeat: no-repeat;
+    position: static;
+    cursor: pointer;
+}
+
+.spheretypes{
+    display: inline-block;
+    padding-left: 0px;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.sphereicon{
+    display: flex;
+    margin: auto;
+    padding-top: 0px;
+    filter: drop-shadow(2px 2px 2px #222);
+}
+
+/*
+#Buff{
+    color: #4bff4b;
+}
+
+#Debuff{
+    color: rgb(255 57 35);
+}
+*/
+
+.Abanner{
+    background-color: #be3f52;
+}
+
+.Abase{
+    background-color: #773040f0;
+}
+
+.Bbanner{
+    background-color: #479cab;
+}
+
+.Bbase{
+    background-color: #345767f0;
+}
+
+.Cbanner{
+    background-color: #47ab9a;
+}
+
+.Cbase{
+    background-color: #346746f0;
+}
+
+.Dbanner{
+    background-color: #ab9447;
+}
+
+.Dbase{
+    background-color: #675f34f0;
+}
+
+.Ebanner{
+    background-color: #5d38f1;
+}
+
+.Ebase{
+    background-color: #473494;
+}
+
+#unique{
+    color: #d0d093;
+}
+
+.subtextwhite{
+    color: white;
+}

@@ -1,0 +1,12 @@
+.tickholder{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+}
+.spacerleft{
+    margin-left:.35em;
+}

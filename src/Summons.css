@@ -1,0 +1,323 @@
+.IfritIcon{
+    content: url("https://dissidiacompendium.com/images/static/icons/summons/unlocked/Summon_Ifrit.png")
+}
+.ShivaIcon{
+    content: url("https://dissidiacompendium.com/images/static/icons/summons/unlocked/Summon_Shiva.png")
+}
+.RamuhIcon{
+    content: url("https://dissidiacompendium.com/images/static/icons/summons/unlocked/Summon_Ramuh.png")
+}
+.LeviathanIcon{
+    content: url("https://dissidiacompendium.com/images/static/icons/summons/unlocked/Summon_Leviathan.png")
+}
+.BrothersIcon{
+    content: url("https://dissidiacompendium.com/images/static/icons/summons/unlocked/Summon_Brothers.png")
+}
+.PandemoniumIcon{
+    content: url("https://dissidiacompendium.com/images/static/icons/summons/unlocked/Summon_Pandemonium.png")
+}
+.DiabolosIcon{
+    content: url("https://dissidiacompendium.com/images/static/icons/summons/unlocked/Summon_Diabolos.png")
+}
+.AlexanderIcon{
+    content: url("https://dissidiacompendium.com/images/static/icons/summons/unlocked/Summon_Alexander.png")
+}
+.OdinIcon{
+    content: url("https://dissidiacompendium.com/images/static/icons/summons/unlocked/Summon_Odin.png")
+}
+.BahamutIcon{
+    content: url("https://dissidiacompendium.com/images/static/icons/summons/unlocked/Summon_Bahamut.png")
+}
+.ChocoboIcon{
+    content: url("https://dissidiacompendium.com/images/static/icons/summons/unlocked/Summon_Chocobo.png")
+}
+.SylphIcon{
+    content: url("https://dissidiacompendium.com/images/static/icons/summons/unlocked/Summon_Sylph.png")
+}
+.MogIcon{
+    content: url("https://dissidiacompendium.com/images/static/icons/summons/unlocked/Summon_Mog.png")
+}
+
+.suminfoholder{
+    padding: 10px;
+    border-radius: 19px;
+    background: #43517a;
+    box-shadow: inset 5px 0px 4px rgb(0 0 0 / 50%), inset -5px 5px 4px rgb(0 0 0 / 50%), inset 0px -5px 4px rgb(0 0 0 / 50%);
+}
+
+.abilitysubJPname{
+    font-size: 12px;
+    color: rgb(180, 180, 180);
+    display: inline-block;
+}
+
+.sumtitle{
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 2em;
+    text-align: center;
+    font-weight: bold;
+    background: linear-gradient( 90deg , rgba(30, 55, 88, 0) 0%, #81a0c9 3.67%, #81a0c9 96.44%, rgba(30, 55, 88, 0) 100%);
+}
+
+.sumelehelper{
+    background: black;
+}
+
+.sumimgholder{
+    width: 330px;
+    display: inline-table;
+}
+
+.sumimg{
+    width: 307px;
+    height: 112px;
+}
+
+.sumcompholder{
+    display: flow-root;
+}
+
+.sumlv{
+    font-size: 20px;
+    position: absolute;
+    margin-top: 90px;
+    margin-left: -50px;
+    z-index: 2;
+}
+
+.sumele{
+    position: absolute;
+    border-radius: 20px;
+    z-index: 2;
+    margin-left: -42px;
+    text-decoration: none;
+    filter: drop-shadow(2px 2px 2px #222);
+}
+
+.sumsubheader{
+    margin-top: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    font-weight: bold;
+    background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #3f5b92 3.67%, #3f5b92 96.44%, rgba(30, 55, 88, 0) 100%);
+}
+
+.summonsgem{
+    height: 103px;
+    width: 87px;
+}
+
+.gemactive{
+    box-shadow: 0px 0px 8px 8px rgb(255 248 0 / 75%) inset;
+    -webkit-box-shadow: 0px 0px 8px 8px rgb(255 248 0 / 75%) inset;
+    -moz-box-shadow: 0px 0px 8px 8px rgba(255,248,0,0.75) inset;
+    border-radius: 50px;
+}
+@media (hover: hover) {
+.summonsgem:hover{
+    transform: translateY(-1px);
+    transition: all .2s;
+    filter: brightness(1.2);
+    -webkit-filter: brightness(1.2);
+    cursor: pointer;
+}
+}
+
+
+
+.summoniconholder{
+    clear: both;
+    margin: 0px;
+    padding-left: 0px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.summoniconholder ul{
+    margin: auto;
+    max-width: 800px;
+    padding-top: 8px;
+    padding-left: 0px;
+    padding-bottom: 8px;
+}
+
+.summoniconholder li{
+    display: inline-block;
+    vertical-align: top;
+    margin: 2px;
+    transition: all .2s;
+}
+
+.sumslider {
+    width: 307px;
+    margin: auto;
+    height: 40px;
+    display: flex;
+}
+.sumdescholder{
+    display: flex;
+}
+
+.sumabilitydesc{
+    text-align: left;
+}
+
+.sumabilholder{
+    display: block;
+    width: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.lowerspace{
+    margin-bottom: 5px;
+}
+.makefull{
+    display: block;
+}
+
+.sumblessing{
+    text-align: left;
+}
+
+.sumphase{
+    width: 307px;
+}
+
+.phaseart{
+    width: 100px;
+}
+
+.topphase{
+    display: flex;
+    margin-top: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    font-weight: bold;
+    background: linear-gradient( 90deg, rgba(30, 55, 88, 0) 0%, #81a0c9 3.67%, #81a0c9 96.44%, rgba(30, 55, 88, 0) 100%);
+}
+.bottomphase{
+    display: flex;
+    transition: all .2s;
+    transform-origin: 50% 0;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    padding-top: 5px;
+    padding-left: 5px;
+    text-align: center;
+    font-weight: bold;
+    background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #8e8f8f 3.67%, #8e8f8f 96.44%, rgba(30, 55, 88, 0) 100%);
+    clear: both;
+}
+
+.sumboardheader{
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 2em;
+    text-align: center;
+    font-weight: bold;
+    background: linear-gradient( 90deg , rgba(30, 55, 88, 0) 0%, #3f5b92 3.67%, #3f5b92 96.44%, rgba(30, 55, 88, 0) 100%);
+}
+
+.sumpassiveholder{
+    padding: 5px;
+    background: #263252;
+    box-shadow: inset 5px 0px 4px rgb(0 0 0 / 50%), inset -5px 5px 4px rgb(0 0 0 / 50%), inset 0px -5px 4px rgb(0 0 0 / 50%);
+    border-radius: 19px;
+    clear: both;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    min-width: 250px;
+}
+
+.boardstatstitle{
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    font-size: medium;
+    text-align: center;
+    font-weight: bold;
+    background: linear-gradient( 90deg , rgba(30, 55, 88, 0) 0%, #81a0c9 3.67%, #81a0c9 96.44%, rgba(30, 55, 88, 0) 100%);
+}
+
+.margauto{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sumCPReqHolder{
+    display: table;
+    width: 100px;
+    margin-left: auto;
+    padding-right: 5px;
+}
+
+@media screen and (max-width: 800px) {
+    .sumCPReqHolder{
+        width: 80px;
+    }
+    .sumtitle{
+        font-size: 18px;
+    }
+    .sumboardheader{
+        font-size: 18px;
+    }
+    .smallspecial{
+        width: 36px;
+        height: 18px;
+    }
+    .makefull{
+        font-size: small;
+    }
+    .sumphase{
+        width: auto;
+    }
+    .phaseart{
+        width: 80px;
+        font-size: small;
+    }
+    .sumimgholder{
+        margin-top: 5px;
+    }
+    .sumdescholder{
+        display: block;
+    }
+    .sumimg{
+        height: 82px;
+        width: 230px;
+    }
+    .summonsgem{
+        width: 80px;
+        height: auto;
+    }
+    .sumlv {
+        margin-top: 67px;
+    }
+    .sumsilder{
+        width: 230px;
+        margin: 0px;
+    }
+    .sumabilholder{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .sumslider{
+        width: 230px;
+    }
+    .sumimgholder{
+        width: auto;
+    }
+}

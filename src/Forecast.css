@@ -1,0 +1,125 @@
+.dim{
+    opacity: .30;
+}
+
+.CharBackListHolder{
+    display: block;
+    max-width: 800px;
+    margin: auto;
+    padding: 0%;
+  }
+
+.CharBackListHolderinner{
+height: 178px;
+width: 128px;
+padding: 4px;
+display: inline-block;
+transition: all .2s;
+color: white;
+filter: drop-shadow(3px 3px 3px #222);
+    -webkit-filter: drop-shadow(3px 3px 3px #222);
+}
+
+@media (hover: hover) {
+.CharBackListHolderinner:hover{
+transform: translateY(-1px);
+color: #f7f91d;
+filter: brightness(1.2);
+-webkit-filter: brightness(1.2);
+transition: all ease 0.3s;
+}
+}
+
+.facetextlist3{
+    display: inline;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .facetextlist2{
+    position:absolute;
+    display: inline;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+.CharBackListHolder a{
+    position:relative;
+    height: 178px;
+    width: 128px;
+}
+
+.CharBackForecast{
+    height: 178px;
+    width: 128px;
+    display: block;
+    position: relative;
+}
+
+
+.forecasttagholder{
+    display: flex;
+    display: -webkit-flex;
+    flex-direction:column;
+    -webkit-flex-direction: column;
+    position: absolute;
+    height: 165px;
+    width: 128px;
+    padding-left: 0px;
+    z-index: 2;
+    text-align: left;
+    list-style-position: inside;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.forecasttag{
+    width: 54px;
+    min-width: 54px;
+    height: 27px;
+    min-height: 27px;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: drop-shadow(1px 1px 1px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+@media screen and (max-width: 800px) {
+      .facetextlist2{
+        font-size: small;
+      }
+      .facetextlist3{
+        font-size: small;
+      }
+    .CharBackForecast{
+        height: 133px;
+        width: 96px;
+    }
+    .forecasttag{
+        height: 24px;
+        min-height: 24px;
+        min-width: 48px;
+        width: 48px;
+    }
+    .CharBackListHolder a{
+        height: 133px;
+        width: 96px;
+    }
+    .forecasttagholder{
+        height: 123px;
+        width: 96px;
+        right: 15px
+    }
+  .CharBackListHolderinner {
+    height: 133px;
+    width: 96px;
+  }
+  }

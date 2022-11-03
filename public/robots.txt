@@ -1,2 +1,10 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
+Allow: /
+Allow: /characters
+Allow: /events
+Allow: /summons
+Disallow: /data
+Disallow: /tools
+Disallow: /404
+Disallow: /guide
+Disallow: /json

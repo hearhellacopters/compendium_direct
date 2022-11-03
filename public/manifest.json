@@ -1,16 +1,41 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Dissidia Compendium",
+  "name": "Dissidia Final Fantasy Opera Omnia Compendium",
   "icons": [
     {
       "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "sizes": "16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "logo180.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "180x180"
+    },
+    {
+      "src": "logo167.png",
+      "type": "image/png",
+      "sizes": "167x167"
+    },
+    {
+      "src": "logo152.png",
+      "type": "image/png",
+      "sizes": "152x152"
+    },
+    {
+      "src": "logo120.png",
+      "type": "image/png",
+      "sizes": "120x120"
+    },
+    {
+      "src": "logo76.png",
+      "type": "image/png",
+      "sizes": "76x76"
+    },
+    {
+      "src": "logo57.png",
+      "type": "image/png",
+      "sizes": "57x57"
     },
     {
       "src": "logo512.png",
@@ -20,6 +45,5 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
   "background_color": "#ffffff"
 }

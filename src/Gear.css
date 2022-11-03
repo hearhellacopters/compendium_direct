@@ -1,0 +1,527 @@
+.gearimage{
+    height: 182px;
+    width: 256px;
+}
+.fullnow{
+    width: auto !important;
+    margin-left: auto !important;
+}
+.geartoplevel{
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.spacearound2{
+    align-items: center;
+}
+
+.splitrow{
+    display: block;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.geartag{
+    position: absolute !important;
+    margin-left: 0px !important;
+    margin-bottom: 3px;
+    bottom: 0px;
+}
+
+.gearimageholder{
+    position: relative;
+}
+
+.gearcardholder{
+    margin-right: 5px;
+}
+
+
+.geartitletext{
+    display: inline-table;
+}
+
+.gearablspeed{
+    display: block;
+    text-align: center;
+    z-index: 2;
+    width: 100%;
+    margin-top: -1em;
+    position: sticky;
+    z-index: 2;
+    background: rgb(30,55,88);
+    background: linear-gradient(0deg, rgba(30,55,88,1) 0%, rgba(30,55,88,0.8015581232492998) 64%, rgba(30,55,88,0) 100%); 
+    width: 112px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gearabilityiconholder{
+    display: none;
+    margin-left: auto;
+    margin-right: 5px;
+    width: 145px;
+}
+
+.gearsaholder{
+    display: table;
+    background-image:  url(https://dissidiacompendium.com/images/static/icons/misc/saholder.png);
+    z-index: 2;
+    height: 28px;
+    width: 42px;
+    margin-top: -85px;
+    margin-left: 88px;
+    position: absolute;
+    text-align: center;
+}
+.gearsanumber{
+    margin-top: 5px;
+    display: block;
+    margin-bottom: auto;
+    z-index: 3;
+}
+
+.gearfaceandiconholder{
+    margin-left: auto;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+    margin-right: 5px;
+}
+.gearfaceandiconholder a{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.gearfaceholder{
+    width: 128px;
+    height: 40px;
+    display: block;
+    position: relative;
+    color: white;
+    margin: 0px;
+
+}
+.gearfaceicon{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.gearfacetext{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    margin-bottom: -5px;
+    white-space: nowrap;
+}
+.gearfaceholder span {
+    display: block !important;
+}
+.gearabilityuses{
+    display: none;
+}
+.shadow{
+    filter: drop-shadow(0px 0px 3px #222);
+    -webkit-filter: drop-shadow(0px 0px 3px #222);
+}
+.blockfix{
+    display: block;
+    margin-left: -112px;
+}
+.undertag{
+    width: 54px;
+    height: 27px;
+    vertical-align: middle;
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: drop-shadow(1px 1px 1px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+    cursor: pointer;
+}
+
+.flexdisplay{
+    display: flex;
+}
+.gearCPReqHolder{
+    display: table;
+    width: 95px;
+    margin-left: auto;
+    padding-right: 5px;
+}
+.spacearound{
+    display: flex;
+    align-items: center;
+}
+
+.gearbuffbutton{
+    height: 36px;
+    width: 72px;
+    display: inline-block;
+    margin-right: 3px;
+    margin-left: 3px;
+    background-repeat: no-repeat;
+    position: static;
+}
+
+.newbackbanner{
+    background-color: #4c4c4c;
+}
+.newblue{
+    background-color: #242b35;
+}
+.tableformatting{
+    display: grid;
+    border-collapse:collapse;
+    border-spacing:0;
+    font-size: smaller;
+    text-align: center;
+    align-content: space-evenly;
+    justify-content: space-evenly;
+}
+.subpassiveflair{
+    margin-bottom: 5px;
+    border-top: 1px black solid;
+    border-bottom: 1px black solid;
+    background: linear-gradient( 90deg , #242b35 0%, #242b35 16%, rgba(77,86,97,0) 100%);
+    filter: drop-shadow(1px 1px 1px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.subpassiveflair2{
+    margin-bottom: 5px;
+    border-top: 1px #433e22f0 solid;
+    border-bottom: 1px #433e22f0 solid;
+    background: linear-gradient( 90deg , #6d642ff0 0%, #766b31f0 16%, rgba(77,86,97,0) 100%);
+    filter: drop-shadow(1px 1px 1px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.statsflair{
+    border-collapse: collapse;
+    text-align: center;
+    align-content: space-evenly;
+    justify-content: space-evenly;
+    min-width: 250px;
+    margin-top: 10px;
+    border: 2px black solid;
+    background:#43517a ;
+}
+
+.statframe{
+    border-bottom: 2px black solid;
+    border-top: 2px black solid;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.statsflairperstat{
+    text-align: center;
+    align-content: space-evenly;
+    justify-content: space-evenly;
+    background:  #91a3d8 ;
+}
+.rightborder{
+    border-right: 2px black solid ;
+}
+
+.leftborder{
+    border-left: 2px black solid ;
+}
+.topborder{
+    border-top: 2px black solid ;
+}
+
+.gearinfonameholder{
+    padding: 5px;
+    padding-left: 8px;
+    border: solid 3px #d9dade;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 10px #000000;
+}
+
+.gearstatsholder{
+    font-size: smaller;
+    display: flex;
+    padding-right: 10px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+.statsaligment{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.statstable{
+    margin-left: auto;
+    margin-right: auto;
+    border-spacing: 0px;
+}
+
+.statstablenonmoble{
+    margin-left: auto;
+    margin-right: 20px;
+    border-spacing: 0px;
+}
+.tableven{
+    min-width: 40px;
+}
+
+.intbrv::before{
+    content: "iBRV";
+}
+.maxbrv::before{
+    content: "mBRV";
+}
+.lbspacer{
+    display: table;
+    margin-left: 10px;
+}
+.enderspacer{
+    margin-bottom: 12px;
+}
+.lsmaller{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.tablemobile{
+    display: none;
+    width: 100%;
+}
+
+.lsmallerinline{
+    display: flex;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.click{
+    cursor: pointer;
+}
+
+.tablenonmobile{
+    display: table;
+}
+
+.blackbg{
+    background-color: #000000;
+}
+.greybackground{
+    background-color: #8e8f8f;
+}
+.blackcapborder{
+    border-right: 2px black solid;
+    border-left: 2px black solid;
+}
+
+.whitetopborder{
+    border-top: 2px white solid !important;
+}
+
+.whiterightborder{
+    border-left: 2px white solid;
+    border-right: 2px white solid !important;
+}
+
+.whitebottomborder{
+    border-bottom: 2px white solid !important;
+}
+
+.whiteborder{
+    border: 2px white solid
+}
+
+.inlinegearabilityiconholder{
+    margin-top: 15px;
+    margin-right: auto;
+    width: 145px;
+    display: block;
+    position: absolute;
+    text-align: center;
+}
+.inlinegearabilityiconholder span{
+    display: block !important;
+    margin-right: auto;
+    margin-left: auto;
+}
+.inlinegearsaholder{
+    display: table;
+    background-image: url(https://dissidiacompendium.com/images/static/icons/misc/saholder.png);
+    z-index: 2;
+    height: 28px;
+    width: 42px;
+    margin-top: -81px;
+    margin-left: 88px;
+    position: absolute;
+    text-align: center;
+}
+
+.inlinegearsaholderg{
+    display: table;
+    background-image: url(https://dissidiacompendium.com/images/static/icons/misc/saholderg.png);
+    z-index: 2;
+    height: 28px;
+    width: 42px;
+    margin-top: -81px;
+    margin-left: 88px;
+    position: absolute;
+    text-align: center;
+}
+@media (hover: hover) {
+    .gearfaceholder:hover{
+        transform: translateY(-1px);
+        color: #f7f91d;
+        filter: brightness(1.2);
+        -webkit-filter: brightness(1.2);
+        transition: all ease 0.3s;
+    }
+    .clicky:hover{
+        transform: translateY(-1px);
+        color: #f7f91d;
+        filter: brightness(1.1);
+        -webkit-filter: brightness(1.1);
+        transition: all ease 0.3s;
+        cursor: pointer;
+    }
+}
+
+.mastergearinfobanner{
+    padding-left: 8px;
+    padding-right: 5px;
+    margin-top: 5px;
+    list-style: none;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    clear: both;
+    border: solid 3px #d9dade;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 10px #000000;
+    transition: .4s;
+    font-size: 1rem;
+}
+
+.gearinfobanner{
+    padding-left: 8px;
+    padding-right: 5px;
+    margin-top: 5px;
+    list-style: none;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    clear: both;
+    border: solid 3px #d9dade;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 10px #000000;
+    transition: .4s;
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 900px) {
+    .gearinfobanner {
+        font-size: .6rem;
+    }
+}
+@media screen and (max-width: 700px) {
+    .gearabilityuses{
+        display: block;
+    }
+}
+@media screen and (max-width: 800px) {
+    .gearfaceicon {
+        height: 28px;
+        width: 82px;
+    }
+    .gearfaceholder{
+        width: 82px;
+        height: 30px;
+    }
+    .gearablspeed{
+        width: auto;
+    }    
+    .tablemobile{
+        margin-top: 5px;
+        display: table;
+    }
+    .tablenonmobile{
+        display: none;
+    }
+    .lsmaller{
+        width: 16px;
+        height: 15px;
+        display: inline-table;
+        background-size: contain ;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .lsmallerinline{
+        width: 16px;
+        height: 15px;
+        display: inline-table;
+        background-size: contain ;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .intbrv::before{
+        content: "iBRV";
+    }
+    .maxbrv::before{
+        content: "mBRV";
+    }
+    .undertag{
+        height: 24px;
+        width: 48px;
+    }
+    .gearinfonameholder{
+        margin-left: 0px;
+        width: calc(100% - 19px);
+    }
+    .gearCPReqHolder{
+        width: 85px;
+    }
+    .gearsaholder{
+        display: none;
+    }
+    .gearabilityholder{
+        margin-right: 5px;
+    }
+    .geartitletext{
+        display: inline-table;
+    }
+    .CharGearFactHolder{
+        width: 85px;
+    }
+    .geartag{
+        background-size: contain;
+        height: 24px !important;
+        width:48px !important;
+    }
+    .gearimage{
+        height: 91px;
+        width: 128px;
+    }
+}
+@media screen and (max-width: 700px) {
+    .mastergearinfobanner {
+        margin-left: 0px;
+        width: auto;
+        font-size: .8rem;
+    }
+    .gearinfobanner {
+        margin-left: 0px;
+        width: auto;
+        font-size: .8rem;
+    }
+    .inlinegearabilityiconholder{
+        display: none;
+    }
+    .gearabilityiconholder{
+        display: block;
+        margin-right: 10px;
+    }
+}
