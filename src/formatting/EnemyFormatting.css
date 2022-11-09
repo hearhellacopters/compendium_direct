@@ -7,7 +7,7 @@
     margin-bottom: 5px;
     min-width: 250px;
     font-size: larger;
-    white-space: pre;
+    white-space: pre-wrap;
 }
 
 .enemyholderdesc3{
@@ -18,7 +18,7 @@
     clear: both;
     margin-bottom: 5px;
     min-width: 250px;
-    white-space: pre;
+    white-space: pre-wrap;
 }
 
 .lighterblue{
@@ -70,7 +70,7 @@
     margin-bottom: 5px;
     min-width: 250px;
     font-size: larger;
-    white-space: pre;
+    white-space: pre-wrap;
 }
 
 .enemyholderdescresist{
@@ -433,7 +433,7 @@
 }
 .enemydescholder{
     text-align: left;
-    white-space: pre;
+    white-space: pre-wrap;
 }
 .elementsholder{
     display: flex;

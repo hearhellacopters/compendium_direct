@@ -543,7 +543,7 @@ background-color: #5d38f1;
 .infoholder{
     width: 100%;
     text-align: left;
-    white-space: pre;
+    white-space: pre-wrap;
 }
 
 .Buffbanner{

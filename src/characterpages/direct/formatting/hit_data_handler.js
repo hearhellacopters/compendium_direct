@@ -381,7 +381,7 @@ const hit_data_handler =(
         }
         if(effect_value_type_id == 14){
             effect_str = effect_str.replace(/Deals Splash/gm, `Deals ${m_nARG}% Splash`)
-            .replace(/by \[effect44\]/gm,"")
+            .replace(/by \[effect44\] /gm,"")
         }
         effect_str = effect_str.replace(/\[effect44\]/gm, `${m_nARG}% of ${effect_value_type_str}`)
     }
@@ -544,9 +544,9 @@ const hit_data_handler =(
         }
         effect_str = effect_str
         .replace(/\[target\]/gm, ability_target_str)
-        .replace(/Self/gm, "")
+        .replace(/Self /gm, "")
         .replace(/\[m_nARG\]/gm, `${m_nARG == 1 ? "1 turn" : `${m_nARG} turns`}` )
-        .replace(/\[m_nARG_3\]/gm, `${m_nARG_3 == 2 ? "buffs" : "debuffs"}` )
+        .replace(/\[m_nARG_3\]/gm, `${m_nARG_3 == 2 ? " buffs" : " debuffs"}` )
         .replace(/\[m_nARG_4\]/gm, "" )
        
     }

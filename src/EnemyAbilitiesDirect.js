@@ -22,7 +22,7 @@ import { getQuery, getQueryStringVal, useQueryParam } from './processing/urlpara
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { FaShareSquare } from 'react-icons/fa';
 
-const Passives = ({ ProcessedEnemyAbilities }) => {
+const EnemyAbilitiesDirect = ({ ProcessedEnemyAbilities }) => {
 
   //const error = ProcessedEnemyAbilities.filter(function (ef) {
   //  const newfilterpull = ef["JPName"] == '';
@@ -725,4 +725,4 @@ const handleChange = (e) => {
       </div>
     );
 }
-export default Passives;
+export default EnemyAbilitiesDirect;

@@ -171,25 +171,16 @@ const BestiaryDirect = ({ProcessedEnemy, jptoggledata, ProcessedCharacters, Part
       }
     },[setTypesearch,ProcessedEnemy])
 
-  //jp params
   useEffect(() => {
-    if(getQueryStringVal("JP") == "true" ){
+    if(jptoggledata == true ){
       dispatch(setTrue())
       setJPSearch("true")
       setjponly(true)
-    } else {
+    } 
+    if(jptoggledata == false ){
       dispatch(setFalse())
       setJPSearch("")
       setjponly(false)
-    }
-  },[setJPSearch,dispatch])
-
-  useEffect(() => {
-    if(jptoggledata == true ){
-      setJPSearch("true")
-    } 
-    if(jptoggledata == false ){
-      setJPSearch("")
     }
     if(getQueryStringVal("JP") == "true" ){
       dispatch(setTrue())

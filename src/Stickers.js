@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom'
 import './Spheres.css';
 import Tippy from './formatting/TippyDefaults.js';
@@ -18,6 +19,7 @@ import { FaUndoAlt } from 'react-icons/fa';
 import { getQuery, getQueryStringVal, useQueryParam } from './processing/urlparams'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { FaShareSquare } from 'react-icons/fa';
+import { setFalse, setTrue } from './redux/ducks/jptoggle'
 
 const Stickers = ({ProcessedStickers, ProcessedCharacters}) => {
 
@@ -288,6 +290,27 @@ const Stickers = ({ProcessedStickers, ProcessedCharacters}) => {
     }
 }
 
+    const dispatch = useDispatch();
+
+    const jptoggledata = useSelector((state) => 
+        state.toggle.toggle
+        );
+
+    const [jponly, setJPonly] = useState(jptoggledata);
+    const [JPsearch, setJPSearch] = useQueryParam("JP", "");
+
+    useEffect(() => {
+    if(getQueryStringVal("JP") == "true" ){
+        dispatch(setTrue())
+        setJPSearch("true")
+        setJPonly(true)
+    } else {
+        dispatch(setFalse())
+        setJPSearch("")
+        setJPonly(false)
+    }
+    },[setJPSearch,dispatch])
+
     return (
       <div className="wrapper">
         <Helmet>
@@ -377,25 +400,25 @@ const Stickers = ({ProcessedStickers, ProcessedCharacters}) => {
                     </div>
                   </div>
               <ul className="bannertabs">
-                <Link to={`/search/buffs`}>
+                <Link to={`/search/buffs${jptoggledata == false ? "":"?JP=true"}`}>
                   <li className={""} >Buffs</li>
                 </Link>
-                <Link to={`/search/abilities`}>
+                <Link to={`/search/abilities${jptoggledata == false ? "":"?JP=true"}`}>
                   <li className={""} >Abilities</li>
                 </Link>
-                <Link to={`/search/gear`}>
+                <Link to={`/search/gear${jptoggledata == false ? "":"?JP=true"}`}>
                   <li className={""} >Gear</li>
                 </Link>
-                <Link to={`/search/passives`}>
+                <Link to={`/search/passives${jptoggledata == false ? "":"?JP=true"}`}>
                   <li className={""} >Passives</li>
                 </Link>
-                <Link to={`/search/spheres`}>
+                <Link to={`/search/spheres${jptoggledata == false ? "":"?JP=true"}`}>
                   <li className={""} >Spheres</li>
                 </Link>
-                <Link to={`/search/stickers`}>
+                <Link to={`/search/stickers${jptoggledata == false ? "":"?JP=true"}`}>
                   <li className={"active"} ><span className="gemselected"/>Stickers</li>
                 </Link>
-                <Link to={`/search/music`}>
+                <Link to={`/search/music${jptoggledata == false ? "":"?JP=true"}`}>
                   <li className={""} >Music</li>
                 </Link>
               </ul>

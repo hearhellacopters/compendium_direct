@@ -8,6 +8,49 @@ const log = () =>{
                 <h1>Update Log</h1>
                 <div className="creditsholder">
                 <div className="filterholderflair" >
+                    V.5.0
+                </div> 
+                <ul className="creditslist">
+                    <li>
+                    ┬ Site now uses separate databases for each version<br/>
+                    ├─ Easier to tell what is and isnt available per version<br/>
+                    ├─ Many updates added to direct data<br/>
+                    └─ Search pages now use direct data<br/>
+                    ┬ Abilities Search<br/>
+                    ├─ Added Ability Use / Speed Increases<br/>
+                    ├─ Added Passive increases<br/>
+                    ├─ Added Stats Total toggle to Ability passives<br/>
+                    ├─ Added Ability tags based on Elements, Damage type etc<br/>
+                    ├─ Added Starting casts / Battle States to Call abilities<br/>
+                    ├─ Added Force Time Battle State to FR Abilties<br/>
+                    ├─ Abilities default to just the highest upgraded <br/>
+                    ├── All still available with Upgraded toggle off<br/>
+                    ├─ Follow Up / Counters / Traps now sit a bottom of list<br/>
+                    └─ Added simple button filters<br/>
+                    ┬ Passives Search<br/>
+                    ├─ Merged Passives pages under Passives tab<br/>
+                    ├─ Simplified ability upgrades display<br/>
+                    └─ Added simple button filters<br/>
+                    ┬ Gear Search<br/>
+                    └─ Gear data restricted to only versions they are found in<br/>
+                    ┬ Spheres Search<br/>
+                    ├─ Sphere data restricted to only versions they are found in<br/>
+                    └─ Simplified condition filters<br/>
+                    - Added links to Event pages from Direct Event page<br/>
+                    - Added Weapon skins to Wardrobe page<br/>
+                    - Expanded Ability hit data display for better readability<br/>
+                    - Sorted Advance Classes by in-game types<br/>
+                    Backend changes<br/>
+                    ┬ Improved performance on pages<br/>
+                    └─ Minimized data load for better mobile loading <br/>
+                    - Added passive based conditional casts added to buff page<br/>
+                    - Added Notes systems for commands and ailments context<br/>
+                    - Added Direct Ultima weapons data to Ultima page<br/>
+                    - Added Events for Direct RF Spheres<br/>
+                    - Added Artifact recommends / Spheres slots to Direct Spheres
+                    </li>
+                </ul>
+                <div className="filterholderflair" >
                     V.4.6
                 </div> 
                 <ul className="creditslist">

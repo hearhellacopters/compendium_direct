@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { useDispatch } from "react-redux";
+import { useStateIfMounted } from "use-state-if-mounted";
+import Tippy from './formatting/TippyDefaults'
 import { setFalse, setTrue } from './redux/ducks/jptoggle'
 import './Home.css';
 import './Bestiary.css'
@@ -119,14 +121,43 @@ const Home = ({ProcessedUpdates, jptoggledata}) => {
       setShowGLToggle(true)
       dispatch(setTrue())
       setJPSearch("true")
-
     } else {
       setShowGLToggle(false)
       dispatch(setFalse())
       setJPSearch("")
     }
-
   }
+
+    const [jponly, setJPonly] = useStateIfMounted(jptoggledata);
+
+    useEffect(() => {
+    if(getQueryStringVal("JP") == "true" ){
+        dispatch(setTrue())
+        setJPSearch("true")
+        setJPonly(true)
+    } else {
+        dispatch(setFalse())
+        setJPSearch("")
+        setJPonly(false)
+    }
+
+    },[setJPSearch,dispatch,setJPonly])
+
+    const jponlybutton = () => {
+        if (jptoggledata == false) {
+            dispatch(setTrue())
+            setJPSearch("true")
+            setJPonly(true);
+        }    
+    };
+
+    const glonlybutton = () => {
+        if (jptoggledata == true) {
+            dispatch(setFalse())
+            setJPSearch("")
+            setJPonly(false);
+        }
+    };
 
     return(
         <div  className="wrapper">
@@ -135,33 +166,35 @@ const Home = ({ProcessedUpdates, jptoggledata}) => {
                 <meta property="og:site_name" content="Dissidia Compendium"/>
                 <meta property="og:type" content="website" />
                 <meta name="robots" content="index, follow"/>
-                <meta name="description" content="Dissidia Final Fantasy Opera Omnia mobile game Database. We provide a fully english, completely merged (both Global and Japanese version) database of translations for all character abilities, enemies and summons, as well as a complete timeline of game events with community guides."/>
+                <meta name="description" content="Dissidia Final Fantasy Opera Omnia mobile game Database. We provide English and Japanese translations for both Global and Japanese versions. Here you'll find all character abilities, enemies and summons, as well as a complete timeline of game events with community guides"/>
                 <meta name="twitter:title" content="Dissidia Compendium"/>
-                <meta name="twitter:description" content="Dissidia Final Fantasy Opera Omnia mobile game Database. We provide a fully english, completely merged (both Global and Japanese version) database of translations for all character abilities, enemies and summons, as well as a complete timeline of game events with community guides."/>
+                <meta name="twitter:description" content="Dissidia Final Fantasy Opera Omnia mobile game Database. We provide English and Japanese translations for both Global and Japanese versions. Here you'll find all character abilities, enemies and summons, as well as a complete timeline of game events with community guides"/>
                 <meta name="twitter:image" content="https://dissidiacompendium.com/images/static/site/logo512.png"/>
                 <meta name="twitter:card" content="summary_large_image"/>
                 <meta name="twitter:image:alt" content="Dissidia Compendium"/>
                 <meta property="og:title" content="Dissidia Compendium"/>
-                <meta property="og:description" content="Dissidia Final Fantasy Opera Omnia mobile game Database. We provide a fully english, completely merged (both Global and Japanese version) database of translations for all character abilities, enemies and summons, as well as a complete timeline of game events with community guides."/>
+                <meta property="og:description" content="Dissidia Final Fantasy Opera Omnia mobile game Database. We provide English and Japanese translations for both Global and Japanese versions. Here you'll find all character abilities, enemies and summons, as well as a complete timeline of game events with community guides"/>
                 <meta property="og:image" content="https://dissidiacompendium.com/images/static/site/logo512.png"/>
                 <meta property="og:url" content="https://dissidiacompendium.com"/>
               </Helmet>
           <div className="content">
-            <h1 className="maintitle" >Welcome to Dissidia Compendium <Link className="updatelink" to="/log">v4.6!</Link><span className="squallsmile"></span></h1>
+            <h1 className="maintitle" >Welcome to Dissidia Compendium <Link className="updatelink" to="/log">v5.0!</Link><span className="squallsmile"></span></h1>
             <div className="enemyholderdesc" style={{whiteSpace: "normal"}}>
               <div className="subheader">
                 <div className="homewelcomeholder noselect">
                 Dissidia Final Fantasy Opera Omnia mobile game database.<br/><br/>
-                Unlike other sites, we provide a fully english, completely merged (both Global and Japanese version) database of translations for all character abilities, enemies and summons, as well as a complete timeline of game events with community guides.<br></br>
-                <br></br>When there are differences between the two versions, you'll see a display toggle like below:
+                We provide English and Japanese translations for both Global and Japanese versions. Here you'll find all character abilities, enemies and summons, as well as a complete timeline of game events with community guides.<br></br>
+                <br></br>
+                <div className="center">You can switch between the two versions using the buttons below:
                 <br/><br/>
-                <div className="temptogglespacer" id="GLtoggle">
-                  <DefaultTippy content={showGLToggle ? "JP Current" : "GL Current"} className="tooltip" hideOnClick={false} placement="bottom">
-                    <div className={jptoggledata ? "switch switchchecked": "switch switchunchecked"}  onClick={() => handletoggle(showGLToggle)}>
-                      <div className={jptoggledata ? "slider sliderchecked": "slider sliderunchecked" } >
-                      </div>
-                    </div>
-                  </DefaultTippy>
+                <Tippy content="GL">
+                        <span className={`${jptoggledata == false ? "filteractive": "filterinactive"} buffbutton ver_gl`} onClick={glonlybutton}></span>
+                </Tippy>   
+                <Tippy content="JP">
+                        <span className={`${jptoggledata == true ? "filteractive": "filterinactive"} buffbutton ver_jp`} onClick={jponlybutton}></span>
+                </Tippy> 
+                <br/><br/>
+                Or use click the <span className="emoji clicker" onClick={glonlybutton}>🌎</span> or <span className="jpflagupdate clicker" onClick={jponlybutton}></span> icon at the top of the page
                 </div>
                 <br/>
                 <span className="center" id="red">

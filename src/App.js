@@ -33,16 +33,11 @@ import CharactersPageReworks from './callpages/CallCharReworks';
 import WeaponSkins from './callpages/CallWeaponSkins';
 import CallSummonHandoff from './callpages/CallSummons';
 import Credits from './Credits';
-import Passives from './callpages/CallPassives';
 import PassivesDirect from './callpages/CallDirectPassives';
-import Gear from './callpages/CallGear';
 import GearDirect from './callpages/CallDirectGear';
-import Abilities from './callpages/CallAbilties';
 import AbilitiesDirect from './callpages/CallDirectAbilties';
 import Calendar from "./callpages/CallCalendar";
-import Buffs from './callpages/CallBuffs';
 import BuffsDirect from './callpages/CallDirectBuffs';
-import Spheres from './callpages/CallSpheres';
 import SpheresDirect from './callpages/CallDirectSpheres';
 import BestiaryDirect from './callpages/CallBestiaryDirect';
 import Log from './Log';
@@ -183,25 +178,19 @@ const jponlybutton = () => {
             <Route path="/characters/:id/community" exact element={<CharactersPageCommunity/>} />
             <Route path="/characters/:id/events" exact element={<CharactersPageEvents/>} />
             <Route path="/characters/:id/events/:type" exact element={<CharactersPageEvents/>} />
-            <Route path="/search/buffs" element={<Buffs/>} />
-            <Route path="/search" exact element={<Navigate replace to ="/search/buffs"/>} />
-            <Route path="/search/abilities" element={<Abilities/>} />
-            <Route path="/search/gear" element={<Gear/>} />
-            <Route path="/search/spheres" element={<Spheres/>} />
-            <Route path="/search/passives" element={<Passives/>} />
-
-            <Route path="/search/direct/buffs" element={<BuffsDirect/>} />
-            <Route path="/search/direct/abilities" element={<AbilitiesDirect/>} />
-            <Route path="/search/direct/gear" element={<GearDirect/>} />
-            <Route path="/search/direct/spheres" element={<SpheresDirect/>} />
-            <Route path="/search/direct/passives" element={<PassivesDirect/>} />
+            <Route path="/search/buffs" element={<BuffsDirect/>} />
+            <Route path="/search/" element={<Navigate replace to ={`/search/buffs${jptoggledata == false ? "":"?JP=true"}`}/>} />
+            <Route path="/search/abilities" element={<AbilitiesDirect/>} />
+            <Route path="/search/gear" element={<GearDirect/>} />
+            <Route path="/search/spheres" element={<SpheresDirect/>} />
+            <Route path="/search/passives" element={<PassivesDirect/>} />
 
             <Route path="/search/stickers" element={<Stickers/>} />
             <Route path="/search/music" exact element={<JukeBox/>}/>
             <Route path="/summons" exact element={<CallSummonHandoff/>} />
             <Route path="/summons/:id" exact element={<CallSummonHandoff/>} />
-            <Route path="/bestiary" exact element={<Navigate replace to ="/bestiary/enemies/"/>} />
             <Route path="/bestiary/enemies" element={<BestiaryDirect/>} />
+            <Route path="/bestiary" exact element={<Navigate replace to ="/bestiary/enemies/"/>} /> 
             <Route path="/bestiary/buffs" element={<EnemyBuffsDirect/>} />
             <Route path="/bestiary/abilities" element={<EnemyAbilitiesDirect/>} />
             <Route path="/bestiary/enemies/:id" element={<EnemyHandoffDirect/>} />

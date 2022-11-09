@@ -1364,20 +1364,26 @@ const AbilitiesDirect =({
                     </div>
             </div>  
             <ul className="bannertabs">
-            <Link to={`/search/direct/buffs${jptoggledata == false ? "":"?JP=true"}`}>
+            <Link to={`/search/buffs${jptoggledata == false ? "":"?JP=true"}`}>
                 <li className={""} >Buffs</li>
             </Link>
-            <Link to={`/search/direct/abilities${jptoggledata == false ? "":"?JP=true"}`}>
+            <Link to={`/search/abilities${jptoggledata == false ? "":"?JP=true"}`}>
                 <li className={"active"} ><span className="gemselected"/>Abilities</li>
             </Link>
-            <Link to={`/search/direct/gear${jptoggledata == false ? "":"?JP=true"}`}>
+            <Link to={`/search/gear${jptoggledata == false ? "":"?JP=true"}`}>
                 <li className={""} >Gear</li>
             </Link>
-            <Link to={`/search/direct/passives${jptoggledata == false ? "":"?JP=true"}`}>
+            <Link to={`/search/passives${jptoggledata == false ? "":"?JP=true"}`}>
                 <li className={""} >Passives</li>
             </Link>
-            <Link to={`/search/direct/spheres${jptoggledata == false ? "":"?JP=true"}`}>
+            <Link to={`/search/spheres${jptoggledata == false ? "":"?JP=true"}`}>
                 <li className={""} >Spheres</li>
+            </Link>
+            <Link to={`/search/stickers${jptoggledata == false ? "":"?JP=true"}`}>
+                <li className={""} >Stickers</li>
+            </Link>
+            <Link to={`/search/music${jptoggledata == false ? "":"?JP=true"}`}>
+                <li className={""} >Music</li>
             </Link>
             </ul>
             <div className="buffsholder">

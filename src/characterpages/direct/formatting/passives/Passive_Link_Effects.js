@@ -167,7 +167,7 @@ const Passive_Link_Effects =({
 
     return(
         <div>
-            {add_formatting(`${effect_}${value_display!= undefined ? ` (${value_display})`:""} ${require_ != "" ? require_ : ""} ${require__1 != "" && require_ != "" ? " and " : ""}${require__1 != "" ? `${require__1}` : ""}${link_effect.add_once_in_turn != undefined ? " (once per turn)" : ""}`,"tl")}{require__1 != "" || require_ != "" ? <br/> : ""}
+            {add_formatting(`${effect_}${value_display!= undefined ? ` (${value_display})`:""} ${require_ != "" ? require_ : ""} ${require__1 != "" && require_ != "" ? "and " : ""}${require__1 != "" ? `${require__1}` : ""}${link_effect.add_once_in_turn != undefined ? " (once per turn)" : ""}`,"tl")}{require__1 != "" || require_ != "" ? <br/> : ""}
         </div>
     )
 }

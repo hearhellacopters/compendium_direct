@@ -330,9 +330,9 @@ const require_trans_handler = (
 
         if(value_trans == "targets"){
             if(require_value1 != 1){
-                require_value1 = ` ${require_value1} targets`
+                require_value1 = `${require_value1} targets`
             } else {
-                require_value1 = ` a single target`
+                require_value1 = `a single target`
             }
         }
 

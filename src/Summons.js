@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import {Navigate} from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import {useLocation, Link, Navigate } from 'react-router-dom';
 import './Summons.css'
 import { Helmet} from 'react-helmet-async';
-import { Link } from 'react-router-dom'
 import SummonsFormatting from './formatting/SummonsFormatting';
 
 const Summons = ({
@@ -113,43 +113,43 @@ if(filtered.length === 0 ) {
         <div className="sumsubheader">Select a Summon</div>
           <div className="filterholderflair">
             <ul className="summoniconholder">
-              <Link to="/summons/ifrit">
+              <Link to={`/summons/ifrit`}>
               <li alt="Ifrit" onClick={ifritbutton} className={`${locator == "Ifrit" ? "gemactive": "geminactive"} IfritIcon summonsgem`} ></li>
               </Link>
-              <Link to="/summons/shiva">
+              <Link to={`/summons/shiva`}>
               <li alt="Shiva" onClick={shivabutton} className={`${locator == "Shiva" ? "gemactive": "geminactive"} ShivaIcon summonsgem`} ></li>
               </Link>
-              <Link to="/summons/ramuh">
+              <Link to={`/summons/ramuh`}>
               <li alt="Ramuh" onClick={ramuhbutton} className={`${locator == "Ramuh" ? "gemactive": "geminactive"} RamuhIcon summonsgem`} ></li>
               </Link>
-              <Link to="/summons/leviathan">
+              <Link to={`/summons/leviathan`}>
               <li alt="Leviathan" onClick={leviathanbutton} className={`${locator == "Leviathan" ? "gemactive": "geminactive"} LeviathanIcon summonsgem`} ></li>
               </Link>
-              <Link to="/summons/brothers">
+              <Link to={`/summons/brothers`}>
               <li alt="Brothers" onClick={brothersbutton} className={`${locator == "Brothers" ? "gemactive": "geminactive"} BrothersIcon summonsgem`} ></li>
               </Link>
-              <Link to="/summons/pandemonium">
+              <Link to={`/summons/pandemonium`}>
               <li alt="Pandemonium" onClick={pandemoniumbutton} className={`${locator == "Pandemonium" ? "gemactive": "geminactive"} PandemoniumIcon summonsgem`} ></li>
               </Link>
-              <Link to="/summons/diabolos">
+              <Link to={`/summons/diabolos`}>
               <li alt="Diabolos" onClick={diabolosbutton} className={`${locator == "Diabolos" ? "gemactive": "geminactive"} DiabolosIcon summonsgem`} ></li>
               </Link>
-              <Link to="/summons/alexander">
+              <Link to={`/summons/alexander`}>
               <li alt="Alexander" onClick={alexanderbutton} className={`${locator == "Alexander" ? "gemactive": "geminactive"} AlexanderIcon summonsgem`} ></li>
               </Link>
-              <Link to="/summons/odin">
+              <Link to={`/summons/odin`}>
               <li alt="Odin" onClick={odinbutton} className={`${locator == "Odin" ? "gemactive": "geminactive"} OdinIcon summonsgem`} ></li>
               </Link>
-              <Link to="/summons/bahamut">
+              <Link to={`/summons/bahamut`}>
               <li alt="Bahamut" onClick={bahamutbutton} className={`${locator == "Bahamut" ? "gemactive": "geminactive"} BahamutIcon summonsgem`} ></li>
               </Link>
-              <Link to="/summons/chocobo">
+              <Link to={`/summons/chocobo`}>
               <li alt="Chocobo" onClick={chocobobutton} className={`${locator == "Chocobo" ? "gemactive": "geminactive"} ChocoboIcon summonsgem`} ></li>
               </Link>
-              <Link to="/summons/sylph">
+              <Link to={`/summons/sylph`}>
               <li alt="Sylph" onClick={sylphbutton} className={`${locator == "Sylph" ? "gemactive": "geminactive"} SylphIcon summonsgem`} ></li>
               </Link>
-              <Link to="/summons/mog">
+              <Link to={`/summons/mog`}>
               <li alt="Mog" onClick={mogbutton} className={`${locator == "Mog" ? "gemactive": "geminactive"} MogIcon summonsgem`} ></li>
               </Link>
             </ul>

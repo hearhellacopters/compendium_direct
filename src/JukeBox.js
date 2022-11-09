@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
+import { useDispatch, useSelector } from "react-redux";
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom'
 import { getQuery, getQueryStringVal, useQueryParam } from './processing/urlparams'
@@ -18,7 +19,6 @@ import { ImSortAmountDesc } from 'react-icons/im';
 import { FaUndoAlt } from 'react-icons/fa'; 
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { FaShareSquare } from 'react-icons/fa';
-import { useDispatch } from "react-redux";
 import { setPlayVolume } from './redux/ducks/playvolume'
 import { setPlaying } from './redux/ducks/playing'
 import { setPlayList } from './redux/ducks/playlist'
@@ -26,6 +26,7 @@ import { setUpdate } from './redux/ducks/playlist'
 import { addTrack } from './redux/ducks/playlist'
 import { setMusicKey } from './redux/ducks/playindex'
 import { getPlayList } from './redux/ducks/playlist'
+import { setFalse, setTrue } from './redux/ducks/jptoggle'
 
 const JukeBox = ({ProcessedMusic, playing, volume, playindex, playlist, musickey}) =>{
 
@@ -454,6 +455,41 @@ const JukeBox = ({ProcessedMusic, playing, volume, playindex, playlist, musickey
     dispatch(setPlayList(playlist))
   }
 
+    const jptoggledata = useSelector((state) => 
+        state.toggle.toggle
+        );
+
+    const [jponly, setJPonly] = useState(jptoggledata);
+    const [JPsearch, setJPSearch] = useQueryParam("JP", "");
+
+    useEffect(() => {
+    if(getQueryStringVal("JP") == "true" ){
+        dispatch(setTrue())
+        setJPSearch("true")
+        setJPonly(true)
+    } else {
+        dispatch(setFalse())
+        setJPSearch("")
+        setJPonly(false)
+    }
+    },[setJPSearch,dispatch])
+
+    const jponlybutton = () => {
+        if (jptoggledata == false) {
+            dispatch(setTrue())
+            setJPSearch("true")
+            setJPonly(true);
+        }    
+    };
+
+    const glonlybutton = () => {
+        if (jptoggledata == true) {
+            dispatch(setFalse())
+            setJPSearch("")
+            setJPonly(false);
+        }
+    };
+
   const noplayicon = <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" className="react-jinke-music-player-play-icon" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm115.7 272l-176 101c-15.8 8.8-35.7-2.5-35.7-21V152c0-18.4 19.8-29.8 35.7-21l176 107c16.4 9.2 16.4 32.9 0 42z"></path></svg>
 
   const playingicon = <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" className="react-jinke-music-player-pause-icon" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm-16 328c0 8.8-7.2 16-16 16h-48c-8.8 0-16-7.2-16-16V176c0-8.8 7.2-16 16-16h48c8.8 0 16 7.2 16 16v160zm112 0c0 8.8-7.2 16-16 16h-48c-8.8 0-16-7.2-16-16V176c0-8.8 7.2-16 16-16h48c8.8 0 16 7.2 16 16v160z"></path></svg>
@@ -603,25 +639,25 @@ const JukeBox = ({ProcessedMusic, playing, volume, playindex, playlist, musickey
             </div>
             </div>
               <ul className="bannertabs">
-                <Link to={`/search/buffs`}>
+                <Link to={`/search/buffs${jptoggledata == false ? "":"?JP=true"}`}>
                   <li className={""} >Buffs</li>
                 </Link>
-                <Link to={`/search/abilities`}>
+                <Link to={`/search/abilities${jptoggledata == false ? "":"?JP=true"}`}>
                   <li className={""} >Abilities</li>
                 </Link>
-                <Link to={`/search/gear`}>
+                <Link to={`/search/gear${jptoggledata == false ? "":"?JP=true"}`}>
                   <li className={""} >Gear</li>
                 </Link>
-                <Link to={`/search/passives`}>
+                <Link to={`/search/passives${jptoggledata == false ? "":"?JP=true"}`}>
                   <li className={""} >Passives</li>
                 </Link>
-                <Link to={`/search/spheres`}>
+                <Link to={`/search/spheres${jptoggledata == false ? "":"?JP=true"}`}>
                   <li className={""} >Spheres</li>
                 </Link>
-                <Link to={`/search/stickers`}>
+                <Link to={`/search/stickers${jptoggledata == false ? "":"?JP=true"}`}>
                   <li className={""} >Stickers</li>
                 </Link>
-                <Link to={`/search/music`}>
+                <Link to={`/search/music${jptoggledata == false ? "":"?JP=true"}`}>
                   <li className={"active"} ><span className="gemselected"/>Music</li>
                 </Link>
               </ul>
