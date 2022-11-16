@@ -402,6 +402,10 @@ background-color: #5d38f1;
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/delay.png");
     background-size: contain;
 }
+.Delay3button{
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/delay3.png");
+    background-size: contain;
+}
 .Deletebutton{
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/delete.png");
     background-size: contain;
@@ -414,16 +418,36 @@ background-color: #5d38f1;
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/heal.png");
     background-size: contain;
 }
+.BatteryGearbutton{
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/Battery.png");
+    background-size: contain;
+}
 .Revivebutton{
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/revive.png");
+    background-size: contain;
+}
+.Buff_ExtensionGearbutton{
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/BuffExt.png");
     background-size: contain;
 }
 .Increasebutton{
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/increaseuse.png");
     background-size: contain; 
 }
+.Increase2button{
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/increaseuse2.png");
+    background-size: contain; 
+}
+.Turn_Manipulator{
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/Ally_Turn.png");
+    background-size: contain; 
+}
 .Instantbutton{
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/instant.png");
+    background-size: contain; 
+}
+.HPHarmbutton{
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/HPHarm.png");
     background-size: contain; 
 }
 .Freebutton{

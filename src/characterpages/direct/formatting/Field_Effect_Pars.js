@@ -43,7 +43,8 @@ const Field_Effect_Pars = ({
     char_id,
     hide_type,
     ver,
-    base_buff
+    base_buff,
+    is_passive
 }) =>{
 
     const EffectID = Ailment_Effects.effect_id
@@ -364,13 +365,13 @@ const Field_Effect_Pars = ({
     var stack_flagstr = undefined
 
     if(stack_flag == 1){
-        stack_flagstr = "※ Effect *STACKS* with buffs of same name"
+        stack_flagstr = "*Effect STACKS with buffs of same name"
     }
     if(no_stack == true){
         if(stack_flagstr == undefined){
-            stack_flagstr = "*Does NOT stack with earlier effects of same value"
+            stack_flagstr = "*Does NOT stack with earlier effect of same value"
         } else {
-            stack_flagstr += "but NOT earlier effects of same value"
+            stack_flagstr += "but NOT earlier effect of same value"
         }
     }
 
@@ -1428,6 +1429,7 @@ const Field_Effect_Pars = ({
             formatting={formatting}
             char_id={char_id}
             hide_type={hide_type}
+            is_passive={is_passive}
             /> 
         </div>
     )

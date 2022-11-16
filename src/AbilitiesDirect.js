@@ -91,13 +91,19 @@ const AbilitiesDirect =({
     const [IgnoreDEF, setIgnoreDEF] = useState(getQueryStringVal("IgnoreDEF")!=null ? true : false)
     const [Cleanse, setCleanse] = useState(getQueryStringVal("Cleanse")!=null ? true : false)
     const [Delay, setDelay] = useState(getQueryStringVal("Delay")!=null ? true : false)
+    const [Delay3, setDelay3] = useState(getQueryStringVal("Delay3")!=null ? true : false)
     const [Delete, setDelete] = useState(getQueryStringVal("Delete")!=null ? true : false)
     const [Dispel, setDispel] = useState(getQueryStringVal("Dispel")!=null ? true : false)
     const [Heals, setHeals] = useState(getQueryStringVal("Heals")!=null ? true : false)
     const [Revive, setRevive] = useState(getQueryStringVal("Revive")!=null ? true : false)
     const [Increase, setIncrease] = useState(getQueryStringVal("Increase")!=null ? true : false)
+    const [Increase2, setIncrease2] = useState(getQueryStringVal("Increase2")!=null ? true : false)
     const [Instant, setInstant] = useState(getQueryStringVal("Instant")!=null ? true : false)
+    const [Turn_Manipulator, setTurn_Manipulator] = useState(getQueryStringVal("Turn_Manipulator")!=null ? true : false)
+    const [Battery,setBattery]= useState(getQueryStringVal("Battery")!=null ? true : false)
+    const [Buff_Extension, setBuff_Extension]= useState(getQueryStringVal("Buff_Extension")!=null ? true : false)
     const [Free, setFree] = useState(getQueryStringVal("Free")!=null ? true : false)
+    const [Self_Harm, setSelf_Harm] = useState(getQueryStringVal("Self_Harm")!=null ? true : false)
 
     const [loop, setLoop] = useStateIfMounted(false);
     const [reverse, setReverse] = useState(getQueryStringVal("rev") != null  ? true : false);
@@ -155,13 +161,19 @@ const AbilitiesDirect =({
     const [IgnoreDEFsearch, setIgnoreDEFsearch] = useQueryParam("IgnoreDEF", "")
     const [Cleansesearch, setCleansesearch] = useQueryParam("Cleanse", "")
     const [Delaysearch, setDelaysearch] = useQueryParam("Delay", "")
+    const [Delay3search, setDelay3search] = useQueryParam("Delay3", "")
     const [Deletesearch, setDeletesearch] = useQueryParam("Delete", "")
     const [Dispelsearch, setDispelsearch] = useQueryParam("Dispel", "")
     const [Healssearch, setHealssearch] = useQueryParam("Heals", "")
     const [Revivesearch, setRevivesearch] = useQueryParam("Revive", "")
     const [Increasesearch, setIncreasesearch] = useQueryParam("Increase", "")
+    const [Increase2search, setIncrease2search] = useQueryParam("Increase2", "")
     const [Instantsearch, setInstantsearch] = useQueryParam("Instant", "")
+    const [Turn_Manipulatorsearch, setTurn_Manipulatorsearch] = useQueryParam("Turn_Manipulator", "")
+    const [Batterysearch,setBatterysearch] = useQueryParam("Battery", "")
+    const [Buff_Extensionsearch,setBuff_Extensionsearch]= useQueryParam("Buff_Extension", "")
     const [Freesearch, setFreesearch] = useQueryParam("Free", "")
+    const [Self_Harmsearch, setSelf_Harmsearch] = useQueryParam("Self_Harm", "")
 
     const [mergesearch, setmergesearch] = useQueryParam("merge", "");
     const [Reversesearch, setReversesearch] = useQueryParam("rev", "");
@@ -359,25 +371,25 @@ const AbilitiesDirect =({
         }
         if(KnockBack == true){
             const filteredout = rawData.filter(
-                ability=> ability.KnockBack == true
+                ability=> ability.Launcher == true
             )
             filterholder.push(...filteredout)
         }
         if(Break == true){
             const filteredout = rawData.filter(
-                ability=> ability.Break == true
+                ability=> ability.Force_Break == true
             )
             filterholder.push(...filteredout)
         }
         if(BreakCancel == true){
             const filteredout = rawData.filter(
-                ability=> ability.BreakCancel == true
+                ability=> ability.Break_Reset == true
             )
             filterholder.push(...filteredout)
         }
         if(IgnoreDEF == true){
             const filteredout = rawData.filter(
-                ability=> ability.IgnoreDEF == true
+                ability=> ability.Ignore_DEF == true
             )
             filterholder.push(...filteredout)
         }
@@ -393,9 +405,15 @@ const AbilitiesDirect =({
             )
             filterholder.push(...filteredout)
         }
+        if(Delay3 == true){
+            const filteredout = rawData.filter(
+                ability=> ability.Three_Delay == true
+            )
+            filterholder.push(...filteredout)
+        }
         if(Delete == true){
             const filteredout = rawData.filter(
-                ability=> ability.Delete == true
+                ability=> ability.Delete_Turns == true
             )
             filterholder.push(...filteredout)
         }
@@ -407,7 +425,7 @@ const AbilitiesDirect =({
         }
         if(Heals == true){
             const filteredout = rawData.filter(
-                ability=> ability.Heals == true
+                ability=> ability.HP_Heal_Ability == true
             )
             filterholder.push(...filteredout)
         }
@@ -423,6 +441,18 @@ const AbilitiesDirect =({
             )
             filterholder.push(...filteredout)
         }
+        if(Increase2 == true){
+            const filteredout = rawData.filter(
+                ability=> ability.Two_Abilities_Recover == true
+            )
+            filterholder.push(...filteredout)
+        }
+        if(Turn_Manipulator == true){
+            const filteredout = rawData.filter(
+                ability=> ability.Turn_Manipulator == true 
+            )
+            filterholder.push(...filteredout)
+        }
         if(Instant == true){
             const filteredout = rawData.filter(
                 ability=> ability.Instant == true
@@ -431,7 +461,25 @@ const AbilitiesDirect =({
         }
         if(Free == true){
             const filteredout = rawData.filter(
-                ability=> ability.Free == true
+                ability=> ability.Free_Ability == true
+            )
+            filterholder.push(...filteredout)
+        }
+        if(Battery == true){
+            const filteredout = rawData.filter(
+                ability=> ability.Battery == true
+            )
+            filterholder.push(...filteredout)
+        }
+        if(Buff_Extension == true){
+            const filteredout = rawData.filter(
+                ability=> ability.Buff_Extension == true
+            )
+            filterholder.push(...filteredout)
+        }
+        if(Self_Harm == true){
+            const filteredout = rawData.filter(
+                ability=> ability.Self_Harm == true
             )
             filterholder.push(...filteredout)
         }
@@ -476,7 +524,7 @@ const AbilitiesDirect =({
             }
 
         }
-    },[rawData,merge,limits,condFilter,reverse,searchTerm,AA, BRV, BT, Break, BreakCancel, Call75, CallLD, Cleanse, Counter, Dark, Delay, Delete, Dispel, EX, Earth, FR, Fire, FollowUp, Free, Group, HP, Heals, Holy, Ice, IgnoreDEF, Increase, Instant, KnockBack, LD, Magic, Melee, Ranged, Revive, S1, S2, Thunder, Trap, Water, Wind])
+    },[rawData,merge,limits,condFilter,reverse,searchTerm,AA, BRV, BT, Delay3,Self_Harm, Break,Buff_Extension, Increase2, BreakCancel,Battery, Call75, CallLD, Cleanse, Turn_Manipulator, Counter, Dark, Delay, Delete, Dispel, EX, Earth, FR, Fire, FollowUp, Free, Group, HP, Heals, Holy, Ice, IgnoreDEF, Increase, Instant, KnockBack, LD, Magic, Melee, Ranged, Revive, S1, S2, Thunder, Trap, Water, Wind])
 
     //filter merge
     useEffect(() => {
@@ -510,19 +558,25 @@ const AbilitiesDirect =({
                 Trap: Trap,
                 FollowUp: FollowUp,
                 Counter: Counter,
-                KnockBack: KnockBack,
-                Break: Break,
-                BreakCancel: BreakCancel,
-                IgnoreDEF: IgnoreDEF,
+                Launcher: KnockBack,
+                Force_Break: Break,
+                Break_Reset: BreakCancel,
+                Ignore_DEF: IgnoreDEF,
                 Cleanse: Cleanse,
                 Delay: Delay,
-                Delete: Delete,
+                Three_Delay: Delay3,
+                Delete_Turns: Delete,
                 Dispel: Dispel,
-                Heals: Heals,
+                HP_Heal_Ability: Heals,
                 Revive: Revive,
                 Increase: Increase,
+                Two_Abilities_Recover: Increase2,
+                Turn_Manipulator: Turn_Manipulator,
                 Instant: Instant,
-                Free: Free,
+                Free_Ability: Free,
+                Buff_Extension: Buff_Extension,
+                Battery: Battery,
+                Self_Harm: Self_Harm
             }
             const filtermerge = rawData.filter((oneChar) => {
                 return Object.entries(charType)
@@ -563,7 +617,7 @@ const AbilitiesDirect =({
                 );
             }
         }
-    },[rawData,merge,limits,condFilter,reverse,searchTerm,AA, BRV, BT, Break, BreakCancel, Call75, CallLD, Cleanse, Counter, Dark, Delay, Delete, Dispel, EX, Earth, FR, Fire, FollowUp, Free, Group, HP, Heals, Holy, Ice, IgnoreDEF, Increase, Instant, KnockBack, LD, Magic, Melee, Ranged, Revive, S1, S2, Thunder, Trap, Water, Wind])
+    },[rawData,merge,limits,condFilter,reverse,searchTerm,AA, BRV, BT,Self_Harm, Break,Buff_Extension, Delay3,Battery, BreakCancel, Turn_Manipulator, Increase2, Call75, CallLD, Cleanse, Counter, Dark, Delay, Delete, Dispel, EX, Earth, FR, Fire, FollowUp, Free, Group, HP, Heals, Holy, Ice, IgnoreDEF, Increase, Instant, KnockBack, LD, Magic, Melee, Ranged, Revive, S1, S2, Thunder, Trap, Water, Wind])
 
     //buttons
     const showfilterbutton = () => {
@@ -602,6 +656,30 @@ const AbilitiesDirect =({
             setBRVsearch("")
         }
         setBRV((prevValue) => !prevValue);
+    }
+    const Batterybutton =()=>{
+        if(Battery == false){
+            setBatterysearch("true")
+        } else {
+            setBatterysearch("")
+        }
+        setBattery((prevValue) => !prevValue);
+    }
+    const Self_Harmbutton =()=>{
+        if(Self_Harm == false){
+            setSelf_Harmsearch("true")
+        } else {
+            setSelf_Harmsearch("")
+        }
+        setSelf_Harm((prevValue) => !prevValue);
+    }
+    const Buff_Extensionbutton=()=>{
+        if(Buff_Extension == false){
+            setBuff_Extensionsearch("true")
+        } else {
+            setBuff_Extensionsearch("")
+        }
+        setBuff_Extension((prevValue) => !prevValue);
     }
     const HPbutton =()=>{
         if(HP == false){
@@ -851,6 +929,22 @@ const AbilitiesDirect =({
         }
         setDelay((prevValue) => !prevValue);
     }
+    const Delay3button =()=>{
+        if(Delay3 == false){
+            setDelay3search("true")
+        } else {
+            setDelay3search("")
+        }
+        setDelay3((prevValue) => !prevValue);
+    }
+    const Turn_Manipulatorbutton =()=>{
+        if(Turn_Manipulator == false){
+            setTurn_Manipulatorsearch("true")
+        } else {
+            setTurn_Manipulatorsearch("")
+        }
+        setTurn_Manipulator((prevValue) => !prevValue);
+    }
     const Deletebutton =()=>{
         if(Delete == false){
             setDeletesearch("true")
@@ -890,6 +984,14 @@ const AbilitiesDirect =({
             setIncreasesearch("")
         }
         setIncrease((prevValue) => !prevValue);
+    }
+    const Increase2button =()=>{
+        if(Increase2 == false){
+            setIncrease2search("true")
+        } else {
+            setIncrease2search("")
+        }
+        setIncrease2((prevValue) => !prevValue);
     }
     const Instantbutton =()=>{
         if(Instant == false){
@@ -1011,13 +1113,19 @@ const AbilitiesDirect =({
         setIgnoreDEF(false)
         setCleanse(false)
         setDelay(false)
+        setDelay3(false)
         setDelete(false)
         setDispel(false)
         setHeals(false)
         setRevive(false)
         setIncrease(false)
+        setIncrease2(false)
+        setTurn_Manipulator(false)
         setInstant(false)
         setFree(false)
+        setBattery(false)
+        setBuff_Extension(false)
+        setSelf_Harm(false)
 
         setBRVsearch("")
         setHPsearch("")
@@ -1051,13 +1159,19 @@ const AbilitiesDirect =({
         setIgnoreDEFsearch("")
         setCleansesearch("")
         setDelaysearch("")
+        setDelay3search("")
         setDeletesearch("")
         setDispelsearch("")
         setHealssearch("")
         setRevivesearch("")
         setIncreasesearch("")
+        setIncrease2search("")
+        setTurn_Manipulatorsearch("")
+        setBuff_Extensionsearch("")
         setInstantsearch("")
         setFreesearch("")
+        setBatterysearch("")
+        setSelf_Harmsearch("")
 
         setTimeout(() => setclearFilter(false), 1000);
     }
@@ -1255,59 +1369,80 @@ const AbilitiesDirect =({
                     <Tippy content="Dark BRV Damage">
                     <li className={`${Dark ? "filteractive": "filterinactive"} spheresbutton Darkbutton`} onClick={Darkbutton}></li>
                     </Tippy>
+                </ul>
+                <br/>
+                <ul className='characterclasses'>
+                    <Tippy content={"Trap Attacks"}>
+                        <li className={`${Trap ? "filteractive" :"filterinactive" } buffbutton traptypebutton`} onClick={Trapbutton}/>
+                    </Tippy>
+                    <Tippy content="Follow Up">
+                        <li className={`${FollowUp? "filteractive":"filterinactive"} buffbutton followuptypebutton`} onClick={FollowUpbutton}/>
+                    </Tippy>
+                    <Tippy content="Counter">
+                        <li className={`${Counter? "filteractive":"filterinactive"} buffbutton countertypebutton`} onClick={Counterbutton}/>
+                    </Tippy>
                 </ul>  
                 <div className="similarbanner">Advanced</div>
                 <ul className='characterclasses'>
                     <Tippy content={"Group Attacks"}>
                         <li className={`${Group ? "filteractive" :"filterinactive" } buffbutton aoetypebutton`} onClick={Groupbutton}/>
                     </Tippy>
-                    <Tippy content={"Trap Attacks"}>
-                        <li className={`${Trap ? "filteractive" :"filterinactive" } buffbutton traptypebutton`} onClick={Trapbutton}/>
+                    <Tippy content="HP Heal">
+                        <li className={`${Heals? "filteractive":"filterinactive"} buffbutton Healsbutton`} onClick={Healsbutton}/>
                     </Tippy>
-                    <Tippy content="FollowUp">
-                        <li className={`${FollowUp? "filteractive":"filterinactive"} buffbutton followuptypebutton`} onClick={FollowUpbutton}/>
+                    <Tippy content="Party BRV Battery">
+                        <li className={`${Battery? "filteractive":"filterinactive"} buffbutton BatteryGearbutton`} onClick={Batterybutton}/>
                     </Tippy>
-                    <Tippy content="Counter">
-                        <li className={`${Counter? "filteractive":"filterinactive"} buffbutton countertypebutton`} onClick={Counterbutton}/>
-                    </Tippy>
-                    <Tippy content="KnockBack">
+                    <Tippy content="Knock Back">
                         <li className={`${KnockBack? "filteractive":"filterinactive"} buffbutton knockbackbutton`} onClick={KnockBackbutton}/>
                     </Tippy>
-                    <Tippy content="Break">
+                    <Tippy content="Instant Turn Rate">
+                        <li className={`${Instant? "filteractive":"filterinactive"} buffbutton Instantbutton`} onClick={Instantbutton}/>
+                    </Tippy>
+                    <Tippy content="Force BREAK">
                         <li className={`${Break? "filteractive":"filterinactive"} buffbutton Breakbutton`} onClick={Breakbutton}/>
                     </Tippy>
-                    <Tippy content="BreakCancel">
+                    <Tippy content="BREAK Cancel">
                         <li className={`${BreakCancel? "filteractive":"filterinactive"} buffbutton BreakCancelbutton`} onClick={BreakCancelbutton}/>
                     </Tippy>
-                    <Tippy content="IgnoreDEF">
+                    <Tippy content="Ignore DEF">
                         <li className={`${IgnoreDEF? "filteractive":"filterinactive"} buffbutton IgnoreDEFbutton`} onClick={IgnoreDEFbutton}/>
                     </Tippy>
-                    <Tippy content="Cleanse">
+                    <Tippy content="Debuff Cleanse">
                         <li className={`${Cleanse? "filteractive":"filterinactive"} buffbutton Cleansebutton`} onClick={Cleansebutton}/>
                     </Tippy>
-                    <Tippy content="Delay">
-                        <li className={`${Delay? "filteractive":"filterinactive"} buffbutton Delaybutton`} onClick={Delaybutton}/>
-                    </Tippy>
-                    <Tippy content="Delete">
-                        <li className={`${Delete? "filteractive":"filterinactive"} buffbutton Deletebutton`} onClick={Deletebutton}/>
-                    </Tippy>
-                    <Tippy content="Dispel">
+                    <Tippy content="Dispel Debuffs">
                         <li className={`${Dispel? "filteractive":"filterinactive"} buffbutton Dispelbutton`} onClick={Dispelbutton}/>
                     </Tippy>
-                    <Tippy content="Heals">
-                        <li className={`${Heals? "filteractive":"filterinactive"} buffbutton Healsbutton`} onClick={Healsbutton}/>
+                    <Tippy content="Turn Delay">
+                        <li className={`${Delay? "filteractive":"filterinactive"} buffbutton Delaybutton`} onClick={Delaybutton}/>
+                    </Tippy>
+                    <Tippy content="3 Turn Delay">
+                        <li className={`${Delay3? "filteractive":"filterinactive"} buffbutton Delay3button`} onClick={Delay3button}/>
+                    </Tippy>
+                    <Tippy content="Turn Delete">
+                        <li className={`${Delete? "filteractive":"filterinactive"} buffbutton Deletebutton`} onClick={Deletebutton}/>
+                    </Tippy>
+                    <Tippy content="Turn Manipulation">
+                        <li className={`${Turn_Manipulator? "filteractive":"filterinactive"} buffbutton Turn_Manipulator`} onClick={Turn_Manipulatorbutton}/>
                     </Tippy>
                     <Tippy content="Revive">
                         <li className={`${Revive? "filteractive":"filterinactive"} buffbutton Revivebutton`} onClick={Revivebutton}/>
                     </Tippy>
-                    <Tippy content="Increase">
+                    <Tippy content="Ability Recovered">
                         <li className={`${Increase? "filteractive":"filterinactive"} buffbutton Increasebutton`} onClick={Increasebutton}/>
                     </Tippy>
-                    <Tippy content="Instant">
-                        <li className={`${Instant? "filteractive":"filterinactive"} buffbutton Instantbutton`} onClick={Instantbutton}/>
+                    <Tippy content="Two Abilities Recovered">
+                        <li className={`${Increase2? "filteractive":"filterinactive"} buffbutton Increase2button`} onClick={Increase2button}/>
                     </Tippy>
-                    <Tippy content="Free">
+                    <Tippy content="Buff Extension">
+                        <li className={`${Buff_Extension? "filteractive":"filterinactive"} buffbutton Buff_ExtensionGearbutton`} onClick={Buff_Extensionbutton}/>
+                    </Tippy>
+                    <Tippy content="Free Ability Use">
                         <li className={`${Free? "filteractive":"filterinactive"} buffbutton Freebutton`} onClick={Freebutton}/>
+                    </Tippy>
+                    <Tippy content="Self-Harm HP Damage">
+                        <li className={`${Self_Harm? "filteractive":"filterinactive"} buffbutton HPHarmbutton`} onClick={Self_Harmbutton}/>
                     </Tippy>
                 </ul>
                   <div className="similarbanner">Refine</div>
@@ -1424,9 +1559,9 @@ const AbilitiesDirect =({
                 effect_value_type_id={effect_value_type_id}
                 CommandNames={CommandNames}
                 AilmentNames={AilmentNames}
-                ailment_group={ailment_group}
-                command_group={command_group}
-                enemy_resist={enemy_resist}
+                ailment_group={ailment_group[ver]}
+                command_group={command_group[ver]}
+                enemy_resist={enemy_resist[ver]}
                 element_bit_={element_bit_}
 
                 type_={type_}

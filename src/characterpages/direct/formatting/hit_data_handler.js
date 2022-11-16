@@ -547,7 +547,7 @@ const hit_data_handler =(
         .replace(/Self /gm, "")
         .replace(/\[m_nARG\]/gm, `${m_nARG == 1 ? "1 turn" : `${m_nARG} turns`}` )
         .replace(/\[m_nARG_3\]/gm, `${m_nARG_3 == 2 ? " buffs" : " debuffs"}` )
-        .replace(/\[m_nARG_4\]/gm, "" )
+        .replace(/ \[m_nARG_4\]/gm, "" )
        
     }
 

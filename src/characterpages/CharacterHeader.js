@@ -766,48 +766,48 @@ const CharPageHeader = ({nextevent,
                             </div>
                           </li>
                         </DefaultTippy>
-                        {Access.abilities[ver] == true && Access.basic[ver] == true?
+                        {Access[`${ver}abilities`] == true && Access[`${ver}basic`] == true?
                         <Link to={`/characters/${newmatch.ShortName}/direct/abilities`}>
                             <Tippy content="Abilities">
                                 <li className={`${direct_loc == "abilities" ? "filteractive" : "filterinactive"} buffbutton directabilitiesbutton`} ></li>
                             </Tippy>
                         </Link>
                         :""}
-                        {Access.buffs[ver] == true && Access.basic[ver] == true?
+                        {Access[`${ver}buffs`] == true && Access[`${ver}basic`] == true?
                         <Link to={`/characters/${newmatch.ShortName}/direct/buffs`}>
                             <Tippy content="Buffs">
                                 <li className={`${direct_loc == "buffs" ? "filteractive" : "filterinactive"} buffbutton directbuffsButton`} ></li>
                             </Tippy>
                         </Link>
                         :""}
-                        {Access.gear[ver] == true && Access.basic[ver] == true?
+                        {Access[`${ver}gear`] == true && Access[`${ver}basic`] == true?
                         <Link to={`/characters/${newmatch.ShortName}/direct/gear`}>
                             <Tippy content="Equipment Passives">
                                 <li className={`${direct_loc == "gear" ? "filteractive" : "filterinactive"} buffbutton directgearbutton`} ></li>
                             </Tippy>
                         </Link>
                         :""}
-                        {(  Access.crystal[ver] == true ||
-                            Access.sum_fix[ver] == true ||
-                            Access.exp[ver] == true ||
-                            Access.link[ver] ||
-                            Access.art[ver] 
+                        {(  Access[`${ver}crystal`] == true ||
+                            Access[`${ver}sum_fix`] == true ||
+                            Access[`${ver}exp`] == true ||
+                            Access[`${ver}link`] == true ||
+                            Access[`${ver}art`]  == true
                         )
-                        && Access.basic[ver] == true?
+                        && Access[`${ver}basic`] == true?
                         <Link to={`/characters/${newmatch.ShortName}/direct/passives/crystal`}>
                             <Tippy content="Passives">
                                 <li className={`${(direct_loc == "crystal" || direct_loc == "boards" || direct_loc == "force" || direct_loc == "arts"||direct_loc == "exp") ? "filteractive" : "filterinactive"} buffbutton directpassives`} ></li>
                             </Tippy>
                         </Link>
                         :""}
-                        {Access.spheres[ver] == true && Access.basic[ver] == true?
+                        {Access[`${ver}spheres`] == true && Access[`${ver}basic`] == true?
                         <Link to={`/characters/${newmatch.ShortName}/direct/spheres`}>
                             <Tippy content="Spheres">
                                 <li className={`${direct_loc == "spheres" ? "filteractive" : "filterinactive"} buffbutton directspherespagebutton`} ></li>
                             </Tippy>
                         </Link>
                         :""}
-                        {Access.events[ver] == true && Access.basic[ver] == true?
+                        {Access[`${ver}events`] == true && Access[`${ver}basic`] == true?
                         <Link to={`/characters/${newmatch.ShortName}/direct/events`}>
                             <Tippy content="Associated Events">
                                 <li className={`${direct_loc == "events" ? "filteractive" : "filterinactive"} buffbutton eventsdirect`} ></li>
@@ -823,36 +823,36 @@ const CharPageHeader = ({nextevent,
                        <>
                        <div className="similarbanneruni">{"Passive Types"}</div>
                        <ul className='bufftypes'>
-                       {Access.exp[ver] == true && Access.basic[ver] == true?
+                       {Access[`${ver}exp`] == true && Access[`${ver}basic`] == true?
                         <Link to={`/characters/${newmatch.ShortName}/direct/exp`}>
                             <Tippy content="Experience Passives">
                                 <li className={`${direct_loc == "exp" ? "filteractive" : "filterinactive"} buffbutton directexppassives`} ></li>
                             </Tippy>
                         </Link>
                         :""}
-						{  Access.crystal[ver] == true 
-                        && Access.basic[ver] == true?
+						{  Access[`${ver}crystal`] == true 
+                        && Access[`${ver}basic`] == true?
                         <Link to={`/characters/${newmatch.ShortName}/direct/passives/crystal`}>
                             <Tippy content="Crystal Passives">
                                 <li className={`${direct_loc == "crystal" ? "filteractive" : "filterinactive"} buffbutton directcrystalpassives`} ></li>
                             </Tippy>
                         </Link>
                         :""}
-						{Access.sum_fix[ver] == true && Access.basic[ver] == true?
+						{Access[`${ver}sum_fix`] == true && Access[`${ver}basic`] == true?
                         <Link to={`/characters/${newmatch.ShortName}/direct/boards`}>
                             <Tippy content="Enhancement Boards">
                                 <li className={`${direct_loc == "boards" ? "filteractive" : "filterinactive"} buffbutton bpassivesbutton`} ></li>
                             </Tippy>
                         </Link>
                         :""}
-                        {Access.link[ver] == true && Access.basic[ver] == true?
+                        {Access[`${ver}link`] == true && Access[`${ver}basic`] == true?
                         <Link to={`/characters/${newmatch.ShortName}/direct/force`}>
                             <Tippy content="Force Enhancement">
                                 <li className={`${direct_loc == "force" ? "filteractive" : "filterinactive"} buffbutton linkbutton`} ></li>
                             </Tippy>
                         </Link>
                         :""}
-                        {Access.art[ver] == true && Access.basic[ver] == true?
+                        {Access[`${ver}art`] == true && Access[`${ver}basic`] == true?
                         <Link to={`/characters/${newmatch.ShortName}/direct/arts`}>
                             <Tippy content="Artifact Passives">
                                 <li className={`${direct_loc == "arts" ? "filteractive" : "filterinactive"} buffbutton artpassivedirect`} ></li>
@@ -870,7 +870,7 @@ const CharPageHeader = ({nextevent,
                             </div>
                             :
                             <div className="similarbanneruni">
-                            {`Updated on ${months[new Date(Access.update[ver]).getMonth()]} ${ordinal(new Date(Access.update[ver]).getDate())}`}
+                            {`Updated on ${months[new Date(Access[`${ver}update`]).getMonth()]} ${ordinal(new Date(Access[`${ver}update`]).getDate())}`}
                             </div>
                             }
                       </div>

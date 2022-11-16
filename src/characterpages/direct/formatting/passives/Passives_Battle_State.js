@@ -368,6 +368,7 @@ const Passive_Battle_State =({
                             char_id={undefined}
                             hide_type={true}
                             hide_disp={hide_disp != true ? false : buffs.field_hide}
+                            is_passive={true}
                             />
                         ))
                         :""
@@ -395,6 +396,7 @@ const Passive_Battle_State =({
                             char_id={undefined}
                             hide_type={true}
                             hide_disp={hide_disp != true ? false : buffs.field_hide}
+                            is_passive={true}
                             />
                         ))
                         :""
@@ -453,6 +455,7 @@ const Passive_Battle_State =({
                             char_id={undefined}
                             hide_type={true}
                             hide_disp={hide_disp != true ? false : buffs.field_hide}
+                            is_passive={true}
                             />
                         ))
                         :""
@@ -480,6 +483,7 @@ const Passive_Battle_State =({
                             char_id={undefined}
                             hide_type={true}
                             hide_disp={hide_disp != true ? false : buffs.field_hide}
+                            is_passive={true}
                             />
                         ))
                         :""
@@ -538,6 +542,7 @@ const Passive_Battle_State =({
                             char_id={undefined}
                             hide_type={true}
                             hide_disp={hide_disp != true ? false : buffs.field_hide}
+                            is_passive={true}
                             />
                         ))
                         :""
@@ -568,6 +573,7 @@ const Passive_Battle_State =({
                             char_id={undefined}
                             hide_type={true}
                             hide_disp={hide_disp != true ? false : buffs.field_hide}
+                            is_passive={true}
                             />
                         ))
                         :""

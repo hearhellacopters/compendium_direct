@@ -8,11 +8,11 @@
     "url": "roles/Role_BRV_Absorb.png"
   },
   "BRV_Control": {
-    "name": "BRV Control",
+    "name": "BRV Gain Interference",
     "url": "roles/Role_Icon_BRV-Control.png"
   },
   "BRV_Damage_Resist": {
-    "name": "BRV Guard",
+    "name": "BRV Damage Resist Up",
     "url": "roles/Role_BRVResist.png"
   },
   "BRV_Poison": {
@@ -111,6 +111,10 @@
     "name": "Dispel",
     "url": "roles/Role_Icon_Dispel.png"
   },
+  "BuffPrevent":{
+    "name": "Buff Prevent",
+    "url": "roles/Role_BuffPrevent.png"
+  },
   "EX_MAX_Party": {
     "name": "EX Recast MAX All",
     "url": "roles/Role_EX_Gauge.png"
@@ -184,7 +188,7 @@
     "url": "buff/buff_double_unframed.png"
   },
   "HP_Damage_Resist": {
-    "name": "HP Guard",
+    "name": "HP Damage Resist Up",
     "url": "roles/Role_HPResist.png"
   },
   "HP_Damage_Up": {
@@ -288,11 +292,11 @@
     "url": "buff/buff_up5_unframed.png"
   },
   "Stacked_Debuff":{
-	"name": "Level Debuff",
+	  "name": "Level Debuff",
     "url": "roles/Role_Stacked_Debuff.png"
   },
-  "Tank":{
-	"name": "Tank",
+  "Cover":{
+	"name": "Cover",
     "url": "roles/Role_Icon_Tank.png"
   },
   "Three_Delay": {

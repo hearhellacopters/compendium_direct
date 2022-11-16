@@ -1,13 +1,13 @@
 {
-    "Break": {
+    "Force_Break": {
         "name": "Force BREAK",
         "url": "roles/Role_ForcedBreak"
     },
-    "BreakCancel": {
+    "Break_Reset": {
         "name": "BREAK Cancel",
         "url": "roles/Role_BreakReset"
     },
-    "BreakPrevent": {
+    "Cannot_Break": {
         "name": "Prevent BREAK / BRV Floor",
         "url": "roles/Role_Cannot_Break"
     },
@@ -15,9 +15,17 @@
         "name": "BRV Damage Cap Up",
         "url": "roles/Role_BRVCap"
     },
-    "BRVFreeze": {
-        "name": "BRV Freeze",
+    "BRV_Control": {
+        "name": "BRV Gain Interference",
         "url": "roles/Role_Icon_BRV-Control"
+    },
+    "Launch_Support":{
+        "name": "Knock Back Support",
+        "url": "roles/Role_Icon_Knock_Back_Support"
+    },
+    "HP_Damage_Up":{
+        "name": "Party HP Damage Up",
+        "url": "roles/Role_HP_Damage_Up"
     },
     "Gains": {
         "name": "BRV Gains Up",
@@ -27,7 +35,11 @@
         "name": "BRV Refund",
         "url": "roles/Role_BRVRefund"
     },
-    "BRVRegen": {
+    "Reviver":{
+        "name": "Raise",
+        "url": "roles/Role_Reviver"
+    },
+    "BRV_Regen": {
         "name": "BRV Regen",
         "url": "roles/Role_BRVRegen"
     },
@@ -36,7 +48,7 @@
         "url": "roles/Role_BRVRetain"
     },
     "StolenBRV": {
-        "name": "Stolen BRV Up",
+        "name": "Stolen BRV Damage Up",
         "url": "roles/Role_BRVUp"
     },
     "BuffPrevent": {
@@ -59,15 +71,15 @@
         "name": "Critical Damage Up",
         "url": "roles/Role_Crit_Up"
     },
-    "CriticalRate": {
+    "Crit_Rate_Up": {
         "name": "Critical Rate Up",
         "url": "roles/Role_Crit_Rate_Up"
     },
-    "DebuffResist": {
+    "Debuff_Evade": {
         "name": "Debuff Resist",
         "url": "roles/Role_Debuff_Evade"
     },
-    "IgnoreDEF": {
+    "Ignore_DEF": {
         "name": "DEF Ignore",
         "url": "roles/Role_Ignore_DEF"
     },
@@ -75,7 +87,7 @@
         "name": "Delay",
         "url": "roles/Role_Icon_Delay"
     },
-    "Delete": {
+    "Delete_Turns": {
         "name": "Turn Delete",
         "url": "roles/Role_DeleteTurns"
     },
@@ -87,35 +99,35 @@
         "name": "Elemental Weakness Damage Up",
         "url": "roles/Role_WeakUp"
     },
-    "Fire": {
+    "Fire_Enchant": {
         "name": "Fire Enchant",
         "url": "elements/Up/Fire"
     },
-    "Ice": {
+    "Ice_Enchant": {
         "name": "Ice Enchant",
         "url": "elements/Up/Ice"
     },
-    "Thunder": {
+    "Thunder_Enchant": {
         "name": "Thunder Enchant",
         "url": "elements/Up/Thunder"
     },
-    "Wind": {
+    "Wind_Enchant": {
         "name": "Wind Enchant",
         "url": "elements/Up/Wind"
     },
-    "Water": {
+    "Water_Enchant": {
         "name": "Water Enchant",
         "url": "elements/Up/Water"
     },
-    "Earth": {
+    "Earth_Enchant": {
         "name": "Earth Enchant",
         "url": "elements/Up/Earth"
     },
-    "Holy": {
+    "Holy_Enchant": {
         "name": "Holy Enchant",
         "url": "elements/Up/Holy"
     },
-    "Dark": {
+    "Dark_Enchant": {
         "name": "Dark Enchant",
         "url": "elements/Up/Dark"
     },
@@ -123,7 +135,11 @@
         "name": "Evade",
         "url": "buff/buff_dodge_unframed"
     },
-    "EXFill": {
+    "EX_MAX_Party":{
+        "name": "EX Recast MAX All",
+        "url": "roles/Role_EX_Gauge"
+    },
+    "EX_MAX": {
         "name": "EX Recast Fill",
         "url": "roles/Role_EXIncrease"
     },
@@ -131,7 +147,7 @@
         "name": "EX Recast Rate",
         "url": "roles/Role_EXRateUp"
     },
-    "FreeUse": {
+    "Free_Ability": {
         "name": "Free Ability Use",
         "url": "buff/buff_double_unframed"
     },
@@ -139,39 +155,75 @@
         "name": "Free Turn",
         "url": "roles/Role_FreeTurn"
     },
-    "GoldDebuff": {
+    "Debuff_Gold": {
         "name": "Gold Framed Debuffs",
         "url": "roles/Role_Debuff_Gold"
     },
+    "Buff_Gold": {
+        "name": "Gold Framed Buffs",
+        "url": "roles/Role_Buff_Gold"
+    },
+    "Special_Buff": {
+        "name": "Special Buffs",
+        "url": "roles/Role_Special_Buff"
+    },
+    "Stacked_Buff": {
+        "name": "Level Buff",
+        "url": "buff/buff_up1_unframed"
+    },
+    "Stacked_Buff_Five": {
+        "name": "Level Buff over 5",
+        "url": "buff/buff_up5_unframed"
+    },
+    "Stacked_Debuff":{
+        "name": "Level Debuff",
+        "url": "roles/Role_Stacked_Debuff"
+    },
+    "Stacked_Debuff_Five":{
+        "name": "Level Debuff over 5",
+        "url": "debuff/debuff_down5_unframed"
+    },
+    "BRV_Shield":{
+        "name": "Damage Shield",
+        "url": "roles/Role_BRVShield"
+    },
     "AddHP": {
-        "name": "Added HP Damage",
+        "name": "Additional HP Damage",
         "url": "roles/Role_HPDmgUp"
     },
     "MAXBRVCap": {
         "name": "MAX BRV Cap Up",
         "url": "roles/Role_HPCap"
     },
-    "HPResistUp": {
+    "BRV_Damage_Resist":{
+        "name": "BRV Damage Resist Up",
+        "url": "roles/Role_BRVResist"
+    },
+    "HP_Damage_Resist": {
         "name": "HP Damage Resist Up",
         "url": "roles/Role_HPResist"
     },
-    "HPResistDown": {
+    "HP_Resist_Down": {
         "name": "HP Damage Resist Down",
         "url": "roles/Role_HPResistDown"
     },
-    "BRVPoison": {
+    "BRV_Resist_Down":{
+        "name": "BRV Damage Resist Down",
+        "url": "roles/Role_BRVResistDown"
+    },
+    "BRV_Poison": {
         "name": "BRV Poison",
         "url": "roles/Role_BRVPoison"
     },
-    "HPPoison": {
+    "HP_Poison": {
         "name": "HP Poison",
         "url": "roles/Role_HPPoison"
     },
-    "HPHeal": {
+    "HPHealBuff": {
         "name": "HP Heal",
         "url": "buff/buff_heart_unframed"
     },
-    "HPRegen": {
+    "HP_Regen": {
         "name": "HP Regen",
         "url": "roles/Role_HPRegen"
     },
@@ -179,60 +231,116 @@
         "name": "Disable",
         "url": "roles/Role_Icon_Disable"
     },
-    "FireDown": {
+    "Fire_Imperil": {
         "name": "Fire Imperil",
         "url": "elements/Down/Fire"
     },
-    "IceDown": {
+    "Ice_Imperil": {
         "name": "Ice Imperil",
         "url": "elements/Down/Ice"
     },
-    "ThunderDown": {
+    "Thunder_Imperil": {
         "name": "Thunder Imperil",
         "url": "elements/Down/Thunder"
     },
-    "WindDown": {
+    "Wind_Imperil": {
         "name": "Wind Imperil",
         "url": "elements/Down/Wind"
     },
-    "WaterDown": {
+    "Water_Imperil": {
         "name": "Water Imperil",
         "url": "elements/Down/Water"
     },
-    "EarthDown": {
+    "Earth_Imperil": {
         "name": "Earth Imperil",
         "url": "elements/Down/Earth"
     },
-    "HolyDown": {
+    "Holy_Imperil": {
         "name": "Holy Imperil",
         "url": "elements/Down/Holy"
     },
-    "DarkDown": {
+    "Dark_Imperil": {
         "name": "Dark Imperil",
         "url": "elements/Down/Dark"
     },
-    "MeleeDown": {
+    "Melee_Imperil": {
         "name": "Melee Imperil",
         "url": "roles/Role_MeleeImperil"
     },
-    "RangedDown": {
+    "Ranged_Imperil": {
         "name": "Ranged Imperil",
         "url": "roles/Role_RangedImperil"
     },
-    "MagicDown": {
+    "Magic_Imperil": {
         "name": "Magic Imperil",
         "url": "roles/Role_MagicImperil"
     },
     "Instant": {
         "name": "Instant Turn Rate",
-        "url": "roles/Role_Instant"
+        "url": "roles/Role_Instant2"
     },
-    "LastStand": {
+    "KO_Prevent": {
         "name": "Last Stand / Prevent KO",
         "url": "roles/Role_KO_Prevent"
     },
-    "TurnManip": {
+    "Turn_Interrupter":{
+        "name": "Cut in Turn",
+        "url": "roles/Role_Turn_Interrupter"
+    },
+    "Continuous_Turns":{
+        "name": "Consective Turns",
+        "url": "roles/Role_Continuous_Turns"
+    },
+    "Ally_Turn_Manipulator": {
         "name": "Turn Manipulation",
         "url": "roles/Role_Ally_Turn_Manipulator"
+    },
+    "Buff_Extension":{
+        "name": "Buff Extension",
+        "url": "roles/Role_Buff_Extension"
+    },
+    "Self_Harm":{
+        "name": "Self-Harm HP Damage",
+        "url": "roles/Role_Self_Harm"
+    },
+    "Trap": {
+        "name": "Trap",
+        "url": "roles/Role_Trap"
+    },
+    "Trap_After_Trigger": {
+        "name": "Trap after Enemy turn (or Triggered)",
+        "url": "roles/Role_Trap_After"
+    },
+    "Trap_Before_Turn": {
+        "name": "Trap before Enemy turn",
+        "url": "roles/Role_Trap_Before"
+    },
+    "Counter":{
+        "name": "Counter",
+        "url": "roles/Role_Icon_Counter"
+    },
+    "FollowUp":{
+        "name": "Follow Up Attack",
+        "url": "buff/buff_fist_unframed"
+    },
+    "FollowUp_Extension":{
+        "name": "Ability Extension Follow Up",
+        "url": "roles/Role_Ability_Extension_FollowUp"
+    },
+    "FollowUp_Action_On_Enemy":{
+        "name": "Follow Up on Action against Enemy",
+        "url": "roles/Role_Action_Against_Enemy_FollowUp"
+    },
+    "FollowUp_Start_Of_Next":{
+        "name": "Start of next turn Follow Up",
+        "url": "roles/Role_Start_Of_Next_Turn"
+    },
+    "FollowUp_Before_Player_Turn":{
+        "name": "Additional Attack before Player turn",
+        "url": "roles/Role_Before_Player_Turn"
+    },
+    "FollowUp_Before_Ability":{
+        "name": "Additional Attack before Player ability",
+        "url": "roles/Role_Before_Ability_Attack"
     }
 }

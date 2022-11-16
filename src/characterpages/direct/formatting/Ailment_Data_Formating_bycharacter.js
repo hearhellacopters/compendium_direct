@@ -811,7 +811,7 @@ const Ailment_Data_Formatting_bycharacter = ({
                         </div>
                         {ailment_data.hide_title == true ? "":
                         <div className="infolocation">
-                        {add_formatting(`Granted from ${rank_tag != undefined ? ` <${rank_trans(rank_tag)}>` : ""} [${ailment_data.ability_namegl == undefined ? ailment_data.ability_name : ailment_data.ability_namegl}] #${ailment_data.command_id}${cast_target == undefined ? "" : ` to ${cast_target}`}${ailment_data.alife != -1 ? ` for ${ailment_data.alife} turn${ailment_data.alife != 1?"s":""}` : ""}`,"tl")}
+                        {add_formatting(`Granted from ${rank_tag != undefined ? `<${rank_trans(rank_tag)}>` : ""} [${ailment_data.ability_namegl == undefined ? ailment_data.ability_name : ailment_data.ability_namegl}] #${ailment_data.command_id}${cast_target == undefined ? "" : ` to ${cast_target}`}${ailment_data.alife != -1 ? ` for ${ailment_data.alife} turn${ailment_data.alife != 1?"s":""}` : ""}`,"tl")}
                         </div>
                         }
                         {ailment_data.sp_disp_type == 133 ?

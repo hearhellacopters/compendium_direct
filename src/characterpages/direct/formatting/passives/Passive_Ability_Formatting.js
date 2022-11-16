@@ -434,6 +434,7 @@ const Passive_Ability_Formatting = ({
                     formatting={formatting}
                     char_id={char_id}
                     base_color={undefined}
+                    is_passive={true}
                     />
                 ))
                 :""}

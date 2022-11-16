@@ -140,7 +140,7 @@ const CharacterPageDirect = ({
 
    useEffect(() => {
        //profile
-       if(DevSwitch == true && match.params.type == undefined && previousIDprofile != `${selectedCharaID}${ver}` && Access[selectedCharaID].basic[ver] == true){
+       if(DevSwitch == true && match.params.type == undefined && previousIDprofile != `${selectedCharaID}${ver}` && Access[selectedCharaID][`${ver}basic`] == true){
             setprofiledata(undefined)
             axios.get(`http://localhost:3005/data/character_basic/${ver}New/${selectedCharaID}`,{'muteHttpExceptions': true}).then((res) => {
             const response = res.data;
@@ -150,7 +150,7 @@ const CharacterPageDirect = ({
             console.log(err)
         })
         }
-        if(DevSwitch == false && match.params.type == undefined && previousIDprofile != `${selectedCharaID}${ver}` && Access[selectedCharaID].basic[ver] == true){
+        if(DevSwitch == false && match.params.type == undefined && previousIDprofile != `${selectedCharaID}${ver}` && Access[selectedCharaID][`${ver}basic`] == true){
             setprofiledata(undefined)
             axios.get(`https://www.dissidiacompendium.com/data/_dir/_m/character_basic/${ver}New/${selectedCharaID}.json`,{'muteHttpExceptions': true}).then((res) => {
             const response = res.data;
@@ -161,7 +161,7 @@ const CharacterPageDirect = ({
         })
         }
         //event
-        if(DevSwitch == true && match.params.type == "events" && previousIDevent != `${selectedCharaID}${ver}` && Access[selectedCharaID].basic[ver] == true && Access[selectedCharaID].events[ver] == true){
+        if(DevSwitch == true && match.params.type == "events" && previousIDevent != `${selectedCharaID}${ver}` && Access[selectedCharaID][`${ver}basic`] == true && Access[selectedCharaID][`${ver}events`] == true){
             seteventdata(undefined)
         axios.get(`http://localhost:3005/data/events/${ver}New/${selectedCharaID}`,{'muteHttpExceptions': true}).then((res) => {
         const response = res.data;
@@ -171,7 +171,7 @@ const CharacterPageDirect = ({
             console.log(err)
         })
         }
-        if(DevSwitch == false && match.params.type == "events" && previousIDevent != `${selectedCharaID}${ver}` && Access[selectedCharaID].basic[ver] == true && Access[selectedCharaID].events[ver] == true){
+        if(DevSwitch == false && match.params.type == "events" && previousIDevent != `${selectedCharaID}${ver}` && Access[selectedCharaID][`${ver}basic`] == true && Access[selectedCharaID][`${ver}events`] == true){
             seteventdata(undefined)
             axios.get(`https://www.dissidiacompendium.com/data/_dir/_m/events/${ver}New/${selectedCharaID}.json`,{'muteHttpExceptions': true}).then((res) => {
             const response = res.data;
@@ -182,7 +182,7 @@ const CharacterPageDirect = ({
         })
         }
         //spheres
-         if(DevSwitch == true && match.params.type == "spheres" && previousIDspheres != `${selectedCharaID}${ver}` && Access[selectedCharaID].basic[ver] == true && Access[selectedCharaID].spheres[ver] == true){
+         if(DevSwitch == true && match.params.type == "spheres" && previousIDspheres != `${selectedCharaID}${ver}` && Access[selectedCharaID][`${ver}basic`] == true && Access[selectedCharaID][`${ver}spheres`] == true){
                 axios.get(`http://localhost:3005/data/ex_skill/${ver}New/${selectedCharaID}`,{'muteHttpExceptions': true}).then((res) => {
                 const response = res.data;
                 setspheresdata(response)
@@ -191,7 +191,7 @@ const CharacterPageDirect = ({
                 console.log(err)
             })
             }
-        if(DevSwitch == false && match.params.type == "spheres" && previousIDspheres != `${selectedCharaID}${ver}` && Access[selectedCharaID].basic[ver] == true && Access[selectedCharaID].spheres[ver] == true){
+        if(DevSwitch == false && match.params.type == "spheres" && previousIDspheres != `${selectedCharaID}${ver}` && Access[selectedCharaID][`${ver}basic`] == true && Access[selectedCharaID][`${ver}spheres`] == true){
             axios.get(`https://www.dissidiacompendium.com/data/_dir/_m/ex_skill/${ver}New/${selectedCharaID}.json`,{'muteHttpExceptions': true}).then((res) => {
             const response = res.data;
             setspheresdata(response)
@@ -200,7 +200,7 @@ const CharacterPageDirect = ({
             console.log(err)
         })
         }
-        if(DevSwitch == true && match.params.type == "spheres" && previousIDprofile != `${selectedCharaID}${ver}` && Access[selectedCharaID].basic[ver] == true){
+        if(DevSwitch == true && match.params.type == "spheres" && previousIDprofile != `${selectedCharaID}${ver}` && Access[selectedCharaID][`${ver}basic`] == true){
             setprofiledata(undefined)
             axios.get(`http://localhost:3005/data/character_basic/${ver}New/${selectedCharaID}`,{'muteHttpExceptions': true}).then((res) => {
             const response = res.data;
@@ -210,7 +210,7 @@ const CharacterPageDirect = ({
             console.log(err)
         })
         }
-        if(DevSwitch == false && match.params.type == "spheres" && previousIDprofile != `${selectedCharaID}${ver}` && Access[selectedCharaID].basic[ver] == true){
+        if(DevSwitch == false && match.params.type == "spheres" && previousIDprofile != `${selectedCharaID}${ver}` && Access[selectedCharaID][`${ver}basic`] == true){
             setprofiledata(undefined)
             axios.get(`https://www.dissidiacompendium.com/data/_dir/_m/character_basic/${ver}New/${selectedCharaID}.json`,{'muteHttpExceptions': true}).then((res) => {
             const response = res.data;
@@ -221,7 +221,7 @@ const CharacterPageDirect = ({
         })
         }
         //sum_fix_passive
-        if(DevSwitch == true && match.params.type == "boards" && previousIDboard != `${selectedCharaID}${ver}` && Access[selectedCharaID].basic[ver] == true && Access[selectedCharaID].sum_fix[ver] == true){
+        if(DevSwitch == true && match.params.type == "boards" && previousIDboard != `${selectedCharaID}${ver}` && Access[selectedCharaID][`${ver}basic`] == true && Access[selectedCharaID][`${ver}sum_fix`] == true){
             setboarddata(undefined)
             axios.get(`http://localhost:3005/data/sum_fix_passive/${ver}New/${selectedCharaID}`,{'muteHttpExceptions': true}).then((res) => {
             const response = res.data;
@@ -231,7 +231,7 @@ const CharacterPageDirect = ({
             console.log(err)
         })
         }
-        if(DevSwitch == false && match.params.type == "boards" && previousIDboard != `${selectedCharaID}${ver}` && Access[selectedCharaID].basic[ver] == true && Access[selectedCharaID].sum_fix[ver] == true){
+        if(DevSwitch == false && match.params.type == "boards" && previousIDboard != `${selectedCharaID}${ver}` && Access[selectedCharaID][`${ver}basic`] == true && Access[selectedCharaID][`${ver}sum_fix`] == true){
             setboarddata(undefined)
             axios.get(`https://www.dissidiacompendium.com/data/_dir/_m/sum_fix_passive/${ver}New/${selectedCharaID}.json`,{'muteHttpExceptions': true}).then((res) => {
             const response = res.data;
@@ -242,7 +242,7 @@ const CharacterPageDirect = ({
         })
         }
         //gear
-        if(DevSwitch == true && match.params.type == "gear" && previousIDequipment != `${selectedCharaID}${ver}` && Access[selectedCharaID].basic[ver] == true && Access[selectedCharaID].gear[ver] == true){
+        if(DevSwitch == true && match.params.type == "gear" && previousIDequipment != `${selectedCharaID}${ver}` && Access[selectedCharaID][`${ver}basic`] == true && Access[selectedCharaID][`${ver}gear`] == true){
             setequipmentdata(undefined)
             axios.get(`http://localhost:3005/data/equipment_passive_character/${ver}New/${selectedCharaID}`,{'muteHttpExceptions': true}).then((res) => {
             const response = res.data;
@@ -252,7 +252,7 @@ const CharacterPageDirect = ({
             console.log(err)
         })
         }
-        if(DevSwitch == false && match.params.type == "gear" && previousIDequipment != `${selectedCharaID}${ver}` && Access[selectedCharaID].basic[ver] == true && Access[selectedCharaID].gear[ver] == true){
+        if(DevSwitch == false && match.params.type == "gear" && previousIDequipment != `${selectedCharaID}${ver}` && Access[selectedCharaID][`${ver}basic`] == true && Access[selectedCharaID][`${ver}gear`]  == true){
             setequipmentdata(undefined)
             axios.get(`https://www.dissidiacompendium.com/data/_dir/_m/equipment_passive_character/${ver}New/${selectedCharaID}.json`,{'muteHttpExceptions': true}).then((res) => {
             const response = res.data;
@@ -263,7 +263,7 @@ const CharacterPageDirect = ({
         })
         }
         //link
-        if(DevSwitch == true && match.params.type == "force" && previousIDlink != `${selectedCharaID}${ver}` && Access[selectedCharaID].basic[ver] == true && Access[selectedCharaID].link[ver] == true){
+        if(DevSwitch == true && match.params.type == "force" && previousIDlink != `${selectedCharaID}${ver}` && Access[selectedCharaID][`${ver}basic`] == true && Access[selectedCharaID][`${ver}link`] == true){
             setlinkeddata(undefined)
             axios.get(`http://localhost:3005/data/link_chara/${ver}New/${selectedCharaID}`,{'muteHttpExceptions': true}).then((res) => {               
             const response = res.data;
@@ -274,7 +274,7 @@ const CharacterPageDirect = ({
             console.log(err)
         })
         }
-        if(DevSwitch == false && match.params.type == "force" && previousIDlink != `${selectedCharaID}${ver}` && Access[selectedCharaID].basic[ver] == true && Access[selectedCharaID].link[ver] == true){
+        if(DevSwitch == false && match.params.type == "force" && previousIDlink != `${selectedCharaID}${ver}` && Access[selectedCharaID][`${ver}basic`] == true && Access[selectedCharaID][`${ver}link`] == true){
             setlinkeddata(undefined)
             axios.get(`https://www.dissidiacompendium.com/data/_dir/_m/link_chara/${ver}New/${selectedCharaID}.json`,{'muteHttpExceptions': true}).then((res) => {
                 const response = res.data;
@@ -286,7 +286,7 @@ const CharacterPageDirect = ({
             })
         }
         //crystal
-        if(DevSwitch == true && match.params.type == "crystal" && previousIDcpassive != `${selectedCharaID}${ver}` && Access[selectedCharaID].basic[ver] == true && Access[selectedCharaID].crystal[ver] == true){
+        if(DevSwitch == true && match.params.type == "crystal" && previousIDcpassive != `${selectedCharaID}${ver}` && Access[selectedCharaID][`${ver}basic`] == true && Access[selectedCharaID][`${ver}crystal`] == true){
             setcpassivedata(undefined)
             axios.get(`http://localhost:3005/data/crystal_awakening_chara/${ver}New/${selectedCharaID}`,{'muteHttpExceptions': true}).then((res) => {
             const response = res.data;
@@ -296,7 +296,7 @@ const CharacterPageDirect = ({
             console.log(err)
         })
         }
-        if(DevSwitch == false && match.params.type == "crystal" && previousIDcpassive != `${selectedCharaID}${ver}` && Access[selectedCharaID].basic[ver] == true && Access[selectedCharaID].crystal[ver] == true){
+        if(DevSwitch == false && match.params.type == "crystal" && previousIDcpassive != `${selectedCharaID}${ver}` && Access[selectedCharaID][`${ver}basic`] == true && Access[selectedCharaID][`${ver}crystal`] == true){
             setcpassivedata(undefined)
             axios.get(`https://www.dissidiacompendium.com/data/_dir/_m/crystal_awakening_chara/${ver}New/${selectedCharaID}.json`,{'muteHttpExceptions': true}).then((res) => {
             const response = res.data;
@@ -307,7 +307,7 @@ const CharacterPageDirect = ({
         })
         }
         //exp
-        if(DevSwitch == true && match.params.type == "exp" && previousIDexp != `${selectedCharaID}${ver}` && Access[selectedCharaID].basic[ver] == true && Access[selectedCharaID].exp[ver] == true){
+        if(DevSwitch == true && match.params.type == "exp" && previousIDexp != `${selectedCharaID}${ver}` && Access[selectedCharaID][`${ver}basic`] == true && Access[selectedCharaID][`${ver}exp`] == true){
             setexpdata(undefined)
             axios.get(`http://localhost:3005/data/chara_level_ability/${ver}New/${selectedCharaID}`,{'muteHttpExceptions': true}).then((res) => {
             const response = res.data;
@@ -317,7 +317,7 @@ const CharacterPageDirect = ({
             console.log(err)
         })
         }
-        if(DevSwitch == false && match.params.type == "exp" && previousIDexp != `${selectedCharaID}${ver}` && Access[selectedCharaID].basic[ver] == true && Access[selectedCharaID].exp[ver] == true){
+        if(DevSwitch == false && match.params.type == "exp" && previousIDexp != `${selectedCharaID}${ver}` && Access[selectedCharaID][`${ver}basic`] == true && Access[selectedCharaID][`${ver}exp`] == true){
             setexpdata(undefined)
             axios.get(`https://www.dissidiacompendium.com/data/_dir/_m/chara_level_ability/${ver}New/${selectedCharaID}.json`,{'muteHttpExceptions': true}).then((res) => {
             const response = res.data;
@@ -328,7 +328,7 @@ const CharacterPageDirect = ({
         })
         }
         //art
-        if(DevSwitch == true && match.params.type == "arts" && previousIDart != `${selectedCharaID}${ver}` && Access[selectedCharaID].basic[ver] == true && Access[selectedCharaID].art[ver] == true){
+        if(DevSwitch == true && match.params.type == "arts" && previousIDart != `${selectedCharaID}${ver}` && Access[selectedCharaID][`${ver}basic`] == true && Access[selectedCharaID][`${ver}art`] == true){
             setartdata(undefined)
             axios.get(`http://localhost:3005/data/art_passive_bycharacter/${ver}New/${selectedCharaID}`,{'muteHttpExceptions': true}).then((res) => {
             const response = res.data;
@@ -338,7 +338,7 @@ const CharacterPageDirect = ({
             console.log(err)
         })
         }
-        if(DevSwitch == false && match.params.type == "arts" && previousIDart != `${selectedCharaID}${ver}` && Access[selectedCharaID].basic[ver] == true && Access[selectedCharaID].art[ver] == true){
+        if(DevSwitch == false && match.params.type == "arts" && previousIDart != `${selectedCharaID}${ver}` && Access[selectedCharaID][`${ver}basic`] == true && Access[selectedCharaID][`${ver}art`] == true){
             setartdata(undefined)
             axios.get(`https://www.dissidiacompendium.com/data/_dir/_m/art_passive_bycharacter/${ver}New/${selectedCharaID}.json`,{'muteHttpExceptions': true}).then((res) => {
             const response = res.data;
@@ -349,7 +349,7 @@ const CharacterPageDirect = ({
         })
         }
         //ability
-        if(DevSwitch == true && match.params.type == "abilities" && previousIDability != `${selectedCharaID}${ver}` && Access[selectedCharaID].basic[ver] == true && Access[selectedCharaID].abilities[ver] == true){
+        if(DevSwitch == true && match.params.type == "abilities" && previousIDability != `${selectedCharaID}${ver}` && Access[selectedCharaID][`${ver}basic`] == true && Access[selectedCharaID][`${ver}abilities`] == true){
             setabilitydata(undefined)
             axios.get(`http://localhost:3005/data/character_ability_character/${ver}New/${selectedCharaID}`,{'muteHttpExceptions': true}).then((res) => {
             const response = res.data;
@@ -367,7 +367,7 @@ const CharacterPageDirect = ({
             console.log(err)
         })
         }
-        if(DevSwitch == false && match.params.type == "abilities" && previousIDability != `${selectedCharaID}${ver}` && Access[selectedCharaID].basic[ver] == true && Access[selectedCharaID].abilities[ver] == true){
+        if(DevSwitch == false && match.params.type == "abilities" && previousIDability != `${selectedCharaID}${ver}` && Access[selectedCharaID][`${ver}basic`] == true && Access[selectedCharaID][`${ver}abilities`] == true){
             setabilitydata(undefined)
             axios.get(`https://www.dissidiacompendium.com/data/_dir/_m/character_ability_character/${ver}New/${selectedCharaID}.json`,{'muteHttpExceptions': true}).then((res) => {
             const response = res.data;
@@ -386,7 +386,7 @@ const CharacterPageDirect = ({
         })
         }
         //buffs
-        if(DevSwitch == true && match.params.type == "buffs" && previousIDability != `${selectedCharaID}${ver}` && Access[selectedCharaID].basic[ver] == true && Access[selectedCharaID].buffs[ver] == true){
+        if(DevSwitch == true && match.params.type == "buffs" && previousIDability != `${selectedCharaID}${ver}` && Access[selectedCharaID][`${ver}basic`] == true && Access[selectedCharaID][`${ver}buffs`] == true){
             setabilitydata(undefined)
             axios.get(`http://localhost:3005/data/character_ability_character/${ver}New/${selectedCharaID}`,{'muteHttpExceptions': true}).then((res) => {
             const response = res.data;
@@ -404,7 +404,7 @@ const CharacterPageDirect = ({
             console.log(err)
         })
         }
-        if(DevSwitch == false && match.params.type == "buffs" && previousIDability != `${selectedCharaID}${ver}`  && Access[selectedCharaID].basic[ver] == true && Access[selectedCharaID].buffs[ver] == true){
+        if(DevSwitch == false && match.params.type == "buffs" && previousIDability != `${selectedCharaID}${ver}`  && Access[selectedCharaID][`${ver}basic`] == true && Access[selectedCharaID][`${ver}buffs`] == true){
             setabilitydata(undefined)
             axios.get(`https://www.dissidiacompendium.com/data/_dir/_m/character_ability_character/${ver}New/${selectedCharaID}.json`,{'muteHttpExceptions': true}).then((res) => {
             const response = res.data;
@@ -435,12 +435,12 @@ const CharacterPageDirect = ({
             <meta name="description" content={`${selected_char.CharacterName} Page`}/>
             <meta name="twitter:title" content={`${selected_char.CharacterName} Page`}/>
             <meta name="twitter:description" content={`${selected_char.CharacterName} Page`}/>
-            <meta name="twitter:image" content={selected_char.CardURL}/>
+            <meta name="twitter:image" content={`https://dissidiacompendium.com/images/static/characters/${selected_char.CharacterURLName}/cc.png`}/>
             <meta name="twitter:card" content="summary"/>
             <meta name="twitter:image:alt" content={`${selected_char.CharacterName}`}/>
             <meta property="og:title" content={`${selected_char.CharacterName} Page`}/>
             <meta property="og:description" content={`${selected_char.CharacterName} Banner`}/>
-            <meta property="og:image" content={selected_char.CardURL}/>
+            <meta property="og:image" content={`https://dissidiacompendium.com/images/static/characters/${selected_char.CharacterURLName}/cc.png`}/>
             <meta property="og:url" content={`https://dissidiacompendium.com/characters/${selected_char.ShortName}`}/>
         </Helmet>
         <div className="returnbutton">
@@ -468,14 +468,14 @@ const CharacterPageDirect = ({
                   Access={Access[selectedCharaID]}
                   direct_loc={match.params.type}
                   />
-                  {Access[selectedCharaID].basic[ver] != true ? 
+                  {Access[selectedCharaID][`${ver}basic`]  != true ? 
                   <div className='singlepageholder'>
                   <OhNo name={selected_char.CharacterName} random={random} message={"for the selected version "}/> 
                   </div>
                   :                 
                   ""}
                   {match.params.type == undefined && 
-                  Access[selectedCharaID].basic[ver] == true &&
+                  Access[selectedCharaID][`${ver}basic`] == true &&
                   profiledata != undefined ?
                     <Character_Profile
                     data={profiledata}
@@ -483,7 +483,7 @@ const CharacterPageDirect = ({
                     />
                   :""}
                   {match.params.type == "abilities" && 
-                  Access[selectedCharaID].abilities[ver] == true  ?
+                  Access[selectedCharaID][`${ver}abilities`] == true  ?
                   abilitydata != undefined
                   ?
                   <Ability_bycharacter
@@ -525,8 +525,8 @@ const CharacterPageDirect = ({
                     </div>
                   :""}
                   {match.params.type == "buffs" && 
-                  Access[selectedCharaID].basic[ver] == true && 
-                  Access[selectedCharaID].buffs[ver] == true ?
+                  Access[selectedCharaID][`${ver}basic`] == true && 
+                  Access[selectedCharaID][`${ver}buffs`] == true ?
                   buffdata != undefined &&
                   abilitydata != undefined
                   ?
@@ -568,8 +568,8 @@ const CharacterPageDirect = ({
                     </div>
                   :""}
                   {match.params.type == "exp" && 
-                  Access[selectedCharaID].basic[ver] == true && 
-                  Access[selectedCharaID].abilities[ver] == true ?
+                  Access[selectedCharaID][`${ver}basic`] == true && 
+                  Access[selectedCharaID][`${ver}abilities`] == true ?
                   expdata != undefined
                   ?
                   <EXP_Passives
@@ -606,8 +606,8 @@ const CharacterPageDirect = ({
                     </div>
                   :""}
                   {(match.params.type == "crystal" || match.params.type == "passsives")&& 
-                  Access[selectedCharaID].basic[ver] == true && 
-                  Access[selectedCharaID].crystal[ver] == true ?
+                  Access[selectedCharaID][`${ver}basic`] == true && 
+                  Access[selectedCharaID][`${ver}crystal`] == true ?
                   cpassivedata != undefined 
                   ?
                   <Crystal_Passives
@@ -642,8 +642,8 @@ const CharacterPageDirect = ({
                     </div>
                   :""}
                   {match.params.type == "boards" && 
-                  Access[selectedCharaID].basic[ver] == true && 
-                  Access[selectedCharaID].sum_fix[ver] == true ?
+                  Access[selectedCharaID][`${ver}basic`] == true && 
+                  Access[selectedCharaID][`${ver}sum_fix`] == true ?
                   boarddata != undefined 
                   ?
                   <Sum_Fix_Passive
@@ -684,8 +684,8 @@ const CharacterPageDirect = ({
                     </div>
                   :""}
                   {match.params.type == "force" && 
-                  Access[selectedCharaID].basic[ver] == true && 
-                  Access[selectedCharaID].link[ver] == true ?
+                  Access[selectedCharaID][`${ver}basic`] == true && 
+                  Access[selectedCharaID][`${ver}link`] == true ?
                   linkeddata != undefined 
                   ?
                     <Link_Passives
@@ -720,8 +720,8 @@ const CharacterPageDirect = ({
                 </div>
                 :""}
                 {match.params.type == "gear" && 
-                  Access[selectedCharaID].basic[ver] == true && 
-                  Access[selectedCharaID].gear[ver] == true ?
+                  Access[selectedCharaID][`${ver}basic`] == true && 
+                  Access[selectedCharaID][`${ver}gear`] == true ?
                   equipmentdata != undefined 
                   ?
                   <Equipment_Passives
@@ -756,8 +756,8 @@ const CharacterPageDirect = ({
                 </div>
                 :""}
                 {match.params.type == "spheres" && 
-                  Access[selectedCharaID].basic[ver] == true && 
-                  Access[selectedCharaID].spheres[ver] == true ?
+                  Access[selectedCharaID][`${ver}basic`] == true && 
+                  Access[selectedCharaID][`${ver}spheres`] == true ?
                   spheresdata != undefined &&
                   profiledata != undefined
                   ?
@@ -795,8 +795,8 @@ const CharacterPageDirect = ({
                 </div>
                 :""}
                 {match.params.type == "arts" && 
-                  Access[selectedCharaID].basic[ver] == true && 
-                  Access[selectedCharaID].art[ver] == true ?
+                  Access[selectedCharaID][`${ver}basic`] == true && 
+                  Access[selectedCharaID][`${ver}art`] == true ?
                   artdata != undefined 
                   ?
                   <Art_bycharacter
@@ -833,8 +833,8 @@ const CharacterPageDirect = ({
                 </div>
                 :""}
                 {match.params.type == "events" && 
-                  Access[selectedCharaID].basic[ver] == true && 
-                  Access[selectedCharaID].abilities[ver] == true ?
+                  Access[selectedCharaID][`${ver}basic`] == true && 
+                  Access[selectedCharaID][`${ver}abilities`] == true ?
                   eventdata != undefined
                   ?
                   <Event_Single

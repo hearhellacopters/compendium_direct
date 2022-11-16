@@ -19,6 +19,7 @@ import replacer_titles from '../../processing/replacer_titles'
 import replacer_buff from '../../processing/replacer_buffcontent'
 import MapMaker from './MapMaker';
 import Character_Ability_List from './Ability_list';
+import {MarkerType} from 'react-flow-renderer';
 
 const Ability_bycharacter =({
     ability_data,
@@ -51,7 +52,7 @@ const Ability_bycharacter =({
     enemy_resist,
     formatting,
 })=>{
-
+    console.log(command_group)
     function sortFollowUps(a, b) {
         if (b.FollowUp != true && a.FollowUp == true) {
           return 1;
@@ -645,7 +646,7 @@ const Ability_bycharacter =({
     useEffect(()=>{
         if(showMap){
         const elementholder= {}
-    
+
         //first
         if(idbase.length != 0){
             idbase.forEach(self=>{
@@ -770,6 +771,10 @@ const Ability_bycharacter =({
                             labelStyle: {fill: `white`},
                             arrowHeadType: 'arrowclosed',
                             type: 'default',
+                            markerEnd: {
+                                type: MarkerType.ArrowClosed,
+                                color: "#1e3758f0",
+                              },
                         } })
                         }
                     }
@@ -787,6 +792,10 @@ const Ability_bycharacter =({
                                 labelStyle: {fill: `white`},
                                 arrowHeadType: 'arrowclosed',
                                 type: 'default',
+                                markerEnd: {
+                                    type: MarkerType.ArrowClosed,
+                                    color: "#1e3758f0",
+                                  },
                             } })
                             }
                         }

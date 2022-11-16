@@ -119,7 +119,7 @@ const ailment_data_pars = (
     }
 
     if(effect_id == 53){
-        var effect53trpull = EffectID53[parseInt(`${ailment_id}${effect_num}`)]
+        var effect53trpull = EffectID53[parseInt(`${ailment_id}-${effect_num}`)]
         if(effect53trpull && effect53trpull.true_effect_id_number != -1){
             var effect53strpull2 = effect53trpull && EffectID[effect53trpull.true_effect_id_number]
             effectstrpull = effect53strpull2
@@ -213,7 +213,7 @@ const ailment_data_pars = (
         }
     }
     if(val_type == 7){
-        val_typestr = "• Rank per debuff present on target"
+        val_typestr = "• Per debuff present on target"
         ValTypeShow = true
         slidertype = "debuffsrank"
     }
@@ -225,7 +225,7 @@ const ailment_data_pars = (
         }
     }
     if(val_type == 9){
-        val_typestr = "• Double value if there are two or more enemies on the field"
+        val_typestr = "• Doubles value if there are two or more enemies on the field"
         ValTypeShow = true
         slidertype = "ranks"
         if(rank != undefined){
@@ -233,12 +233,12 @@ const ailment_data_pars = (
         }
     }
     if(val_type == 10){
-        val_typestr = "• Rank Values are based on turns remaining"
+        val_typestr = "• Value based on turns remaining"
         ValTypeShow = true
         slidertype = "turns"
     }
     if(val_type == 11){
-        val_typestr = "• Rank Values are based on debuffs on enemy"
+        val_typestr = "• Value based on debuffs on enemy"
         ValTypeShow = true
         slidertype = "debuffsrank"
     }
@@ -252,18 +252,18 @@ const ailment_data_pars = (
     }
     if(val_type == 14){
         const debuffname14 = AilmentNames[val_specify]
-        val_typestr = `• Ranks Values are based on levels of [${debuffname14 && debuffname14.name}] - #${val_specify}  on target`
+        val_typestr = `• Value based on levels of [${debuffname14 && debuffname14.name}] - #${val_specify} on target`
         ValTypeShow = true
         slidertype = "stacks"
     }
     if(val_type == 16){
         const debuffname16 = AilmentNames[val_specify]
-        val_typestr = `• Ranks Values are based on levels of [${debuffname16 && debuffname16.name}] - #${val_specify} on target`
+        val_typestr = `• Value based on levels of [${debuffname16 && debuffname16.name}] - #${val_specify} on target`
         ValTypeShow = true
         slidertype = "stacks"
     }
     if(val_type == 18){
-        val_typestr = `• Ranks Values are based on debuffs on all enemies`
+        val_typestr = `• Value based on debuffs on all enemies`
         ValTypeShow = true
         slidertype = "debuffsrank"
     }

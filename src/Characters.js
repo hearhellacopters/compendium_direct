@@ -20,8 +20,10 @@ import { FaShareSquare } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
 import roles from './formatting/roles.json'
 
-const Characters = ({ProcessedCharacters,jptoggledata}) => {
+const Characters = ({ProcessedCharacters,jptoggledata,Access}) => {
   
+  console.log(Access)
+
   const rawData = ProcessedCharacters;
 
   const dispatch = useDispatch();
@@ -137,10 +139,11 @@ const Characters = ({ProcessedCharacters,jptoggledata}) => {
   const [Debuff_Gold, setDebuff_Gold] = useState(getQueryStringVal("Debuff_Gold") != null  ? true : false);
 
   const [HP_Damage_Up, setHP_Damage_Up] = useState(getQueryStringVal("HP_Damage_Up") != null  ? true : false);
-  const [Tank, setTank] = useState(getQueryStringVal("Tank") != null  ? true : false);
+  const [Tank, setTank] = useState(getQueryStringVal("Cover") != null  ? true : false);
   const [Battery, setBattery] = useState(getQueryStringVal("Battery") != null  ? true : false);
   const [Launcher, setLauncher] = useState(getQueryStringVal("Launcher") != null  ? true : false);
   const [Dispel, setDispel] = useState(getQueryStringVal("Dispel") != null  ? true : false);
+  const [BuffPrevent,setBuffPrevent] = useState(getQueryStringVal("BuffPrevent") != null  ? true : false);
   const [Counter, setCounter] = useState(getQueryStringVal("Counter") != null  ? true : false);
   const [Delay, setDelay] = useState(getQueryStringVal("Delay") != null  ? true : false);
   const [ThreeDelay, setThreeDelay] = useState(getQueryStringVal("ThreeDelay") != null  ? true : false);
@@ -267,10 +270,11 @@ const Characters = ({ProcessedCharacters,jptoggledata}) => {
   const [Trap_Before_Turnsearch, setTrap_Before_Turnsearch] = useQueryParam("Trap_Before_Turn", "");
 
   const [HP_Damage_Upsearch, setHP_Damage_Upsearch] =  useQueryParam("HP_Damage_Up", "");
-  const [Tanksearch, setTanksearch] = useQueryParam("Tank", "");
+  const [Tanksearch, setTanksearch] = useQueryParam("Cover", "");
   const [Batterysearch, setBatterysearch] = useQueryParam("Battery", "");
   const [Launchersearch, setLaunchersearch] = useQueryParam("Launcher", "");
   const [Dispelsearch, setDispelsearch] = useQueryParam("Dispel", "");
+  const [BuffPreventsearch,setBuffPreventsearch] = useQueryParam("BuffPrevent", "");
   const [Countersearch, setCountersearch] = useQueryParam("Counter", "");
   const [Delaysearch, setDelaysearch] = useQueryParam("Delay", "");
   const [ThreeDelaysearch, setThreeDelaysearch] = useQueryParam("ThreeDelay", "");
@@ -860,7 +864,7 @@ const Characters = ({ProcessedCharacters,jptoggledata}) => {
       }
       if (Tank === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Tank"] === true
+          (chars) => chars["Cover"] === true
         );
         filterholder.push(...filteredout);
       }
@@ -1212,6 +1216,12 @@ const Characters = ({ProcessedCharacters,jptoggledata}) => {
         );
         filterholder.push(...filteredout);
       }
+      if(BuffPrevent == true){
+        const filteredout = rawData.filter(
+          (chars) => chars["BuffPrevent"] === true
+        );
+        filterholder.push(...filteredout);
+      }
   
       if (filterholder.length === 0) {
         filterholder.push(...rawData);
@@ -1233,7 +1243,7 @@ const Characters = ({ProcessedCharacters,jptoggledata}) => {
         setSearchResults(getcharacterfilter);
         setListDisplay(getcharacterfilter);
     }
-  }, [jptoggledata,BRV_Damage_Cap,Board5Flag,Special_Buff,Free_Ability,Stacked_Buff_Five, FollowUp_Action_On_Enemy,FollowUp_Start_Of_Next,FollowUp_Extension,FollowUp_Before_Ability,FollowUp_Before_Player_Turn,Trap_After_Trigger,Trap_Before_Turn, Stacked_Buff,EX_MAX_Party,BRV_Absorb,BRV_Ratio,Turn_Interrupter,Continuous_Turns,Launch_Support,FollowUp_By_Other,BRV_Wont_Below,Debuff_Gold,Debuff_Evade,Blind,FRFlag,FRBoardFlag, Cannot_Break, FollowUp, Ally_Turn_Manipulator, Self_Harm, Break_Reset, RealmSort, JPSort, HPSort, INTBRVSort, MAXBRVSort, ATKSort, DEFSort, SPDSort, NameSort, Buff_Extension,rawData,searchTerm,HP_Damage_Up, Non_Elemental, Stacked_Debuff, KO_Prevent, Reviver, SevenStarArmor, Debuff_Break, Ignore_DEF, Evade, CritRateUp, clearFilter, TwoAbilitiesRecover, merge, BRVRegen, BRVDamageResist, Dagger, Sword, Greatsword, Staff, Gun, Fist, Throwing, Spear, Bow, Whip, Other, RedCrystal, BlueCrystal, YellowCrystal, GreenCrystal, BlackCrystal, WhiteCrystal, SevenStarPlusArmor, BTPlusFlag, LDBoardFlag, BTFlag, LDFlag, MaxLevel, ActiveRework, Magic, Ranged, Melee, ASlot, BSlot, CSlot, DSlot, ESlot, Fire, Ice, Thunder, Water, Earth, Wind, Dark, Holy, Tank, Debuffer, BRVResistDown, MagicImperil, RangedImperil, MeleeImperil, WindImperil, FireImperil, ThunderImperil, HolyImperil, IceImperil, WaterImperil, EarthImperil, DarkImperil, ThreeDelay, FourDebuff, FiftyHPHealAbility, SixBuffs, Battery, BRVControl, BRVPoison, BRVShield, Cleanse, Counter, DarkEnchant, Delay, Disable, Dispel, EarthEnchant, FireEnchant, ForceBreak, HolyEnchant, HPDamageResist, HPHealAbility, HPPoison, HPRegen, IceEnchant, Launcher, ThunderEnchant, Trap, WaterEnchant, WindEnchant, DeleteTurns, HPResistDown, condFilter, reverse]);
+  }, [jptoggledata,BRV_Damage_Cap,Board5Flag,Special_Buff,Free_Ability,Stacked_Buff_Five,BuffPrevent, FollowUp_Action_On_Enemy,FollowUp_Start_Of_Next,FollowUp_Extension,FollowUp_Before_Ability,FollowUp_Before_Player_Turn,Trap_After_Trigger,Trap_Before_Turn, Stacked_Buff,EX_MAX_Party,BRV_Absorb,BRV_Ratio,Turn_Interrupter,Continuous_Turns,Launch_Support,FollowUp_By_Other,BRV_Wont_Below,Debuff_Gold,Debuff_Evade,Blind,FRFlag,FRBoardFlag, Cannot_Break, FollowUp, Ally_Turn_Manipulator, Self_Harm, Break_Reset, RealmSort, JPSort, HPSort, INTBRVSort, MAXBRVSort, ATKSort, DEFSort, SPDSort, NameSort, Buff_Extension,rawData,searchTerm,HP_Damage_Up, Non_Elemental, Stacked_Debuff, KO_Prevent, Reviver, SevenStarArmor, Debuff_Break, Ignore_DEF, Evade, CritRateUp, clearFilter, TwoAbilitiesRecover, merge, BRVRegen, BRVDamageResist, Dagger, Sword, Greatsword, Staff, Gun, Fist, Throwing, Spear, Bow, Whip, Other, RedCrystal, BlueCrystal, YellowCrystal, GreenCrystal, BlackCrystal, WhiteCrystal, SevenStarPlusArmor, BTPlusFlag, LDBoardFlag, BTFlag, LDFlag, MaxLevel, ActiveRework, Magic, Ranged, Melee, ASlot, BSlot, CSlot, DSlot, ESlot, Fire, Ice, Thunder, Water, Earth, Wind, Dark, Holy, Tank, Debuffer, BRVResistDown, MagicImperil, RangedImperil, MeleeImperil, WindImperil, FireImperil, ThunderImperil, HolyImperil, IceImperil, WaterImperil, EarthImperil, DarkImperil, ThreeDelay, FourDebuff, FiftyHPHealAbility, SixBuffs, Battery, BRVControl, BRVPoison, BRVShield, Cleanse, Counter, DarkEnchant, Delay, Disable, Dispel, EarthEnchant, FireEnchant, ForceBreak, HolyEnchant, HPDamageResist, HPHealAbility, HPPoison, HPRegen, IceEnchant, Launcher, ThunderEnchant, Trap, WaterEnchant, WindEnchant, DeleteTurns, HPResistDown, condFilter, reverse]);
 
   //Merge filter
   useEffect(() => {
@@ -1299,12 +1309,13 @@ const Characters = ({ProcessedCharacters,jptoggledata}) => {
         BRV_Resist_Down: BRVResistDown,
         HP_Resist_Down: HPResistDown,
         Four_Debuff: FourDebuff,
-        Tank: Tank,
+        Cover: Tank,
         Battery: Battery,
         BRV_Control: BRVControl,
         Launcher: Launcher,
         Disable: Disable,
         Dispel: Dispel,
+        BuffPrevent: BuffPrevent,
         Counter: Counter,
         Delay: Delay,
         Force_Break: ForceBreak,
@@ -1319,7 +1330,7 @@ const Characters = ({ProcessedCharacters,jptoggledata}) => {
         Three_Delay: ThreeDelay,
         Level90: MaxLevel,
         LDFlag: LDFlag,
-        FRFlag: LDFlag,
+        FRFlag: FRFlag,
         LDBoardFlag: LDBoardFlag,
         FRBoardFlag: FRBoardFlag,
         BTFlag: BTFlag,
@@ -1391,7 +1402,7 @@ const Characters = ({ProcessedCharacters,jptoggledata}) => {
         setSearchResults(getcharacterfilter);
         setListDisplay(getcharacterfilter);
     }
-  }, [jptoggledata,BRV_Damage_Cap,Board5Flag,Special_Buff,Free_Ability,Stacked_Buff_Five, FollowUp_Action_On_Enemy,FollowUp_Start_Of_Next,FollowUp_Extension,FollowUp_Before_Ability,FollowUp_Before_Player_Turn,Trap_After_Trigger,Trap_Before_Turn, Stacked_Buff,EX_MAX_Party,BRV_Absorb,BRV_Ratio,Turn_Interrupter,Continuous_Turns,Launch_Support,FollowUp_By_Other,BRV_Wont_Below,Debuff_Gold,Debuff_Evade,Blind,Cannot_Break, FRBoardFlag, FRFlag, FollowUp, Ally_Turn_Manipulator, Self_Harm, Break_Reset, RealmSort, JPSort, HPSort, INTBRVSort, MAXBRVSort, ATKSort, DEFSort, SPDSort, Buff_Extension,rawData,searchTerm,HP_Damage_Up, Non_Elemental, Stacked_Debuff, KO_Prevent, Reviver, SevenStarArmor, Debuff_Break, Ignore_DEF,Evade, CritRateUp, clearFilter, TwoAbilitiesRecover, merge, BRVRegen, BRVDamageResist, Dagger, Sword, Greatsword, Staff, Gun, Fist, Throwing, Spear, Bow, Whip, Other, RedCrystal, BlueCrystal, YellowCrystal, GreenCrystal, BlackCrystal, WhiteCrystal, SevenStarPlusArmor, BTPlusFlag, LDBoardFlag, BTFlag, LDFlag, MaxLevel, ActiveRework, Magic, Ranged, Melee, ASlot, BSlot, CSlot, DSlot, ESlot, Fire, Ice, Thunder, Water, Earth, Wind, Dark, Holy, Tank, Debuffer, BRVResistDown, MagicImperil, RangedImperil, MeleeImperil, WindImperil, FireImperil, ThunderImperil, HolyImperil, IceImperil, WaterImperil, EarthImperil, DarkImperil, ThreeDelay, FourDebuff, FiftyHPHealAbility, SixBuffs, Battery, BRVControl, BRVPoison, BRVShield, Cleanse, Counter, DarkEnchant, Delay, Disable, Dispel, EarthEnchant, FireEnchant, ForceBreak, HolyEnchant, HPDamageResist, HPHealAbility, HPPoison, HPRegen, IceEnchant, Launcher, ThunderEnchant, Trap, WaterEnchant, WindEnchant, DeleteTurns, HPResistDown, condFilter, reverse]);
+  }, [jptoggledata,BRV_Damage_Cap,Board5Flag,Special_Buff,Free_Ability,Stacked_Buff_Five,BuffPrevent, FollowUp_Action_On_Enemy,FollowUp_Start_Of_Next,FollowUp_Extension,FollowUp_Before_Ability,FollowUp_Before_Player_Turn,Trap_After_Trigger,Trap_Before_Turn, Stacked_Buff,EX_MAX_Party,BRV_Absorb,BRV_Ratio,Turn_Interrupter,Continuous_Turns,Launch_Support,FollowUp_By_Other,BRV_Wont_Below,Debuff_Gold,Debuff_Evade,Blind,Cannot_Break, FRBoardFlag, FRFlag, FollowUp, Ally_Turn_Manipulator, Self_Harm, Break_Reset, RealmSort, JPSort, HPSort, INTBRVSort, MAXBRVSort, ATKSort, DEFSort, SPDSort, Buff_Extension,rawData,searchTerm,HP_Damage_Up, Non_Elemental, Stacked_Debuff, KO_Prevent, Reviver, SevenStarArmor, Debuff_Break, Ignore_DEF,Evade, CritRateUp, clearFilter, TwoAbilitiesRecover, merge, BRVRegen, BRVDamageResist, Dagger, Sword, Greatsword, Staff, Gun, Fist, Throwing, Spear, Bow, Whip, Other, RedCrystal, BlueCrystal, YellowCrystal, GreenCrystal, BlackCrystal, WhiteCrystal, SevenStarPlusArmor, BTPlusFlag, LDBoardFlag, BTFlag, LDFlag, MaxLevel, ActiveRework, Magic, Ranged, Melee, ASlot, BSlot, CSlot, DSlot, ESlot, Fire, Ice, Thunder, Water, Earth, Wind, Dark, Holy, Tank, Debuffer, BRVResistDown, MagicImperil, RangedImperil, MeleeImperil, WindImperil, FireImperil, ThunderImperil, HolyImperil, IceImperil, WaterImperil, EarthImperil, DarkImperil, ThreeDelay, FourDebuff, FiftyHPHealAbility, SixBuffs, Battery, BRVControl, BRVPoison, BRVShield, Cleanse, Counter, DarkEnchant, Delay, Disable, Dispel, EarthEnchant, FireEnchant, ForceBreak, HolyEnchant, HPDamageResist, HPHealAbility, HPPoison, HPRegen, IceEnchant, Launcher, ThunderEnchant, Trap, WaterEnchant, WindEnchant, DeleteTurns, HPResistDown, condFilter, reverse]);
 
  
 
@@ -1965,6 +1976,14 @@ const Characters = ({ProcessedCharacters,jptoggledata}) => {
       setDispelsearch("")
     }
     setDispel((prevValue) => !prevValue);
+  };
+  const BuffPreventbutton = () => {
+    if(BuffPrevent == false){
+      setBuffPreventsearch("true")
+    } else{
+      setBuffPreventsearch("")
+    }
+    setBuffPrevent((prevValue) => !prevValue);
   };
   const Counterbutton = () => {
     if(Counter == false){
@@ -2713,6 +2732,7 @@ const Characters = ({ProcessedCharacters,jptoggledata}) => {
     setDelay(false)
     setDisable(false)
     setDispel(false)
+    setBuffPrevent(false)
     setEarthEnchant(false)
     setFireEnchant(false)
     setForceBreak(false)
@@ -2884,6 +2904,7 @@ const Characters = ({ProcessedCharacters,jptoggledata}) => {
     setBatterysearch("")
     setLaunchersearch("")
     setDispelsearch("")
+    setBuffPreventsearch("")
     setCountersearch("")
     setDelaysearch("")
     setThreeDelaysearch("")
@@ -3223,9 +3244,6 @@ const Characters = ({ProcessedCharacters,jptoggledata}) => {
                       <Tippy content={roles[`Debuffer`].name}>
                         <li className={`${Debuffer ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Debufferbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Debuffer`].url})`}}></li>
                       </Tippy>
-                      <Tippy content={roles[`Four_Debuff`].name}>
-                        <li className={`${FourDebuff ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={FourDebuffbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Four_Debuff`].url})`}}></li>
-                      </Tippy>
                       <Tippy content={roles[`BRV_Resist_Down`].name}>
                         <li className={`${BRVResistDown ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BRVResistDownbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRV_Resist_Down`].url})`}}></li>
                       </Tippy>
@@ -3247,9 +3265,6 @@ const Characters = ({ProcessedCharacters,jptoggledata}) => {
                       <Tippy content={roles[`KO_Prevent`].name}>
                         <li className={`${KO_Prevent ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={KO_Preventbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`KO_Prevent`].url})`}}></li>
                       </Tippy>
-                      <Tippy content={roles[`Dispel`].name}>
-                        <li className={`${Dispel ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Dispelbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Dispel`].url})`}}></li>
-                      </Tippy>
                       <Tippy content={roles[`BRV_Regen`].name}>
                         <li className={`${BRVRegen ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BRVRegenbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRV_Regen`].url})`}}></li>
                       </Tippy>
@@ -3258,9 +3273,6 @@ const Characters = ({ProcessedCharacters,jptoggledata}) => {
                       </Tippy>
                       <Tippy content={roles[`HP_Heal_Ability`].name}>
                         <li className={`${HPHealAbility ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={HPHealAbilitybutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`HP_Heal_Ability`].url})`}}></li>
-                      </Tippy>
-                      <Tippy content={roles[`Fifty_HP_Heal_Ability`].name}>
-                        <li className={`${FiftyHPHealAbility ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={FiftyHPHealAbilitybutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Fifty_HP_Heal_Ability`].url})`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Two_Abilities_Recover`].name}>
                         <li className={`${TwoAbilitiesRecover ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={TwoAbilitiesRecoverbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Two_Abilities_Recover`].url})`}}></li>
@@ -3304,17 +3316,14 @@ const Characters = ({ProcessedCharacters,jptoggledata}) => {
                     </ul>
                     <div className="similarbanner">Defending</div>
                     <ul className="characterclasses">
-                      <Tippy content={roles[`Tank`].name}>
-                        <li className={`${Tank ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Tankbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Tank`].url})`}}></li>
+                      <Tippy content={roles[`Cover`].name}>
+                        <li className={`${Tank ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Tankbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Cover`].url})`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Evade`].name}>
                         <li className={`${Evade ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Evadebutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Evade`].url})`}}></li>
                       </Tippy>
                       <Tippy content={roles[`BRV_Shield`].name}>
                         <li className={`${BRVShield ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BRVShieldbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRV_Shield`].url})`}}></li>
-                      </Tippy>
-                      <Tippy content={roles[`BRV_Absorb`].name}>
-                        <li className={`${BRV_Absorb ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BRV_Absorbbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRV_Absorb`].url})`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Cannot_Break`].name}>
                         <li className={`${Cannot_Break ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Cannot_Breakbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Cannot_Break`].url})`}}></li>
@@ -3339,6 +3348,12 @@ const Characters = ({ProcessedCharacters,jptoggledata}) => {
                       </Tippy>
                       <Tippy content={roles[`Delete_Turns`].name}>
                         <li className={`${DeleteTurns ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={DeleteTurnsbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Delete_Turns`].url})`}}></li>
+                      </Tippy>
+                      <Tippy content={roles[`Dispel`].name}>
+                        <li className={`${Dispel ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Dispelbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Dispel`].url})`}}></li>
+                      </Tippy>
+                      <Tippy content={roles[`BuffPrevent`].name}>
+                        <li className={`${BuffPrevent ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BuffPreventbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BuffPrevent`].url})`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Break_Reset`].name}>
                         <li className={`${Break_Reset ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Break_Resetbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Break_Reset`].url})`}}></li>
@@ -3375,9 +3390,6 @@ const Characters = ({ProcessedCharacters,jptoggledata}) => {
                       </Tippy>
                       <Tippy content={roles[`Stacked_Buff_Five`].name}>
                         <li className={`${Stacked_Buff_Five ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Stacked_Buff_Fivebutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Stacked_Buff_Five`].url})`}}></li>
-                      </Tippy>
-                      <Tippy content={roles[`Six_Buffs`].name}>
-                        <li className={`${SixBuffs ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={SixBuffsbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Six_Buffs`].url})`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Free_Ability`].name}>
                         <li className={`${Free_Ability ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Free_Abilitybutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Free_Ability`].url})`}}></li>

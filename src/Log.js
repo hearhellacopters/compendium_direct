@@ -12,10 +12,20 @@ const log = () =>{
                 </div> 
                 <ul className="creditslist">
                     <li>
-                    ┬ Site now uses separate databases for each version<br/>
-                    ├─ Easier to tell what is and isnt available per version<br/>
-                    ├─ Many updates added to direct data<br/>
-                    └─ Search pages now use direct data<br/>
+                    ┬ Site now uses split databases for GL and JP<br/>
+                    ├─ Rework, Enemy and Summon pages will remain unchanged<br/>
+                    ├─ Spoiler tags now on some content<br/>
+                    └─ Character data restricted to only versions they are found in<br/>
+                    ┬ Buffs Search<br/>
+                    ├─ Added official text to buffs<br/>
+                    ├─ Ordered buffs based on ability<br/>
+                    ├─ Added New Icons for Battle States<br/>
+                    ├─ Added Stats Totals toggle to Battle States<br/>
+                    ├─ Added links to Force Time page<br/>
+                    ├─ Added passive increases to buffs<br/>
+                    ├─ Added ability upgrades to buffs<br/>
+                    ├─ Added totaled values on Force Time buffs<br/>
+                    └─ Added simple button filters<br/>
                     ┬ Abilities Search<br/>
                     ├─ Added Ability Use / Speed Increases<br/>
                     ├─ Added Passive increases<br/>

@@ -34,6 +34,7 @@
     "redux-saga": "^1.2.1",
     "styled-components": "^5.3.6",
     "tippy.js": "^6.3.7",
+    "typescript": "^4.8.4",
     "use-state-if-mounted": "^1.0.7",
     "web-vitals": "^2.1.4"
   },

@@ -20,7 +20,8 @@ const Ailment_Field_Attached_State =({
     char_id,
     hide_type,
     ver,
-    hide_disp
+    hide_disp,
+    is_passive
 })=>{
 
     const [highestlvl, setHighestlvl] = useState(10);
@@ -89,6 +90,7 @@ const Ailment_Field_Attached_State =({
                 alt_aug2={undefined}
                 char_id={char_id}
                 hide_type={hide_type}
+                is_passive={true}
                 />
                 {showraw == true?
                 <ReactJson iconStyle={"square"} quotesOnKeys={false} name={"Raw"} displayDataTypes={false} collapsed={false} theme={"threezerotwofour"} src={ailment_field}/>

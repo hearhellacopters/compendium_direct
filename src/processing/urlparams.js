@@ -7,17 +7,15 @@ export const getQuery = () => {
     return new URLSearchParams();
   };
   
-export const getQueryStringVal = (key: string): string | null => {
+export const getQueryStringVal = (key)=> {
     return getQuery().get(key);
   };
   
-export const useQueryParam = (
-    key: string,
-    defaultVal: string
-  ): [string, (val: string) => void] => {
+export const useQueryParam = (key,defaultVal) => {
+
     const [query, setQuery] = useState(getQueryStringVal(key) || defaultVal);
   
-    const updateUrl = (newVal: string) => {
+    const updateUrl = (newVal) => {
       setQuery(newVal);
   
       const query = getQuery();

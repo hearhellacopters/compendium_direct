@@ -133,12 +133,12 @@ const GearPageFormatting = ({match, ProcessedCharacters, ProcessedGear, Processe
           <meta name="description" content={`Listing of all gear for ${filtered[0].CharacterName}`}/>
           <meta name="twitter:title" content={`${filtered[0].CharacterName} Gear`}/>
           <meta name="twitter:description" content={`Listing of all gear for ${filtered[0].CharacterName}`}/>
-          <meta name="twitter:image" content={filtered[0].CardURL}/>
+          <meta name="twitter:image" content={`https://dissidiacompendium.com/images/static/characters/${filtered[0].CharacterURLName}/cc.png`}/>
           <meta name="twitter:card" content="summary"/>
           <meta name="twitter:image:alt" content={`${filtered[0].CharacterName}`}/>
           <meta property="og:title" content={`${filtered[0].CharacterName} Gear`}/>
           <meta property="og:description" content={`Listing of all gear for ${filtered[0].CharacterName}`}/>
-          <meta property="og:image" content={filtered[0].CardURL}/>
+          <meta property="og:image" content={`https://dissidiacompendium.com/images/static/characters/${filtered[0].CharacterURLName}/cc.png`}/>
           <meta property="og:url" content={`https://dissidiacompendium.com/characters/${filtered[0].ShortName}/gear`}/>
         </Helmet>
             <div className="returnbutton">

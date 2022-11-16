@@ -100,7 +100,7 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
                   
                   helper_pull.map(self3=>{
                     if(helper_holder[self3.CharID] == undefined){
-                        Object.assign(helper_holder,{[self3.CharID]: {GLOrder: self3.GLOrder, RealmPars: self3.RealmPars, Sort: self3.Sort, ShortName: self3.ShortName, CharacterFaceURL: self3.CharacterFaceURL, CharacterName: self3.CharacterName, CharID: self3.CharID, roles:[self]}})
+                        Object.assign(helper_holder,{[self3.CharID]: {GLOrder: self3.GLOrder, RealmPars: self3.RealmPars, Sort: self3.Sort, ShortName: self3.ShortName, CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${self3.CharacterURLName}/face.png`, CharacterName: self3.CharacterName, CharID: self3.CharID, roles:[self]}})
                     } else {
                         helper_holder[self3.CharID].roles.push(self)
                     }
@@ -110,7 +110,7 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
                 set_chars && set_chars.map(self=>{
                     const single = PartnerCharacters[self.CharID] && PartnerCharacters[self.CharID]
                     if(helper_holder[self.CharID] == undefined){
-                        Object.assign(helper_holder,{[self.CharID]: {GLOrder: single.GLOrder, RealmPars: single.RealmPars, Sort: single.Sort, ShortName: single.ShortName, CharacterFaceURL: single.CharacterFaceURL, CharacterName: single.CharacterName, CharID: self.CharID, roles: ["Enemy"]}})
+                        Object.assign(helper_holder,{[self.CharID]: {GLOrder: single.GLOrder, RealmPars: single.RealmPars, Sort: single.Sort, ShortName: single.ShortName, CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${single.CharacterURLName}/face.png`, CharacterName: single.CharacterName, CharID: self.CharID, roles: ["Enemy"]}})
                     } else {
                         helper_holder[self.CharID].roles.push("Enemy")
                     }

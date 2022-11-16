@@ -164,61 +164,6 @@ const onclickvoice = (Voice) =>{
       }
   }
 
-  const Max_Stats = <div className="primeenemystats margauto">
-      <div className="stattags">
-          <div className="stattag">
-              <div className="lefttagholder"></div>
-                  <div className="statcenter">HP</div>
-              <div className="righttagholder"></div>
-          </div>
-          <div className="stattag">
-              <div className="lefttagholder"></div>
-                  <div className="statcenter">INT BRV</div>
-              <div className="righttagholder"></div>
-          </div>
-          <div className="stattag">
-              <div className="lefttagholder"></div>
-                  <div className="statcenter">MAX BRV</div>
-              <div className="righttagholder"></div>
-          </div>
-          <div className="stattag">
-              <div className="lefttagholder"></div>
-                  <div className="statcenter">ATK</div>
-              <div className="righttagholder"></div>
-          </div>
-          <div className="stattag">
-              <div className="lefttagholder"></div>
-              <div className="statcenter">DEF</div>
-              <div className="righttagholder"></div>
-          </div>
-          <div className="stattag">
-              <div className="lefttagholder"></div>
-              <div className="statcenter">SPD</div>
-              <div className="righttagholder"></div>
-          </div>
-      </div>
-      <div className="statvalueholders">
-          <div className={`enemystatsvalue`}>
-              {newmatch.Max_HP}
-          </div>
-          <div className={`enemystatsvalue`}>
-            {newmatch.Max_INTBRV}
-          </div>
-          <div className={`enemystatsvalue`}>
-            {newmatch.Max_MAXBRV}
-          </div>
-          <div className={`enemystatsvalue`}>
-            {newmatch.Max_ATK}
-          </div>
-          <div className={`enemystatsvalue`}>
-          {newmatch.Max_DEF}
-          </div>
-          <div className={`enemystatsvalue`}>
-          {newmatch.Max_SPD}
-          </div>
-      </div>
-    </div>
-
     const [all_dates,setall_dates] = useStateIfMounted([])
 
     useEffect(()=>{
@@ -354,12 +299,12 @@ const onclickvoice = (Voice) =>{
                 <meta name="description" content={`${newmatch.CharacterName} Page`}/>
                 <meta name="twitter:title" content={`${newmatch.CharacterName} Page`}/>
                 <meta name="twitter:description" content={`${newmatch.CharacterName} Page`}/>
-                <meta name="twitter:image" content={newmatch.CardURL}/>
+                <meta name="twitter:image" content={`https://dissidiacompendium.com/images/static/characters/${newmatch.CharacterURLName}/cc.png`}/>
                 <meta name="twitter:card" content="summary"/>
                 <meta name="twitter:image:alt" content={`${newmatch.CharacterName}`}/>
                 <meta property="og:title" content={`${newmatch.CharacterName} Page`}/>
                 <meta property="og:description" content={`${newmatch.CharacterName} Banner`}/>
-                <meta property="og:image" content={newmatch.CardURL}/>
+                <meta property="og:image" content={`https://dissidiacompendium.com/images/static/characters/${newmatch.CharacterURLName}/cc.png`}/>
                 <meta property="og:url" content={`https://dissidiacompendium.com/characters/${newmatch.ShortName}`}/>
             </Helmet>
             <div className="returnbutton">

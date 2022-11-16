@@ -8,7 +8,7 @@ import ReactFlow, {
   isNode,
   Background,
   MiniMap,
-  Controls
+  Controls,
 } from 'react-flow-renderer';
 import dagre from 'dagre';
 
@@ -60,33 +60,27 @@ const MapMaker = ({
     });
   };
 
-  const initialNodes = initialElements && initialElements.filter(self=>self.source == undefined)
-  const initialEdges = initialElements && initialElements.filter(self=>self.source != undefined)
+  const layoutedElements = getLayoutedElements(initialElements);
+
+  const initialNodes = layoutedElements && layoutedElements.filter(self=>self.source == undefined)
+  const initialEdges = layoutedElements && layoutedElements.filter(self=>self.source != undefined)
 
   const [nodes, setNodes] = useState(initialNodes);
   const [edges, setEdges] = useState(initialEdges);
 
-  const onConnect = (params) =>
-    setEdges((els) =>
-      addEdge({ ...params, type: 'smoothstep', animated: false }, els)
-    );
+  const onConnect = useCallback((params) => setEdges((eds) => addEdge(params, eds)));
     
     const onNodesChange = useCallback(
-      (changes) => setNodes((ns) => applyNodeChanges(changes, ns)),
+      (params) => setNodes((ns) => applyNodeChanges(params, ns)),
       []
     );
     const onEdgesChange = useCallback(
-      (changes) => setEdges((es) => applyEdgeChanges(changes, es)),
+      (params) => setEdges((es) => applyEdgeChanges(params, es)),
       []
     );
 
-  const onLayout = useCallback(
-    (direction) => {
-      const layoutedElements = getLayoutedElements(getLayoutedElements(initialElements), direction);
-      setEdges(layoutedElements);
-    },
-    [initialElements]
-  );
+    const startinglimit = window.innerWidth <= 700 ? 100 : 200;
+    const startingzoom = window.innerWidth <= 700 ? .8 : 1;
 
   return (
     <div className="flowholder">
@@ -101,7 +95,11 @@ const MapMaker = ({
           snapToGrid={true}
           snapGrid={[5, 5]}
           key="edges"
-          arrowHeadColor='#1e3758f0'
+          nodesConnectable={false}
+          elementsSelectable={false}
+          defaultPosition={[startinglimit, 10]}
+          onlyRenderVisibleElements={true}
+          defaultZoom={startingzoom}
         >
           
           <Background
@@ -130,7 +128,7 @@ const MapMaker = ({
           <Controls
           showInteractive={false}/>
           </ReactFlow>
-      </ReactFlowProvider>
+          </ReactFlowProvider>
     </div>
   );
 };

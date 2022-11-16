@@ -107,7 +107,7 @@ const Character_Option_Pars=({
             <div >
                 <div >
                 {`\xa0${transdata.label_str == "" ? "-" : "┬"} `}
-                {transdata && transdata.title_str && addformatting(`${transdata.title_str}${transdata && transdata.passives && transdata.passives.length != 0 ? ` w/ ${transdata.passives.map(self=>` <${self.loc_tag && self.loc_tag}>`)}` :""}`,"tl")}
+                {transdata && transdata.title_str && addformatting(`${transdata.title_str}${transdata && transdata.passives && transdata.passives.length != 0 ? ` w/${transdata.passives.map(self=>` <${self.loc_tag && self.loc_tag}>`)}` :""}`,"tl")}
                 </div>
 
                 {transdata && transdata.label_str != "" ?

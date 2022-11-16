@@ -631,7 +631,7 @@ const Character_Ability_Pars =({
                         "saholder"
                     }>
                         {use_num < 100 ?
-                        <div className={`sanumber ${character_ability.Free == true ? "upstat" : ""}`}>{usemaker(use_num)}</div>
+                        <div className={`sanumber ${character_ability.Free_Ability == true ? "upstat" : ""}`}>{usemaker(use_num)}</div>
                         : 
                         usemaker(use_num)
                         }
@@ -684,12 +684,12 @@ const Character_Ability_Pars =({
                                 <span className='Dark'></span>
                                 :""}
 
-                                {character_ability.Heals == true?
+                                {character_ability.HP_Heal_Ability == true?
                                 <Tippy content={"Heals"}>
                                     <span className='Heals'></span>
                                 </Tippy>
                                 :""}
-                                {character_ability.IgnoreDEF == true?
+                                {character_ability.Ignore_DEF == true?
                                 <Tippy content={"Ignores DEF"}>
                                     <span className='IgnoreDEF'></span>
                                 </Tippy>
@@ -699,7 +699,7 @@ const Character_Ability_Pars =({
                                     <span className='Instant'></span>
                                 </Tippy>
                                 :""}
-                                {character_ability.KnockBack == true?
+                                {character_ability.Launcher == true?
                                 <Tippy content={"Knock Back"}>
                                     <span className='KnockBack'></span>
                                 </Tippy>
@@ -730,12 +730,12 @@ const Character_Ability_Pars =({
                                     <span className='NoEX'></span>
                                 </Tippy>
                                 :""}
-                                {character_ability.Free == false?
+                                {character_ability.Free_Ability == false?
                                 <Tippy content={"No Free Uses"}>
                                     <span className='NoFree'></span>
                                 </Tippy>
                                 :""}
-                                {character_ability.Free == true?
+                                {character_ability.Free_Ability == true?
                                 <Tippy content={"Does not consume ability use"}>
                                     <span className='Free'></span>
                                 </Tippy>

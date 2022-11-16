@@ -204,7 +204,7 @@ const CharacterFilter = ({ match, reverse, Sortsearch, ProcessedCharacters }) =>
                 {match.map(chars => (
                     <Link className="characterlink" key={chars.CharID} to={'/characters/' + chars.ShortName}>
                     <li >
-                        <LazyLoadImage className="charactercard" alt={chars.CharacterName} src={chars.CardURL} effect="opacity"/>
+                        <LazyLoadImage className="charactercard" alt={chars.CharacterName} src={`https://dissidiacompendium.com/images/static/characters/${chars.CharacterURLName}/cc.png`} effect="opacity"/>
                     </li>
                     {chars.JPSynergyStart == undefined && chars.GLSynergyStart == undefined ? "" :
                     <div className={chars.JPSynergyStart == undefined || chars.GLSynergyStart == undefined ? "bubble1" : "bubble2"}>
@@ -244,7 +244,7 @@ const CharacterFilter = ({ match, reverse, Sortsearch, ProcessedCharacters }) =>
             {filteredout.map(chars => (
                 <Link className="characterlink"  key={chars.CharID + "dim"} to={'/characters/' + chars.ShortName}>
                 <li >
-                    <LazyLoadImage className="charactercard dim" alt={chars.CharacterName} src={chars.CardURL} effect="opacity"/>
+                    <LazyLoadImage className="charactercard dim" alt={chars.CharacterName} src={`https://dissidiacompendium.com/images/static/characters/${chars.CharacterURLName}/cc.png`} effect="opacity"/>
                 </li>
                 {chars.JPSynergyStart == undefined && chars.GLSynergyStart == undefined ? "" :
                     <div className={chars.JPSynergyStart == undefined || chars.GLSynergyStart == undefined ? "bubble1 dim" : "bubble2 dim"}>

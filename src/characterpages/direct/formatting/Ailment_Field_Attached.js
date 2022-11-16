@@ -95,6 +95,7 @@ const Ailment_Field_Attached =({
             alt_aug1={undefined}
             alt_aug2={undefined}
             char_id={char_id}
+            is_passive={true}
             />
             </div>
             </div>
