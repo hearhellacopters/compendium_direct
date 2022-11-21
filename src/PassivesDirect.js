@@ -864,19 +864,15 @@ const PassiveDirect =({
     },[setJPSearch,dispatch])
 
     const jponlybutton = () => {
-        if (jptoggledata == false) {
-            dispatch(setTrue())
-            setJPSearch("true")
-            setJPonly(true);
-        }    
-    };
-
-    const glonlybutton = () => {
-        if (jptoggledata == true) {
-            dispatch(setFalse())
-            setJPSearch("")
-            setJPonly(false);
-        }
+      if (jponly == false) {
+        dispatch(setTrue())
+        setJPSearch("true")
+        setJPonly(true);
+      } else {
+        dispatch(setFalse())
+        setJPSearch("")
+        setJPonly(false);
+      }
     };
 
     return(
@@ -895,17 +891,17 @@ const PassiveDirect =({
             <div className="content">
             <h1>{`${jptoggledata == false ? "GL" : "JP"} Passives`}</h1>
               <div className="subheader">
-                <Tippy content="GL">
-                        <span className={`${jptoggledata == false ? "filteractive": "filterinactive"} buffbutton ver_gl`} onClick={glonlybutton}></span>
-                </Tippy>   
-                <Tippy content="JP">
-                        <span className={`${jptoggledata == true ? "filteractive": "filterinactive"} buffbutton ver_jp`} onClick={jponlybutton}></span>
-                </Tippy> 
+              Use filters to limit returns
             </div>
         <div className="charfilterspacer"/>
              <div key="filter1" onClick={showfilterbutton} className="charfilter"><span className="filterstext"></span>{showFilter ? <TiArrowSortedUp className="uparrow"/> : <TiArrowSortedDown className="downarrow"/>}</div>
               {showFilter == false ? 
-              <div className="char-search-reverse-holder">
+              <div className="event-search-reverse-holder">
+                <span className={`${jponly ? "jponlybackground" : "GLonlybackground"}`}>
+                <Tippy content={`${jponly == true? "Switch to GL" : "Switch to JP"}`} className="tooltip" >
+                <span onClick={jponlybutton} className={`${jponly ? "jpflage jpsmallinactive smalleventbutton" : "glflage smalleventbutton"}`}/>
+                </Tippy>
+                </span>
                 <IoSearch className="searchicon"/>
               <div className="search-holder el">
                 <input 

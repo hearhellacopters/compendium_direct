@@ -40,6 +40,7 @@ const Link_Passives =({
     command_group,
     enemy_resist,
     formatting,
+    showFilter
 })=>{
 
     const rawData = Object.values(linkeddata && linkeddata.sort((a,b)=>b.link_level - a.link_level))
@@ -48,7 +49,6 @@ const Link_Passives =({
 
     const startinglimit = 9999
 
-    const [showFilter, setShowFilter] = useState(getQueryStringVal("filter") != null  ? true : false);
     const [clearFilter, setclearFilter] = useStateIfMounted(false);
 
     const [loop, setLoop] = useStateIfMounted(false);
@@ -75,24 +75,6 @@ const Link_Passives =({
     const [TEXTsearch, setTEXTsearch] = useQueryParam("search", "");
     const [Filtersearch, setFiltersearch] = useQueryParam("filter", "");
 
-    const showfilterbutton = () => {
-        if (showFilter == false) {
-            setFiltersearch("true")
-            setShowFilter(true)
-        } else {
-            setFiltersearch("")
-            setShowFilter(false)
-        }
-    }
-
-    useEffect(() => {
-        if (showFilter == false) {
-            setFiltersearch("")
-        } else {
-            setFiltersearch("true")
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        },[showFilter])
         //button toogle
         useEffect(() => {
         if (reverse == true) {
@@ -287,28 +269,6 @@ const Link_Passives =({
     } else {
         return(
             <div>
-            <div className="charfilterspacer"/>
-            <div key="filter1" onClick={showfilterbutton} className="charfilter"><span className="filterstext"></span>{showFilter ? <TiArrowSortedUp className="uparrow"/> : <TiArrowSortedDown className="downarrow"/>}</div>
-            <div className="event-search-reverse-holder">
-              {showFilter == false ? 
-              <div className="char-search-reverse-holder">
-                <IoSearch className="searchicon"/>
-              <div className="search-holder el">
-                <input 
-                    className="char-search-bar" 
-                    type="text"
-                    placeholder="Name Search"
-                    value={searchdisplay}
-                    onChange={handleChange}
-                    onKeyDown={handleKeyDown}
-                />
-                {searchTerm === "" ? "" : 
-                <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
-                </div>
-                </div>
-              :""
-              }
-            </div>
                 <div className="filterholder noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
                   <div className="similarbanner">Filters</div>
                   <div className="filterholderflair">

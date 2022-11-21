@@ -227,7 +227,7 @@ const Default_Ailment_Pars =({
         ailment_id = passed_ailment.id
     }
 
-    var cast_str = `${default_data.cast_rate_ < 100 ? `${default_data.cast_rate_}% chance to cast ` : ` - ${is_buff && is_buff == 0 ? "Inflicts" :"Grants"}`}${max_level && max_level != 0 ? ` ${default_data.arg1} level${default_data.arg1 != 1 ?"s":""} of` :""} [${ailment_name && ailment_name == "" ? ailment_id : ailment_name}] ${default_data.cast_target_ != 2 ? `to ${cast_targets[default_data.cast_target_] && cast_targets[default_data.cast_target_].target_id}` : ""}${default_data.turn != -1 ? `for ${default_data.turn} turn${default_data.turn > 1 ? "s" :""}`: ""}`
+    var cast_str = `${default_data.cast_rate_ < 100 ? `${default_data.cast_rate_}% chance to cast ` : ` - ${is_buff && is_buff == 0 ? "Inflicts" :"Grants"}`}${max_level && max_level != 0 ? ` ${default_data.arg1} level${default_data.arg1 != 1 ?"s":""} of` :""} [${ailment_name && ailment_name == "" ? ailment_id : ailment_name}]${default_data.cast_target_ != 2 ? ` to ${cast_targets[default_data.cast_target_] && cast_targets[default_data.cast_target_].target_id}` : ""}${default_data.turn != -1 ? ` for ${default_data.turn} turn${default_data.turn > 1 ? "s" :""}`: ""}`
 
     const addformatting =(text,switching)=>{
         if(formatting != true){

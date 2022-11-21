@@ -2,7 +2,10 @@ import React, {useEffect} from 'react';
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 import { getCharacters } from '../redux/ducks/characters';
-import CharacterEventsHandoff from './CallCharEventsHandOff'
+import CharacterEvents from '../characterpages/CharacterPageEvents';
+import {Navigate} from 'react-router-dom';
+
+
 import { getJPToggle } from '../redux/ducks/jptoggle';
 import Loading from './_loading'
 
@@ -16,6 +19,10 @@ const CallCharEvents = () =>{
 
     const ProcessedCharacters = useSelector((state) => 
     state.characters.characters
+    );
+
+    const Access = useSelector((state) => 
+    state.characters.access
     );
 
     const jptoggledata = useSelector((state) => 
@@ -35,29 +42,23 @@ const CallCharEvents = () =>{
         }
     }, [dispatch,ProcessedCharacters]);
 
+    const filtered = Access[match.params.id];
 
-    useEffect(() => {
-      if(jptoggledata == true){
-          ProcessedCharacters && ProcessedCharacters.sort((self,self2)=>self.JPOrder-self2.JPOrder)
-      } else {
-          ProcessedCharacters && ProcessedCharacters.sort((self,self2)=>self.GLOrder-self2.GLOrder)
-      }
-  },[ProcessedCharacters,jptoggledata])
-
-    const filtered = ProcessedCharacters && ProcessedCharacters.filter(function (el) { 
-        return el["ShortName"] == match.params.id ; 
-      }); 
-
-      if(filtered != undefined ){
-        return (
-            <CharacterEventsHandoff match={match} filtered={filtered}/>
-        )
-      } else {
-          return(
-            <Loading/>
-          )
-      }
-    
+    return(
+      Access != undefined && ProcessedCharacters != undefined && jptoggledata != undefined?
+      filtered == undefined ?
+      <Navigate replace to="/404"/>
+        :
+        <CharacterEvents 
+        match={match} 
+        char_id={filtered}
+        filtered={ProcessedCharacters[filtered]}
+        ProcessedCharacters={ProcessedCharacters}
+        jptoggledata={jptoggledata}
+        />
+        :
+        <Loading/>
+    )    
 }
 
 export default CallCharEvents;

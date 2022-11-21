@@ -1,12 +1,17 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { Link } from 'react-router-dom'
 import '../Characters.css';
 import Tippy from './TippyDefaults.js'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
 
-const CharacterFilter = ({ match, reverse, Sortsearch, ProcessedCharacters }) => {
+const CharacterFilter = ({ match, reverse, Sortsearch, ProcessedCharacters,jptoggledata,spoilers }) => {
 
+    const [ver,setver] = useState(jptoggledata == true ? "JP":"GL")
+
+    useEffect(()=>{
+        setver(jptoggledata == true ? "JP":"GL")
+    },[jptoggledata])
  
     const idstoremove = match.map((char) => (
         char.CharID
@@ -24,35 +29,35 @@ const CharacterFilter = ({ match, reverse, Sortsearch, ProcessedCharacters }) =>
 
     filteredout
     .sort((a, b) => 
-    reverse == true && Sortsearch == "" ? 
-    b.GLOrder - a.GLOrder :
-    null)
-    .sort((a, b) => 
     reverse == false && Sortsearch == "" ? 
-    a.GLOrder - b.GLOrder :
+    b[`${ver}Order`] - a[`${ver}Order`] :
     null)
     .sort((a, b) => 
-    reverse == true && Sortsearch == "Name" ? 
-    cmp(b.CharacterName, a.CharacterName) :
+    reverse == true && Sortsearch == "" ? 
+    a[`${ver}Order`] - b[`${ver}Order`] :
     null)
     .sort((a, b) => 
     reverse == false && Sortsearch == "Name" ? 
+    cmp(b.CharacterName, a.CharacterName) :
+    null)
+    .sort((a, b) => 
+    reverse == true && Sortsearch == "Name" ? 
     cmp(a.CharacterName, b.CharacterName) :
     null)
     .sort((a, b) => 
-    reverse == true && Sortsearch == "Realm" ? 
+    reverse == false && Sortsearch == "Realm" ? 
     cmp(a.RealmPars, b.RealmPars) || cmp(a.Sort,b.Sort):
     null)
     .sort((a, b) => 
-    reverse == false && Sortsearch == "Realm" ? 
+    reverse == true && Sortsearch == "Realm" ? 
     cmp(b.RealmPars, a.RealmPars) || cmp(a.Sort,b.Sort):
     null)
     .sort((a, b) => 
-    reverse == true && Sortsearch == "JP" ? 
+    reverse == false && Sortsearch == "JP" ? 
     b.JPOrder - a.JPOrder :
     null)
     .sort((a, b) => 
-    reverse == false && Sortsearch == "JP" ? 
+    reverse == true && Sortsearch == "JP" ? 
     a.JPOrder - b.JPOrder :
     null)
     .sort((a, b) => 
@@ -106,35 +111,35 @@ const CharacterFilter = ({ match, reverse, Sortsearch, ProcessedCharacters }) =>
 
     match
     .sort((a, b) => 
-    reverse == true && Sortsearch == "" ? 
-    b.GLOrder - a.GLOrder :
-    null)
-    .sort((a, b) => 
     reverse == false && Sortsearch == "" ? 
-    a.GLOrder - b.GLOrder :
+    b[`${ver}Order`] - a[`${ver}Order`] :
     null)
     .sort((a, b) => 
-    reverse == true && Sortsearch == "Name" ? 
-    cmp(b.CharacterName, a.CharacterName) :
+    reverse == true && Sortsearch == "" ? 
+    a[`${ver}Order`] - b[`${ver}Order`] :
     null)
     .sort((a, b) => 
     reverse == false && Sortsearch == "Name" ? 
+    cmp(b.CharacterName, a.CharacterName) :
+    null)
+    .sort((a, b) => 
+    reverse == true && Sortsearch == "Name" ? 
     cmp(a.CharacterName, b.CharacterName) :
     null)
     .sort((a, b) => 
-    reverse == true && Sortsearch == "Realm" ? 
+    reverse == false && Sortsearch == "Realm" ? 
     cmp(a.RealmPars, b.RealmPars) || cmp(a.Sort,b.Sort) :
     null)
     .sort((a, b) => 
-    reverse == false && Sortsearch == "Realm" ? 
+    reverse == true && Sortsearch == "Realm" ? 
     cmp(b.RealmPars, a.RealmPars) || cmp(a.Sort,b.Sort):
     null)
     .sort((a, b) => 
-    reverse == true && Sortsearch == "JP" ? 
+    reverse == false && Sortsearch == "JP" ? 
     b.JPOrder - a.JPOrder :
     null)
     .sort((a, b) => 
-    reverse == false && Sortsearch == "JP" ? 
+    reverse == true && Sortsearch == "JP" ? 
     a.JPOrder - b.JPOrder :
     null)
     .sort((a, b) => 
@@ -196,6 +201,14 @@ const CharacterFilter = ({ match, reverse, Sortsearch, ProcessedCharacters }) =>
       return n + (s[(v-20)%10] || s[v] || s[0]);
     }
 
+    const convert_card = (chars)=>{
+        if(spoilers == false && chars[`${ver}basic`] == false){
+            return `https://dissidiacompendium.com/images/static/icons/misc/spoilercard2.png`
+        } else {
+            return `https://dissidiacompendium.com/images/static/characters/${chars.CharacterURLName}/cc.png`
+        }
+    }
+
     const bannerdisplay = <><span className="subtextgold">{filteredout.length}</span> Non-Matching Character{filteredout.length == 1 ? "" : "s"}</>
 
     return(
@@ -204,7 +217,7 @@ const CharacterFilter = ({ match, reverse, Sortsearch, ProcessedCharacters }) =>
                 {match.map(chars => (
                     <Link className="characterlink" key={chars.CharID} to={'/characters/' + chars.ShortName}>
                     <li >
-                        <LazyLoadImage className="charactercard" alt={chars.CharacterName} src={`https://dissidiacompendium.com/images/static/characters/${chars.CharacterURLName}/cc.png`} effect="opacity"/>
+                        <LazyLoadImage className="charactercard" alt={chars.CharacterName} src={convert_card(chars)} effect="opacity"/>
                     </li>
                     {chars.JPSynergyStart == undefined && chars.GLSynergyStart == undefined ? "" :
                     <div className={chars.JPSynergyStart == undefined || chars.GLSynergyStart == undefined ? "bubble1" : "bubble2"}>
@@ -244,7 +257,7 @@ const CharacterFilter = ({ match, reverse, Sortsearch, ProcessedCharacters }) =>
             {filteredout.map(chars => (
                 <Link className="characterlink"  key={chars.CharID + "dim"} to={'/characters/' + chars.ShortName}>
                 <li >
-                    <LazyLoadImage className="charactercard dim" alt={chars.CharacterName} src={`https://dissidiacompendium.com/images/static/characters/${chars.CharacterURLName}/cc.png`} effect="opacity"/>
+                    <LazyLoadImage className="charactercard dim" alt={chars.CharacterName} src={convert_card(chars)} effect="opacity"/>
                 </li>
                 {chars.JPSynergyStart == undefined && chars.GLSynergyStart == undefined ? "" :
                     <div className={chars.JPSynergyStart == undefined || chars.GLSynergyStart == undefined ? "bubble1 dim" : "bubble2 dim"}>

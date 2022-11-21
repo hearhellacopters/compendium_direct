@@ -5,7 +5,7 @@ import {Navigate} from 'react-router-dom';
 import axios from "axios";
 import Loading from '../callpages/_loading'
 
-const EnemyPassoffDirect = ({ match, ProcessedEnemies, ProcessedEvents, ProcessedLevels, ProcessedCharacters, PartnerCharacters }) => {
+const EnemyPassoffDirect = ({ match, ProcessedEnemies, ProcessedEvents, ProcessedLevels, ProcessedCharacters, PartnerCharacters, jptoggledata }) => {
 
     function getSafe(fn, defaultVal) {
         try {
@@ -83,7 +83,9 @@ const EnemyPassoffDirect = ({ match, ProcessedEnemies, ProcessedEvents, Processe
                 ProcessedEnemies={Object.values(ProcessedEnemies)} 
                 ProcessedCharacters={ProcessedCharacters}
                 PartnerCharacters={PartnerCharacters}
-                battle_enemy={battle_enemy}/>
+                battle_enemy={battle_enemy}
+                jptoggledata={jptoggledata}
+                />
                 {levelparams == undefined?
                     <Navigate replace to={`/bestiary/enemies/${getSafe(() => filtered.battle_enemy_id)}/${firstlevel&& firstlevel.data_index}/${abilitiesparams == undefined ? "" : abilitiesparams}`}/>
                     :

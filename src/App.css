@@ -723,16 +723,6 @@ h3{
   font-size: 18px;
   color: rgb(167, 167, 167);
 }
-@media (hover: hover) {
-.filteractive:hover{
-  transform: translateY(-1px);
-  box-shadow: 0px 0px 8px 8px rgb(255 248 0 / 75%) inset;
-  -webkit-box-shadow: 0px 0px 8px 8px rgb(255 248 0 / 75%) inset;
-  -moz-box-shadow: 0px 0px 8px 8px rgba(255,248,0,0.75) inset;
-  border-radius: 5px;
-  transition: all .2s;
-}
-}
 
 .filteractive{
   transition: all .2s;
@@ -742,18 +732,56 @@ h3{
   -moz-box-shadow: 0px 0px 8px 8px rgba(255,248,0,0.75) inset;
   border-radius: 5px;
 }
+
+.filteractivegrey{
+  transition: all .2s;
+  cursor: pointer;
+  box-shadow: 0px 0px 8px 8px rgb(255 248 0 / 75%) inset;
+  -webkit-box-shadow: 0px 0px 8px 8px rgb(255 248 0 / 75%) inset;
+  -moz-box-shadow: 0px 0px 8px 8px rgba(255,248,0,0.75) inset;
+  border-radius: 5px;
+  filter: grayscale(1);
+  -webkit-filter: grayscale(1);
+}
+
+.filterinactive{
+  filter: drop-shadow(3px 3px 3px #222);
+  -webkit-filter: drop-shadow(3px 3px 3px #222);
+}
+.filterinactivegrey{
+  filter: drop-shadow(3px 3px 3px #222) grayscale(1);
+  -webkit-filter: drop-shadow(3px 3px 3px #222) grayscale(1);
+}
+
 @media (hover: hover) {
+  .filteractive:hover{
+    transform: translateY(-1px);
+    box-shadow: 0px 0px 8px 8px rgb(255 248 0 / 75%) inset;
+    -webkit-box-shadow: 0px 0px 8px 8px rgb(255 248 0 / 75%) inset;
+    -moz-box-shadow: 0px 0px 8px 8px rgba(255,248,0,0.75) inset;
+    border-radius: 5px;
+    transition: all .2s;
+  }
+  .filteractivegrey:hover{
+    transform: translateY(-1px);
+    box-shadow: 0px 0px 8px 8px rgb(255 248 0 / 75%) inset;
+    -webkit-box-shadow: 0px 0px 8px 8px rgb(255 248 0 / 75%) inset;
+    -moz-box-shadow: 0px 0px 8px 8px rgba(255,248,0,0.75) inset;
+    border-radius: 5px;
+    transition: all .2s;
+  }
   .filterinactive:hover{
     transform: translateY(-1px);
     transition: all .2s;
     filter: brightness(1.2) drop-shadow(3px 3px 3px #222);
     -webkit-filter: brightness(1.2) drop-shadow(3px 3px 3px #222);
   }
-}
-
-.filterinactive{
-  filter: drop-shadow(3px 3px 3px #222);
-  -webkit-filter: drop-shadow(3px 3px 3px #222);
+  .filterinactivegrey:hover{
+    transform: translateY(-1px);
+    transition: all .2s;
+    filter: brightness(1.2) drop-shadow(3px 3px 3px #222) grayscale(1);
+    -webkit-filter: brightness(1.2) drop-shadow(3px 3px 3px #222) grayscale(1);;
+  }
 }
 
 .reversebutton::before{
@@ -868,6 +896,30 @@ h3{
   transition: all 0s;
 }
 
+.mapbox{
+  margin-top: -44px;
+  align-self: center;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  background: linear-gradient(180deg,hsla(0,0%,100%,.6392156862745098) 5.73%,rgba(130,153,216,.49411764705882355) 29.69%,rgba(39,241,207,0) 47.92%,rgba(39,241,207,0) 52.08%,#224199 81.25%,#2446a5),#2c5ad8!important;
+  height: 35px;
+  width: 88px;
+  display: grid;
+  align-items: center;
+  text-align: center;
+  border: solid 2px black;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: inset -2px -2px 4px #000000, inset 2px 0px 4px #e4e6e5;
+  filter: drop-shadow(0px 0px 2px #222);
+  -webkit-filter: drop-shadow(0px 0px 2px #222);
+}
+.mapbox:active{
+  filter: drop-shadow(0px 0px 2px #222) brightness(.8);
+  -webkit-filter: drop-shadow(0px 0px 2px #222) brightness(.8);
+  transition: all 0s;
+}
+
 @media (hover: hover) {
   .clearbox:hover{
     transform: translateY(-1px);
@@ -877,6 +929,13 @@ h3{
     -webkit-filter: drop-shadow(0px 0px 2px #222) brightness(1.2); 
   }
   .sharebox:hover{
+    transform: translateY(-1px);
+    transition: all .1s;
+    cursor: pointer;
+    filter: drop-shadow(0px 0px 2px #222) brightness(1.2);
+    -webkit-filter: drop-shadow(0px 0px 2px #222) brightness(1.2); 
+  }
+  .mapbox:hover{
     transform: translateY(-1px);
     transition: all .1s;
     cursor: pointer;
@@ -3058,10 +3117,14 @@ h3{
 
 .ver_gl{
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ver_gl.png");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .ver_jp{
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ver_jp.png");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .wpldbutton{

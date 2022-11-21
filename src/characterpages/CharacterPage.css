@@ -300,6 +300,15 @@
     display: inline-block;
 }
 
+.reworktab_direct{
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/rework2_direct.png");
+    display: inline-block;
+}
+.reworktabred_direct{
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/rework2red_direct.png");
+    display: inline-block;
+}
+
 .gemicon{
     content: url(https://dissidiacompendium.com/images/static/icons/misc/LimitBreakSmall.png);
     vertical-align: middle;

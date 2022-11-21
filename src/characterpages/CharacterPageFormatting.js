@@ -3,7 +3,6 @@ import './CharacterPage.css'
 import '../Spheres.css'
 import '../Events.css'
 import DefaultTippy from '../formatting/TippyDefaults.js';
-import { Helmet} from 'react-helmet-async';
 import { Link } from 'react-router-dom'
 import EventListing from '../formatting/SingleEventsFormatting.js'
 import GetCharGuides from '../passoff/GetCharGuides.js'
@@ -13,27 +12,37 @@ import Random from '../processing/Random.js'
 import 'tippy.js/animations/scale.css';
 import 'tippy.js/animations/scale-subtle.css';
 import 'tippy.js/animations/scale-extreme.css';
-import ScrollToTop from '../formatting/ScrollToTop.js'
-import CharcterHeader from './CharacterHeader.js'
 import { TiArrowSortedDown } from 'react-icons/ti';
 import { TiArrowSortedUp } from 'react-icons/ti';
 import BrevityProfile from './BrevityProfile.js'
-import { getQuery, getQueryStringVal, useQueryParam } from '../processing/urlparams'
-import { useDispatch } from "react-redux";
-import { setFalse, setTrue } from '../redux/ducks/jptoggle'
 import TickUp from '../processing/tickUp'
-import DevSwitch from '../redux/DevSwitch'
-import TickDown from '../processing/tickDown'
 import {EndsInTimer, StartsInTimer} from '../formatting/Timers'
 import addformatting from '../processing/replacer_abilitycontent';
 import Role_Maker from './CharacterRole_Marker';
 import { useStateIfMounted } from 'use-state-if-mounted';
+import ReactJson from '@microlink/react-json-view'
 
-const CharacterPage = ({ matchdata, match, ProcessedCharacters, CharGuideData, jptoggledata, ProcessedVoices, CharStickers}) => {
+const CharacterPage = ({ 
+  match, 
+  CharGuideData, 
+  jptoggledata, 
+  ProcessedVoices, 
+  CharStickers
+}) => {
 
-  const dispatch = useDispatch();
-  const [JPsearch, setJPSearch] = useQueryParam("JP", "");
   const [introvoice, setintrovoice] = useState("intro")
+  const [ver, setver] = useState(jptoggledata == true ? "JP" : "GL")
+  const [showraw,setshowraw] = useState(false)
+
+  const showmeraw = (e)=>{
+    if(e.shiftKey){
+        if(showraw == false){
+        setshowraw(true)
+        } else{
+            setshowraw(false)
+        }
+    }
+}
 
   useEffect(() => {
     setintrovoice("intro")
@@ -63,17 +72,6 @@ const onclickvoice = (Voice) =>{
   }
 }
 
-  useEffect(() => {
-    //jp toggle
-    if(jptoggledata == true ){
-      setJPSearch("true")
-    }
-    if(getQueryStringVal("JP") == "true" ){
-      dispatch(setTrue())
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[jptoggledata])
-
   const newmatch = match  
 
     const [artworkcount, setartworkcount] = useState(match.ArtworkCount);
@@ -90,30 +88,7 @@ const onclickvoice = (Voice) =>{
 
     const [eventsexpand, seteventsexpand] = useState(false);
     const [helpexpand, sethelpexpand] = useState(false);
-
-    let currentIndex = ProcessedCharacters.findIndex(x => x.GLOrder == newmatch.GLOrder);
-    const nextIndex = (currentIndex + 1) % ProcessedCharacters.length;
-    const previousIndex = (currentIndex - 1) % ProcessedCharacters.length;
-
-    const nextevent = (function (){
-        const holder = ProcessedCharacters[nextIndex];
-        if(nextIndex === 0 ){
-            return false;
-        } else{
-            return holder;
-        }
-    })();
-
-    const previousevent = (function (){
-        const holder = ProcessedCharacters[previousIndex];
-        if(holder === undefined ){
-            return false;
-        } else{
-            return holder;
-        }
-    })();
-
-
+    
     const ct = new Date().getTime();
     const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     const months = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
@@ -290,324 +265,294 @@ const onclickvoice = (Voice) =>{
     },[newmatch])
 
     return (
-        <div className="wrapper">
-            <Helmet>
-                <title>{newmatch.CharacterName} - Dissidia Compendium</title>
-                <meta property="og:site_name" content="Dissidia Compendium"/>
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://dissidiacompendium.com"/>
-                <meta name="description" content={`${newmatch.CharacterName} Page`}/>
-                <meta name="twitter:title" content={`${newmatch.CharacterName} Page`}/>
-                <meta name="twitter:description" content={`${newmatch.CharacterName} Page`}/>
-                <meta name="twitter:image" content={`https://dissidiacompendium.com/images/static/characters/${newmatch.CharacterURLName}/cc.png`}/>
-                <meta name="twitter:card" content="summary"/>
-                <meta name="twitter:image:alt" content={`${newmatch.CharacterName}`}/>
-                <meta property="og:title" content={`${newmatch.CharacterName} Page`}/>
-                <meta property="og:description" content={`${newmatch.CharacterName} Banner`}/>
-                <meta property="og:image" content={`https://dissidiacompendium.com/images/static/characters/${newmatch.CharacterURLName}/cc.png`}/>
-                <meta property="og:url" content={`https://dissidiacompendium.com/characters/${newmatch.ShortName}`}/>
-            </Helmet>
-            <div className="returnbutton">
-                <ScrollToTop/>
-                <DefaultTippy content="Return to Characters" className="tooltip" >
-                <Link className="returnlink" to={`/characters/`}>
-                    <div className="returnicon"></div>
-                </Link>
-                </DefaultTippy>
-            </div>
-                <div className="content">
-                  <CharcterHeader
-                  nextevent={nextevent}
-                  previousevent={previousevent}
-                  Subheader={"Profile"}
-                  headertitle={<h1>{newmatch.CharacterName}{newmatch.JPName != "" ? 
-                  <div className="jpcharsubtexttitle">
-                 {newmatch.JPName} 
-              </div> : ""} </h1>}
-                  match={matchdata}
-                  newmatch={newmatch}
-                  pageloc={"profile"}
-                  subcat={"none"}
-                  />
-                <div className="characterpageholder">
-                    <div className="introclassflex">
-                    <div className="charimagetoptopholder">
-                        <div className={`chartopimageholder charbackground${newmatch.CrystalColor}`}>
-                        <DefaultTippy content={newmatch.Weapon}>
-                            <img  className="charweapon" alt="Weapon" src={newmatch.WeaponURL == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : "https://dissidiacompendium.com/images/static/icons/weapon/" + newmatch.WeaponURL}/>
-                        </DefaultTippy>
-                        <DefaultTippy content={newmatch.CrystalColor}>
-                        <img  className="charCystal" alt="Crystal" src={newmatch.CrystalColorURL == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : "https://dissidiacompendium.com/images/static/icons/crystalcolors/" + newmatch.CrystalColorURL}/>
-                        </DefaultTippy>
-                    <ul className="bufftypes sidemain">
-                        <DefaultTippy content={`Realm ${newmatch.Realm}`}>
-                        <img className="classdisplay filterinactive" alt={newmatch.Realm} src={newmatch.RealmURL  == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : "https://dissidiacompendium.com/images/static/icons/realms/" + newmatch.RealmURL}></img>
-                        </DefaultTippy>
-                        {newmatch.Magic == true ? 
-                        <DefaultTippy content="Magic Damage Type">
-                        <li className="magicbutton classdisplay filterinactive"></li>
-                        </DefaultTippy>
-                        : ``}
-                        {newmatch.Melee == true ? 
-                        <DefaultTippy content="Melee Damage Type">
-                        <li className="meleebutton classdisplay filterinactive"></li>
-                        </DefaultTippy>
-                            : ``}
-                        {newmatch.Ranged == true ? 
-                        <DefaultTippy content="Ranged Damage Type">
-                        <li className="rangedbutton classdisplay filterinactive"></li>
-                        </DefaultTippy>
-                        : ``}
+          <div className="characterpageholder">
+              <div className="introclassflex">
+              <div className="charimagetoptopholder">
+                  <div className={`chartopimageholder charbackground${newmatch.CrystalColor}`}>
+                  <DefaultTippy content={newmatch.Weapon}>
+                      <img onClick={showmeraw} className="charweapon" alt="Weapon" src={newmatch.Weapon == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/weapon/Icon_${newmatch.Weapon}.png`}/>
+                  </DefaultTippy>
+                  <DefaultTippy content={newmatch.CrystalColor}>
+                  <img  className="charCystal" alt="Crystal" src={newmatch.CrystalColor == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/crystalcolors/Crystal${newmatch.CrystalColor}_1.png` }/>
+                  </DefaultTippy>
+              <ul className="bufftypes sidemain">
+                  <DefaultTippy content={`Realm ${newmatch.Realm}`}>
+                  <img className="classdisplay filterinactive" alt={newmatch.Realm} src={newmatch.Realm  == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/realms/name/${newmatch.Realm}.png` }></img>
+                  </DefaultTippy>
+                  {newmatch.Magic == true ? 
+                  <DefaultTippy content="Magic Damage Type">
+                  <li className="magicbutton classdisplay filterinactive"></li>
+                  </DefaultTippy>
+                  : ``}
+                  {newmatch.Melee == true ? 
+                  <DefaultTippy content="Melee Damage Type">
+                  <li className="meleebutton classdisplay filterinactive"></li>
+                  </DefaultTippy>
+                      : ``}
+                  {newmatch.Ranged == true ? 
+                  <DefaultTippy content="Ranged Damage Type">
+                  <li className="rangedbutton classdisplay filterinactive"></li>
+                  </DefaultTippy>
+                  : ``}
 
-                        {newmatch.Fire_Damage == true ? 
-                        <DefaultTippy content="Fire BRV Damage">
-                        <li className="Firebutton classdisplay filterinactive"></li>
-                        </DefaultTippy>
-                        : ``}
-                        {newmatch.Ice_Damage == true ? 
-                        <DefaultTippy content="Ice BRV Damage">
-                        <li className="Icebutton classdisplay filterinactive"></li>
-                        </DefaultTippy>
-                        : ``}
-                        {newmatch.Thunder_Damage == true ?
-                        <DefaultTippy content="Thunder BRV Damage">
-                        <li className="Thunderbutton classdisplay filterinactive"></li>
-                        </DefaultTippy>
-                        : ``}
-                        {newmatch.Water_Damage == true ?
-                        <DefaultTippy content="Water BRV Damage">
-                        <li className="Waterbutton classdisplay filterinactive"></li>
-                        </DefaultTippy>
-                        : ``}
-                        {newmatch.Earth_Damage == true ? 
-                        <DefaultTippy content="Earth BRV Damage">
-                        <li className="Earthbutton classdisplay filterinactive"></li>
-                        </DefaultTippy>
-                        : ``}
-                        {newmatch.Wind_Damage == true ? 
-                        <DefaultTippy content="Wind BRV Damage">
-                        <li className="Windbutton classdisplay filterinactive"></li>
-                        </DefaultTippy>
-                        : ``}
-                        {newmatch.Dark_Damage == true ?
-                        <DefaultTippy content="Dark BRV Damage">
-                        <li className="Darkbutton classdisplay filterinactive"></li>
-                        </DefaultTippy>
-                        : ``}
-                        {newmatch.Holy_Damage == true ? 
-                        <DefaultTippy content="Holy BRV Damage">
-                        <li className="Holybutton classdisplay filterinactive"></li>
-                        </DefaultTippy>
-                        : ``}
-                    </ul>
-                    <ul className="bufftypes sideclass">
-                        {newmatch.ActiveRework == true ? 
-                        <DefaultTippy content="Active JP Rework">
-                        <li className="JPReworkbutton classdisplay filterinactive"></li>
-                        </DefaultTippy>
-                        : ``}
-                        <Role_Maker
-                        newmatch={newmatch}
-                        lower={false}
-                        />
-                    </ul>
-                        {newmatch.ArtworkCount > 1 ?
-                        <LazyLoadImage onClick={() => handleartworkchange(currentartwork)} effect="opacity" className="charalts clicky" alt="Stats" src={"https://dissidiacompendium.com/images/static/icons/misc/Costume2.png"}/>
-                        :""}
-                        <img className="charstats" alt="Stats" src={"https://dissidiacompendium.com/images/static/icons/stats/single/back.png"}/>
-                        
-                        <img className="charstats" alt="Stats" src={`https://dissidiacompendium.com/images/static/icons/stats/single/HP-${newmatch.HP}.png`}/>
-                        
-                        <img className="charstats" alt="Stats" src={`https://dissidiacompendium.com/images/static/icons/stats/single/INTBRV-${newmatch.INTBRV}.png`}/>
-                        <img className="charstats" alt="Stats" src={`https://dissidiacompendium.com/images/static/icons/stats/single/MAXBRV-${newmatch.MAXBRV}.png`}/>
-                        <img className="charstats" alt="Stats" src={`https://dissidiacompendium.com/images/static/icons/stats/single/ATK-${newmatch.ATK}.png`}/>
-                        <img className="charstats" alt="Stats" src={`https://dissidiacompendium.com/images/static/icons/stats/single/DEF-${newmatch.DEF}.png`}/>
-                       
-                        <img className="charstats" alt="Stats" src={`https://dissidiacompendium.com/images/static/icons/stats/single/SPD-${newmatch.SPD}.png`}/>
-                        
-                        <LazyLoadImage effect="opacity" className="charmanimage" alt={newmatch.CharacterName} src={`https://dissidiacompendium.com/images/static/characters/${newmatch.CharacterURLName}/c${currentartwork}.png`}/>
-                        <div className="spherestop">
-                            <div className={`sphereletter ${newmatch.SphereSlotLocked == 1 ? "lockedslot" : "unlockedslot"}`}>
-                            <LazyLoadImage effect="opacity" src={newmatch.Sphere1URL == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : "https://dissidiacompendium.com/images/static/icons/spheres/" + newmatch.Sphere1URL} alt={newmatch.SphereSlot1Letter}/>
-                            </div>
-                            <div className={`sphereletter ${newmatch.SphereSlotLocked == 2 ? "lockedslot" : "unlockedslot"}`}>
-                            <LazyLoadImage effect="opacity" src={ newmatch.Sphere2URL == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : "https://dissidiacompendium.com/images/static/icons/spheres/" + newmatch.Sphere2URL} alt={newmatch.SphereSlot2Letter}/>
-                            </div>
-                            <div className={`sphereletter ${newmatch.SphereSlotLocked == 3 ? "lockedslot" : "unlockedslot"}`}>
-                            <LazyLoadImage effect="opacity" src={ newmatch.Sphere3URL == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : "https://dissidiacompendium.com/images/static/icons/spheres/" + newmatch.Sphere3URL} alt={newmatch.SphereSlot3Letter}/>
-                            </div>
-                        </div>
-                        {newmatch.JPSynergyStart == undefined && newmatch.GLSynergyStart == undefined ? "" :
-                        <div className="syngholder2">
-                        {newmatch.GLSynergyStart == undefined ? "" : 
-                            <div className={` ${new Date(newmatch.GLSynergyStart) >= ct ? "upstat " : "downstat "}`}>
-                                <span className='emoji'>🌎</span>{`${new Date(newmatch.GLSynergyStart) >= ct ? " Synergy on" : " Synergy ends"} ${new Date(newmatch.GLSynergyStart) >= ct ? `${months[new Date(newmatch.GLSynergyStart).getMonth()] + "/" + ordinal(new Date(newmatch.GLSynergyStart).getDate())}` : `${months[new Date(newmatch.GLSynergyEnd).getMonth()] + "/" + ordinal(new Date(newmatch.GLSynergyEnd).getDate())}`}`}
-                            </div>}
-                            {newmatch.JPSynergyStart == undefined ? "" : 
-                            <div className={` ${new Date(newmatch.JPSynergyStart) >= ct ? "upstat " : "downstat "}`}>
-                                <span className="jpflagupdate"/>{new Date(newmatch.JPSynergyStart) >= ct ? " Synergy on" : " Synergy ends"} {`${new Date(newmatch.JPSynergyStart) >= ct ? `${months[new Date(newmatch.JPSynergyStart).getMonth()] + "/" + ordinal(new Date(newmatch.JPSynergyStart).getDate())}` : `${months[new Date(newmatch.JPSynergyEnd).getMonth()] + "/" + ordinal(new Date(newmatch.JPSynergyEnd).getDate())}`}`}
-                            </div>
-                            }
-                        </div>}
-                        </div>
-                    </div>
-                    {newmatch.JPSynergyStart == undefined && newmatch.GLSynergyStart == undefined ? "" :
-                    <div className="syngholder">
-                     {newmatch.GLSynergyStart == undefined ? "" : 
-                        <div className={` ${new Date(newmatch.GLSynergyStart) >= ct ? "upstat " : "downstat "}`}>
-                            <span className='emoji'>🌎</span>{`${new Date(newmatch.GLSynergyStart) >= ct ? " Synergy on" : " Synergy ends"} ${new Date(newmatch.GLSynergyStart) >= ct ? `${months[new Date(newmatch.GLSynergyStart).getMonth()] + "/" + ordinal(new Date(newmatch.GLSynergyStart).getDate())}` : `${months[new Date(newmatch.GLSynergyEnd).getMonth()] + "/" + ordinal(new Date(newmatch.GLSynergyEnd).getDate())}`}`}
-                        </div>}
-                        {newmatch.JPSynergyStart == undefined ? "" : 
-                        <div className={` ${new Date(newmatch.JPSynergyStart) >= ct ? "upstat " : "downstat "}`}>
-                            <span className="jpflagupdate"/>{new Date(newmatch.JPSynergyStart) >= ct ? " Synergy on" : " Synergy ends"}{`${new Date(newmatch.JPSynergyStart) >= ct ? `${months[new Date(newmatch.JPSynergyStart).getMonth()] + "/" + ordinal(new Date(newmatch.JPSynergyStart).getDate())}` : `${months[new Date(newmatch.JPSynergyEnd).getMonth()] + "/" + ordinal(new Date(newmatch.JPSynergyEnd).getDate())}`}`}
-                        </div>
-                        }
-                    </div>}
-                    <ul className="smallclass classcolor noselect">
-                        <div className="subpassiveflair spacearound ">
-                        &nbsp;Classes
-                        </div>
-                        <Role_Maker
-                        newmatch={newmatch}
-                        lower={true}
-                        />
-                    </ul>
-                    <BrevityProfile match={newmatch}/>
-                 </div>
-                   {ProcessedVoices.length == 0 && CharStickers.length == 0?
-                    <div className="introcolor introflex">
-                      <div className="subtextinfo">Info:</div>
-                      <div className="subpassiveflair spacearound ">
-                        &nbsp;Intro
+                  {newmatch[`${ver}traits`] && newmatch[`${ver}traits`].Fire_Damage == true ? 
+                  <DefaultTippy content="Fire BRV Damage">
+                  <li className="Firebutton classdisplay filterinactive"></li>
+                  </DefaultTippy>
+                  : ``}
+                  {newmatch[`${ver}traits`] && newmatch[`${ver}traits`].Ice_Damage == true ? 
+                  <DefaultTippy content="Ice BRV Damage">
+                  <li className="Icebutton classdisplay filterinactive"></li>
+                  </DefaultTippy>
+                  : ``}
+                  {newmatch[`${ver}traits`] && newmatch[`${ver}traits`].Thunder_Damage == true ?
+                  <DefaultTippy content="Thunder BRV Damage">
+                  <li className="Thunderbutton classdisplay filterinactive"></li>
+                  </DefaultTippy>
+                  : ``}
+                  {newmatch[`${ver}traits`] && newmatch[`${ver}traits`].Water_Damage == true ?
+                  <DefaultTippy content="Water BRV Damage">
+                  <li className="Waterbutton classdisplay filterinactive"></li>
+                  </DefaultTippy>
+                  : ``}
+                  {newmatch[`${ver}traits`] && newmatch[`${ver}traits`].Earth_Damage == true ? 
+                  <DefaultTippy content="Earth BRV Damage">
+                  <li className="Earthbutton classdisplay filterinactive"></li>
+                  </DefaultTippy>
+                  : ``}
+                  {newmatch[`${ver}traits`] && newmatch[`${ver}traits`].Wind_Damage == true ? 
+                  <DefaultTippy content="Wind BRV Damage">
+                  <li className="Windbutton classdisplay filterinactive"></li>
+                  </DefaultTippy>
+                  : ``}
+                  {newmatch[`${ver}traits`] && newmatch[`${ver}traits`].Dark_Damage == true ?
+                  <DefaultTippy content="Dark BRV Damage">
+                  <li className="Darkbutton classdisplay filterinactive"></li>
+                  </DefaultTippy>
+                  : ``}
+                  {newmatch[`${ver}traits`] && newmatch[`${ver}traits`].Holy_Damage == true ? 
+                  <DefaultTippy content="Holy BRV Damage">
+                  <li className="Holybutton classdisplay filterinactive"></li>
+                  </DefaultTippy>
+                  : ``}
+              </ul>
+              <ul className="bufftypes sideclass">
+                  {newmatch.ActiveRework == true ? 
+                  <DefaultTippy content="Active JP Rework">
+                  <li className="JPReworkbutton classdisplay filterinactive"></li>
+                  </DefaultTippy>
+                  : ``}
+                  <Role_Maker
+                  base={newmatch}
+                  newmatch={newmatch[`${ver}traits`] && newmatch[`${ver}traits`]}
+                  lower={false}
+                  />
+              </ul>
+                  {newmatch.ArtworkCount > 1 ?
+                  <LazyLoadImage onClick={() => handleartworkchange(currentartwork)} effect="opacity" className="charalts clicky" alt="Stats" src={"https://dissidiacompendium.com/images/static/icons/misc/Costume2.png"}/>
+                  :""}
+                  <img className="charstats" alt="Stats" src={"https://dissidiacompendium.com/images/static/icons/stats/star/back.png"}/>
+                  <img className="charstats" alt="Stats" src={`https://dissidiacompendium.com/images/static/icons/stats/star/HP-${newmatch.HP}.png`}/>
+                  <img className="charstats" alt="Stats" src={`https://dissidiacompendium.com/images/static/icons/stats/star/INTBRV-${newmatch.INTBRV}.png`}/>
+                  <img className="charstats" alt="Stats" src={`https://dissidiacompendium.com/images/static/icons/stats/star/MAXBRV-${newmatch.MAXBRV}.png`}/>
+                  <img className="charstats" alt="Stats" src={`https://dissidiacompendium.com/images/static/icons/stats/star/ATK-${newmatch.ATK}.png`}/>
+                  <img className="charstats" alt="Stats" src={`https://dissidiacompendium.com/images/static/icons/stats/star/DEF-${newmatch.DEF}.png`}/>
+                  <img className="charstats" alt="Stats" src={`https://dissidiacompendium.com/images/static/icons/stats/star/SPD-${newmatch.SPD}.png`}/>
+                  
+                  <LazyLoadImage effect="opacity" className="charmanimage" alt={newmatch.CharacterName} src={`https://dissidiacompendium.com/images/static/characters/${newmatch.CharacterURLName}/c${currentartwork}.png`}/>
+                  <div className="spherestop">
+                      <div className={`sphereletter ${newmatch.SphereSlotLocked == 1 ? "lockedslot" : "unlockedslot"}`}>
+                      <LazyLoadImage effect="opacity" src={newmatch.SphereSlot1Letter == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/spheres/SphereLetter${newmatch.SphereSlot1Letter}.png`} alt={newmatch.Sphere1}/>
                       </div>
-                        {newmatch.Intro}
-                    </div>
-                    : 
-                    <div className="introcolor introflex">
-                      <div className="subtextinfo">Info:</div>
-                      <div className="subpassiveflair spacearound ">
-                        <span className={`charintro undertaga clicky ${introvoice == "intro" ? "buffactive" : ""}`} onClick={()=> setintrovoice("intro")}></span>
-                        {ProcessedVoices.length != 0 ?
-                        <span className={`charvoice undertaga clicky ${introvoice == "voice" ? "buffactive" : ""}`} onClick={()=> setintrovoice("voice")}></span>
-                        :""}
-                        {CharStickers.length != 0 ?
-                        <span className={`charstamps undertaga clicky ${introvoice == "sticker" ? "buffactive" : ""}`} onClick={()=> setintrovoice("sticker")}></span>
-                        :""}
+                      <div className={`sphereletter ${newmatch.SphereSlotLocked == 2 ? "lockedslot" : "unlockedslot"}`}>
+                      <LazyLoadImage effect="opacity" src={ newmatch.SphereSlot2Letter == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/spheres/SphereLetter${newmatch.SphereSlot2Letter}.png`} alt={newmatch.Sphere2}/>
                       </div>
-                      {introvoice == "voice" ? <div className="vaartist"><span className="emoji">🎤</span>{` ${ProcessedVoices[0].va} / ${ProcessedVoices[0].vajp}`}</div> : ""}
-                      {introvoice == "intro" ?
-                      newmatch.Intro : ""}
-                      {introvoice == "voice" ?
-                      ProcessedVoices.map(self=>
-                        <div key={self.id} className="infoholder lowerspace ldblue">
-                          <div className="infonameholder clicky" onClick={()=> onclick(self)}>
-                          {self.text != undefined ?
-                            <div className="subpassiveflair voiceline" >{addformatting(` ► ` + self.text)}</div>
-                            :self.jptext != undefined ?
-                            <div className="subpassiveflair voiceline" >{addformatting(` ► ` + self.jptext)}</div>
-                            :""}
-                            {self.jptext != undefined ?
-                              self.text == undefined ? "" :
-                             <div className="abilityJPname">{addformatting(self.jptext)}</div>
-                             :""}
-                          </div>
-                        </div>
-                      ):""}
-                      {introvoice == "sticker" ?
-                      CharStickers.map(stickers=>
-                        <div key={stickers.StickerKey} className="buffunit">
-                          <div className="infoholder">
-                              <div className="infonameholder clicky Nocolorbanner" onClick={()=> onclickvoice(stickers.Voice)}>
-                                  {stickers.Name} ►
-                                  <div className="abilityJPname">{stickers.JPName}
-                                  </div>
-                              </div>
-                              <div className="infobase stamppadding Nocolorbase">
-                                  {stickers.IconGL == undefined ? null :
-                                  <img className="stampsicon clicky" onClick={()=> onclickvoice(stickers.Voice)} style={stickers.BackgroundColor != null ? { background: `${stickers.BackgroundColor}`} : {background: null}} alt={stickers.Name} src={`https://dissidiacompendium.com/images/static/stamps/GL/${stickers.IconGL}${stickers.Animated == true ? ".gif" : ".png"}`}></img>}
-                                  {stickers.IconJP == undefined ? null :
-                                  <img className="stampsicon clicky" onClick={()=> onclickvoice(stickers.Voice)} style={stickers.BackgroundColor != null ? { background: `${stickers.BackgroundColor}`} : {background: null}} alt={stickers.JPName} src={`https://dissidiacompendium.com/images/static/stamps/JP/${stickers.IconJP}${stickers.Animated == true ? ".gif" : ".png"}`}></img>}
-                              </div>
-                          </div>
+                      <div className={`sphereletter ${newmatch.SphereSlotLocked == 3 ? "lockedslot" : "unlockedslot"}`}>
+                      <LazyLoadImage effect="opacity" src={ newmatch.SphereSlot3Letter == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/spheres/SphereLetter${newmatch.SphereSlot3Letter}.png`} alt={newmatch.Sphere3}/>
                       </div>
-                        )
-                      :""}
-                    </div>
+                  </div>
+                  {newmatch.JPSynergyStart == undefined && newmatch.GLSynergyStart == undefined ? "" :
+                  <div className="syngholder2">
+                  {newmatch.GLSynergyStart == undefined ? "" : 
+                      <div className={` ${new Date(newmatch.GLSynergyStart) >= ct ? "upstat " : "downstat "}`}>
+                          <span className='emoji'>🌎</span>{`${new Date(newmatch.GLSynergyStart) >= ct ? " Synergy on" : " Synergy ends"} ${new Date(newmatch.GLSynergyStart) >= ct ? `${months[new Date(newmatch.GLSynergyStart).getMonth()] + "/" + ordinal(new Date(newmatch.GLSynergyStart).getDate())}` : `${months[new Date(newmatch.GLSynergyEnd).getMonth()] + "/" + ordinal(new Date(newmatch.GLSynergyEnd).getDate())}`}`}
+                      </div>}
+                      {newmatch.JPSynergyStart == undefined ? "" : 
+                      <div className={` ${new Date(newmatch.JPSynergyStart) >= ct ? "upstat " : "downstat "}`}>
+                          <span className="jpflagupdate"/>{new Date(newmatch.JPSynergyStart) >= ct ? " Synergy on" : " Synergy ends"} {`${new Date(newmatch.JPSynergyStart) >= ct ? `${months[new Date(newmatch.JPSynergyStart).getMonth()] + "/" + ordinal(new Date(newmatch.JPSynergyStart).getDate())}` : `${months[new Date(newmatch.JPSynergyEnd).getMonth()] + "/" + ordinal(new Date(newmatch.JPSynergyEnd).getDate())}`}`}
+                      </div>
                       }
-                    {all_dates.length!=0?
-                    <div>
-                      <div className="glinfobanner Buffbanner">
-                        <div className="charglupdates">
-                      {CaliCon}{` ${newmatch.CharacterName}`}{"'s GL Releases"}
-                        </div>
-                      </div>
-                      <div className="glinfobase Buffbase">
-                        {all_dates.map((self,i)=>(
-                          self.release == undefined ? "" :
-                          (new Date(self.date) < ct ) == true ? "" :
-                          self.temp == true ?
-                          <div key={i} className="bufftypes_max">
-                            {self.tag_array && self.tag_array.length == 0 ? "":
-                            self.tag_array.map((self_tag,ii)=>(
-                                <Link key={ii} to={`/characters/${newmatch.ShortName}/${self_tag.loc}`}>
-                                  <DefaultTippy content={self_tag.tip}>
-                                  <li className={`undertaga ${self_tag.tag}`}></li>
-                                  </DefaultTippy>
-                                </Link>
-                            ))}
-                            <br/>
-                            {handledate(self.release)}
-                          </div>
-                          :
-                          <div key={i} className="bufftypes_max">
-                            {self.tag_array && self.tag_array.length == 0 ? "":
-                            self.tag_array.map((self_tag,ii)=>(
-                                <Link key={ii} to={`/characters/${newmatch.ShortName}/${self_tag.loc}`}>
-                                  <DefaultTippy content={self_tag.tip}>
-                                  <li className={`undertaga ${self_tag.tag}`}></li>
-                                  </DefaultTippy>
-                                </Link>
-                            ))}
-                            <br/>
-                            <StartsInTimer expiryTimestamp={new Date(self.release)}/>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                    :""}
-                    {events.length != 0 ? 
-                    <div onClick={() => seteventsexpand(!eventsexpand)} className="abilitybluesinglebutton clicky">
-                        <span className="eventspagebutton undertaga inlineblock autoleft"/><span className="charpageautotitle">Upcoming</span>{eventsexpand ? <TiArrowSortedUp className="uparrow"/> : <TiArrowSortedDown className="downarrow"/>}
-                    </div>
-                    :""}
-                    {eventsexpand == false || events.length == 0 ? "":
-                    <div>
-                    <ul className="singleventholder nolist">
-                    <div className="similarbanner addbordertop addborderbottom">Featured Events</div>
-                      {events.map(events =>(
-                        <EventListing 
-                        key={events.eventindex}
-                        match={events}
-                        jptoggledata={jptoggledata}
-                        />
-                      ))}
-                      </ul>
-                      <span className="smallsubtext">*from current GL</span>
-                      </div>
-                    }
-                    <div onClick={() => sethelpexpand(!helpexpand)} className="abilitybluesinglebutton clicky">
-                        <span className="communitybutton undertaga inlineblock autoleft"/><span className="charpageautotitle">Help</span>{helpexpand ? <TiArrowSortedUp className="uparrow"/> : <TiArrowSortedDown className="downarrow"/>}
-                    </div>
-                    {helpexpand == false  ? "":
-                        <GetCharGuides 
-                        key={newmatch.CharID}
-                        index={newmatch.CharID}
-                        CharGuideData={CharGuideData}
-                        />
-                    }
-                 </div>
+                  </div>}
+                  </div>
+              </div>
+              {newmatch.JPSynergyStart == undefined && newmatch.GLSynergyStart == undefined ? "" :
+              <div className="syngholder">
+                {newmatch.GLSynergyStart == undefined ? "" : 
+                  <div className={` ${new Date(newmatch.GLSynergyStart) >= ct ? "upstat " : "downstat "}`}>
+                      <span className='emoji'>🌎</span>{`${new Date(newmatch.GLSynergyStart) >= ct ? " Synergy on" : " Synergy ends"} ${new Date(newmatch.GLSynergyStart) >= ct ? `${months[new Date(newmatch.GLSynergyStart).getMonth()] + "/" + ordinal(new Date(newmatch.GLSynergyStart).getDate())}` : `${months[new Date(newmatch.GLSynergyEnd).getMonth()] + "/" + ordinal(new Date(newmatch.GLSynergyEnd).getDate())}`}`}
+                  </div>}
+                  {newmatch.JPSynergyStart == undefined ? "" : 
+                  <div className={` ${new Date(newmatch.JPSynergyStart) >= ct ? "upstat " : "downstat "}`}>
+                      <span className="jpflagupdate"/>{new Date(newmatch.JPSynergyStart) >= ct ? " Synergy on" : " Synergy ends"}{`${new Date(newmatch.JPSynergyStart) >= ct ? `${months[new Date(newmatch.JPSynergyStart).getMonth()] + "/" + ordinal(new Date(newmatch.JPSynergyStart).getDate())}` : `${months[new Date(newmatch.JPSynergyEnd).getMonth()] + "/" + ordinal(new Date(newmatch.JPSynergyEnd).getDate())}`}`}
+                  </div>
+                  }
+              </div>}
+              <ul className="smallclass classcolor noselect">
+                  <div className="subpassiveflair spacearound ">
+                  &nbsp;Classes
+                  </div>
+                  <Role_Maker
+                  base={newmatch}
+                  newmatch={newmatch[`${ver}traits`] && newmatch[`${ver}traits`]}
+                  lower={true}
+                  />
+              </ul>
+              <BrevityProfile match={newmatch}/>
             </div>
-        </div>
-    )
+              {ProcessedVoices.length == 0 && CharStickers.length == 0?
+              <div className="introcolor introflex">
+                <div className="subtextinfo">Info:</div>
+                <div className="subpassiveflair spacearound ">
+                  &nbsp;Intro
+                </div>
+                  {newmatch.Intro}
+                  <div className='abilityJPname'>
+                {newmatch.JPintro}
+                  </div>
+              </div>
+              : 
+              <div className="introcolor introflex">
+                <div className="subtextinfo">Info:</div>
+                <div className="subpassiveflair spacearound ">
+                  <span className={`charintro undertaga clicky ${introvoice == "intro" ? "buffactive" : ""}`} onClick={()=> setintrovoice("intro")}></span>
+                  {ProcessedVoices.length != 0 ?
+                  <span className={`charvoice undertaga clicky ${introvoice == "voice" ? "buffactive" : ""}`} onClick={()=> setintrovoice("voice")}></span>
+                  :""}
+                  {CharStickers.length != 0 ?
+                  <span className={`charstamps undertaga clicky ${introvoice == "sticker" ? "buffactive" : ""}`} onClick={()=> setintrovoice("sticker")}></span>
+                  :""}
+                </div>
+                {introvoice == "voice" ? <div className="vaartist"><span className="emoji">🎤</span>{` ${ProcessedVoices[0].va} / ${ProcessedVoices[0].vajp}`}</div> : ""}
+                {introvoice == "intro" ?
+                <>
+                {newmatch.Intro} 
+                <div className='abilityJPname'>
+                {newmatch.JPintro}
+                  </div>
+                  </>
+                : ""}
+                {introvoice == "voice" ?
+                ProcessedVoices.map(self=>
+                  <div key={self.id} className="infoholder lowerspace ldblue">
+                    <div className="infonameholder clicky" onClick={()=> onclick(self)}>
+                    {self.text != undefined ?
+                      <div className="subpassiveflair voiceline" >{addformatting(` ► ` + self.text)}</div>
+                      :self.jptext != undefined ?
+                      <div className="subpassiveflair voiceline" >{addformatting(` ► ` + self.jptext)}</div>
+                      :""}
+                      {self.jptext != undefined ?
+                        self.text == undefined ? "" :
+                        <div className="abilityJPname">{addformatting(self.jptext)}</div>
+                        :""}
+                    </div>
+                  </div>
+                ):""}
+                {introvoice == "sticker" ?
+                CharStickers.map(stickers=>
+                  <div key={stickers.StickerKey} className="buffunit">
+                    <div className="infoholder">
+                        <div className="infonameholder clicky Nocolorbanner" onClick={()=> onclickvoice(stickers.Voice)}>
+                            {stickers.Name} ►
+                            <div className="abilityJPname">{stickers.JPName}
+                            </div>
+                        </div>
+                        <div className="infobase stamppadding Nocolorbase">
+                            {stickers.IconGL == undefined ? null :
+                            <img className="stampsicon clicky" onClick={()=> onclickvoice(stickers.Voice)} style={stickers.BackgroundColor != null ? { background: `${stickers.BackgroundColor}`} : {background: null}} alt={stickers.Name} src={`https://dissidiacompendium.com/images/static/stamps/GL/${stickers.IconGL}${stickers.Animated == true ? ".gif" : ".png"}`}></img>}
+                            {stickers.IconJP == undefined ? null :
+                            <img className="stampsicon clicky" onClick={()=> onclickvoice(stickers.Voice)} style={stickers.BackgroundColor != null ? { background: `${stickers.BackgroundColor}`} : {background: null}} alt={stickers.JPName} src={`https://dissidiacompendium.com/images/static/stamps/JP/${stickers.IconJP}${stickers.Animated == true ? ".gif" : ".png"}`}></img>}
+                        </div>
+                    </div>
+                </div>
+                  )
+                :""}
+              </div>
+                }
+                {showraw == true?
+                <ReactJson iconStyle={"square"} quotesOnKeys={false} name={"hit map"} displayDataTypes={false} collapsed={false} theme={"threezerotwofour"} src={newmatch}/>
+                :""}
+              {all_dates.length!=0?
+              <div>
+                <div className="glinfobanner Buffbanner">
+                  <div className="charglupdates">
+                {CaliCon}{` ${newmatch.CharacterName}`}{"'s GL Releases"}
+                  </div>
+                </div>
+                <div className="glinfobase Buffbase">
+                  {all_dates.map((self,i)=>(
+                    self.release == undefined ? "" :
+                    (new Date(self.date) < ct ) == true ? "" :
+                    self.temp == true ?
+                    <div key={i} className="bufftypes_max">
+                      {self.tag_array && self.tag_array.length == 0 ? "":
+                      self.tag_array.map((self_tag,ii)=>(
+                          <Link key={ii} to={`/characters/${newmatch.ShortName}/${self_tag.loc}`}>
+                            <DefaultTippy content={self_tag.tip}>
+                            <li className={`undertaga ${self_tag.tag}`}></li>
+                            </DefaultTippy>
+                          </Link>
+                      ))}
+                      <br/>
+                      {handledate(self.release)}
+                    </div>
+                    :
+                    <div key={i} className="bufftypes_max">
+                      {self.tag_array && self.tag_array.length == 0 ? "":
+                      self.tag_array.map((self_tag,ii)=>(
+                          <Link key={ii} to={`/characters/${newmatch.ShortName}/${self_tag.loc}`}>
+                            <DefaultTippy content={self_tag.tip}>
+                            <li className={`undertaga ${self_tag.tag}`}></li>
+                            </DefaultTippy>
+                          </Link>
+                      ))}
+                      <br/>
+                      <StartsInTimer expiryTimestamp={new Date(self.release)}/>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              :""}
+              {events.length != 0 ? 
+              <div onClick={() => seteventsexpand(!eventsexpand)} className="abilitybluesinglebutton clicky">
+                  <span className="eventspagebutton undertaga inlineblock autoleft"/><span className="charpageautotitle">Upcoming</span>{eventsexpand ? <TiArrowSortedUp className="uparrow"/> : <TiArrowSortedDown className="downarrow"/>}
+              </div>
+              :""}
+              {eventsexpand == false || events.length == 0 ? "":
+              <div>
+              <ul className="singleventholder nolist">
+              <div className="similarbanner addbordertop addborderbottom">Featured Events</div>
+                {events.map(events =>(
+                  <EventListing 
+                  key={events.eventindex}
+                  match={events}
+                  jptoggledata={jptoggledata}
+                  />
+                ))}
+                </ul>
+                <span className="smallsubtext">*from current GL</span>
+                </div>
+              }
+              <div onClick={() => sethelpexpand(!helpexpand)} className="abilitybluesinglebutton clicky">
+                  <span className="communitybutton undertaga inlineblock autoleft"/><span className="charpageautotitle">Help</span>{helpexpand ? <TiArrowSortedUp className="uparrow"/> : <TiArrowSortedDown className="downarrow"/>}
+              </div>
+              {helpexpand == false  ? "":
+                  <GetCharGuides 
+                  key={newmatch.CharID}
+                  index={newmatch.CharID}
+                  CharGuideData={CharGuideData}
+                  />
+              }
+            </div>
+      )
 }
 export default CharacterPage

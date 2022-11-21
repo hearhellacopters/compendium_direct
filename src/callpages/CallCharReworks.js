@@ -5,6 +5,7 @@ import { getCharacters } from '../redux/ducks/characters';
 import { getJPToggle } from '../redux/ducks/jptoggle';
 import CallReworksHandoff from './CallCharReworksHandOff';
 import Loading from './_loading'
+import {Navigate} from 'react-router-dom';
 
 const CallCharReworks = () =>{
 
@@ -16,6 +17,10 @@ const CallCharReworks = () =>{
 
     const ProcessedCharacters = useSelector((state) => 
     state.characters.characters
+    );
+
+    const Access = useSelector((state) => 
+    state.characters.access
     );
 
     const jptoggledata = useSelector((state) => 
@@ -30,32 +35,31 @@ const CallCharReworks = () =>{
         if (mounted) {
         dispatch(getJPToggle());
         }
+        if (mounted) {
+            dispatch(getJPToggle());
+            }
         return function cleanup() {
             mounted = false
         }
     }, [dispatch,ProcessedCharacters]);
 
-    useEffect(() => {
-      if(jptoggledata == true){
-          ProcessedCharacters && ProcessedCharacters.sort((self,self2)=>self.JPOrder-self2.JPOrder)
-      } else {
-          ProcessedCharacters && ProcessedCharacters.sort((self,self2)=>self.GLOrder-self2.GLOrder)
-      }
-  },[ProcessedCharacters,jptoggledata])
 
-    const filtered = ProcessedCharacters && ProcessedCharacters.filter(function (el) { 
-        return el["ShortName"] == match.params.id ; 
-      }); 
+    const filtered = ProcessedCharacters && ProcessedCharacters[Access[match.params.id]]
+    
+    return (
+        Access != undefined && ProcessedCharacters != undefined && jptoggledata != undefined?
+        filtered == undefined ?
+        <Navigate replace to="/404"/>
+        :
+        <CallReworksHandoff 
+        match={match} 
+        ProcessedCharacters={ProcessedCharacters}
+        filtered={filtered}
+        jptoggledata={jptoggledata}
+        />
+        :<Loading/>
+    )
 
-      if(filtered != undefined ){
-        return (
-            <CallReworksHandoff match={match} filtered={filtered}/>
-        )
-      } else {
-          return(
-            <Loading/>
-          )
-      }
 }
 
 export default CallCharReworks;

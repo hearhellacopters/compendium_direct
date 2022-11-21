@@ -1,11 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import { useParams } from 'react-router-dom'
-import { useStateIfMounted } from "use-state-if-mounted";
 import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import Direct_Guide from './characterpages/DirectGuide';
 import './App.css';
 import './Nav.css';
+import './Gear.css'
 import Nav from './Nav';
 import NotFoundPage from './404.js'
 import Footer from './Footer';
@@ -16,20 +14,11 @@ import Panels from './callpages/CallPanels.js';
 import EventPassOff from './callpages/CallEventHandoff';
 import BannerPassOff from './callpages/CallBannersPassoff.js';
 import Characters from './callpages/CallCharacters';
-import CharactersHandoff from './callpages/CallCharacterHandoff.js';
 import EnemyHandoffDirect from './callpages/CallEnemyHandoffDirect';
-import CharactersPageBuffs from './callpages/CallCharBuffs';
-import CharactersPageSpheres from './callpages/CallCharSpheres.js';
-import CharactersPageAbilities from './callpages/CallCharAbilities';
-import CharactersPageGear from './callpages/CallCharGear';
-import CharactersPagePassives from './callpages/CallCharPassives';
-import CharactersPageEvents from './callpages/CallCharEvents';
-import CharactersPageCommunity from './callpages/CallCharCommunity.js';
 import CharactersUltimaPage from './callpages/CallUltimaWeapon.js';
 import CharactersFRPage from './callpages/CallFRTime.js';
 import CharactersWardrobePage from './callpages/CallWardrobe.js';
 import CharactersPageDirect from './callpages/CallCharDirect';
-import CharactersPageReworks from './callpages/CallCharReworks';
 import WeaponSkins from './callpages/CallWeaponSkins';
 import CallSummonHandoff from './callpages/CallSummons';
 import Credits from './Credits';
@@ -123,9 +112,14 @@ const jponlybutton = () => {
             : ""}
             <div className="minifloat clicky noselect" onClick={jponlybutton}>
               {jponly == true ? 
+              <Tippy content="Switch to GL">
               <div className="jpflagupdate"></div>
+              </Tippy>
               :
-              <div className='emoji'>🌎</div>}
+              <Tippy content="Switch to JP">
+              <div className='emoji'>🌎</div>
+              </Tippy>
+              }
               </div>
             {check && check.maintenance == true ?
             <Tippy content={<div><div>Site is in maintenance mode</div><div>You may experince loading issues</div></div>}>
@@ -161,23 +155,16 @@ const jponlybutton = () => {
             <Route path="/characters/skins/weapons/" exact element={<WeaponSkins/>} />
             <Route path="/characters/wardrobe" element={<Navigate replace to ="/characters/skins/wardrobe/"/>}/>
             <Route path="/characters/skins" element={<Navigate replace to ="/characters/skins/wardrobe/"/>}/>
-            <Route path="/characters/:id" exact element={<CharactersHandoff/>} />
-            <Route path="/characters/:id/buffs/" exact element={<CharactersPageBuffs/>} />
-            <Route path="/characters/:id/buffs/:type" exact element={<CharactersPageBuffs/>} />
-            <Route path="/characters/:id/spheres" exact element={<CharactersPageSpheres/>} />
-            <Route path="/characters/:id/direct" exact element={<CharactersPageDirect/>} />
-            <Route path="/characters/:id/direct/:type" exact element={<CharactersPageDirect/>} />
-            <Route path="/characters/:id/direct/passives/:type" exact element={<CharactersPageDirect/>} />
-            <Route path="/characters/:id/abilities" exact element={<CharactersPageAbilities/>} />
-            <Route path="/characters/:id/abilities/:type" exact element={<CharactersPageAbilities/>} />
-            <Route path="/characters/:id/gear" exact element={<CharactersPageGear/>} />
-            <Route path="/characters/:id/gear/:type" exact element={<CharactersPageGear/>} />
-            <Route path="/characters/:id/passives" exact element={<CharactersPagePassives/>} />
-            <Route path="/characters/:id/reworks" exact element={<CharactersPageReworks/>} />
-            <Route path="/characters/:id/passives/:type" exact element={<CharactersPagePassives/>} />
-            <Route path="/characters/:id/community" exact element={<CharactersPageCommunity/>} />
-            <Route path="/characters/:id/events" exact element={<CharactersPageEvents/>} />
-            <Route path="/characters/:id/events/:type" exact element={<CharactersPageEvents/>} />
+            <Route path="/characters/:id" exact element={<CharactersPageDirect loc="character"/>} />
+            <Route path="/characters/:id/buffs/" exact element={<CharactersPageDirect loc="buffs"/>} />
+            <Route path="/characters/:id/spheres" exact element={<CharactersPageDirect loc="spheres"/>} />
+            <Route path="/characters/:id/abilities" exact element={<CharactersPageDirect loc="abilities"/>} />
+            <Route path="/characters/:id/gear" exact element={<CharactersPageDirect loc="gear"/>} />
+            <Route path="/characters/:id/passives/" exact element={<CharactersPageDirect loc="passives"/>} />
+            <Route path="/characters/:id/passives/:type" exact element={<CharactersPageDirect loc="passives"/>} />
+            <Route path="/characters/:id/reworks" exact element={<CharactersPageDirect loc="reworks"/>} />
+            <Route path="/characters/:id/community" exact element={<CharactersPageDirect loc="community"/>} />
+            <Route path="/characters/:id/events" exact element={<CharactersPageDirect loc="events"/>} />
             <Route path="/search/buffs" element={<BuffsDirect/>} />
             <Route path="/search/" element={<Navigate replace to ={`/search/buffs${jptoggledata == false ? "":"?JP=true"}`}/>} />
             <Route path="/search/abilities" element={<AbilitiesDirect/>} />
@@ -199,7 +186,6 @@ const jponlybutton = () => {
             <Route path="/404" element={<NotFoundPage/>} />
             <Route path="/credits" element={<Credits/>} />
             <Route path="/log" element={<Log/>}/>
-            <Route path="/directguide" element={<Direct_Guide/>}/>
             <Route path="/guide" element={<Navigate replace to ="/"/>} />
             <Route path='*' element={<NotFoundPage/>} />
             <Route element={<NotFoundPage/>} />

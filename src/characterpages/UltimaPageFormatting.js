@@ -2,7 +2,6 @@ import React, {useState, useEffect } from 'react';
 import DefaultTippy from '../formatting/TippyDefaults.js';
 import { Helmet} from 'react-helmet-async';
 import { Link, Navigate} from 'react-router-dom'
-import GearFormatting from '../formatting/GearFormatting.js'
 import 'react-lazy-load-image-component/src/effects/opacity.css';
 import 'tippy.js/animations/scale.css';
 import 'tippy.js/animations/scale-subtle.css';

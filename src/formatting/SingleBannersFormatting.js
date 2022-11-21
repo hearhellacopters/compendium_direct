@@ -4,7 +4,7 @@ import Tippy from '../formatting/TippyDefaults.js';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
 
-const FormatedEvents = ({ match , permapage }) => {
+const SingleBannersFormatting = ({ match , permapage }) => {
 
     return(
         <li id={match.type} key={match.bannerindex}>
@@ -22,4 +22,4 @@ const FormatedEvents = ({ match , permapage }) => {
         </li>
     )
 }
-export default FormatedEvents;
+export default SingleBannersFormatting;

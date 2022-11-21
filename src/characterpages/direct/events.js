@@ -2,24 +2,22 @@ import React, {useState, useEffect} from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
 import { getQuery, getQueryStringVal, useQueryParam } from '../../processing/urlparams'
 import Tippy from '../../formatting/TippyDefaults'
-import { useDispatch } from "react-redux";
 import { slice, concat, } from 'lodash';
 import Select from 'react-select';
 import { ImSortAmountAsc } from 'react-icons/im';
 import { ImSortAmountDesc } from 'react-icons/im';
-import { TiArrowSortedDown } from 'react-icons/ti';
-import { TiArrowSortedUp } from 'react-icons/ti';
 import { IoMdCloseCircleOutline } from 'react-icons/io';
 import { IoSearch } from 'react-icons/io5'; 
 import { FaUndoAlt } from 'react-icons/fa'
-import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
 import Event_Direct_Single from './event_single';
 
 const Event_Single =({
     data,
     ProcessedEventsIndex,
     ver,
-    char_id
+    ProcessedCharacters,
+    jptoggledata,
+    showFilter
 })=>{
 
     const rawData = Object.values(data).sort((a, b) => new Date(b.start) - new Date(a.start))
@@ -28,7 +26,6 @@ const Event_Single =({
 
     const startinglimit = 9999
 
-    const [showFilter, setShowFilter] = useState(getQueryStringVal("filter") != null  ? true : false);
     const [clearFilter, setclearFilter] = useStateIfMounted(false);
 
     const [loop, setLoop] = useStateIfMounted(false);
@@ -55,24 +52,7 @@ const Event_Single =({
     const [TEXTsearch, setTEXTsearch] = useQueryParam("search", "");
     const [Filtersearch, setFiltersearch] = useQueryParam("filter", "");
 
-    const showfilterbutton = () => {
-        if (showFilter == false) {
-            setFiltersearch("true")
-            setShowFilter(true)
-        } else {
-            setFiltersearch("")
-            setShowFilter(false)
-        }
-        }
-    
-        useEffect(() => {
-          if (showFilter == false) {
-            setFiltersearch("")
-          } else {
-            setFiltersearch("true")
-          }
-          // eslint-disable-next-line react-hooks/exhaustive-deps
-        },[showFilter])
+
         //button toogle
         useEffect(() => {
           if (reverse == true) {
@@ -92,16 +72,16 @@ const Event_Single =({
     useEffect(() => {
         //type params
         if(Typesearch != ""){
-         const filteredtype = Object.values(char_id).filter(self => self.name == getQueryStringVal("char"))
+         const filteredtype = Object.values(ProcessedCharacters).filter(self => self.CharacterName == getQueryStringVal("char"))
          if(filteredtype.length != 0){
            setTypesearch(getQueryStringVal("char"))
-           setCondFilter(filteredtype[0].id)
+           setCondFilter(filteredtype[0].CharID)
          } else{
            setTypesearch("")
            setCondFilter("")
          }
        }
-     },[setCondFilter,char_id,Typesearch,setTypesearch])
+     },[setCondFilter,ProcessedCharacters,Typesearch,setTypesearch])
 
         //type selector
    const CondSelect = (e) => {
@@ -172,13 +152,17 @@ const Event_Single =({
         // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchTerm, condFilter, reverse]);
 
-    //type list
-    const typeListArray = Object.values(char_id).map((typeListUnique) => ({
-        value: typeListUnique.name,
-        label: typeListUnique.name,
-        id: typeListUnique.id,
-        }));
-    
+   //type list
+  const [typeListArray, settypeListArray] = useStateIfMounted(false);
+  useEffect(()=>{
+    const typeListArray2 = Object.values(ProcessedCharacters).filter(self=>jptoggledata == true? self.JPOrder != undefined : self.GLOrder != undefined).sort((a,b)=>jptoggledata == true? b.JPOrder - a.JPOrder : b.GLOrder - a.GLOrder).map((typeListUnique) => ({
+      value: typeListUnique.CharacterName,
+      label: typeListUnique.CharacterName,
+      id: typeListUnique.CharID,
+    }));
+    settypeListArray(typeListArray2)
+  },[jptoggledata,ProcessedCharacters,settypeListArray])
+
        //search bar
         const handleChange = (e) => {
             setsearchdisplay(e.target.value)
@@ -241,28 +225,6 @@ const Event_Single =({
     } else {
         return(
             <div>
-            <div className="charfilterspacer"/>
-            <div key="filter1" onClick={showfilterbutton} className="charfilter"><span className="filterstext"></span>{showFilter ? <TiArrowSortedUp className="uparrow"/> : <TiArrowSortedDown className="downarrow"/>}</div>
-            <div className="event-search-reverse-holder">
-              {showFilter == false ? 
-              <div className="char-search-reverse-holder">
-                <IoSearch className="searchicon"/>
-              <div className="search-holder el">
-                <input 
-                    className="char-search-bar" 
-                    type="text"
-                    placeholder="Name Search"
-                    value={searchdisplay}
-                    onChange={handleChange}
-                    onKeyDown={handleKeyDown}
-                />
-                {searchTerm === "" ? "" : 
-                <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
-                </div>
-                </div>
-              :""
-              }
-            </div>
                 <div className="filterholder noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
                   <div className="similarbanner">Filters</div>
                   <div className="filterholderflair">
@@ -312,7 +274,7 @@ const Event_Single =({
                     key={key}
                     self={self}
                     ver={ver}
-                    char_id={char_id}
+                    char_id={ProcessedCharacters}
                     ProcessedEventsIndex={ProcessedEventsIndex}
                     />
                     :""

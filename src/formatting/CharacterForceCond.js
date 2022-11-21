@@ -3,12 +3,12 @@ import { useStateIfMounted } from "use-state-if-mounted";
 import { Link } from 'react-router-dom'
 import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
 import addformatting from "../processing/replacer_enemydesc";
-import roles from '../formatting/roles.json'
+import roles from '../characterpages/direct/formatting/command_ability/ailment_tags.json'
 import Tippy from "../formatting/TippyDefaults";
 
-const FRCond = ({ match, ProcessedCharacters, PartnerCharacters }) => {
+const FRCond = ({ match, ProcessedCharacters, jptoggledata }) => {
 
-    const Partner = match.FR_Partner == undefined ? PartnerCharacters[1] : PartnerCharacters[match.FR_Partner]
+    const Partner = match.FR_Partner == undefined ? ProcessedCharacters[1] : ProcessedCharacters[match.FR_Partner]
 
     const [columns,setcolumns]  =useStateIfMounted(`${window.innerWidth == undefined ? 2 : window.innerWidth > 799 ? 3 : window.innerWidth > 349 ? 2 : 1}`)
     const [run_helpers, setrun_helpers] =useStateIfMounted(false)
@@ -41,27 +41,51 @@ const FRCond = ({ match, ProcessedCharacters, PartnerCharacters }) => {
             return returner
         }
     }
+    useEffect(()=>{
+        if(ran == true){
+            setran(false)
+        }
+        // eslint-disable-next-line 
+    },[jptoggledata])
 
     useEffect(()=>{
+        const ver = jptoggledata == true ? "JP" : "GL"
         const helper_holder = {}
         if(run_helpers == true && ran == false){
             set_helpers && set_helpers.map(self=>{
-                const helper_pull = Object.values(PartnerCharacters).filter(function (ef) {
-                    return ef[`${self}`] === true;
+                const helper_pull = Object.values(ProcessedCharacters).filter(function (ef) {
+                    return ef[`${ver}traits`] && ef[`${ver}traits`][`${self}`] == true;
                   });
-                 
                   helper_pull.map(self3=>{
                     if(helper_holder[self3.CharID] == undefined){
-                        Object.assign(helper_holder,{[self3.CharID]: {GLOrder: self3.GLOrder, RealmPars: self3.RealmPars, Sort: self3.Sort, ShortName: self3.ShortName, CharacterFaceURL:  `https://dissidiacompendium.com/images/static/characters/${self3.CharacterURLName}/face.png`, CharacterName: self3.CharacterName, CharID: self3.CharID, roles:[self]}})
+                        Object.assign(helper_holder,{[self3.CharID]: {
+                            GLOrder: self3.GLOrder, 
+                            RealmPars: self3.RealmPars, 
+                            Sort: self3.Sort,
+                             ShortName: self3.ShortName, 
+                             CharacterFaceURL:  `https://dissidiacompendium.com/images/static/characters/${self3.CharacterURLName}/face.png`, 
+                             CharacterName: self3.CharacterName, 
+                             CharID: self3.CharID, 
+                             roles:[self]
+                            }})
                     } else {
                         helper_holder[self3.CharID].roles.push(self)
                     }
                   })
             })
             set_chars && set_chars.map(self=>{
-                const single = PartnerCharacters[self.CharID] && PartnerCharacters[self.CharID]
+                const single = ProcessedCharacters[self.CharID] && ProcessedCharacters[self.CharID]
                 if(helper_holder[self.CharID] == undefined){
-                    Object.assign(helper_holder,{[self.CharID]: {GLOrder: single.GLOrder, RealmPars: single.RealmPars, Sort: single.Sort, ShortName: single.ShortName, CharacterFaceURL:  `https://dissidiacompendium.com/images/static/characters/${single.CharacterURLName}/face.png`, CharacterName: single.CharacterName, CharID: self.CharID, roles: ["Character"]}})
+                    Object.assign(helper_holder,{[self.CharID]: {
+                        GLOrder: single.GLOrder, 
+                        RealmPars: single.RealmPars, 
+                        Sort: single.Sort, 
+                        ShortName: single.ShortName, 
+                        CharacterFaceURL:  `https://dissidiacompendium.com/images/static/characters/${single.CharacterURLName}/face.png`, 
+                        CharacterName: single.CharacterName, 
+                        CharID: self.CharID, 
+                        roles: ["Character"]
+                    }})
                 } else {
                     helper_holder[self.CharID].roles.push("Character")
                 }
@@ -71,7 +95,7 @@ const FRCond = ({ match, ProcessedCharacters, PartnerCharacters }) => {
             setforcehelpers(final_arry)
             setcolumns(`${window.innerWidth == undefined ? column_helper(2,final_arry.length) : window.innerWidth > 799 ? column_helper(3,final_arry.length) : window.innerWidth > 349 ? column_helper(2,final_arry.length) : column_helper(1,final_arry.length)}`)
         }
-    },[run_helpers,ran,PartnerCharacters,set_helpers,setforcehelpers,setran,setcolumns,set_chars])
+    },[run_helpers,ran,set_helpers,ProcessedCharacters,jptoggledata,setforcehelpers,setran,setcolumns,set_chars])
 
     
 
@@ -92,7 +116,7 @@ const FRCond = ({ match, ProcessedCharacters, PartnerCharacters }) => {
                         <div className="faceandiconholder">
                             <Link to={`/characters/` + Partner && Partner.ShortName}>
                             <div className="faceholder">
-                                <LazyLoadImage effect="opacity" alt={Partner && Partner.CharacterName} className="faceicon" src={Partner && Partner.CharacterFaceURL}/>
+                                <LazyLoadImage effect="opacity" alt={Partner && Partner.CharacterName} className="faceicon" src={Partner && `https://dissidiacompendium.com/images/static/characters/${Partner.CharacterURLName}/face.png`}/>
                                 <div className="facetext">{`${Partner && Partner.CharacterName == "Cloud of Darkness" ? "CoD" : Partner && Partner.CharacterName == "Warrior of Light" ? "WoL" : Partner && Partner.CharacterName}`}</div>
                             </div>
                             </Link>
@@ -103,7 +127,7 @@ const FRCond = ({ match, ProcessedCharacters, PartnerCharacters }) => {
                     {addformatting(match.AbilityFR)}
                     
                 </div>
-                <div className="subtext_brev">*info is truncated for brevity, see ability page for full details</div>
+                <div className="subtext_brev">*info is truncated for brevity, dependant on select GL/JP version</div>
                 <div className='zone'>
                     <div className={`featuredbanner force_coloring noshowbottomline`}>
                         <div onClick={()=>setrun_helpers((prevstate)=>!prevstate)} className='loadmorespheres'>
@@ -128,8 +152,8 @@ const FRCond = ({ match, ProcessedCharacters, PartnerCharacters }) => {
                                     </Link><br/>
                                    
                                     {self.roles.map((self3,i)=>(
-                                        <Tippy key={i} content={roles[self3].name}>
-                                        <span className="rolesforforce" style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[self3].url})`}}>
+                                        <Tippy key={i} content={roles[self3] && roles[self3].name}>
+                                        <span className="rolesforforce" style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[self3] && roles[self3].url}.png)`}}>
                                         </span>
                                         </Tippy>
                                     ))}

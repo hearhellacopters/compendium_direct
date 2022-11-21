@@ -56,7 +56,8 @@ const Buff_bycharacter =({
 
     selected_id,
     gear,
-    hit_data
+    hit_data,
+    showFilter,
 })=>{
 
     const [showraw,setshowraw] = useStateIfMounted(false)
@@ -134,15 +135,6 @@ const Buff_bycharacter =({
         }
     }
 
-    const showfilterbutton = () => {
-        if (showFilter == true) {
-          setFiltersearch("false")
-        } else {
-            setFiltersearch("")
-        }
-        setShowFilter((prevValue) => !prevValue);
-      }
-
     const [showBRV, setshowBRV] = useState(false);
     const [showHP, setshowHP] = useState(false);
     const [showS1, setshowS1] = useState(false);
@@ -195,7 +187,6 @@ const Buff_bycharacter =({
     const [Reversesearch, setReversesearch] = useQueryParam("rev", "");
     const [TEXTsearch, setTEXTsearch] = useQueryParam("search", "");
 
-    const [showFilter, setShowFilter] = useState(getQueryStringVal("filter") != null ? false : true);
     const [Filtersearch, setFiltersearch] = useQueryParam("filter", "");
     const { protocol, pathname, host } = window.location;
     const query = getQuery();
@@ -235,11 +226,6 @@ const Buff_bycharacter =({
         }, [setTEXTsearch,setFiltersearch])
 
     useEffect(() => {
-        if (showFilter == true) {
-          setFiltersearch("")
-        } else {
-          setFiltersearch("false")
-        }
           if(activeBT == false){
             setactiveBTsearch("")
           } else {
@@ -296,7 +282,7 @@ const Buff_bycharacter =({
             setReversesearch("true")
           }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-      },[reverse,showFilter,activeBT,activeFR,activeEX,activeS2,activeS1,activeLD,activeAA,activeCALL,activeBRV,activeHP])
+      },[reverse,activeBT,activeFR,activeEX,activeS2,activeS1,activeLD,activeAA,activeCALL,activeBRV,activeHP])
 
     const ParsBuffs = {}
 
@@ -626,28 +612,6 @@ const Buff_bycharacter =({
      
     return(
         <div>
-            <div className="charfilterspacer"></div>
-            <div key="filter1" onClick={showfilterbutton} className="charfilter"><span className="filterstext"></span>{showFilter ? <TiArrowSortedUp className="uparrow"/> : <TiArrowSortedDown className="downarrow"/>}</div>
-            <div className="event-search-reverse-holder">
-              {showFilter == false ? 
-              <div className="char-search-reverse-holder">
-                <IoSearch className="searchicon"/>
-              <div className="search-holder el">
-                <input 
-                    className="char-search-bar" 
-                    type="text"
-                    placeholder="Name Search"
-                    value={searchdisplay}
-                    onChange={handleChange}
-                    onKeyDown={handleKeyDown}
-                />
-                {searchTerm === "" ? "" : 
-                <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
-                </div>
-                </div>
-              :""
-              }
-            </div>
             <div className="filterholder noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
                     <div className="similarbanner">Subcategories</div>
                     <div className="filterholderflair">

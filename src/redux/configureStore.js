@@ -6,38 +6,25 @@ import characterReducer from "./ducks/characters";
 import charGuideReducer from "./ducks/CharGuide";
 import updatesReducer from "./ducks/updates";
 import summonsReducer from "./ducks/summons";
-import spheresReducer from "./ducks/spheres";
-import passivesReducer from "./ducks/passives";
 import levelsReducer from "./ducks/levels";
 import jpcalendarReducer from "./ducks/jpcalendar";
-import gearReducer from "./ducks/gear";
 import eventsReducer from "./ducks/events";
 import eventsIndexReducer from "./ducks/eventsIndex";
-import enemiesReducer from "./ducks/enemies";
 import enemiesDirectReducer from "./ducks/enemies_direct";
-import buffsReducer from "./ducks/buffs";
 import bannersReducer from "./ducks/banners";
-import abilitiesReducer from "./ducks/abilities";
 import summonlevelsReducer from "./ducks/summonlevels";
 import summonpassivesReducer from "./ducks/summonpassives";
 import panelsReducer from "./ducks/panels";
-import panelsEXPTable from "./ducks/tableexp";
-import panelsCRYTable from "./ducks/tablecry";
-import panelsSUM1Table from "./ducks/tablesum1";
-import panelsSUM2Table from "./ducks/tablesum2";
 import jptoggleReducer from "./ducks/jptoggle";
 import stickerReducer from "./ducks/stickers";
 import jukeboxReducer from "./ducks/jukebox";
 import enemyabilityDirectReducer from "./ducks/enemyability_direct";
-import enemyabilityReducer from "./ducks/enemyability";
-import enemybuffsReducer from "./ducks/enemybuffs";
 import enemybuffsDirectReducer from "./ducks/enemybuffs_direct";
 import playingReducer from "./ducks/playing";
 import playindexReducer from "./ducks/playindex";
 import playlistReducer from "./ducks/playlist";
 import playvolumeReducer from "./ducks/playvolume";
 import ultimaweaponReducer from "./ducks/ultimaweapon";
-import frweaponReducer from "./ducks/frweapon";
 import maintenanceReducer from "./ducks/maintenance";
 //direct
 import ailmenteffectsReducer from "./ducks/ailment_effects";
@@ -83,38 +70,25 @@ const reducer = combineReducers({
   characters: characterReducer,
   updates : updatesReducer,
   summons: summonsReducer,
-  spheres: spheresReducer,
-  passives: passivesReducer,
   levels: levelsReducer,
   jpcalendar: jpcalendarReducer,
-  gear: gearReducer,
   events: eventsReducer,
   eventsIndex: eventsIndexReducer,
   enemies_direct: enemiesDirectReducer,
-  enemies: enemiesReducer,
-  buffs :buffsReducer,
   banners: bannersReducer,
-  abilities: abilitiesReducer,
   summonlevels: summonlevelsReducer,
   summonpassives: summonpassivesReducer,
   toggle: jptoggleReducer,
   panels: panelsReducer,
-  tableexp: panelsEXPTable,
-  tablecry: panelsCRYTable,
-  tablesum1: panelsSUM1Table,
-  tablesum2: panelsSUM2Table,
   stickers: stickerReducer,
   jukebox: jukeboxReducer,
   enemyability_direct: enemyabilityDirectReducer,
-  enemyability: enemyabilityReducer,
   enemybuffs_direct: enemybuffsDirectReducer,
-  enemybuffs: enemybuffsReducer,
   playing: playingReducer,
   playindex: playindexReducer,
   playlist: playlistReducer,
   volume: playvolumeReducer,
   ultimaweapon: ultimaweaponReducer,
-  frweapon: frweaponReducer,
   maintenance: maintenanceReducer,
   //direct
   ailmentnames: ailmentnamesReducer,

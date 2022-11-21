@@ -3,14 +3,12 @@ import { Link } from 'react-router-dom'
 import FaceMaker from './CharFaceFormatting.js'
 import EnemyListingDirect from './EnemyListingDirect.js'
 import ReminderMaker from './ReminderMaker.js';
-import SpheresFormatting from './SpheresFormatting.js'
 import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
 import GetEvents from '../passoff/GetEventGuides.js'
 import {EndsInTimer, StartsInTimer} from './Timers'
 import TickDown from '../processing/tickDown'
 import TickUp from '../processing/tickUp'
-import Tick from "@pqina/flip";
 
 import Sphere_Passive_Ability_Formatting from '../characterpages/direct/formatting/passives/Sphere_Passive_Ability_Formatting.js';
 import { useDispatch, useSelector } from "react-redux";
@@ -39,7 +37,7 @@ import { getOptionTransData} from '../redux/ducks/optiontransdata'
 import { getJPGameListSphere } from '../redux/ducks/JP/gamelist_sphere';
 import { getGLGameListSphere } from '../redux/ducks/GL/gamelist_sphere';
 
-const FormatedEvents = ({ match, permapage, EventGuideData }) => {
+const EventsFormatting = ({ match, permapage, EventGuideData }) => {
 
     useEffect( () =>{
         setBannerdisplay("Banner1");
@@ -754,4 +752,4 @@ const FormatedEvents = ({ match, permapage, EventGuideData }) => {
         </li>
     )
 }
-export default FormatedEvents;
+export default EventsFormatting;

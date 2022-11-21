@@ -61,6 +61,14 @@ const log = () =>{
                     </li>
                 </ul>
                 <div className="filterholderflair" >
+                    V.4.7
+                </div> 
+                <ul className="creditslist">
+                    <li>
+                    - Enemy pages now supports JP text
+                    </li>
+                </ul>
+                <div className="filterholderflair" >
                     V.4.6
                 </div> 
                 <ul className="creditslist">

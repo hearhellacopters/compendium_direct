@@ -5,6 +5,8 @@ import { getEnemiesDirect } from '../redux/ducks/enemies_direct';
 import { getEvents } from '../redux/ducks/events';
 import { getLevels } from '../redux/ducks/levels';
 import { getCharacters } from '../redux/ducks/characters';
+import { getJPToggle } from '../redux/ducks/jptoggle';
+
 import EnemyHandoffDirect from '../passoff/EnemyHandoffDirect';
 import Loading from './_loading'
 
@@ -32,6 +34,10 @@ const CallCharHandoffDirect = () =>{
     state.levels.levels
     );
 
+    const jptoggledata = useSelector((state) => 
+    state.toggle.toggle
+    );
+
     useEffect(() => {
         let mounted = true
         if (mounted && ProcessedEnemies == undefined) {
@@ -43,6 +49,9 @@ const CallCharHandoffDirect = () =>{
         if (mounted && ProcessedLevels == undefined) {
         dispatch(getLevels())
         }
+        if (mounted) {
+        dispatch(getJPToggle());
+        }
         if (mounted && ProcessedCharacters == undefined) {
             dispatch(getCharacters())
         }
@@ -51,15 +60,9 @@ const CallCharHandoffDirect = () =>{
         }
     }, [dispatch,ProcessedEvents,ProcessedEnemies,ProcessedLevels,ProcessedCharacters]);
 
-    const PartnerCharacters ={}
-
-    ProcessedCharacters && ProcessedCharacters.map(self=>{
-        Object.assign(PartnerCharacters,{[self.CharID]: self})
-    })
-
     return (
-        ProcessedEnemies != undefined && ProcessedEvents != undefined && ProcessedLevels != undefined && ProcessedCharacters!= undefined && PartnerCharacters!= undefined?
-        <EnemyHandoffDirect match={match} ProcessedEnemies={ProcessedEnemies} ProcessedEvents={ProcessedEvents} ProcessedLevels={ProcessedLevels} ProcessedCharacters={ProcessedCharacters} PartnerCharacters={PartnerCharacters}/>
+        ProcessedEnemies != undefined && ProcessedEvents != undefined && ProcessedLevels != undefined && ProcessedCharacters!= undefined && jptoggledata != undefined?
+        <EnemyHandoffDirect match={match} ProcessedEnemies={ProcessedEnemies} ProcessedEvents={ProcessedEvents} ProcessedLevels={ProcessedLevels} ProcessedCharacters={ProcessedCharacters} PartnerCharacters={ProcessedCharacters} jptoggledata={jptoggledata}/>
         : 
         <Loading/>
     )

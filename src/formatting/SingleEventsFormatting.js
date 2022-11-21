@@ -4,7 +4,7 @@ import Tippy from '../formatting/TippyDefaults.js';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
 
-const FormatedEvents = ({ match, permapage }) => {
+const SingleEventFormatting = ({ match, permapage }) => {
 
     if(match.tempdate != undefined) {
     return(
@@ -26,4 +26,4 @@ const FormatedEvents = ({ match, permapage }) => {
         return("")
     }
 }
-export default FormatedEvents;
+export default SingleEventFormatting;

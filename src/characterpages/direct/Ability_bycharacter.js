@@ -51,18 +51,8 @@ const Ability_bycharacter =({
     command_group,
     enemy_resist,
     formatting,
+    showFilter
 })=>{
-    console.log(command_group)
-    function sortFollowUps(a, b) {
-        if (b.FollowUp != true && a.FollowUp == true) {
-          return 1;
-        } else if (a.FollowUp != true && b.FollowUp == true) {
-            console.log(a.LearningAbility)
-          return -1;
-        } else {
-          return 0;
-        }
-    }
 
     const rawData = Object.values(ability_data)
 
@@ -161,7 +151,6 @@ const Ability_bycharacter =({
     const [activeCALL75, setactiveCALL75] = useStateIfMounted(getQueryStringVal("Call75") != null  ? true : false);
     const [activeCALLLD, setactiveCALLLD] = useStateIfMounted(getQueryStringVal("CallLD") != null  ? true : false);
 
-    const [showFilter, setShowFilter] = useState(getQueryStringVal("filter") != null  ?  false : true);
     const [showMap, setShowMap] = useState(getQueryStringVal("map") != null  ? true : false);
     const [upgraded, setupgraded] = useState(getQueryStringVal("upgraded") != null ? false : true);
     const [clearFilter, setclearFilter] = useStateIfMounted(false);
@@ -198,11 +187,6 @@ const Ability_bycharacter =({
     const [upgradedsearch, setupgradedsearch] = useQueryParam("upgraded", "");
 
     useEffect(() => {
-        if (showFilter == true) {
-          setFiltersearch("")
-        } else {
-          setFiltersearch("false")
-        }
         if (showMap == false) {
             setMapsearch("")
           } else {
@@ -264,16 +248,7 @@ const Ability_bycharacter =({
             setactiveHPsearch("true")
           }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-      },[showFilter,showMap,activeBT,activeFR,activeEX,activeS2,activeS1,activeLD,activeAA,activeCALL75,activeCALLLD,activeBRV,activeHP])
-
-      const showfilterbutton = () => {
-        if (showFilter == true) {
-            setFiltersearch("false")
-        } else {
-            setFiltersearch("")
-        }
-        setShowFilter((prevValue) => !prevValue);
-        }
+      },[showMap,activeBT,activeFR,activeEX,activeS2,activeS1,activeLD,activeAA,activeCALL75,activeCALLLD,activeBRV,activeHP])
 
         const showmapbutton = () => {
             if (showMap == false) {
@@ -1271,53 +1246,6 @@ const Ability_bycharacter =({
     } else{
     return(
         <div>
-           
-            <div id={showMap && finshedrunning ? "showfilteren" : "hiddenfilteren"} className={`filterholder noselect`}>
-                        <div className="similarbanner">Ability Map
-                        <div className="typeholder2">
-                        <Select
-                        key={typeListArray3}
-                        isSearchable={true} 
-                        placeholder="Command Filter..."
-                        className='typecontainer' 
-                        classNamePrefix="typetext" 
-                        onChange={CondSelect2}  
-                        options={Object.values(typeListArray3)} 
-                        isClearable={true}
-                        />
-                        </div>
-                        <div className='subtextbottom'>Remove upgraded filter to generate all mapped abilities</div>
-                        </div>
-                            <div className="filterholderflair">
-                            <MapMaker
-                                key={elements}
-                                initialElements={elements}
-                                />
-                            </div>
-                    </div>
-            
-            <div onClick={showmapbutton} className="leftcharfilter"><span className="automarg">Map</span></div>
-            <div key="filter1" onClick={showfilterbutton} className="charfilter"><span className="filterstext"></span>{showFilter ? <TiArrowSortedUp className="uparrow"/> : <TiArrowSortedDown className="downarrow"/>}</div>
-            <div className="event-search-reverse-holder">
-              {showFilter == false ? 
-              <div className="char-search-reverse-holder">
-                <IoSearch className="searchicon"/>
-              <div className="search-holder el">
-                <input 
-                    className="char-search-bar" 
-                    type="text"
-                    placeholder="Name Search"
-                    value={searchdisplay}
-                    onChange={handleChange}
-                    onKeyDown={handleKeyDown}
-                />
-                {searchTerm === "" ? "" : 
-                <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
-                </div>
-                </div>
-              :""
-              }
-            </div>
                 <div className="filterholder noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
                     <div className="similarbanner">Subcategories</div>
                     <div className="filterholderflair">
@@ -1458,12 +1386,40 @@ const Ability_bycharacter =({
                         </Tippy>
                     </div>
                     <div>
+                        <div className="mapbox">
+                              
+                                  <div className="centertext" onClick={showmapbutton}>Map</div>
+                              
+                          </div>
                           <Tippy content="Reset Filters" className="tooltip" >
                             <div onClick={resetbutton} className={`clearbox`} ><div className="makecenter">Reset&nbsp;<FaUndoAlt  className={`clearbutton ${clearFilter ? "loop": ""}`} ></FaUndoAlt></div></div>
                           </Tippy>
                           </div>
                   </div>
                 </div>
+                <div id={showMap && finshedrunning ? "showfilteren" : "hiddenfilteren"} className={`filterholder noselect`}>
+                        <div className="similarbanner">Ability Map
+                        <div className="typeholder2">
+                        <Select
+                        key={typeListArray3}
+                        isSearchable={true} 
+                        placeholder="Command Filter..."
+                        className='typecontainer' 
+                        classNamePrefix="typetext" 
+                        onChange={CondSelect2}  
+                        options={Object.values(typeListArray3)} 
+                        isClearable={true}
+                        />
+                        </div>
+                        <div className='subtextbottom'>Remove upgraded filter to generate all mapped abilities</div>
+                        </div>
+                            <div className="filterholderflair">
+                            <MapMaker
+                                key={elements}
+                                initialElements={elements}
+                                />
+                            </div>
+                    </div>
                 <div className="characterpageholder">
                     <Character_Ability_List
                     tag_display={"brvattackicon"}

@@ -100,10 +100,16 @@
     border-right: 2px black solid;
 }
 
+.spoiler_red{
+    color: #c43e40;
+    text-decoration: underline;
+    text-shadow: -1px -1px #FFFF, 1px -1px #FFFF, -1px 1px #FFFF, 1px 1px #FFFF;
+}
+
 .updatetitle{
     display: block;
     width: auto;
-    font-size: larger;
+    font-size: 20px;
     border-bottom: 2px black solid;
     padding: 10px;
     background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, rgba(30, 55, 88, 0.940205) 3.67%, rgba(30, 55, 88, 0.85) 96.44%, rgba(30, 55, 88, 0) 100%);
@@ -173,7 +179,7 @@
     padding: 5px;
     text-align: center;
     font-weight: bold;
-    font-size: larger;
+    font-size: 20px;
     background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #81a0c9 3.67%, #81a0c9 96.44%, rgba(30, 55, 88, 0) 100%);
 }
 
@@ -249,10 +255,10 @@
         font-size: smaller;
     }
     .updatetitle{
-        font-size: smaller;
+        font-size: 14px;
     }
     .lastupdate{
-        font-size: smaller;
+        font-size: 14px;
     }
     .updatedate{
         width: auto;

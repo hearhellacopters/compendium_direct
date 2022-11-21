@@ -160,6 +160,7 @@ const BuffsDirect =({
     const [FollowUp_Start_Of_Next, setFollowUp_Start_Of_Next] = useState(getQueryStringVal("FollowUp_Start_Of_Next") != null ? true : false)
     const [FollowUp_Before_Player_Turn, setFollowUp_Before_Player_Turn] = useState(getQueryStringVal("FollowUp_Before_Player_Turn") != null ? true : false)
     const [FollowUp_Before_Ability, setFollowUp_Before_Ability] = useState(getQueryStringVal("FollowUp_Before_Ability") != null ? true : false)
+    const [Blind, setBlind] = useState(getQueryStringVal("Blind") != null ? true : false)
 
     const [loop, setLoop] = useStateIfMounted(false);
     const [reverse, setReverse] = useState(getQueryStringVal("rev") != null  ? true : false);
@@ -284,6 +285,7 @@ const BuffsDirect =({
     const [FollowUp_Start_Of_Nextsearch, setFollowUp_Start_Of_Nextsearch] = useQueryParam("FollowUp_Start_Of_Next", "")
     const [FollowUp_Before_Player_Turnsearch, setFollowUp_Before_Player_Turnsearch] = useQueryParam("FollowUp_Before_Player_Turn", "")
     const [FollowUp_Before_Abilitysearch, setFollowUp_Before_Abilitysearch] = useQueryParam("FollowUp_Before_Ability", "")
+    const [Blindsearch, setBlindsearch] = useQueryParam("Blind", "")
 
     const [Reversesearch, setReversesearch] = useQueryParam("rev", "");
     const [TEXTsearch, setTEXTsearch] = useQueryParam("search", "");
@@ -478,7 +480,7 @@ const BuffsDirect =({
             }
             if(CappedBRV == true){
                 const filteredout = rawData.filter(
-                    (ef)=> ef.CappedBRV == true
+                    (ef)=> ef.BRV_Damage_Cap == true
                 );
                 filterholder.push(...filteredout)
             }
@@ -909,6 +911,12 @@ const BuffsDirect =({
                 );
                 filterholder.push(...filteredout)
             }
+            if(Blind == true){
+                const filteredout = rawData.filter(
+                    (ef)=> ef.Blind == true
+                );
+                filterholder.push(...filteredout)
+            }
         }
 
         //party
@@ -993,7 +1001,7 @@ const BuffsDirect =({
             }
             if(CappedBRV == true){
                 const filteredout = rawData.filter(
-                    (ef)=> ef.CappedBRV_Party == true
+                    (ef)=> ef.BRV_Damage_Cap_Party == true
                 );
                 filterholder.push(...filteredout)
             }
@@ -1423,6 +1431,12 @@ const BuffsDirect =({
                 );
                 filterholder.push(...filteredout)
             }
+            if(Blind == true){
+                const filteredout = rawData.filter(
+                    (ef)=> ef.Blind_Party == true
+                );
+                filterholder.push(...filteredout)
+            }
         }
 
         if (filterholder.length === 0) {
@@ -1464,7 +1478,7 @@ const BuffsDirect =({
                 );
             }
         }
-    },[merge,rawData,limits,searchTerm,reverse,condFilter,party,start,Launch_Support,BRV_Damage_Resist,HP_Damage_Up, Trap, Trap_After_Trigger, Trap_Before_Turn, Counter, FollowUp, FollowUp_Extension, FollowUp_Action_On_Enemy, FollowUp_Start_Of_Next, FollowUp_Before_Player_Turn, FollowUp_Before_Ability, Self_Harm,Buff_Extension,BRV_Resist_Down,Reviver,aBuff,bstate,buffs,Turn_Interrupter,Continuous_Turns,DMGShield,StackedBuff,StackedBuff5,StackedDebuff,StackedDebuff5,SpecialBuff,burstBuff,calls,debuffs,ex,GoldBuff,fr,ld,s20,starting,Break,BreakCancel,BreakPrevent,BRVCap,BRVFreeze,Gains,Refund,BRVRegen,BRVRetain,StolenBRV,BuffPrevent,CappedBRV,Cleanse,Cover,CriticalUp,CriticalRate,DebuffResist,IgnoreDEF,Delay,Delete,Dispel,ElementalWeak,Fire,Ice,Thunder,Wind,Water,Earth,Holy,Dark,Evade,EXFill,EXRate,FreeUse,FreeTurn,GoldDebuff,AddHP,MAXBRVCap,HPResistUp,HPResistDown,BRVPoison,HPPoison,HPHeal,HPRegen,Disable,FireDown,IceDown,ThunderDown,WindDown,WaterDown,EarthDown,HolyDown,DarkDown,MeleeDown,RangedDown,MagicDown,Instant,LastStand,TurnManip])
+    },[merge,rawData,limits,searchTerm,reverse,condFilter,party,start,Launch_Support,Blind,BRV_Damage_Resist,HP_Damage_Up, Trap, Trap_After_Trigger, Trap_Before_Turn, Counter, FollowUp, FollowUp_Extension, FollowUp_Action_On_Enemy, FollowUp_Start_Of_Next, FollowUp_Before_Player_Turn, FollowUp_Before_Ability, Self_Harm,Buff_Extension,BRV_Resist_Down,Reviver,aBuff,bstate,buffs,Turn_Interrupter,Continuous_Turns,DMGShield,StackedBuff,StackedBuff5,StackedDebuff,StackedDebuff5,SpecialBuff,burstBuff,calls,debuffs,ex,GoldBuff,fr,ld,s20,starting,Break,BreakCancel,BreakPrevent,BRVCap,BRVFreeze,Gains,Refund,BRVRegen,BRVRetain,StolenBRV,BuffPrevent,CappedBRV,Cleanse,Cover,CriticalUp,CriticalRate,DebuffResist,IgnoreDEF,Delay,Delete,Dispel,ElementalWeak,Fire,Ice,Thunder,Wind,Water,Earth,Holy,Dark,Evade,EXFill,EXRate,FreeUse,FreeTurn,GoldDebuff,AddHP,MAXBRVCap,HPResistUp,HPResistDown,BRVPoison,HPPoison,HPHeal,HPRegen,Disable,FireDown,IceDown,ThunderDown,WindDown,WaterDown,EarthDown,HolyDown,DarkDown,MeleeDown,RangedDown,MagicDown,Instant,LastStand,TurnManip])
 
     //filter merge
     useEffect(() => {
@@ -1507,7 +1521,7 @@ const BuffsDirect =({
                     BRVRetain: BRVRetain != true ? undefined : BRVRetain,
                     StolenBRV: StolenBRV != true ? undefined : StolenBRV,
                     BuffPrevent: BuffPrevent != true ? undefined : BuffPrevent,
-                    CappedBRV: CappedBRV != true ? undefined : CappedBRV,
+                    BRV_Damage_Cap: CappedBRV != true ? undefined : CappedBRV,
                     Cleanse: Cleanse != true ? undefined : Cleanse,
                     Cover: Cover != true ? undefined : Cover,
                     CriticalUp: CriticalUp != true ? undefined : CriticalUp,
@@ -1578,6 +1592,7 @@ const BuffsDirect =({
                     FollowUp_Start_Of_Next: FollowUp_Start_Of_Next != true ? undefined : FollowUp_Start_Of_Next,
                     FollowUp_Before_Player_Turn: FollowUp_Before_Player_Turn != true ? undefined : FollowUp_Before_Player_Turn,
                     FollowUp_Before_Ability: FollowUp_Before_Ability != true ? undefined : FollowUp_Before_Ability,
+                    Blind: Blind != true ? undefined : Blind,
                 }
             }
             if(party == true){
@@ -1610,7 +1625,7 @@ const BuffsDirect =({
                     BRVRetain_Party: BRVRetain != true ? undefined : BRVRetain,
                     StolenBRV_Party: StolenBRV != true ? undefined : StolenBRV,
                     BuffPrevent_Party: BuffPrevent != true ? undefined : BuffPrevent,
-                    CappedBRV_Party: CappedBRV != true ? undefined : CappedBRV,
+                    BRV_Damage_Cap_Party: CappedBRV != true ? undefined : CappedBRV,
                     Cleanse_Party: Cleanse != true ? undefined : Cleanse,
                     Cover_Party: Cover != true ? undefined : Cover,
                     CriticalUp_Party: CriticalUp != true ? undefined : CriticalUp,
@@ -1680,6 +1695,7 @@ const BuffsDirect =({
                     FollowUp_Start_Of_Next_Party: FollowUp_Start_Of_Next != true ? undefined : FollowUp_Start_Of_Next,
                     FollowUp_Before_Player_Turn_Party: FollowUp_Before_Player_Turn != true ? undefined : FollowUp_Before_Player_Turn,
                     FollowUp_Before_Ability_Party: FollowUp_Before_Ability != true ? undefined : FollowUp_Before_Ability,
+                    Blind_Party: Blind != true ? undefined : Blind,
                 }
             }
             const filtermerge = rawData.filter((oneChar) => {
@@ -1721,7 +1737,7 @@ const BuffsDirect =({
                 );
             }
         }
-    },[merge,rawData,limits,party,searchTerm,reverse,condFilter,start,aBuff,bstate,buffs,Self_Harm,Trap, Trap_After_Trigger, Trap_Before_Turn, Counter, FollowUp, FollowUp_Extension, FollowUp_Action_On_Enemy, FollowUp_Start_Of_Next, FollowUp_Before_Player_Turn, FollowUp_Before_Ability, BRV_Damage_Resist,HP_Damage_Up,Buff_Extension,Reviver,BRV_Resist_Down,Launch_Support,Turn_Interrupter,Continuous_Turns,DMGShield,StackedBuff,StackedBuff5,StackedDebuff,StackedDebuff5,SpecialBuff,burstBuff,calls,debuffs,GoldBuff,ex,fr,ld,s20,starting,Break,BreakCancel,BreakPrevent,BRVCap,BRVFreeze,Gains,Refund,BRVRegen,BRVRetain,StolenBRV,BuffPrevent,CappedBRV,Cleanse,Cover,CriticalUp,CriticalRate,DebuffResist,IgnoreDEF,Delay,Delete,Dispel,ElementalWeak,Fire,Ice,Thunder,Wind,Water,Earth,Holy,Dark,Evade,EXFill,EXRate,FreeUse,FreeTurn,GoldDebuff,AddHP,MAXBRVCap,HPResistUp,HPResistDown,BRVPoison,HPPoison,HPHeal,HPRegen,Disable,FireDown,IceDown,ThunderDown,WindDown,WaterDown,EarthDown,HolyDown,DarkDown,MeleeDown,RangedDown,MagicDown,Instant,LastStand,TurnManip])
+    },[merge,rawData,limits,party,searchTerm,reverse,Blind,condFilter,start,aBuff,bstate,buffs,Self_Harm,Trap, Trap_After_Trigger, Trap_Before_Turn, Counter, FollowUp, FollowUp_Extension, FollowUp_Action_On_Enemy, FollowUp_Start_Of_Next, FollowUp_Before_Player_Turn, FollowUp_Before_Ability, BRV_Damage_Resist,HP_Damage_Up,Buff_Extension,Reviver,BRV_Resist_Down,Launch_Support,Turn_Interrupter,Continuous_Turns,DMGShield,StackedBuff,StackedBuff5,StackedDebuff,StackedDebuff5,SpecialBuff,burstBuff,calls,debuffs,GoldBuff,ex,fr,ld,s20,starting,Break,BreakCancel,BreakPrevent,BRVCap,BRVFreeze,Gains,Refund,BRVRegen,BRVRetain,StolenBRV,BuffPrevent,CappedBRV,Cleanse,Cover,CriticalUp,CriticalRate,DebuffResist,IgnoreDEF,Delay,Delete,Dispel,ElementalWeak,Fire,Ice,Thunder,Wind,Water,Earth,Holy,Dark,Evade,EXFill,EXRate,FreeUse,FreeTurn,GoldDebuff,AddHP,MAXBRVCap,HPResistUp,HPResistDown,BRVPoison,HPPoison,HPHeal,HPRegen,Disable,FireDown,IceDown,ThunderDown,WindDown,WaterDown,EarthDown,HolyDown,DarkDown,MeleeDown,RangedDown,MagicDown,Instant,LastStand,TurnManip])
     
     //buttons
     const aBuffbutton = () => {
@@ -1796,6 +1812,14 @@ const BuffsDirect =({
         }
         setEX((prevValue) => !prevValue);
     };
+    const Blindbutton =()=>{
+    if (Blind == false) {
+        setBlindsearch("true")
+        } else {
+        setBlindsearch("")
+        }
+        setBlind((prevValue) => !prevValue);
+    }
     const buffsbutton = () => {
         if (buffs == false) {
           setBuffssearch("true")
@@ -2712,6 +2736,7 @@ const BuffsDirect =({
         setFollowUp_Start_Of_Nextsearch("")
         setFollowUp_Before_Player_Turnsearch("")
         setFollowUp_Before_Abilitysearch("")
+        setBlindsearch("")
 
         setstart(false)
         setABuff(false)
@@ -2810,6 +2835,7 @@ const BuffsDirect =({
         setFollowUp_Start_Of_Next(false)
         setFollowUp_Before_Player_Turn(false)
         setFollowUp_Before_Ability(false)
+        setBlind(false)
 
         setparty(false)
         setpartysearch("")
@@ -2854,20 +2880,16 @@ const BuffsDirect =({
     },[setJPSearch,dispatch,setJPonly])
 
     const jponlybutton = () => {
-        if (jptoggledata == false) {
-            dispatch(setTrue())
-            setJPSearch("true")
-            setJPonly(true);
-        }    
-    };
-
-    const glonlybutton = () => {
-        if (jptoggledata == true) {
-            dispatch(setFalse())
-            setJPSearch("")
-            setJPonly(false);
+        if (jponly == false) {
+          dispatch(setTrue())
+          setJPSearch("true")
+          setJPonly(true);
+        } else {
+          dispatch(setFalse())
+          setJPSearch("")
+          setJPonly(false);
         }
-    };
+      };
 
     return(
         <div className="wrapper">
@@ -2885,17 +2907,17 @@ const BuffsDirect =({
             <div className="content">
             <h1>{`${jptoggledata == false ? "GL" : "JP"} Buffs & Debuffs`}</h1>
               <div className="subheader">
-                <Tippy content="GL">
-                        <span className={`${jptoggledata == false ? "filteractive": "filterinactive"} buffbutton ver_gl`} onClick={glonlybutton}></span>
-                </Tippy>   
-                <Tippy content="JP">
-                        <span className={`${jptoggledata == true ? "filteractive": "filterinactive"} buffbutton ver_jp`} onClick={jponlybutton}></span>
-                </Tippy> 
+              Use filters to limit returns
             </div>
               <div className="charfilterspacer"/>
              <div key="filter1" onClick={showfilterbutton} className="charfilter"><span className="filterstext"></span>{showFilter ? <TiArrowSortedUp className="uparrow"/> : <TiArrowSortedDown className="downarrow"/>}</div>
               {showFilter == false ? 
-              <div className="char-search-reverse-holder">
+              <div className="event-search-reverse-holder">
+                 <span className={`${jponly ? "jponlybackground" : "GLonlybackground"}`}>
+                 <Tippy content={`${jponly == true? "Switch to GL" : "Switch to JP"}`} className="tooltip" >
+                <span onClick={jponlybutton} className={`${jponly ? "jpflage jpsmallinactive smalleventbutton" : "glflage smalleventbutton"}`}/>
+                </Tippy>
+                </span>
                 <IoSearch className="searchicon"/>
               <div className="search-holder el">
                 <input 
@@ -3034,8 +3056,8 @@ const BuffsDirect =({
                         <Tippy content={ailment_tags[`Ally_Turn_Manipulator`].name}>
                             <li className={`${TurnManip ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={TurnManipbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Ally_Turn_Manipulator`].url}.png)`}}></li>
                         </Tippy>
-                        <Tippy content={ailment_tags[`HP_Damage_Up`].name}>
-                            <li className={`${HP_Damage_Up ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={HP_Damage_Upbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`HP_Damage_Up`].url}.png)`}}></li>
+                        <Tippy content={ailment_tags[`HP_Damage_Up_Party`].name}>
+                            <li className={`${HP_Damage_Up ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={HP_Damage_Upbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`HP_Damage_Up_Party`].url}.png)`}}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`AddHP`].name}>
                             <li className={`${AddHP ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={AddHPbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`AddHP`].url}.png)`}}></li>
@@ -3043,8 +3065,8 @@ const BuffsDirect =({
                         <Tippy content={ailment_tags[`StolenBRV`].name}>
                             <li className={`${StolenBRV ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={StolenBRVbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`StolenBRV`].url}.png)`}}></li>
                         </Tippy>
-                        <Tippy content={ailment_tags[`CappedBRV`].name}>
-                            <li className={`${CappedBRV ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={CappedBRVbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`CappedBRV`].url}.png)`}}></li>
+                        <Tippy content={ailment_tags[`BRV_Damage_Cap`].name}>
+                            <li className={`${CappedBRV ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={CappedBRVbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`BRV_Damage_Cap`].url}.png)`}}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`EX_MAX`].name}>
                             <li className={`${EXFill ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={EXFillbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`EX_MAX`].url}.png)`}}></li>
@@ -3187,6 +3209,9 @@ const BuffsDirect =({
                         <Tippy content={ailment_tags[`Disable`].name}>
                             <li className={`${Disable ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Disablebutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Disable`].url}.png)`}}></li>
                         </Tippy>
+                        <Tippy content={ailment_tags[`Blind`].name}>
+                            <li className={`${Blind ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Blindbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Blind`].url}.png)`}}></li>
+                        </Tippy>
                         <Tippy content={ailment_tags[`Debuff_Gold`].name}>
                             <li className={`${GoldDebuff ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={GoldDebuffbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Debuff_Gold`].url}.png)`}}></li>
                         </Tippy>
@@ -3293,7 +3318,7 @@ const BuffsDirect =({
                   </div>
                   {showFilter == true ? "" :
                   <span>
-                  <Link className="whitecolor" to={"/characters/forcetime"}>
+                  <Link className="whitecolor" to={`/characters/forcetime${jptoggledata == false ? "":"?JP=true"}`}>
                   <span className="subtext">Force Time</span>
                   </Link> 
                   </span> }

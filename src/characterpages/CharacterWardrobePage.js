@@ -16,7 +16,7 @@ const CharacterWardrobe = ({
     ProcessedCharacters
 })=>{
 
-    const rawData = ProcessedCharacters.filter(self=>self.ArtworkCount > 1)
+    const rawData = Object.values(ProcessedCharacters).filter(self=>self.ArtworkCount > 1)
 
     const passivelimit = 40
 

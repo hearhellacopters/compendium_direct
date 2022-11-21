@@ -38,18 +38,11 @@ const CallBestiary = () =>{
         }
     }, [dispatch, ProcessedEnemyDirect,ProcessedCharacters]);
 
-    const PartnerCharacters ={}
-
-    ProcessedCharacters && ProcessedCharacters.map(self=>{
-        Object.assign(PartnerCharacters,{[self.CharID]: self})
-    })
-
-
     const reversed = ProcessedEnemyDirect && Object.values(ProcessedEnemyDirect).reverse()
 
     return (
-        reversed != undefined && PartnerCharacters!= undefined && ProcessedCharacters != undefined && jptoggledata != undefined?
-        <BestiaryDirect ProcessedEnemy={reversed} jptoggledata={jptoggledata} ProcessedCharacters={ProcessedCharacters} PartnerCharacters={PartnerCharacters}/>
+        reversed != undefined && ProcessedCharacters != undefined && jptoggledata != undefined?
+        <BestiaryDirect ProcessedEnemy={reversed} jptoggledata={jptoggledata} ProcessedCharacters={ProcessedCharacters} PartnerCharacters={ProcessedCharacters}/>
         : 
         <Loading/>
     )

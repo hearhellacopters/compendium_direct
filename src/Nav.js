@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import {useLocation, Link, Navigate } from 'react-router-dom';
 import './Nav.css'
-import { NavLink } from 'react-router-dom'
 import {GiHamburgerMenu} from 'react-icons/gi'; 
 import DevSwitch from './redux/DevSwitch'
 import { getQuery, getQueryStringVal, useQueryParam } from './processing/urlparams'

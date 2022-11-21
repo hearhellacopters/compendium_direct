@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import Capped from './capped';
-import addformatting_buff from './replacer_buffcontent';
 import reactStringReplace from "react-string-replace"
 
 const addformatting =(text)=>{
@@ -16,13 +15,13 @@ const addformatting =(text)=>{
     replacement = replacement == "" ? "" : reactStringReplace(replacement, /\^\^(.+?)\^\.\^/gms, (match, i) => {
         number = number + 1
         return(
-        <mark key={`44-${i}-${number}`} className={"REMOVED_LINE"}>{addformatting_buff(match)}</mark>
+        <mark key={`44-${i}-${number}`} className={"REMOVED_LINE"}>{addformatting(match)}</mark>
         )})
 
     replacement = replacement == "" ? "" : reactStringReplace(replacement, /~~(.+?)~\.~/gms, (match, i) => {
         number = number + 1
         return(
-        <mark key={`55-${i}-${number}`} className={"ADDED_LINE"}>{addformatting_buff(match)}</mark>
+        <mark key={`55-${i}-${number}`} className={"ADDED_LINE"}>{addformatting(match)}</mark>
         )})
 
     replacement = replacement == "" ? "" : reactStringReplace(replacement, /(\\n)/, (match, i) => {

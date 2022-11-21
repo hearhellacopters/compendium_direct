@@ -7,7 +7,7 @@ import TickDown from '../processing/tickDown'
 import addformatting from '../processing/replacer_abilitycontent';
 import TickUp from '../processing/tickUp'
 
-const FormatedEvents = ({ match }) => { 
+const PanelsFormatting = ({ match }) => { 
 
     const currenttime = new Date();
     const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -76,4 +76,4 @@ const FormatedEvents = ({ match }) => {
         </li>
     )
 }
-export default FormatedEvents;
+export default PanelsFormatting;

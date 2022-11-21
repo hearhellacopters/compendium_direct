@@ -45,14 +45,6 @@ const CallEventsPage = () =>{
             mounted = false
         }
     }, [dispatch,ProcessedEvents,ProcessedCharacters,EventGuideData]);
-
-    useEffect(() => {
-        if(jptoggledata == true){
-            ProcessedCharacters && ProcessedCharacters.sort((self,self2)=>self.JPOrder-self2.JPOrder)
-        } else {
-            ProcessedCharacters && ProcessedCharacters.sort((self,self2)=>self.GLOrder-self2.GLOrder)
-        }
-    },[ProcessedCharacters,jptoggledata])
     
     return (
         ProcessedEvents != undefined && ProcessedCharacters != undefined && EventGuideData != undefined && jptoggledata != undefined?

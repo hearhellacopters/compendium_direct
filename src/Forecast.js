@@ -157,7 +157,7 @@ const Forecast = ({ProcessedBanners,ProcessedCharacters,jptoggledata}) =>{
        useEffect(() => {
         //type params
         if(Typesearch != null){
-         const filteredtype = ProcessedCharacters.filter(function (ef) {
+         const filteredtype = Object.values(ProcessedCharacters).filter(function (ef) {
            const newfilterpull = ef["CharacterName"] === getQueryStringVal("Char");
            return newfilterpull;
          })
@@ -573,12 +573,16 @@ const Forecast = ({ProcessedBanners,ProcessedCharacters,jptoggledata}) =>{
       return self.indexOf(value) === index;
     }
   
-        //type list
-      const typeListArray = ProcessedCharacters.map((typeListUnique) => ({
+  //type list
+  const [typeListArray, settypeListArray] = useStateIfMounted(false);
+  useEffect(()=>{
+    const typeListArray2 = Object.values(ProcessedCharacters).filter(self=>jptoggledata == true? self.JPOrder != undefined : self.GLOrder != undefined).sort((a,b)=>jptoggledata == true? b.JPOrder - a.JPOrder : b.GLOrder - a.GLOrder).map((typeListUnique) => ({
       value: typeListUnique.CharacterName,
       label: typeListUnique.CharacterName,
       id: typeListUnique.CharID,
     }));
+    settypeListArray(typeListArray2)
+  },[jptoggledata,ProcessedCharacters,settypeListArray])
   
     //search bar
     const handleChange = (e) => {
@@ -665,9 +669,9 @@ const Forecast = ({ProcessedBanners,ProcessedCharacters,jptoggledata}) =>{
           <div onClick={showfilterbutton} className="charfilter" id={showFilter ? "filteropen" : "filterclosed"}><span className="filterstext"></span>{showFilter ? <TiArrowSortedUp className="uparrow"/> : <TiArrowSortedDown className="downarrow"/>}</div>
           {showFilter == false ? 
               <div className="event-search-reverse-holder">
-                <span className="jponlybackground">
-                <Tippy content="JP Schedule" className="tooltip" >
-                <span onClick={jponlybutton} className={`jpflage smalleventbutton ${jponly ? "jpsmallactive" : "jpsmallinactive" }`}/>
+                <span className={`${jptoggledata ? "jponlybackground" : "GLonlybackground"}`}>
+              <Tippy content={`${jptoggledata ? "Switch to GL" : "Switch to JP"}`} className="tooltip" >
+                <span onClick={jponlybutton} className={`${jptoggledata ? "jpflage jpsmallinactive smalleventbutton" : "glflage smalleventbutton"}`}/>
                 </Tippy>
                 </span>
                 <IoSearch className="searchicon"/>

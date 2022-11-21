@@ -24,11 +24,11 @@ import { FaShareSquare } from 'react-icons/fa';
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { getQuery, getQueryStringVal, useQueryParam } from '../processing/urlparams'
 
-const FRPage = ({ match, ProcessedCharacters, PartnerCharacters }) => {
+const FRPage = ({ match, ProcessedCharacters, ForceCharacters, jptoggledata }) => {
 
   const passivelimit = 50
 
-  const rawData = ProcessedCharacters;
+  const [rawData, setrawData] = useStateIfMounted(ForceCharacters);
 
   const banerDisplayTerm = "Force Time";
 
@@ -64,7 +64,7 @@ const FRPage = ({ match, ProcessedCharacters, PartnerCharacters }) => {
 useEffect(() => {
   //type params
   if(Typesearch != null){
-   const filteredtype = ProcessedCharacters.filter(function (ef) {
+   const filteredtype = Object.values(ProcessedCharacters).filter(function (ef) {
      const newfilterpull = ef["CharacterName"] === getQueryStringVal("Char");
      return newfilterpull;
    })
@@ -108,6 +108,18 @@ useEffect(() => {
     //filter
     useEffect(() => {
       const filterholder = [];
+
+      if(jptoggledata == true){
+        const filteredout = rawData.filter(
+          (char) => char.JPtraits && char.JPtraits.FRtraits != undefined
+        );
+        filterholder.push(...filteredout);
+      } else {
+        const filteredout = rawData.filter(
+          (char) => char.GLtraits && char.GLtraits.FRtraits != undefined
+        );
+        filterholder.push(...filteredout);
+      }
       
       if (filterholder.length === 0) {
         filterholder.push(...rawData);
@@ -120,7 +132,7 @@ useEffect(() => {
         a.GLOrder - b.GLOrder :
         b.GLOrder - a.GLOrder)
       const searchit = makeUnique.filter((e) =>
-      (`${e.CharacterName} ${e.JPName} ${PartnerCharacters[e.FR_Partner] && PartnerCharacters[e.FR_Partner].CharacterName} ${e.AbilityFR}`).toLowerCase().includes(searchTerm)
+      (`${e.CharacterName} ${e.JPName} ${ProcessedCharacters[e.FR_Partner] && ProcessedCharacters[e.FR_Partner].CharacterName} ${e.AbilityFR}`).toLowerCase().includes(searchTerm)
       );
       const getcondfilter = searchit.filter(function (ef) {
         const newfilterpull = ef["CharID"] === condFilter;
@@ -148,7 +160,7 @@ useEffect(() => {
           <>Displaying <span className="subtextgold">{getcondfilter.length}</span> of <span className="subtextgold"> {getcondfilter.length}</span> {banerDisplayTerm}</>
         );
       }
-    },[reverse,rawData,limits,PartnerCharacters,condFilter,searchTerm])
+    },[reverse,rawData,limits,ProcessedCharacters,jptoggledata,condFilter,searchTerm])
 
     const loadMoreButton = () => {
       const newlimits = limits + passivelimit;
@@ -173,11 +185,15 @@ useEffect(() => {
     };
 
      //type list
-     const typeListArray = ProcessedCharacters.sort((a, b) => a.GLOrder - b.GLOrder).map((typeListUnique) => ({
-      value: typeListUnique.CharacterName,
-      label: typeListUnique.CharacterName,
-      id: typeListUnique.CharID,
-    }));
+    const [typeListArray, settypeListArray] = useStateIfMounted(false);
+    useEffect(()=>{
+      const typeListArray2 = Object.values(ProcessedCharacters).filter(self=>jptoggledata == true? self.JPOrder != undefined : self.GLOrder != undefined).sort((a,b)=>jptoggledata == true? b.JPOrder - a.JPOrder : b.GLOrder - a.GLOrder).map((typeListUnique) => ({
+        value: typeListUnique.CharacterName,
+        label: typeListUnique.CharacterName,
+        id: typeListUnique.CharID,
+      }));
+      settypeListArray(typeListArray2)
+    },[jptoggledata,ProcessedCharacters,settypeListArray])
   
     const showfilterbutton = () => {
       if (showFilter == false) {
@@ -263,7 +279,7 @@ useEffect(() => {
                 <meta property="og:url" content={`https://dissidiacompendium.com/characters/forcetime/`}/>
             </Helmet>
             <div className="content">
-              <h1 >Force Time</h1>
+              <h1>{`${jptoggledata==true?"JP":"GL"} Force Time`}</h1>
               <div className="charfilterspacer"/>
               <div key="filter1" onClick={showfilterbutton} className="charfilter"><span className="filterstext"></span>{showFilter ? <TiArrowSortedUp className="uparrow"/> : <TiArrowSortedDown className="downarrow"/>}</div>
               {showFilter == false ? 
@@ -365,8 +381,8 @@ useEffect(() => {
                   <CharacterForceCond
                   key={self.CharID}
                   match={self}
-                  PartnerCharacters={PartnerCharacters}
                   ProcessedCharacters={ProcessedCharacters}
+                  jptoggledata={jptoggledata}
                   />
                 ))
                 ) : (

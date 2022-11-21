@@ -1,123 +1,247 @@
 import React, { useState, useEffect } from 'react';
-import EventListing from '../formatting/SingleEventsFormatting.js'
 import DefaultTippy from '../formatting/TippyDefaults.js';
 import { Helmet} from 'react-helmet-async';
 import { Link, Navigate} from 'react-router-dom'
-import ScrollToTop from '../formatting/ScrollToTop.js'
 import Random from '../processing/Random.js'
 import OhNo from './OhNo.js'
 import '../characterpages/CharacterPage.css'
 import 'tippy.js/animations/scale.css';
 import 'tippy.js/animations/scale-subtle.css';
 import 'tippy.js/animations/scale-extreme.css';
-import FaceMaker from '../formatting/CharFaceFormatting.js'
-import CharcterHeader from './CharacterHeader.js'
-import ReworkPassiveFormatting from '../formatting/ReworkPageFormatting.js'
-import ReworkGearFormatting from '../formatting/ReworkGearPageFormatting.js'
+import TickUp from '../processing/tickUp'
+const Diff = require('diff');
+import {EndsInTimer, StartsInTimer} from '../formatting/Timers'
+import addformatting from '../processing/replacer_abilitycontent';
+import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
+import '../Passives.css';
 
-const ReworksPageFormatting = ({match, ProcessedBuffs, ProcessedReworks, ProcessedCharacters,jptoggledata}) => {
+const ReworksPageFormatting = ({match, ProcessedReworks, selected_chara, ProcessedCharacters,jptoggledata}) => {
 
     const [reworks, setreworks] = useState(ProcessedReworks);
+
     const [random ] = useState(Random(7));
 
-      const filtered = ProcessedCharacters.filter(function (el) { 
-        return el["ShortName"] == match.params.id ; 
-      }); 
+    const filtered = selected_chara
 
-      if(filtered.length === 0 ) {
-        return(
-            <Navigate replace to="/404"/>
-        )
-    
-    } else {
+    const monthstext = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-          let currentIndex = ProcessedCharacters.findIndex(x => x.GLOrder == filtered[0].GLOrder);
-    const nextIndex = (currentIndex + 1) % ProcessedCharacters.length;
-    const previousIndex = (currentIndex - 1) % ProcessedCharacters.length;
+    const handledate = (date) =>{
+      return <div className="tickholder greencolor">
+                <div className="glshadow"><span className='emoji'>🌎</span></div>
+                <div className="spacerleft">
+                    <TickUp value={monthstext[new Date(date).getMonth()]}/>
+                </div>
 
-    const nextevent = (function (){
-        const holder = ProcessedCharacters[nextIndex];
-        if(nextIndex === 0 ){
-            return false;
-        } else{
-            return holder;
-        }
-    })();
-
-    const previousevent = (function (){
-        const holder = ProcessedCharacters[previousIndex];
-        if(holder === undefined ){
-            return false;
-        } else{
-            return holder;
-        }
-    })();
-
-
-    return (
-        <div className="wrapper">
-            <ScrollToTop/>
-        <Helmet>
-          <title>{filtered[0].CharacterName} Reworks - Dissidia Compendium</title>
-          <meta property="og:site_name" content="Dissidia Compendium"/>
-          <meta property="og:type" content="website" />
-          <meta name="description" content={`Upcoming Reworks for ${filtered[0].CharacterName}`}/>
-          <meta name="twitter:title" content={`${filtered[0].CharacterName} Reworks`}/>
-          <meta name="twitter:description" content={`Upcoming Reworks for ${filtered[0].CharacterName}`}/>
-          <meta name="twitter:image" content={`https://dissidiacompendium.com/images/static/characters/${filtered[0].CharacterURLName}/cc.png`}/>
-          <meta name="twitter:card" content="summary"/>
-          <meta name="twitter:image:alt" content={`${filtered[0].CharacterName}`}/>
-          <meta property="og:title" content={`${filtered[0].CharacterName} Reworks`}/>
-          <meta property="og:description" content={`Upcoming Reworks for ${filtered[0].CharacterName}`}/>
-          <meta property="og:image" content={`https://dissidiacompendium.com/images/static/characters/${filtered[0].CharacterURLName}/cc.png`}/>
-          <meta property="og:url" content={`https://dissidiacompendium.com/characters/${filtered[0].ShortName}/reworks`}/>
-        </Helmet>
-            <div className="returnbutton">
-                <DefaultTippy content="Return to Characters" className="tooltip" >
-                <Link className="returnlink" to={`/characters/`}>
-                    <div className="returnicon"></div>
-                </Link>
-                </DefaultTippy>
-            </div>
-            <div className="content">
-            <CharcterHeader
-                  nextevent={nextevent}
-                  previousevent={previousevent}
-                  Subheader={"Upcoming Reworks"}
-                  headertitle={
-                    <div className="facetop">
-                        <ul className="CharListHolder">
-                          <FaceMaker match={filtered[0]}/>
-                        </ul>
-                    </div>}
-                    match={match}
-                  newmatch={filtered[0]}
-                  pageloc={"reworks"}
-                  subcat={"none"}
-                  />
-                <div className="singlepageholder">
-                  {reworks.length == 0 ? 
-                    <OhNo name={filtered[0].CharacterName} random={random}/> :
-                  reworks.map(passives => (
-                    passives.GearKey == undefined ?
-                    <ReworkPassiveFormatting 
-                    key={passives.PassiveKey}
-                    match={passives}
-                    ProcessedBuffs={ProcessedBuffs}
-                    jptoggledata={jptoggledata}
-                    />
-                    :
-                    <ReworkGearFormatting
-                    key={passives.GearKey}
-                    match={passives}
-                    ProcessedBuffs={ProcessedBuffs}
-                    jptoggledata={jptoggledata}
-                    />
-                  ))}
+                <div className="spacerleft">
+                    <TickUp value={new Date(date).getFullYear()}/>
                 </div>
             </div>
-        </div>
-        )
     }
+
+    const makediff = (oldText,newText) =>{
+      const JPDESCREPLACE = Diff.diffTrimmedLines(oldText + "\n", newText + "\n", {newlineIsToken: false})
+      const output = JPDESCREPLACE.map(text => `${text.added == true ? '~~' + text.value + '~.~': ""}${text.removed == true ? '^^' + text.value  + '^.^': ""}${text.removed == undefined && text.added == undefined ? text.value :""}`).join("")
+      return (
+          output
+      )
+  }
+
+  return (
+        <div className="singlepageholder">
+          {reworks.length == 0 ? 
+            <OhNo 
+            name={filtered.CharacterName} 
+            random={random}
+            message={"for active reworks"}
+            /> :
+          reworks.map((passives,i) => (
+            <div  key={i}>
+            <div className="abilitygreysinglebutton margtop">
+              <span className={`${passives.PassiveRank} undertaga`}></span> Passives
+              </div>
+              <LazyLoadComponent>
+              <div className="buffunit">
+                <div className="infoholder" style={{ minHeight: "160px"}}>
+                <div className="infotitleholder">
+                  <div className="faceandiconholder">
+                    <div className='faceholderpassives'>
+                      <LazyLoadImage effect="opacity" alt={selected_chara.CharacterName} className={`faceicon`} src={selected_chara.CharacterName == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_face.png" : `https://dissidiacompendium.com/images/static/characters/${selected_chara.CharacterName.replace(/ /g,"").replace(/,/g,"").replace(/'/g,"").replace(/&/g,"")}/face.png`}/>
+                      <div className="facetext">
+                        {selected_chara.CharacterName == "Cloud of Darkness" ? "CoD" : selected_chara.CharacterName == "Warrior of Light" ? "WoL" : selected_chara.CharacterName}
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                <div className={`Buffbanner  iconbuffer infonameholder nobuffpadding `}>
+                <div className="displayfex">
+                <div className="spacearound">
+                <span className={`${passives.PassiveRank} automarg`}/>{passives.PassiveName1}
+                </div>
+                </div>
+                  {passives.bannerindex1 == undefined ? "" :
+                    <div className="similarbanner">
+                        {passives.bannerindex1.tempdate == true ?
+                        <div>
+                            <Link className="linktopage" to={`/events/banners/${passives.bannerindex1.bannerindex}`}>
+                                {passives.bannerindex1.name}<br/>
+                        </Link>
+                            {handledate(passives.bannerindex1.indate)}
+                        </div>
+                        :
+                        <div> 
+                            <Link className="linktopage" to={`/events/banners/${passives.bannerindex1.bannerindex}`}>
+                                {passives.bannerindex1.name}<br/>
+                        </Link>
+                            <StartsInTimer expiryTimestamp={new Date(passives.bannerindex1.indate)}/>
+                            </div>
+                        }
+                    </div>
+                    }
+                </div>
+                <div className={`bluebase  infobase nobuffpadding`}>
+                {passives.PassiveDesc1GL == undefined ? "" : addformatting(makediff(passives.PassiveDesc1GL,passives.PassiveDesc1))}
+                </div>
+                {passives.PassiveCount == 4?
+                  <div className={`bluebase  infobase nobuffpadding`}>
+                {passives.PassiveDesc2GL == undefined ? "" : addformatting(makediff(passives.PassiveDesc2GL,passives.PassiveDesc2))}
+                </div>
+                :""}
+                 {passives.PassiveCount == 4?
+                  <div className={`bluebase  infobase nobuffpadding`}>
+                {passives.PassiveDesc3GL == undefined ? "" : addformatting(makediff(passives.PassiveDesc3GL,passives.PassiveDesc3))}
+                </div>
+                :""}
+                {passives.PassiveCount == 4?
+                  <div className={`bluebase  infobase nobuffpadding`}>
+                {passives.PassiveDesc4GL == undefined ? "" : addformatting(makediff(passives.PassiveDesc4GL,passives.PassiveDesc4))}
+                </div>
+                :""}
+              </div>
+              </div>
+
+
+              {passives.bannerindex2 != undefined ?
+              <div className="buffunit">
+              <div className="infoholder" style={{ minHeight: "160px"}}>
+              <div className="infotitleholder">
+                <div className="faceandiconholder">
+                    <LazyLoadImage effect="opacity" alt={selected_chara.CharacterName} className={`faceicon`} src={selected_chara.CharacterName == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_face.png" : `https://dissidiacompendium.com/images/static/characters/${selected_chara.CharacterName.replace(/ /g,"").replace(/,/g,"").replace(/'/g,"").replace(/&/g,"")}/face.png`}/>
+                    <div className="facetext">
+                      {selected_chara.CharacterName == "Cloud of Darkness" ? "CoD" : selected_chara.CharacterName == "Warrior of Light" ? "WoL" : selected_chara.CharacterName}
+                      </div>
+                </div>
+              </div>
+              <div className={`Buffbanner  iconbuffer infonameholder nobuffpadding `}>
+              <div className="displayfex">
+              <div className="spacearound">
+              <span className={`${passives.PassiveRank} automarg`}/>{passives.PassiveName1}
+              </div>
+              </div>
+                {passives.bannerindex2 == undefined ? "" :
+                  <div className="similarbanner">
+                      {passives.bannerindex2.tempdate == true ?
+                      <div>
+                          <Link className="linktopage" to={`/events/banners/${passives.bannerindex2.bannerindex}`}>
+                              {passives.bannerindex2.name}<br/>
+                      </Link>
+                          {handledate(passives.bannerindex2.indate)}
+                      </div>
+                      :
+                      <div> 
+                          <Link className="linktopage" to={`/events/banners/${passives.bannerindex2.bannerindex}`}>
+                              {passives.bannerindex2.name}<br/>
+                      </Link>
+                          <StartsInTimer expiryTimestamp={new Date(passives.bannerindex2.indate)}/>
+                          </div>
+                      }
+                  </div>
+                  }
+              </div>
+              <div className={`bluebase  infobase nobuffpadding`}>
+              {passives.PassiveDesc1_2 == undefined ? "" : addformatting(makediff(passives.PassiveDesc1_2,passives.PassiveDesc1GL))}
+              </div>
+              {passives.PassiveCount == 4?
+                <div className={`bluebase  infobase nobuffpadding`}>
+              {passives.PassiveDesc2_2 == undefined ? "" : addformatting(makediff(passives.PassiveDesc2_2,passives.PassiveDesc2GL))}
+              </div>
+              :""}
+               {passives.PassiveCount == 4?
+                <div className={`bluebase  infobase nobuffpadding`}>
+              {passives.PassiveDesc3_2 == undefined ? "" : addformatting(makediff(passives.PassiveDesc3_2,passives.PassiveDesc3GL))}
+              </div>
+              :""}
+              {passives.PassiveCount == 4?
+                <div className={`bluebase  infobase nobuffpadding`}>
+              {passives.PassiveDesc4_2 == undefined ? "" : addformatting(makediff(passives.PassiveDesc4_2,passives.PassiveDesc4GL))}
+              </div>
+              :""}
+            </div>
+            </div>
+              :""}
+
+              {passives.bannerindex3 != undefined ?
+              <div className="buffunit">
+              <div className="infoholder" style={{ minHeight: "160px"}}>
+              <div className="infotitleholder">
+                <div className="faceandiconholder">
+                    <LazyLoadImage effect="opacity" alt={selected_chara.CharacterName} className={`faceicon`} src={selected_chara.CharacterName == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_face.png" : `https://dissidiacompendium.com/images/static/characters/${selected_chara.CharacterName.replace(/ /g,"").replace(/,/g,"").replace(/'/g,"").replace(/&/g,"")}/face.png`}/>
+                    <div className="facetext">
+                      {selected_chara.CharacterName == "Cloud of Darkness" ? "CoD" : selected_chara.CharacterName == "Warrior of Light" ? "WoL" : selected_chara.CharacterName}
+                      </div>
+                </div>
+              </div>
+              <div className={`Buffbanner  iconbuffer infonameholder nobuffpadding `}>
+              <div className="displayfex">
+              <div className="spacearound">
+              <span className={`${passives.PassiveRank} automarg`}/>{passives.PassiveName1}
+              </div>
+              </div>
+                {passives.bannerindex3 == undefined ? "" :
+                  <div className="similarbanner">
+                      {passives.bannerindex3.tempdate == true ?
+                      <div>
+                          <Link className="linktopage" to={`/events/banners/${passives.bannerindex3.bannerindex}`}>
+                              {passives.bannerindex3.name}<br/>
+                      </Link>
+                          {handledate(passives.bannerindex3.indate)}
+                      </div>
+                      :
+                      <div> 
+                          <Link className="linktopage" to={`/events/banners/${passives.bannerindex3.bannerindex}`}>
+                              {passives.bannerindex3.name}<br/>
+                      </Link>
+                          <StartsInTimer expiryTimestamp={new Date(passives.bannerindex3.indate)}/>
+                          </div>
+                      }
+                  </div>
+                  }
+              </div>
+              <div className={`bluebase  infobase nobuffpadding`}>
+              {passives.PassiveDesc1_3 == undefined ? "" : addformatting(makediff(passives.PassiveDesc1_3,passives.PassiveDesc1_2))}
+              </div>
+              {passives.PassiveCount == 4?
+                <div className={`bluebase  infobase nobuffpadding`}>
+              {passives.PassiveDesc2_3 == undefined ? "" : addformatting(makediff(passives.PassiveDesc2_3,passives.PassiveDesc2_2))}
+              </div>
+              :""}
+               {passives.PassiveCount == 4?
+                <div className={`bluebase  infobase nobuffpadding`}>
+              {passives.PassiveDesc3_3 == undefined ? "" : addformatting(makediff(passives.PassiveDesc3_3,passives.PassiveDesc3_2))}
+              </div>
+              :""}
+              {passives.PassiveCount == 4?
+                <div className={`bluebase  infobase nobuffpadding`}>
+              {passives.PassiveDesc4_3 == undefined ? "" : addformatting(makediff(passives.PassiveDesc4_3,passives.PassiveDesc4_2))}
+              </div>
+              :""}
+            </div>
+            </div>
+              :""}
+                </LazyLoadComponent>
+            </div>
+          ))}
+        </div>
+      )
+    
 }
 export default ReworksPageFormatting

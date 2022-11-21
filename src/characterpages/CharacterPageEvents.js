@@ -13,39 +13,40 @@ import 'tippy.js/animations/scale-extreme.css';
 import FaceMaker from '../formatting/CharFaceFormatting.js'
 import CharcterHeader from './CharacterHeader.js'
 
-const BuffsPageFormatting = ({match, ProcessedCharacters}) => {
+const CharacterPageEvent = ({match, ProcessedCharacters, char_id, filtered, jptoggledata}) => {
 
     const [events, setevents] = useState([]);
     const [random ] = useState(Random(7));
 
-      const filtered = ProcessedCharacters.filter(function (el) { 
-        return el["ShortName"] == match.params.id ; 
-      }); 
-
       useEffect(() => {
-        const eventsholder = []
-          if(filtered[0].EventArray && filtered[0].EventArray != undefined){
-          eventsholder.push(filtered[0].EventArray)
-          setevents(eventsholder[0])
+          if(filtered.EventArray && filtered.EventArray != undefined){
+          setevents(filtered.EventArray)
           }
-          if(filtered[0].EventArray && filtered[0].EventArray == undefined){
+          if(filtered.EventArray && filtered.EventArray == undefined){
             setevents([])
           }
         }, [filtered])
 
-      if(filtered.length === 0 ) {
+    const [chr_list,setchr_list] = useState(Object.values(ProcessedCharacters).filter(self=>jptoggledata == true? self.JPOrder != undefined : self.GLOrder != undefined).sort((a,b)=>jptoggledata == true? b.JPOrder - a.JPOrder : b.GLOrder - a.GLOrder))
+
+    useEffect(()=>{
+      const new_list = Object.values(ProcessedCharacters).filter(self=>jptoggledata == true? self.JPOrder != undefined : self.GLOrder != undefined)
+      setchr_list(new_list.sort((a,b)=>jptoggledata == true? a.JPOrder - b.JPOrder : a.GLOrder - b.GLOrder))
+    },[jptoggledata,ProcessedCharacters])
+
+      if(filtered === undefined ) {
         return(
             <Navigate replace to="/404"/>
         )
     
     } else {
 
-          let currentIndex = ProcessedCharacters.findIndex(x => x.GLOrder == filtered[0].GLOrder);
-    const nextIndex = (currentIndex + 1) % ProcessedCharacters.length;
-    const previousIndex = (currentIndex - 1) % ProcessedCharacters.length;
+    let currentIndex = chr_list.findIndex(x => x.CharID == filtered.CharID);
+    const nextIndex = (currentIndex + 1) % chr_list.length;
+    const previousIndex = (currentIndex - 1) % chr_list.length;
 
     const nextevent = (function (){
-        const holder = ProcessedCharacters[nextIndex];
+        const holder = chr_list[nextIndex];
         if(nextIndex === 0 ){
             return false;
         } else{
@@ -54,7 +55,7 @@ const BuffsPageFormatting = ({match, ProcessedCharacters}) => {
     })();
 
     const previousevent = (function (){
-        const holder = ProcessedCharacters[previousIndex];
+        const holder = chr_list[previousIndex];
         if(holder === undefined ){
             return false;
         } else{
@@ -67,19 +68,19 @@ const BuffsPageFormatting = ({match, ProcessedCharacters}) => {
         <div className="wrapper">
             <ScrollToTop/>
         <Helmet>
-          <title>{filtered[0].CharacterName} Events - Dissidia Compendium</title>
+          <title>{filtered.CharacterName} Events - Dissidia Compendium</title>
           <meta property="og:site_name" content="Dissidia Compendium"/>
           <meta property="og:type" content="website" />
-          <meta name="description" content={`Upcoming events for ${filtered[0].CharacterName}`}/>
-          <meta name="twitter:title" content={`${filtered[0].CharacterName} Events`}/>
-          <meta name="twitter:description" content={`Upcoming events for ${filtered[0].CharacterName}`}/>
-          <meta name="twitter:image" content={`https://dissidiacompendium.com/images/static/characters/${filtered[0].CharacterURLName}/cc.png`}/>
+          <meta name="description" content={`Upcoming events for ${filtered.CharacterName}`}/>
+          <meta name="twitter:title" content={`${filtered.CharacterName} Events`}/>
+          <meta name="twitter:description" content={`Upcoming events for ${filtered.CharacterName}`}/>
+          <meta name="twitter:image" content={`https://dissidiacompendium.com/images/static/characters/${filtered.CharacterURLName}/cc.png`}/>
           <meta name="twitter:card" content="summary"/>
-          <meta name="twitter:image:alt" content={`${filtered[0].CharacterName}`}/>
-          <meta property="og:title" content={`${filtered[0].CharacterName} Events`}/>
-          <meta property="og:description" content={`Upcoming events for ${filtered[0].CharacterName}`}/>
-          <meta property="og:image" content={`https://dissidiacompendium.com/images/static/characters/${filtered[0].CharacterURLName}/cc.png`}/>
-          <meta property="og:url" content={`https://dissidiacompendium.com/characters/${filtered[0].ShortName}/events`}/>
+          <meta name="twitter:image:alt" content={`${filtered.CharacterName}`}/>
+          <meta property="og:title" content={`${filtered.CharacterName} Events`}/>
+          <meta property="og:description" content={`Upcoming events for ${filtered.CharacterName}`}/>
+          <meta property="og:image" content={`https://dissidiacompendium.com/images/static/characters/${filtered.CharacterURLName}/cc.png`}/>
+          <meta property="og:url" content={`https://dissidiacompendium.com/characters/${filtered.ShortName}/events`}/>
         </Helmet>
             <div className="returnbutton">
                 <DefaultTippy content="Return to Characters" className="tooltip" >
@@ -96,17 +97,17 @@ const BuffsPageFormatting = ({match, ProcessedCharacters}) => {
                   headertitle={
                     <div className="facetop">
                         <ul className="CharListHolder">
-                          <FaceMaker match={filtered[0]}/>
+                          <FaceMaker match={filtered}/>
                         </ul>
                     </div>}
                     match={match}
-                  newmatch={filtered[0]}
+                  newmatch={filtered}
                   pageloc={"events"}
-                  subcat={"events"}
+                  subcat={"none"}
                   />
                 <div className="singlepageholder">
                   {events.length == 0 ? 
-                    <OhNo name={filtered[0].CharacterName} random={random}/> :
+                    <OhNo name={filtered.CharacterName} random={random}/> :
                   <div>
                     <ul className="singleventholder nolist">
                     <div className="similarbanner addbordertop addborderbottom">Featured Events</div>
@@ -125,4 +126,4 @@ const BuffsPageFormatting = ({match, ProcessedCharacters}) => {
         )
     }
 }
-export default BuffsPageFormatting
+export default CharacterPageEvent

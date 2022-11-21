@@ -1,9 +1,11 @@
 import React, {useEffect} from 'react';
-import { useParams } from 'react-router-dom'
+import { useParams, Navigate } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 import { getCharacters } from '../redux/ducks/characters';
 import { getJPToggle } from '../redux/ducks/jptoggle';
-import CallCharDirectHandoff from './CallCharDirectHandOff';
+import CharacterDirect from '../characterpages/CharacterPageDirect';
+import { getEventsIndex } from '../redux/ducks/eventsIndex';
+import { getCharGuide} from '../redux/ducks/CharGuide';
 import Loading from './_loading'
 //direct
 import { getAilmentGroupFull } from '../redux/ducks/ailment_group_full';
@@ -24,8 +26,13 @@ import { getPassiveEffects} from '../redux/ducks/passive_effects'
 import { getHitTransData} from '../redux/ducks/hittransdata'
 import { getCommandTransData} from '../redux/ducks/commandtransdata'
 import { getOptionTransData} from '../redux/ducks/optiontransdata'
+import WardrobePassoff from '../passoff/WardrobeHandoff';
+import ForceTimePassdoff from './CallFRTime';
+import UltimaWeaponPassdoff from '../passoff/UltimaWeaponHandoff'
 
-const CallCharDirect = () =>{
+const CallCharDirect = ({
+    loc
+}) =>{
 
     const match = {
         params: useParams()
@@ -293,6 +300,10 @@ const CallCharDirect = () =>{
     state.characters.characters
     );
 
+    const Access = useSelector((state) => 
+    state.characters.access
+    );
+
     const jptoggledata = useSelector((state) => 
     state.toggle.toggle
     );
@@ -310,17 +321,36 @@ const CallCharDirect = () =>{
         }
     }, [dispatch,ProcessedCharacters]);
 
-    useEffect(() => {
-        if(jptoggledata == true){
-            ProcessedCharacters && ProcessedCharacters.sort((self,self2)=>self.JPOrder-self2.JPOrder)
-        } else {
-            ProcessedCharacters && ProcessedCharacters.sort((self,self2)=>self.GLOrder-self2.GLOrder)
-        }
-    },[ProcessedCharacters,jptoggledata])
+    const ProcessedEventsIndex = useSelector((state) => 
+    state.eventsIndex.eventsIndex
+    );
 
-    const filtered = ProcessedCharacters && ProcessedCharacters.filter(function (el) { 
-        return el["ShortName"] == match.params.id ; 
-      }); 
+    useEffect(() => {
+        let mounted = true
+        if (mounted && ProcessedEventsIndex == undefined) {
+        dispatch(getEventsIndex());
+        }
+
+        return function cleanup() {
+            mounted = false
+        }
+    }, [dispatch,ProcessedEventsIndex]);
+
+    const CharGuideData = useSelector((state) => 
+    state.charGuide.charGuide
+    );
+
+    useEffect(() => {
+    let mounted = true
+        if (mounted && CharGuideData == undefined) {
+        dispatch(getCharGuide());
+        }
+        return function cleanup() {
+            mounted = false
+        }
+    }, [dispatch,CharGuideData]);
+
+    const filtered = ProcessedCharacters && ProcessedCharacters[Access[match.params.id]]
 
       return (
         passive_effects != undefined &&
@@ -342,12 +372,33 @@ const CallCharDirect = () =>{
         ailment_group_full != undefined && 
         command_group_full != undefined && 
         enemy_resist_full != undefined &&
-	
-        filtered != undefined
+        jptoggledata != undefined &&
+        ProcessedEventsIndex != undefined &&
+        ProcessedCharacters != undefined &&
+        Access != undefined &&
+        CharGuideData != undefined
 	
 		?
-		
-        <CallCharDirectHandoff 
+        match.params.id == "wardrobe"?
+        <WardrobePassoff match={match}/>
+        :
+        match.params.id == "ultimaweapon"?
+        <UltimaWeaponPassdoff match={match}/>
+        :
+		filtered == undefined ?
+        <Navigate replace to="/404"/>
+        :
+        match.params.id == "forcetime"?
+        <ForceTimePassdoff 
+        match={match} 
+        ProcessedCharacters={ProcessedCharacters}
+        />
+        :
+        loc == "passives" &&  match.params.type == undefined ?
+        <Navigate replace to={`/characters/${match.params.id}/passives/crystal${jptoggledata == true ? "?JP=true":""}`}/>
+        :
+        <CharacterDirect 
+        loc={loc}
         enemy_type={enemy_type} 
         cast_targets={casttargets} 
         passive_effects_data={passive_effects} 
@@ -364,12 +415,18 @@ const CallCharDirect = () =>{
         hit_data_effects={hit_trans_data}
         option_trans_data={option_trans_data}
 		
-        ailment_group={ailment_group_full} 
-        command_group={command_group_full} 
-        enemy_resist={enemy_resist_full}
+        ailment_group_data={ailment_group_full} 
+        command_group_data={command_group_full} 
+        enemy_resist_data={enemy_resist_full}
 		
         filtered={filtered}
         match={match} 
+        jptoggledata={jptoggledata}
+        Access={Access}
+        ProcessedEventsIndex={ProcessedEventsIndex}
+        ProcessedCharacters={ProcessedCharacters}
+        selected_char={filtered} 
+        CharGuideData={CharGuideData}
         />
 		
         : 

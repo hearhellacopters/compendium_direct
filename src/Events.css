@@ -486,6 +486,24 @@
   -webkit-filter: drop-shadow(1px 1px 2px #222);
 }
 
+.GLonlybackground{
+  height: 30px;
+  width: 30px;
+  display: inline-table;
+  margin-right: 13px;
+  filter: drop-shadow(1px 1px 2px #222);
+  -webkit-filter: drop-shadow(1px 1px 2px #222);
+}
+
+.Spoilerbackground{
+  height: 30px;
+  width: 30px;
+  display: inline-table;
+  margin-left: 5px;
+  filter: drop-shadow(1px 1px 2px #222);
+  -webkit-filter: drop-shadow(1px 1px 2px #222);
+}
+
 .pasteventbackground{
   background: radial-gradient(circle, rgba(77,86,97,1) 25%, rgba(0,0,0,0.9612219887955182) 50%, rgba(77,86,97,0) 75%);
   height: 30px;
@@ -515,6 +533,14 @@
   cursor: pointer;
 }
 
+.spoiler_toggle{
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  height: 30px;
+  cursor: pointer;
+}
+
 .futureevents{
   content: url(https://dissidiacompendium.com/images/static/icons/misc/forwardevents1.svg);
   display: inline-block;
@@ -522,6 +548,11 @@
   background-size: contain;
   height: 30px;
   cursor: pointer;
+}
+
+.spoiler_off{
+  filter: grayscale(1) drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
+  -webkit-filter: grayscale(1) drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
 }
 
 .pastsmallactive{
@@ -578,6 +609,10 @@ box-shadow: inset 0px -50px 34px -28px #455065;
 }
 
 @media (hover: hover) {
+  .spoiler_toggle:hover{
+    transform: translateY(-1px);
+    transition: all ease 0.3s;
+  }
   .pastevents:hover{
     transform: translateY(-1px);
     transition: all ease 0.3s;
@@ -900,6 +935,14 @@ box-shadow: inset 0px -50px 34px -28px #455065;
 
 .featuredbanner{
   border-top: solid black 2px;
+  border-bottom: solid black 2px;
+  padding-top: 10px;
+  z-index: 1;
+  padding-bottom: 10px;
+  background: linear-gradient( 90deg , rgba(30, 55, 88, 0) 0%, #3f5b92   3.67%, #3f5b92  96.44%, rgba(30, 55, 88, 0) 100%);
+}
+
+.featuredbannernotop{
   border-bottom: solid black 2px;
   padding-top: 10px;
   z-index: 1;
@@ -1262,11 +1305,14 @@ box-shadow: inset 0px -50px 34px -28px #455065;
   .singleeventtitlebanner{
     font-size: small;
   }
+  .featuredbannernotop{
+    font-size: 13px;
+  }
   .featuredbanner{
-    font-size: small;
+    font-size: 13px;
   }
   .featuredbanner2{
-    font-size: small;
+    font-size: 13px;
   }
   .guidebanner{
     font-size: small;

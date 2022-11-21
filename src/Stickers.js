@@ -21,7 +21,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { FaShareSquare } from 'react-icons/fa';
 import { setFalse, setTrue } from './redux/ducks/jptoggle'
 
-const Stickers = ({ProcessedStickers, ProcessedCharacters}) => {
+const Stickers = ({ProcessedStickers, ProcessedCharacters, jptoggledata}) => {
 
   const StickerLimit = 25;
 
@@ -65,7 +65,7 @@ const Stickers = ({ProcessedStickers, ProcessedCharacters}) => {
   useEffect(() => {
     //type params
     if(getQueryStringVal("Char") != null){
-      const filteredtype = ProcessedCharacters.filter(function (ef) {
+      const filteredtype = Object.values(ProcessedCharacters).filter(function (ef) {
         const newfilterpull = ef["CharacterName"] === getQueryStringVal("Char");
         return newfilterpull;
       })
@@ -100,9 +100,17 @@ const Stickers = ({ProcessedStickers, ProcessedCharacters}) => {
   //filter
   useEffect(() => {
       const filterholder = [];
+
       if (animated === true) {
         const filteredout = rawData.filter(
           (stickers) => stickers["Animated"] == true
+        );
+        filterholder.push(...filteredout);
+      }
+
+      if(jptoggledata == false){
+        const filteredout = rawData.filter(
+          (stickers) => stickers["IconGL"] != undefined
         );
         filterholder.push(...filteredout);
       }
@@ -145,7 +153,7 @@ const Stickers = ({ProcessedStickers, ProcessedCharacters}) => {
             <>Displaying <span className="subtextgold">{newlistdisplay.length}</span> of <span className="subtextgold"> {newlistdisplay.length}</span> {banerDisplayTerm}</>
           );
         }
-  }, [limits,rawData,searchTerm,clearFilter, animated, condFilter, reverse]);
+  }, [limits,rawData,searchTerm,clearFilter, animated, condFilter, reverse,jptoggledata]);
 
 
   //buttons
@@ -207,29 +215,19 @@ const Stickers = ({ProcessedStickers, ProcessedCharacters}) => {
   function onlyUnique(value, index, self) {
     return self.indexOf(value) === index;
   }
-
-  const getCharName = (CharID) => {
-    const charactermap = ProcessedCharacters.filter(function (ef) {
-      const getchar = ef["CharID"] === CharID
-      return getchar
-    })
-      return charactermap[0].CharacterName
-  }   
-
-    //type list
-    const typeList = Object.values(rawData).map((item) => item.CharID);
-    const typeListUnique = typeList
-      .filter(onlyUnique)
-      .sort()
-      .filter(function (el) {
-        return el !== undefined;
-      });
   
-    const typeListArray = typeListUnique.map((typeListUnique) => ({
-      value: getCharName(typeListUnique),
-      label: getCharName(typeListUnique),
-      id: typeListUnique,
-    }));
+  //type list
+  const [typeListArray, settypeListArray] = useStateIfMounted(false);
+    useEffect(()=>{
+      const typeList = Object.values(rawData).filter((item) => item.CharID != undefined).map(self=>{return ProcessedCharacters[self.CharID]});
+      const typeListUnique = typeList.filter(onlyUnique)
+      const typeListArray2 = Object.values(typeListUnique).filter(self=>jptoggledata == true? self.JPOrder != undefined : self.GLOrder != undefined).sort((a,b)=>jptoggledata == true? b.JPOrder - a.JPOrder : b.GLOrder - a.GLOrder).map((typeListUnique) => ({
+        value: typeListUnique.CharacterName,
+        label: typeListUnique.CharacterName,
+        id: typeListUnique.CharID,
+      }));
+      settypeListArray(typeListArray2)
+    },[jptoggledata,ProcessedCharacters,rawData,settypeListArray])
 
   //search bar
   const handleChange = (e) => {
@@ -292,10 +290,6 @@ const Stickers = ({ProcessedStickers, ProcessedCharacters}) => {
 
     const dispatch = useDispatch();
 
-    const jptoggledata = useSelector((state) => 
-        state.toggle.toggle
-        );
-
     const [jponly, setJPonly] = useState(jptoggledata);
     const [JPsearch, setJPSearch] = useQueryParam("JP", "");
 
@@ -303,13 +297,23 @@ const Stickers = ({ProcessedStickers, ProcessedCharacters}) => {
     if(getQueryStringVal("JP") == "true" ){
         dispatch(setTrue())
         setJPSearch("true")
-        setJPonly(true)
     } else {
         dispatch(setFalse())
         setJPSearch("")
-        setJPonly(false)
     }
     },[setJPSearch,dispatch])
+
+    const jponlybutton = () => {
+      if (jponly == false) {
+        dispatch(setTrue())
+        setJPSearch("true")
+        setJPonly(true);
+      } else {
+        dispatch(setFalse())
+        setJPSearch("")
+        setJPonly(false);
+      }
+    };
 
     return (
       <div className="wrapper">
@@ -325,12 +329,17 @@ const Stickers = ({ProcessedStickers, ProcessedCharacters}) => {
           <meta property="og:url" content="https://dissidiacompendium.com/search/stickers"/>
         </Helmet>
             <div className="content">
-              <h1  >Stickers</h1>
+              <h1  >{`${jponly == true? "JP":"GL"} Stickers`}</h1>
               <div className="subheader">Use filters to limit returns</div>
               <div className="charfilterspacer"/>
               <div key="filter1" onClick={showfilterbutton} className="charfilter"><span className="filterstext"></span>{showFilter ? <TiArrowSortedUp className="uparrow"/> : <TiArrowSortedDown className="downarrow"/>}</div>
               {showFilter == false ? 
-              <div className="char-search-reverse-holder">
+              <div className="event-search-reverse-holder">
+              <span className={`${jponly ? "jponlybackground" : "GLonlybackground"}`}>
+               <Tippy content={`${jponly == true? "Switch to GL" : "Switch to JP"}`} className="tooltip" >
+              <span onClick={jponlybutton} className={`${jponly ? "jpflage jpsmallinactive smalleventbutton" : "glflage smalleventbutton"}`}/>
+              </Tippy>
+              </span>
                 <IoSearch className="searchicon"/>
               <div className="search-holder">
                 <input 

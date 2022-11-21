@@ -796,9 +796,9 @@ return (
     <div onClick={showfilterbutton} className="charfilter" id={showFilter ? "filteropen" : "filterclosed"}><span className="filterstext"></span>{showFilter ? <TiArrowSortedUp className="uparrow"/> : <TiArrowSortedDown className="downarrow"/>}</div>
       {showFilter == false ? 
         <div className="event-search-reverse-holder">
-          <span className="jponlybackground">
-            <Tippy content="Upcoming JP" className="tooltip" >
-              <span onClick={jponlybutton} className={`jpflage smalleventbutton ${jponly ? "jpsmallactive" : "jpsmallinactive" }`}/>
+          <span className={`${jponly ? "jponlybackground" : "GLonlybackground"}`}>
+                <Tippy content={`${jponly == true? "Switch to GL" : "Switch to JP"}`} className="tooltip" >
+                <span onClick={jponlybutton} className={`${jponly ? "jpflage jpsmallinactive smalleventbutton" : "glflage smalleventbutton"}`}/>
             </Tippy>
           </span>
           <IoSearch className="searchicon"/>
@@ -853,7 +853,7 @@ return (
                 </ul>
                 <div className="similarbanner">Additional Enemies</div>
                 <ul className="enemytypes">
-                  <Tippy content="JP Only" className="tooltip" >
+                  <Tippy content="Full JP Database" className="tooltip" >
                   <li className={`enemybutton ${jponly ? "filteractive": "filterinactive"} jpButton`} onClick={jponlybutton} ></li>
                   </Tippy>
                 </ul>
@@ -1138,14 +1138,26 @@ return (
             {details == true ?
              listenemies.length > 0 ?  (
               listenemies.map(enemy => (
-                    <EnemyDetailsDirect key={enemy.battle_enemy_id} match={enemy} ProcessedCharacters={ProcessedCharacters} PartnerCharacters={PartnerCharacters}/>
+                    <EnemyDetailsDirect 
+                    key={enemy.battle_enemy_id} 
+                    match={enemy} 
+                    ProcessedCharacters={ProcessedCharacters} 
+                    PartnerCharacters={PartnerCharacters}
+                    jptoggledata={jptoggledata}
+                    />
                   ))) : (
                     <div>No results</div>
                   )
             :
             listenemies.length > 0 ?  (
             listenemies.map(enemy => (
-                  <EnemyListingDirect key={enemy.battle_enemy_id} match={enemy} ProcessedCharacters={ProcessedCharacters} PartnerCharacters={PartnerCharacters}/>
+                  <EnemyListingDirect
+                  key={enemy.battle_enemy_id}
+                  match={enemy}
+                  ProcessedCharacters={ProcessedCharacters}
+                  PartnerCharacters={PartnerCharacters}
+                  jptoggledata={jptoggledata}
+                  />
                 ))) : (
                   <div>No results</div>
                 )}

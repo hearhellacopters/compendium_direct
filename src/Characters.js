@@ -12,19 +12,19 @@ import { ImSortAmountDesc } from 'react-icons/im';
 import { TiArrowSortedDown } from 'react-icons/ti';
 import { TiArrowSortedUp } from 'react-icons/ti';
 import { IoMdCloseCircleOutline } from 'react-icons/io';
+import { ImWarning } from 'react-icons/im';
 import { IoSearch } from 'react-icons/io5'; 
 import { FaUndoAlt } from 'react-icons/fa'; 
 import { getQuery, getQueryStringVal,useQueryParam } from './processing/urlparams'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { FaShareSquare } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
-import roles from './formatting/roles.json'
+import roles from './characterpages/direct/formatting/command_ability/ailment_tags.json'
 
-const Characters = ({ProcessedCharacters,jptoggledata,Access}) => {
-  
-  console.log(Access)
+const Characters = ({ProcessedCharacters,jptoggledata}) => {
 
-  const rawData = ProcessedCharacters;
+  const [rawData, setrawData] = useStateIfMounted(Object.values(ProcessedCharacters))
+  const [ver,setver] = useStateIfMounted(jptoggledata==true?"JP":"GL")
 
   const dispatch = useDispatch();
 
@@ -193,6 +193,7 @@ const Characters = ({ProcessedCharacters,jptoggledata,Access}) => {
 
   const [loop, setLoop] = useStateIfMounted(false);
   const [reverse, setReverse] = useState(getQueryStringVal("rev") != null  ? true : false);
+  const [spoilers, setspoilers] = useState(getQueryStringVal("spoilers") != null  ? true : false);
   const [searchdisplay, setsearchdisplay] = useState(getQueryStringVal("search") != null ? getQueryStringVal("search") : "");
   const [searchTerm, setSearchTerm] = useState(getQueryStringVal("search") != null  ? getQueryStringVal("search").toLowerCase() : "");
   const [merge, setMerge] = useState(getQueryStringVal("merge") != null  ? true : false);
@@ -365,6 +366,7 @@ const Characters = ({ProcessedCharacters,jptoggledata,Access}) => {
 
   const [mergesearch, setMergesearch] = useQueryParam("merge", "");
   const [Reversesearch, setReversesearch] = useQueryParam("rev", "");
+  const [spoilerssearch, setspoilerssearch] = useQueryParam("spoilers", "");
   const [TEXTsearch, setTEXTsearch] = useQueryParam("search", "");
   const [Filtersearch, setFiltersearch] = useQueryParam("filter", "");
   const [Typesearch, setTypesearch] = useQueryParam("Realm", "");
@@ -383,14 +385,27 @@ const Characters = ({ProcessedCharacters,jptoggledata,Access}) => {
         setJPSearch("")
       }
     },[setJPSearch,dispatch])
+
+    useEffect(() => {
+      if(getQueryStringVal("spoilers") == "true" ){
+        setspoilers(true)
+        setspoilerssearch("true")
+      } else {
+        setspoilers(false)
+        setspoilerssearch("")
+      }
+    },[setspoilerssearch])
     
     useEffect(() => {
       if(jptoggledata == true ){
         setJPSearch("true")
+        setver("JP")
         if(Sortsearch == ""){
           setJPSort(true)
           setSortsearch("JP")
-          }
+        }
+      } else {
+        setver("GL")
       }
       if(getQueryStringVal("JP") == "true" ){
         dispatch(setTrue())
@@ -399,7 +414,7 @@ const Characters = ({ProcessedCharacters,jptoggledata,Access}) => {
           setSortsearch("JP")
           }
       }
-    },[jptoggledata,dispatch,setJPSearch,Sortsearch,setSortsearch])
+    },[jptoggledata,setver,dispatch,setJPSearch,Sortsearch,setSortsearch])
 
  useEffect(() => {
      // eslint-disable-next-line no-sparse-arrays
@@ -488,110 +503,110 @@ const Characters = ({ProcessedCharacters,jptoggledata,Access}) => {
       //elements
       if (Fire === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Fire_Damage"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Fire_Damage"] === true
         );
         filterholder.push(...filteredout);
       }
       if (Ice === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Ice_Damage"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Ice_Damage"] === true
         );
         filterholder.push(...filteredout);
       }
       if (Thunder === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Thunder_Damage"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Thunder_Damage"] === true
         );
         filterholder.push(...filteredout);
       }
       if (Water === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Water_Damage"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Water_Damage"] === true
         );
         filterholder.push(...filteredout);
       }
       if (Earth === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Earth_Damage"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Earth_Damage"] === true
         );
         filterholder.push(...filteredout);
       }
       if (Wind === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Wind_Damage"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Wind_Damage"] === true
         );
         filterholder.push(...filteredout);
       }
       if (Dark === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Dark_Damage"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Dark_Damage"] === true
         );
         filterholder.push(...filteredout);
       }
       if (Holy === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Holy_Damage"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Holy_Damage"] === true
         );
         filterholder.push(...filteredout);
       }
       //max gear
-      if (MaxLevel === true) {
-        const filteredout = rawData.filter(
-          (chars) => chars["Level90"] == true
-        );
-        filterholder.push(...filteredout);
-      }
       if (ActiveRework === true) {
         const filteredout = rawData.filter(
           (chars) => chars["ActiveRework"] === true
         );
         filterholder.push(...filteredout);
       }
+      if (MaxLevel === true) {
+        const filteredout = rawData.filter(
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Level90"] == true
+        );
+        filterholder.push(...filteredout);
+      }
       if (LDFlag === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["LDFlag"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["LDFlag"] === true
         );
         filterholder.push(...filteredout);
       }
       if (FRFlag === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["FRFlag"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["FRFlag"] === true
         );
         filterholder.push(...filteredout);
       }
       if (BTFlag === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["BTFlag"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["BTFlag"] === true
         );
         filterholder.push(...filteredout);
       }
       if (LDBoardFlag === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["LDBoardFlag"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["LDBoardFlag"] === true
         );
         filterholder.push(...filteredout);
       }
       if (FRBoardFlag === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["FRBoardFlag"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["FRBoardFlag"] === true
         );
         filterholder.push(...filteredout);
       }
       if (BTPlusFlag === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["BTPlusFlag"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["BTPlusFlag"] === true
         );
         filterholder.push(...filteredout);
       }
       if (SevenStarArmor === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["SevenStarArmor"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["SevenStarArmor"] === true
         );
         filterholder.push(...filteredout);
       }
       if (SevenStarPlusArmor === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["SevenStarPlusArmor"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["SevenStarPlusArmor"] === true
         );
         filterholder.push(...filteredout);
       }
@@ -702,523 +717,523 @@ const Characters = ({ProcessedCharacters,jptoggledata,Access}) => {
       //classes
       if (MagicImperil === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Magic_Imperil"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Magic_Imperil"] === true
         );
         filterholder.push(...filteredout);
       }
       if (MeleeImperil === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Melee_Imperil"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Melee_Imperil"] === true
         );
         filterholder.push(...filteredout);
       }
       if (RangedImperil === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Ranged_Imperil"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Ranged_Imperil"] === true
         );
         filterholder.push(...filteredout);
       }
       if (FireEnchant === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Fire_Enchant"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Fire_Enchant"] === true
         );
         filterholder.push(...filteredout);
       }
       if (IceEnchant === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Ice_Enchant"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Ice_Enchant"] === true
         );
         filterholder.push(...filteredout);
       }
       if (ThunderEnchant === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Thunder_Enchant"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Thunder_Enchant"] === true
         );
         filterholder.push(...filteredout);
       }
       if (WaterEnchant === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Water_Enchant"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Water_Enchant"] === true
         );
         filterholder.push(...filteredout);
       }
       if (EarthEnchant === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Earth_Enchant"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Earth_Enchant"] === true
         );
         filterholder.push(...filteredout);
       }
       if (WindEnchant === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Wind_Enchant"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Wind_Enchant"] === true
         );
         filterholder.push(...filteredout);
       }
       if (DarkEnchant === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Dark_Enchant"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Dark_Enchant"] === true
         );
         filterholder.push(...filteredout);
       }
       if (HolyEnchant === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Holy_Enchant"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Holy_Enchant"] === true
         );
         filterholder.push(...filteredout);
       }
       if (FireImperil === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Fire_Imperil"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Fire_Imperil"] === true
         );
         filterholder.push(...filteredout);
       }
       if (IceImperil === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Ice_Imperil"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Ice_Imperil"] === true
         );
         filterholder.push(...filteredout);
       }
       if (ThunderImperil === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Thunder_Imperil"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Thunder_Imperil"] === true
         );
         filterholder.push(...filteredout);
       }
       if (WaterImperil === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Water_Imperil"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Water_Imperil"] === true
         );
         filterholder.push(...filteredout);
       }
       if (EarthImperil === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Earth_Imperil"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Earth_Imperil"] === true
         );
         filterholder.push(...filteredout);
       }
       if (WindImperil === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Wind_Imperil"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Wind_Imperil"] === true
         );
         filterholder.push(...filteredout);
       }
       if (DarkImperil === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Dark_Imperil"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Dark_Imperil"] === true
         );
         filterholder.push(...filteredout);
       }
       if (HolyImperil === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Holy_Imperil"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Holy_Imperil"] === true
         );
         filterholder.push(...filteredout);
       }
       if (Debuffer === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Debuffer"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Debuffer"] === true
         );
         filterholder.push(...filteredout);
       }
       if (Cleanse === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Cleanse"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Cleanse"] === true
         );
         filterholder.push(...filteredout);
       }
       if (Trap === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Trap"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Trap"] === true
         );
         filterholder.push(...filteredout);
       }
       if (BRVPoison === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["BRV_Poison"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["BRV_Poison"] === true
         );
         filterholder.push(...filteredout);
       }
       if (HPPoison === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["HP_Poison"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["HP_Poison"] === true
         );
         filterholder.push(...filteredout);
       }
       if (BRVResistDown === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["BRV_Resist_Down"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["BRV_Resist_Down"] === true
         );
         filterholder.push(...filteredout);
       }
       if (HPResistDown === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["HP_Resist_Down"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["HP_Resist_Down"] === true
         );
         filterholder.push(...filteredout);
       }
       if (FourDebuff === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Four_Debuff"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Four_Debuff"] === true
         );
         filterholder.push(...filteredout);
       }
       if (Tank === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Cover"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Cover"] === true
         );
         filterholder.push(...filteredout);
       }
       if (Battery === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Battery"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Battery"] === true
         );
         filterholder.push(...filteredout);
       }
       if (BRVControl === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["BRV_Control"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["BRV_Control"] === true
         );
         filterholder.push(...filteredout);
       }
       if (Launcher === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Launcher"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Launcher"] === true
         );
         filterholder.push(...filteredout);
       }
       if (Disable === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Disable"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Disable"] === true
         );
         filterholder.push(...filteredout);
       }
       if (Dispel === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Dispel"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Dispel"] === true
         );
         filterholder.push(...filteredout);
       }
       if (Counter === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Counter"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Counter"] === true
         );
         filterholder.push(...filteredout);
       }
       if (Delay === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Delay"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Delay"] === true
         );
         filterholder.push(...filteredout);
       }
       if (ForceBreak === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Force_Break"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Force_Break"] === true
         );
         filterholder.push(...filteredout);
       }
       if (DeleteTurns === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Delete_Turns"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Delete_Turns"] === true
         );
         filterholder.push(...filteredout);
       }
       if (BRVDamageResist === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["BRV_Damage_Resist"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["BRV_Damage_Resist"] === true
         );
         filterholder.push(...filteredout);
       }
       if (HPDamageResist === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["HP_Damage_Resist"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["HP_Damage_Resist"] === true
         );
         filterholder.push(...filteredout);
       }
       if (BRVRegen === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["BRV_Regen"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["BRV_Regen"] === true
         );
         filterholder.push(...filteredout);
       }
       if (HPRegen === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["HP_Regen"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["HP_Regen"] === true
         );
         filterholder.push(...filteredout);
       }
       if (BRVShield === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["BRV_Shield"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["BRV_Shield"] === true
         );
         filterholder.push(...filteredout);
       }
       if (HPHealAbility === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["HP_Heal_Ability"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["HP_Heal_Ability"] === true
         );
         filterholder.push(...filteredout);
       }
       if (FiftyHPHealAbility === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Fifty_HP_Heal_Ability"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Fifty_HP_Heal_Ability"] === true
         );
         filterholder.push(...filteredout);
       }
       if (SixBuffs === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Six_Buffs"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Six_Buffs"] === true
         );
         filterholder.push(...filteredout);
       }
       if (ThreeDelay === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Three_Delay"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Three_Delay"] === true
         );
         filterholder.push(...filteredout);
       }
       if (TwoAbilitiesRecover === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Two_Abilities_Recover"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Two_Abilities_Recover"] === true
         );
         filterholder.push(...filteredout);
       }
       if (CritRateUp === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Crit_Rate_Up"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Crit_Rate_Up"] === true
         );
         filterholder.push(...filteredout);
       }
       if (Evade === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Evade"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Evade"] === true
         );
         filterholder.push(...filteredout);
       }
       if (Ignore_DEF === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Ignore_DEF"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Ignore_DEF"] === true
         );
         filterholder.push(...filteredout);
       }
       if (Debuff_Break === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Debuff_Break"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Debuff_Break"] === true
         );
         filterholder.push(...filteredout);
       }
       if (KO_Prevent === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["KO_Prevent"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["KO_Prevent"] === true
         );
         filterholder.push(...filteredout);
       }
       if (Reviver === true) {
         const filteredout = rawData.filter(
-          (chars) => chars["Reviver"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Reviver"] === true
         );
         filterholder.push(...filteredout);
       }
       if(Stacked_Debuff == true){
         const filteredout = rawData.filter(
-          (chars) => chars["Stacked_Debuff"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Stacked_Debuff"] === true
         );
         filterholder.push(...filteredout);
       }
       if(Non_Elemental == true){
         const filteredout = rawData.filter(
-          (chars) => chars["Non_Elemental"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Non_Elemental"] === true
         );
         filterholder.push(...filteredout);
       }
       if(HP_Damage_Up == true){
         const filteredout = rawData.filter(
-          (chars) => chars["HP_Damage_Up"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["HP_Damage_Up"] === true
         );
         filterholder.push(...filteredout);
       }
       if(Buff_Extension == true){
         const filteredout = rawData.filter(
-          (chars) => chars["Buff_Extension"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Buff_Extension"] === true
         );
         filterholder.push(...filteredout);
       }
       if(Break_Reset == true){
         const filteredout = rawData.filter(
-          (chars) => chars["Break_Reset"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Break_Reset"] === true
         );
         filterholder.push(...filteredout);
       }
       if(Self_Harm == true){
         const filteredout = rawData.filter(
-          (chars) => chars["Self_Harm"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Self_Harm"] === true
         );
         filterholder.push(...filteredout);
       }
       if(Ally_Turn_Manipulator == true){
         const filteredout = rawData.filter(
-          (chars) => chars["Ally_Turn_Manipulator"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Ally_Turn_Manipulator"] === true
         );
         filterholder.push(...filteredout);
       }
       if(FollowUp == true){
         const filteredout = rawData.filter(
-          (chars) => chars["FollowUp"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["FollowUp"] === true
         );
         filterholder.push(...filteredout);
       }
       if(Cannot_Break == true){
         const filteredout = rawData.filter(
-          (chars) => chars["Cannot_Break"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Cannot_Break"] === true
         );
         filterholder.push(...filteredout);
       }
       if(Blind == true){
         const filteredout = rawData.filter(
-          (chars) => chars["Blind"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Blind"] === true
         );
         filterholder.push(...filteredout);
       }
       if(Debuff_Evade == true){
         const filteredout = rawData.filter(
-          (chars) => chars["Debuff_Evade"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Debuff_Evade"] === true
         );
         filterholder.push(...filteredout);
       }
       if(Debuff_Gold == true){
         const filteredout = rawData.filter(
-          (chars) => chars["Debuff_Gold"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Debuff_Gold"] === true
         );
         filterholder.push(...filteredout);
       }
       if(BRV_Wont_Below == true){
         const filteredout = rawData.filter(
-          (chars) => chars["BRV_Wont_Below"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["BRV_Wont_Below"] === true
         );
         filterholder.push(...filteredout);
       }
       if(FollowUp_By_Other == true){
         const filteredout = rawData.filter(
-          (chars) => chars["FollowUp_By_Other"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["FollowUp_By_Other"] === true
         );
         filterholder.push(...filteredout);
       }
       if(Launch_Support == true){
         const filteredout = rawData.filter(
-          (chars) => chars["Launch_Support"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Launch_Support"] === true
         );
         filterholder.push(...filteredout);
       }
       if(Continuous_Turns == true){
         const filteredout = rawData.filter(
-          (chars) => chars["Continuous_Turns"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Continuous_Turns"] === true
         );
         filterholder.push(...filteredout);
       }
       if(Turn_Interrupter == true){
         const filteredout = rawData.filter(
-          (chars) => chars["Turn_Interrupter"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Turn_Interrupter"] === true
         );
         filterholder.push(...filteredout);
       }
       if(BRV_Ratio == true){
         const filteredout = rawData.filter(
-          (chars) => chars["BRV_Ratio"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["BRV_Ratio"] === true
         );
         filterholder.push(...filteredout);
       }
       if(BRV_Absorb == true){
         const filteredout = rawData.filter(
-          (chars) => chars["BRV_Absorb"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["BRV_Absorb"] === true
         );
         filterholder.push(...filteredout);
       }
       if(EX_MAX_Party == true){
         const filteredout = rawData.filter(
-          (chars) => chars["EX_MAX_Party"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["EX_MAX_Party"] === true
         );
         filterholder.push(...filteredout);
       }
       if(Stacked_Buff == true){
         const filteredout = rawData.filter(
-          (chars) => chars["Stacked_Buff"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Stacked_Buff"] === true
         );
         filterholder.push(...filteredout);
       }
       if(Trap_After_Trigger == true){
         const filteredout = rawData.filter(
-          (chars) => chars["Trap_After_Trigger"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Trap_After_Trigger"] === true
         );
         filterholder.push(...filteredout);
       }
       if(Trap_Before_Turn == true){
         const filteredout = rawData.filter(
-          (chars) => chars["Trap_Before_Turn"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Trap_Before_Turn"] === true
         );
         filterholder.push(...filteredout);
       }
       if(FollowUp_Before_Player_Turn == true){
         const filteredout = rawData.filter(
-          (chars) => chars["FollowUp_Before_Player_Turn"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["FollowUp_Before_Player_Turn"] === true
         );
         filterholder.push(...filteredout);
       }
       if(FollowUp_Before_Ability == true){
         const filteredout = rawData.filter(
-          (chars) => chars["FollowUp_Before_Ability"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["FollowUp_Before_Ability"] === true
         );
         filterholder.push(...filteredout);
       }
       if(FollowUp_Extension == true){
         const filteredout = rawData.filter(
-          (chars) => chars["FollowUp_Extension"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["FollowUp_Extension"] === true
         );
         filterholder.push(...filteredout);
       }
       if(FollowUp_Start_Of_Next == true){
         const filteredout = rawData.filter(
-          (chars) => chars["FollowUp_Start_Of_Next"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["FollowUp_Start_Of_Next"] === true
         );
         filterholder.push(...filteredout);
       }
       if(FollowUp_Action_On_Enemy == true){
         const filteredout = rawData.filter(
-          (chars) => chars["FollowUp_Action_On_Enemy"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["FollowUp_Action_On_Enemy"] === true
         );
         filterholder.push(...filteredout);
       }
       if(Free_Ability == true){
         const filteredout = rawData.filter(
-          (chars) => chars["Free_Ability"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Free_Ability"] === true
         );
         filterholder.push(...filteredout);
       }
       if(Stacked_Buff_Five == true){
         const filteredout = rawData.filter(
-          (chars) => chars["Stacked_Buff_Five"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Stacked_Buff_Five"] === true
         );
         filterholder.push(...filteredout);
       }
       if(Special_Buff == true){
         const filteredout = rawData.filter(
-          (chars) => chars["Special_Buff"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Special_Buff"] === true
         );
         filterholder.push(...filteredout);
       }
       if(Board5Flag == true){
         const filteredout = rawData.filter(
-          (chars) => chars["Board5Flag"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Board5Flag"] === true
         );
         filterholder.push(...filteredout);
       }
       if(BRV_Damage_Cap == true){
         const filteredout = rawData.filter(
-          (chars) => chars["BRV_Damage_Cap"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["BRV_Damage_Cap"] === true
         );
         filterholder.push(...filteredout);
       }
       if(BuffPrevent == true){
         const filteredout = rawData.filter(
-          (chars) => chars["BuffPrevent"] === true
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["BuffPrevent"] === true
         );
         filterholder.push(...filteredout);
       }
@@ -1243,7 +1258,7 @@ const Characters = ({ProcessedCharacters,jptoggledata,Access}) => {
         setSearchResults(getcharacterfilter);
         setListDisplay(getcharacterfilter);
     }
-  }, [jptoggledata,BRV_Damage_Cap,Board5Flag,Special_Buff,Free_Ability,Stacked_Buff_Five,BuffPrevent, FollowUp_Action_On_Enemy,FollowUp_Start_Of_Next,FollowUp_Extension,FollowUp_Before_Ability,FollowUp_Before_Player_Turn,Trap_After_Trigger,Trap_Before_Turn, Stacked_Buff,EX_MAX_Party,BRV_Absorb,BRV_Ratio,Turn_Interrupter,Continuous_Turns,Launch_Support,FollowUp_By_Other,BRV_Wont_Below,Debuff_Gold,Debuff_Evade,Blind,FRFlag,FRBoardFlag, Cannot_Break, FollowUp, Ally_Turn_Manipulator, Self_Harm, Break_Reset, RealmSort, JPSort, HPSort, INTBRVSort, MAXBRVSort, ATKSort, DEFSort, SPDSort, NameSort, Buff_Extension,rawData,searchTerm,HP_Damage_Up, Non_Elemental, Stacked_Debuff, KO_Prevent, Reviver, SevenStarArmor, Debuff_Break, Ignore_DEF, Evade, CritRateUp, clearFilter, TwoAbilitiesRecover, merge, BRVRegen, BRVDamageResist, Dagger, Sword, Greatsword, Staff, Gun, Fist, Throwing, Spear, Bow, Whip, Other, RedCrystal, BlueCrystal, YellowCrystal, GreenCrystal, BlackCrystal, WhiteCrystal, SevenStarPlusArmor, BTPlusFlag, LDBoardFlag, BTFlag, LDFlag, MaxLevel, ActiveRework, Magic, Ranged, Melee, ASlot, BSlot, CSlot, DSlot, ESlot, Fire, Ice, Thunder, Water, Earth, Wind, Dark, Holy, Tank, Debuffer, BRVResistDown, MagicImperil, RangedImperil, MeleeImperil, WindImperil, FireImperil, ThunderImperil, HolyImperil, IceImperil, WaterImperil, EarthImperil, DarkImperil, ThreeDelay, FourDebuff, FiftyHPHealAbility, SixBuffs, Battery, BRVControl, BRVPoison, BRVShield, Cleanse, Counter, DarkEnchant, Delay, Disable, Dispel, EarthEnchant, FireEnchant, ForceBreak, HolyEnchant, HPDamageResist, HPHealAbility, HPPoison, HPRegen, IceEnchant, Launcher, ThunderEnchant, Trap, WaterEnchant, WindEnchant, DeleteTurns, HPResistDown, condFilter, reverse]);
+  }, [ver,jptoggledata,BRV_Damage_Cap,Board5Flag,Special_Buff,Free_Ability,Stacked_Buff_Five,BuffPrevent, FollowUp_Action_On_Enemy,FollowUp_Start_Of_Next,FollowUp_Extension,FollowUp_Before_Ability,FollowUp_Before_Player_Turn,Trap_After_Trigger,Trap_Before_Turn, Stacked_Buff,EX_MAX_Party,BRV_Absorb,BRV_Ratio,Turn_Interrupter,Continuous_Turns,Launch_Support,FollowUp_By_Other,BRV_Wont_Below,Debuff_Gold,Debuff_Evade,Blind,FRFlag,FRBoardFlag, Cannot_Break, FollowUp, Ally_Turn_Manipulator, Self_Harm, Break_Reset, RealmSort, JPSort, HPSort, INTBRVSort, MAXBRVSort, ATKSort, DEFSort, SPDSort, NameSort, Buff_Extension,rawData,searchTerm,HP_Damage_Up, Non_Elemental, Stacked_Debuff, KO_Prevent, Reviver, SevenStarArmor, Debuff_Break, Ignore_DEF, Evade, CritRateUp, clearFilter, TwoAbilitiesRecover, merge, BRVRegen, BRVDamageResist, Dagger, Sword, Greatsword, Staff, Gun, Fist, Throwing, Spear, Bow, Whip, Other, RedCrystal, BlueCrystal, YellowCrystal, GreenCrystal, BlackCrystal, WhiteCrystal, SevenStarPlusArmor, BTPlusFlag, LDBoardFlag, BTFlag, LDFlag, MaxLevel, ActiveRework, Magic, Ranged, Melee, ASlot, BSlot, CSlot, DSlot, ESlot, Fire, Ice, Thunder, Water, Earth, Wind, Dark, Holy, Tank, Debuffer, BRVResistDown, MagicImperil, RangedImperil, MeleeImperil, WindImperil, FireImperil, ThunderImperil, HolyImperil, IceImperil, WaterImperil, EarthImperil, DarkImperil, ThreeDelay, FourDebuff, FiftyHPHealAbility, SixBuffs, Battery, BRVControl, BRVPoison, BRVShield, Cleanse, Counter, DarkEnchant, Delay, Disable, Dispel, EarthEnchant, FireEnchant, ForceBreak, HolyEnchant, HPDamageResist, HPHealAbility, HPPoison, HPRegen, IceEnchant, Launcher, ThunderEnchant, Trap, WaterEnchant, WindEnchant, DeleteTurns, HPResistDown, condFilter, reverse]);
 
   //Merge filter
   useEffect(() => {
@@ -1263,14 +1278,6 @@ const Characters = ({ProcessedCharacters,jptoggledata,Access}) => {
         YellowCrystal: YellowCrystal,
         WhiteCrystal: WhiteCrystal,
         BlackCrystal: BlackCrystal,
-        Fire_Damage: Fire,
-        Ice_Damage: Ice,
-        Thunder_Damage: Thunder,
-        Water_Damage: Water,
-        Earth_Damage: Earth,
-        Wind_Damage: Wind,
-        Dark_Damage: Dark,
-        Holy_Damage: Holy,
         Dagger: Dagger,
         Sword: Sword,
         Greatsword: Greatsword,
@@ -1282,6 +1289,15 @@ const Characters = ({ProcessedCharacters,jptoggledata,Access}) => {
         Bow: Bow,
         Whip: Whip,
         Other: Other,
+
+        Fire_Damage: Fire,
+        Ice_Damage: Ice,
+        Thunder_Damage: Thunder,
+        Water_Damage: Water,
+        Earth_Damage: Earth,
+        Wind_Damage: Wind,
+        Dark_Damage: Dark,
+        Holy_Damage: Holy,
         Magic_Imperil: MagicImperil,
         Melee_Imperil: MeleeImperil,
         Ranged_Imperil: RangedImperil,
@@ -1337,7 +1353,6 @@ const Characters = ({ProcessedCharacters,jptoggledata,Access}) => {
         BTPlusFlag: BTPlusFlag,
         SevenStarArmor: SevenStarArmor,
         SevenStarPlusArmor: SevenStarPlusArmor,
-        ActiveRework: ActiveRework,
         Two_Abilities_Recover: TwoAbilitiesRecover,
         Crit_Rate_Up: CritRateUp,
         Evade: Evade,
@@ -1383,7 +1398,7 @@ const Characters = ({ProcessedCharacters,jptoggledata,Access}) => {
       const filtermerge = rawData.filter((oneChar) => {
         return Object.entries(charType)
           .filter(entry => entry[1])
-          .every(([key, value]) => oneChar[key] === value);
+          .every(([key, value]) => oneChar[`${ver}traits`] && oneChar[`${ver}traits`][key] === value);
       });
 
       const makeUnique = filtermerge
@@ -1402,7 +1417,7 @@ const Characters = ({ProcessedCharacters,jptoggledata,Access}) => {
         setSearchResults(getcharacterfilter);
         setListDisplay(getcharacterfilter);
     }
-  }, [jptoggledata,BRV_Damage_Cap,Board5Flag,Special_Buff,Free_Ability,Stacked_Buff_Five,BuffPrevent, FollowUp_Action_On_Enemy,FollowUp_Start_Of_Next,FollowUp_Extension,FollowUp_Before_Ability,FollowUp_Before_Player_Turn,Trap_After_Trigger,Trap_Before_Turn, Stacked_Buff,EX_MAX_Party,BRV_Absorb,BRV_Ratio,Turn_Interrupter,Continuous_Turns,Launch_Support,FollowUp_By_Other,BRV_Wont_Below,Debuff_Gold,Debuff_Evade,Blind,Cannot_Break, FRBoardFlag, FRFlag, FollowUp, Ally_Turn_Manipulator, Self_Harm, Break_Reset, RealmSort, JPSort, HPSort, INTBRVSort, MAXBRVSort, ATKSort, DEFSort, SPDSort, Buff_Extension,rawData,searchTerm,HP_Damage_Up, Non_Elemental, Stacked_Debuff, KO_Prevent, Reviver, SevenStarArmor, Debuff_Break, Ignore_DEF,Evade, CritRateUp, clearFilter, TwoAbilitiesRecover, merge, BRVRegen, BRVDamageResist, Dagger, Sword, Greatsword, Staff, Gun, Fist, Throwing, Spear, Bow, Whip, Other, RedCrystal, BlueCrystal, YellowCrystal, GreenCrystal, BlackCrystal, WhiteCrystal, SevenStarPlusArmor, BTPlusFlag, LDBoardFlag, BTFlag, LDFlag, MaxLevel, ActiveRework, Magic, Ranged, Melee, ASlot, BSlot, CSlot, DSlot, ESlot, Fire, Ice, Thunder, Water, Earth, Wind, Dark, Holy, Tank, Debuffer, BRVResistDown, MagicImperil, RangedImperil, MeleeImperil, WindImperil, FireImperil, ThunderImperil, HolyImperil, IceImperil, WaterImperil, EarthImperil, DarkImperil, ThreeDelay, FourDebuff, FiftyHPHealAbility, SixBuffs, Battery, BRVControl, BRVPoison, BRVShield, Cleanse, Counter, DarkEnchant, Delay, Disable, Dispel, EarthEnchant, FireEnchant, ForceBreak, HolyEnchant, HPDamageResist, HPHealAbility, HPPoison, HPRegen, IceEnchant, Launcher, ThunderEnchant, Trap, WaterEnchant, WindEnchant, DeleteTurns, HPResistDown, condFilter, reverse]);
+  }, [jptoggledata,ver,BRV_Damage_Cap,Board5Flag,Special_Buff,Free_Ability,Stacked_Buff_Five,BuffPrevent, FollowUp_Action_On_Enemy,FollowUp_Start_Of_Next,FollowUp_Extension,FollowUp_Before_Ability,FollowUp_Before_Player_Turn,Trap_After_Trigger,Trap_Before_Turn, Stacked_Buff,EX_MAX_Party,BRV_Absorb,BRV_Ratio,Turn_Interrupter,Continuous_Turns,Launch_Support,FollowUp_By_Other,BRV_Wont_Below,Debuff_Gold,Debuff_Evade,Blind,Cannot_Break, FRBoardFlag, FRFlag, FollowUp, Ally_Turn_Manipulator, Self_Harm, Break_Reset, RealmSort, JPSort, HPSort, INTBRVSort, MAXBRVSort, ATKSort, DEFSort, SPDSort, Buff_Extension,rawData,searchTerm,HP_Damage_Up, Non_Elemental, Stacked_Debuff, KO_Prevent, Reviver, SevenStarArmor, Debuff_Break, Ignore_DEF,Evade, CritRateUp, clearFilter, TwoAbilitiesRecover, merge, BRVRegen, BRVDamageResist, Dagger, Sword, Greatsword, Staff, Gun, Fist, Throwing, Spear, Bow, Whip, Other, RedCrystal, BlueCrystal, YellowCrystal, GreenCrystal, BlackCrystal, WhiteCrystal, SevenStarPlusArmor, BTPlusFlag, LDBoardFlag, BTFlag, LDFlag, MaxLevel, Magic, Ranged, Melee, ASlot, BSlot, CSlot, DSlot, ESlot, Fire, Ice, Thunder, Water, Earth, Wind, Dark, Holy, Tank, Debuffer, BRVResistDown, MagicImperil, RangedImperil, MeleeImperil, WindImperil, FireImperil, ThunderImperil, HolyImperil, IceImperil, WaterImperil, EarthImperil, DarkImperil, ThreeDelay, FourDebuff, FiftyHPHealAbility, SixBuffs, Battery, BRVControl, BRVPoison, BRVShield, Cleanse, Counter, DarkEnchant, Delay, Disable, Dispel, EarthEnchant, FireEnchant, ForceBreak, HolyEnchant, HPDamageResist, HPHealAbility, HPPoison, HPRegen, IceEnchant, Launcher, ThunderEnchant, Trap, WaterEnchant, WindEnchant, DeleteTurns, HPResistDown, condFilter, reverse]);
 
  
 
@@ -2390,6 +2405,14 @@ const Characters = ({ProcessedCharacters,jptoggledata,Access}) => {
       }
     setMaxLevel((prevValue) => !prevValue);
   };
+  const spoilersbutton = () => {
+    if(spoilers == false){
+      setspoilerssearch("true")
+      }else{
+        setspoilerssearch("")
+      }
+    setspoilers((prevValue) => !prevValue);
+  };
   const ActiveReworkbutton = () => {
     if(ActiveRework == false){
       setActiveReworksearch("true")
@@ -2825,6 +2848,7 @@ const Characters = ({ProcessedCharacters,jptoggledata,Access}) => {
     setStacked_Buff_Five(false)
     setBoard5Flag(false)
     setBRV_Damage_Cap(false)
+    setspoilers(false)
 
     setMagicsearch("")
     setRangedsearch("")
@@ -2971,12 +2995,23 @@ const Characters = ({ProcessedCharacters,jptoggledata,Access}) => {
     setReversesearch("")
     setTEXTsearch("")
     setTypesearch("")
+    setspoilerssearch("")
 
     setsearchdisplay("");
     setSearchTerm("");
     setCondFilter("")
     setTimeout(() => setclearFilter(false), 1000);
   }
+
+  const jponlybutton = () => {
+    if (jptoggledata == false) {
+      dispatch(setTrue())
+      setJPSearch("true")
+    } else {
+      dispatch(setFalse())
+      setJPSearch("")
+    }
+  };
 
   return (
     <div className="wrapper">
@@ -2996,13 +3031,18 @@ const Characters = ({ProcessedCharacters,jptoggledata,Access}) => {
         <meta property="og:url" content="https://dissidiacompendium.com/chracters"/>
       </Helmet>
         <div className="content">
-          <h1>Characters</h1>
+          <h1>{`${jptoggledata ? "JP" : "GL"} Characters`}</h1>
           <div className="charfilterspacer"/>
           <div key="filter1" onClick={showfilterbutton} className="charfilter"><span className="filterstext"></span>{showFilter ? <TiArrowSortedUp className="uparrow"/> : <TiArrowSortedDown className="downarrow"/>}</div>
           {showFilter == false ? 
-          <div className="char-search-reverse-holder">
+          <div className="event-search-reverse-holder">
+            <span className={`${jptoggledata ? "jponlybackground" : "GLonlybackground"}`}>
+              <Tippy content={`${jptoggledata ? "Switch to GL" : "Switch to JP"}`} className="tooltip" >
+              <span onClick={jponlybutton} className={`${jptoggledata ? "jpflage jpsmallinactive smalleventbutton" : "glflage smalleventbutton"}`}/>
+              </Tippy>
+            </span>
             <IoSearch className="searchicon"/>
-          <div className="search-holder">
+          <div className="search-holder el">
             <input 
                 className="char-search-bar" 
                 type="text"
@@ -3011,8 +3051,20 @@ const Characters = ({ProcessedCharacters,jptoggledata,Access}) => {
                 onChange={handleChange}
                 onKeyDown={handleKeyDown}
             />
+            <span className="Spoilerbackground">
+              <Tippy content={`Spoilers ${spoilers==false?"on":"off"}!`} className="tooltip" >
+                <span>
+              <ImWarning 
+              onClick={spoilersbutton}
+              className={`spoiler_toggle jpsmallinactive ${spoilers ? "spoiler_off" : ""}`}
+              color='#ed2226'
+              size='30px'
+              ></ImWarning>
+              </span>
+              </Tippy>
+            </span>
             {searchTerm === "" ? "" : 
-            <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
+            <IoMdCloseCircleOutline onClick={clearSearch} className="eventclearsearch"></IoMdCloseCircleOutline>}
             </div>
             </div>
           :""
@@ -3140,262 +3192,262 @@ const Characters = ({ProcessedCharacters,jptoggledata,Access}) => {
                     <div className="similarbanner">Attacking</div>
                     <ul className="bufftypes">
                       <Tippy content={roles[`Magic_Imperil`].name}>
-                        <li className={`${MagicImperil ? "filteractive": "filterinactive"} spheresbutton`} onClick={MagicImperilbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Magic_Imperil`].url})`}}></li>
+                        <li className={`${MagicImperil ? "filteractive": "filterinactive"} spheresbutton`} onClick={MagicImperilbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Magic_Imperil`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Melee_Imperil`].name}>
-                        <li className={`${MeleeImperil ? "filteractive": "filterinactive"} spheresbutton`} onClick={MeleeImperilbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Melee_Imperil`].url})`}}></li>
+                        <li className={`${MeleeImperil ? "filteractive": "filterinactive"} spheresbutton`} onClick={MeleeImperilbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Melee_Imperil`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Ranged_Imperil`].name}>
-                        <li className={`${RangedImperil ? "filteractive": "filterinactive"} spheresbutton`} onClick={RangedImperilbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Ranged_Imperil`].url})`}}></li>
+                        <li className={`${RangedImperil ? "filteractive": "filterinactive"} spheresbutton`} onClick={RangedImperilbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Ranged_Imperil`].url}.png)`}}></li>
                       </Tippy>
                     </ul>
                     <br/>
                     <ul className="bufftypes">
                       <Tippy content={roles[`Fire_Enchant`].name}>
-                        <li className={`${FireEnchant ? "filteractive": "filterinactive"} spheresbutton`} onClick={FireEnchantbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Fire_Enchant`].url})`}}></li>
+                        <li className={`${FireEnchant ? "filteractive": "filterinactive"} spheresbutton`} onClick={FireEnchantbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Fire_Enchant`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Ice_Enchant`].name}>
-                        <li className={`${IceEnchant ? "filteractive": "filterinactive"} spheresbutton`} onClick={IceEnchantbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Ice_Enchant`].url})`}}></li>
+                        <li className={`${IceEnchant ? "filteractive": "filterinactive"} spheresbutton`} onClick={IceEnchantbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Ice_Enchant`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Thunder_Enchant`].name}>
-                        <li className={`${ThunderEnchant ? "filteractive": "filterinactive"} spheresbutton`} onClick={ThunderEnchantbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Thunder_Enchant`].url})`}}></li>
+                        <li className={`${ThunderEnchant ? "filteractive": "filterinactive"} spheresbutton`} onClick={ThunderEnchantbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Thunder_Enchant`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Water_Enchant`].name}>
-                        <li className={`${WaterEnchant ? "filteractive": "filterinactive"} spheresbutton`} onClick={WaterEnchantbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Water_Enchant`].url})`}}></li>
+                        <li className={`${WaterEnchant ? "filteractive": "filterinactive"} spheresbutton`} onClick={WaterEnchantbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Water_Enchant`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Earth_Enchant`].name}>
-                        <li className={`${EarthEnchant ? "filteractive": "filterinactive"} spheresbutton`} onClick={EarthEnchantbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Earth_Enchant`].url})`}}></li>
+                        <li className={`${EarthEnchant ? "filteractive": "filterinactive"} spheresbutton`} onClick={EarthEnchantbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Earth_Enchant`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Wind_Enchant`].name}>
-                        <li className={`${WindEnchant ? "filteractive": "filterinactive"} spheresbutton`} onClick={WindEnchantbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Wind_Enchant`].url})`}}></li>
+                        <li className={`${WindEnchant ? "filteractive": "filterinactive"} spheresbutton`} onClick={WindEnchantbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Wind_Enchant`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Dark_Enchant`].name}>
-                        <li className={`${DarkEnchant ? "filteractive": "filterinactive"} spheresbutton`} onClick={DarkEnchantbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Dark_Enchant`].url})`}}></li>
+                        <li className={`${DarkEnchant ? "filteractive": "filterinactive"} spheresbutton`} onClick={DarkEnchantbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Dark_Enchant`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Holy_Enchant`].name}>
-                        <li className={`${HolyEnchant ? "filteractive": "filterinactive"} spheresbutton`} onClick={HolyEnchantbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Holy_Enchant`].url})`}}></li>
+                        <li className={`${HolyEnchant ? "filteractive": "filterinactive"} spheresbutton`} onClick={HolyEnchantbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Holy_Enchant`].url}.png)`}}></li>
                       </Tippy>
                     </ul>
                     <br/>
                     <ul className="bufftypes">
                       <Tippy content={roles[`Fire_Imperil`].name}>
-                        <li className={`${FireImperil ? "filteractive": "filterinactive"} spheresbutton`} onClick={FireImperilbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Fire_Imperil`].url})`}}></li>
+                        <li className={`${FireImperil ? "filteractive": "filterinactive"} spheresbutton`} onClick={FireImperilbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Fire_Imperil`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Ice_Imperil`].name}>
-                        <li className={`${IceImperil ? "filteractive": "filterinactive"} spheresbutton`} onClick={IceImperilbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Ice_Imperil`].url})`}}></li>
+                        <li className={`${IceImperil ? "filteractive": "filterinactive"} spheresbutton`} onClick={IceImperilbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Ice_Imperil`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Thunder_Imperil`].name}>
-                        <li className={`${ThunderImperil ? "filteractive": "filterinactive"} spheresbutton`} onClick={ThunderImperilbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Thunder_Imperil`].url})`}}></li>
+                        <li className={`${ThunderImperil ? "filteractive": "filterinactive"} spheresbutton`} onClick={ThunderImperilbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Thunder_Imperil`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Water_Imperil`].name}>
-                        <li className={`${WaterImperil ? "filteractive": "filterinactive"} spheresbutton`} onClick={WaterImperilbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Water_Imperil`].url})`}}></li>
+                        <li className={`${WaterImperil ? "filteractive": "filterinactive"} spheresbutton`} onClick={WaterImperilbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Water_Imperil`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Earth_Imperil`].name}>
-                        <li className={`${EarthImperil ? "filteractive": "filterinactive"} spheresbutton`} onClick={EarthImperilbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Earth_Imperil`].url})`}}></li>
+                        <li className={`${EarthImperil ? "filteractive": "filterinactive"} spheresbutton`} onClick={EarthImperilbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Earth_Imperil`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Wind_Imperil`].name}>
-                        <li className={`${WindImperil ? "filteractive": "filterinactive"} spheresbutton`} onClick={WindImperilbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Wind_Imperil`].url})`}}></li>
+                        <li className={`${WindImperil ? "filteractive": "filterinactive"} spheresbutton`} onClick={WindImperilbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Wind_Imperil`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Dark_Imperil`].name}>
-                        <li className={`${DarkImperil ? "filteractive": "filterinactive"} spheresbutton`} onClick={DarkImperilbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Dark_Imperil`].url})`}}></li>
+                        <li className={`${DarkImperil ? "filteractive": "filterinactive"} spheresbutton`} onClick={DarkImperilbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Dark_Imperil`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Holy_Imperil`].name}>
-                        <li className={`${HolyImperil ? "filteractive": "filterinactive"} spheresbutton`} onClick={HolyImperilbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Holy_Imperil`].url})`}}></li>
+                        <li className={`${HolyImperil ? "filteractive": "filterinactive"} spheresbutton`} onClick={HolyImperilbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Holy_Imperil`].url}.png)`}}></li>
                       </Tippy>
                     </ul>
                     <br/>
                     <ul className="characterclasses">
                       <Tippy content={roles[`Launcher`].name}>
-                        <li className={`${Launcher ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Launcherbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Launcher`].url})`}}></li>
+                        <li className={`${Launcher ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Launcherbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Launcher`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Launch_Support`].name}>
-                        <li className={`${Launch_Support ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Launch_Supportbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Launch_Support`].url})`}}></li>
+                        <li className={`${Launch_Support ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Launch_Supportbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Launch_Support`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Force_Break`].name}>
-                        <li className={`${ForceBreak ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={ForceBreakbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Force_Break`].url})`}}></li>
+                        <li className={`${ForceBreak ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={ForceBreakbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Force_Break`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Crit_Rate_Up`].name}>
-                        <li className={`${CritRateUp ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={CritRateUpbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Crit_Rate_Up`].url})`}}></li>
+                        <li className={`${CritRateUp ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={CritRateUpbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Crit_Rate_Up`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Ignore_DEF`].name}>
-                        <li className={`${Ignore_DEF ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Ignore_DEFbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Ignore_DEF`].url})`}}></li>
+                        <li className={`${Ignore_DEF ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Ignore_DEFbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Ignore_DEF`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Continuous_Turns`].name}>
-                        <li className={`${Continuous_Turns ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Continuous_Turnsbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Continuous_Turns`].url})`}}></li>
+                        <li className={`${Continuous_Turns ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Continuous_Turnsbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Continuous_Turns`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Turn_Interrupter`].name}>
-                        <li className={`${Turn_Interrupter ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Turn_Interrupterbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Turn_Interrupter`].url})`}}></li>
+                        <li className={`${Turn_Interrupter ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Turn_Interrupterbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Turn_Interrupter`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Ally_Turn_Manipulator`].name}>
-                        <li className={`${Ally_Turn_Manipulator ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Ally_Turn_Manipulatorbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Ally_Turn_Manipulator`].url})`}}></li>
+                        <li className={`${Ally_Turn_Manipulator ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Ally_Turn_Manipulatorbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Ally_Turn_Manipulator`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`BRV_Ratio`].name}>
-                        <li className={`${BRV_Ratio ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BRV_Ratiobutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRV_Ratio`].url})`}}></li>
+                        <li className={`${BRV_Ratio ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BRV_Ratiobutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRV_Ratio`].url}.png)`}}></li>
                       </Tippy>
-                      <Tippy content={roles[`HP_Damage_Up`].name}>
-                        <li className={`${HP_Damage_Up ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={HP_Damage_Upbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`HP_Damage_Up`].url})`}}></li>
+                      <Tippy content={roles[`HP_Damage_Up_Party`].name}>
+                        <li className={`${HP_Damage_Up ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={HP_Damage_Upbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`HP_Damage_Up_Party`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`BRV_Damage_Cap`].name}>
-                        <li className={`${BRV_Damage_Cap ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BRV_Damage_Capbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRV_Damage_Cap`].url})`}}></li>
+                        <li className={`${BRV_Damage_Cap ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BRV_Damage_Capbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRV_Damage_Cap`].url}.png)`}}></li>
                       </Tippy>      
                       <Tippy content={roles[`EX_MAX_Party`].name}>
-                        <li className={`${EX_MAX_Party ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={EX_MAX_Partybutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`EX_MAX_Party`].url})`}}></li>
+                        <li className={`${EX_MAX_Party ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={EX_MAX_Partybutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`EX_MAX_Party`].url}.png)`}}></li>
                       </Tippy>  
                       <Tippy content={roles[`Debuffer`].name}>
-                        <li className={`${Debuffer ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Debufferbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Debuffer`].url})`}}></li>
+                        <li className={`${Debuffer ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Debufferbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Debuffer`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`BRV_Resist_Down`].name}>
-                        <li className={`${BRVResistDown ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BRVResistDownbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRV_Resist_Down`].url})`}}></li>
+                        <li className={`${BRVResistDown ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BRVResistDownbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRV_Resist_Down`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`HP_Resist_Down`].name}>
-                        <li className={`${HPResistDown ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={HPResistDownbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`HP_Resist_Down`].url})`}}></li>
+                        <li className={`${HPResistDown ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={HPResistDownbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`HP_Resist_Down`].url}.png)`}}></li>
                       </Tippy>
                     </ul>
                     <div className="similarbanner">Healing</div>
                     <ul className="characterclasses">
                       <Tippy content={roles[`Cleanse`].name}>
-                        <li className={`${Cleanse ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Cleansebutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Cleanse`].url})`}}></li>
+                        <li className={`${Cleanse ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Cleansebutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Cleanse`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Battery`].name}>
-                        <li className={`${Battery ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Batterybutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Battery`].url})`}}></li>
+                        <li className={`${Battery ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Batterybutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Battery`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Reviver`].name}>
-                        <li className={`${Reviver ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Reviverbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Reviver`].url})`}}></li>
+                        <li className={`${Reviver ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Reviverbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Reviver`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`KO_Prevent`].name}>
-                        <li className={`${KO_Prevent ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={KO_Preventbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`KO_Prevent`].url})`}}></li>
+                        <li className={`${KO_Prevent ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={KO_Preventbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`KO_Prevent`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`BRV_Regen`].name}>
-                        <li className={`${BRVRegen ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BRVRegenbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRV_Regen`].url})`}}></li>
+                        <li className={`${BRVRegen ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BRVRegenbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRV_Regen`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`HP_Regen`].name}>
-                        <li className={`${HPRegen ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={HPRegenbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`HP_Regen`].url})`}}></li>
+                        <li className={`${HPRegen ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={HPRegenbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`HP_Regen`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`HP_Heal_Ability`].name}>
-                        <li className={`${HPHealAbility ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={HPHealAbilitybutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`HP_Heal_Ability`].url})`}}></li>
+                        <li className={`${HPHealAbility ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={HPHealAbilitybutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`HP_Heal_Ability`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Two_Abilities_Recover`].name}>
-                        <li className={`${TwoAbilitiesRecover ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={TwoAbilitiesRecoverbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Two_Abilities_Recover`].url})`}}></li>
+                        <li className={`${TwoAbilitiesRecover ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={TwoAbilitiesRecoverbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Two_Abilities_Recover`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Buff_Extension`].name}>
-                        <li className={`${Buff_Extension ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Buff_Extensionbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Buff_Extension`].url})`}}></li>
+                        <li className={`${Buff_Extension ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Buff_Extensionbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Buff_Extension`].url}.png)`}}></li>
                       </Tippy>
                     </ul>
                     <div className="similarbanner">Additional Attacks</div>
                     <ul className="characterclasses">
                       <Tippy content={roles[`Trap`].name}>
-                        <li className={`${Trap ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Trapbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Trap`].url})`}}></li>
+                        <li className={`${Trap ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Trapbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Trap`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Trap_After_Trigger`].name}>
-                        <li className={`${Trap_After_Trigger ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Trap_After_Triggerbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Trap_After_Trigger`].url})`}}></li>
+                        <li className={`${Trap_After_Trigger ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Trap_After_Triggerbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Trap_After_Trigger`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Trap_Before_Turn`].name}>
-                        <li className={`${Trap_Before_Turn ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Trap_Before_Turnbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Trap_Before_Turn`].url})`}}></li>
+                        <li className={`${Trap_Before_Turn ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Trap_Before_Turnbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Trap_Before_Turn`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Counter`].name}>
-                        <li className={`${Counter ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Counterbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Counter`].url})`}}></li>
+                        <li className={`${Counter ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Counterbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Counter`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`FollowUp`].name}>
-                        <li className={`${FollowUp ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={FollowUpbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`FollowUp`].url})`}}></li>
+                        <li className={`${FollowUp ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={FollowUpbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`FollowUp`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`FollowUp_Before_Player_Turn`].name}>
-                        <li className={`${FollowUp_Before_Player_Turn ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={FollowUp_Before_Player_Turnbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`FollowUp_Before_Player_Turn`].url})`}}></li>
+                        <li className={`${FollowUp_Before_Player_Turn ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={FollowUp_Before_Player_Turnbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`FollowUp_Before_Player_Turn`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`FollowUp_Before_Ability`].name}>
-                        <li className={`${FollowUp_Before_Ability ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={FollowUp_Before_Abilitybutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`FollowUp_Before_Ability`].url})`}}></li>
+                        <li className={`${FollowUp_Before_Ability ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={FollowUp_Before_Abilitybutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`FollowUp_Before_Ability`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`FollowUp_Extension`].name}>
-                        <li className={`${FollowUp_Extension ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={FollowUp_Extensionbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`FollowUp_Extension`].url})`}}></li>
+                        <li className={`${FollowUp_Extension ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={FollowUp_Extensionbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`FollowUp_Extension`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`FollowUp_Start_Of_Next`].name}>
-                        <li className={`${FollowUp_Start_Of_Next ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={FollowUp_Start_Of_Nextbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`FollowUp_Start_Of_Next`].url})`}}></li>
+                        <li className={`${FollowUp_Start_Of_Next ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={FollowUp_Start_Of_Nextbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`FollowUp_Start_Of_Next`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`FollowUp_Action_On_Enemy`].name}>
-                        <li className={`${FollowUp_Action_On_Enemy ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={FollowUp_Action_On_Enemybutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`FollowUp_Action_On_Enemy`].url})`}}></li>
+                        <li className={`${FollowUp_Action_On_Enemy ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={FollowUp_Action_On_Enemybutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`FollowUp_Action_On_Enemy`].url}.png)`}}></li>
                       </Tippy>
                     </ul>
                     <div className="similarbanner">Defending</div>
                     <ul className="characterclasses">
                       <Tippy content={roles[`Cover`].name}>
-                        <li className={`${Tank ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Tankbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Cover`].url})`}}></li>
+                        <li className={`${Tank ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Tankbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Cover`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Evade`].name}>
-                        <li className={`${Evade ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Evadebutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Evade`].url})`}}></li>
+                        <li className={`${Evade ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Evadebutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Evade`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`BRV_Shield`].name}>
-                        <li className={`${BRVShield ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BRVShieldbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRV_Shield`].url})`}}></li>
+                        <li className={`${BRVShield ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BRVShieldbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRV_Shield`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Cannot_Break`].name}>
-                        <li className={`${Cannot_Break ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Cannot_Breakbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Cannot_Break`].url})`}}></li>
+                        <li className={`${Cannot_Break ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Cannot_Breakbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Cannot_Break`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`BRV_Damage_Resist`].name}>
-                        <li className={`${BRVDamageResist ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BRVDamageResistbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRV_Damage_Resist`].url})`}}></li>
+                        <li className={`${BRVDamageResist ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BRVDamageResistbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRV_Damage_Resist`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`HP_Damage_Resist`].name}>
-                        <li className={`${HPDamageResist ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={HPDamageResistbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`HP_Damage_Resist`].url})`}}></li>
+                        <li className={`${HPDamageResist ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={HPDamageResistbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`HP_Damage_Resist`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Debuff_Evade`].name}>
-                        <li className={`${Debuff_Evade ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Debuff_Evadebutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Debuff_Evade`].url})`}}></li>
+                        <li className={`${Debuff_Evade ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Debuff_Evadebutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Debuff_Evade`].url}.png)`}}></li>
                       </Tippy>
                     </ul>
                     <div className="similarbanner">Interference</div>
                     <ul className="characterclasses">
                       <Tippy content={roles[`Delay`].name}>
-                        <li className={`${Delay ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Delaybutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Delay`].url})`}}></li>
+                        <li className={`${Delay ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Delaybutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Delay`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Three_Delay`].name}>
-                        <li className={`${ThreeDelay ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={ThreeDelaybutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Three_Delay`].url})`}}></li>
+                        <li className={`${ThreeDelay ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={ThreeDelaybutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Three_Delay`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Delete_Turns`].name}>
-                        <li className={`${DeleteTurns ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={DeleteTurnsbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Delete_Turns`].url})`}}></li>
+                        <li className={`${DeleteTurns ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={DeleteTurnsbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Delete_Turns`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Dispel`].name}>
-                        <li className={`${Dispel ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Dispelbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Dispel`].url})`}}></li>
+                        <li className={`${Dispel ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Dispelbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Dispel`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`BuffPrevent`].name}>
-                        <li className={`${BuffPrevent ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BuffPreventbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BuffPrevent`].url})`}}></li>
+                        <li className={`${BuffPrevent ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BuffPreventbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BuffPrevent`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Break_Reset`].name}>
-                        <li className={`${Break_Reset ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Break_Resetbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Break_Reset`].url})`}}></li>
+                        <li className={`${Break_Reset ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Break_Resetbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Break_Reset`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`BRV_Poison`].name}>
-                        <li className={`${BRVPoison ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BRVPoisonbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRV_Poison`].url})`}}></li>
+                        <li className={`${BRVPoison ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BRVPoisonbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRV_Poison`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`HP_Poison`].name}>
-                        <li className={`${HPPoison ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={HPPoisonbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`HP_Poison`].url})`}}></li>
+                        <li className={`${HPPoison ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={HPPoisonbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`HP_Poison`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`BRV_Control`].name}>
-                        <li className={`${BRVControl ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BRVControlbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRV_Control`].url})`}}></li>
+                        <li className={`${BRVControl ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BRVControlbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRV_Control`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Disable`].name}>
-                        <li className={`${Disable ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Disablebutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Disable`].url})`}}></li>
+                        <li className={`${Disable ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Disablebutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Disable`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Blind`].name}>
-                        <li className={`${Blind ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Blindbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Blind`].url})`}}></li>
+                        <li className={`${Blind ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Blindbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Blind`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Debuff_Gold`].name}>
-                        <li className={`${Debuff_Gold ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Debuff_Goldbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Debuff_Gold`].url})`}}></li>
+                        <li className={`${Debuff_Gold ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Debuff_Goldbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Debuff_Gold`].url}.png)`}}></li>
                       </Tippy>  
                     </ul>
                     <div className="similarbanner">Other</div>
                     <ul className="characterclasses">
                     <Tippy content={roles[`Special_Buff`].name}>
-                        <li className={`${Special_Buff ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Special_Buffbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Special_Buff`].url})`}}></li>
+                        <li className={`${Special_Buff ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Special_Buffbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Special_Buff`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Stacked_Debuff`].name}>
-                        <li className={`${Stacked_Debuff ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Stacked_Debuffbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Stacked_Debuff`].url})`}}></li>
+                        <li className={`${Stacked_Debuff ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Stacked_Debuffbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Stacked_Debuff`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Stacked_Buff`].name}>
-                        <li className={`${Stacked_Buff ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Stacked_Buffbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Stacked_Buff`].url})`}}></li>
+                        <li className={`${Stacked_Buff ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Stacked_Buffbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Stacked_Buff`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Stacked_Buff_Five`].name}>
-                        <li className={`${Stacked_Buff_Five ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Stacked_Buff_Fivebutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Stacked_Buff_Five`].url})`}}></li>
+                        <li className={`${Stacked_Buff_Five ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Stacked_Buff_Fivebutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Stacked_Buff_Five`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Free_Ability`].name}>
-                        <li className={`${Free_Ability ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Free_Abilitybutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Free_Ability`].url})`}}></li>
+                        <li className={`${Free_Ability ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Free_Abilitybutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Free_Ability`].url}.png)`}}></li>
                       </Tippy>
                       <Tippy content={roles[`Self_Harm`].name}>
-                        <li className={`${Self_Harm ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Self_Harmbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Self_Harm`].url})`}}></li>
+                        <li className={`${Self_Harm ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Self_Harmbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Self_Harm`].url}.png)`}}></li>
                       </Tippy>
                     </ul>
                     <div className="similarbanner">Gear Level</div>
@@ -3453,6 +3505,13 @@ const Characters = ({ProcessedCharacters,jptoggledata,Access}) => {
                       <label className="MergeText">Merge Filters?</label>
                       <div key="mergecheck1" className={`${merge == true ? "nodisplay" :  `uncheck`}`} onClick={togglemerge}/>
                       <div key="mergecheck2" className={`${merge == true ? "check" :  `nodisplay`}`} onClick={togglemerge}/>
+                    </div>
+                    </div>
+                    <div className="margeholder">
+                    <div className="Merge">
+                      <label className="MergeText">Spoilers?</label>
+                      <div key="mergecheck1" className={`${spoilers == true ? "nodisplay" :  `uncheck`}`} onClick={spoilersbutton}/>
+                      <div key="mergecheck2" className={`${spoilers == true ? "check" :  `nodisplay`}`} onClick={spoilersbutton}/>
                     </div>
                     </div>
                     <div className="typeholder">
@@ -3526,7 +3585,7 @@ const Characters = ({ProcessedCharacters,jptoggledata,Access}) => {
                     </Link> 
                   </span> }
                 <ul className="characterholder">
-                  {chars.length == ProcessedCharacters.length ?
+                  {chars.length == rawData.length ?
                   <div className="subtext">
                   {bannerdisplay}
                   </div> :
@@ -3538,7 +3597,10 @@ const Characters = ({ProcessedCharacters,jptoggledata,Access}) => {
                   match={chars} 
                   reverse={reverse} 
                   Sortsearch={Sortsearch} 
-                  ProcessedCharacters={ProcessedCharacters}/>
+                  ProcessedCharacters={rawData}
+                  jptoggledata={jptoggledata}
+                  spoilers={spoilers}
+                  />
                 </ul>
         </div>
       </div>

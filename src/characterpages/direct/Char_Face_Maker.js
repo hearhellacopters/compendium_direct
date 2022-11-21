@@ -12,9 +12,9 @@ const CharFaceMaker = ({
     var ShortName = ""
     var name = `Unknown #${id}`
     if(char_id[id] != undefined ){
-        ShortName = char_id[id].name && char_id[id].name.replace(/ /g,"").replace(/,/g,"").replace(/'/g,"").replace(/&/g,"").toLowerCase()
-        FaceURL = `https://dissidiacompendium.com/images/static/characters/${char_id[id].name && char_id[id].name.replace(/ /g,"").replace(/,/g,"").replace(/'/g,"").replace(/&/g,"")}/face.png`
-        name = char_id[id].name
+        ShortName = char_id[id].ShortName && char_id[id].ShortName
+        FaceURL = `https://dissidiacompendium.com/images/static/characters/${char_id[id].CharacterURLName && char_id[id].CharacterURLName}/face.png`
+        name = char_id[id].CharacterName
     }
 
     return(

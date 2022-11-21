@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
 
-const EnemyListingDirect = ({ match,ProcessedCharacters, PartnerCharacters }) => {
+const EnemyListingDirect = ({ match,ProcessedCharacters, PartnerCharacters, jptoggledata }) => {
 
     const cleaner = (text)=>{
         return text.toString().replace(/^(\d*)(.*)/,"$1")

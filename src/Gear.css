@@ -362,7 +362,10 @@
     position: absolute;
     text-align: center;
 }
-
+.spoiler_text{
+    text-align: center;
+    display: inline;
+}
 .inlinegearsaholderg{
     display: table;
     background-image: url(https://dissidiacompendium.com/images/static/icons/misc/saholderg.png);
@@ -383,6 +386,14 @@
         transition: all ease 0.3s;
     }
     .clicky:hover{
+        transform: translateY(-1px);
+        color: #f7f91d;
+        filter: brightness(1.1);
+        -webkit-filter: brightness(1.1);
+        transition: all ease 0.3s;
+        cursor: pointer;
+    }
+    .spoiler_text:hover{
         transform: translateY(-1px);
         color: #f7f91d;
         filter: brightness(1.1);

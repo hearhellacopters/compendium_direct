@@ -7,11 +7,12 @@ import EnemyListingsDirect from '../formatting/EnemyListingDirect'
 import BannersFormatting from '../formatting/SingleBannersFormatting.js'
 import addformatting from '../processing/replacer_abilitycontent.js';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { ImWarning } from 'react-icons/im';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
 
-const UpdateFormatting = ({ match }) => {
+const UpdateFormatting = ({ match,jptoggledata }) => {
 
-    const [showGLToggle, setShowGLToggle] = useState(true);
+    const [showupdate, setshowupdate] = useState(false);
 
     const months = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
@@ -21,7 +22,11 @@ const UpdateFormatting = ({ match }) => {
       return n + (s[(v-20)%10] || s[v] || s[0]);
     }
 
-
+    const [spoilers,setspoilers] = useState(match && match.JPFlag == "GL"  ? true : false)
+    const toggle_spoilers=()=>{
+      setspoilers((prevValue)=>!prevValue)
+      setshowupdate(true)
+    }
 
     const showmorecheck = match.CharList && match.CharList.length + match.EventList && match.EventList.length + match.BannersList && match.BannersList.length + match.EnemyList && match.EnemyList.length + match.SummList &&  match.SummList.length;
      if( showmorecheck == 0 ) {
@@ -31,20 +36,33 @@ const UpdateFormatting = ({ match }) => {
      }
     return(
         <div className="updateunitholder">
+          <div className="featuredbannernotop">{match.Title}</div>
+          {(spoilers == false && jptoggledata == false)
+              ? 
+              <div className='titlemainupdateholder'>
+              <div id="red" className='spoiler_text' onClick={toggle_spoilers}>
+                <ImWarning className='jpsmallinactive'></ImWarning>
+                  {" SPOILER WARNING "}
+                  <ImWarning className='jpsmallinactive'></ImWarning><br/>
+                  <span className='updatelink'>- Click to show -</span>
+              </div>
+              </div>
+              :
+              <>
             <div className="updateunit">
                 <div className="updatedate">
                 {match.JPFlag == "GL" ? <span className="emoji">🌎</span> : <span className="jpflagupdate"></span>} {months[new Date(match.DateUpdate).getMonth()] + " " + ordinal(new Date(match.DateUpdate).getDate()) + " " + new Date(match.DateUpdate).getFullYear()}
                 </div>
                 <div className="titlemainupdateholder notop">
                   <div className="updatetitle">
-                  {match.Title}
+                  {match.Summary}
                   </div>
                   <div className="updatemain">
                     {addformatting(match.Main)} 
                   </div>
                 </div>
               </div>
-                {showGLToggle == false &&
+                {showupdate == true &&
                 match.CharList != undefined ? 
                 <div className="zone">
                   <div className="featuredbanner">Updated Characters</div>
@@ -59,7 +77,7 @@ const UpdateFormatting = ({ match }) => {
                     </div>
                     </div>
                 </div> : ""}
-                {showGLToggle == false &&
+                {showupdate == true &&
                 match.EventList !== undefined ? 
                 <div className="">
                 <div className="featuredbanner">Updated Events</div>
@@ -67,7 +85,7 @@ const UpdateFormatting = ({ match }) => {
                     <EventListing key={events.eventindex} match={events} permapage={false}/>
                 ))}
                 </div> :"" }
-                {showGLToggle == false &&
+                {showupdate == true &&
                 match.BannersList != undefined ? 
                 <div className="">
                     <div className="featuredbanner">Updated Banners</div>
@@ -75,7 +93,7 @@ const UpdateFormatting = ({ match }) => {
                         <BannersFormatting key={events.bannerindex} match={events} showbanner={false} permapage={false}/>
                         ))}
                 </div> : ""}
-                {showGLToggle == false &&
+                {showupdate == true &&
                 match.EnemyList != undefined ?
                 <div>
                     <div className="featuredbanner">Updated Enemies</div>
@@ -89,7 +107,7 @@ const UpdateFormatting = ({ match }) => {
                     </div>
                     </ul>
                 </div> : ""}
-                {showGLToggle == false &&
+                {showupdate == true &&
                 match.SummList != undefined ? 
                 <div>
                 <div className="featuredbanner">Updated Summons</div>
@@ -110,14 +128,16 @@ const UpdateFormatting = ({ match }) => {
                   </div>
                 </div> : ""
                 }
-                {showGLToggle == true ? 
+                {showupdate == false ? 
                     <div className="banneroneventholder"  >
-                    <div className="loadbanners" onClick={() => setShowGLToggle((prevValue) => !prevValue)} >Show Updates</div>
+                    <div className="loadbanners" onClick={() => setshowupdate((prevValue) => !prevValue)} >Show Updates</div>
                     </div> : 
                     <div className="banneroneventholder"  >
-                    <div className="loadbanners" onClick={() => setShowGLToggle((prevValue) => !prevValue)} >Hide Updates</div>
+                    <div className="loadbanners" onClick={() => setshowupdate((prevValue) => !prevValue)} >Hide Updates</div>
                     </div>}
+                </>}
         </div>
+
     )
 
 }

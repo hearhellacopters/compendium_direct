@@ -1,71 +1,264 @@
 {
-    "Force_Break": {
-        "name": "Force BREAK",
-        "url": "roles/Role_ForcedBreak"
+    "Magic_Damage": {
+        "name": "Magic Damage",
+        "url": "DMGType/DMGType_Magic_Icon",
+        "hidden": true
     },
-    "Break_Reset": {
-        "name": "BREAK Cancel",
-        "url": "roles/Role_BreakReset"
+    "Melee_Damage": {
+        "name": "Melee Damage",
+        "url": "DMGType/DMGType_Melee_Icon",
+        "hidden": true
     },
-    "Cannot_Break": {
-        "name": "Prevent BREAK / BRV Floor",
-        "url": "roles/Role_Cannot_Break"
+    "Ranged_Damage": {
+        "name": "Ranged Damage",
+        "url": "DMGType/DMGType_Ranged_Icon",
+        "hidden": true
     },
-    "BRVCap": {
-        "name": "BRV Damage Cap Up",
-        "url": "roles/Role_BRVCap"
+    "Magic": {
+        "name": "Magic Damage",
+        "url": "DMGType/DMGType_Magic_Icon",
+        "hidden": true
     },
-    "BRV_Control": {
-        "name": "BRV Gain Interference",
-        "url": "roles/Role_Icon_BRV-Control"
+    "Melee": {
+        "name": "Melee Damage",
+        "url": "DMGType/DMGType_Melee_Icon",
+        "hidden": true
+    },
+    "Ranged": {
+        "name": "Ranged Damage",
+        "url": "DMGType/DMGType_Ranged_Icon",
+        "hidden": true
+    },
+    "Fire": {
+        "name": "Ice BRV Damage",
+        "url": "elements/Ice",
+        "hidden": true
+    },
+    "Ice": {
+        "name": "Ice BRV Damage",
+        "url": "elements/Ice",
+        "hidden": true
+    },
+    "Thunder": {
+        "name": "Thunder BRV Damage",
+        "url": "elements/Thunder",
+        "hidden": true
+    },
+    "Water": {
+        "name": "Water BRV Damage",
+        "url": "elements/Water",
+        "hidden": true
+    },
+    "Earth": {
+        "name": "Earth BRV Damage",
+        "url": "elements/Earth",
+        "hidden": true
+    },
+    "Wind": {
+        "name": "Wind BRV Damage",
+        "url": "elements/Wind",
+        "hidden": true
+    },
+    "Dark": {
+        "name": "Dark BRV Damage",
+        "url": "elements/Dark",
+        "hidden": true
+    },
+    "Holy": {
+        "name": "Holy BRV Damage",
+        "url": "elements/Holy",
+        "hidden": true
+    },
+    "Fire_Damage": {
+        "name": "Ice BRV Damage",
+        "url": "elements/Ice",
+        "hidden": true
+    },
+    "Ice_Damage": {
+        "name": "Ice BRV Damage",
+        "url": "elements/Ice",
+        "hidden": true
+    },
+    "Thunder_Damage": {
+        "name": "Thunder BRV Damage",
+        "url": "elements/Thunder",
+        "hidden": true
+    },
+    "Water_Damage": {
+        "name": "Water BRV Damage",
+        "url": "elements/Water",
+        "hidden": true
+    },
+    "Earth_Damage": {
+        "name": "Earth BRV Damage",
+        "url": "elements/Earth",
+        "hidden": true
+    },
+    "Wind_Damage": {
+        "name": "Wind BRV Damage",
+        "url": "elements/Wind",
+        "hidden": true
+    },
+    "Dark_Damage": {
+        "name": "Dark BRV Damage",
+        "url": "elements/Dark",
+        "hidden": true
+    },
+    "Holy_Damage": {
+        "name": "Holy BRV Damage",
+        "url": "elements/Holy",
+        "hidden": true
+    },
+    "Force_Enemy":{
+        "name": "Enemy Force Time Helper",
+        "url": "roles/Role_Force",
+        "hidden": true
+    },
+    "Enemy":{
+        "name": "Enemy Specific",
+        "url": "buff/buff_mombomb_unframed",
+        "hidden": true
+      },
+    "No_BRV_Attack":{
+        "name": "No BRV Damage",
+        "url": "roles/Role_No_Attack",
+        "hidden": true
+    },
+    "Stacked_Debuff_Three":{
+        "name": "Level Debuff over 3",
+        "url": "debuff/debuff_down3_unframed",
+        "hidden": true
+    },
+    "Debuff_Two":{
+        "name": "2 Debuffs with ability",
+        "url": "roles/Role_Debuff_Two",
+        "hidden": true
+    },
+    "Debuff_Three":{
+        "name": "3 Debuffs with ability",
+        "url": "roles/Role_Debuff_Three",
+        "hidden": true
+    },
+    "HP_Heal_Ability_Party": {
+        "name": "Party HP Heal Ability",
+        "url": "roles/Role_HP_Heal_Ability",
+        "hidden": true
+    },
+    "Party_Buffer":{
+        "name": "Party Buffer",
+        "url": "buff/buff_support0_unframed",
+        "hidden": true
+    },
+    "ST_Target":{
+        "name": "Single Target Damage",
+        "url": "roles/Role_ST_Target",
+        "hidden": true
+    },
+    "Group":{
+        "name": "Group Target Damage",
+        "url": "roles/Role_Group",
+        "hidden": true
+    },
+    "Increase":{
+        "name": "Ability Recover",
+        "url": "roles/Role_Increase",
+        "hidden": true
+    },
+    "Turn_Manipulator": {
+        "name": "Turn Manipulation",
+        "url": "roles/Role_Turn_Manipulator"
+    },
+
+
+    "Magic_Imperil": {
+        "name": "Magic Imperil",
+        "url": "roles/Role_MagicImperil"
+    },
+    "Melee_Imperil": {
+        "name": "Melee Imperil",
+        "url": "roles/Role_MeleeImperil"
+    },
+    "Ranged_Imperil": {
+        "name": "Ranged Imperil",
+        "url": "roles/Role_RangedImperil"
+    },
+    "Fire_Enchant": {
+        "name": "Fire Enchant",
+        "url": "elements/Up/Fire"
+    },
+    "Fire_Imperil": {
+        "name": "Fire Imperil",
+        "url": "elements/Down/Fire"
+    },
+    "Ice_Enchant": {
+        "name": "Ice Enchant",
+        "url": "elements/Up/Ice"
+    },
+    "Ice_Imperil": {
+        "name": "Ice Imperil",
+        "url": "elements/Down/Ice"
+    },
+    "Thunder_Enchant": {
+        "name": "Thunder Enchant",
+        "url": "elements/Up/Thunder"
+    },
+    "Thunder_Imperil": {
+        "name": "Thunder Imperil",
+        "url": "elements/Down/Thunder"
+    },
+    "Water_Enchant": {
+        "name": "Water Enchant",
+        "url": "elements/Up/Water"
+    },
+    "Water_Imperil": {
+        "name": "Water Imperil",
+        "url": "elements/Down/Water"
+    },
+    "Earth_Enchant": {
+        "name": "Earth Enchant",
+        "url": "elements/Up/Earth"
+    },
+    "Earth_Imperil": {
+        "name": "Earth Imperil",
+        "url": "elements/Down/Earth"
+    },
+    "Wind_Enchant": {
+        "name": "Wind Enchant",
+        "url": "elements/Up/Wind"
+    },
+    "Wind_Imperil": {
+        "name": "Wind Imperil",
+        "url": "elements/Down/Wind"
+    },
+    "Dark_Enchant": {
+        "name": "Dark Enchant",
+        "url": "elements/Up/Dark"
+    },
+    "Dark_Imperil": {
+        "name": "Dark Imperil",
+        "url": "elements/Down/Dark"
+    },
+    "Holy_Enchant": {
+        "name": "Holy Enchant",
+        "url": "elements/Up/Holy"
+    },
+    "Holy_Imperil": {
+        "name": "Holy Imperil",
+        "url": "elements/Down/Holy"
+    },
+
+
+    "Launcher": {
+        "name": "Launcher",
+        "url": "roles/Role_KnockBack"
     },
     "Launch_Support":{
         "name": "Knock Back Support",
         "url": "roles/Role_Icon_Knock_Back_Support"
     },
-    "HP_Damage_Up":{
-        "name": "Party HP Damage Up",
-        "url": "roles/Role_HP_Damage_Up"
-    },
-    "Gains": {
-        "name": "BRV Gains Up",
-        "url": "roles/Role_BRVGains"
-    },
-    "Refund": {
-        "name": "BRV Refund",
-        "url": "roles/Role_BRVRefund"
-    },
-    "Reviver":{
-        "name": "Raise",
-        "url": "roles/Role_Reviver"
-    },
-    "BRV_Regen": {
-        "name": "BRV Regen",
-        "url": "roles/Role_BRVRegen"
-    },
-    "BRVRetain": {
-        "name": "BRV Retain",
-        "url": "roles/Role_BRVRetain"
-    },
-    "StolenBRV": {
-        "name": "Stolen BRV Damage Up",
-        "url": "roles/Role_BRVUp"
-    },
-    "BuffPrevent": {
-        "name": "Buff Prevent",
-        "url": "roles/Role_BuffPrevent"
-    },
-    "CappedBRV": {
-        "name": "Capped BRV Damage",
-        "url": "roles/Role_BRV_Cap"
-    },
-    "Cleanse": {
-        "name": "Debuff Cleanse",
-        "url": "roles/Role_Cleanser"
-    },
-    "Cover": {
-        "name": "Cover",
-        "url": "roles/Role_Icon_Tank"
+    "Force_Break": {
+        "name": "Force BREAK",
+        "url": "roles/Role_ForcedBreak"
     },
     "CriticalUp": {
         "name": "Critical Damage Up",
@@ -75,65 +268,41 @@
         "name": "Critical Rate Up",
         "url": "roles/Role_Crit_Rate_Up"
     },
-    "Debuff_Evade": {
-        "name": "Debuff Resist",
-        "url": "roles/Role_Debuff_Evade"
-    },
     "Ignore_DEF": {
         "name": "DEF Ignore",
         "url": "roles/Role_Ignore_DEF"
     },
-    "Delay": {
-        "name": "Delay",
-        "url": "roles/Role_Icon_Delay"
+    "Continuous_Turns":{
+        "name": "Consective Turns",
+        "url": "roles/Role_Continuous_Turns"
     },
-    "Delete_Turns": {
-        "name": "Turn Delete",
-        "url": "roles/Role_DeleteTurns"
+    "Turn_Interrupter":{
+        "name": "Cut in Turn",
+        "url": "roles/Role_Turn_Interrupter"
     },
-    "Dispel": {
-        "name": "Buff Dispel",
-        "url": "roles/Role_Icon_Dispel"
+    "Ally_Turn_Manipulator": {
+        "name": "Ally Turn Manipulation",
+        "url": "roles/Role_Ally_Turn_Manipulator"
     },
-    "ElementalWeak": {
-        "name": "Elemental Weakness Damage Up",
-        "url": "roles/Role_WeakUp"
+    "BRV_Ratio": {
+        "name": "Proportional BRV Attack",
+        "url": "roles/Role_BRV_Ratio"
     },
-    "Fire_Enchant": {
-        "name": "Fire Enchant",
-        "url": "elements/Up/Fire"
+    "HP_Damage_Up_Party":{
+        "name": "Party HP Damage Up",
+        "url": "roles/Role_HP_Damage_Up"
     },
-    "Ice_Enchant": {
-        "name": "Ice Enchant",
-        "url": "elements/Up/Ice"
+    "AddHP": {
+        "name": "Additional HP Damage",
+        "url": "roles/Role_HPDmgUp"
     },
-    "Thunder_Enchant": {
-        "name": "Thunder Enchant",
-        "url": "elements/Up/Thunder"
+    "StolenBRV": {
+        "name": "Stolen BRV Damage Up",
+        "url": "roles/Role_BRVUp"
     },
-    "Wind_Enchant": {
-        "name": "Wind Enchant",
-        "url": "elements/Up/Wind"
-    },
-    "Water_Enchant": {
-        "name": "Water Enchant",
-        "url": "elements/Up/Water"
-    },
-    "Earth_Enchant": {
-        "name": "Earth Enchant",
-        "url": "elements/Up/Earth"
-    },
-    "Holy_Enchant": {
-        "name": "Holy Enchant",
-        "url": "elements/Up/Holy"
-    },
-    "Dark_Enchant": {
-        "name": "Dark Enchant",
-        "url": "elements/Up/Dark"
-    },
-    "Evade": {
-        "name": "Evade",
-        "url": "buff/buff_dodge_unframed"
+    "BRV_Damage_Cap": {
+        "name": "Capped BRV Damage",
+        "url": "roles/Role_BRV_Cap"
     },
     "EX_MAX_Party":{
         "name": "EX Recast MAX All",
@@ -147,162 +316,78 @@
         "name": "EX Recast Rate",
         "url": "roles/Role_EXRateUp"
     },
-    "Free_Ability": {
-        "name": "Free Ability Use",
-        "url": "buff/buff_double_unframed"
-    },
-    "FreeTurn": {
-        "name": "Free Turn",
-        "url": "roles/Role_FreeTurn"
-    },
-    "Debuff_Gold": {
-        "name": "Gold Framed Debuffs",
-        "url": "roles/Role_Debuff_Gold"
-    },
-    "Buff_Gold": {
-        "name": "Gold Framed Buffs",
-        "url": "roles/Role_Buff_Gold"
-    },
-    "Special_Buff": {
-        "name": "Special Buffs",
-        "url": "roles/Role_Special_Buff"
-    },
-    "Stacked_Buff": {
-        "name": "Level Buff",
-        "url": "buff/buff_up1_unframed"
-    },
-    "Stacked_Buff_Five": {
-        "name": "Level Buff over 5",
-        "url": "buff/buff_up5_unframed"
-    },
-    "Stacked_Debuff":{
-        "name": "Level Debuff",
-        "url": "roles/Role_Stacked_Debuff"
-    },
-    "Stacked_Debuff_Five":{
-        "name": "Level Debuff over 5",
-        "url": "debuff/debuff_down5_unframed"
-    },
-    "BRV_Shield":{
-        "name": "Damage Shield",
-        "url": "roles/Role_BRVShield"
-    },
-    "AddHP": {
-        "name": "Additional HP Damage",
-        "url": "roles/Role_HPDmgUp"
-    },
-    "MAXBRVCap": {
-        "name": "MAX BRV Cap Up",
-        "url": "roles/Role_HPCap"
-    },
-    "BRV_Damage_Resist":{
-        "name": "BRV Damage Resist Up",
-        "url": "roles/Role_BRVResist"
-    },
-    "HP_Damage_Resist": {
-        "name": "HP Damage Resist Up",
-        "url": "roles/Role_HPResist"
-    },
-    "HP_Resist_Down": {
-        "name": "HP Damage Resist Down",
-        "url": "roles/Role_HPResistDown"
+    "Debuffer": {
+        "name": "Debuffer",
+        "url": "buff/debuff_persondown_unframed"
     },
     "BRV_Resist_Down":{
         "name": "BRV Damage Resist Down",
         "url": "roles/Role_BRVResistDown"
     },
-    "BRV_Poison": {
-        "name": "BRV Poison",
-        "url": "roles/Role_BRVPoison"
+    "HP_Resist_Down": {
+        "name": "HP Damage Resist Down",
+        "url": "roles/Role_HPResistDown"
     },
-    "HP_Poison": {
-        "name": "HP Poison",
-        "url": "roles/Role_HPPoison"
+    "BRVCap": {
+        "name": "BRV Damage Cap Up",
+        "url": "roles/Role_BRVCap"
     },
-    "HPHealBuff": {
-        "name": "HP Heal",
-        "url": "buff/buff_heart_unframed"
+    "MAXBRVCap": {
+        "name": "MAX BRV Cap Up",
+        "url": "roles/Role_HPCap"
     },
-    "HP_Regen": {
-        "name": "HP Regen",
-        "url": "roles/Role_HPRegen"
+    "ElementalWeak": {
+        "name": "Elemental Weakness Damage Up",
+        "url": "roles/Role_WeakUp"
     },
-    "Disable": {
-        "name": "Disable",
-        "url": "roles/Role_Icon_Disable"
+
+
+    "Cleanse": {
+        "name": "Debuff Cleanse",
+        "url": "roles/Role_Cleanser"
     },
-    "Fire_Imperil": {
-        "name": "Fire Imperil",
-        "url": "elements/Down/Fire"
+    "Battery": {
+        "name": "BRV Battery",
+        "url": "roles/Role_Icon_Battery"
     },
-    "Ice_Imperil": {
-        "name": "Ice Imperil",
-        "url": "elements/Down/Ice"
-    },
-    "Thunder_Imperil": {
-        "name": "Thunder Imperil",
-        "url": "elements/Down/Thunder"
-    },
-    "Wind_Imperil": {
-        "name": "Wind Imperil",
-        "url": "elements/Down/Wind"
-    },
-    "Water_Imperil": {
-        "name": "Water Imperil",
-        "url": "elements/Down/Water"
-    },
-    "Earth_Imperil": {
-        "name": "Earth Imperil",
-        "url": "elements/Down/Earth"
-    },
-    "Holy_Imperil": {
-        "name": "Holy Imperil",
-        "url": "elements/Down/Holy"
-    },
-    "Dark_Imperil": {
-        "name": "Dark Imperil",
-        "url": "elements/Down/Dark"
-    },
-    "Melee_Imperil": {
-        "name": "Melee Imperil",
-        "url": "roles/Role_MeleeImperil"
-    },
-    "Ranged_Imperil": {
-        "name": "Ranged Imperil",
-        "url": "roles/Role_RangedImperil"
-    },
-    "Magic_Imperil": {
-        "name": "Magic Imperil",
-        "url": "roles/Role_MagicImperil"
-    },
-    "Instant": {
-        "name": "Instant Turn Rate",
-        "url": "roles/Role_Instant2"
+    "Reviver":{
+        "name": "Raise",
+        "url": "roles/Role_Reviver"
     },
     "KO_Prevent": {
         "name": "Last Stand / Prevent KO",
         "url": "roles/Role_KO_Prevent"
     },
-    "Turn_Interrupter":{
-        "name": "Cut in Turn",
-        "url": "roles/Role_Turn_Interrupter"
+    "BRV_Regen": {
+        "name": "BRV Regen",
+        "url": "roles/Role_BRVRegen"
     },
-    "Continuous_Turns":{
-        "name": "Consective Turns",
-        "url": "roles/Role_Continuous_Turns"
+    "HP_Regen": {
+        "name": "HP Regen",
+        "url": "roles/Role_HPRegen"
     },
-    "Ally_Turn_Manipulator": {
-        "name": "Turn Manipulation",
-        "url": "roles/Role_Ally_Turn_Manipulator"
+    "Gains": {
+        "name": "BRV Gains Up",
+        "url": "roles/Role_BRVGains"
+    },
+    "HPHealBuff": {
+        "name": "HP Heal from Buff",
+        "url": "buff/buff_heart_unframed"
+    },
+    "HP_Heal_Ability": {
+        "name": "HP Heal Ability",
+        "url": "roles/Role_HP_Heal_Ability"
+    },
+    "Two_Abilities_Recover": {
+        "name": "Recover 2 Abilities",
+        "url": "roles/Role_Two_Abilities_Recover"
     },
     "Buff_Extension":{
         "name": "Buff Extension",
         "url": "roles/Role_Buff_Extension"
     },
-    "Self_Harm":{
-        "name": "Self-Harm HP Damage",
-        "url": "roles/Role_Self_Harm"
-    },
+
+
     "Trap": {
         "name": "Trap",
         "url": "roles/Role_Trap"
@@ -323,18 +408,6 @@
         "name": "Follow Up Attack",
         "url": "buff/buff_fist_unframed"
     },
-    "FollowUp_Extension":{
-        "name": "Ability Extension Follow Up",
-        "url": "roles/Role_Ability_Extension_FollowUp"
-    },
-    "FollowUp_Action_On_Enemy":{
-        "name": "Follow Up on Action against Enemy",
-        "url": "roles/Role_Action_Against_Enemy_FollowUp"
-    },
-    "FollowUp_Start_Of_Next":{
-        "name": "Start of next turn Follow Up",
-        "url": "roles/Role_Start_Of_Next_Turn"
-    },
     "FollowUp_Before_Player_Turn":{
         "name": "Additional Attack before Player turn",
         "url": "roles/Role_Before_Player_Turn"
@@ -342,5 +415,147 @@
     "FollowUp_Before_Ability":{
         "name": "Additional Attack before Player ability",
         "url": "roles/Role_Before_Ability_Attack"
+    },
+    "FollowUp_Extension":{
+        "name": "Ability Extension Follow Up",
+        "url": "roles/Role_Ability_Extension_FollowUp"
+    },
+    "FollowUp_Start_Of_Next":{
+        "name": "Start of next turn Follow Up",
+        "url": "roles/Role_Start_Of_Next_Turn"
+    },
+    "FollowUp_Action_On_Enemy":{
+        "name": "Follow Up on Action against Enemy",
+        "url": "roles/Role_Action_Against_Enemy_FollowUp"
+    },
+
+
+    "Cover": {
+        "name": "Cover",
+        "url": "roles/Role_Icon_Tank"
+    },
+    "Evade": {
+        "name": "Evade",
+        "url": "buff/buff_dodge_unframed"
+    },
+    "BRV_Shield":{
+        "name": "Damage Shield",
+        "url": "roles/Role_BRVShield"
+    },
+    "BRV_Damage_Resist":{
+        "name": "BRV Damage Resist Up",
+        "url": "roles/Role_BRVResist"
+    },
+    "HP_Damage_Resist": {
+        "name": "HP Damage Resist Up",
+        "url": "roles/Role_HPResist"
+    },
+    "Cannot_Break": {
+        "name": "Prevent BREAK / BRV Floor",
+        "url": "roles/Role_Cannot_Break"
+    },
+    "Refund": {
+        "name": "BRV Refund",
+        "url": "roles/Role_BRVRefund"
+    },
+    "BRVRetain": {
+        "name": "BRV Retain",
+        "url": "roles/Role_BRVRetain"
+    },
+    "Debuff_Evade": {
+        "name": "Debuff Resist",
+        "url": "buff/buff_bow_unframed"
+    },
+
+
+    "Delay": {
+        "name": "Delay",
+        "url": "roles/Role_Icon_Delay"
+    },
+    "Three_Delay": {
+        "name": "3 Turn Delay",
+        "url": "roles/Role_3Delay"
+      },
+    "Delete_Turns": {
+        "name": "Turn Delete",
+        "url": "roles/Role_DeleteTurns"
+    },
+    "BuffPrevent": {
+        "name": "Buff Prevent",
+        "url": "roles/Role_BuffPrevent"
+    },
+    "Dispel": {
+        "name": "Buff Dispel",
+        "url": "roles/Role_Icon_Dispel"
+    },
+    "Break_Reset": {
+        "name": "BREAK Cancel",
+        "url": "roles/Role_BreakReset"
+    },
+    "BRV_Poison": {
+        "name": "BRV Poison",
+        "url": "roles/Role_BRVPoison"
+    },
+    "HP_Poison": {
+        "name": "HP Poison",
+        "url": "roles/Role_HPPoison"
+    },
+    "BRV_Control": {
+        "name": "BRV Gain Interference",
+        "url": "roles/Role_Icon_BRV-Control"
+    },
+    "Disable": {
+        "name": "Disable",
+        "url": "roles/Role_Icon_Disable"
+    },
+    "Blind":{
+        "name": "Blind",
+        "url": "debuff/debuff_glasses_unframed"
+    },
+    "Debuff_Gold": {
+        "name": "Gold Framed Debuffs",
+        "url": "roles/Role_Debuff_Gold"
+    },
+    
+
+    "Special_Buff": {
+        "name": "Special Buffs",
+        "url": "roles/Role_Special_Buff"
+    },
+    "Stacked_Debuff":{
+        "name": "Level Debuff",
+        "url": "roles/Role_Stacked_Debuff"
+    },
+    "Stacked_Debuff_Five":{
+        "name": "Level Debuff over 5",
+        "url": "debuff/debuff_down5_unframed"
+    },
+    "Stacked_Buff": {
+        "name": "Level Buff",
+        "url": "buff/buff_up1_unframed"
+    },
+    "Stacked_Buff_Five": {
+        "name": "Level Buff over 5",
+        "url": "buff/buff_up5_unframed"
+    },
+    "Free_Ability": {
+        "name": "Free Ability Use",
+        "url": "buff/buff_double_unframed"
+    },
+    "FreeTurn": {
+        "name": "Free Turn",
+        "url": "roles/Role_FreeTurn"
+    },
+    "Instant": {
+        "name": "Instant Turn Rate",
+        "url": "roles/Role_Instant2"
+    },
+    "Self_Harm":{
+        "name": "Self-Harm HP Damage",
+        "url": "roles/Role_Self_Harm"
+    }, 
+    "Buff_Gold": {
+        "name": "Gold Framed Buffs",
+        "url": "roles/Role_Buff_Gold"
     }
 }

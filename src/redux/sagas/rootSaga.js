@@ -15,20 +15,11 @@ import { GET_UPDATES } from "../ducks/updates.js";
 import { handleGetSummons } from "./handlers/summons.js";
 import { GET_SUMMONS } from "../ducks/summons.js";
 
-import { handleGetSpheres } from "./handlers/spheres.js";
-import { GET_SPHERES } from "../ducks/spheres.js";
-
-import { handleGetPassives } from "./handlers/passives.js";
-import { GET_PASSIVES } from "../ducks/passives.js";
-
 import { handleGetLevels } from "./handlers/levels.js";
 import { GET_LEVELS } from "../ducks/levels.js";
 
 import { handleGetJPCalendar } from "./handlers/jpcalendar.js";
 import { GET_JPCALENDAR } from "../ducks/jpcalendar.js";
-
-import { handleGetGear } from "./handlers/gear.js";
-import { GET_GEAR } from "../ducks/gear.js";
 
 import { handleGetEvents } from "./handlers/events.js";
 import { GET_EVENTS } from "../ducks/events.js";
@@ -36,20 +27,11 @@ import { GET_EVENTS } from "../ducks/events.js";
 import { handleGetEventsIndex } from "./handlers/eventsIndex.js";
 import { GET_EVENTSINDEX } from "../ducks/eventsIndex.js";
 
-import { handleGetEnemies } from "./handlers/enemies.js";
-import { GET_ENEMIES } from "../ducks/enemies.js";
-
 import { handleGetEnemiesDirect } from "./handlers/enemies_direct";
 import { GET_ENEMIES_DIRECT } from "../ducks/enemies_direct.js";
 
-import { handleGetBuffs } from "./handlers/buffs.js";
-import { GET_BUFFS } from "../ducks/buffs.js";
-
 import { handleGetBanners } from "./handlers/banners.js";
 import { GET_BANNERS } from "../ducks/banners.js";
-
-import { handleGetAbilities } from "./handlers/abilities.js";
-import { GET_ABILITIES } from "../ducks/abilities.js";
 
 import { handleGetSummonLevels } from "./handlers/summonlevels";
 import { GET_SUMMONLEVELS } from "../ducks/summonlevels.js";
@@ -60,18 +42,6 @@ import { GET_SUMMONPASSIVES } from "../ducks/summonpassives.js";
 import { handleGetPanels } from "./handlers/panels.js";
 import { GET_PANELS } from "../ducks/panels.js";
 
-import { handleGetEXPTable } from "./handlers/tableexp.js";
-import { GET_EXPTABLE } from "../ducks/tableexp.js";
-
-import { handleGetCRYTable } from "./handlers/tablecry.js";
-import { GET_CRYTABLE } from "../ducks/tablecry.js";
-
-import { handleGetSUM1Table } from "./handlers/tablesum1.js";
-import { GET_SUM1TABLE } from "../ducks/tablesum1.js";
-
-import { handleGetSUM2Table } from "./handlers/tablesum2.js";
-import { GET_SUM2TABLE } from "../ducks/tablesum2.js";
-
 import { handleGetStickers } from "./handlers/stickers.js";
 import { GET_STICKERS } from "../ducks/stickers.js";
 
@@ -81,20 +51,11 @@ import { GET_JUKEBOX } from "../ducks/jukebox.js";
 import { handleGetEnemyAbilityDirect } from "./handlers/enemyability_direct.js";
 import { GET_ENEMYABILITY_DIRECT } from "../ducks/enemyability_direct.js";
 
-import { handleGetEnemyAbility } from "./handlers/enemyability.js";
-import { GET_ENEMYABILITY } from "../ducks/enemyability.js";
-
 import { handleGetEnemyBuffsDirect } from "./handlers/enemybuffs_direct.js";
 import { GET_ENEMYBUFFS_DIRECT } from "../ducks/enemybuffs_direct.js";
 
-import { handleGetEnemyBuffs } from "./handlers/enemybuffs.js";
-import { GET_ENEMYBUFFS } from "../ducks/enemybuffs.js";
-
 import { handleGetUltimaWeapon } from "./handlers/ultimaweapon.js";
 import { GET_ULTIMAWEAPON } from "../ducks/ultimaweapon.js";
-
-import { handleGetFRWeapon } from "./handlers/frweapon.js";
-import { GET_FRWEAPON } from "../ducks/frweapon.js";
 
 import { handleGetMaintenance } from "./handlers/maintenance.js";
 import { GET_MAINTENANCE } from "../ducks/maintenance.js";
@@ -208,33 +169,20 @@ export function* watcherSaga() {
   yield takeLatest(GET_CHARGUIDE, handleGetCharGuide);
   yield takeLatest(GET_UPDATES, handleGetUpdates);
   yield takeLatest(GET_SUMMONS, handleGetSummons);
-  yield takeLatest(GET_SPHERES , handleGetSpheres);
-  yield takeLatest(GET_PASSIVES , handleGetPassives);
   yield takeLatest(GET_LEVELS , handleGetLevels);
   yield takeLatest(GET_JPCALENDAR , handleGetJPCalendar);
-  yield takeLatest(GET_GEAR , handleGetGear);
   yield takeLatest(GET_EVENTS , handleGetEvents);
   yield takeLatest(GET_EVENTSINDEX , handleGetEventsIndex);
-  yield takeLatest(GET_ENEMIES , handleGetEnemies);
   yield takeLatest(GET_ENEMIES_DIRECT , handleGetEnemiesDirect);
-  yield takeLatest(GET_BUFFS , handleGetBuffs);
   yield takeLatest(GET_BANNERS , handleGetBanners);
-  yield takeLatest(GET_ABILITIES , handleGetAbilities);
   yield takeLatest(GET_SUMMONLEVELS , handleGetSummonLevels);
   yield takeLatest(GET_SUMMONPASSIVES , handleGetSummonPassives);
   yield takeLatest(GET_PANELS , handleGetPanels);
-  yield takeLatest(GET_EXPTABLE , handleGetEXPTable);
-  yield takeLatest(GET_CRYTABLE , handleGetCRYTable);
-  yield takeLatest(GET_SUM1TABLE , handleGetSUM1Table);
-  yield takeLatest(GET_SUM2TABLE , handleGetSUM2Table);
   yield takeLatest(GET_STICKERS , handleGetStickers);
   yield takeLatest(GET_JUKEBOX , handleGetJukeBox);
-  yield takeLatest(GET_ENEMYABILITY , handleGetEnemyAbility);
   yield takeLatest(GET_ENEMYABILITY_DIRECT , handleGetEnemyAbilityDirect);
   yield takeLatest(GET_ENEMYBUFFS_DIRECT , handleGetEnemyBuffsDirect);
-  yield takeLatest(GET_ENEMYBUFFS , handleGetEnemyBuffs);
   yield takeLatest(GET_ULTIMAWEAPON , handleGetUltimaWeapon);
-  yield takeLatest(GET_FRWEAPON , handleGetFRWeapon);
   yield takeLatest(GET_MAINTENANCE , handleGetMaintenance);
   //direct
   yield takeLatest(GET_AILMENTEFFECTS, handleGetAilmentEffects);

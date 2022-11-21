@@ -19,6 +19,10 @@ const CallCharHandoff = () =>{
     state.characters.characters
     );
 
+    const url_access = useSelector((state) => 
+    state.characters.access
+    );
+
     const CharGuideData = useSelector((state) => 
     state.charGuide.charGuide
     );
@@ -43,17 +47,15 @@ const CallCharHandoff = () =>{
         }
     }, [dispatch,CharGuideData,ProcessedCharacters]);
 
-    useEffect(() => {
-        if(jptoggledata == true){
-            ProcessedCharacters && ProcessedCharacters.sort((self,self2)=>self.JPOrder-self2.JPOrder)
-        } else {
-            ProcessedCharacters && ProcessedCharacters.sort((self,self2)=>self.GLOrder-self2.GLOrder)
-        }
-    },[ProcessedCharacters,jptoggledata])
-
     return (
-        ProcessedCharacters != undefined && CharGuideData  != undefined && jptoggledata != undefined ?
-        <CharacterHandoff match={match} ProcessedCharacters={ProcessedCharacters} CharGuideData={CharGuideData} jptoggledata={jptoggledata} />
+        ProcessedCharacters != undefined && CharGuideData  != undefined && jptoggledata != undefined && url_access != undefined?
+        <CharacterHandoff 
+        match={match} 
+        ProcessedCharacters={ProcessedCharacters} 
+        CharGuideData={CharGuideData} 
+        jptoggledata={jptoggledata} 
+        url_access={url_access}
+        />
         : 
         <Loading/>
     )

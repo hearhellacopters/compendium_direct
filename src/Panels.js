@@ -79,9 +79,9 @@ const jponlybutton = () => {
       <div className="content">
         <h1>{jponly== false? "GL " :"JP "}Panels</h1>
         <div className="noselect">
-          <span className="jponlybackground">
-            <Tippy content="Upcoming JP" className="tooltip" >
-            <span onClick={jponlybutton} className={`jpflage smalleventbutton ${jponly ? "jpsmallactive" : "jpsmallinactive" }`}/>
+        <span className={`${jptoggledata ? "jponlybackground" : "GLonlybackground"}`}>
+              <Tippy content={`${jptoggledata ? "Switch to GL" : "Switch to JP"}`} className="tooltip" >
+            <span onClick={jponlybutton} className={`${jptoggledata ? "jpflage jpsmallinactive smalleventbutton" : "glflage smalleventbutton"}`}/>
             </Tippy>
           </span>
           <div>

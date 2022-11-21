@@ -8,7 +8,7 @@ import 'react-lazy-load-image-component/src/effects/opacity.css';
 import TickDown from '../processing/tickDown'
 import TickUp from '../processing/tickUp'
 
-const FormatedEvents = ({ match , permapage }) => {
+const BannersFormatting = ({ match , permapage }) => {
 
     const [bannerdisplay, setBannerdisplay] = useState("Banner1")
 
@@ -155,4 +155,4 @@ const FormatedEvents = ({ match , permapage }) => {
         </li>
     )
 }
-export default FormatedEvents;
+export default BannersFormatting;

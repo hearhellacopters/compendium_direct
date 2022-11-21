@@ -29,7 +29,9 @@ const CallWardrobe = () =>{
 
     return (
         ProcessedCharacters != undefined ?
-        <CharacterWardrobePage ProcessedCharacters={ProcessedCharacters} match={match}/>
+        <CharacterWardrobePage 
+        ProcessedCharacters={ProcessedCharacters} 
+        match={match}/>
         : 
         <Loading/>
     )

@@ -17,6 +17,7 @@ import FaceMaker from './formatting/CharFaceFormatting.js'
 import EnemyListingsDirect from './formatting/EnemyListingDirect'
 import BannersFormatting from './formatting/SingleBannersFormatting.js'
 import UpdatesFormmating from './formatting/UpdatesFormatter.js'
+import { ImWarning } from 'react-icons/im';
 import { Link } from 'react-router-dom'
 import 'react-lazy-load-image-component/src/effects/opacity.css'; 
 import {getQuery, getQueryStringVal,useQueryParam } from './processing/urlparams'
@@ -45,6 +46,7 @@ const Home = ({ProcessedUpdates, jptoggledata}) => {
     slice(olderupdates, 0, startinglimit)
   );
 
+  const [spoilers,setspoilers] = useState(lastupdate && lastupdate.JPFlag == "GL"  ? true : false)
   const [listLength, setListLength] = useState(listDisplay.length);
   const [showLoadMore, setShowLoadMore] = useState(true);
   const [displayBanner, setDisplayBanner] = useState(
@@ -62,6 +64,7 @@ const Home = ({ProcessedUpdates, jptoggledata}) => {
     } else {
       dispatch(setFalse())
       setJPSearch("")
+      setShowGLToggle(false)
     }
   },[setJPSearch,dispatch])
 
@@ -128,26 +131,21 @@ const Home = ({ProcessedUpdates, jptoggledata}) => {
     }
   }
 
-    const [jponly, setJPonly] = useStateIfMounted(jptoggledata);
-
     useEffect(() => {
     if(getQueryStringVal("JP") == "true" ){
         dispatch(setTrue())
         setJPSearch("true")
-        setJPonly(true)
     } else {
         dispatch(setFalse())
         setJPSearch("")
-        setJPonly(false)
     }
 
-    },[setJPSearch,dispatch,setJPonly])
+    },[setJPSearch,dispatch])
 
     const jponlybutton = () => {
         if (jptoggledata == false) {
             dispatch(setTrue())
             setJPSearch("true")
-            setJPonly(true);
         }    
     };
 
@@ -155,10 +153,12 @@ const Home = ({ProcessedUpdates, jptoggledata}) => {
         if (jptoggledata == true) {
             dispatch(setFalse())
             setJPSearch("")
-            setJPonly(false);
         }
     };
 
+    const toggle_spoilers=()=>{
+      setspoilers((prevValue)=>!prevValue)
+    }
     return(
         <div  className="wrapper">
               <Helmet>
@@ -185,20 +185,19 @@ const Home = ({ProcessedUpdates, jptoggledata}) => {
                 Dissidia Final Fantasy Opera Omnia mobile game database.<br/><br/>
                 We provide English and Japanese translations for both Global and Japanese versions. Here you'll find all character abilities, enemies and summons, as well as a complete timeline of game events with community guides.<br></br>
                 <br></br>
-                <div className="center">You can switch between the two versions using the buttons below:
-                <br/><br/>
+                <div className="center">Switch database by using the upper <span className="emoji clicker" onClick={glonlybutton}>🌎</span> or <span className="jpflagupdate clicker" onClick={jponlybutton}></span> icons or the buttons below:
+                <br/>
                 <Tippy content="GL">
                         <span className={`${jptoggledata == false ? "filteractive": "filterinactive"} buffbutton ver_gl`} onClick={glonlybutton}></span>
                 </Tippy>   
                 <Tippy content="JP">
                         <span className={`${jptoggledata == true ? "filteractive": "filterinactive"} buffbutton ver_jp`} onClick={jponlybutton}></span>
                 </Tippy> 
-                <br/><br/>
-                Or use click the <span className="emoji clicker" onClick={glonlybutton}>🌎</span> or <span className="jpflagupdate clicker" onClick={jponlybutton}></span> icon at the top of the page
                 </div>
-                <br/>
                 <span className="center" id="red">
-                  {"!POTENTIAL SPOILER WARNING!"}
+                  <ImWarning className='jpsmallinactive'></ImWarning>
+                  {" SPOILER WARNING "}
+                  <ImWarning className='jpsmallinactive'></ImWarning>
                 </span>
                 <span className="center">{"If you're a Global player who rather not know about upcoming content."}</span><br/>
                 <div className="centertext">
@@ -208,13 +207,26 @@ const Home = ({ProcessedUpdates, jptoggledata}) => {
             </div>
             <div className="updatesholder">
               <div className="lastupdate">Latest Update</div>
+              <div className="featuredbannernotop">{lastupdate.Title}</div>
+              {(spoilers == false && showGLToggle == false)
+              ? 
+              <div className='titlemainupdateholder'>
+              <div id="red" className='spoiler_text' onClick={toggle_spoilers}>
+                <ImWarning className='jpsmallinactive'></ImWarning>
+                  {" SPOILER WARNING "}
+                  <ImWarning className='jpsmallinactive'></ImWarning><br/>
+                  <span className='updatelink'>- Click to show -</span>
+              </div>
+              </div>
+              :
+              <>
               <div className="updateunit">
                 <div className="updatedate">
                   {lastupdate.JPFlag == "GL" ? <span className="emoji">🌎</span> : <span className="jpflagupdate"></span>} {months[new Date(lastupdate.DateUpdate).getMonth()] + " " + ordinal(new Date(lastupdate.DateUpdate).getDate()) + " " + new Date(lastupdate.DateUpdate).getFullYear()}
                 </div>
                 <div className="titlemainupdateholder notop">
                   <div className="updatetitle">
-                  {lastupdate.Title}
+                  {lastupdate.Summary}
                   </div>
                   <div className="updatemain">
                     {lastupdate.Main != undefined ? addformatting(lastupdate.Main):""}
@@ -284,11 +296,17 @@ const Home = ({ProcessedUpdates, jptoggledata}) => {
                 </div>
               </div>
              }
+             </>
+            }
             </div>
             <div className="updatesholder">
             <div className="lastupdate nobottom">Previous Updates</div>
               {listDisplay.map(updates =>(
-                <UpdatesFormmating key={updates.UpdateKey} match={updates}/>
+                <UpdatesFormmating 
+                key={updates.UpdateKey} 
+                match={updates}
+                jptoggledata={jptoggledata}
+                />
               ))}
               <div className="">
                 <div className="subtextbottom">

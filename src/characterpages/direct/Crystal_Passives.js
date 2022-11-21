@@ -43,7 +43,8 @@ const Crystal_Passives =({
     enemy_resist,
     formatting,
 
-    hit_data
+    hit_data,
+    showFilter
 })=>{
 
     const [rawData, setrawData] = useState(crydata)
@@ -52,7 +53,6 @@ const Crystal_Passives =({
 
     const startinglimit = 999
 
-    const [showFilter, setShowFilter] = useState(getQueryStringVal("filter") != null  ? true : false);
     const [clearFilter, setclearFilter] = useStateIfMounted(false);
 
     //show icons
@@ -166,24 +166,6 @@ const Crystal_Passives =({
     const [Reversesearch, setReversesearch] = useQueryParam("rev", "");
     const [TEXTsearch, setTEXTsearch] = useQueryParam("search", "");
     const [Filtersearch, setFiltersearch] = useQueryParam("filter", "");
-
-    const showfilterbutton = () => {
-    if (showFilter == false) {
-        setFiltersearch("true")
-    } else {
-        setFiltersearch("")
-    }
-    setShowFilter((prevValue) => !prevValue);
-    }
-
-    useEffect(() => {
-        if (showFilter == false) {
-          setFiltersearch("")
-        } else {
-          setFiltersearch("true")
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-      },[showFilter])
 
     //button toogle
     useEffect(() => {
@@ -519,28 +501,6 @@ const Crystal_Passives =({
     } else {
         return(
             <div>
-            <div className="charfilterspacer"/>
-            <div key="filter1" onClick={showfilterbutton} className="charfilter"><span className="filterstext"></span>{showFilter ? <TiArrowSortedUp className="uparrow"/> : <TiArrowSortedDown className="downarrow"/>}</div>
-            <div className="event-search-reverse-holder">
-              {showFilter == false ? 
-              <div className="char-search-reverse-holder">
-                <IoSearch className="searchicon"/>
-              <div className="search-holder el">
-                <input 
-                    className="char-search-bar" 
-                    type="text"
-                    placeholder="Name Search"
-                    value={searchdisplay}
-                    onChange={handleChange}
-                    onKeyDown={handleKeyDown}
-                />
-                {searchTerm === "" ? "" : 
-                <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
-                </div>
-                </div>
-              :""
-              }
-            </div>
                 <div className="filterholder noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
                   <div className="similarbanner">Subcategories</div>
                   <div className="filterholderflair">

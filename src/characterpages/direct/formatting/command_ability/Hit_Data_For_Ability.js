@@ -112,7 +112,9 @@ const Hit_Data_For_Ability =(
         const hit_data = caller[`hit_data_id${index == 0 ? "" : `_${index}`}`]
         if( hit_data != undefined && 
             hit_data.hitdata_id != -1 && 
-            hit_data.hitdata_id != 518){
+            hit_data.hitdata_id != 518 && //blanks
+            (hit_data.effect_id != 37 && hit_data.m_nARG_4 != 2809) //hide models
+            ){
             var hit_data_id_pars = ""
             if(hit_data == undefined){
                 hit_counter = hit_counter + 1

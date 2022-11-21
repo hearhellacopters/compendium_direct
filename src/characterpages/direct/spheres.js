@@ -58,17 +58,17 @@ const Spheres_Page = ({
     return(
         <div className="characterpageholder">
                 <div className="">
-                  <div className="singlesubbanner">{profiledata.name}{"'s Spheres"}</div>
+                  <div className="singlesubbanner">{profiledata.CharacterName}{"'s Spheres"}</div>
                   <div className="sphereletterholder filterholderflair somepadding">
-                    <div className={`sphereletter ${profiledata.SphereSlotLocked == 1 ? "lockedslot" : "unlockedslot"}`}>
-                    <img className='inletter' src={profiledata.Sphere1 == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/spheres/SphereLetter${profiledata.Sphere1}.png`} alt={profiledata.Sphere1}/>
-                    </div>
-                    <div className={`sphereletter ${profiledata.SphereSlotLocked == 2 ? "lockedslot" : "unlockedslot"}`}>
-                    <img className='inletter' src={ profiledata.Sphere2 == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/spheres/SphereLetter${profiledata.Sphere2}.png`} alt={profiledata.Sphere2}/>
-                    </div>
-                    <div className={`sphereletter ${profiledata.SphereSlotLocked == 3 ? "lockedslot" : "unlockedslot"}`}>
-                    <img className='inletter' src={ profiledata.Sphere3 == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/spheres/SphereLetter${profiledata.Sphere3}.png`} alt={profiledata.Sphere3}/>
-                    </div>
+                        <div className={`sphereletter ${profiledata.SphereSlotLocked == 1 ? "lockedslot" : "unlockedslot"}`}>
+                        <LazyLoadImage effect="opacity" src={profiledata.SphereSlot1Letter == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/spheres/SphereLetter${profiledata.SphereSlot1Letter}.png`} alt={profiledata.Sphere1}/>
+                        </div>
+                        <div className={`sphereletter ${profiledata.SphereSlotLocked == 2 ? "lockedslot" : "unlockedslot"}`}>
+                        <LazyLoadImage effect="opacity" src={ profiledata.SphereSlot2Letter == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/spheres/SphereLetter${profiledata.SphereSlot2Letter}.png`} alt={profiledata.Sphere2}/>
+                        </div>
+                        <div className={`sphereletter ${profiledata.SphereSlotLocked == 3 ? "lockedslot" : "unlockedslot"}`}>
+                        <LazyLoadImage effect="opacity" src={ profiledata.SphereSlot3Letter == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/spheres/SphereLetter${profiledata.SphereSlot3Letter}.png`} alt={profiledata.Sphere3}/>
+                        </div>
                     </div>
                 </div>
                 {data.length > 0 ?  (
