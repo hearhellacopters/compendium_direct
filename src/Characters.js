@@ -3473,30 +3473,11 @@ const Characters = ({ProcessedCharacters,jptoggledata}) => {
                       <Tippy content="Realm">
                         <li className={`${RealmSort ? "filteractive": "filterinactive"} buffbutton RealmSortbutton`} onClick={RealmSortbutton}></li>
                       </Tippy>
-                      <Tippy content="JP Release Order">
+                      <Tippy content="JP / GL Release Order">
                         <li className={`${JPSort ? "filteractive": "filterinactive"} buffbutton JPSortbutton`} onClick={JPSortbutton}></li>
                       </Tippy>
                       <Tippy content="Name">
                         <li className={`${NameSort ? "filteractive": "filterinactive"} buffbutton NameSortbutton`} onClick={NameSortbutton}></li>
-                      </Tippy>
-                      <br/>
-                      <Tippy content="HP Stat">
-                        <li className={`${HPSort ? "filteractive": "filterinactive"} buffbutton HPSortbutton`} onClick={HPSortbutton}></li>
-                      </Tippy>
-                      <Tippy content="INT BRV Stat">
-                        <li className={`${INTBRVSort ? "filteractive": "filterinactive"} buffbutton INTBRVSortbutton`} onClick={INTBRVSortbutton}></li>
-                      </Tippy>
-                      <Tippy content="MAX BRV Stat">
-                        <li className={`${MAXBRVSort ? "filteractive": "filterinactive"} buffbutton MAXBRVSortbutton`} onClick={MAXBRVSortbutton}></li>
-                      </Tippy>
-                      <Tippy content="ATK Sort">
-                        <li className={`${ATKSort ? "filteractive": "filterinactive"} buffbutton ATKSortbutton`} onClick={ATKSortbutton}></li>
-                      </Tippy>
-                      <Tippy content="DEF Stat">
-                        <li className={`${DEFSort ? "filteractive": "filterinactive"} buffbutton DEFSortbutton`} onClick={DEFSortbutton}></li>
-                      </Tippy>
-                      <Tippy content="SPD Stat">
-                        <li className={`${SPDSort ? "filteractive": "filterinactive"} buffbutton SPDSortbutton`} onClick={SPDSortbutton}></li>
                       </Tippy>
                     </ul>
                     <div className="similarbanner">Refine</div>

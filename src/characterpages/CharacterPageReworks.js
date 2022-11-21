@@ -75,9 +75,10 @@ const ReworksPageFormatting = ({match, ProcessedReworks, selected_chara, Process
                 <div className={`Buffbanner  iconbuffer infonameholder nobuffpadding `}>
                 <div className="displayfex">
                 <div className="spacearound">
-                <span className={`${passives.PassiveRank} automarg`}/>{passives.PassiveName1}
+                <span className='smallpassive'/>{passives.PassiveName1}
                 </div>
                 </div>
+                <span className={passives.PassiveRank}/>
                   {passives.bannerindex1 == undefined ? "" :
                     <div className="similarbanner">
                         {passives.bannerindex1.tempdate == true ?
@@ -103,16 +104,19 @@ const ReworksPageFormatting = ({match, ProcessedReworks, selected_chara, Process
                 </div>
                 {passives.PassiveCount == 4?
                   <div className={`bluebase  infobase nobuffpadding`}>
+                    <div className='subpassiveflair spacearound'><span className='smallpassive'/><div className='lb1 lsmallerinline'/>{passives.PassiveName2}</div>
                 {passives.PassiveDesc2GL == undefined ? "" : addformatting(makediff(passives.PassiveDesc2GL,passives.PassiveDesc2))}
                 </div>
                 :""}
                  {passives.PassiveCount == 4?
                   <div className={`bluebase  infobase nobuffpadding`}>
+                    <div className='subpassiveflair spacearound'><span className='smallpassive'/><div className='lb2 lsmallerinline'/>{passives.PassiveName3}</div>
                 {passives.PassiveDesc3GL == undefined ? "" : addformatting(makediff(passives.PassiveDesc3GL,passives.PassiveDesc3))}
                 </div>
                 :""}
                 {passives.PassiveCount == 4?
                   <div className={`bluebase  infobase nobuffpadding`}>
+                    <div className='subpassiveflair spacearound'><span className='smallpassive'/><div className='lb3 lsmallerinline'/>{passives.PassiveName4}</div>
                 {passives.PassiveDesc4GL == undefined ? "" : addformatting(makediff(passives.PassiveDesc4GL,passives.PassiveDesc4))}
                 </div>
                 :""}
@@ -133,10 +137,11 @@ const ReworksPageFormatting = ({match, ProcessedReworks, selected_chara, Process
               </div>
               <div className={`Buffbanner  iconbuffer infonameholder nobuffpadding `}>
               <div className="displayfex">
-              <div className="spacearound">
-              <span className={`${passives.PassiveRank} automarg`}/>{passives.PassiveName1}
-              </div>
-              </div>
+                <div className="spacearound">
+                <span className='smallpassive'/>{passives.PassiveName1}
+                </div>
+                </div>
+                <span className={passives.PassiveRank}/>
                 {passives.bannerindex2 == undefined ? "" :
                   <div className="similarbanner">
                       {passives.bannerindex2.tempdate == true ?
@@ -162,16 +167,19 @@ const ReworksPageFormatting = ({match, ProcessedReworks, selected_chara, Process
               </div>
               {passives.PassiveCount == 4?
                 <div className={`bluebase  infobase nobuffpadding`}>
+                  <div className='subpassiveflair spacearound'><span className='smallpassive'/><div className='lb1 lsmallerinline'/>{passives.PassiveName3}</div>
               {passives.PassiveDesc2_2 == undefined ? "" : addformatting(makediff(passives.PassiveDesc2_2,passives.PassiveDesc2GL))}
               </div>
               :""}
                {passives.PassiveCount == 4?
                 <div className={`bluebase  infobase nobuffpadding`}>
+                  <div className='subpassiveflair spacearound'><span className='smallpassive'/><div className='lb2 lsmallerinline'/>{passives.PassiveName3}</div>
               {passives.PassiveDesc3_2 == undefined ? "" : addformatting(makediff(passives.PassiveDesc3_2,passives.PassiveDesc3GL))}
               </div>
               :""}
               {passives.PassiveCount == 4?
                 <div className={`bluebase  infobase nobuffpadding`}>
+                  <div className='subpassiveflair spacearound'><span className='smallpassive'/><div className='lb3 lsmallerinline'/>{passives.PassiveName4}</div>
               {passives.PassiveDesc4_2 == undefined ? "" : addformatting(makediff(passives.PassiveDesc4_2,passives.PassiveDesc4GL))}
               </div>
               :""}
@@ -192,10 +200,11 @@ const ReworksPageFormatting = ({match, ProcessedReworks, selected_chara, Process
               </div>
               <div className={`Buffbanner  iconbuffer infonameholder nobuffpadding `}>
               <div className="displayfex">
-              <div className="spacearound">
-              <span className={`${passives.PassiveRank} automarg`}/>{passives.PassiveName1}
-              </div>
-              </div>
+                <div className="spacearound">
+                <span className='smallpassive'/>{passives.PassiveName1}
+                </div>
+                </div>
+                <span className={passives.PassiveRank}/>
                 {passives.bannerindex3 == undefined ? "" :
                   <div className="similarbanner">
                       {passives.bannerindex3.tempdate == true ?
@@ -221,16 +230,19 @@ const ReworksPageFormatting = ({match, ProcessedReworks, selected_chara, Process
               </div>
               {passives.PassiveCount == 4?
                 <div className={`bluebase  infobase nobuffpadding`}>
+                   <div className='subpassiveflair spacearound'><span className='smallpassive'/><div className='lb1 lsmallerinline'/>{passives.PassiveName2}</div>
               {passives.PassiveDesc2_3 == undefined ? "" : addformatting(makediff(passives.PassiveDesc2_3,passives.PassiveDesc2_2))}
               </div>
               :""}
                {passives.PassiveCount == 4?
                 <div className={`bluebase  infobase nobuffpadding`}>
+                   <div className='subpassiveflair spacearound'><span className='smallpassive'/><div className='lb2 lsmallerinline'/>{passives.PassiveName2}</div>
               {passives.PassiveDesc3_3 == undefined ? "" : addformatting(makediff(passives.PassiveDesc3_3,passives.PassiveDesc3_2))}
               </div>
               :""}
               {passives.PassiveCount == 4?
                 <div className={`bluebase  infobase nobuffpadding`}>
+                   <div className='subpassiveflair spacearound'><span className='smallpassive'/><div className='lb3 lsmallerinline'/>{passives.PassiveName2}</div>
               {passives.PassiveDesc4_3 == undefined ? "" : addformatting(makediff(passives.PassiveDesc4_3,passives.PassiveDesc4_2))}
               </div>
               :""}
