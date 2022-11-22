@@ -176,7 +176,9 @@ const Passive_Effects_Attached =({
     var require_ = ""
     var require__1 = ""
 
-    if(passive_ability.require_ != undefined){
+    if( passive_ability.require_ != undefined &&
+        passive_ability.passive_cond_type == 2 && passive_ability.effect_ != undefined
+        ){
     require_ = require_trans_handler(
         passive_ability.require_,
         passive_ability.require_target,
@@ -202,7 +204,8 @@ const Passive_Effects_Attached =({
     )
     }
 
-    if(passive_ability.require__1 != undefined){
+    if( passive_ability.require__1 != undefined &&
+        passive_ability.passive_cond_type == 2 && passive_ability.effect__1 != undefined){
         require__1 = require_trans_handler(
             passive_ability.require__1,
             passive_ability.require_target_1,

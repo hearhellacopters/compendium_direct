@@ -15,7 +15,8 @@ const log = () =>{
                     ┬ Site now uses split databases for GL and JP<br/>
                     ├─ Rework, Enemy and Summon pages will remain unchanged<br/>
                     ├─ Spoiler tags now on some content<br/>
-                    └─ Character data restricted to only versions they are found in<br/>
+                    ├─ Character data restricted to version they are found in<br/>
+                    └─ Automated Character roles based on selected database<br/>
                     ┬ Buffs Search<br/>
                     ├─ Added official text to buffs<br/>
                     ├─ Ordered buffs based on ability<br/>
@@ -46,18 +47,17 @@ const log = () =>{
                     ┬ Spheres Search<br/>
                     ├─ Sphere data restricted to only versions they are found in<br/>
                     └─ Simplified condition filters<br/>
-                    - Added links to Event pages from Direct Event page<br/>
-                    - Added Weapon skins to Wardrobe page<br/>
+                    - Upgraded Enemy Force Time Helpers based on current verison<br/>
                     - Expanded Ability hit data display for better readability<br/>
                     - Sorted Advance Classes by in-game types<br/>
-                    Backend changes<br/>
+                    <br/>
+                    Backend changes:<br/>
                     ┬ Improved performance on pages<br/>
                     └─ Minimized data load for better mobile loading <br/>
-                    - Added passive based conditional casts added to buff page<br/>
-                    - Added Notes systems for commands and ailments context<br/>
+                    - Added passive based conditional casts to buff page<br/>
+                    - Added Weapon skins to Wardrobe page<br/>
+                    - Added Notes systems for commands and buff context<br/>
                     - Added Direct Ultima weapons data to Ultima page<br/>
-                    - Added Events for Direct RF Spheres<br/>
-                    - Added Artifact recommends / Spheres slots to Direct Spheres
                     </li>
                 </ul>
                 <div className="filterholderflair" >

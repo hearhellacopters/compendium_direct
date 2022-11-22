@@ -136,7 +136,9 @@ const Passive_Battle_State =({
     var require_ = ""
     var require__1 = ""
 
-    if(passive_ability.require_ != undefined && passive_ability.require_disp == true){
+    if( passive_ability.require_ != undefined && passive_ability.require_disp == true &&
+        passive_ability.passive_cond_type == 2 && passive_ability.effect_ != undefined
+        ){
     require_ = require_trans_handler(
         passive_ability.require_,
         passive_ability.require_target,
@@ -162,7 +164,9 @@ const Passive_Battle_State =({
     )
     }
 
-    if(passive_ability.require__1 != undefined && passive_ability.require__1disp == true){
+    if( passive_ability.require__1 != undefined && passive_ability.require__1disp == true &&
+        passive_ability.passive_cond_type == 2 && passive_ability.effect__1 != undefined
+        ){
         require__1 = require_trans_handler(
             passive_ability.require__1,
             passive_ability.require_target_1,
