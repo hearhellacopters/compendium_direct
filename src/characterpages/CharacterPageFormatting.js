@@ -479,7 +479,10 @@ const onclickvoice = (Voice) =>{
               </div>
                 }
                 {showraw == true?
-                <ReactJson iconStyle={"square"} quotesOnKeys={false} name={"hit map"} displayDataTypes={false} collapsed={false} theme={"threezerotwofour"} src={newmatch}/>
+                <ReactJson iconStyle={"square"} quotesOnKeys={false} name={"Profile Data"} displayDataTypes={false} collapsed={true} theme={"threezerotwofour"} src={newmatch}/>
+                :""}
+                {showraw == true?
+                <ReactJson iconStyle={"square"} quotesOnKeys={false} name={"release"} displayDataTypes={false} collapsed={false} theme={"threezerotwofour"} src={all_dates}/>
                 :""}
               {all_dates.length!=0?
               <div>

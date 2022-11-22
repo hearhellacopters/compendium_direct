@@ -98,24 +98,28 @@ const Stickers = ({ProcessedStickers, ProcessedCharacters, jptoggledata}) => {
 
   //filter
   useEffect(() => {
-      const filterholder = [];
-
-      if (animated === true) {
-        const filteredout = rawData.filter(
-          (stickers) => stickers["Animated"] == true
-        );
-        filterholder.push(...filteredout);
-      }
+      const filterholder2 = [];
 
       if(jptoggledata == false){
         const filteredout = rawData.filter(
           (stickers) => stickers["IconGL"] != undefined
         );
+        filterholder2.push(...filteredout);
+      } else {
+        filterholder2.push(...rawData);
+      }
+      const filterholder = [];
+
+      if (animated === true) {
+        const filteredout = filterholder2.filter(
+          (stickers) => stickers["Animated"] == true 
+        );
         filterholder.push(...filteredout);
       }
-  
+
+      
       if (filterholder.length === 0) {
-        filterholder.push(...rawData);
+        filterholder.push(...filterholder2);
       }
   
         const makeUnique = filterholder
@@ -288,7 +292,6 @@ const Stickers = ({ProcessedStickers, ProcessedCharacters, jptoggledata}) => {
 
     const dispatch = useDispatch();
 
-    const [jponly, setJPonly] = useState(jptoggledata);
     const [JPsearch, setJPSearch] = useQueryParam("JP", "");
 
     useEffect(() => {
@@ -302,14 +305,12 @@ const Stickers = ({ProcessedStickers, ProcessedCharacters, jptoggledata}) => {
     },[setJPSearch,dispatch])
 
     const jponlybutton = () => {
-      if (jponly == false) {
+      if (jptoggledata == false) {
         dispatch(setTrue())
         setJPSearch("true")
-        setJPonly(true);
       } else {
         dispatch(setFalse())
         setJPSearch("")
-        setJPonly(false);
       }
     };
 
@@ -327,15 +328,15 @@ const Stickers = ({ProcessedStickers, ProcessedCharacters, jptoggledata}) => {
           <meta property="og:url" content="https://dissidiacompendium.com/search/stickers"/>
         </Helmet>
             <div className="content">
-              <h1  >{`${jponly == true? "JP":"GL"} Stickers`}</h1>
+              <h1  >{`${jptoggledata == true? "JP":"GL"} Stickers`}</h1>
               <div className="subheader">Use filters to limit returns</div>
               <div className="charfilterspacer"/>
               <div key="filter1" onClick={showfilterbutton} className="charfilter"><span className="filterstext"></span>{showFilter ? <TiArrowSortedUp className="uparrow"/> : <TiArrowSortedDown className="downarrow"/>}</div>
               {showFilter == false ? 
               <div className="event-search-reverse-holder">
-              <span className={`${jponly ? "jponlybackground" : "GLonlybackground"}`}>
-               <Tippy content={`${jponly == true? "Switch to GL" : "Switch to JP"}`} className="tooltip" >
-              <span onClick={jponlybutton} className={`${jponly ? "jpflage jpsmallinactive smalleventbutton" : "glflage smalleventbutton"}`}/>
+              <span className={`${jptoggledata ? "jponlybackground" : "GLonlybackground"}`}>
+               <Tippy content={`${jptoggledata == true? "Switch to GL" : "Switch to JP"}`} className="tooltip" >
+              <span onClick={jponlybutton} className={`${jptoggledata ? "jpflage jpsmallinactive smalleventbutton" : "glflage smalleventbutton"}`}/>
               </Tippy>
               </span>
                 <IoSearch className="searchicon"/>
