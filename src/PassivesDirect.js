@@ -873,6 +873,22 @@ const PassiveDirect =({
       }
     };
 
+    const setGLbutton = () => {
+      if (jponly == true) {
+        dispatch(setFalse())
+        setJPSearch("")
+        setJPonly(false);
+      }
+    };
+
+    const setJPbutton = () => {
+      if (jponly == false) {
+        dispatch(setTrue())
+        setJPSearch("true")
+        setJPonly(true);
+      } 
+    };
+
     return(
         <div className="wrapper">
         <Helmet>
@@ -976,6 +992,14 @@ const PassiveDirect =({
                         </ul>
                       </div>       
                   <div className="similarbanner">Refine</div>
+                  <ul className="bufftypes">
+                      <Tippy content="GL Database">
+                      <li className={`${jponly ? "filterinactive": "filteractive"} buffbutton ver_gl`} onClick={setGLbutton}></li>
+                      </Tippy>
+                      <Tippy content="JP Database">
+                      <li className={`${jponly ? "filteractive": "filterinactive"} buffbutton ver_jp`} onClick={setJPbutton}></li>
+                      </Tippy>
+                    </ul>
                     <div className="typeholder">
                       <Select
                       defaultValue={Typesearch != "" ? {value: Typesearch, label: Typesearch } : null}

@@ -293,6 +293,7 @@ const Stickers = ({ProcessedStickers, ProcessedCharacters, jptoggledata}) => {
     const dispatch = useDispatch();
 
     const [JPsearch, setJPSearch] = useQueryParam("JP", "");
+    const [jponly, setJPonly] = useState(jptoggledata);
 
     useEffect(() => {
     if(getQueryStringVal("JP") == "true" ){
@@ -312,6 +313,22 @@ const Stickers = ({ProcessedStickers, ProcessedCharacters, jptoggledata}) => {
         dispatch(setFalse())
         setJPSearch("")
       }
+    };
+
+    const setGLbutton = () => {
+      if (jponly == true) {
+        dispatch(setFalse())
+        setJPSearch("")
+        setJPonly(false);
+      }
+    };
+
+    const setJPbutton = () => {
+      if (jponly == false) {
+        dispatch(setTrue())
+        setJPSearch("true")
+        setJPonly(true);
+      } 
     };
 
     return (
@@ -362,6 +379,14 @@ const Stickers = ({ProcessedStickers, ProcessedCharacters, jptoggledata}) => {
                         <li className={`${animated ? "filteractive": "filterinactive"} buffbutton gifbutton`} onClick={animatedbutton}></li>
                       </ul>                      
                       <div className="similarbanner">Refine</div>
+                      <ul className="bufftypes">
+                      <Tippy content="GL Database">
+                      <li className={`${jponly ? "filterinactive": "filteractive"} buffbutton ver_gl`} onClick={setGLbutton}></li>
+                      </Tippy>
+                      <Tippy content="JP Database">
+                      <li className={`${jponly ? "filteractive": "filterinactive"} buffbutton ver_jp`} onClick={setJPbutton}></li>
+                      </Tippy>
+                    </ul>
                       <div className="typeholder">
                         <Select
                         defaultValue={Typesearch != "" ? {value: Typesearch, label: Typesearch } : null}

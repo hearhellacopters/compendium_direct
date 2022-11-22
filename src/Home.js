@@ -153,6 +153,16 @@ const Home = ({ProcessedUpdates, jptoggledata}) => {
         }
     };
 
+    const togglebutton = () => {
+      if (jptoggledata == true) {
+          dispatch(setFalse())
+          setJPSearch("")
+      } else {
+        dispatch(setTrue())
+            setJPSearch("true")
+      }
+  };
+
     const toggle_spoilers=()=>{
       setspoilers((prevValue)=>!prevValue)
     }
@@ -180,16 +190,18 @@ const Home = ({ProcessedUpdates, jptoggledata}) => {
               <div className="subheader">
                 <div className="homewelcomeholder noselect">
                 Dissidia Final Fantasy Opera Omnia mobile game database.<br/><br/>
-                We provide English and Japanese translations for both Global and Japanese versions. Here you'll find all character abilities, enemies and summons, as well as a complete timeline of game events with community guides.<br></br>
-                <br></br>
-                <div className="center">Switch database by using the upper <span className="emoji clicker" onClick={glonlybutton}>🌎</span> or <span className="jpflagupdate clicker" onClick={jponlybutton}></span> icons or the buttons below:
+                We provide English and Japanese translations for both Global 
+                and Japanese versions. Here you'll find all character abilities, 
+                enemies and summons, as well as a complete timeline of game events 
+                with community guides. Switch database by using the upper 
+                <span className="emoji clicky" onClick={glonlybutton}>🌎</span> or <span className="jpflagupdate clicker" onClick={jponlybutton}></span> icons 
+                or the button below:
                 <br/>
-                <Tippy content="GL">
-                        <span className={`${jptoggledata == false ? "filteractive": "filterinactive"} buffbutton ver_gl`} onClick={glonlybutton}></span>
+                <br/>
+                <div className='center'>
+                <Tippy content={jptoggledata == false ? "GL": "JP"}>
+                        <span className={`${jptoggledata == false ? "ver_gl": "ver_jp"} buffbutton filterinactive`} onClick={togglebutton}></span>
                 </Tippy>   
-                <Tippy content="JP">
-                        <span className={`${jptoggledata == true ? "filteractive": "filterinactive"} buffbutton ver_jp`} onClick={jponlybutton}></span>
-                </Tippy> 
                 </div>
                 <span className="center" id="red">
                   <ImWarning className='jpsmallinactive'></ImWarning>

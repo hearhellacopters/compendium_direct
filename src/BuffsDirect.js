@@ -2888,6 +2888,22 @@ const BuffsDirect =({
         }
       };
 
+      const setGLbutton = () => {
+        if (jponly == true) {
+          dispatch(setFalse())
+          setJPSearch("")
+          setJPonly(false);
+        }
+      };
+
+      const setJPbutton = () => {
+        if (jponly == false) {
+          dispatch(setTrue())
+          setJPSearch("true")
+          setJPonly(true);
+        } 
+      };
+
     return(
         <div className="wrapper">
         <Helmet>
@@ -3247,6 +3263,14 @@ const BuffsDirect =({
                         </Tippy>
                     </ul>
                     <div className="similarbanner">Refine</div>
+                    <ul className="bufftypes">
+                      <Tippy content="GL Database">
+                      <li className={`${jponly ? "filterinactive": "filteractive"} buffbutton ver_gl`} onClick={setGLbutton}></li>
+                      </Tippy>
+                      <Tippy content="JP Database">
+                      <li className={`${jponly ? "filteractive": "filterinactive"} buffbutton ver_jp`} onClick={setJPbutton}></li>
+                      </Tippy>
+                    </ul>
                     <div className="margeholder">
                       <div className="Merge">
                         <label className="MergeText">Party Aura?</label>

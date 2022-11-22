@@ -1031,6 +1031,22 @@ const SpheresDirect =({
       }
     };
 
+    const setGLbutton = () => {
+      if (jponly == true) {
+        dispatch(setFalse())
+        setJPSearch("")
+        setJPonly(false);
+      }
+    };
+
+    const setJPbutton = () => {
+      if (jponly == false) {
+        dispatch(setTrue())
+        setJPSearch("true")
+        setJPonly(true);
+      } 
+    };
+
     return(
         <div className="wrapper">
         <Helmet>
@@ -1176,6 +1192,14 @@ const SpheresDirect =({
                     </Tippy>
                     </ul>
                     <div className="similarbanner">Refine</div>
+                    <ul className="bufftypes">
+                      <Tippy content="GL Database">
+                      <li className={`${jponly ? "filterinactive": "filteractive"} buffbutton ver_gl`} onClick={setGLbutton}></li>
+                      </Tippy>
+                      <Tippy content="JP Database">
+                      <li className={`${jponly ? "filteractive": "filterinactive"} buffbutton ver_jp`} onClick={setJPbutton}></li>
+                      </Tippy>
+                    </ul><br/>
                     <ul className="spheretypes">
                         <li className={`${aSpheres ? "filteractive": "filterinactive"} spheresbutton aSpheresButton`} onClick={aSpheresbutton}></li>
                         <li className={`${bSpheres ? "filteractive": "filterinactive"} spheresbutton bSpheresButton`} onClick={bSpheresbutton}></li>
