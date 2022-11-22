@@ -104,6 +104,17 @@ const Hit_Data_For_Ability =(
         hit_data_id_39: hit_data_id_39
     }
 
+    const check_hidden=(id)=>{
+        if(id == undefined){
+            return true
+        }
+        if(hit_effect_id[id] && hit_effect_id[id].hidden == true){
+            return false
+        } else {
+            return true
+        }
+    }
+
     const hitreturn = {
         hit_pars:{}
     }
@@ -113,7 +124,8 @@ const Hit_Data_For_Ability =(
         if( hit_data != undefined && 
             hit_data.hitdata_id != -1 && 
             hit_data.hitdata_id != 518 && //blanks
-            (hit_data.effect_id != 37 && hit_data.m_nARG_4 != 2809) //hide models
+            (hit_data.effect_id != 37 && hit_data.m_nARG_4 != 2809) && //hide models
+            check_hidden(hit_data.effect_id)
             ){
             var hit_data_id_pars = ""
             if(hit_data == undefined){
