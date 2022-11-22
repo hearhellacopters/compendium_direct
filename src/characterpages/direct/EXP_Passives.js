@@ -1,14 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import Tippy from '../../formatting/TippyDefaults'
 import { useStateIfMounted } from "use-state-if-mounted";
-import { slice, concat, } from 'lodash';
-import { ImSortAmountAsc } from 'react-icons/im';
-import { ImSortAmountDesc } from 'react-icons/im';
-import { TiArrowSortedDown } from 'react-icons/ti';
-import { TiArrowSortedUp } from 'react-icons/ti';
-import { IoMdCloseCircleOutline } from 'react-icons/io';
-import { IoSearch } from 'react-icons/io5'; 
-import { FaUndoAlt } from 'react-icons/fa'
 import Passive_Ability_Formatting from './formatting/passives/Passive_Ability_Formatting';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
@@ -66,7 +57,7 @@ const EXP_Passives =({
     const [searchResults, setSearchResults] = useState(rawData);
     const [limits, setLimits] = useState(startinglimit);
     const [listDisplay, setListDisplay] = useState(
-      slice(rawData, 0, startinglimit)
+      rawData && rawData.slice(0, startinglimit)
     );
     const [listLength, setListLength] = useState(listDisplay.length);
     const [showLoadMore, setShowLoadMore] = useState(true);
@@ -233,9 +224,8 @@ useEffect(() => {
     const loadMoreButton = () => {
         const newlimits = limits + startinglimit;
         const newLoadMore = searchResults.length > newlimits;
-        const newlistdisplay = concat(
-        listDisplay,
-        slice(searchResults, limits, newlimits)
+        const newlistdisplay = listDisplay.concat(
+        searchResults.slice(limits, newlimits)
         );
         setLimits(newlimits);
         if (newlimits <= newlistdisplay.length) {
@@ -285,7 +275,7 @@ useEffect(() => {
         }});
         setFilterResults(makeUnique);
         setSearchResults(getailmentfilter);
-        const newlistdisplay = slice(getailmentfilter, 0, limits);
+        const newlistdisplay = getailmentfilter.slice(0, limits);
         if (limits < getailmentfilter.length) {
             setShowLoadMore(true);
             setListDisplay(newlistdisplay);

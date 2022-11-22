@@ -2,7 +2,6 @@ import React, {useState, useEffect } from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
 import { Link } from 'react-router-dom'
 import { Helmet} from 'react-helmet-async';
-import { slice, concat, } from 'lodash';
 import { IoMdCloseCircleOutline } from 'react-icons/io';
 import { IoSearch } from 'react-icons/io5'; 
 import { ImSortAmountAsc } from 'react-icons/im';
@@ -33,7 +32,7 @@ const CharacterWardrobe = ({
     const [searchResults, setSearchResults] = useState(rawData);
     const [limits, setLimits] = useState(passivelimit);
     const [listDisplay, setListDisplay] = useState(
-        slice(rawData, 0, passivelimit)
+      rawData && rawData.slice(0, passivelimit)
     );
 
     const [listLength, setListLength] = useState(listDisplay.length);
@@ -87,7 +86,7 @@ const CharacterWardrobe = ({
           const getcharacterfilter = searchit
         setFilterResults(makeUnique);
         setSearchResults(getcharacterfilter);
-        const newlistdisplay = slice(getcharacterfilter, 0, limits);
+        const newlistdisplay = getcharacterfilter.slice(0, limits);
         if (limits < getcharacterfilter.length) {
           setShowLoadMore(true);
           setListDisplay(newlistdisplay);
@@ -134,9 +133,8 @@ const CharacterWardrobe = ({
     const loadMoreButton = () => {
         const newlimits = limits + passivelimit;
         const newLoadMore = searchResults.length > newlimits;
-        const newlistdisplay = concat(
-        listDisplay,
-        slice(searchResults, limits, newlimits)
+        const newlistdisplay = listDisplay.concat(
+        searchResults.slice(limits, newlimits)
         );
         setLimits(newlimits);
         if (newlimits <= newlistdisplay.length) {

@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
 import Tippy from './formatting/TippyDefaults'
 import { useDispatch, useSelector } from "react-redux";
-import { slice, concat, } from 'lodash';
 import { Helmet } from 'react-helmet-async';
 import Select from 'react-select';
 import { ImSortAmountAsc } from 'react-icons/im';
@@ -115,7 +114,7 @@ const AbilitiesDirect =({
     const [searchResults, setSearchResults] = useState(rawData);
     const [limits, setLimits] = useState(startinglimit);
     const [listDisplay, setListDisplay] = useState(
-        slice(rawData, 0, startinglimit)
+        rawData && rawData.slice(0, startinglimit)
     );
 
     const [listLength, setListLength] = useState(listDisplay.length);
@@ -506,7 +505,7 @@ const AbilitiesDirect =({
             );
             setFilterResults(makeUnique);
             setSearchResults(searchit);
-            const newlistdisplay = slice(searchit, 0, limits);
+            const newlistdisplay = searchit.slice(0, limits);
             if (limits < searchit.length) {
                 setShowLoadMore(true);
                 setListDisplay(newlistdisplay);
@@ -600,7 +599,7 @@ const AbilitiesDirect =({
             );
             setFilterResults(makeUnique);
             setSearchResults(searchit);
-            const newlistdisplay = slice(searchit, 0, limits);
+            const newlistdisplay = searchit.slice(0, limits);
             if (limits < searchit.length) {
                 setShowLoadMore(true);
                 setListDisplay(newlistdisplay);
@@ -1025,9 +1024,8 @@ const AbilitiesDirect =({
     const loadMoreButton = () => {
         const newlimits = limits + startinglimit;
         const newLoadMore = searchResults.length > newlimits;
-        const newlistdisplay = concat(
-        listDisplay,
-        slice(searchResults, limits, newlimits)
+        const newlistdisplay = listDisplay.concat(
+        searchResults.slice(limits, newlimits)
         );
         setLimits(newlimits);
         if (newlimits <= newlistdisplay.length) {

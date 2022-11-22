@@ -4,13 +4,9 @@ import Passive_Ability_Formatting from './formatting/passives/Passive_Ability_Fo
 import Link_Parm from './Link_Parm';
 import { getQuery, getQueryStringVal, useQueryParam } from '../../processing/urlparams'
 import Tippy from '../../formatting/TippyDefaults'
-import { useDispatch } from "react-redux";
-import { slice, concat, } from 'lodash';
 import Select from 'react-select';
 import { ImSortAmountAsc } from 'react-icons/im';
 import { ImSortAmountDesc } from 'react-icons/im';
-import { TiArrowSortedDown } from 'react-icons/ti';
-import { TiArrowSortedUp } from 'react-icons/ti';
 import { IoMdCloseCircleOutline } from 'react-icons/io';
 import { IoSearch } from 'react-icons/io5'; 
 import { FaUndoAlt } from 'react-icons/fa'
@@ -60,7 +56,7 @@ const Link_Passives =({
     const [searchResults, setSearchResults] = useState(rawData);
     const [limits, setLimits] = useState(startinglimit);
     const [listDisplay, setListDisplay] = useState(
-      slice(rawData, 0, startinglimit)
+      rawData && rawData.slice(0, startinglimit)
     );
     const [listLength, setListLength] = useState(listDisplay.length);
     const [showLoadMore, setShowLoadMore] = useState(true);
@@ -153,7 +149,7 @@ const Link_Passives =({
         }});
         setFilterResults(makeUnique);
         setSearchResults(getailmentfilter);
-        const newlistdisplay = slice(getailmentfilter, 0, limits);
+        const newlistdisplay = getailmentfilter.slice(0, limits);
         if (limits < getailmentfilter.length) {
             setShowLoadMore(true);
             setListDisplay(newlistdisplay);

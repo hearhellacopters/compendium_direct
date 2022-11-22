@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
 import Tippy from '../../formatting/TippyDefaults';
-import { slice, concat, } from 'lodash';
 import Char_Face_Maker from './formatting/Char_Face_Maker'
 import Ailment_Data_Formatting_bycharacter from './formatting/Ailment_Data_Formating_bycharacter';
 import Ailment_Data_Formatting from './formatting/Ailment_Data_Formating';
@@ -14,8 +13,6 @@ import ReactJson from '@microlink/react-json-view'
 import { getQuery, getQueryStringVal, useQueryParam } from '../../processing/urlparams'
 import { ImSortAmountAsc } from 'react-icons/im';
 import { ImSortAmountDesc } from 'react-icons/im';
-import { TiArrowSortedDown } from 'react-icons/ti';
-import { TiArrowSortedUp } from 'react-icons/ti';
 import { IoMdCloseCircleOutline } from 'react-icons/io';
 import { IoSearch } from 'react-icons/io5'; 
 import { FaUndoAlt } from 'react-icons/fa'
@@ -407,7 +404,7 @@ const Buff_bycharacter =({
         rank_ranked(b.rank_tag)-rank_ranked(a.rank_tag) || b.id - a.id))
 
     const [listDisplay, setListDisplay] = useState(
-        slice(rawData, 0, startinglimit)
+        rawData && rawData.slice(0, startinglimit)
       );
   
     const [listLength, setListLength] = useState(listDisplay.length);
@@ -550,7 +547,7 @@ const Buff_bycharacter =({
             );
             setFilterResults(makeUnique);
             setSearchResults(searchit);
-            const newlistdisplay = slice(searchit, 0, limits);
+            const newlistdisplay = searchit.slice(0, limits);
             if (limits < searchit.length) {
                 setShowLoadMore(true);
                 setListDisplay(newlistdisplay);

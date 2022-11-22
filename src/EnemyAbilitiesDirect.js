@@ -1,13 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
-import { useDispatch } from "react-redux";
-import { setFalse, setTrue } from './redux/ducks/jptoggle'
 import { Link } from 'react-router-dom'
 import './Spheres.css';
 import Tippy from './formatting/TippyDefaults.js';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
-import { slice, concat, } from 'lodash';
 import EnemyAbilitiesListingFormattingDirect from './formatting/EnemyAbilitiesListingFormattingDirect'
 import { Helmet } from 'react-helmet-async';
 import Select from 'react-select';
@@ -23,15 +20,6 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { FaShareSquare } from 'react-icons/fa';
 
 const EnemyAbilitiesDirect = ({ ProcessedEnemyAbilities }) => {
-
-  //const error = ProcessedEnemyAbilities.filter(function (ef) {
-  //  const newfilterpull = ef["JPName"] == '';
-  //  return newfilterpull;
-  //})
-  //
-  //console.log(error)
-
-  const dispatch = useDispatch();
 
   const passivelimit = window.innerWidth <= 815 ? 15 : 30;
   
@@ -66,7 +54,7 @@ const EnemyAbilitiesDirect = ({ ProcessedEnemyAbilities }) => {
   const [searchResults, setSearchResults] = useState(rawData);
   const [limits, setLimits] = useState(passivelimit);
   const [listDisplay, setListDisplay] = useState(
-    slice(rawData, 0, passivelimit)
+    rawData && rawData.slice(0, passivelimit)
   );
 
   const [listLength, setListLength] = useState(listDisplay.length);
@@ -226,7 +214,7 @@ const EnemyAbilitiesDirect = ({ ProcessedEnemyAbilities }) => {
         }});
       setFilterResults(makeUnique);
       setSearchResults(getcondfilter);
-      const newlistdisplay = slice(getcondfilter, 0, limits);
+      const newlistdisplay = getcondfilter.slice(0, limits);
       if (limits < getcondfilter.length) {
         setShowLoadMore(true);
         setListDisplay(newlistdisplay);
@@ -286,7 +274,7 @@ const EnemyAbilitiesDirect = ({ ProcessedEnemyAbilities }) => {
         }});
       setFilterResults(makeUnique);
       setSearchResults(getcondfilter);
-      const newlistdisplay = slice(getcondfilter, 0, limits);
+      const newlistdisplay = getcondfilter.slice(0, limits);
       if (limits < getcondfilter.length) {
         setShowLoadMore(true);
         setListDisplay(newlistdisplay);
@@ -446,9 +434,8 @@ const EnemyAbilitiesDirect = ({ ProcessedEnemyAbilities }) => {
   const loadMoreButton = () => {
     const newlimits = limits + passivelimit;
     const newLoadMore = searchResults.length > newlimits;
-    const newlistdisplay = concat(
-      listDisplay,
-      slice(searchResults, limits, newlimits)
+    const newlistdisplay = listDisplay.concat(
+      searchResults.slice(limits, newlimits)
     );
     setLimits(newlimits);
     if (newlimits <= newlistdisplay.length) {

@@ -1,5 +1,4 @@
 import React, {useState, useEffect } from 'react';
-import DefaultTippy from '../formatting/TippyDefaults.js';
 import { Helmet} from 'react-helmet-async';
 import { Link, Navigate} from 'react-router-dom'
 import 'react-lazy-load-image-component/src/effects/opacity.css';
@@ -52,7 +51,7 @@ const UltimaPage = ({
   const [searchResults, setSearchResults] = useState(rawData);
   const [limits, setLimits] = useState(passivelimit);
   const [listDisplay, setListDisplay] = useState(
-    slice(rawData, 0, passivelimit)
+    rawData && rawData.slice(0, passivelimit)
   );
   const [showFilter, setShowFilter] = useState(getQueryStringVal("filter") != null  ? true : false);
   const [searchdisplay, setsearchdisplay] = useState(getQueryStringVal("search") != null ? getQueryStringVal("search") : "");
@@ -142,9 +141,8 @@ const UltimaPage = ({
   const loadMoreButton = () => {
     const newlimits = limits + passivelimit;
     const newLoadMore = searchResults.length > newlimits;
-    const newlistdisplay = concat(
-      listDisplay,
-      slice(searchResults, limits, newlimits)
+    const newlistdisplay = listDisplay.concat(
+      searchResults.slice(limits, newlimits)
     );
     setLimits(newlimits);
     if (newlimits <= newlistdisplay.length) {
@@ -242,7 +240,7 @@ const UltimaPage = ({
         filterholder.push(...rawData)
       }
 
-      const newlistdisplay = slice(filterholder, 0, limits);
+      const newlistdisplay = filterholder.slice(0, limits);
       if (limits < newlistdisplay.length) {
         setShowLoadMore(true);
         setListDisplay(newlistdisplay);

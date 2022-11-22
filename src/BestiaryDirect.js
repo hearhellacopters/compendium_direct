@@ -8,7 +8,6 @@ import './App.css'
 import Tippy from './formatting/TippyDefaults.js';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
-import { slice, concat, } from 'lodash';
 import { Helmet} from 'react-helmet-async';
 import Select from 'react-select';
 import EnemyListingDirect from './formatting/EnemyListingDirect'
@@ -123,7 +122,7 @@ const BestiaryDirect = ({ProcessedEnemy, jptoggledata, ProcessedCharacters, Part
   const [searchResults, setSearchResults] = useState(rawData);
   const [limits, setLimits] = useState(startinglimit);
   const [listDisplay, setListDisplay] = useState(
-    slice(rawData, 0, startinglimit)
+    rawData && rawData.slice(0, startinglimit)
   );
 
   const [listLength, setListLength] = useState(listDisplay.length);
@@ -327,7 +326,7 @@ const BestiaryDirect = ({ProcessedEnemy, jptoggledata, ProcessedCharacters, Part
         }})
       setFilterResults(makeUnique);
       setSearchResults(gettypefilter);
-      const newlistdisplay = slice(gettypefilter, 0, limits);
+      const newlistdisplay = gettypefilter.slice(0, limits);
       if (limits < gettypefilter.length) {
         setShowLoadMore(true);
         setListDisplay(newlistdisplay);
@@ -586,9 +585,8 @@ const BestiaryDirect = ({ProcessedEnemy, jptoggledata, ProcessedCharacters, Part
   const loadMoreButton = () => {
     const newlimits = limits + startinglimit;
     const newLoadMore = searchResults.length > newlimits;
-    const newlistdisplay = concat(
-      listDisplay,
-      slice(searchResults, limits, newlimits)
+    const newlistdisplay = listDisplay.concat(
+      searchResults.slice(limits, newlimits)
     );
     setLimits(newlimits);
     if (newlimits <= newlistdisplay.length) {

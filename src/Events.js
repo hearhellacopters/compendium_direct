@@ -6,7 +6,6 @@ import './Events.css';
 import Tippy from './formatting/TippyDefaults.js';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
-import { slice, concat, } from 'lodash';
 import { Helmet} from 'react-helmet-async';
 import Select from 'react-select';
 import { Link } from 'react-router-dom'
@@ -65,7 +64,7 @@ const Events = ({ ProcessedEvents, ProcessedCharacters, EventGuideData, jptoggle
   const [searchResults, setSearchResults] = useState(rawData);
   const [limits, setLimits] = useState(startinglimit);
   const [listDisplay, setListDisplay] = useState(
-    slice(rawData, 0, startinglimit)
+    rawData && rawData.slice(0, startinglimit)
   );
 
   const [listLength, setListLength] = useState(listDisplay.length);
@@ -334,7 +333,7 @@ const Events = ({ ProcessedEvents, ProcessedCharacters, EventGuideData, jptoggle
         }});
       setFilterResults(makeUnique);
       setSearchResults(gettypefilter);
-      const newlistdisplay = slice(gettypefilter, 0, limits);
+      const newlistdisplay = gettypefilter.slice(0, limits);
       setShowLoadMore(limits < gettypefilter.length ? true : false);
       setListDisplay(newlistdisplay);
       setListLength(limits < gettypefilter.length ? gettypefilter.length : newlistdisplay.length);
@@ -526,9 +525,8 @@ const Events = ({ ProcessedEvents, ProcessedCharacters, EventGuideData, jptoggle
     const loadMoreButton = () => {
       const newlimits = limits + startinglimit;
       const newLoadMore = searchResults.length > newlimits;
-      const newlistdisplay = concat(
-        listDisplay,
-        slice(searchResults, limits, newlimits)
+      const newlistdisplay = listDisplay.concat(
+        searchResults.slice(limits, newlimits)
       );
       setLimits(newlimits);
       if (newlimits <= newlistdisplay.length) {

@@ -1,8 +1,6 @@
 import React, {useState, useEffect } from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
-import DefaultTippy from '../formatting/TippyDefaults.js';
 import { Helmet} from 'react-helmet-async';
-import { Link, Redirect} from 'react-router-dom'
 import CharacterForceCond from '../formatting/CharacterForceCond.js'
 import 'react-lazy-load-image-component/src/effects/opacity.css';
 import 'tippy.js/animations/scale.css';
@@ -11,7 +9,6 @@ import 'tippy.js/animations/scale-extreme.css';
 import { TiArrowSortedDown } from 'react-icons/ti';
 import { TiArrowSortedUp } from 'react-icons/ti';
 import Tippy from '../formatting/TippyDefaults.js';
-import { slice, concat, } from 'lodash';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
 import { ImSortAmountAsc } from 'react-icons/im';
@@ -39,7 +36,7 @@ const FRPage = ({ match, ProcessedCharacters, ForceCharacters, jptoggledata }) =
   const [searchResults, setSearchResults] = useState(rawData);
   const [limits, setLimits] = useState(passivelimit);
   const [listDisplay, setListDisplay] = useState(
-    slice(rawData, 0, passivelimit)
+    rawData && rawData.slice(0, passivelimit)
   );
   const [searchTerm, setSearchTerm] = useState(getQueryStringVal("search") != null  ? getQueryStringVal("search").toLowerCase() : "");
   const [showFilter, setShowFilter] = useState(getQueryStringVal("filter") != null  ? true : false);
@@ -93,7 +90,7 @@ useEffect(() => {
     setFilterResults(rawData);
     setSearchResults(rawData);
     setListLength(rawData.length);
-    setListDisplay(slice(rawData, 0, passivelimit));
+    setListDisplay(rawData.slice(0, passivelimit));
     setDisplayBanner(
       <>Displaying <span className="subtextgold">{passivelimit}</span> of <span className="subtextgold"> {rawData.length}</span> {banerDisplayTerm}</>
     );
@@ -144,7 +141,7 @@ useEffect(() => {
       setFilterResults(makeUnique);
       setSearchResults(getcondfilter);
 
-      const newlistdisplay = slice(getcondfilter, 0, limits);
+      const newlistdisplay = getcondfilter.slice(0, limits);
       if (limits < getcondfilter.length) {
         setShowLoadMore(true);
         setListDisplay(newlistdisplay);
@@ -165,9 +162,8 @@ useEffect(() => {
     const loadMoreButton = () => {
       const newlimits = limits + passivelimit;
       const newLoadMore = searchResults.length > newlimits;
-      const newlistdisplay = concat(
-        listDisplay,
-        slice(searchResults, limits, newlimits)
+      const newlistdisplay = listDisplay.concat(
+        searchResults.slice(limits, newlimits)
       );
       setLimits(newlimits);
       if (newlimits <= newlistdisplay.length) {

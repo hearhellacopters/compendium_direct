@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Tippy from '../../formatting/TippyDefaults';
 import { useStateIfMounted } from "use-state-if-mounted";
-import { slice, concat, } from 'lodash';
 import Select from 'react-select';
 import { ImSortAmountAsc } from 'react-icons/im';
 import { ImSortAmountDesc } from 'react-icons/im';
@@ -10,7 +9,6 @@ import { TiArrowSortedUp } from 'react-icons/ti';
 import { IoMdCloseCircleOutline } from 'react-icons/io';
 import { IoSearch } from 'react-icons/io5'; 
 import { FaUndoAlt } from 'react-icons/fa'
-import Character_Ability_Pars from './formatting/command_ability/Character_Ability_Pars.js'
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
 import { getQuery, getQueryStringVal, useQueryParam } from '../../processing/urlparams'
@@ -165,7 +163,7 @@ const Ability_bycharacter =({
     const [searchResults, setSearchResults] = useState(rawData);
     const [limits, setLimits] = useState(startinglimit);
     const [listDisplay, setListDisplay] = useState(
-      slice(rawData, 0, startinglimit)
+        rawData && rawData.slice(0, startinglimit)
     );
 
     const [listLength, setListLength] = useState(listDisplay.length);
@@ -330,9 +328,8 @@ const Ability_bycharacter =({
     const loadMoreButton = () => {
         const newlimits = limits + startinglimit;
         const newLoadMore = searchResults.length > newlimits;
-        const newlistdisplay = concat(
-        listDisplay,
-        slice(searchResults, limits, newlimits)
+        const newlistdisplay = listDisplay.concat(
+        searchResults.slice(limits, newlimits)
         );
         setLimits(newlimits);
         if (newlimits <= newlistdisplay.length) {
@@ -488,7 +485,7 @@ const Ability_bycharacter =({
             );
             setFilterResults(makeUnique);
             setSearchResults(searchit);
-            const newlistdisplay = slice(searchit, 0, limits);
+            const newlistdisplay = searchit.slice(0, limits);
             if (limits < searchit.length) {
                 setShowLoadMore(true);
                 setListDisplay(newlistdisplay);

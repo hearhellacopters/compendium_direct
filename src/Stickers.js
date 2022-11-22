@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from 'react-router-dom'
 import './Spheres.css';
 import Tippy from './formatting/TippyDefaults.js';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
-import { slice, concat, } from 'lodash';
 import { Helmet } from 'react-helmet-async';
 import Select from 'react-select';
 import { ImSortAmountAsc } from 'react-icons/im';
@@ -43,7 +42,7 @@ const Stickers = ({ProcessedStickers, ProcessedCharacters, jptoggledata}) => {
   const [searchResults, setSearchResults] = useState(rawData);
   const [limits, setLimits] = useState(StickerLimit);
   const [listDisplay, setListDisplay] = useState(
-    slice(rawData, 0, StickerLimit)
+    rawData && rawData.slice(0, StickerLimit)
   );
 
   const [listLength, setListLength] = useState(listDisplay.length);
@@ -137,7 +136,7 @@ const Stickers = ({ProcessedStickers, ProcessedCharacters, jptoggledata}) => {
           }});
         setFilterResults(makeUnique);
         setSearchResults(getcondfilter);
-        const newlistdisplay = slice(getcondfilter, 0, limits);
+        const newlistdisplay = getcondfilter.slice(0, limits);
         if (limits < getcondfilter.length) {
           setShowLoadMore(true);
           setListDisplay(newlistdisplay);
@@ -192,9 +191,8 @@ const Stickers = ({ProcessedStickers, ProcessedCharacters, jptoggledata}) => {
   const loadMoreButton = () => {
     const newlimits = limits + StickerLimit;
     const newLoadMore = searchResults.length > newlimits;
-    const newlistdisplay = concat(
-      listDisplay,
-      slice(searchResults, limits, newlimits)
+    const newlistdisplay = listDisplay.concat(
+      searchResults.slice(limits, newlimits)
     );
     setLimits(newlimits);
     if (newlimits <= newlistdisplay.length) {

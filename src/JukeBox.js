@@ -13,7 +13,6 @@ import { IoMdCloseCircleOutline } from 'react-icons/io';
 import { IoSearch } from 'react-icons/io5'; 
 import { TiArrowSortedDown } from 'react-icons/ti';
 import { TiArrowSortedUp } from 'react-icons/ti';
-import { slice, concat, } from 'lodash';
 import { ImSortAmountAsc } from 'react-icons/im';
 import { ImSortAmountDesc } from 'react-icons/im';
 import { FaUndoAlt } from 'react-icons/fa'; 
@@ -70,7 +69,7 @@ const JukeBox = ({ProcessedMusic, playing, volume, playindex, playlist, musickey
     const [searchResults, setSearchResults] = useState(rawData);
     const [limits, setLimits] = useState(startinglimit);
     const [listDisplay, setListDisplay] = useState(
-      slice(rawData, 0, startinglimit)
+      rawData && rawData.slice(0, startinglimit)
     );
   
     const [listLength, setListLength] = useState(listDisplay.length);
@@ -165,7 +164,7 @@ const JukeBox = ({ProcessedMusic, playing, volume, playindex, playlist, musickey
           }});
         setFilterResults(makeUnique);
         setSearchResults(getcondfilter);
-        const newlistdisplay = slice(getcondfilter, 0, limits);
+        const newlistdisplay = getcondfilter.slice(0, limits);
         if (limits < getcondfilter.length) {
           setShowLoadMore(true);
           setListDisplay(newlistdisplay);
@@ -220,9 +219,8 @@ const JukeBox = ({ProcessedMusic, playing, volume, playindex, playlist, musickey
     const loadMoreButton = () => {
       const newlimits = limits + startinglimit;
       const newLoadMore = searchResults.length > newlimits;
-      const newlistdisplay = concat(
-        listDisplay,
-        slice(searchResults, limits, newlimits)
+      const newlistdisplay = listDisplay.concat(
+        searchResults.slice(limits, newlimits)
       );
       setLimits(newlimits);
       if (newlimits <= newlistdisplay.length) {

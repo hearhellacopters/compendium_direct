@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import { useDispatch } from "react-redux";
-import { useStateIfMounted } from "use-state-if-mounted";
 import Tippy from './formatting/TippyDefaults'
 import { setFalse, setTrue } from './redux/ducks/jptoggle'
 import './Home.css';
@@ -9,7 +8,6 @@ import './Events.css'
 import './Summons.css'
 import './formatting/EnemyFormatting.css'
 import addformatting from './processing/replacer_abilitycontent';
-import { slice, concat, } from 'lodash';
 import { Helmet } from 'react-helmet-async';
 import DefaultTippy from './formatting/TippyDefaults.js'
 import EventListing from './formatting/SingleEventsFormatting.js'
@@ -43,7 +41,7 @@ const Home = ({ProcessedUpdates, jptoggledata}) => {
   const filterResults = olderupdates;
   const [limits, setLimits] = useState(startinglimit);
   const [listDisplay, setListDisplay] = useState(
-    slice(olderupdates, 0, startinglimit)
+    olderupdates && olderupdates.slice(0, startinglimit)
   );
 
   const [spoilers,setspoilers] = useState(lastupdate && lastupdate.JPFlag == "GL"  ? true : false)
@@ -81,7 +79,7 @@ const Home = ({ProcessedUpdates, jptoggledata}) => {
     setShowLoadMore(true);
     setLimits(startinglimit);
     setListLength(olderupdates.length);
-    setListDisplay(slice(olderupdates, 0, startinglimit));
+    setListDisplay(olderupdates.slice(0, startinglimit));
     setDisplayBanner(
       <>Displaying <span className="subtextgold">{startinglimit}</span> of <span className="subtextgold"> {olderupdates.length}</span> {banerDisplayTerm}</>
     );
@@ -92,9 +90,8 @@ const Home = ({ProcessedUpdates, jptoggledata}) => {
   const loadMoreButton = () => {
     const newlimits = limits + startinglimit;
     const newLoadMore = filterResults.length > newlimits;
-    const newlistdisplay = concat(
-      listDisplay,
-      slice(filterResults, limits, newlimits)
+    const newlistdisplay = listDisplay.concat(
+      filterResults.slice(limits, newlimits)
     );
     setLimits(newlimits);
     if (newlimits <= newlistdisplay.length) {
