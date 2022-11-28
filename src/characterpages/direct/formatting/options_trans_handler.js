@@ -6,18 +6,14 @@ const options_trans_handler =(
     solor_or_attached,
     show_ids,
 
-    option_labels,
-    option_type_,
-    target,
+    master_index,
+    ver,
 
-    AilmentNames,
-    CommandNames,
-    ailment_group,
-    command_group,
-    passivenames,
-    equipmentpassivenames,
-    CondData
 )=>{
+
+    const option_labels = master_index.option_trans_data.option_labels
+    const option_type_ = master_index.option_trans_data.option_type_
+    const CommandNames = master_index.commands
 
     const EX_rename =(data)=>{
         let replacement = data
@@ -93,16 +89,9 @@ const options_trans_handler =(
             option_data.require_target_,
             option_data.original_label_,
 
-            option_labels,
-            target,
+            master_index,
+            ver,
 
-            AilmentNames,
-            CommandNames,
-            ailment_group,
-            command_group,
-            passivenames,
-            equipmentpassivenames,
-            CondData
         )
     }
 
@@ -115,16 +104,8 @@ const options_trans_handler =(
             option_data.require_target2_,
             option_data.original_label_,
 
-            option_labels,
-            target,
-
-            AilmentNames,
-            CommandNames,
-            ailment_group,
-            command_group,
-            passivenames,
-            equipmentpassivenames,
-            CondData
+            master_index,
+            ver,
         )
     }
 

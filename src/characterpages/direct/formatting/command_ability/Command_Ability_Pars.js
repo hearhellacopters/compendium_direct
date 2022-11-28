@@ -6,35 +6,12 @@ const Command_Ability_Pars = (
     command_ability,
     ver,
 
-    CastNames,
-    enemy_type,
-    cast_targets,
-    char_id,
-    passivenames,
-    equipmentpassivenames,
-    AilmentNames,
-    CommandNames,
-    CondData,
-    MessageData_Category,
-    MessageData_FFSeries,
-
-    ailment_group,
-    command_group,
-    enemy_resist,
-
-    type_,
-    attack_type_,
-    target_range_,
-    target_type_,
-    auto_target_type_,
-    killer_cond,
-    killer_cond_1,
-    killer_type,
-    cast_target,
-    ailment_cond,
-    ailment_cond_14,
-    command_type,
+    master_index,
 )=>{
+
+    const target_range_ = master_index.command_data_trans.target_range_
+    const target_type_ = master_index.command_data_trans.target_type_
+    const auto_target_type_ = master_index.command_data_trans.auto_target_type_
 
     const pulltr = target_range_[command_ability.tr] && target_range_[command_ability.tr].target_range_
     var target_range_str = `Target: ${pulltr}`
@@ -57,9 +34,8 @@ const Command_Ability_Pars = (
             command_ability.keff,
             command_ability.sarg,
 
-            killer_cond,
-            killer_cond_1,
-            AilmentNames,
+            master_index,
+            ver,
         )
     }
     if(command_ability.kcon_1 != undefined && command_ability.kcon_1 != -1){
@@ -69,9 +45,8 @@ const Command_Ability_Pars = (
             command_ability.keff_1,
             command_ability.sarg_1,
 
-            killer_cond,
-            killer_cond_1,
-            AilmentNames,
+            master_index,
+            ver,
         )
     }
     if(command_ability.nasp == 1){
@@ -92,7 +67,8 @@ const Command_Ability_Pars = (
             command_ability.sarg,
             command_ability.keff,
 
-            killer_type
+            master_index,
+            ver,
         )
     }
     if(command_ability.kid_1 != undefined){
@@ -101,7 +77,8 @@ const Command_Ability_Pars = (
             command_ability.sarg_1,
             command_ability.keff_1,
 
-            killer_type
+            master_index,
+            ver,
         )
     }
     if(command_ability.exshow == 0){
@@ -130,225 +107,29 @@ const Command_Ability_Pars = (
 
     const cast_list = []
 
-    if(command_ability.atype_str != undefined){
-        if(command_ability.acond != undefined){
-            var cond = Ailment_Cond_Handler(
-                command_ability.acond,
-                command_ability.acarg,
-
-                ailment_cond,
-                ailment_cond_14,
-                AilmentNames,
-                ailment_group,
-                CondData
-            )
+    for (let index = 0; index < 10; index++) {
+        const atype_str  = command_ability[`atype${index == 0 ? "" : `_${index}`}_str`]
+        const atype  = command_ability[`atype${index == 0 ? "" : `_${index}`}`]
+        const acond = command_ability[`acond${index == 0 ? "" : `_${index}`}`]
+        const acarg = command_ability[`acarg${index == 0 ? "" : `_${index}`}`]
+        var ahit = command_ability[`ahit${index == 0 ? "" : `_${index}`}`]
+        if(atype_str != undefined){
+            if(acond!= undefined){
+                var cond = Ailment_Cond_Handler(
+                    acond,
+                    acarg,
+    
+                    master_index,
+                    ver,
+                )
+            }
+            cast_list.push({
+                id: `${index}_${atype}`, 
+                cast_str: atype_str,
+                cond: cond,
+                hit: ahit
+            })
         }
-        var atype = command_ability.atype
-        var ahit = command_ability.ahit
-        cast_list.push({
-            id: `0_${atype}`, 
-            cast_str: command_ability.atype_str,
-            cond: cond,
-            hit: ahit
-        })
-    }
-    if(command_ability.atype_1_str != undefined){
-        if(command_ability.acond_1 != undefined){
-            var cond_1 = Ailment_Cond_Handler(
-                command_ability.acond_1,
-                command_ability.acarg_1,
-
-                ailment_cond,
-                ailment_cond_14,
-                AilmentNames,
-                ailment_group,
-                CondData
-            )
-        }
-        var atype_1 = command_ability.atype_1
-        var ahit_1 = command_ability.ahit_1
-        cast_list.push({
-            id: `1_${atype_1}`, 
-            cast_str: command_ability.atype_1_str,
-            cond: cond_1,
-            hit: ahit_1
-        })
-    }
-    if(command_ability.atype_2_str != undefined){
-        if(command_ability.acond_2 != undefined){
-            var cond_2 = Ailment_Cond_Handler(
-                command_ability.acond_2,
-                command_ability.acarg_2,
-
-                ailment_cond,
-                ailment_cond_14,
-                AilmentNames,
-                ailment_group,
-                CondData
-            )
-        }
-        var atype_2 = command_ability.atype_2
-        var ahit_2 = command_ability.ahit_2
-        cast_list.push({
-            id: `2_${atype_2}`, 
-            cast_str: command_ability.atype_2_str,
-            cond: cond_2,
-            hit: ahit_2
-        })
-    }
-    if(command_ability.atype_3_str != undefined){
-        if(command_ability.acond_3 != undefined){
-            var cond_3 = Ailment_Cond_Handler(
-                command_ability.acond_3,
-                command_ability.acarg_3,
-
-                ailment_cond,
-                ailment_cond_14,
-                AilmentNames,
-                ailment_group,
-                CondData
-            )
-        }
-        var atype_3 = command_ability.atype_3
-        var ahit_3 = command_ability.ahit_3
-        cast_list.push({
-            id: `3_${atype_3}`, 
-            cast_str: command_ability.atype_3_str,
-            cond: cond_3,
-            hit: ahit_3
-        })
-    }
-    if(command_ability.atype_4_str != undefined){
-        if(command_ability.acond_4 != undefined){
-            var cond_4 = Ailment_Cond_Handler(
-                command_ability.acond_4,
-                command_ability.acarg_4,
-
-                ailment_cond,
-                ailment_cond_14,
-                AilmentNames,
-                ailment_group,
-                CondData
-            )
-        }
-        var atype_4 = command_ability.atype_4
-        var ahit_4 = command_ability.ahit_4
-        cast_list.push({
-            id: `4_${atype_4}`, 
-            cast_str: command_ability.atype_4_str,
-            cond: cond_4,
-            hit: ahit_4
-        })
-    }
-    if(command_ability.atype_5_str != undefined){
-        if(command_ability.acond_5 != undefined){
-            var cond_5 = Ailment_Cond_Handler(
-                command_ability.acond_5,
-                command_ability.acarg_5,
-
-                ailment_cond,
-                ailment_cond_14,
-                AilmentNames,
-                ailment_group,
-                CondData
-            )
-        }
-        var atype_5 = command_ability.atype_5
-        var ahit_5 = command_ability.ahit_5
-        cast_list.push({
-            id: `5_${atype_5}`, 
-            cast_str: command_ability.atype_5_str,
-            cond: cond_5,
-            hit: ahit_5
-        })
-    }
-    if(command_ability.atype_6_str != undefined){
-        if(command_ability.acond_6 != undefined){
-            var cond_6 = Ailment_Cond_Handler(
-                command_ability.acond_6,
-                command_ability.acarg_6,
-
-                ailment_cond,
-                ailment_cond_14,
-                AilmentNames,
-                ailment_group,
-                CondData
-            )
-        }
-        var atype_6 = command_ability.atype_6
-        var ahit_6 = command_ability.ahit_6
-        cast_list.push({
-            id: `6_${atype_6}`, 
-            cast_str: command_ability.atype_6_str,
-            cond: cond_6,
-            hit: ahit_6
-        })
-    }
-    if(command_ability.atype_7_str != undefined){
-        if(command_ability.acond_7 != undefined){
-            var cond_7 = Ailment_Cond_Handler(
-                command_ability.acond_7,
-                command_ability.acarg_7,
-
-                ailment_cond,
-                ailment_cond_14,
-                AilmentNames,
-                ailment_group,
-                CondData
-            )
-        }
-        var atype_7 = command_ability.atype_7
-        var ahit_7 = command_ability.ahit_7
-        cast_list.push({
-            id: `7_${atype_7}`, 
-            cast_str: command_ability.atype_7_str,
-            cond: cond_7,
-            hit: ahit_7
-        })
-    }
-    if(command_ability.atype_8_str != undefined){
-        if(command_ability.acond_8 != undefined){
-            var cond_8 = Ailment_Cond_Handler(
-                command_ability.acond_8,
-                command_ability.acarg_8,
-
-                ailment_cond,
-                ailment_cond_14,
-                AilmentNames,
-                ailment_group,
-                CondData
-            )
-        }
-        var atype_8 = command_ability.atype_8
-        var ahit_8 = command_ability.ahit_8
-        cast_list.push({
-            id: `8_${atype_8}`, 
-            cast_str: command_ability.atype_8_str,
-            cond: cond_8,
-            hit: ahit_8
-        })
-    }
-    if(command_ability.atype_9_str != undefined){
-        if(command_ability.acond_9 != undefined){
-            var cond_9 = Ailment_Cond_Handler(
-                command_ability.acond_9,
-                command_ability.acarg_9,
-
-                ailment_cond,
-                ailment_cond_14,
-                AilmentNames,
-                ailment_group,
-                CondData
-            )
-        }
-        var atype_9 = command_ability.atype_9
-        var ahit_9 = command_ability.ahit_9
-        cast_list.push({
-            id: `9_${atype_9}`, 
-            cast_str: command_ability.atype_9_str,
-            cond: cond_9,
-            hit: ahit_9
-        })
     }
 
     const return_var = {

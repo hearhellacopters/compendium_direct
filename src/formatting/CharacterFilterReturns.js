@@ -201,11 +201,24 @@ const CharacterFilter = ({ match, reverse, Sortsearch, ProcessedCharacters,jptog
       return n + (s[(v-20)%10] || s[v] || s[0]);
     }
 
+
     const convert_card = (chars)=>{
+        var fr = ''
+        var bt = ''
+        if(chars[`${ver}traits`] && chars[`${ver}traits`].FRFlag == true){
+            fr = "_FR"
+        }
+        if(chars[`${ver}traits`] && chars[`${ver}traits`].Board5Flag == true){
+            fr = "_FRExt"
+        }
+        if(chars[`${ver}traits`] && chars[`${ver}traits`].BTPlusFlag == true){
+            bt = "_BT"
+        }
+        
         if(spoilers == false && chars[`${ver}basic`] == false){
             return `https://dissidiacompendium.com/images/static/icons/misc/spoilercard2.png`
         } else {
-            return `https://dissidiacompendium.com/images/static/characters/${chars.CharacterURLName}/cc.png`
+            return `https://dissidiacompendium.com/images/static/characters/${chars.CharacterURLName}/cc${fr}${bt}.png`
         }
     }
 

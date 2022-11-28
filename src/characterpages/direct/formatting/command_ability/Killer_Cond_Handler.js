@@ -4,10 +4,13 @@ const Killer_Cond_Handler =(
     keff,
     sarg,
 
-    killer_cond,
-    killer_cond_1,
-    AilmentNames
+    master_index,
+    ver,
 )=>{
+
+    const killer_cond = master_index.command_data_trans.killer_cond
+    const killer_cond_1 = master_index.command_data_trans.killer_cond_1
+    const AilmentNames = master_index.ailments
 
     var final_str = ""
 

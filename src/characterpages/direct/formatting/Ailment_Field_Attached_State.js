@@ -4,24 +4,16 @@ import ReactJson from '@microlink/react-json-view'
 
 const Ailment_Field_Attached_State =({
     ailment_field,
-    ailment_group,
-    command_group,
-    AilmentNames,
-    CastNames,
-    CommandNames,
-    CondData,
-    Ailment_Effects,
-    MessageData_FFSeries,
-    MessageData_Category,
+
     loc,
     slider,
     castlocation,
     formatting,
-    char_id,
     hide_type,
     ver,
     hide_disp,
-    is_passive
+    spacer,
+    master_index,
 })=>{
 
     const [highestlvl, setHighestlvl] = useState(10);
@@ -56,17 +48,10 @@ const Ailment_Field_Attached_State =({
             <div >
                 <Field_Effect_Pars
                 match={ailment_field} 
-                AilmentNames={AilmentNames} 
-                CondData={CondData} 
                 ver={ver}
+                master_index={master_index}
                 base_buff={ailment_field}
-                MessageData_FFSeries={MessageData_FFSeries}
-                MessageData_Category={MessageData_Category}
-                CastNames={CastNames}
-                CommandNames={CommandNames}
-                ailment_group={ailment_group}
-                command_group={command_group}
-                Ailment_Effects={Ailment_Effects}
+
                 is_buff={undefined}
                 loc={loc}
                 slider={slider}
@@ -88,9 +73,8 @@ const Ailment_Field_Attached_State =({
                 alt_rank={undefined}
                 alt_aug1={undefined}
                 alt_aug2={undefined}
-                char_id={char_id}
                 hide_type={hide_type}
-                is_passive={true}
+                spacer={spacer}
                 />
                 {showraw == true?
                 <ReactJson iconStyle={"square"} quotesOnKeys={false} name={"Raw"} displayDataTypes={false} collapsed={false} theme={"threezerotwofour"} src={ailment_field}/>

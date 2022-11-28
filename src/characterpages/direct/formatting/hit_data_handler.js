@@ -1,20 +1,11 @@
 import val_edit_type from "./val_edit_type_handler"
-import ememy_resist_str from "../../../processing/enemy_resist_str"
 import element_bit from "../../../processing/element_bit_"
 
 const hit_data_handler =(
     hit_data,
-    hit_effect_id_data,
-    ability_target_id_data,
-    type_id_data,
-    attack_type_id_data,
-    effect_value_type_id_data,
-    CommandNames,
-    AilmentNames,
-    ailment_group,
-    command_group,
-    enemy_resist,
-    element_bit_data,
+
+    master_index,
+    ver,
 
     faf,
     bdlur,
@@ -44,6 +35,17 @@ const hit_data_handler =(
     const m_nARG_2 = hit_data.m_nARG_2
     const m_nARG_3 = hit_data.m_nARG_3
     const m_nARG_4 = hit_data.m_nARG_4
+
+    const hit_effect_id_data = master_index.hit_trans_data.hit_effect_id
+    const ability_target_id_data = master_index.hit_trans_data.ability_target_id
+    const type_id_data = master_index.hit_trans_data.type_id
+    const attack_type_id_data = master_index.hit_trans_data.attack_type_id
+    const effect_value_type_id_data = master_index.hit_trans_data.effect_value_type_id
+    const CommandNames = master_index.commands
+    const AilmentNames = master_index.ailments
+    const ailment_group = master_index.ailment_group_full[ver]
+    const command_group = master_index.command_group_full[ver]
+    const enemy_resist = master_index.enemy_resist_full[ver]
 
     var effect_str = ""
 
@@ -388,8 +390,7 @@ const hit_data_handler =(
 
     if(value_trans == "enemy_resist"){
         const enemyresistpull =  enemy_resist[m_nARG]
-        const enemyresist_str = ememy_resist_str(enemyresistpull)
-        effect_str = effect_str.replace(/\[m_nARG\]/gm,enemyresist_str)
+        effect_str = effect_str.replace(/\[m_nARG\]/gm,enemyresistpull)
     }
 
     if(value_trans == "grants_consumes_ailment_id4"){

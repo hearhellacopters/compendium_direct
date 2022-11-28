@@ -8,35 +8,17 @@ import 'tippy.js/animations/scale-extreme.css';
 import { TiArrowSortedDown } from 'react-icons/ti';
 import { TiArrowSortedUp } from 'react-icons/ti';
 import Tippy from '../formatting/TippyDefaults.js';
-import { slice, concat, } from 'lodash';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
 import Equipment_Passive_Handler from './direct/Equipment_Passives_Handler.js';
 import { getQuery, getQueryStringVal, useQueryParam } from '../processing/urlparams'
 
 const UltimaPage = ({ 
-    enemy_type,
-    cast_targets,
-    passive_effects_data,
-    char_id,
-    passivenames,
-    equipmentpassivenames,
-    AilmentNames,
-    CommandNames,
-    CondData,
-    Ailment_Effects,
-    MessageData_Category,
-    MessageData_FFSeries,
-    command_data_effects,
-    hit_data_effects,
-    option_trans_data,
-
-    ailment_group,
-    command_group,
-    enemy_resist,
+    jptoggledata,
 
     ProcessedGear, 
-    match
+    match,
+    master_index
   
   }) => {
 
@@ -258,47 +240,6 @@ const UltimaPage = ({
       }
     },[Weapons, Bow, Dagger, Fist, Greatsword, Gun, Other, Spear, Staff, Sword, Throwing, Whip, rawData,limits])
 
-    const getcastnames = Object.values(AilmentNames).map(self=>{
-      return {[self.castID]: self}
-    })
-  
-    const CastNames = getcastnames.reduce(function(result, item) {
-      var key = Object.keys(item)[0]; //first property: a, b, c
-      result[key] = item[key];
-      return result;
-      }, {});
-
-    const effect_ = passive_effects_data.effect_
-    const require_passive = passive_effects_data.require_passive
-    const passive_target = passive_effects_data.passive_target
-    const trap_type = passive_effects_data.trap_type
-    const param_id = passive_effects_data.param_id
-    const attack_type = passive_effects_data.attack_type
-    const killer_type = passive_effects_data.killer_type
-    const elementid_1 = passive_effects_data.elementid_1
-    const command_type = passive_effects_data.command_type
-    const target_range_ = passive_effects_data.target_range_
-
-    for (var key in effect_) {
-      var obj = effect_[key].effect_type;
-      if (obj == undefined) {
-          delete effect_[key]
-      }
-    }
-
-    for (var key2 in require_passive) {
-      var obj2 = require_passive[key2].require_str;
-      if (obj2 == undefined) {
-          delete require_passive[key2]
-      }
-    }
-
-    for (var key3 in passive_target) {
-      var obj3 = passive_target[key3].passive_target;
-      if (obj3 == undefined) {
-          delete passive_target[key3]
-      }
-    }
       
   const listgear = listDisplay;
   if(matchweapon == "sword" || matchweapon == undefined || matchweapon == "greatsword" || matchweapon == "staff" || matchweapon == "fist" || matchweapon == "dagger" || matchweapon == "gun" || matchweapon == "throwing" || matchweapon == "whip" || matchweapon == "bow" || matchweapon == "spear" || matchweapon == "other") {
@@ -429,32 +370,9 @@ const UltimaPage = ({
                 ver={"GL"}
                 loc={"gear"}
                 key={gear.equip_id} 
-                passivenames={passivenames}
-                equipmentpassivenames={equipmentpassivenames}
-                AilmentNames={AilmentNames}
-                CommandNames={CommandNames}
-                CondData={CondData}
-                Ailment_Effects={Ailment_Effects}
-                MessageData_Category={MessageData_Category}
-                MessageData_FFSeries={MessageData_FFSeries}
-                passive_effects_data={passive_effects_data}
-                command_data_effects={command_data_effects}
-                ailment_group={ailment_group}
-                command_group={command_group}
-                CastNames={CastNames}
-                enemy_type={enemy_type}
-                char_id={char_id}
-                cast_targets={cast_targets}
-                effect_={effect_}
-                require_passive={require_passive}
-                passive_target={passive_target}
-                trap_type={trap_type}
-                param_id={param_id}
-                attack_type={attack_type}
-                killer_type={killer_type}
-                elementid_1={elementid_1}
-                command_type={command_type}
-                target_range_={target_range_}
+
+                master_index={master_index}
+                
                 formatting={true}
                 
                 />

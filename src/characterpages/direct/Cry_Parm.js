@@ -6,10 +6,12 @@ import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-componen
 
 const Cry_Parm =({
     passive,
-    char_id,
+    master_index,
     type,
     ver
 })=>{
+
+    const char_id = master_index.charid
 
     const minH = window.innerWidth <= 800 ? 210 : 140;
 

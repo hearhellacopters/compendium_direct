@@ -14,7 +14,7 @@ import { ImArrowRight } from 'react-icons/im';
 import { ImArrowLeft }  from 'react-icons/im';
 import { FaShareSquare } from 'react-icons/fa';
 
-const EventPassOff = ({ match, ProcessedEvents, EventGuideData }) => {
+const EventPassOff = ({ match, ProcessedEvents, EventGuideData, master_index, jptoggledata }) => {
 
     if(match.params.id == "calendar"){
         return(
@@ -137,7 +137,13 @@ const EventPassOff = ({ match, ProcessedEvents, EventGuideData }) => {
                         </div>
                     </CopyToClipboard>
                     <ul className="nolistdisplay">
-                    <EventListing match={eventpull}  permapage={true} EventGuideData={EventGuideData}/>
+                    <EventListing 
+                    match={eventpull}  
+                    permapage={true} 
+                    EventGuideData={EventGuideData}
+                    jptoggledata={jptoggledata}
+                    master_index={master_index}
+                    />
                     </ul>
                 </div>
             </div>

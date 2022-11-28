@@ -13,36 +13,15 @@ const Equipment_Passive_Handler =({
     loc,
     file,
     Single,
-    passivenames,
-    equipmentpassivenames,
-    AilmentNames,
-    CommandNames,
-    CondData,
-    Ailment_Effects,
-    MessageData_Category,
-    MessageData_FFSeries,
-    passive_effects_data,
-    command_data_effects,
-    ailment_group,
-    command_group,
-    CastNames,
-    enemy_type,
-    char_id,
-    cast_targets,
-    effect_,
-    require_passive,
-    passive_target,
-    trap_type,
-    param_id,
-    attack_type,
-    killer_type,
-    elementid_1,
-    command_type,
-    target_range_,
+
+    master_index,
+
     formatting,
 
     link
 })=>{
+
+    const char_id = master_index.charid
 
     const [showraw,setshowraw] = useStateIfMounted(false)
 
@@ -272,32 +251,9 @@ const Equipment_Passive_Handler =({
                         loc={loc}
                         file={"exskill"}
                         Single={true}
-                        passivenames={passivenames}
-                        equipmentpassivenames={equipmentpassivenames}
-                        AilmentNames={AilmentNames}
-                        CommandNames={CommandNames}
-                        CondData={CondData}
-                        Ailment_Effects={Ailment_Effects}
-                        MessageData_Category={MessageData_Category}
-                        MessageData_FFSeries={MessageData_FFSeries}
-                        command_data_effects={command_data_effects}
-                        passive_effects_data={passive_effects_data}
-                        ailment_group={ailment_group}
-                        command_group={command_group}
-                        CastNames={CastNames}
-                        enemy_type={enemy_type}
-                        char_id={char_id}
-                        cast_targets={cast_targets}
-                        effect_={effect_}
-                        require_passive={require_passive}
-                        passive_target={passive_target}
-                        trap_type={trap_type}
-                        param_id={param_id}
-                        attack_type={attack_type}
-                        killer_type={killer_type}
-                        elementid_1={elementid_1}
-                        command_type={command_type}
-                        target_range_={target_range_}
+
+                        master_index={master_index}
+
                         formatting={formatting}
                         gear={true}
                         banner_color={"newblue"}

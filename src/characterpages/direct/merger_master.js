@@ -2,23 +2,28 @@ import passive_effect_handler from "./formatting/passive_effect_handler"
 
 const merger_master = (
     char_passives,
-    passive_effects_data,
-    CommandNames,
-    AilmentNames,
-    command_group,
-    ailment_group,
-    passivenames,
-    equipmentpassivenames,
-    enemy_type,
-    CastNames,
+
+    master_index,
+    ver,
+
     merge_pas,
     type,
     use_ailment
     )=>{
 
-    const full_values= {}
-        const eff_check = passive_effects_data.effect_
-        const param_id = passive_effects_data.param_id
+        const passive_effects_data = master_index.passive_effects
+        const CommandNames = master_index.commands
+        const AilmentNames = master_index.ailments
+        const command_group = master_index.command_group_full[ver]
+        const ailment_group = master_index.ailment_group_full[ver]
+        const passivenames = master_index.passivenames
+        const equipmentpassivenames = master_index.equipmentpassivenames
+        const enemy_type = master_index.enemy_type
+        const CastNames = master_index.cast_names
+        const eff_check = master_index.passive_effects.effect_
+        const param_id = master_index.passive_effects.param_id
+
+        const full_values= {}
 
         const new_merge_value = {
             ATK: 0,
@@ -329,20 +334,9 @@ const merger_master = (
                             eff_holder3,
                             self.effect__1,
     
-                            passive_effects_data.effect_,
-                            passive_effects_data.passive_target,
-                            CommandNames,
-                            AilmentNames,
-                            passive_effects_data.elementid_1,
-                            passive_effects_data.attack_type,
-                            passive_effects_data.killer_type,
-                            command_group,
-                            ailment_group,
-                            passive_effects_data.trap_type,
-                            passivenames,
-                            equipmentpassivenames,
-                            enemy_type,
-                            CastNames,
+                            master_index,
+                            ver,
+
                             new_merge_value,
                             use_ailment
                         )
@@ -361,20 +355,9 @@ const merger_master = (
                             eff_holder3_1,
                             self.effect__1,
     
-                            passive_effects_data.effect_,
-                            passive_effects_data.passive_target,
-                            CommandNames,
-                            AilmentNames,
-                            passive_effects_data.elementid_1,
-                            passive_effects_data.attack_type,
-                            passive_effects_data.killer_type,
-                            command_group,
-                            ailment_group,
-                            passive_effects_data.trap_type,
-                            passivenames,
-                            equipmentpassivenames,
-                            enemy_type,
-                            CastNames,
+                            master_index,
+                            ver,
+
                             new_merge_value,
                             use_ailment
                         )

@@ -7,14 +7,6 @@ import Loading from '../callpages/_loading'
 
 const EnemyPassoffDirect = ({ match, ProcessedEnemies, ProcessedEvents, ProcessedLevels, ProcessedCharacters, PartnerCharacters, jptoggledata }) => {
 
-    function getSafe(fn, defaultVal) {
-        try {
-          return fn();
-        } catch (e) {
-          return defaultVal;
-        }
-      }
-
     const levelparams = match.params.level
     const abilitiesparams = match.params.abilities
 
@@ -23,7 +15,7 @@ const EnemyPassoffDirect = ({ match, ProcessedEnemies, ProcessedEvents, Processe
     const filtered = ProcessedEnemies[match.params.id]
         
     useEffect(() => {
-        if(DevSwitch == true && getSafe(() =>filtered.battle_enemy_id) != undefined ){
+        if(DevSwitch == true && filtered.battle_enemy_id != undefined ){
             axios.get(`http://localhost:3001/data/enemies_direct/${filtered.battle_enemy_id}`,{'muteHttpExceptions': true}).then((res) => {
             const response = res.data;
             setbattle_enemy(response)
@@ -31,7 +23,7 @@ const EnemyPassoffDirect = ({ match, ProcessedEnemies, ProcessedEvents, Processe
             console.log(err)
         })
     }
-        if(DevSwitch == false && getSafe(() =>filtered.battle_enemy_id) != undefined ){
+        if(DevSwitch == false && filtered.battle_enemy_id != undefined ){
             axios.get(`https://www.dissidiacompendium.com/data/enemies_direct/${filtered.battle_enemy_id}.json`,{'muteHttpExceptions': true}).then((res) => {
             const response = res.data;
             setbattle_enemy(response)
@@ -40,12 +32,12 @@ const EnemyPassoffDirect = ({ match, ProcessedEnemies, ProcessedEvents, Processe
         })
     }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        },[match])
+        },[match.params.id])
 
         //console.log(battle_enemy)
 
 
-      if(getSafe(() => filtered.enemy_id) == undefined ) {
+      if(filtered.enemy_id == undefined ) {
         return(
             <Navigate replace to="/404"/>
         )
@@ -56,7 +48,7 @@ const EnemyPassoffDirect = ({ match, ProcessedEnemies, ProcessedEvents, Processe
     });
 
     const matchStats =  enemyLevels && enemyLevels.filter(function(ef){
-        if(getSafe(() => filtered.Level) == undefined ){
+        if(filtered.Level == undefined ){
         return ef["data_index"] == levelparams;
         } else {
         return ef["data_index"] == filtered.Level;
@@ -73,7 +65,7 @@ const EnemyPassoffDirect = ({ match, ProcessedEnemies, ProcessedEvents, Processe
         return(
             <div>
                 <EnemyFormattingDirect 
-                setlevel={getSafe(() => filtered.Level) != undefined ? true : false} 
+                setlevel={filtered.Level != undefined ? true : false} 
                 alllevels={alllevels} 
                 stats={levelparams == undefined ? firstlevel : stats} 
                 match={match} 
@@ -87,7 +79,7 @@ const EnemyPassoffDirect = ({ match, ProcessedEnemies, ProcessedEvents, Processe
                 jptoggledata={jptoggledata}
                 />
                 {levelparams == undefined?
-                    <Navigate replace to={`/bestiary/enemies/${getSafe(() => filtered.battle_enemy_id)}/${firstlevel&& firstlevel.data_index}/${abilitiesparams == undefined ? "" : abilitiesparams}`}/>
+                    <Navigate replace to={`/bestiary/enemies/${filtered.battle_enemy_id}/${firstlevel&& firstlevel.data_index}/${abilitiesparams == undefined ? "" : abilitiesparams}`}/>
                     :
                     ""
                 }

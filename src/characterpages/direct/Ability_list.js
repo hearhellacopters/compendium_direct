@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import { useStateIfMounted } from "use-state-if-mounted";
 import Character_Ability_Pars from './formatting/command_ability/Character_Ability_Pars.js'
 
 const Character_Ability_List =({
@@ -9,55 +8,13 @@ const Character_Ability_List =({
     file,
     buff_data,
 
-    CastNames,
-    enemy_type,
-    cast_targets,
-    passivenames,
-    equipmentpassivenames,
-    passive_effects_data,
-    CondData,
-    Ailment_Effects,
-    MessageData_Category,
-    MessageData_FFSeries,
-    char_id,
-
-    option_trans_data,
-    command_data_effects,
-    hit_data_effects,
-
-    hit_effect_id,
-    ability_target_id,
-    type_id,
-    attack_type_id,
-    effect_value_type_id,
-    CommandNames,
-    AilmentNames,
-    ailment_group,
-    command_group,
-    enemy_resist,
-    element_bit_,
-
-    type_,
-    attack_type_,
-    target_range_,
-    target_type_,
-    auto_target_type_,
-    killer_cond,
-    killer_cond_1,
-    killer_type,
-    cast_target,
-    ailment_cond,
-    ailment_cond_14,
-    command_type,
-
-    option_labels,
-    options_target,
-    option_type_,
     formatting,
     tag_override,
     all_options,
     tag_display,
-    reverse
+    reverse,
+
+    master_index
 })=>{
 
     const filteredout = character_ability
@@ -106,54 +63,10 @@ const Character_Ability_List =({
                                 loc={loc}
                                 file={file}
             
-                                CastNames={CastNames}
-                                enemy_type={enemy_type}
-                                cast_targets={cast_targets}
-                                passivenames={passivenames}
-                                equipmentpassivenames={equipmentpassivenames}
-                                passive_effects_data={passive_effects_data}
-                                CondData={CondData}
-            
-                                Ailment_Effects={Ailment_Effects}
-            
-                                MessageData_Category={MessageData_Category}
-                                MessageData_FFSeries={MessageData_FFSeries}
-                                char_id={char_id}
-            
-                                option_trans_data={option_trans_data}
-                                command_data_effects={command_data_effects}
-                                hit_data_effects={hit_data_effects}
-
+                                master_index={master_index}
+                                
                                 buff_data={buff_data}
             
-                                hit_effect_id={hit_effect_id}
-                                ability_target_id={ability_target_id}
-                                type_id={type_id}
-                                attack_type_id={attack_type_id}
-                                effect_value_type_id={effect_value_type_id}
-                                CommandNames={CommandNames}
-                                AilmentNames={AilmentNames}
-                                ailment_group={ailment_group}
-                                command_group={command_group}
-                                enemy_resist={enemy_resist}
-                                element_bit_={element_bit_}
-            
-                                type_={type_}
-                                attack_type_={attack_type_}
-                                target_range_={target_range_}
-                                target_type_={target_type_}
-                                auto_target_type_={auto_target_type_}
-                                killer_cond={killer_cond}
-                                killer_cond_1={killer_cond_1}
-                                killer_type={killer_type}
-                                cast_target={cast_target}
-                                ailment_cond={ailment_cond}
-                                ailment_cond_14={ailment_cond_14}
-                                command_type={command_type}
-            
-                                option_labels={option_labels}
-                                options_target={options_target}
-                                option_type_={option_type_}
                                 formatting={formatting}
                                 all_options={all_options}
                                 tag_override={tag_override}

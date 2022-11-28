@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import { useStateIfMounted } from "use-state-if-mounted";
 import require_trans_handler from '../require_trans_handler'
 import passive_effect_handler from "../passive_effect_handler";
 import replacer_titles from '../../../../processing/replacer_titles'
@@ -7,41 +6,20 @@ import replacer_buff from '../../../../processing/replacer_buffcontent'
 import reactStringReplace from "react-string-replace"
 import Ailment_Field_Attached_State from "../Ailment_Field_Attached_State";
 import ReactJson from '@microlink/react-json-view'
-import Tippy from '../../../../formatting/TippyDefaults'
 
 const Passive_Battle_State =({
     file,
     passive_ability,
-    ailment_group,
-    command_group,
-    AilmentNames,
-    CastNames,
-    CommandNames,
-    CondData,
-    MessageData_FFSeries,
-    MessageData_Category,
-    equipmentpassivenames,
-    passivenames,
-    cast_targets,
-    effect_data,
-    require_passive,
-    passive_target,
-    trap_type,
-    param_id,
-    attack_type,
-    killer_type,
-    elementid_1,
-    enemy_type,
-    command_type,
     formatting,
-    target_range_,
-    Ailment_Effects,
     skip_space,
     ver,
     use_ailment,
     merged,
-    hide_disp
+    hide_disp,
+    master_index
 })=>{
+
+    const param_id = master_index.passive_effects.param_id
 
     const [showraw,setshowraw] = useState(false)
 
@@ -136,8 +114,7 @@ const Passive_Battle_State =({
     var require_ = ""
     var require__1 = ""
 
-    if( passive_ability.require_ != undefined && passive_ability.require_disp == true &&
-        passive_ability.passive_cond_type == 2 && passive_ability.effect_ != undefined
+    if( passive_ability.require_ != undefined && passive_ability.require_disp == true 
         ){
     require_ = require_trans_handler(
         passive_ability.require_,
@@ -146,26 +123,12 @@ const Passive_Battle_State =({
         require_value2,
         require_value3,
 
-        require_passive,
-        passive_target,
-        CommandNames,
-        AilmentNames,
-        elementid_1,
-        attack_type,
-        killer_type,
-        command_group,
-        ailment_group,
-        trap_type,
-        passivenames,
-        equipmentpassivenames,
-        enemy_type,
-        command_type,
-        target_range_
+        master_index,
+        ver,
     )
     }
 
-    if( passive_ability.require__1 != undefined && passive_ability.require__1disp == true &&
-        passive_ability.passive_cond_type == 2 && passive_ability.effect__1 != undefined
+    if( passive_ability.require__1 != undefined && passive_ability.require__1disp == true 
         ){
         require__1 = require_trans_handler(
             passive_ability.require__1,
@@ -174,21 +137,8 @@ const Passive_Battle_State =({
             require_value2_1,
             require_value3_1,
     
-            require_passive,
-            passive_target,
-            CommandNames,
-            AilmentNames,
-            elementid_1,
-            attack_type,
-            killer_type,
-            command_group,
-            ailment_group,
-            trap_type,
-            passivenames,
-            equipmentpassivenames,
-            enemy_type,
-            command_type,
-            target_range_
+            master_index,
+            ver,
         )
     }
 
@@ -204,20 +154,9 @@ const Passive_Battle_State =({
             effect_value3,
             passive_ability.effect__1,
     
-            effect_data,
-            passive_target,
-            CommandNames,
-            AilmentNames,
-            elementid_1,
-            attack_type,
-            killer_type,
-            command_group,
-            ailment_group,
-            trap_type,
-            passivenames,
-            equipmentpassivenames,
-            enemy_type,
-            CastNames,
+            master_index,
+            ver,
+
             undefined,
             use_ailment
         )
@@ -232,20 +171,9 @@ const Passive_Battle_State =({
             effect_value3_1,
             passive_ability.effect__1,
     
-            effect_data,
-            passive_target,
-            CommandNames,
-            AilmentNames,
-            elementid_1,
-            attack_type,
-            killer_type,
-            command_group,
-            ailment_group,
-            trap_type,
-            passivenames,
-            equipmentpassivenames,
-            enemy_type,
-            CastNames,
+            master_index,
+            ver,
+
             undefined,
             use_ailment
         )
@@ -351,82 +279,59 @@ const Passive_Battle_State =({
                 {add_formatting(`${require__1 == "" && require_ == "" ? "" : "\xa0┬ "}${require_}${require__1 != "" && require_ != "" ? " & " : ""}${require__1 != "" ? `${require__1}` : ""}`,"tl")}{require__1 != "" || require_ != "" ? <br/> : ""}
                 {effect_display_pars(effect_,effect__1,require_,require__1,1)}
                 {effect_ == "Field Effect" && passive_ability.hide_field != true?
-                        passive_ability.field && passive_ability.field.map(buffs => (
+                        passive_ability.field && passive_ability.field.map((buffs,i) => (
                             <Ailment_Field_Attached_State 
                             key={buffs.data_id}
                             castlocation={true}
                             ver={ver}
+                            master_index={master_index}
                             ailment_field={buffs}
-                            ailment_group={ailment_group}
-                            command_group={command_group}
-                            AilmentNames={AilmentNames}
-                            CastNames={CastNames}
-                            CommandNames={CommandNames}
-                            CondData={CondData}
-                            Ailment_Effects={Ailment_Effects}
-                            MessageData_FFSeries={MessageData_FFSeries}
-                            MessageData_Category={MessageData_Category}
+
                             loc={"passive"}
                             slider={false}
                             formatting={formatting}
-                            char_id={undefined}
                             hide_type={true}
                             hide_disp={hide_disp != true ? false : buffs.field_hide}
-                            is_passive={true}
+                            spacer={require_ != "" ? `${passive_ability.field.length == i+1 ? "└─" : "├─"}`: undefined}
                             />
                         ))
                         :""
                 }
                 {effect_display_pars(effect_,effect__1,require_,require__1,2)}
                 {effect__1 == "Field Effect" && passive_ability.hide_field != true?
-                        passive_ability.field && passive_ability.field.map(buffs => (
+                        passive_ability.field && passive_ability.field.map((buffs,i) => (
                             <Ailment_Field_Attached_State 
                             key={buffs.data_id}
                             castlocation={true}
                             ver={ver}
+                            master_index={master_index}
                             ailment_field={buffs}
-                            ailment_group={ailment_group}
-                            command_group={command_group}
-                            AilmentNames={AilmentNames}
-                            CastNames={CastNames}
-                            CommandNames={CommandNames}
-                            CondData={CondData}
-                            Ailment_Effects={Ailment_Effects}
-                            MessageData_FFSeries={MessageData_FFSeries}
-                            MessageData_Category={MessageData_Category}
+
                             loc={"passive"}
                             slider={false}
                             formatting={formatting}
-                            char_id={undefined}
                             hide_type={true}
                             hide_disp={hide_disp != true ? false : buffs.field_hide}
-                            is_passive={true}
+                            spacer={require__1 != "" ? `${passive_ability.field.length == i+1 ? "└─" : "├─"}`: undefined}
                             />
                         ))
                         :""
                 }
                 {effect__1 != "Field Effect" && effect_ != "Field Effect" && passive_ability.hide_field != true && passive_ability.field != undefined ?
-                passive_ability.field && passive_ability.field.map(buffs => (
+                passive_ability.field && passive_ability.field.map((buffs,i) => (
                     <Ailment_Field_Attached_State 
                     key={buffs.data_id}
                     castlocation={true}
                     ver={ver}
+                    master_index={master_index}
                     ailment_field={buffs}
-                    ailment_group={ailment_group}
-                    command_group={command_group}
-                    AilmentNames={AilmentNames}
-                    CastNames={CastNames}
-                    CommandNames={CommandNames}
-                    CondData={CondData}
-                    Ailment_Effects={Ailment_Effects}
-                    MessageData_FFSeries={MessageData_FFSeries}
-                    MessageData_Category={MessageData_Category}
+
                     loc={"passive"}
                     slider={false}
                     formatting={formatting}
-                    char_id={undefined}
                     hide_type={true}
                     hide_disp={hide_disp != true ? false : buffs.field_hide}
+                    spacer={`${passive_ability.field.length == i+1 ? "└─" : "├─"}`}
                     />
                 ))
                 :""}
@@ -438,82 +343,59 @@ const Passive_Battle_State =({
                 {add_formatting(`${require_ != "" ? `\xa0┬ ${require_}` : ""}${require__1 != "" && require_ != "" ? " or " : ""}${require__1 != "" ? `${require__1}` : ""}`,"tl")}{require__1 != "" || require_ != "" ? <br/> : ""}
                 {effect_display_pars(effect_,effect__1,require_,require__1,1)}
                 {effect_ == "Field Effect" && passive_ability.hide_field != true ?
-                        passive_ability.field && passive_ability.field.map(buffs => (
+                        passive_ability.field && passive_ability.field.map((buffs,i) => (
                             <Ailment_Field_Attached_State 
                             key={buffs.data_id}
                             castlocation={true}
                             ver={ver}
+                            master_index={master_index}
                             ailment_field={buffs}
-                            ailment_group={ailment_group}
-                            command_group={command_group}
-                            AilmentNames={AilmentNames}
-                            CastNames={CastNames}
-                            CommandNames={CommandNames}
-                            CondData={CondData}
-                            Ailment_Effects={Ailment_Effects}
-                            MessageData_FFSeries={MessageData_FFSeries}
-                            MessageData_Category={MessageData_Category}
+
                             loc={"passive"}
                             slider={false}
                             formatting={formatting}
-                            char_id={undefined}
                             hide_type={true}
                             hide_disp={hide_disp != true ? false : buffs.field_hide}
-                            is_passive={true}
+                            spacer={require_ != "" ? `${passive_ability.field.length == i+1 ? "└─" : "├─"}`: undefined}
                             />
                         ))
                         :""
                 }
                 {effect_display_pars(effect_,effect__1,require_,require__1,2)}
                 {effect__1 == "Field Effect" && passive_ability.hide_field != true ?
-                        passive_ability.field && passive_ability.field.map(buffs => (
+                        passive_ability.field && passive_ability.field.map((buffs,i) => (
                             <Ailment_Field_Attached_State 
                             key={buffs.data_id}
                             castlocation={true}
                             ver={ver}
+                            master_index={master_index}
                             ailment_field={buffs}
-                            ailment_group={ailment_group}
-                            command_group={command_group}
-                            AilmentNames={AilmentNames}
-                            CastNames={CastNames}
-                            CommandNames={CommandNames}
-                            CondData={CondData}
-                            Ailment_Effects={Ailment_Effects}
-                            MessageData_FFSeries={MessageData_FFSeries}
-                            MessageData_Category={MessageData_Category}
+
                             loc={"passive"}
                             slider={false}
                             formatting={formatting}
-                            char_id={undefined}
                             hide_type={true}
                             hide_disp={hide_disp != true ? false : buffs.field_hide}
-                            is_passive={true}
+                            spacer={require__1 != "" ? `${passive_ability.field.length == i+1 ? "└─" : "├─"}`: undefined}
                             />
                         ))
                         :""
                 }
                 {effect__1 != "Field Effect" && effect_ != "Field Effect" && passive_ability.hide_field != true && passive_ability.field != undefined ?
-                passive_ability.field && passive_ability.field.map(buffs => (
+                passive_ability.field && passive_ability.field.map((buffs,i) => (
                     <Ailment_Field_Attached_State 
                     key={buffs.data_id}
                     castlocation={true}
                     ver={ver}
                     ailment_field={buffs}
-                    ailment_group={ailment_group}
-                    command_group={command_group}
-                    AilmentNames={AilmentNames}
-                    CastNames={CastNames}
-                    CommandNames={CommandNames}
-                    CondData={CondData}
-                    Ailment_Effects={Ailment_Effects}
-                    MessageData_FFSeries={MessageData_FFSeries}
-                    MessageData_Category={MessageData_Category}
+                    master_index={master_index}
+
                     loc={"passive"}
                     slider={false}
                     formatting={formatting}
-                    char_id={undefined}
                     hide_type={true}
                     hide_disp={hide_disp != true ? false : buffs.field_hide}
+                    spacer={`${passive_ability.field.length == i+1 ? "└─" : "├─"}`}
                     />
                 ))
                 :""}
@@ -525,28 +407,20 @@ const Passive_Battle_State =({
                 {require_ != "" ? add_formatting(`\xa0┬ ${require_}`,"tl") : ""}{require_ != "" ? <br/> : ""}
                 {effect_display_pars(effect_,effect__1,require_,require__1,1)}
                 {effect_ == "Field Effect" && passive_ability.hide_field != true ?
-                        passive_ability.field && passive_ability.field.map(buffs => (
+                        passive_ability.field && passive_ability.field.map((buffs,i) => (
                             <Ailment_Field_Attached_State 
                             key={buffs.data_id}
                             castlocation={true}
                             ver={ver}
                             ailment_field={buffs}
-                            ailment_group={ailment_group}
-                            command_group={command_group}
-                            AilmentNames={AilmentNames}
-                            CastNames={CastNames}
-                            CommandNames={CommandNames}
-                            CondData={CondData}
-                            Ailment_Effects={Ailment_Effects}
-                            MessageData_FFSeries={MessageData_FFSeries}
-                            MessageData_Category={MessageData_Category}
+                            master_index={master_index}
+
                             loc={"passive"}
                             slider={false}
                             formatting={formatting}
-                            char_id={undefined}
                             hide_type={true}
                             hide_disp={hide_disp != true ? false : buffs.field_hide}
-                            is_passive={true}
+                            spacer={require_ != "" ? `${passive_ability.field.length == i+1 ? "└─" : "├─"}`: undefined}
                             />
                         ))
                         :""
@@ -556,55 +430,40 @@ const Passive_Battle_State =({
                 {require__1 != "" ? add_formatting(`\xa0┬ ${require__1}`,"tl") : ""}{require__1 != "" ? <br/> : ""}
                 {effect_display_pars(effect_,effect__1,require_,require__1,2)}
                 {effect__1 == "Field Effect" && passive_ability.hide_field != true ?
-                        passive_ability.field && passive_ability.field.map(buffs => (
+                        passive_ability.field && passive_ability.field.map((buffs,i) => (
                             <Ailment_Field_Attached_State 
                             key={buffs.data_id}
                             castlocation={true}
                             ver={ver}
                             ailment_field={buffs}
-                            ailment_group={ailment_group}
-                            command_group={command_group}
-                            AilmentNames={AilmentNames}
-                            CastNames={CastNames}
-                            CommandNames={CommandNames}
-                            CondData={CondData}
-                            Ailment_Effects={Ailment_Effects}
-                            MessageData_FFSeries={MessageData_FFSeries}
-                            MessageData_Category={MessageData_Category}
+                            master_index={master_index}
+
                             loc={"passive"}
                             slider={false}
                             formatting={formatting}
-                            char_id={undefined}
                             hide_type={true}
                             hide_disp={hide_disp != true ? false : buffs.field_hide}
-                            is_passive={true}
+                            spacer={require__1 != "" ? `${passive_ability.field.length == i+1 ? "└─" : "├─"}`: undefined}
                             />
                         ))
                         :""
                 }
                 </div>
                 {effect__1 != "Field Effect" && effect_ != "Field Effect" && passive_ability.hide_field != true && passive_ability.field != undefined ?
-                passive_ability.field && passive_ability.field.map(buffs => (
+                passive_ability.field && passive_ability.field.map((buffs,i) => (
                     <Ailment_Field_Attached_State 
                     key={buffs.data_id}
                     castlocation={true}
                     ver={ver}
                     ailment_field={buffs}
-                    ailment_group={ailment_group}
-                    command_group={command_group}
-                    AilmentNames={AilmentNames}
-                    CastNames={CastNames}
-                    CommandNames={CommandNames}
-                    CondData={CondData}
-                    Ailment_Effects={Ailment_Effects}
-                    MessageData_FFSeries={MessageData_FFSeries}
-                    MessageData_Category={MessageData_Category}
+                    master_index={master_index}
+
                     loc={"passive"}
                     slider={false}
                     formatting={formatting}
-                    char_id={undefined}
                     hide_type={true}
                     hide_disp={hide_disp != true ? false : buffs.field_hide}
+                    spacer={`${passive_ability.field.length == i+1 ? "└─" : "├─"}`}
                     />
                 ))
                 :""}

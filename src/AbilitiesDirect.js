@@ -26,27 +26,11 @@ const AbilitiesDirect =({
     loc,
     file,
 
-    enemy_type,
-    cast_targets,
-    passive_effects_data,
-    char_id,
-    passivenames,
-    equipmentpassivenames,
-    AilmentNames,
-    CommandNames,
-    CondData,
-    Ailment_Effects,
-    MessageData_Category,
-    MessageData_FFSeries,
-    command_data_effects,
-    hit_data_effects,
-    option_trans_data,
-    
-    ailment_group,
-    command_group,
-    enemy_resist,
-    formatting,
+    master_index,
+
 }) => {
+
+    const char_id = master_index.charid
 
     const startinglimit = window.innerWidth <= 815 ? 15 : 30;
 
@@ -430,7 +414,7 @@ const AbilitiesDirect =({
         }
         if(Revive == true){
             const filteredout = rawData.filter(
-                ability=> ability.Revive == true
+                ability=> ability.Reviver == true
             )
             filterholder.push(...filteredout)
         }
@@ -567,7 +551,7 @@ const AbilitiesDirect =({
                 Delete_Turns: Delete,
                 Dispel: Dispel,
                 HP_Heal_Ability: Heals,
-                Revive: Revive,
+                Reviver: Revive,
                 Increase: Increase,
                 Two_Abilities_Recover: Increase2,
                 Turn_Manipulator: Turn_Manipulator,
@@ -1174,41 +1158,8 @@ const AbilitiesDirect =({
         setTimeout(() => setclearFilter(false), 1000);
     }
 
-    const getcastnames = Object.values(AilmentNames).map(self=>{
-        return {[self.castID]: self}
-      })
-    
-    const CastNames = getcastnames.reduce(function(result, item) {
-        var key = Object.keys(item)[0]; //first property: a, b, c
-        result[key] = item[key];
-        return result;
-        }, {});
 
     const listAbility = listDisplay;
-
-    const type_ = command_data_effects.type_
-    const attack_type_ = command_data_effects.attack_type_
-    const target_range_ = command_data_effects.target_range_
-    const target_type_ = command_data_effects.target_type_
-    const auto_target_type_ = command_data_effects.auto_target_type_
-    const killer_cond = command_data_effects.killer_cond
-    const killer_cond_1 = command_data_effects.killer_cond_1
-    const killer_type = command_data_effects.killer_type
-    const cast_target = command_data_effects.cast_target
-    const ailment_cond = command_data_effects.ailment_cond
-    const ailment_cond_14 = command_data_effects.ailment_cond_14
-    const command_type = command_data_effects.command_type
-
-    const option_labels = option_trans_data.option_labels
-    const option_type_ = option_trans_data.option_type_
-    const options_target = option_trans_data.target
-
-    const hit_effect_id = hit_data_effects.hit_effect_id
-    const ability_target_id = hit_data_effects.ability_target_id
-    const type_id = hit_data_effects.type_id
-    const attack_type_id = hit_data_effects.attack_type_id
-    const effect_value_type_id = hit_data_effects.effect_value_type_id
-    const element_bit_ = hit_data_effects.element_bit_
 
     const dispatch = useDispatch();
 
@@ -1552,52 +1503,8 @@ const AbilitiesDirect =({
                 loc={loc}
                 file={file}
 
-                CastNames={CastNames}
-                enemy_type={enemy_type}
-                cast_targets={cast_targets}
-                passivenames={passivenames}
-                equipmentpassivenames={equipmentpassivenames}
-                passive_effects_data={passive_effects_data}
-                CondData={CondData}
+                master_index={master_index}
 
-                Ailment_Effects={Ailment_Effects}
-
-                MessageData_Category={MessageData_Category}
-                MessageData_FFSeries={MessageData_FFSeries}
-                char_id={char_id}
-
-                option_trans_data={option_trans_data}
-                command_data_effects={command_data_effects}
-                hit_data_effects={hit_data_effects}
-
-                hit_effect_id={hit_effect_id}
-                ability_target_id={ability_target_id}
-                type_id={type_id}
-                attack_type_id={attack_type_id}
-                effect_value_type_id={effect_value_type_id}
-                CommandNames={CommandNames}
-                AilmentNames={AilmentNames}
-                ailment_group={ailment_group[ver]}
-                command_group={command_group[ver]}
-                enemy_resist={enemy_resist[ver]}
-                element_bit_={element_bit_}
-
-                type_={type_}
-                attack_type_={attack_type_}
-                target_range_={target_range_}
-                target_type_={target_type_}
-                auto_target_type_={auto_target_type_}
-                killer_cond={killer_cond}
-                killer_cond_1={killer_cond_1}
-                killer_type={killer_type}
-                cast_target={cast_target}
-                ailment_cond={ailment_cond}
-                ailment_cond_14={ailment_cond_14}
-                command_type={command_type}
-
-                option_labels={option_labels}
-                options_target={options_target}
-                option_type_={option_type_}
                 formatting={true}
 
                 link={"abilities"}

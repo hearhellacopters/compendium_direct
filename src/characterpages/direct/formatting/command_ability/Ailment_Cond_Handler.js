@@ -6,13 +6,16 @@ const Ailment_Cond_Handler =(
     acond,
     acarg,
 
-    ailment_cond,
-    ailment_cond_14,
-    AilmentNames,
-    ailment_group,
-    CondData
+    master_index,
+    ver,
 
 )=>{
+
+    const ailment_cond = master_index.command_data_trans.ailment_cond
+    const ailment_cond_14 = master_index.command_data_trans.ailment_cond_14
+    const AilmentNames = master_index.ailments
+    const ailment_group = master_index.ailment_group_full[ver]
+    const CondData = master_index.cond
 
     var final_str = undefined
 
@@ -39,7 +42,12 @@ const Ailment_Cond_Handler =(
         }
 
         if(value_trans == "cond_data"){
-            const cond_pulled = CondData[acarg] && CondData[acarg].trans
+            var cond_pulled = CondData[acarg] && CondData[acarg].trans
+            if(ver == "GL"){
+                if(cond_pulled && cond_pulled.GLtrans != undefined){
+                    cond_pulled = CondData[acarg].GLtrans
+                }
+            }   
             if(cond_pulled != undefined){
                 con_pull = con_pull.replace(/\[value1\]/gm,cond_pulled)
             } else{

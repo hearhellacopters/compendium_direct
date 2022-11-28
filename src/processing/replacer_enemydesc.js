@@ -68,6 +68,30 @@ const addformatting =(text)=>{
                 }</span>
         )
     })
+    replacement = replacement == undefined ? "" : reactStringReplace(replacement, /(「.*?」)/, (match, i) => {
+        number = number + 1
+        return(
+            <span key={`1a-${i}-${number}`} className="unique">{
+                reactStringReplace(match, /<(.*?)>/, (match2, i) => {
+                    number = number + 1
+                    return(
+                        <span key={`2a-${i}-${number}`} className={match2}></span>
+                )})
+                }</span>
+        )
+    })
+    replacement = replacement == undefined ? "" : reactStringReplace(replacement, /(【.*?】)/, (match, i) => {
+        number = number + 1
+        return(
+            <span key={`1b-${i}-${number}`} className="unique">{
+                reactStringReplace(match, /<(.*?)>/, (match2, i) => {
+                    number = number + 1
+                    return(
+                        <span key={`2b-${i}-${number}`} className={match2}></span>
+                )})
+                }</span>
+        )
+    })
     replacement = replacement == "" ? "" :reactStringReplace(replacement, /<(.*?)>/, (match, i) => {
         number = number + 1
         return(

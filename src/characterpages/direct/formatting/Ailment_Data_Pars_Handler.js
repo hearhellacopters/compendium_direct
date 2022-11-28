@@ -25,7 +25,6 @@ const Ailment_Data_Pars_Handler = ({
     currenthp,
     charactersleft,
     formatting,
-    char_id,
     setonion_passoff,
     setshowdesc
 }) =>{

@@ -15,9 +15,10 @@ const log = () =>{
                     ┬ Site now uses split databases for GL and JP<br/>
                     ├─ Rework, Enemy and Summon pages will remain unchanged<br/>
                     ├─ Spoiler tags now on some content<br/>
-                    ├─ Character data restricted to version they are found in<br/>
-                    └─ Automated Character roles based on selected database<br/>
-                    ┬ Buffs Search<br/>
+                    ├─ Automated Character / ability / buff class tagging<br/>
+                    ├─ Character Cards change background based on gear released<br/>
+                    └─ Cross character searchable direct data in search tabs<br/>
+                    ┬ Direct Buff Data<br/>
                     ├─ Added official text to buffs<br/>
                     ├─ Ordered buffs based on ability<br/>
                     ├─ Added New Icons for Battle States<br/>
@@ -27,27 +28,27 @@ const log = () =>{
                     ├─ Added ability upgrades to buffs<br/>
                     ├─ Added totaled values on Force Time buffs<br/>
                     └─ Added simple button filters<br/>
-                    ┬ Abilities Search<br/>
+                    ┬ Direct Abilities Data<br/>
                     ├─ Added Ability Use / Speed Increases<br/>
                     ├─ Added Passive increases<br/>
                     ├─ Added Stats Total toggle to Ability passives<br/>
                     ├─ Added Ability tags based on Elements, Damage type etc<br/>
                     ├─ Added Starting casts / Battle States to Call abilities<br/>
-                    ├─ Added Force Time Battle State to FR Abilties<br/>
+                    ├─ Added Force Time Battle State to FR Abilities<br/>
                     ├─ Abilities default to just the highest upgraded <br/>
                     ├── All still available with Upgraded toggle off<br/>
                     ├─ Follow Up / Counters / Traps now sit a bottom of list<br/>
                     └─ Added simple button filters<br/>
-                    ┬ Passives Search<br/>
+                    ┬ Direct Passives Data<br/>
                     ├─ Merged Passives pages under Passives tab<br/>
                     ├─ Simplified ability upgrades display<br/>
                     └─ Added simple button filters<br/>
-                    ┬ Gear Search<br/>
+                    ┬ Direct Gear Data<br/>
                     └─ Gear data restricted to only versions they are found in<br/>
-                    ┬ Spheres Search<br/>
+                    ┬ Direct Spheres Data<br/>
                     ├─ Sphere data restricted to only versions they are found in<br/>
                     └─ Simplified condition filters<br/>
-                    - Upgraded Enemy Force Time Helpers based on current verison<br/>
+                    - Upgraded Enemy Force Time Helpers based on current version<br/>
                     - Expanded Ability hit data display for better readability<br/>
                     - Sorted Advance Classes by in-game types<br/>
                     <br/>
@@ -151,8 +152,7 @@ const log = () =>{
                 <ul className="creditslist">
                     <li>
                     ┬ Compendium Direct is now Live!<br/>
-                    ├─ New tab added to character pages<br/>
-                    └─ Check out FAQ guide <Link className="updatelink" to="/directguide">here.</Link><br/>
+                    └─ New tab added to character pages<br/>
                     ┬ Added Enemy AI to enemy abilities!<br/>
                     ├─ Happy to add this after a long testing phase<br/>
                     └─ Display AI button shows calculations for enemy abilities<br/>

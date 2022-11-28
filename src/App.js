@@ -39,7 +39,6 @@ import Forecast from './callpages/CallForecast.js'
 import DevSwitch from './redux/DevSwitch'
 import Tippy from './formatting/TippyDefaults.js';
 import { useDispatch, useSelector } from "react-redux";
-import { getMaintenance } from './redux/ducks/maintenance';
 import { getJPToggle } from './redux/ducks/jptoggle';
 import {getQuery, getQueryStringVal,useQueryParam } from './processing/urlparams'
 import { setFalse, setTrue } from './redux/ducks/jptoggle'
@@ -48,26 +47,19 @@ const App = () => {
 
   const dispatch = useDispatch();
 
-  const check = useSelector((state) => 
-    state.maintenance.maintenance
-    );
-
     const jptoggledata = useSelector((state) => 
     state.toggle.toggle
     );
 
     useEffect(() => {
       let mounted = true
-      if (mounted && check == undefined) {
-      dispatch(getMaintenance())
-      }
-      if (mounted) {
+      if (mounted && jptoggledata == undefined) {
         dispatch(getJPToggle());
         }
       return function cleanup() {
           mounted = false
       }
-  }, [dispatch,check]);
+  }, [dispatch,jptoggledata]);
 
 const [jponly, setJPonly] = useState(jptoggledata);
 const [JPsearch, setJPSearch] = useQueryParam("JP", "");
@@ -120,19 +112,11 @@ const jponlybutton = () => {
               <div className='emoji'>🌎</div>
               </Tippy>
               }
-              </div>
-            {check && check.maintenance == true ?
-            <Tippy content={<div><div>Site is in maintenance mode</div><div>You may experince loading issues</div></div>}>
-              <Link to="/">
-            <img alt={"logom"} className={"logom"}>
-            </img>
-            </Link>
-            </Tippy>:
+              </div>       
             <Link to="/">
             <img alt={"logo"} className={"logo"}>
             </img>
             </Link>
-            }
             </div>
           <JukeBoxMini/>
       </header>

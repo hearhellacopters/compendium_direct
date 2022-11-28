@@ -25,29 +25,7 @@ const Sphere_Passive_Ability_Formatting = ({
     ver,
     file,
     Single,
-    passivenames,
-    equipmentpassivenames,
-    AilmentNames,
-    CommandNames,
-    CondData,
-    Ailment_Effects,
-    MessageData_Category,
-    MessageData_FFSeries,
-    ailment_group,
-    command_group,
-    CastNames,
-    char_id,
-    cast_targets,
-    effect_,
-    require_passive,
-    passive_target,
-    trap_type,
-    param_id,
-    attack_type,
-    killer_type,
-    elementid_1,
-    enemy_type,
-    command_type,
+   
     cp_cost,
     board_cost,
     chara_id_passoff,
@@ -59,17 +37,19 @@ const Sphere_Passive_Ability_Formatting = ({
     cost_overide,
     cp_overide,
     tag_overide,
-    target_range_,
-    passive_effects_data,
-    command_data_effects,
 
     banner_color,
     base_color,
     span,
     raw,
 
-    link
+    link,
+    master_index
 }) =>{
+
+    const char_id = master_index.charid
+
+    const param_id = master_index.passive_effects.param_id
 
     const dispatch = useDispatch();
 
@@ -169,14 +149,6 @@ const Sphere_Passive_Ability_Formatting = ({
         3: "C",
         4: "D",
         5: "E"
-    }
-
-    const letter ={
-        1: "a",
-        2: "b",
-        3: "c",
-        4: "d",
-        5: "e"
     }
 
     const type = {
@@ -325,29 +297,10 @@ const Sphere_Passive_Ability_Formatting = ({
                 <div className={`${passive_ability.effect_ == undefined && passive_ability.effect__1 == undefined ? "" : `infonameholderenemybuff default_passive bluebase`}`}>
                 <Passive_Effects_Handoff
                 passive_ability={passive_ability}
-                ailment_group={ailment_group}
-                command_group={command_group}
+                master_index={master_index}
+                ver={ver}                
                 file={file}
-                AilmentNames={AilmentNames}
-                CastNames={CastNames}
-                CommandNames={CommandNames}
-                CondData={CondData}
-                MessageData_FFSeries={MessageData_FFSeries}
-                MessageData_Category={MessageData_Category}
-                equipmentpassivenames={equipmentpassivenames}
-                passivenames={passivenames}
-                cast_targets={cast_targets}
-                effect_data={effect_}
-                require_passive={require_passive}
-                passive_target={passive_target}
-                trap_type={trap_type}
-                param_id={param_id}
-                attack_type={attack_type}
-                killer_type={killer_type}
-                elementid_1={elementid_1}
-                target_range_={target_range_}
-                enemy_type={enemy_type}
-                command_type={command_type}
+                
                 formatting={formatting}
                 />
                 {passive_ability.field != undefined ?
@@ -357,19 +310,12 @@ const Sphere_Passive_Ability_Formatting = ({
                     castlocation={true}
                     ver={ver}
                     ailment_field={buffs}
-                    ailment_group={ailment_group}
-                    command_group={command_group}
-                    AilmentNames={AilmentNames}
-                    CastNames={CastNames}
-                    CommandNames={CommandNames}
-                    CondData={CondData}
-                    Ailment_Effects={Ailment_Effects}
-                    MessageData_FFSeries={MessageData_FFSeries}
-                    MessageData_Category={MessageData_Category}
+
+                    master_index={master_index}
+
                     loc={loc}
                     slider={false}
                     formatting={formatting}
-                    char_id={char_id}
                     base_color={undefined}
                     />
                 ))
@@ -382,31 +328,12 @@ const Sphere_Passive_Ability_Formatting = ({
                     <Passive_Link_Effects
                     key={self.link_id}
                     link_effect={self}
-                    ailment_group={ailment_group}
-                    command_group={command_group}
                     file={file}
-                    AilmentNames={AilmentNames}
-                    CastNames={CastNames}
-                    CommandNames={CommandNames}
-                    CondData={CondData}
-                    MessageData_FFSeries={MessageData_FFSeries}
-                    MessageData_Category={MessageData_Category}
-                    equipmentpassivenames={equipmentpassivenames}
-                    passivenames={passivenames}
-                    cast_targets={cast_targets}
-                    effect_data={effect_}
-                    require_passive={require_passive}
-                    passive_target={passive_target}
-                    trap_type={trap_type}
-                    param_id={param_id}
-                    attack_type={attack_type}
-                    killer_type={killer_type}
-                    elementid_1={elementid_1}
-                    target_range_={target_range_}
-                    enemy_type={enemy_type}
-                    command_type={command_type}
+
+                    ver={ver}
+                    master_index={master_index}
+                    
                     formatting={formatting}
-                    Ailment_Effects={Ailment_Effects}
                     />
                 ))}
                 </div>
@@ -438,22 +365,9 @@ const Sphere_Passive_Ability_Formatting = ({
                 ver={ver} 
                 key={buffs.char_id}
                 ailment_default={buffs}
-                ailment_group={ailment_group}
-                command_group={command_group}
-                AilmentNames={AilmentNames}
-                CastNames={CastNames}
-                CommandNames={CommandNames}
-                CondData={CondData}
-                Ailment_Effects={Ailment_Effects}
-                enemy_type={enemy_type}
-                passivenames={passivenames}
-                equipmentpassivenames={equipmentpassivenames}
-                command_data_effects={command_data_effects}
-                passive_effects_data={passive_effects_data}
-                MessageData_FFSeries={MessageData_FFSeries}
-                MessageData_Category={MessageData_Category}
-                char_id={char_id}
-                cast_targets={cast_targets}
+
+                master_index={master_index}
+
                 loc={loc}
                 slider={false}
                 formatting={formatting}
@@ -490,22 +404,10 @@ const Sphere_Passive_Ability_Formatting = ({
                 file={"passive_ability"}
                 loc={loc}
                 ver={ver}
+
                 ailment_data={selectedbuff}
-                ailment_group={ailment_group}
-                command_group={command_group}
-                AilmentNames={AilmentNames}
-                CastNames={CastNames}
-                CommandNames={CommandNames}
-                CondData={CondData}
-                Ailment_Effects={Ailment_Effects}
-                cast_targets={cast_targets}
-                enemy_type={enemy_type}
-                passivenames={passivenames}
-                equipmentpassivenames={equipmentpassivenames}
-                command_data_effects={command_data_effects}
-                passive_effects_data={passive_effects_data}
-                MessageData_FFSeries={MessageData_FFSeries}
-                MessageData_Category={MessageData_Category}
+                master_index={master_index}
+                
                 slider={false}
                 rank={selectedbuff.rank_id}
                 arg1={selectedbuff.arg1}
@@ -513,7 +415,7 @@ const Sphere_Passive_Ability_Formatting = ({
                 castlocation={true}
                 fullspan={passive_ability.CharID == undefined || file == "exskill" ? true : false}
                 formatting={formatting}
-                char_id={char_id}
+
                 turns={selectedbuff.turn}
                 />
                 :""}

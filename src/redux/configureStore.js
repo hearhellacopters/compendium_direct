@@ -1,8 +1,8 @@
 import { combineReducers, createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga"; 
-import counterReducer from "./ducks/counter";
 import eventGuideReducer from "./ducks/EventGuide";
 import characterReducer from "./ducks/characters";
+import master_indexReducer from "./ducks/master_index";
 import charGuideReducer from "./ducks/CharGuide";
 import updatesReducer from "./ducks/updates";
 import summonsReducer from "./ducks/summons";
@@ -25,29 +25,9 @@ import playindexReducer from "./ducks/playindex";
 import playlistReducer from "./ducks/playlist";
 import playvolumeReducer from "./ducks/playvolume";
 import ultimaweaponReducer from "./ducks/ultimaweapon";
-import maintenanceReducer from "./ducks/maintenance";
 //direct
-import ailmenteffectsReducer from "./ducks/ailment_effects";
-import ailment_group_full_Reducer from './ducks/ailment_group_full'
-import ailmentnamesReducer from "./ducks/ailmentnames";
-import artpassivenamesReducer from "./ducks/artpassivenames";
-import casttargetsReducer from "./ducks/cast_targets";
-import charidReducer from "./ducks/char_id";
-import command_group_full_Reducer from './ducks/command_group_full'
-import commandnamesReducer from "./ducks/commandnames";
-import commandtransdataReducer from "./ducks/commandtransdata";
-import conddataReducer from "./ducks/cond_data";
-import enemy_namesReducer from "./ducks/enemy_names";
-import enemy_typeReducer from "./ducks/enemy_type";
-import enemy_resist_full_Reducer from  './ducks/enemy_resist_full'
-import equipmentpassivenamesReducer from "./ducks/equipmentpassivenames";
-import ffseriesReducer from "./ducks/ffseries";
-import hittransdataReducer from "./ducks/hittransdata";
-import optiontransdataReducer from "./ducks/optiontransdata";
-import passiveeffectsReducer from "./ducks/passive_effects";
-import passivenamesReducer from "./ducks/passivenames";
 import transnamesReducer from "./ducks/transnames";
-import weaponcatReducer from "./ducks/weaponcat";
+
 import weaponskinsReducer from "./ducks/weapon_skins";
 import accessReducer from "./ducks/access";
 import { watcherSaga } from "./sagas/rootSaga";
@@ -65,7 +45,6 @@ import gl_gamelist_sphere_Reducer from './ducks/GL/gamelist_sphere'
 
 const reducer = combineReducers({
   charGuide: charGuideReducer,
-  counter: counterReducer,
   eventGuide: eventGuideReducer,
   characters: characterReducer,
   updates : updatesReducer,
@@ -89,29 +68,9 @@ const reducer = combineReducers({
   playlist: playlistReducer,
   volume: playvolumeReducer,
   ultimaweapon: ultimaweaponReducer,
-  maintenance: maintenanceReducer,
   //direct
-  ailmentnames: ailmentnamesReducer,
-  ailment_effects: ailmenteffectsReducer,
-  commandnames: commandnamesReducer,
-  conddata: conddataReducer,
-  passivenames: passivenamesReducer,
-  equipmentpassivenames: equipmentpassivenamesReducer,
-  artpassivenames: artpassivenamesReducer,
-  charid: charidReducer,
-  casttargets: casttargetsReducer,
-  weaponcat: weaponcatReducer,
-  ffseries: ffseriesReducer,
-  passive_effects: passiveeffectsReducer,
+  master_index: master_indexReducer,
   transnames: transnamesReducer,
-  enemy_type: enemy_typeReducer,
-  command_trans_data: commandtransdataReducer,
-  option_trans_data: optiontransdataReducer,
-  hit_trans_data: hittransdataReducer,
-  enemy_names: enemy_namesReducer,
-  ailment_group_full: ailment_group_full_Reducer,
-  command_group_full: command_group_full_Reducer,
-  enemy_resist_full: enemy_resist_full_Reducer,
   weapon_skins: weaponskinsReducer,
   access: accessReducer,
   //gamelist

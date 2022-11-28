@@ -9,16 +9,7 @@ import axios from "axios";
 import {Navigate} from 'react-router-dom';
 
 const CallCharEventsHandoff = ({match, char_id, jptoggledata}) =>{
-
-    function getSafe(fn, defaultVal) {
-        try {
-          return fn();
-        } catch (e) {
-          return defaultVal;
-        }
-      }
-    
-    
+   
     const dispatch = useDispatch();
     const [EnemiesForCharacters, setEnemiesForCharacters] = useStateIfMounted()
 

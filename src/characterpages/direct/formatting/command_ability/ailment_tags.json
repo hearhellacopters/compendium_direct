@@ -430,6 +430,10 @@
     },
 
 
+    "Target_Lock":{
+        "name": "Target Lock",
+        "url": "debuff/debuff_persontarget_unframed"
+    },
     "Cover": {
         "name": "Cover",
         "url": "roles/Role_Icon_Tank"

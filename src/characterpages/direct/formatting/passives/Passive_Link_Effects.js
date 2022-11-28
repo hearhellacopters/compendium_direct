@@ -5,28 +5,17 @@ import replacer_buff from '../../../../processing/replacer_buffcontent'
 
 const Passive_Link_Effects =({
     link_effect,
-    ailment_group,
-    command_group,
-    AilmentNames,
-    CommandNames,
-    CondData,
-    equipmentpassivenames,
-    passivenames,
-    require_passive,
-    passive_target,
-    trap_type,
-    attack_type,
-    killer_type,
-    elementid_1,
-    enemy_type,
-    command_type,
-    target_range_,
     formatting,
-    Ailment_Effects
+    master_index,
+    ver
 })=>{
 
-    var val_edit_type = Ailment_Effects && Ailment_Effects.val_edit_type
-    var group_id = Ailment_Effects && Ailment_Effects.group_id
+    const val_edit_type = master_index.ailment_effect_id_index.val_edit_type
+    const group_id = master_index.ailment_effect_id_index.group_id
+
+    const AilmentNames = master_index.ailments
+    const CondData = master_index.cond
+    const passive_target = master_index.passive_effects.passive_target
 
     var require_value1 = link_effect.require_value1
     var require_value2 = link_effect.require_value2
@@ -49,21 +38,8 @@ const Passive_Link_Effects =({
             require_value2,
             require_value3,
     
-            require_passive,
-            passive_target,
-            CommandNames,
-            AilmentNames,
-            elementid_1,
-            attack_type,
-            killer_type,
-            command_group,
-            ailment_group,
-            trap_type,
-            passivenames,
-            equipmentpassivenames,
-            enemy_type,
-            command_type,
-            target_range_
+            master_index,
+            ver
         )
         }
 
@@ -85,21 +61,8 @@ const Passive_Link_Effects =({
                 require_value2_1,
                 require_value3_1,
         
-                require_passive,
-                passive_target,
-                CommandNames,
-                AilmentNames,
-                elementid_1,
-                attack_type,
-                killer_type,
-                command_group,
-                ailment_group,
-                trap_type,
-                passivenames,
-                equipmentpassivenames,
-                enemy_type,
-                command_type,
-                target_range_
+                master_index,
+                ver
             )
         }
 
@@ -165,9 +128,11 @@ const Passive_Link_Effects =({
             }
         }
 
+        const fliped = link_effect.require_id_1 == 131 || link_effect.require_id_1 == 130 ? true :false
+
     return(
         <div>
-            {add_formatting(`${effect_}${value_display!= undefined ? ` (${value_display})`:""} ${require_ != "" ? require_ : ""} ${require__1 != "" && require_ != "" ? "and " : ""}${require__1 != "" ? `${require__1}` : ""}${link_effect.add_once_in_turn != undefined ? " (once per turn)" : ""}`,"tl")}{require__1 != "" || require_ != "" ? <br/> : ""}
+            {add_formatting(`${effect_}${value_display!= undefined ? ` (${value_display})`:""} ${fliped == true ? `${require__1}, ` : ""}${require_ != "" ? require_ : ""} ${require__1 != "" && require_ != "" && fliped != true ? "and " : ""}${require__1 != "" && fliped != true ? `${require__1}` : ""}${link_effect.add_once_in_turn != undefined ? " (once per turn)" : ""}`,"tl")}{require__1 != "" || require_ != "" ? <br/> : ""}
         </div>
     )
 }

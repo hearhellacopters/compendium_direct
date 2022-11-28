@@ -5,7 +5,6 @@ import translater from '../../../../processing/translater_characters'
 import DefaultTippy from '../../../../formatting/TippyDefaults';
 import { useDispatch, useSelector } from "react-redux";
 import { getTransNames } from '../../../../redux/ducks/transnames';
-import Ailment_Field_Attached from '../Ailment_Field_Attached'
 import Char_Face_Maker from '../Char_Face_Maker'
 import Ailment_Default_Passoff from "../Ailment_Default_Passoff";
 import Ailment_Data_Formatting from '../Ailment_Data_Formating';
@@ -21,39 +20,18 @@ const Art_Passive_Formatting = ({
     ver,
     file,
     Single,
-    passivenames,
-    equipmentpassivenames,
-    AilmentNames,
-    CommandNames,
-    CondData,
-    Ailment_Effects,
-    MessageData_Category,
-    MessageData_FFSeries,
-    ailment_group,
-    command_group,
-    CastNames,
-    char_id,
-    cast_targets,
-    effect_,
-    require_passive,
-    passive_target,
-    trap_type,
-    param_id,
-    attack_type,
-    killer_type,
-    elementid_1,
-    enemy_type,
-    command_type,
+    
     formatting,
-    passive_effects_data,
-    command_data_effects,
 
     banner_color,
     base_color,
     span,
 
-    link
+    link,
+    master_index
 }) =>{
+
+    const char_id = master_index.charid
 
     const dispatch = useDispatch();
 
@@ -255,57 +233,13 @@ const Art_Passive_Formatting = ({
                 <div className="newbluepassive infonameholderenemybuff default_passive">
                     <Art_Passive_Effects_Handoff
                     passive_ability={art_passive}
-                    ailment_group={ailment_group}
-                    command_group={command_group}
-                    file={file}
-                    AilmentNames={AilmentNames}
-                    CastNames={CastNames}
-                    CommandNames={CommandNames}
-                    CondData={CondData}
-                    MessageData_FFSeries={MessageData_FFSeries}
-                    MessageData_Category={MessageData_Category}
-                    equipmentpassivenames={equipmentpassivenames}
-                    command_data_effects={command_data_effects}
-                    passive_effects_data={passive_effects_data}
-                    passivenames={passivenames}
-                    cast_targets={cast_targets}
-                    effect_data={effect_}
-                    require_passive={require_passive}
-                    passive_target={passive_target}
-                    trap_type={trap_type}
-                    param_id={param_id}
-                    attack_type={attack_type}
-                    killer_type={killer_type}
-                    elementid_1={elementid_1}
-                    enemy_type={enemy_type}
-                    command_type={command_type}
-                    formatting={formatting}
-                    char_id={char_id}
-                    />
-                {art_passive.field != undefined ?
-                art_passive.field.map(buffs => (
-                    <Ailment_Field_Attached 
-                    key={buffs.data_id}
-                    castlocation={true}
+
+                    master_index={master_index}
                     ver={ver}
-                    ailment_field={buffs}
-                    ailment_group={ailment_group}
-                    command_group={command_group}
-                    AilmentNames={AilmentNames}
-                    CastNames={CastNames}
-                    CommandNames={CommandNames}
-                    CondData={CondData}
-                    Ailment_Effects={Ailment_Effects}
-                    MessageData_FFSeries={MessageData_FFSeries}
-                    MessageData_Category={MessageData_Category}
-                    loc={loc}
-                    slider={false}
+                    file={file}
+
                     formatting={formatting}
-                    char_id={char_id}
-                    base_color={undefined}
                     />
-                ))
-                :""}
                 </div>
                 {art_passive.defaults != undefined ?
             Object.values(listByChar).map(buffs => (
@@ -314,22 +248,9 @@ const Art_Passive_Formatting = ({
                 key={buffs.char_id}
                 ver={ver}
                 ailment_default={buffs}
-                ailment_group={ailment_group}
-                command_group={command_group}
-                AilmentNames={AilmentNames}
-                CastNames={CastNames}
-                CommandNames={CommandNames}
-                CondData={CondData}
-                EAilment_Effects={Ailment_Effects}
-                MessageData_FFSeries={MessageData_FFSeries}
-                MessageData_Category={MessageData_Category}
-                equipmentpassivenames={equipmentpassivenames}
-                command_data_effects={command_data_effects}
-                passive_effects_data={passive_effects_data}
-                enemy_type={enemy_type}
-                passivenames={passivenames}
-                char_id={char_id}
-                cast_targets={cast_targets}
+
+                master_index={master_index}
+
                 loc={loc}
                 slider={false}
                 formatting={formatting}
@@ -366,21 +287,9 @@ const Art_Passive_Formatting = ({
                 loc={loc}
                 ver={ver}
                 ailment_data={selectedbuff}
-                ailment_group={ailment_group}
-                command_group={command_group}
-                AilmentNames={AilmentNames}
-                CastNames={CastNames}
-                CommandNames={CommandNames}
-                CondData={CondData}
-                Ailment_Effects={Ailment_Effects}
-                MessageData_FFSeries={MessageData_FFSeries}
-                MessageData_Category={MessageData_Category}
-                command_data_effects={command_data_effects}
-                passive_effects_data={passive_effects_data}
-                equipmentpassivenames={equipmentpassivenames}
-                cast_targets={cast_targets}
-                enemy_type={enemy_type}
-                passivenames={passivenames}
+
+                master_index={master_index}
+
                 slider={false}
                 rank={selectedbuff.rank_id}
                 arg1={selectedbuff.arg1}
@@ -388,7 +297,6 @@ const Art_Passive_Formatting = ({
                 castlocation={true}
                 fullspan={art_passive.chara_id == undefined|| file == "exskill" ?  true : false}
                 formatting={formatting}
-                char_id={char_id}
                 turns={selectedbuff.turn}
                 />
                 :""}

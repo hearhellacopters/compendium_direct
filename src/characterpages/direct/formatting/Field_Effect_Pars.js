@@ -5,15 +5,7 @@ import Ailment_Data_Pars_Field_Handler from './Ailment_Data_Pars_Field_Handler';
 const Field_Effect_Pars = ({
     match,
     Single,
-    AilmentNames,
-    CondData,
-    MessageData_FFSeries,
-    MessageData_Category,
-    CastNames,
-    CommandNames,
-    ailment_group,
-    command_group,
-    Ailment_Effects,
+
     is_buff,
     loc,
     slider,
@@ -40,24 +32,34 @@ const Field_Effect_Pars = ({
     alt_rank,
     alt_aug1,
     alt_aug2,
-    char_id,
     hide_type,
     ver,
     base_buff,
-    is_passive
+    spacer,
+    master_index
 }) =>{
 
-    const EffectID = Ailment_Effects.effect_id
-    const ValType = Ailment_Effects.val_type
-    const ValEditType = Ailment_Effects.val_edit_type
-    const EffectValueType = Ailment_Effects.effect_value_type
-    const EffectTypeID = Ailment_Effects.effect_type_id
-    const EffectID53 = Ailment_Effects.effect_id_53
-    const field_require_id = Ailment_Effects.field_require_id
-    const field_require_id_1 = Ailment_Effects.field_require_id_1
-    const field_require_id_2 = Ailment_Effects.field_require_id_2
-    const field_target = Ailment_Effects.field_target
-    const MessageData_Game = Ailment_Effects.MessageData_Game
+    const EffectID = master_index.ailment_effect_id_index.effect_id
+    const ValType = master_index.ailment_effect_id_index.val_type
+    const ValEditType = master_index.ailment_effect_id_index.val_edit_type
+    const EffectValueType = master_index.ailment_effect_id_index.effect_value_type
+    const EffectTypeID = master_index.ailment_effect_id_index.effect_type_id
+    const EffectID53 = master_index.ailment_effect_id_index.effect_id_53
+    const field_require_id = master_index.ailment_effect_id_index.field_require_id
+    const field_require_id_1 = master_index.ailment_effect_id_index.field_require_id_1
+    const field_require_id_2 = master_index.ailment_effect_id_index.field_require_id_2
+    const field_target = master_index.ailment_effect_id_index.field_target
+    const MessageData_Game = master_index.ailment_effect_id_index.MessageData_Game
+    const AilmentNames= master_index.ailments
+    const CondData = master_index.cond
+    const MessageData_FFSeries = master_index.ffseries
+    const MessageData_Category = master_index.weaponcat
+    const CastNames = master_index.cast_names
+    const CommandNames = master_index.commands
+    const ailment_group = master_index.ailment_group_full[ver]
+    const command_group = master_index.command_group_full[ver]
+    const Ailment_Effects = master_index.ailment_effect_id_index
+    const char_id = master_index.charid
     
     const ailment_id = match.ailment_id
     const require_id_2 = match.require_id_2
@@ -1375,15 +1377,8 @@ const Field_Effect_Pars = ({
             targetstr == "All Enemies " ? 0 : is_buff != undefined ? is_buff : 1,
             //effect number
             0,
-            AilmentNames,
-            CastNames,
-            CommandNames,
-            CondData,
-            Ailment_Effects,
-            MessageData_FFSeries,
-            MessageData_Category,
-            ailment_group,
-            command_group,
+            master_index,
+            ver,
             //augs
             AugValue1,
             AugValue2,
@@ -1392,9 +1387,7 @@ const Field_Effect_Pars = ({
             alt_rank,
             alt_aug1,
             alt_aug2,
-            char_id,
             effect_value_type == 10 ? "split_3_rev" : undefined,
-            ver
         )
         var effectstrpull = `${targetstr}${geteffect.effectstr}`
         Object.assign(geteffect, 
@@ -1427,9 +1420,8 @@ const Field_Effect_Pars = ({
             currenthp={currenthp}
             charactersleft={charactersleft}
             formatting={formatting}
-            char_id={char_id}
             hide_type={hide_type}
-            is_passive={is_passive}
+            spacer={spacer}
             /> 
         </div>
     )

@@ -6,17 +6,20 @@ const option_label_pars = (
     target,
     original_label_,
 
-    option_labels,
-    target_data,
-
-    AilmentNames,
-    CommandNames,
-    ailment_group,
-    command_group,
-    passivenames,
-    equipmentpassivenames,
-    CondData
+    master_index,
+    ver,
+    
 )=>{
+
+    const option_labels = master_index.option_trans_data.option_labels
+    const target_data = master_index.option_trans_data.target
+    const AilmentNames = master_index.ailments
+    const CommandNames = master_index.commands
+    const ailment_group = master_index.ailment_group_full[ver]
+    const command_group = master_index.command_group_full[ver]
+    const passivenames = master_index.passivenames
+    const equipmentpassivenames = master_index.equipmentpassivenames
+    const CondData = master_index.cond
 
     var label1_pull = label && option_labels[label]
 

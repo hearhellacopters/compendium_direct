@@ -4,14 +4,19 @@ const Ability_Icon_Maker = (
     rank,
     red_flag, 
     chara_id,
-    char_id_index,
-    type_index,
-    attack_type_index,
+
+    master_index,
+    ver,
+
     UseNum,
     Counter,
     Trap,
     FollowUp
 )=>{
+
+    const char_id_index = master_index.charid
+    const type_index = master_index.command_data_trans.type_
+    const attack_type_index = master_index.command_data_trans.attack_type_
 
     var final_str = ""
 

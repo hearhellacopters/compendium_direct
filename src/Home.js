@@ -190,11 +190,10 @@ const Home = ({ProcessedUpdates, jptoggledata}) => {
               <div className="subheader">
                 <div className="homewelcomeholder noselect">
                 Dissidia Final Fantasy Opera Omnia mobile game database.<br/><br/>
-                We provide English and Japanese translations for both Global 
+                We provide translations for both the Global 
                 and Japanese versions. Here you'll find all character abilities, 
                 enemies and summons, as well as a complete timeline of game events 
-                with community guides. Switch database by using the upper 
-                <span className="emoji clicky" onClick={glonlybutton}>🌎</span> or <span className="jpflagupdate clicker" onClick={jponlybutton}></span> icons 
+                with community guides. You can switch databases by using the upper <span className="emoji clicky" onClick={glonlybutton}>🌎</span> or <span className="jpflagupdate clicker" onClick={jponlybutton}></span> icons 
                 or the button below:
                 <br/>
                 <br/>

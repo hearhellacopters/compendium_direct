@@ -4,36 +4,23 @@ import passive_effect_handler from "../passive_effect_handler";
 import Passive_Effects_Attached from "./Passive_Effects_Attached";
 import replacer_titles from '../../../../processing/replacer_titles'
 import replacer_buff from '../../../../processing/replacer_buffcontent'
+import Ailment_Field_Attached from '../Ailment_Field_Attached'
 import reactStringReplace from "react-string-replace"
 
 const Passive_Effects_Handoff =({
     file,
     passive_ability,
-    ailment_group,
-    command_group,
-    AilmentNames,
-    CastNames,
-    CommandNames,
-    CondData,
-    MessageData_FFSeries,
-    MessageData_Category,
-    equipmentpassivenames,
-    passivenames,
-    cast_targets,
-    effect_data,
-    require_passive,
-    passive_target,
-    trap_type,
-    param_id,
-    attack_type,
-    killer_type,
-    elementid_1,
-    enemy_type,
-    command_type,
+
+    master_index,
+    ver,
+
     formatting,
-    target_range_,
     base_color
 })=>{
+
+    const equipmentpassivenames = master_index.equipmentpassivenames
+    const passivenames = master_index.passivenames
+    const param_id = master_index.passive_effects.param_id
 
     var restrict_type = ""
     if(passive_ability.restrict_type == 1){
@@ -210,8 +197,18 @@ const Passive_Effects_Handoff =({
     var require_ = ""
     var require__1 = ""
 
+    var require_show = true
+    var require__1_show = true
+
+    if(passive_ability.require_ != undefined && passive_ability.passive_cond_type == 2 && passive_ability.effect_ == undefined){
+        require_show = false
+    }
+    if(passive_ability.require__1 != undefined && passive_ability.passive_cond_type == 2 && passive_ability.effect__1 == undefined){
+        require__1_show = false
+    }
+
     if( passive_ability.require_ != undefined &&
-        passive_ability.passive_cond_type == 2 && passive_ability.effect_ != undefined
+        require_show == true
         ){
     require_ = require_trans_handler(
         passive_ability.require_,
@@ -220,26 +217,13 @@ const Passive_Effects_Handoff =({
         require_value2,
         require_value3,
 
-        require_passive,
-        passive_target,
-        CommandNames,
-        AilmentNames,
-        elementid_1,
-        attack_type,
-        killer_type,
-        command_group,
-        ailment_group,
-        trap_type,
-        passivenames,
-        equipmentpassivenames,
-        enemy_type,
-        command_type,
-        target_range_
+        master_index,
+        ver
     )
     }
 
     if( passive_ability.require__1 != undefined &&
-        passive_ability.passive_cond_type == 2 && passive_ability.effect__1 != undefined
+        require__1_show == true
         ){
         require__1 = require_trans_handler(
             passive_ability.require__1,
@@ -248,21 +232,8 @@ const Passive_Effects_Handoff =({
             require_value2_1,
             require_value3_1,
     
-            require_passive,
-            passive_target,
-            CommandNames,
-            AilmentNames,
-            elementid_1,
-            attack_type,
-            killer_type,
-            command_group,
-            ailment_group,
-            trap_type,
-            passivenames,
-            equipmentpassivenames,
-            enemy_type,
-            command_type,
-            target_range_
+            master_index,
+            ver
         )
     }
 
@@ -278,20 +249,8 @@ const Passive_Effects_Handoff =({
             effect_value3,
             passive_ability.effect__1,
     
-            effect_data,
-            passive_target,
-            CommandNames,
-            AilmentNames,
-            elementid_1,
-            attack_type,
-            killer_type,
-            command_group,
-            ailment_group,
-            trap_type,
-            passivenames,
-            equipmentpassivenames,
-            enemy_type,
-            CastNames
+            master_index,
+            ver
         )
     }
 
@@ -304,20 +263,8 @@ const Passive_Effects_Handoff =({
             effect_value3_1,
             passive_ability.effect__1,
     
-            effect_data,
-            passive_target,
-            CommandNames,
-            AilmentNames,
-            elementid_1,
-            attack_type,
-            killer_type,
-            command_group,
-            ailment_group,
-            trap_type,
-            passivenames,
-            equipmentpassivenames,
-            enemy_type,
-            CastNames
+            master_index,
+            ver
         )
     }
 
@@ -417,14 +364,103 @@ const Passive_Effects_Handoff =({
             <div>
                 {add_formatting(`${require__1 == "" && require_ == "" ? "" : "\xa0┬ "}${require_}${require__1 != "" && require_ != "" ? " & " : ""}${require__1 != "" ? `${require__1}` : ""}`,"tl")}{require__1 != "" || require_ != "" ? <br/> : ""}
                 {effect_display_pars(effect_,effect__1,require_,require__1,1)}
+                {effect_ == "Field Effect" && passive_ability.hide_field != true?
+                        passive_ability.field && passive_ability.field.map((buffs,i) => (
+                            <Ailment_Field_Attached
+                            key={buffs.data_id}
+                            castlocation={true}
+                            ver={ver}
+                            master_index={master_index}
+                            ailment_field={buffs}
+
+                            loc={"passive"}
+                            slider={false}
+                            formatting={formatting}
+                            hide_type={true}
+                            spacer={require_ != "" ? `${passive_ability.field.length == i+1 ? "└─" : "├─"}`: undefined}
+                            />
+                        ))
+                        :""
+                }
                 {effect_display_pars(effect_,effect__1,require_,require__1,2)}
+                {effect__1 == "Field Effect" && passive_ability.hide_field != true?
+                        passive_ability.field && passive_ability.field.map((buffs,i) => (
+                            <Ailment_Field_Attached
+                            key={buffs.data_id}
+                            castlocation={true}
+                            ver={ver}
+                            master_index={master_index}
+                            ailment_field={buffs}
+
+                            loc={"passive"}
+                            slider={false}
+                            formatting={formatting}
+                            hide_type={true}
+                            spacer={require__1 != "" ? `${passive_ability.field.length == i+1 ? "└─" : "├─"}`: undefined}
+                            />
+                        ))
+                        :""
+                }
             </div>
             :""}
             {passive_ability.passive_cond_type == 3 ?
             <div>
                 {add_formatting(`${require_ != "" ? `\xa0┬ ${require_}` : ""}${require__1 != "" && require_ != "" ? " or " : ""}${require__1 != "" ? `${require__1}` : ""}`,"tl")}{require__1 != "" || require_ != "" ? <br/> : ""}
                 {effect_display_pars(effect_,effect__1,require_,require__1,1)}
+                {effect_ == "Field Effect" && passive_ability.hide_field != true ?
+                        passive_ability.field && passive_ability.field.map((buffs,i) => (
+                            <Ailment_Field_Attached 
+                            key={buffs.data_id}
+                            castlocation={true}
+                            ver={ver}
+                            master_index={master_index}
+                            ailment_field={buffs}
+
+                            loc={"passive"}
+                            slider={false}
+                            formatting={formatting}
+                            hide_type={true}
+                            spacer={require_ != "" ? `${passive_ability.field.length == i+1 ? "└─" : "├─"}`: undefined}
+                            />
+                        ))
+                        :""
+                }
                 {effect_display_pars(effect_,effect__1,require_,require__1,2)}
+                {effect__1 == "Field Effect" && passive_ability.hide_field != true ?
+                        passive_ability.field && passive_ability.field.map((buffs,i) => (
+                            <Ailment_Field_Attached 
+                            key={buffs.data_id}
+                            castlocation={true}
+                            ver={ver}
+                            master_index={master_index}
+                            ailment_field={buffs}
+
+                            loc={"passive"}
+                            slider={false}
+                            formatting={formatting}
+                            hide_type={true}
+                            spacer={require__1 != "" ? `${passive_ability.field.length == i+1 ? "└─" : "├─"}`: undefined}
+                            />
+                        ))
+                        :""
+                }
+                {effect__1 != "Field Effect" && effect_ != "Field Effect" && passive_ability.hide_field != true && passive_ability.field != undefined ?
+                passive_ability.field && passive_ability.field.map((buffs,i) => (
+                    <Ailment_Field_Attached
+                    key={buffs.data_id}
+                    castlocation={true}
+                    ver={ver}
+                    ailment_field={buffs}
+                    master_index={master_index}
+
+                    loc={"passive"}
+                    slider={false}
+                    formatting={formatting}
+                    hide_type={true}
+                    spacer={`${passive_ability.field.length == i+1 ? "└─" : "├─"}`}
+                    />
+                ))
+                :""}
             </div>
             :""}
             {passive_ability.passive_cond_type == 2 ?
@@ -432,11 +468,64 @@ const Passive_Effects_Handoff =({
                 <div>
                 {require_ != "" ? add_formatting(`\xa0┬ ${require_}`,"tl") : ""}{require_ != "" ? <br/> : ""}
                 {effect_display_pars(effect_,effect__1,require_,require__1,1)}
+                {effect_ == "Field Effect" && passive_ability.hide_field != true ?
+                        passive_ability.field && passive_ability.field.map((buffs,i) => (
+                            <Ailment_Field_Attached
+                            key={buffs.data_id}
+                            castlocation={true}
+                            ver={ver}
+                            ailment_field={buffs}
+                            master_index={master_index}
+
+                            loc={"passive"}
+                            slider={false}
+                            formatting={formatting}
+                            hide_type={true}
+                            spacer={require_ != "" ? `${passive_ability.field.length == i+1 ? "└─" : "├─"}`: undefined}
+                            />
+                        ))
+                        :""
+                }
                 </div>
                 <div>
                 {require__1 != "" ? add_formatting(`\xa0┬ ${require__1}`,"tl") : ""}{require__1 != "" ? <br/> : ""}
                 {effect_display_pars(effect_,effect__1,require_,require__1,2)}
+                {effect__1 == "Field Effect" && passive_ability.hide_field != true ?
+                        passive_ability.field && passive_ability.field.map((buffs,i) => (
+                            <Ailment_Field_Attached 
+                            key={buffs.data_id}
+                            castlocation={true}
+                            ver={ver}
+                            ailment_field={buffs}
+                            master_index={master_index}
+
+                            loc={"passive"}
+                            slider={false}
+                            formatting={formatting}
+                            hide_type={true}
+                            spacer={require__1 != "" ? `${passive_ability.field.length == i+1 ? "└─" : "├─"}`: undefined}
+                            />
+                        ))
+                        :""
+                }
                 </div>
+                {effect__1 != "Field Effect" && effect_ != "Field Effect" && passive_ability.hide_field != true && passive_ability.field != undefined ?
+                passive_ability.field && passive_ability.field.map((buffs,i) => (
+                    <Ailment_Field_Attached
+                    key={buffs.data_id}
+                    castlocation={true}
+                    ver={ver}
+                    ailment_field={buffs}
+                    master_index={master_index}
+
+                    loc={"passive"}
+                    slider={false}
+                    formatting={formatting}
+                    hide_type={true}
+                    spacer={`${passive_ability.field.length == i+1 ? "└─" : "├─"}`}
+                    />
+                ))
+                :""}
             </div>
             :""}
             {passive_ability.attached != undefined ?
@@ -444,27 +533,10 @@ const Passive_Effects_Handoff =({
                 <Passive_Effects_Attached
                 key={Object.values(self)[0].pa_id}
                 passive_ability={Object.values(self)[0]}
-                ailment_group={ailment_group}
-                command_group={command_group}
-                AilmentNames={AilmentNames}
-                CastNames={CastNames}
-                CommandNames={CommandNames}
-                CondData={CondData}
-                MessageData_FFSeries={MessageData_FFSeries}
-                MessageData_Category={MessageData_Category}
-                equipmentpassivenames={equipmentpassivenames}
-                passivenames={passivenames}
-                cast_targets={cast_targets}
-                effect_data={effect_data}
-                require_passive={require_passive}
-                passive_target={passive_target}
-                trap_type={trap_type}
-                param_id={param_id}
-                attack_type={attack_type}
-                killer_type={killer_type}
-                target_range_={target_range_}
-                elementid_1={elementid_1}
-                enemy_type={enemy_type}
+
+                master_index={master_index}
+                ver={ver}
+                
                 formatting={formatting}
                 />
             )

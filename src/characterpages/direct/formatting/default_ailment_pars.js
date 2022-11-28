@@ -8,17 +8,21 @@ import ReactJson from '@microlink/react-json-view'
 
 const Default_Ailment_Pars =({
     default_data,
-    passivenames,
-    equipmentpassivenames,
-    CommandNames,
-    cast_targets,
-    Ailment_Effects,
+
     formatting,
     gear,
     span,
     list,
-    passed_ailment
+    passed_ailment,
+    master_index,
+    ver
 })=>{
+
+    const default_cond = master_index.ailment_effect_id_index.default_cond
+    const passivenames = master_index.passivenames
+    const equipmentpassivenames = master_index.equipmentpassivenames
+    const CommandNames = master_index.commands
+    const cast_targets = master_index.cast_names
 
     const [showraw,setshowraw] = useStateIfMounted(false)
 
@@ -37,8 +41,6 @@ const Default_Ailment_Pars =({
         replacement = data == undefined ? "" : data.replace(/EX/,"EXrank")
         return replacement
     }
-
-    const default_cond = Ailment_Effects.default_cond
 
     var cond_str = ""
 

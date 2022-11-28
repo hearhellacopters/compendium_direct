@@ -5,10 +5,12 @@ import {EndsInTimer, StartsInTimer} from '../../formatting/Timers'
  
 const Link_Parm =({
     passive,
-    char_id,
+    master_index,
     tag_overide,
     ver
 })=>{
+
+    const char_id = master_index.charid
 
     const ct = new Date().getTime();
 

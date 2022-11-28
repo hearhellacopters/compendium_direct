@@ -11,11 +11,11 @@ const Ailment_Meta_Handler = (
     life_max_, 
     group_id,
 
-    Ailment_Effects,
+    master_index,
     highestlvl
     ) =>{
 
-    const life_type_data = Ailment_Effects.life_type
+    const life_type_data = master_index.ailment_effect_id_index.life_type
     var ishidden= ""
     var only1 = ""
     var life = ""

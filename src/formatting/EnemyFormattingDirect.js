@@ -852,7 +852,11 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
                             ""
                             }
                             {abilities == "abilities" ?
-                            <EnemyAbilities_MasterListDirect stats={stats} ai={enemy.ai_} showmeraw={showmeraw} battle_enemy={battle_enemy}/>
+                            <EnemyAbilities_MasterListDirect 
+                            stats={stats} 
+                            ai={enemy.ai_} 
+                            showmeraw={showmeraw} 
+                            battle_enemy={battle_enemy}/>
                             :""}
                             {abilities == "infographic" && enemy.Infographic != undefined?
                             enemy.Infographic.map(self=>(

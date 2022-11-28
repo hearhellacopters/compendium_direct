@@ -5,11 +5,14 @@ import replacer_buff from '../../../processing/replacer_buffcontent'
 
 const Ailment_Combination_Formatting = ({
     components,
-    AilmentNames,
+    master_index,
+    ver,
     Single,
     formatting,
     base_id
 }) =>{
+
+    const AilmentNames = master_index.ailments
 
     const addformatting =(text,switching)=>{
         if(formatting != true){

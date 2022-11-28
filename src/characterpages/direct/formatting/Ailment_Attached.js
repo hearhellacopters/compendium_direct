@@ -35,24 +35,10 @@ const Ailment_Attached =({
         file,
         loc,
         ver,
-
-        enemy_type,
-        command_data_effects,
-        passive_effects_data,
-        equipmentpassivenames,
-        passivenames,
-        cast_targets,
-
         ailment_data,
-        ailment_group,
-        command_group,
-        AilmentNames,
-        CastNames,
-        CommandNames,
-        CondData,
-        Ailment_Effects,
-        MessageData_FFSeries,
-        MessageData_Category,
+
+        master_index,
+
         slider,
         castlocation,
         formatting,
@@ -62,7 +48,6 @@ const Ailment_Attached =({
         alt_rank,
         alt_aug1,
         alt_aug2,
-        char_id,
         turns
 })=>{
     const [onion_passoff, setonion_passoff] = useStateIfMounted();
@@ -323,15 +308,8 @@ const Ailment_Attached =({
            ailment_data.is_buff,
            //effect#
            0,
-           AilmentNames,
-           CastNames,
-           CommandNames,
-           CondData,
-           Ailment_Effects,
-           MessageData_FFSeries,
-           MessageData_Category,
-           ailment_group,
-           command_group,
+           master_index,
+           ver,
            //aug1&2
            arg1,
            arg2,
@@ -340,9 +318,7 @@ const Ailment_Attached =({
            alt_rank,
            alt_aug1,
            alt_aug2,
-           char_id,
-           undefined,
-           ver
+           undefined
            )
 
         const effect_id_1 = ailment_data.effect_id_1 && ailment_data_pars(
@@ -357,15 +333,8 @@ const Ailment_Attached =({
             ailment_data.is_buff,
             //effect#
             1,
-            AilmentNames,
-            CastNames,
-            CommandNames,
-            CondData,
-            Ailment_Effects,
-            MessageData_FFSeries,
-            MessageData_Category,
-            ailment_group,
-            command_group,
+            master_index,
+            ver,
             //aug1&2
             arg1,
             arg2,
@@ -374,9 +343,7 @@ const Ailment_Attached =({
             alt_rank,
             alt_aug1,
             alt_aug2,
-            char_id,
-            undefined,
-            ver
+            undefined
             )
 
         const effect_id_2 = ailment_data.effect_id_2 && ailment_data_pars(
@@ -391,15 +358,8 @@ const Ailment_Attached =({
             ailment_data.is_buff,
             //effect#
             2,
-            AilmentNames,
-            CastNames,
-            CommandNames,
-            CondData,
-            Ailment_Effects,
-            MessageData_FFSeries,
-            MessageData_Category,
-            ailment_group,
-            command_group,
+            master_index,
+            ver,
             //aug1&2
             arg1,
             arg2,
@@ -408,9 +368,7 @@ const Ailment_Attached =({
             alt_rank,
             alt_aug1,
             alt_aug2,
-            char_id,
-            undefined,
-            ver
+            undefined
             )
 
         const effect_id_3 = ailment_data.effect_id_3 && ailment_data_pars(
@@ -425,15 +383,8 @@ const Ailment_Attached =({
             ailment_data.is_buff,
             //effect#
             3,
-            AilmentNames,
-            CastNames,
-            CommandNames,
-            CondData,
-            Ailment_Effects,
-            MessageData_FFSeries,
-            MessageData_Category,
-            ailment_group,
-            command_group,
+            master_index,
+            ver,
             //aug1&2
             arg1,
             arg2,
@@ -442,9 +393,7 @@ const Ailment_Attached =({
             alt_rank,
             alt_aug1,
             alt_aug2,
-            char_id,
-            undefined,
-            ver
+            undefined
             )
 
         var effect_id_4 = undefined
@@ -461,15 +410,8 @@ const Ailment_Attached =({
                 ailment_data.is_buff,
                 //effect#
                 4,
-                AilmentNames,
-                CastNames,
-                CommandNames,
-                CondData,
-                Ailment_Effects,
-                MessageData_FFSeries,
-                MessageData_Category,
-                ailment_group,
-                command_group,
+                master_index,
+                ver,
                 //aug1&2
                 arg1,
                 arg2,
@@ -478,9 +420,7 @@ const Ailment_Attached =({
                 alt_rank,
                 alt_aug1,
                 alt_aug2,
-                char_id,
-                undefined,
-                ver
+                undefined
                 )
         }
 
@@ -496,15 +436,8 @@ const Ailment_Attached =({
             ailment_data.is_buff,
             //effect#
             5,
-            AilmentNames,
-            CastNames,
-            CommandNames,
-            CondData,
-            Ailment_Effects,
-            MessageData_FFSeries,
-            MessageData_Category,
-            ailment_group,
-            command_group,
+            master_index,
+            ver,
             //aug1&2
             arg1,
             arg2,
@@ -513,9 +446,7 @@ const Ailment_Attached =({
             alt_rank,
             alt_aug1,
             alt_aug2,
-            char_id,
-            undefined,
-            ver
+            undefined
             )
 
          const effect_id_6 = ailment_data.effect_id_6 && ailment_data_pars(
@@ -530,15 +461,8 @@ const Ailment_Attached =({
             ailment_data.is_buff,
             //effect#
             6,
-            AilmentNames,
-            CastNames,
-            CommandNames,
-            CondData,
-            Ailment_Effects,
-            MessageData_FFSeries,
-            MessageData_Category,
-            ailment_group,
-            command_group,
+            master_index,
+            ver,
             //aug1&2
             arg1,
             arg2,
@@ -547,9 +471,7 @@ const Ailment_Attached =({
             alt_rank,
             alt_aug1,
             alt_aug2,
-            char_id,
-            undefined,
-            ver
+            undefined
             )
 
         const effect_id_7 = ailment_data.effect_id_7 && ailment_data_pars(
@@ -564,15 +486,8 @@ const Ailment_Attached =({
             ailment_data.is_buff,
             //effect#
             7,
-            AilmentNames,
-            CastNames,
-            CommandNames,
-            CondData,
-            Ailment_Effects,
-            MessageData_FFSeries,
-            MessageData_Category,
-            ailment_group,
-            command_group,
+            master_index,
+            ver,
             //aug1&2
             arg1,
             arg2,
@@ -581,9 +496,7 @@ const Ailment_Attached =({
             alt_rank,
             alt_aug1,
             alt_aug2,
-            char_id,
-            undefined,
-            ver
+            undefined
             )
         
 
@@ -599,15 +512,8 @@ const Ailment_Attached =({
             ailment_data.is_buff,
             //effect#
             8,
-            AilmentNames,
-            CastNames,
-            CommandNames,
-            CondData,
-            Ailment_Effects,
-            MessageData_FFSeries,
-            MessageData_Category,
-            ailment_group,
-            command_group,
+            master_index,
+            ver,
             //aug1&2
             arg1,
             arg2,
@@ -616,9 +522,7 @@ const Ailment_Attached =({
             alt_rank,
             alt_aug1,
             alt_aug2,
-            char_id,
-            undefined,
-            ver
+            undefined
             )
 
         const effect_id_9 = ailment_data.effect_id_9 && ailment_data_pars(
@@ -633,15 +537,8 @@ const Ailment_Attached =({
             ailment_data.is_buff,
             //effect#
             9,
-            AilmentNames,
-            CastNames,
-            CommandNames,
-            CondData,
-            Ailment_Effects,
-            MessageData_FFSeries,
-            MessageData_Category,
-            ailment_group,
-            command_group,
+            master_index,
+            ver,
             //aug1&2
             arg1,
             arg2,
@@ -650,9 +547,7 @@ const Ailment_Attached =({
             alt_rank,
             alt_aug1,
             alt_aug2,
-            char_id,
-            undefined,
-            ver
+            undefined
             )
  
     const metadata = Ailment_Meta_Handler(
@@ -668,7 +563,7 @@ const Ailment_Attached =({
         ailment_data.life_max_, 
         ailment_data.group_id,
 
-        Ailment_Effects,
+        master_index,
         highestlvl
         )
 
@@ -939,9 +834,9 @@ const Ailment_Attached =({
                                  <Ailment_Data_Combination_Formatting
                                  key={i}
                                  components={item}
-                                 AilmentNames={AilmentNames} 
+                                 master_index={master_index}
+                                 ver={ver} 
                                  formatting={formatting}
-                                 char_id={char_id}
                                  base_id={ailment_data.id}
                                  />
                                 )}
@@ -1172,15 +1067,9 @@ const Ailment_Attached =({
                                ver={ver}
                                effect_id_4={ailment_data.effect_id_4}
                                match={item} 
-                               AilmentNames={AilmentNames} 
-                               CondData={CondData} 
-                               MessageData_FFSeries={MessageData_FFSeries}
-                               MessageData_Category={MessageData_Category}
-                               CastNames={CastNames}
-                               CommandNames={CommandNames}
-                               ailment_group={ailment_group}
-                               command_group={command_group}
-                               Ailment_Effects={Ailment_Effects}
+
+                               master_index={master_index}
+
                                is_buff={ailment_data.is_buff}
                                loc={loc}
                                slider={slider}
@@ -1206,7 +1095,6 @@ const Ailment_Attached =({
                                alt_rank={alt_rank}
                                alt_aug1={alt_aug1}
                                alt_aug2={alt_aug2}
-                               char_id={char_id}
                                />
                             )}
                         </div>
@@ -1219,13 +1107,11 @@ const Ailment_Attached =({
                                 <Ailment_Modify_Formatting 
                                 key={i} 
                                 modify={item}
-                                CondData={CondData}
-                                AilmentNames={AilmentNames}
-                                command_group={command_group}
+
+                                master_index={master_index}
+                                ver={ver}
                                 Single={false}
-                                Ailment_Effects={Ailment_Effects}
                                 formatting={formatting}
-                                char_id={char_id}
                                 />
                             )}
                         </div>
@@ -1247,15 +1133,10 @@ const Ailment_Attached =({
                             :""}
                             {merger_master(
                                 ailment_data.passives,
-                                passive_effects_data,
-                                CommandNames,
-                                AilmentNames,
-                                command_group,
-                                ailment_group,
-                                passivenames,
-                                equipmentpassivenames,
-                                enemy_type,
-                                CastNames,
+
+                                master_index,
+                                ver,
+                                
                                 merge_pas,
                                 "ailment",
                                 true
@@ -1263,30 +1144,10 @@ const Ailment_Attached =({
                                 ailment_passive.is_total != true ? <Passive_Battle_State
                                 key={`${ailment_passive.pa_id}-${i}`}
                                 passive_ability={ailment_passive}
-                                ailment_group={ailment_group}
-                                command_group={command_group}
-                                AilmentNames={AilmentNames}
-                                CastNames={CastNames}
+
+                                master_index={master_index}
                                 ver={ver}
-                                CommandNames={CommandNames}
-                                CondData={CondData}
-                                Ailment_Effects={Ailment_Effects}
-                                MessageData_FFSeries={MessageData_FFSeries}
-                                MessageData_Category={MessageData_Category}
-                                equipmentpassivenames={equipmentpassivenames}
-                                passivenames={passivenames}
-                                cast_targets={cast_targets}
-                                effect_data={passive_effects_data.effect_}
-                                require_passive={passive_effects_data.require_passive}
-                                passive_target={passive_effects_data.passive_target}
-                                trap_type={passive_effects_data.trap_type}
-                                param_id={passive_effects_data.param_id}
-                                attack_type={passive_effects_data.attack_type}
-                                killer_type={passive_effects_data.killer_type}
-                                elementid_1={passive_effects_data.elementid_1}
-                                enemy_type={enemy_type}
-                                command_type={command_data_effects.command_type}
-                                target_range_={command_data_effects.target_range_}
+
                                 formatting={formatting}
                                 skip_space={i}
                                 use_ailment={true}

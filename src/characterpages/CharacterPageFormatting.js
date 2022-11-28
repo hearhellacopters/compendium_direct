@@ -436,7 +436,8 @@ const onclickvoice = (Voice) =>{
                 {introvoice == "intro" ?
                 <>
                 {newmatch.Intro} 
-                <div className='abilityJPname'>
+                <hr/>
+                <div className='abilityJPname '>
                 {newmatch.JPintro}
                   </div>
                   </>

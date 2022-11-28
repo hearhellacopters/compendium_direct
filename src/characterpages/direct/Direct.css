@@ -186,6 +186,7 @@ margin-right: auto;
     -webkit-filter: drop-shadow(1px 1px 1px #222);
     padding-left: 2px;
     min-height: 45px;
+    margin-bottom: 5px;
 }
 
 .Debuffsubbanner2{
@@ -194,6 +195,7 @@ margin-right: auto;
     -webkit-filter: drop-shadow(1px 1px 1px #222);
     padding-left: 2px;
     min-height: 45px;
+    margin-bottom: 5px;
 }
 
 .Buffsubbase2{

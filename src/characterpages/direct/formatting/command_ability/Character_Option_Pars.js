@@ -12,31 +12,10 @@ const Character_Option_Pars=({
     file,
     Single,
 
-    CastNames,
-    enemy_type,
-    cast_targets,
-    char_id,
-    passivenames,
-    equipmentpassivenames,
-    AilmentNames,
-    CommandNames,
-    CondData,
-    Ailment_Effects,
-    MessageData_Category,
-    MessageData_FFSeries,
-    hit_data_effects,
-    command_data_effects,
-    option_trans_data,
-
-    ailment_group,
-    command_group,
-    enemy_resist,
-    
-    option_labels,
-    option_type_,
-    target,
     formatting,
-    all_options
+    all_options,
+
+    master_index
 })=>{
 
     const transdata = options_trans_handler(
@@ -45,17 +24,8 @@ const Character_Option_Pars=({
         "attached", //solo or attached
         true, //show command ids
 
-        option_labels,
-        option_type_,
-        target,
-
-        AilmentNames,
-        CommandNames,
-        ailment_group,
-        command_group,
-        passivenames,
-        equipmentpassivenames,
-        CondData
+        master_index,
+        ver
     )
 
     const addformatting =(text,switching)=>{

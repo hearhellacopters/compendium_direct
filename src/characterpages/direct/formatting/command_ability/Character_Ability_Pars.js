@@ -34,58 +34,18 @@ const Character_Ability_Pars =({
     loc,
     ver,
     file,
+
     buff_data,
 
-    CastNames,
-    enemy_type,
-    cast_targets,
-    passivenames,
-    equipmentpassivenames,
-    passive_effects_data,
-    CondData,
-    Ailment_Effects,
-    MessageData_Category,
-    MessageData_FFSeries,
-    char_id,
-
-    option_trans_data,
-    command_data_effects,
-    hit_data_effects,
-
-    hit_effect_id,
-    ability_target_id,
-    type_id,
-    attack_type_id,
-    effect_value_type_id,
-    CommandNames,
-    AilmentNames,
-    ailment_group,
-    command_group,
-    enemy_resist,
-    element_bit_,
-
-    type_,
-    attack_type_,
-    target_range_,
-    target_type_,
-    auto_target_type_,
-    killer_cond,
-    killer_cond_1,
-    killer_type,
-    cast_target,
-    ailment_cond,
-    ailment_cond_14,
-    command_type,
-
-    option_labels,
-    options_target,
-    option_type_,
     formatting,
     tag_override,
     all_options,
-
-    link
+    link,
+    master_index
 })=>{
+
+    const CommandNames = master_index.commands
+    const char_id = master_index.charid
 
     const [merge_pas, setmerge_pas] = useStateIfMounted(character_ability && character_ability.passives && character_ability.passives.length > 1 ? true :false)
     const [selectedbuff, setselectedbuff] = useStateIfMounted([]);
@@ -328,9 +288,10 @@ const Character_Ability_Pars =({
             character_ability.command.rank,
             red, //red_flag
             character_ability.charaID, //char id
-            char_id,
-            type_,
-            attack_type_,
+
+            master_index,
+            ver,
+
             use_num,
             character_ability.Counter,
             character_ability.Trap,
@@ -438,38 +399,13 @@ const Character_Ability_Pars =({
             character_ability.command,
             ver,
 
-            CastNames,
-            enemy_type,
-            cast_targets,
-            char_id,
-            passivenames,
-            equipmentpassivenames,
-            AilmentNames,
-            CommandNames,
-            CondData,
-            MessageData_Category,
-            MessageData_FFSeries,
-
-            ailment_group,
-            command_group,
-            enemy_resist,
-
-            type_,
-            attack_type_,
-            target_range_,
-            target_type_,
-            auto_target_type_,
-            killer_cond,
-            killer_cond_1,
-            killer_type,
-            cast_target,
-            ailment_cond,
-            ailment_cond_14,
-            command_type,
+            master_index,
         )
 
         const hit_data_pars = Hit_Data_For_Ability(
             character_ability,
+            master_index,
+            ver,
 
             character_ability.hit_data_pars.hit_1,
             character_ability.hit_data_pars.hit_2,
@@ -511,18 +447,6 @@ const Character_Ability_Pars =({
             character_ability.hit_data_pars.hit_38,
             character_ability.hit_data_pars.hit_39,
             character_ability.hit_data_pars.hit_40,
-
-            hit_effect_id,
-            ability_target_id,
-            type_id,
-            attack_type_id,
-            effect_value_type_id,
-            CommandNames,
-            AilmentNames,
-            ailment_group,
-            command_group,
-            enemy_resist,
-            element_bit_,
 
             command_meta && command_meta.faf != undefined ? command_meta.faf : undefined,
             command_meta && command_meta.bdlur != undefined ? command_meta.bdlur : undefined,
@@ -1056,15 +980,10 @@ const Character_Ability_Pars =({
                 :""}
                 {merger_master(
                     character_ability.passives,
-                    passive_effects_data,
-                    CommandNames,
-                    AilmentNames,
-                    command_group,
-                    ailment_group,
-                    passivenames,
-                    equipmentpassivenames,
-                    enemy_type,
-                    CastNames,
+
+                    master_index,
+                    ver,
+
                     merge_pas,
                     "command",
                     true
@@ -1072,30 +991,9 @@ const Character_Ability_Pars =({
                     ailment_passive.is_total != true ? <Passive_Battle_State
                     key={`${ailment_passive.pa_id}-${i}`}
                     passive_ability={ailment_passive}
-                    ailment_group={ailment_group}
-                    command_group={command_group}
-                    AilmentNames={AilmentNames}
-                    CastNames={CastNames}
                     ver={ver}
-                    CommandNames={CommandNames}
-                    CondData={CondData}
-                    Ailment_Effects={Ailment_Effects}
-                    MessageData_FFSeries={MessageData_FFSeries}
-                    MessageData_Category={MessageData_Category}
-                    equipmentpassivenames={equipmentpassivenames}
-                    passivenames={passivenames}
-                    cast_targets={cast_targets}
-                    effect_data={passive_effects_data.effect_}
-                    require_passive={passive_effects_data.require_passive}
-                    passive_target={passive_effects_data.passive_target}
-                    trap_type={passive_effects_data.trap_type}
-                    param_id={passive_effects_data.param_id}
-                    attack_type={passive_effects_data.attack_type}
-                    killer_type={passive_effects_data.killer_type}
-                    elementid_1={passive_effects_data.elementid_1}
-                    enemy_type={enemy_type}
-                    command_type={command_data_effects.command_type}
-                    target_range_={command_data_effects.target_range_}
+                    master_index={master_index}
+
                     formatting={formatting}
                     skip_space={i}
                     use_ailment={true}
@@ -1128,30 +1026,8 @@ const Character_Ability_Pars =({
                     loc={loc}
                     file={file}
                     Single={false}
+                    master_index={master_index}
 
-                    CastNames={CastNames}
-                    enemy_type={enemy_type}
-                    cast_targets={cast_targets}
-                    char_id={char_id}
-                    passivenames={passivenames}
-                    equipmentpassivenames={equipmentpassivenames}
-                    AilmentNames={AilmentNames}
-                    CommandNames={CommandNames}
-                    CondData={CondData}
-                    Ailment_Effects={Ailment_Effects}
-                    MessageData_Category={MessageData_Category}
-                    MessageData_FFSeries={MessageData_FFSeries}
-                    hit_data_effects={hit_data_effects}
-                    command_data_effects={command_data_effects}
-                    option_trans_data={option_trans_data}
-
-                    ailment_group={ailment_group}
-                    command_group={command_group}
-                    enemy_resist={enemy_resist}
-
-                    option_labels={option_labels}
-                    option_type_={option_type_}
-                    target={options_target}
                     formatting={formatting}
                     all_options={all_options}
                     />
@@ -1235,11 +1111,9 @@ const Character_Ability_Pars =({
                 {selectedbuff.length != 0 && selectedbuff.is_passive != true && selectedbuff.is_state != true && selectedbuff.default == true?
                 <Default_Ailment_Pars
                 default_data={selectedbuff}
-                passivenames={passivenames}
-                equipmentpassivenames={equipmentpassivenames}
-                CommandNames={CommandNames}
-                cast_targets={cast_targets}
-                Ailment_Effects={Ailment_Effects}
+                master_index={master_index}
+                ver={ver}
+
                 formatting={formatting}
                 gear={false}
                 char_id={char_id}
@@ -1248,28 +1122,9 @@ const Character_Ability_Pars =({
                 {selectedbuff.length != 0 && selectedbuff.is_passive == true?
                 <Passive_Effects_Default
                 passive_ability={selectedbuff.passive}
-                ailment_group={ailment_group}
-                command_group={command_group}
-                AilmentNames={AilmentNames}
-                CastNames={CastNames}
-                CommandNames={CommandNames}
-                CondData={CondData}
-                MessageData_FFSeries={MessageData_FFSeries}
-                MessageData_Category={MessageData_Category}
-                equipmentpassivenames={equipmentpassivenames}
-                passivenames={passivenames}
-                cast_targets={cast_targets}
-                effect_data={passive_effects_data.effect_}
-                require_passive={passive_effects_data.require_passive}
-                passive_target={passive_effects_data.passive_target}
-                trap_type={passive_effects_data.trap_type}
-                param_id={passive_effects_data.param_id}
-                attack_type={passive_effects_data.attack_type}
-                killer_type={passive_effects_data.killer_type}
-                elementid_1={passive_effects_data.elementid_1}
-                enemy_type={enemy_type}
-                command_type={command_data_effects.command_type}
-                target_range_={command_data_effects.target_range_}
+
+                master_index={master_index}
+
                 formatting={formatting}
                 ver={ver}
                 />
@@ -1280,21 +1135,9 @@ const Character_Ability_Pars =({
                 loc={loc}
                 ver={ver}
                 ailment_data={selectedbuff.default == true ? selectedbuff.cast :selectedbuff}
-                ailment_group={ailment_group}
-                command_group={command_group}
-                AilmentNames={AilmentNames}
-                CastNames={CastNames}
-                cast_targets={cast_targets}
-                CommandNames={CommandNames}
-                CondData={CondData}
-                Ailment_Effects={Ailment_Effects}
-                MessageData_FFSeries={MessageData_FFSeries}
-                MessageData_Category={MessageData_Category}
-                equipmentpassivenames={equipmentpassivenames}
-                command_data_effects={command_data_effects}
-                enemy_type={enemy_type}
-                passivenames={passivenames}
-                passive_effects_data={passive_effects_data}
+
+                master_index={master_index}
+
                 slider={true}
                 rank={selectedbuff.default == true ? selectedbuff.rank_id : selectedbuff.arank}
                 arg1={selectedbuff.default == true ? selectedbuff.arg1 : selectedbuff.aarg1}
@@ -1304,7 +1147,6 @@ const Character_Ability_Pars =({
                 alt_aug1={selectedbuff.aarg1a}
                 alt_aug2={selectedbuff.aarg2a}
                 formatting={formatting}
-                char_id={char_id}
                 cur_char={character_ability.charaID}
                 turns={selectedbuff.default == true ? selectedbuff.turn : selectedbuff.alife}
                 />
@@ -1326,15 +1168,10 @@ const Character_Ability_Pars =({
                     :""}
                     {merger_master(
                         selectedbuff.passives,
-                        passive_effects_data,
-                        CommandNames,
-                        AilmentNames,
-                        command_group,
-                        ailment_group,
-                        passivenames,
-                        equipmentpassivenames,
-                        enemy_type,
-                        CastNames,
+
+                        master_index,
+                        ver,
+
                         merge_pas_buffs,
                         "state",
                         false
@@ -1342,30 +1179,10 @@ const Character_Ability_Pars =({
                         battle_passive.is_total != true ? <Passive_Battle_State
                         key={`${battle_passive.pa_id}-${i}`}
                         passive_ability={battle_passive}
-                        ailment_group={ailment_group}
-                        command_group={command_group}
-                        AilmentNames={AilmentNames}
-                        CastNames={CastNames}
                         ver={ver}
-                        CommandNames={CommandNames}
-                        CondData={CondData}
-                        Ailment_Effects={Ailment_Effects}
-                        MessageData_FFSeries={MessageData_FFSeries}
-                        MessageData_Category={MessageData_Category}
-                        equipmentpassivenames={equipmentpassivenames}
-                        passivenames={passivenames}
-                        cast_targets={cast_targets}
-                        effect_data={passive_effects_data.effect_}
-                        require_passive={passive_effects_data.require_passive}
-                        passive_target={passive_effects_data.passive_target}
-                        trap_type={passive_effects_data.trap_type}
-                        param_id={passive_effects_data.param_id}
-                        attack_type={passive_effects_data.attack_type}
-                        killer_type={passive_effects_data.killer_type}
-                        elementid_1={passive_effects_data.elementid_1}
-                        enemy_type={enemy_type}
-                        command_type={command_data_effects.command_type}
-                        target_range_={command_data_effects.target_range_}
+
+                        master_index={master_index}
+                        
                         formatting={formatting}
                         skip_space={i}
                         use_ailment={false}

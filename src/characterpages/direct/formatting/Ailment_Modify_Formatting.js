@@ -5,16 +5,17 @@ import replacer_buff from '../../../processing/replacer_buffcontent'
 
 const Ailment_Modify_Formatting =({
         modify,
-        CondData,
-        AilmentNames,
-        command_group,
         Single,
-        Ailment_Effects,
-        formatting
+        formatting,
+        master_index,
+        ver
 })=>{
 
-    const modify_type_data = Ailment_Effects.modify_type
-    const modify_require_data = Ailment_Effects.modify_require
+    const modify_type_data = master_index.ailment_effect_id_index.modify_type
+    const modify_require_data = master_index.ailment_effect_id_index.modify_require
+    const CondData = master_index.cond
+    const AilmentNames = master_index.ailments
+    const command_group = master_index.command_group_full[ver]
 
     //mod str
 

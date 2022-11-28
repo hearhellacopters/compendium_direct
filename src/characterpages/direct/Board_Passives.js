@@ -18,27 +18,10 @@ const Sum_Fix_Passive =({
   loc,
   file, 
   newcompare,
-  enemy_type,
-  cast_targets,
-  passive_effects_data,
-  char_id,
-  passivenames,
-  equipmentpassivenames,
-  AilmentNames,
-  CommandNames,
-  CondData,
-  Ailment_Effects,
-  MessageData_Category,
-  MessageData_FFSeries,
-  command_data_effects,
-  hit_data_effects,
-  option_trans_data,
 
-  ailment_group,
-  command_group,
-  enemy_resist,
   formatting,
-  showFilter
+  showFilter,
+  master_index
 })=>{
 
     const [rawData, setrawData] = useState(sum_fix_passive);
@@ -328,73 +311,7 @@ const Sum_Fix_Passive =({
     setTimeout(() => setclearFilter(false), 1000);
   }
 
-  const getcastnames = Object.values(AilmentNames).map(self=>{
-    return {[self.castID]: self}
-  })
-
-  const CastNames = getcastnames.reduce(function(result, item) {
-    var key = Object.keys(item)[0]; //first property: a, b, c
-    result[key] = item[key];
-    return result;
-    }, {});
-    
-
   const listPassives = listDisplay;
-
-  const effect_ = passive_effects_data.effect_
-  const require_passive = passive_effects_data.require_passive
-  const passive_target = passive_effects_data.passive_target
-  const trap_type = passive_effects_data.trap_type
-  const param_id = passive_effects_data.param_id
-  const attack_type = passive_effects_data.attack_type
-  const killer_type_passive = passive_effects_data.killer_type
-  const elementid_1 = passive_effects_data.elementid_1
-
-  const type_ = command_data_effects.type_
-  const attack_type_ = command_data_effects.attack_type_
-  const target_range_ = command_data_effects.target_range_
-  const target_type_ = command_data_effects.target_type_
-  const auto_target_type_ = command_data_effects.auto_target_type_
-  const killer_cond = command_data_effects.killer_cond
-  const killer_cond_1 = command_data_effects.killer_cond_1
-  const killer_type = command_data_effects.killer_type
-  const cast_target = command_data_effects.cast_target
-  const ailment_cond = command_data_effects.ailment_cond
-  const ailment_cond_14 = command_data_effects.ailment_cond_14
-  const command_type = command_data_effects.command_type
-
-  const option_labels = option_trans_data.option_labels
-  const option_type_ = option_trans_data.option_type_
-  const options_target = option_trans_data.target
-
-  const hit_effect_id = hit_data_effects.hit_effect_id
-  const ability_target_id = hit_data_effects.ability_target_id
-  const type_id = hit_data_effects.type_id
-  const attack_type_id = hit_data_effects.attack_type_id
-  const effect_value_type_id = hit_data_effects.effect_value_type_id
-  const element_bit_ = hit_data_effects.element_bit_
-
-  for (var key in effect_) {
-    var obj = effect_[key].effect_type;
-    if (obj == undefined) {
-        delete effect_[key]
-    }
-  }
-
-  for (var key2 in require_passive) {
-    var obj2 = require_passive[key2].require_str;
-    if (obj2 == undefined) {
-        delete require_passive[key2]
-    }
-  }
-
-  for (var key3 in passive_target) {
-    var obj3 = passive_target[key3].passive_target;
-    if (obj3 == undefined) {
-        delete passive_target[key3]
-    }
-  }
-
 
     return(
         <div>
@@ -461,58 +378,12 @@ const Sum_Fix_Passive =({
                   <Character_Ability_Pars
                   key={passive.sfp_id}
 
-                  character_ability={passive.command}
+                  master_index={master_index}
 
+                  character_ability={passive.command}
                   ver={ver}
                   loc={loc}
                   file={"character_ability"}
-
-                  CastNames={CastNames}
-                  enemy_type={enemy_type}
-                  cast_targets={cast_targets}
-                  passivenames={passivenames}
-                  equipmentpassivenames={equipmentpassivenames}
-                  CondData={CondData}
-
-                  Ailment_Effects={Ailment_Effects}
-
-                  MessageData_Category={MessageData_Category}
-                  MessageData_FFSeries={MessageData_FFSeries}
-                  char_id={char_id}
-
-                  option_trans_data={option_trans_data}
-                  command_data_effects={command_data_effects}
-                  passive_effects_data={passive_effects_data}
-                  hit_data_effects={hit_data_effects}
-
-                  hit_effect_id={hit_effect_id}
-                  ability_target_id={ability_target_id}
-                  type_id={type_id}
-                  attack_type_id={attack_type_id}
-                  effect_value_type_id={effect_value_type_id}
-                  CommandNames={CommandNames}
-                  AilmentNames={AilmentNames}
-                  ailment_group={ailment_group}
-                  command_group={command_group}
-                  enemy_resist={enemy_resist}
-                  element_bit_={element_bit_}
-
-                  type_={type_}
-                  attack_type_={attack_type_}
-                  target_range_={target_range_}
-                  target_type_={target_type_}
-                  auto_target_type_={auto_target_type_}
-                  killer_cond={killer_cond}
-                  killer_cond_1={killer_cond_1}
-                  killer_type={killer_type}
-                  cast_target={cast_target}
-                  ailment_cond={ailment_cond}
-                  ailment_cond_14={ailment_cond_14}
-                  command_type={command_type}
-
-                  option_labels={option_labels}
-                  options_target={options_target}
-                  option_type_={option_type_}
 
                   span={true}
                   formatting={formatting}
@@ -526,31 +397,9 @@ const Sum_Fix_Passive =({
                 loc={loc}
                 file={"exskill"}
                 Single={true}
-                passivenames={passivenames}
-                equipmentpassivenames={equipmentpassivenames}
-                command_data_effects={command_data_effects}
-                AilmentNames={AilmentNames}
-                CommandNames={CommandNames}
-                CondData={CondData}
-                Ailment_Effects={Ailment_Effects}
-                MessageData_Category={MessageData_Category}
-                MessageData_FFSeries={MessageData_FFSeries}
-                passive_effects_data={passive_effects_data}
-                ailment_group={ailment_group}
-                command_group={command_group}
-                CastNames={CastNames}
-                enemy_type={enemy_type}
-                char_id={char_id}
-                cast_targets={cast_targets}
-                effect_={effect_}
-                require_passive={require_passive}
-                passive_target={passive_target}
-                trap_type={trap_type}
-                param_id={param_id}
-                attack_type={attack_type}
-                killer_type={killer_type_passive}
-                elementid_1={elementid_1}
-                target_range_={target_range_}
+
+                master_index={master_index}
+
                 cp_cost={passive.cp}
                 board_cost={passive.board_point}
                 chara_id_passoff={passive.chara_id}

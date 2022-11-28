@@ -3,6 +3,9 @@ import hit_data_handler from "../hit_data_handler"
 const Hit_Data_For_Ability =(
     ability,
 
+    master_index,
+    ver,
+
     hit_data_id,
     hit_data_id_1,
     hit_data_id_2,
@@ -44,22 +47,12 @@ const Hit_Data_For_Ability =(
     hit_data_id_38,
     hit_data_id_39,
 
-    hit_effect_id,
-    ability_target_id,
-    type_id,
-    attack_type_id,
-    effect_value_type_id,
-    CommandNames,
-    AilmentNames,
-    ailment_group,
-    command_group,
-    enemy_resist,
-    element_bit_,
-
     faf,
     bdlur,
     mblur
 )=>{
+
+    const hit_effect_id = master_index.hit_trans_data.hit_effect_id
 
     const caller = {
         hit_data_id: hit_data_id,
@@ -140,17 +133,8 @@ const Hit_Data_For_Ability =(
                 hit_data_id_pars = hit_data_handler(
                     hit_data,
         
-                    hit_effect_id,
-                    ability_target_id,
-                    type_id,
-                    attack_type_id,
-                    effect_value_type_id,
-                    CommandNames,
-                    AilmentNames,
-                    ailment_group,
-                    command_group,
-                    enemy_resist,
-                    element_bit_,
+                    master_index,
+                    ver,
         
                     faf,
                     bdlur,

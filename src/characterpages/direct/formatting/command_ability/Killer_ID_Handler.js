@@ -3,8 +3,11 @@ const Killer_ID_Handler =(
     sarg,
     keff,
 
-    killer_type
+    master_index,
+    ver,
 )=>{
+
+    const killer_type = master_index.command_data_trans.killer_type
 
     var final_str = ""
 
@@ -16,7 +19,6 @@ const Killer_ID_Handler =(
         .replace(/\[keff\]/gm,keff)
     }
     }
-
 
     return(
         final_str

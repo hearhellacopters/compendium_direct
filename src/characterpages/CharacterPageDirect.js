@@ -41,27 +41,10 @@ const CharacterPageDirect = ({
     match,
     jptoggledata,
 
-    enemy_type,
-    cast_targets,
-    passive_effects_data,
-    char_id,
-    passivenames,
-    equipmentpassivenames,
-    AilmentNames,
-    CommandNames,
-    CondData,
-    Ailment_Effects,
-    MessageData_Category,
-    MessageData_FFSeries,
-    command_data_effects,
-    hit_data_effects,
-    option_trans_data,
-    
-    ailment_group_data,
-    command_group_data,
-    enemy_resist_data,
     loc,
-    CharGuideData
+    CharGuideData,
+
+    master_index
 })=>{
 
     const formatting =true
@@ -72,9 +55,6 @@ const CharacterPageDirect = ({
     const [ver, setver] = useStateIfMounted(jptoggledata == true ? "JP" : "GL")
     const [selectedCharaID, setselectedCharaID] = useStateIfMounted(selected_char.CharID)
 
-    const ailment_group = ailment_group_data[ver]
-    const command_group = command_group_data[ver]
-    const enemy_resist = enemy_resist_data[ver]
 
     useEffect(()=>{
         setselectedCharaID(selected_char.CharID)
@@ -642,13 +622,14 @@ const CharacterPageDirect = ({
                   />
                   {hide_page == true ? 
                   <div className='singlepageholder'>
-                  <OhNo name={selected_char.CharacterName} random={random} 
-
-                  message={<span>for the <span>
-                    <DefaultTippy content={`${jptoggledata == true? "Switch to GL" : "Switch to JP"}`} className="tooltip" >
-                    <span onClick={jponlybutton} className={`${jptoggledata ? "jpflage jpsmallinactive smalleventbutton" : "glflage smalleventbutton"}`}/>
+                  <OhNo 
+                  name={selected_char.CharacterName} 
+                  random={random} 
+                  message1={"No results found"}
+                  message={<span>Try changing version? <DefaultTippy content={`${jptoggledata == true? "Switch to GL" : "Switch to JP"}`} className="tooltip" >
+                    <span onClick={jponlybutton} className={`${jptoggledata ? "glflage smalleventbutton" : "jpflage jpsmallinactive smalleventbutton"}`}/>
                 </DefaultTippy>
-              </span> version</span>}
+              </span>}
                   /> 
                   </div>
                   :                 
@@ -688,25 +669,8 @@ const CharacterPageDirect = ({
                     newcompare={"new"}
                     file={"sum_fix_passive"}
 
-                    enemy_type={enemy_type}
-                    cast_targets={cast_targets}
-                    passive_effects_data={passive_effects_data}
-                    char_id={char_id}
-                    passivenames={passivenames}
-                    equipmentpassivenames={equipmentpassivenames}
-                    AilmentNames={AilmentNames}
-                    CommandNames={CommandNames}
-                    CondData={CondData}
-                    Ailment_Effects={Ailment_Effects}
-                    MessageData_Category={MessageData_Category}
-                    MessageData_FFSeries={MessageData_FFSeries}
-                    command_data_effects={command_data_effects}
-                    hit_data_effects={hit_data_effects}
-                    option_trans_data={option_trans_data}
-                    
-                    ailment_group={ailment_group}
-                    command_group={command_group}
-                    enemy_resist={enemy_resist}
+                    master_index={master_index}
+
                     formatting={formatting}
                     showFilter={showFilter}
                     />
@@ -724,30 +688,14 @@ const CharacterPageDirect = ({
                     buff_data={buffdata}
                     selected_id={selectedCharaID}
 
+                    master_index={master_index}
+
                     ver={ver}
                     loc={"sum_fix_passive"}
                     newcompare={"new"}
                     file={"sum_fix_passive"}
 
-                    enemy_type={enemy_type}
-                    cast_targets={cast_targets}
-                    passive_effects_data={passive_effects_data}
-                    char_id={char_id}
-                    passivenames={passivenames}
-                    equipmentpassivenames={equipmentpassivenames}
-                    AilmentNames={AilmentNames}
-                    CommandNames={CommandNames}
-                    CondData={CondData}
-                    Ailment_Effects={Ailment_Effects}
-                    MessageData_Category={MessageData_Category}
-                    MessageData_FFSeries={MessageData_FFSeries}
-                    command_data_effects={command_data_effects}
-                    hit_data_effects={hit_data_effects}
-                    option_trans_data={option_trans_data}
                     
-                    ailment_group={ailment_group}
-                    command_group={command_group}
-                    enemy_resist={enemy_resist}
                     formatting={formatting}
                     showFilter={showFilter}
                     />
@@ -765,25 +713,9 @@ const CharacterPageDirect = ({
                     ver={ver}
                     newcompare={"new"}
                     loc={"equipment_passive"}
-                    enemy_type={enemy_type}
-                    cast_targets={cast_targets}
-                    passive_effects_data={passive_effects_data}
-                    char_id={char_id}
-                    passivenames={passivenames}
-                    equipmentpassivenames={equipmentpassivenames}
-                    AilmentNames={AilmentNames}
-                    CommandNames={CommandNames}
-                    CondData={CondData}
-                    Ailment_Effects={Ailment_Effects}
-                    MessageData_Category={MessageData_Category}
-                    MessageData_FFSeries={MessageData_FFSeries}
-                    command_data_effects={command_data_effects}
-                    hit_data_effects={hit_data_effects}
-                    option_trans_data={option_trans_data}
+
+                    master_index={master_index}
                     
-                    ailment_group={ailment_group}
-                    command_group={command_group}
-                    enemy_resist={enemy_resist}
                     formatting={formatting}
                     showFilter={showFilter}
                 />
@@ -800,25 +732,9 @@ const CharacterPageDirect = ({
                         ver={ver}
                         newcompare={"new"}
                         loc={"equipment_passive"}
-                        enemy_type={enemy_type}
-                        cast_targets={cast_targets}
-                        passive_effects_data={passive_effects_data}
-                        char_id={char_id}
-                        passivenames={passivenames}
-                        equipmentpassivenames={equipmentpassivenames}
-                        AilmentNames={AilmentNames}
-                        CommandNames={CommandNames}
-                        CondData={CondData}
-                        Ailment_Effects={Ailment_Effects}
-                        MessageData_Category={MessageData_Category}
-                        MessageData_FFSeries={MessageData_FFSeries}
-                        command_data_effects={command_data_effects}
-                        hit_data_effects={hit_data_effects}
-                        option_trans_data={option_trans_data}
+
+                        master_index={master_index}
                         
-                        ailment_group={ailment_group}
-                        command_group={command_group}
-                        enemy_resist={enemy_resist}
                         formatting={formatting}
                         showFilter={showFilter}
                     />
@@ -837,25 +753,8 @@ const CharacterPageDirect = ({
                     loc={"sum_fix_passive"}
                     newcompare={"new"}
 
-                    enemy_type={enemy_type}
-                    cast_targets={cast_targets}
-                    passive_effects_data={passive_effects_data}
-                    char_id={char_id}
-                    passivenames={passivenames}
-                    equipmentpassivenames={equipmentpassivenames}
-                    AilmentNames={AilmentNames}
-                    CommandNames={CommandNames}
-                    CondData={CondData}
-                    Ailment_Effects={Ailment_Effects}
-                    MessageData_Category={MessageData_Category}
-                    MessageData_FFSeries={MessageData_FFSeries}
-                    command_data_effects={command_data_effects}
-                    hit_data_effects={hit_data_effects}
-                    option_trans_data={option_trans_data}
+                    master_index={master_index}
                     
-                    ailment_group={ailment_group}
-                    command_group={command_group}
-                    enemy_resist={enemy_resist}
                     formatting={formatting}
                     showFilter={showFilter}
                     />
@@ -875,29 +774,8 @@ const CharacterPageDirect = ({
                         loc={"sum_fix_passive"}
                         newcompare={"new"}
 
-                        enemy_type={enemy_type}
-                        cast_targets={cast_targets}
-                        passive_effects_data={passive_effects_data}
-                        char_id={char_id}
-
-                        passivenames={passivenames}
-                        equipmentpassivenames={equipmentpassivenames}
-
-                        AilmentNames={AilmentNames}
-                        CommandNames={CommandNames}
-                        CondData={CondData}
-                        Ailment_Effects={Ailment_Effects}
-                        MessageData_Category={MessageData_Category}
-                        MessageData_FFSeries={MessageData_FFSeries}
-
-                        command_data_effects={command_data_effects}
+                        master_index={master_index}
                         
-                        hit_data_effects={hit_data_effects}
-                        option_trans_data={option_trans_data}
-                        
-                        ailment_group={ailment_group}
-                        command_group={command_group}
-                        enemy_resist={enemy_resist}
                         formatting={formatting}
                         showFilter={showFilter}
                     />
@@ -914,25 +792,9 @@ const CharacterPageDirect = ({
                         ver={ver}
                         newcompare={"new"}
                         loc={"equipment_passive"}
-                        enemy_type={enemy_type}
-                        cast_targets={cast_targets}
-                        passive_effects_data={passive_effects_data}
-                        char_id={char_id}
-                        passivenames={passivenames}
-                        equipmentpassivenames={equipmentpassivenames}
-                        AilmentNames={AilmentNames}
-                        CommandNames={CommandNames}
-                        CondData={CondData}
-                        Ailment_Effects={Ailment_Effects}
-                        MessageData_Category={MessageData_Category}
-                        MessageData_FFSeries={MessageData_FFSeries}
-                        command_data_effects={command_data_effects}
-                        hit_data_effects={hit_data_effects}
-                        option_trans_data={option_trans_data}
-                        
-                        ailment_group={ailment_group}
-                        command_group={command_group}
-                        enemy_resist={enemy_resist}
+
+                        master_index={master_index}
+                
                         formatting={formatting}
                         showFilter={showFilter}
                     />
@@ -952,25 +814,9 @@ const CharacterPageDirect = ({
                     newcompare={"new"}
                     loc={"art_passive"}
                     file={"art_passive"}
-                    enemy_type={enemy_type}
-                    cast_targets={cast_targets}
-                    passive_effects_data={passive_effects_data}
-                    char_id={char_id}
-                    passivenames={passivenames}
-                    equipmentpassivenames={equipmentpassivenames}
-                    AilmentNames={AilmentNames}
-                    CommandNames={CommandNames}
-                    CondData={CondData}
-                    Ailment_Effects={Ailment_Effects}
-                    MessageData_Category={MessageData_Category}
-                    MessageData_FFSeries={MessageData_FFSeries}
-                    command_data_effects={command_data_effects}
-                    hit_data_effects={hit_data_effects}
-                    option_trans_data={option_trans_data}
-                    
-                    ailment_group={ailment_group}
-                    command_group={command_group}
-                    enemy_resist={enemy_resist}
+
+                    master_index={master_index}
+                   
                     formatting={formatting}
                     showFilter={showFilter}
                     />
@@ -1005,25 +851,9 @@ const CharacterPageDirect = ({
                         char_data={selected_char}
                         ver={ver}
                         loc={"ex_skill"}
-                        enemy_type={enemy_type}
-                        cast_targets={cast_targets}
-                        passive_effects_data={passive_effects_data}
-                        char_id={char_id}
-                        passivenames={passivenames}
-                        equipmentpassivenames={equipmentpassivenames}
-                        AilmentNames={AilmentNames}
-                        CommandNames={CommandNames}
-                        CondData={CondData}
-                        Ailment_Effects={Ailment_Effects}
-                        MessageData_Category={MessageData_Category}
-                        MessageData_FFSeries={MessageData_FFSeries}
-                        command_data_effects={command_data_effects}
-                        hit_data_effects={hit_data_effects}
-                        option_trans_data={option_trans_data}
-                        
-                        ailment_group={ailment_group}
-                        command_group={command_group}
-                        enemy_resist={enemy_resist}
+
+                        master_index={master_index}
+
                         formatting={formatting}
                         showFilter={showFilter}
                     />

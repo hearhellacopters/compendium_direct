@@ -9,30 +9,10 @@ import reactStringReplace from "react-string-replace"
 const Art_Passive_Effects_Handoff =({
     file,
     passive_ability,
-    ailment_group,
-    command_group,
-    AilmentNames,
-    CastNames,
-    CommandNames,
-    CondData,
-    MessageData_FFSeries,
-    MessageData_Category,
-    equipmentpassivenames,
-    passivenames,
-    cast_targets,
-    effect_data,
-    require_passive,
-    passive_target,
-    trap_type,
-    param_id,
-    attack_type,
-    killer_type,
-    elementid_1,
-    enemy_type,
-    command_type,
-    target_range_,
-    command_data_effects,
-    passive_effects_data,
+
+    master_index,
+    ver,
+
     formatting
 })=>{
 
@@ -47,21 +27,8 @@ const Art_Passive_Effects_Handoff =({
         passive_ability.require_arg_02,
         passive_ability.require_arg_03,
 
-        require_passive,
-        passive_target,
-        CommandNames,
-        AilmentNames,
-        elementid_1,
-        attack_type,
-        killer_type,
-        command_group,
-        ailment_group,
-        trap_type,
-        passivenames,
-        equipmentpassivenames,
-        enemy_type,
-        command_type,
-        target_range_
+        master_index,
+        ver,
     )
     }
 
@@ -73,21 +40,8 @@ const Art_Passive_Effects_Handoff =({
             passive_ability.require_arg_02_1,
             passive_ability.require_arg_03_1,
     
-            require_passive,
-            passive_target,
-            CommandNames,
-            AilmentNames,
-            elementid_1,
-            attack_type,
-            killer_type,
-            command_group,
-            ailment_group,
-            trap_type,
-            passivenames,
-            equipmentpassivenames,
-            enemy_type,
-            command_type,
-            target_range_
+            master_index,
+            ver,
         )
     }
 
@@ -103,20 +57,8 @@ const Art_Passive_Effects_Handoff =({
             passive_ability.effect_arg_03,
             passive_ability.effect_type_1,
     
-            effect_data,
-            passive_target,
-            CommandNames,
-            AilmentNames,
-            elementid_1,
-            attack_type,
-            killer_type,
-            command_group,
-            ailment_group,
-            trap_type,
-            passivenames,
-            equipmentpassivenames,
-            enemy_type,
-            CastNames
+            master_index,
+            ver,
         )
     }
 
@@ -129,20 +71,8 @@ const Art_Passive_Effects_Handoff =({
             passive_ability.effect_arg_03_1,
             passive_ability.effect_type_1,
     
-            effect_data,
-            passive_target,
-            CommandNames,
-            AilmentNames,
-            elementid_1,
-            attack_type,
-            killer_type,
-            command_group,
-            ailment_group,
-            trap_type,
-            passivenames,
-            equipmentpassivenames,
-            enemy_type,
-            CastNames
+            master_index,
+            ver,
         )
     }
 
@@ -232,30 +162,10 @@ const Art_Passive_Effects_Handoff =({
                 <Passive_Effects_Attached
                 key={Object.values(self)[0].pa_id}
                 passive_ability={Object.values(self)[0]}
-                ailment_group={ailment_group}
-                command_group={command_group}
-                AilmentNames={AilmentNames}
-                CastNames={CastNames}
-                CommandNames={CommandNames}
-                CondData={CondData}
-                MessageData_FFSeries={MessageData_FFSeries}
-                MessageData_Category={MessageData_Category}
-                equipmentpassivenames={equipmentpassivenames}
-                command_data_effects={command_data_effects}
-                passive_effects_data={passive_effects_data}
-                passivenames={passivenames}
-                cast_targets={cast_targets}
-                effect_data={effect_data}
-                require_passive={require_passive}
-                passive_target={passive_target}
-                trap_type={trap_type}
-                param_id={param_id}
-                attack_type={attack_type}
-                killer_type={killer_type}
-                elementid_1={elementid_1}
-                enemy_type={enemy_type}
-                command_type={command_type}
-                target_range_={target_range_}
+                
+                master_index={master_index}
+                ver={ver}
+        
                 formatting={formatting}
                 />
             )

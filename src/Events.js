@@ -21,7 +21,7 @@ import { getQuery, getQueryStringVal, useQueryParam } from './processing/urlpara
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { FaShareSquare } from 'react-icons/fa';
 
-const Events = ({ ProcessedEvents, ProcessedCharacters, EventGuideData, jptoggledata }) => {
+const Events = ({ ProcessedEvents, ProcessedCharacters, EventGuideData, jptoggledata, master_index }) => {
 
   const dispatch = useDispatch();
 
@@ -810,7 +810,14 @@ const [typeListArray, settypeListArray] = useStateIfMounted(false);
             </div>
             {events.length !== 0 ?
             events.map(events => (
-              <EventListing key={events.eventindex} match={events} showbanner={false} permapage={false} EventGuideData={EventGuideData}/>
+              <EventListing 
+              key={events.eventindex} 
+              match={events} 
+              showbanner={false} 
+              permapage={false} 
+              EventGuideData={EventGuideData}
+              master_index={master_index}
+              />
            )) :
            <div className="subtextbottom">
              No results

@@ -11,29 +11,18 @@ const Ailment_Default_Passoff =({
     file,
     ver,
     ailment_default,
-    ailment_group,
-    command_group,
-    AilmentNames,
-    CastNames,
-    CommandNames,
-    CondData,
-    Ailment_Effects,
-    MessageData_FFSeries,
-    MessageData_Category,
-    equipmentpassivenames,
-    enemy_type,
-    command_data_effects,
-    passive_effects_data,
-    passivenames,
-    char_id,
-    cast_targets,
+    
     loc,
     slider,
     formatting,
     gear,
     base_color,
-    span
+    span,
+
+    master_index
 })=>{
+    const char_id = master_index.charid
+
         const [selectedbuff, setselectedbuff] = useStateIfMounted([]);
 
 
@@ -104,14 +93,12 @@ const Ailment_Default_Passoff =({
             {selectedbuff.length != 0 ?
                 <Default_Ailment_Pars
                 default_data={selectedbuff}
-                passivenames={passivenames}
-                equipmentpassivenames={equipmentpassivenames}
-                CommandNames={CommandNames}
-                cast_targets={cast_targets}
-                Ailment_Effects={Ailment_Effects}
+
+                master_index={master_index}
+                ver={ver}
+                
                 formatting={formatting}
                 gear={gear}
-                char_id={char_id}
                 span={span}
                 />
             :""}
@@ -121,21 +108,9 @@ const Ailment_Default_Passoff =({
             loc={loc}
             ver={ver}
             ailment_data={selectedbuff.cast}
-            ailment_group={ailment_group}
-            command_group={command_group}
-            AilmentNames={AilmentNames}
-            CastNames={CastNames}
-            cast_targets={cast_targets}
-            CommandNames={CommandNames}
-            CondData={CondData}
-            Ailment_Effects={Ailment_Effects}
-            MessageData_FFSeries={MessageData_FFSeries}
-            MessageData_Category={MessageData_Category}
-            passivenames={passivenames}
-            equipmentpassivenames={equipmentpassivenames}
-            command_data_effects={command_data_effects}
-            enemy_type={enemy_type}
-            passive_effects_data={passive_effects_data}
+
+            master_index={master_index}
+
             slider={slider}
             rank={selectedbuff.rank_id}
             arg1={selectedbuff.arg1}
@@ -143,7 +118,6 @@ const Ailment_Default_Passoff =({
             castlocation={true}
             formatting={formatting}
             gear={gear}
-            char_id={char_id}
             fullspan={span}
             turns={selectedbuff.turn}
             />

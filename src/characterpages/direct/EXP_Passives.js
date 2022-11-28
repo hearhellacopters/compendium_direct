@@ -11,30 +11,15 @@ const EXP_Passives =({
   loc,
   file, 
   newcompare,
-  passive_effects_data,
-  passivenames,
-  equipmentpassivenames,
-  AilmentNames,
-  CommandNames,
-  CondData,
-  Ailment_Effects,
-  command_data_effects,
-  option_trans_data,
-  enemy_resist,
-  hit_data_effects,
-  MessageData_Category,
-  MessageData_FFSeries,
-  ailment_group,
-  command_group,
-
+  
   passive_data,
 
-  char_id,
-  cast_targets,
-  enemy_type,
-  hit_data,
-  formatting
+  formatting,
+
+  master_index
 })=>{
+
+  const char_id = master_index.charid
 
     const [rawData, setrawData] = useState(passive_data);
 
@@ -124,48 +109,6 @@ const EXP_Passives =({
      }
    },[setCondFilter,char_id,Typesearch,setTypesearch])
 
-   
-   useEffect(() => {
-    //type params2
-    if(Typesearch2 != ""){
-     const filteredtype2 = Object.values(passive_effects_data.passive_types).filter(self => self.label == getQueryStringVal("board"))
-     if(filteredtype2.length != 0){
-       setTypesearch2(getQueryStringVal("board"))
-       setCondFilter2(filteredtype2[0].passive_types)
-     } else{
-       setTypesearch2("")
-       setCondFilter2("")
-     }
-   }
- },[setCondFilter2,passive_effects_data.passive_types,Typesearch2,setTypesearch2])
-
- useEffect(() => {
-  //type params2
-  if(Typesearch3 != ""){
-   const filteredtype3 = Object.values(passive_effects_data.effect_).filter(self => self.effect_type == getQueryStringVal("effect"))
-   if(filteredtype3.length != 0){
-     setTypesearch3(getQueryStringVal("effect"))
-     setCondFilter3(filteredtype3[0].id)
-   } else{
-     setTypesearch3("")
-     setCondFilter3("")
-   }
- }
-},[setCondFilter3,passive_effects_data.effect_,Typesearch3,setTypesearch3])
-
-useEffect(() => {
-  //type params2
-  if(Typesearch4 != ""){
-   const filteredtype4 = Object.values(passive_effects_data.require_passive).filter(self => self.require_ == getQueryStringVal("require"))
-   if(filteredtype4.length != 0){
-     setTypesearch4(getQueryStringVal("require"))
-     setCondFilter4(filteredtype4[0].id)
-   } else{
-     setTypesearch4("")
-     setCondFilter4("")
-   }
- }
-},[setCondFilter4,passive_effects_data.require_passive,Typesearch4,setTypesearch4])
 
     //type selector
     const CondSelect = (e) => {
@@ -324,18 +267,6 @@ useEffect(() => {
       }
     ]
 
-
-    const typeListArray3 = Object.values(passive_effects_data.effect_).filter(self=>{return self.effect_type != undefined}).map((typeListUnique) =>({
-      value: typeListUnique.id,
-      label: typeListUnique.effect_type
-    }));
-
-    const typeListArray4 = Object.values(passive_effects_data.require_passive).filter(self=>{return self.require_str != undefined}).map((typeListUnique) =>({
-      value: typeListUnique.id,
-      label: typeListUnique.require_
-    }));
-
-
     //search bar
     const handleChange = (e) => {
         setsearchdisplay(e.target.value)
@@ -374,73 +305,7 @@ useEffect(() => {
     setTimeout(() => setclearFilter(false), 1000);
   }
 
-  const getcastnames = Object.values(AilmentNames).map(self=>{
-    return {[self.castID]: self}
-  })
-
-  const CastNames = getcastnames.reduce(function(result, item) {
-    var key = Object.keys(item)[0]; //first property: a, b, c
-    result[key] = item[key];
-    return result;
-    }, {});
-    
-
   const listPassives = listDisplay;
-
-  const effect_ = passive_effects_data.effect_
-  const require_passive = passive_effects_data.require_passive
-  const passive_target = passive_effects_data.passive_target
-  const trap_type = passive_effects_data.trap_type
-  const param_id = passive_effects_data.param_id
-  const attack_type = passive_effects_data.attack_type
-  const killer_type_passive = passive_effects_data.killer_type
-  const elementid_1 = passive_effects_data.elementid_1
-
-  const type_ = command_data_effects.type_
-  const attack_type_ = command_data_effects.attack_type_
-  const target_range_ = command_data_effects.target_range_
-  const target_type_ = command_data_effects.target_type_
-  const auto_target_type_ = command_data_effects.auto_target_type_
-  const killer_cond = command_data_effects.killer_cond
-  const killer_cond_1 = command_data_effects.killer_cond_1
-  const killer_type = command_data_effects.killer_type
-  const cast_target = command_data_effects.cast_target
-  const ailment_cond = command_data_effects.ailment_cond
-  const ailment_cond_14 = command_data_effects.ailment_cond_14
-  const command_type = command_data_effects.command_type
-
-  const option_labels = option_trans_data.option_labels
-  const option_type_ = option_trans_data.option_type_
-  const options_target = option_trans_data.target
-
-  const hit_effect_id = hit_data_effects.hit_effect_id
-  const ability_target_id = hit_data_effects.ability_target_id
-  const type_id = hit_data_effects.type_id
-  const attack_type_id = hit_data_effects.attack_type_id
-  const effect_value_type_id = hit_data_effects.effect_value_type_id
-  const element_bit_ = hit_data_effects.element_bit_
-
-  for (var key in effect_) {
-    var obj = effect_[key].effect_type;
-    if (obj == undefined) {
-        delete effect_[key]
-    }
-  }
-
-  for (var key2 in require_passive) {
-    var obj2 = require_passive[key2].require_str;
-    if (obj2 == undefined) {
-        delete require_passive[key2]
-    }
-  }
-
-  for (var key3 in passive_target) {
-    var obj3 = passive_target[key3].passive_target;
-    if (obj3 == undefined) {
-        delete passive_target[key3]
-    }
-  }
-
 
     return(
         <div>
@@ -453,57 +318,12 @@ useEffect(() => {
 
                   character_ability={passive.command}
 
-                  hit_data={hit_data}
                   ver={ver}
                   loc={loc}
                   file={"character_ability"}
 
-                  CastNames={CastNames}
-                  enemy_type={enemy_type}
-                  cast_targets={cast_targets}
-                  passivenames={passivenames}
-                  equipmentpassivenames={equipmentpassivenames}
-                  passive_effects_data={passive_effects_data}
-                  CondData={CondData}
-
-                  Ailment_Effects={Ailment_Effects}
-
-                  MessageData_Category={MessageData_Category}
-                  MessageData_FFSeries={MessageData_FFSeries}
-                  char_id={char_id}
-
-                  option_trans_data={option_trans_data}
-                  command_data_effects={command_data_effects}
-                  hit_data_effects={hit_data_effects}
-
-                  hit_effect_id={hit_effect_id}
-                  ability_target_id={ability_target_id}
-                  type_id={type_id}
-                  attack_type_id={attack_type_id}
-                  effect_value_type_id={effect_value_type_id}
-                  CommandNames={CommandNames}
-                  AilmentNames={AilmentNames}
-                  ailment_group={ailment_group}
-                  command_group={command_group}
-                  enemy_resist={enemy_resist}
-                  element_bit_={element_bit_}
-
-                  type_={type_}
-                  attack_type_={attack_type_}
-                  target_range_={target_range_}
-                  target_type_={target_type_}
-                  auto_target_type_={auto_target_type_}
-                  killer_cond={killer_cond}
-                  killer_cond_1={killer_cond_1}
-                  killer_type={killer_type}
-                  cast_target={cast_target}
-                  ailment_cond={ailment_cond}
-                  ailment_cond_14={ailment_cond_14}
-                  command_type={command_type}
-
-                  option_labels={option_labels}
-                  options_target={options_target}
-                  option_type_={option_type_}
+                  master_index={master_index}
+                  
 
                   formatting={formatting}
                   tag_override={`cl${passive.level}`}
@@ -516,34 +336,12 @@ useEffect(() => {
                 loc={loc}
                 file={"passive_ability"}
                 Single={true}
-                passivenames={passivenames}
-                equipmentpassivenames={equipmentpassivenames}
-                AilmentNames={AilmentNames}
-                CommandNames={CommandNames}
-                CondData={CondData}
-                Ailment_Effects={Ailment_Effects}
-                MessageData_Category={MessageData_Category}
-                MessageData_FFSeries={MessageData_FFSeries}
-                passive_effects_data={passive_effects_data}
-                command_data_effects={command_data_effects}
-                ailment_group={ailment_group}
-                command_group={command_group}
-                CastNames={CastNames}
-                enemy_type={enemy_type}
-                char_id={char_id}
-                cast_targets={cast_targets}
-                effect_={effect_}
-                require_passive={require_passive}
-                passive_target={passive_target}
-                trap_type={trap_type}
-                param_id={param_id}
-                attack_type={attack_type}
-                killer_type={killer_type_passive}
-                elementid_1={elementid_1}
+
+                master_index={master_index}
+                
                 cp_cost={passive.cp}
                 board_cost={passive.board_point}
                 chara_id_passoff={passive.chara_id}
-                target_range_={target_range_}
                 formatting={formatting}
                 tag_overide={`exp${passive.level} notag`}
                 />

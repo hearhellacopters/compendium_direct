@@ -30,32 +30,15 @@ const Buff_bycharacter =({
     newcompare,
     file,
 
-    enemy_type,
-    cast_targets,
-    passive_effects_data,
-    char_id,
-    passivenames,
-    equipmentpassivenames,
-    AilmentNames,
-    CommandNames,
-    CondData,
-    Ailment_Effects,
-    MessageData_Category,
-    MessageData_FFSeries,
-    command_data_effects,
-    hit_data_effects,
-    option_trans_data,
-    
-    ailment_group,
-    command_group,
-    enemy_resist,
     formatting,
 
     selected_id,
     gear,
-    hit_data,
     showFilter,
+    master_index
 })=>{
+
+    const char_id = master_index.charid
 
     const [showraw,setshowraw] = useStateIfMounted(false)
 
@@ -109,15 +92,6 @@ const Buff_bycharacter =({
             // eslint-disable-next-line
         },[buff_data])
 
-    const getcastnames = Object.values(AilmentNames).map(self=>{
-        return {[self.castID]: self}
-        })
-    
-        const CastNames = getcastnames.reduce(function(result, item) {
-        var key = Object.keys(item)[0]; //first property: a, b, c
-        result[key] = item[key];
-        return result;
-        }, {});
 
     const add_formatting = (text,switching)=>{
         if(formatting != true){
@@ -761,41 +735,19 @@ const Buff_bycharacter =({
             {selectedbuff.length != 0  && selectedbuff.is_passive != true && selectedbuff.is_state != true?
                 <Default_Ailment_Pars
                 default_data={selectedbuff}
-                passivenames={passivenames}
-                equipmentpassivenames={equipmentpassivenames}
-                CommandNames={CommandNames}
-                cast_targets={cast_targets}
-                Ailment_Effects={Ailment_Effects}
+                ver={ver}
+
+                master_index={master_index}
+
                 formatting={formatting}
                 gear={gear}
-                char_id={char_id}
                 />
             :""}
             {selectedbuff.length != 0 && selectedbuff.is_passive == true?
                 <Passive_Effects_Default
                 passive_ability={selectedbuff.passive}
-                ailment_group={ailment_group}
-                command_group={command_group}
-                AilmentNames={AilmentNames}
-                CastNames={CastNames}
-                CommandNames={CommandNames}
-                CondData={CondData}
-                MessageData_FFSeries={MessageData_FFSeries}
-                MessageData_Category={MessageData_Category}
-                equipmentpassivenames={equipmentpassivenames}
-                passivenames={passivenames}
-                cast_targets={cast_targets}
-                effect_data={passive_effects_data.effect_}
-                require_passive={passive_effects_data.require_passive}
-                passive_target={passive_effects_data.passive_target}
-                trap_type={passive_effects_data.trap_type}
-                param_id={passive_effects_data.param_id}
-                attack_type={passive_effects_data.attack_type}
-                killer_type={passive_effects_data.killer_type}
-                elementid_1={passive_effects_data.elementid_1}
-                enemy_type={enemy_type}
-                command_type={command_data_effects.command_type}
-                target_range_={command_data_effects.target_range_}
+                master_index={master_index}
+
                 formatting={formatting}
                 ver={ver}
                 />
@@ -806,21 +758,9 @@ const Buff_bycharacter =({
             loc={loc}
             ver={ver}
             ailment_data={selectedbuff.cast}
-            ailment_group={ailment_group}
-            command_group={command_group}
-            AilmentNames={AilmentNames}
-            cast_targets={cast_targets}
-            CastNames={CastNames}
-            CommandNames={CommandNames}
-            CondData={CondData}
-            Ailment_Effects={Ailment_Effects}
-            MessageData_FFSeries={MessageData_FFSeries}
-            MessageData_Category={MessageData_Category}
-            passive_effects_data={passive_effects_data}
-            passivenames={passivenames}
-            equipmentpassivenames={equipmentpassivenames}
-            command_data_effects={command_data_effects}
-            enemy_type={enemy_type}
+
+            master_index={master_index}
+
             slider={true}
             rank={selectedbuff.rank_id}
             arg1={selectedbuff.arg1}
@@ -828,7 +768,6 @@ const Buff_bycharacter =({
             castlocation={true}
             formatting={formatting}
             gear={gear}
-            char_id={char_id}
             cur_char={selectedbuff.chara_id}
             turns={selectedbuff.turn}
             />
@@ -850,15 +789,10 @@ const Buff_bycharacter =({
                 :""}
                 {merger_master(
                     selectedbuff.passives,
-                    passive_effects_data,
-                    CommandNames,
-                    AilmentNames,
-                    command_group,
-                    ailment_group,
-                    passivenames,
-                    equipmentpassivenames,
-                    enemy_type,
-                    CastNames,
+
+                    master_index,
+                    ver,
+
                     merge_pas,
                     "state",
                     false
@@ -866,30 +800,10 @@ const Buff_bycharacter =({
                     battle_passive.is_total != true ? <Passive_Battle_State
                     key={`${battle_passive.pa_id}-${i}`}
                     passive_ability={battle_passive}
-                    ailment_group={ailment_group}
-                    command_group={command_group}
-                    AilmentNames={AilmentNames}
-                    CastNames={CastNames}
                     ver={ver}
-                    CommandNames={CommandNames}
-                    CondData={CondData}
-                    Ailment_Effects={Ailment_Effects}
-                    MessageData_FFSeries={MessageData_FFSeries}
-                    MessageData_Category={MessageData_Category}
-                    equipmentpassivenames={equipmentpassivenames}
-                    passivenames={passivenames}
-                    cast_targets={cast_targets}
-                    effect_data={passive_effects_data.effect_}
-                    require_passive={passive_effects_data.require_passive}
-                    passive_target={passive_effects_data.passive_target}
-                    trap_type={passive_effects_data.trap_type}
-                    param_id={passive_effects_data.param_id}
-                    attack_type={passive_effects_data.attack_type}
-                    killer_type={passive_effects_data.killer_type}
-                    elementid_1={passive_effects_data.elementid_1}
-                    enemy_type={enemy_type}
-                    command_type={command_data_effects.command_type}
-                    target_range_={command_data_effects.target_range_}
+
+                    master_index={master_index}
+
                     formatting={formatting}
                     skip_space={i}
                     use_ailment={true}
@@ -918,22 +832,11 @@ const Buff_bycharacter =({
                 file={file}
                 loc={loc}
                 ver={ver}
+
+                master_index={master_index}
+
                 ailment_data={self}
-                ailment_group={ailment_group}
-                command_group={command_group}
-                AilmentNames={AilmentNames}
-                CastNames={CastNames}
-                CommandNames={CommandNames}
-                CondData={CondData}
-                Ailment_Effects={Ailment_Effects}
-                MessageData_FFSeries={MessageData_FFSeries}
-                MessageData_Category={MessageData_Category}
-                passive_effects_data={passive_effects_data}
-                passivenames={passivenames}
-                equipmentpassivenames={equipmentpassivenames}
-                command_data_effects={command_data_effects}
-                cast_targets={cast_targets}
-                enemy_type={enemy_type}
+                
                 slider={true}
                 rank={self.arank}
                 arg1={self.aarg1}
@@ -944,7 +847,6 @@ const Buff_bycharacter =({
                 castlocation={true}
                 formatting={formatting}
                 gear={gear}
-                char_id={char_id}
                 rank_tag={self.rank_tag}
                 cur_char={self.chara_id}
                 turns={self.alife}

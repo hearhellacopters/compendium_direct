@@ -23,9 +23,8 @@ const Ailment_Data_Pars_Field_Handler = ({
     currenthp,
     charactersleft,
     formatting,
-    char_id,
     hide_type,
-    is_passive
+    spacer
 }) =>{
 
     const [rank,setrank] = useStateIfMounted(effect_id && effect_id.rank1)
@@ -529,7 +528,7 @@ const Ailment_Data_Pars_Field_Handler = ({
                     {effect_id && effect_id.effectstr ? 
                     <div className={`${currentlevel <= 0 && effect_id.slidertype == "levels" ? "inactiveeffect" : ""}`}>
                     {addformatting(
-                        `\xa0${effect_id.cond_id != undefined || is_passive == true ? "└─" : "-"} ` + 
+                        `\xa0${spacer != undefined ? spacer : effect_id.cond_id == undefined ? "-" : "└─" } ` + 
                     effect_id.effectstr.replace(/\[value1\]/gm,displayrank && displayrank.value1).replace(/\[value2\]/gm,rank && rank.value2 ).replace(/\[value3\]/gm,rank && rank.value3).replace(/\[value4\]/gm,rank && rank.value4 ).replace(/\[value5\]/gm,rank && rank.value5 ).replace(/\[BRV_CAP\]/gm, brv_cap.toLocaleString("en-US")).replace(/\[MAX_CAP\]/gm, max_brv_cap.toLocaleString("en-US"))
                     ,"bu")}
                     </div>
@@ -575,7 +574,7 @@ const Ailment_Data_Pars_Field_Handler = ({
                     : ""}
                      {effect_id && effect_id.effectstr ? 
                     addformatting(
-                        `\xa0${effect_id.cond_id != undefined || is_passive == true ? "└─" : "-"} ` + 
+                        `\xa0${spacer != undefined ? spacer : effect_id.cond_id == undefined ? "-" : "└─" } ` + 
                     effect_id.effectstr.replace(/\[value1\]/gm,displayrank && displayrank.value1).replace(/\[value2\]/gm,rank && rank.value2 ).replace(/\[value3\]/gm,rank && rank.value3).replace(/\[value4\]/gm,rank && rank.value4 ).replace(/\[value5\]/gm,rank && rank.value5 ).replace(/\[BRV_CAP\]/gm, brv_cap.toLocaleString("en-US")).replace(/\[MAX_CAP\]/gm, max_brv_cap.toLocaleString("en-US"))
                     ,"bu")
                     :""}

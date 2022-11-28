@@ -12,15 +12,10 @@ const ailment_data_pars = (
     rank_table, 
     is_buff,
     effect_num,
-    AilmentNames,
-    CastNames,
-    CommandNames,
-    CondData,
-    Ailment_Effects,
-    MessageData_FFSeries,
-    MessageData_Category,
-    ailment_group,
-    command_group,
+
+    master_index,
+    ver,
+
     AugValue1,
     AugValue2,
     max_level,
@@ -28,23 +23,31 @@ const ailment_data_pars = (
     alt_rank,
     alt_aug1,
     alt_aug2,
-    char_id,
     value_trans_override,
-    ver
 ) =>{
+
+    const AilmentNames = master_index.ailments
+    const CastNames = master_index.cast_names
+    const CommandNames = master_index.commands
+    const CondData = master_index.cond
+    const MessageData_FFSeries = master_index.ffseries
+    const MessageData_Category = master_index.weaponcat
+    const ailment_group = master_index.ailment_group_full[ver]
+    const command_group = master_index.command_group_full[ver]
+    const char_id = master_index.charid
 
     //console.log(char_id == undefined ? ailment_id : "")
     //console.log(char_id == undefined ? `${ailment_id} - ${effect_num}` : "")
     //console.log(char_id == undefined ? rank_table : "")
     //console.log(char_id == undefined ? loc : "")
 
-    const EffectID = Ailment_Effects.effect_id
-    const ValType = Ailment_Effects.val_type
-    const ValEditType = Ailment_Effects.val_edit_type
-    const EffectValueType = Ailment_Effects.effect_value_type
-    const EffectTypeID = Ailment_Effects.effect_type_id
-    const EffectID53 = Ailment_Effects.effect_id_53
-    const MessageData_Game = Ailment_Effects.MessageData_Game
+    const EffectID = master_index.ailment_effect_id_index.effect_id
+    const ValType = master_index.ailment_effect_id_index.val_type
+    const ValEditType = master_index.ailment_effect_id_index.val_edit_type
+    const EffectValueType = master_index.ailment_effect_id_index.effect_value_type
+    const EffectTypeID = master_index.ailment_effect_id_index.effect_type_id
+    const EffectID53 = master_index.ailment_effect_id_index.effect_id_53
+    const MessageData_Game = master_index.ailment_effect_id_index.MessageData_Game
 
     var valeditpull = ValEditType[val_edit_type]
 

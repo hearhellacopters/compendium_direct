@@ -45,22 +45,7 @@ const Ailment_Data_Formatting_bycharacter = ({
     loc,
     ver,
     ailment_data,
-    ailment_group,
-    command_group,
-    AilmentNames,
-    CastNames,
-    CommandNames,
-    CondData,
-    Ailment_Effects,
-
-    passive_effects_data,
-    equipmentpassivenames,
-    passivenames,
-    command_data_effects,
-    enemy_type,
-
-    MessageData_FFSeries,
-    MessageData_Category,
+    
     slider,
     rank,
     arg1,
@@ -72,14 +57,17 @@ const Ailment_Data_Formatting_bycharacter = ({
     alt_aug2,
     formatting,
     gear,
-    char_id,
     rank_tag,
-    cast_targets,
     cur_char,
     turns,
 
-    link
+    link,
+    master_index
 }) =>{
+
+    const cast_targets = master_index.command_data_trans.cast_target
+    const char_id = master_index.charid
+
     var cast_target = undefined
     if(ailment_data.atarg != undefined && ailment_data.atarg  != 2){
         cast_target = cast_targets[ailment_data.atarg] && cast_targets[ailment_data.atarg].target_id
@@ -243,6 +231,7 @@ const Ailment_Data_Formatting_bycharacter = ({
 
     const [showraw,setshowraw] = useStateIfMounted(false)
     const [ailment_tag, setailment_tag]= useStateIfMounted([]);
+    const [ailment_tag_aura, setailment_tag_aura]= useStateIfMounted([]);
 
     const showmeraw = (e)=>{
         if(e.shiftKey){
@@ -254,6 +243,13 @@ const Ailment_Data_Formatting_bycharacter = ({
                     }
                 })
                 setailment_tag(holder)
+                const holder2 =[]
+                Object.keys(ailment_tags).forEach(key=>{
+                    if(ailment_data[`${key}_Party`] != undefined){
+                        holder2.push(ailment_tags[`${key}`])
+                    }
+                })
+                setailment_tag_aura(holder2)
             setshowraw(true)
             } else{
                 setshowraw(false)
@@ -356,15 +352,8 @@ const Ailment_Data_Formatting_bycharacter = ({
            ailment_data.is_buff,
            //effect#
            0,
-           AilmentNames,
-           CastNames,
-           CommandNames,
-           CondData,
-           Ailment_Effects,
-           MessageData_FFSeries,
-           MessageData_Category,
-           ailment_group,
-           command_group,
+           master_index,
+           ver,
            //aug1&2
            arg1,
            arg2,
@@ -373,9 +362,7 @@ const Ailment_Data_Formatting_bycharacter = ({
            alt_rank,
            alt_aug1,
            alt_aug2,
-           char_id,
-           undefined,
-           ver
+           undefined
            )
 
         const effect_id_1 = ailment_data.effect_id_1 && ailment_data_pars(
@@ -390,15 +377,8 @@ const Ailment_Data_Formatting_bycharacter = ({
             ailment_data.is_buff,
             //effect#
             1,
-            AilmentNames,
-            CastNames,
-            CommandNames,
-            CondData,
-            Ailment_Effects,
-            MessageData_FFSeries,
-            MessageData_Category,
-            ailment_group,
-            command_group,
+            master_index,
+            ver,
             //aug1&2
             arg1,
             arg2,
@@ -407,9 +387,7 @@ const Ailment_Data_Formatting_bycharacter = ({
             alt_rank,
             alt_aug1,
             alt_aug2,
-            char_id,
-            undefined,
-            ver
+            undefined
             )
 
         const effect_id_2 = ailment_data.effect_id_2 && ailment_data_pars(
@@ -424,15 +402,8 @@ const Ailment_Data_Formatting_bycharacter = ({
             ailment_data.is_buff,
             //effect#
             2,
-            AilmentNames,
-            CastNames,
-            CommandNames,
-            CondData,
-            Ailment_Effects,
-            MessageData_FFSeries,
-            MessageData_Category,
-            ailment_group,
-            command_group,
+            master_index,
+            ver,
             //aug1&2
             arg1,
             arg2,
@@ -441,9 +412,7 @@ const Ailment_Data_Formatting_bycharacter = ({
             alt_rank,
             alt_aug1,
             alt_aug2,
-            char_id,
-            undefined,
-            ver
+            undefined
             )
 
         const effect_id_3 = ailment_data.effect_id_3 && ailment_data_pars(
@@ -458,15 +427,8 @@ const Ailment_Data_Formatting_bycharacter = ({
             ailment_data.is_buff,
             //effect#
             3,
-            AilmentNames,
-            CastNames,
-            CommandNames,
-            CondData,
-            Ailment_Effects,
-            MessageData_FFSeries,
-            MessageData_Category,
-            ailment_group,
-            command_group,
+            master_index,
+            ver,
             //aug1&2
             arg1,
             arg2,
@@ -475,9 +437,7 @@ const Ailment_Data_Formatting_bycharacter = ({
             alt_rank,
             alt_aug1,
             alt_aug2,
-            char_id,
-            undefined,
-            ver
+            undefined
             )
 
             var effect_id_4 = undefined
@@ -494,15 +454,8 @@ const Ailment_Data_Formatting_bycharacter = ({
                     ailment_data.is_buff,
                     //effect#
                     4,
-                    AilmentNames,
-                    CastNames,
-                    CommandNames,
-                    CondData,
-                    Ailment_Effects,
-                    MessageData_FFSeries,
-                    MessageData_Category,
-                    ailment_group,
-                    command_group,
+                    master_index,
+                    ver,
                     //aug1&2
                     arg1,
                     arg2,
@@ -511,9 +464,7 @@ const Ailment_Data_Formatting_bycharacter = ({
                     alt_rank,
                     alt_aug1,
                     alt_aug2,
-                    char_id,
-                    undefined,
-                    ver
+                    undefined
                     )
             }
         
@@ -530,15 +481,8 @@ const Ailment_Data_Formatting_bycharacter = ({
             ailment_data.is_buff,
             //effect#
             5,
-            AilmentNames,
-            CastNames,
-            CommandNames,
-            CondData,
-            Ailment_Effects,
-            MessageData_FFSeries,
-            MessageData_Category,
-            ailment_group,
-            command_group,
+            master_index,
+            ver,
             //aug1&2
             arg1,
             arg2,
@@ -547,9 +491,7 @@ const Ailment_Data_Formatting_bycharacter = ({
             alt_rank,
             alt_aug1,
             alt_aug2,
-            char_id,
-            undefined,
-            ver
+            undefined
             )
 
          const effect_id_6 = ailment_data.effect_id_6 && ailment_data_pars(
@@ -564,15 +506,8 @@ const Ailment_Data_Formatting_bycharacter = ({
             ailment_data.is_buff,
             //effect#
             6,
-            AilmentNames,
-            CastNames,
-            CommandNames,
-            CondData,
-            Ailment_Effects,
-            MessageData_FFSeries,
-            MessageData_Category,
-            ailment_group,
-            command_group,
+            master_index,
+            ver,
             //aug1&2
             arg1,
             arg2,
@@ -581,9 +516,7 @@ const Ailment_Data_Formatting_bycharacter = ({
             alt_rank,
             alt_aug1,
             alt_aug2,
-            char_id,
-            undefined,
-            ver
+            undefined
             )
 
         const effect_id_7 = ailment_data.effect_id_7 && ailment_data_pars(
@@ -598,15 +531,8 @@ const Ailment_Data_Formatting_bycharacter = ({
             ailment_data.is_buff,
             //effect#
             7,
-            AilmentNames,
-            CastNames,
-            CommandNames,
-            CondData,
-            Ailment_Effects,
-            MessageData_FFSeries,
-            MessageData_Category,
-            ailment_group,
-            command_group,
+            master_index,
+            ver,
             //aug1&2
             arg1,
             arg2,
@@ -615,9 +541,7 @@ const Ailment_Data_Formatting_bycharacter = ({
             alt_rank,
             alt_aug1,
             alt_aug2,
-            char_id,
-            undefined,
-            ver
+            undefined
             )
         
 
@@ -633,15 +557,8 @@ const Ailment_Data_Formatting_bycharacter = ({
             ailment_data.is_buff,
             //effect#
             8,
-            AilmentNames,
-            CastNames,
-            CommandNames,
-            CondData,
-            Ailment_Effects,
-            MessageData_FFSeries,
-            MessageData_Category,
-            ailment_group,
-            command_group,
+            master_index,
+            ver,
             //aug1&2
             arg1,
             arg2,
@@ -650,9 +567,7 @@ const Ailment_Data_Formatting_bycharacter = ({
             alt_rank,
             alt_aug1,
             alt_aug2,
-            char_id,
-            undefined,
-            ver
+            undefined
             )
 
         const effect_id_9 = ailment_data.effect_id_9 && ailment_data_pars(
@@ -667,15 +582,8 @@ const Ailment_Data_Formatting_bycharacter = ({
             ailment_data.is_buff,
             //effect#
             9,
-            AilmentNames,
-            CastNames,
-            CommandNames,
-            CondData,
-            Ailment_Effects,
-            MessageData_FFSeries,
-            MessageData_Category,
-            ailment_group,
-            command_group,
+            master_index,
+            ver,
             //aug1&2
             arg1,
             arg2,
@@ -684,9 +592,7 @@ const Ailment_Data_Formatting_bycharacter = ({
             alt_rank,
             alt_aug1,
             alt_aug2,
-            char_id,
-            undefined,
-            ver
+            undefined
             )
  
     const metadata = Ailment_Meta_Handler(
@@ -702,7 +608,7 @@ const Ailment_Data_Formatting_bycharacter = ({
         ailment_data.life_max_, 
         ailment_data.group_id,
 
-        Ailment_Effects,
+        master_index,
         highestlvl
         )
 
@@ -722,16 +628,6 @@ const Ailment_Data_Formatting_bycharacter = ({
             }
         }
     }
-
-    const require_passive = passive_effects_data && passive_effects_data.require_passive
-    const passive_target = passive_effects_data && passive_effects_data.passive_target
-    const trap_type = passive_effects_data && passive_effects_data.trap_type
-    const attack_type = passive_effects_data && passive_effects_data.attack_type
-    const elementid_1 = passive_effects_data && passive_effects_data.elementid_1
-
-    const killer_type = command_data_effects && command_data_effects.killer_type
-    const command_type = command_data_effects && command_data_effects.command_type
-    const target_range_ = command_data_effects && command_data_effects.target_range_
 
     const [merge_pas, setmerge_pas] = useStateIfMounted(ailment_data && ailment_data.passives && ailment_data.passives.length > 1 ? true :false)
 
@@ -825,14 +721,12 @@ const Ailment_Data_Formatting_bycharacter = ({
                     {ailment_data.defaults != undefined && ailment_data.is_passive != true?
                     <Default_Ailment_Pars
                     default_data={ailment_data.defaults}
-                    passivenames={passivenames}
-                    equipmentpassivenames={equipmentpassivenames}
-                    CommandNames={CommandNames}
-                    cast_targets={cast_targets}
-                    Ailment_Effects={Ailment_Effects}
+
+                    ver={ver}
+                    master_index={master_index}
+
                     formatting={formatting}
                     gear={gear}
-                    char_id={char_id}
                     passed_ailment={ailment_data}
                     list={true}
                     />
@@ -840,28 +734,9 @@ const Ailment_Data_Formatting_bycharacter = ({
                     {ailment_data.is_passive == true ?
                     <Passive_Effects_Default
                     passive_ability={ailment_data.passive}
-                    ailment_group={ailment_group}
-                    command_group={command_group}
-                    AilmentNames={AilmentNames}
-                    CastNames={CastNames}
-                    CommandNames={CommandNames}
-                    CondData={CondData}
-                    MessageData_FFSeries={MessageData_FFSeries}
-                    MessageData_Category={MessageData_Category}
-                    equipmentpassivenames={equipmentpassivenames}
-                    passivenames={passivenames}
-                    cast_targets={cast_targets}
-                    effect_data={passive_effects_data.effect_}
-                    require_passive={passive_effects_data.require_passive}
-                    passive_target={passive_effects_data.passive_target}
-                    trap_type={passive_effects_data.trap_type}
-                    param_id={passive_effects_data.param_id}
-                    attack_type={passive_effects_data.attack_type}
-                    killer_type={passive_effects_data.killer_type}
-                    elementid_1={passive_effects_data.elementid_1}
-                    enemy_type={enemy_type}
-                    command_type={command_data_effects.command_type}
-                    target_range_={command_data_effects.target_range_}
+
+                    master_index={master_index}
+
                     formatting={formatting}
                     ver={ver}
                     list={true}
@@ -1065,9 +940,9 @@ const Ailment_Data_Formatting_bycharacter = ({
                                  <Ailment_Data_Combination_Formatting
                                  key={i}
                                  components={item}
-                                 AilmentNames={AilmentNames} 
+                                 master_index={master_index}
+                                 ver={ver}
                                  formatting={formatting}
-                                 char_id={char_id}
                                  base_id={ailment_data.id}
                                  />
                                 )}
@@ -1297,15 +1172,7 @@ const Ailment_Data_Formatting_bycharacter = ({
                                 ver={ver}
                                 base_buff={ailment_data}
                                 match={item} 
-                                AilmentNames={AilmentNames} 
-                                CondData={CondData} 
-                                MessageData_FFSeries={MessageData_FFSeries}
-                                MessageData_Category={MessageData_Category}
-                                CastNames={CastNames}
-                                CommandNames={CommandNames}
-                                ailment_group={ailment_group}
-                                command_group={command_group}
-                                Ailment_Effects={Ailment_Effects}
+                                master_index={master_index}
                                 is_buff={ailment_data.is_buff}
                                 loc={loc}
                                 slider={slider}
@@ -1331,7 +1198,6 @@ const Ailment_Data_Formatting_bycharacter = ({
                                 alt_aug1={alt_aug1}
                                 alt_aug2={alt_aug2}
                                 formatting={formatting}
-                                char_id={char_id}
                                 />
                                 )}
                             </div>
@@ -1343,23 +1209,10 @@ const Ailment_Data_Formatting_bycharacter = ({
                                 <Passive_Link_Effects
                                 key={self.link_id}
                                 link_effect={self}
-                                ailment_group={ailment_group}
-                                command_group={command_group}
-                                AilmentNames={AilmentNames}
-                                CommandNames={CommandNames}
-                                CondData={CondData}
-                                equipmentpassivenames={equipmentpassivenames}
-                                passivenames={passivenames}
-                                require_passive={require_passive}
-                                passive_target={passive_target}
-                                trap_type={trap_type}
-                                attack_type={attack_type}
-                                killer_type={killer_type}
-                                elementid_1={elementid_1}
-                                enemy_type={enemy_type}
-                                command_type={command_type}
-                                target_range_={target_range_}
-                                Ailment_Effects={Ailment_Effects}
+
+                                master_index={master_index}
+                                ver={ver}
+
                                 formatting={formatting}
                                 />
                             ))}
@@ -1374,13 +1227,10 @@ const Ailment_Data_Formatting_bycharacter = ({
                                     <Ailment_Modify_Formatting 
                                     key={i} 
                                     modify={item}
-                                    CondData={CondData}
-                                    AilmentNames={AilmentNames}
-                                    command_group={command_group}
+                                    master_index={master_index}
+                                    ver={ver}
                                     Single={false}
-                                    Ailment_Effects={Ailment_Effects}
                                     formatting={formatting}
-                                    char_id={char_id}
                                     />
                                 )}
                             </div>
@@ -1402,15 +1252,10 @@ const Ailment_Data_Formatting_bycharacter = ({
                             :""}
                             {merger_master(
                                 ailment_data.passives,
-                                passive_effects_data,
-                                CommandNames,
-                                AilmentNames,
-                                command_group,
-                                ailment_group,
-                                passivenames,
-                                equipmentpassivenames,
-                                enemy_type,
-                                CastNames,
+
+                                master_index,
+                                ver,
+                                
                                 merge_pas,
                                 "ailment",
                                 true,
@@ -1418,30 +1263,10 @@ const Ailment_Data_Formatting_bycharacter = ({
                                 ailment_passive.is_total != true ? <Passive_Battle_State
                                 key={`${ailment_passive.pa_id}-${i}`}
                                 passive_ability={ailment_passive}
-                                ailment_group={ailment_group}
-                                command_group={command_group}
-                                AilmentNames={AilmentNames}
-                                CastNames={CastNames}
+
+                                master_index={master_index}
                                 ver={ver}
-                                CommandNames={CommandNames}
-                                CondData={CondData}
-                                Ailment_Effects={Ailment_Effects}
-                                MessageData_FFSeries={MessageData_FFSeries}
-                                MessageData_Category={MessageData_Category}
-                                equipmentpassivenames={equipmentpassivenames}
-                                passivenames={passivenames}
-                                cast_targets={cast_targets}
-                                effect_data={passive_effects_data.effect_}
-                                require_passive={passive_effects_data.require_passive}
-                                passive_target={passive_effects_data.passive_target}
-                                trap_type={passive_effects_data.trap_type}
-                                param_id={passive_effects_data.param_id}
-                                attack_type={passive_effects_data.attack_type}
-                                killer_type={passive_effects_data.killer_type}
-                                elementid_1={passive_effects_data.elementid_1}
-                                enemy_type={enemy_type}
-                                command_type={command_data_effects.command_type}
-                                target_range_={command_data_effects.target_range_}
+                                
                                 formatting={formatting}
                                 skip_space={i}
                                 use_ailment={true}
@@ -1522,22 +1347,8 @@ const Ailment_Data_Formatting_bycharacter = ({
                                 ver={ver}
                                 ailment_data={attachedbuff}
 
-                                command_data_effects={command_data_effects}
-                                enemy_type={enemy_type}
-                                passive_effects_data={passive_effects_data}
-                                equipmentpassivenames={equipmentpassivenames}
-                                passivenames={passivenames}
-                                cast_targets={cast_targets}
+                                master_index={master_index}
 
-                                ailment_group={ailment_group}
-                                command_group={command_group}
-                                AilmentNames={AilmentNames}
-                                CastNames={CastNames}
-                                CommandNames={CommandNames}
-                                CondData={CondData}
-                                Ailment_Effects={Ailment_Effects}
-                                MessageData_FFSeries={MessageData_FFSeries}
-                                MessageData_Category={MessageData_Category}
                                 slider={true}
                                 castlocation={true}
                                 formatting={true}
@@ -1547,7 +1358,6 @@ const Ailment_Data_Formatting_bycharacter = ({
                                 alt_rank={attachedbuff.aranka}
                                 alt_aug1={attachedbuff.aarg1a}
                                 alt_aug2={attachedbuff.aarg2a}
-                                char_id={char_id}
                                 turns={attachedbuff.alife}
                                 />
                             :""}
@@ -1558,7 +1368,21 @@ const Ailment_Data_Formatting_bycharacter = ({
                             </div>
                             <ul className="abilitybufflist">
                                 {ailment_tag.map(function(buff){
-                                return  <li className={`abilitybufficonsholder`} key={`${buff.name}`}>
+                                return  <li className={`abilitybufficonsholder`} key={`${buff.name}-1`}>
+                                    <div className="biconspacer" >
+                                            <DefaultTippy content={buff.name}>
+                                                <img alt={buff.name} className="abilitybufficon" src={`https://dissidiacompendium.com/images/static/icons/${buff.url}.png`} />
+                                            </DefaultTippy>
+                                        </div>
+                                    </li>
+                                })}
+                            </ul>
+                            <div className="unique ailmenttext">
+                                Aura Tags:
+                            </div>
+                            <ul className="abilitybufflist">
+                                {ailment_tag_aura.map(function(buff){
+                                return  <li className={`abilitybufficonsholder`} key={`${buff.name}-2`}>
                                     <div className="biconspacer" >
                                             <DefaultTippy content={buff.name}>
                                                 <img alt={buff.name} className="abilitybufficon" src={`https://dissidiacompendium.com/images/static/icons/${buff.url}.png`} />

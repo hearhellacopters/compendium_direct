@@ -1,8 +1,6 @@
 import React, {useEffect} from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
 import Random from '../processing/Random'
-import { useDispatch, useSelector } from "react-redux";
-import { getMaintenance } from '../redux/ducks/maintenance';
 
 const LoadHelper = () => {
 
@@ -15,22 +13,6 @@ const LoadHelper = () => {
         settimeout(true)
     ,25000)
     },[settimeout])
-
-    const dispatch = useDispatch();
-
-    const check = useSelector((state) => 
-      state.maintenance.maintenance
-      );
-  
-      useEffect(() => {
-        let mounted = true
-        if (mounted && check == undefined) {
-        dispatch(getMaintenance())
-        }
-        return function cleanup() {
-            mounted = false
-        }
-    }, [dispatch,check]);
 
 var agent = {browser:{name:null,version:null,v:null,userAgent:null,app:null,os:null},mobile:false,pointlock:false};
 
@@ -109,21 +91,8 @@ agent.browser.os = OSName;
 agent.mobile = (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
 
     return (
-        timeout == false ?
-        check && check.maintenance == true ?
-        <div className="content loading2">
-            <h1><img className="loadingbardots" src={"https://dissidiacompendium.com/images/static/site/loading.gif"}></img></h1>
-                <div className="filterholder">
-                    <div className="filterholderflair" >
-                        <div className="infobase Debuffbase centertext warning">
-                        Site is in maintenance and may not load<br/>
-                        Please check back again later<br/>
-                        Sorry for the inconvenience!
-                        </div>
-                    </div>
-                </div>
-        </div>
-        :
+        timeout == false 
+        ?
         <div className="content loading2"><h1><img className="loadingbardots" src={"https://dissidiacompendium.com/images/static/site/loading.gif"}></img></h1></div>
         :
         <div className="content loading2">
@@ -132,13 +101,6 @@ agent.mobile = (typeof window.orientation !== "undefined") || (navigator.userAge
                     <div className="filterholderflair" >
                         <div className="nolinksholder"><img alt="oh no" src={`https://dissidiacompendium.com/images/static/icons/404/${randomimage}.png`}/>
                         </div>
-                        {check == true ?
-                        <div className="infobase Debuffbase centertext warning">
-                        Site is in maintenance and may not load<br/>
-                        Please check back again later<br/>
-                        Sorry for the inconvenience!
-                        </div>
-                        :
                         <div className="infobase Debuffbase centertext warning">
                         Loading is taking longer than normal<br/>
                         Please make sure you have a strong connection<br/><br/>
@@ -147,7 +109,6 @@ agent.mobile = (typeof window.orientation !== "undefined") || (navigator.userAge
                         You can also try <a className="updatelink" rel="noreferrer noopener"  target="_blank" href={`https://www.google.com/search?q=how+to+clear+browser+cache+${agent.browser.name}${agent.browser.os != "Unknown OS" ? `+for+${agent.browser.os}`: ""}`}>clearing your browser's cache</a><br/><br/>
                         If issues persistent, please notify <a className="updatelink" rel="noreferrer noopener" href="https://drive.google.com/open?id=1IJE93eDUcKIEKuQH0jwMZ7WaWVcrldUqbc6EyEZRrzs" target="_blank">admins</a>
                         </div>
-                        }
                     </div>
                 </div>
         </div>

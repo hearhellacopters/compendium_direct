@@ -1,5 +1,3 @@
-import element_weakness from "../../../processing/element_weakness"
-import additional_attack from "../../../processing/additional_attack"
 import val_edit_type from "./val_edit_type_handler"
 
 const passive_effect_handler = (
@@ -10,23 +8,27 @@ const passive_effect_handler = (
     effect_value3,
     effect__1,
 
-    effect_data,
-    passive_target,
-    CommandNames,
-    AilmentNames,
-    elementid_1,
-    attack_type,
-    killer_type,
-    command_group,
-    ailment_group,
-    trap_type,
-    passivenames,
-    equipmentpassivenames,
-    enemy_type,
-    CastNames,
+    master_index,
+    ver,
+
     merge_value,
     use_ailment
 )=>{
+
+    const effect_data = master_index.passive_effects.effect_
+    const passive_target = master_index.passive_effects.passive_target
+    const CommandNames = master_index.commands
+    const AilmentNames = master_index.ailments
+    const elementid_1 = master_index.passive_effects.elementid_1
+    const attack_type = master_index.passive_effects.attack_type
+    const killer_type = master_index.passive_effects.killer_type
+    const command_group = master_index.command_group_full[ver]
+    const ailment_group = master_index.ailment_group_full[ver]
+    const trap_type = master_index.passive_effects.trap_type
+    const passivenames = master_index.passivenames
+    const equipmentpassivenames = master_index.equipmentpassivenames
+    const enemy_type = master_index.enemy_type
+    const CastNames = master_index.cast_names
 
     function ordinal(n) {
         var s = ["th", "st", "nd", "rd"];

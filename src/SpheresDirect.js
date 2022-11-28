@@ -27,29 +27,12 @@ const SpheresDirect =({
     match,
 
     ProcessedSpheres,
-
-    enemy_type,
-    cast_targets,
-    char_id,
-    passivenames,
-    equipmentpassivenames,
-    AilmentNames,
-    CommandNames,
-    CondData,
-    Ailment_Effects,
-    MessageData_Category,
-    MessageData_FFSeries,
-    hit_data_effects,
-    command_data_effects,
-    option_trans_data,
-    enemy_names,
-    passive_effects_data,
     Access,
 
-    ailment_group,
-    command_group,
-    enemy_resist,
+    master_index
 })=>{
+
+  const char_id = master_index.charid
 
     const startinglimit = window.innerWidth <= 815 ? 30 : 50;
 
@@ -975,30 +958,10 @@ const SpheresDirect =({
         setTimeout(() => setclearFilter(false), 1000);
       }
 
-      const getcastnames = Object.values(AilmentNames).map(self=>{
-        return {[self.castID]: self}
-      })
-    
-      const CastNames = getcastnames.reduce(function(result, item) {
-        var key = Object.keys(item)[0]; //first property: a, b, c
-        result[key] = item[key];
-        return result;
-        }, {});
 
       const listSphere = listDisplay;
 
-        const effect_ = passive_effects_data.effect_
-        const require_passive = passive_effects_data.require_passive
-        const passive_target = passive_effects_data.passive_target
-        const trap_type = passive_effects_data.trap_type
-        const param_id = passive_effects_data.param_id
-        const attack_type = passive_effects_data.attack_type
-        const killer_type = passive_effects_data.killer_type
-        const elementid_1 = passive_effects_data.elementid_1
-        const command_type = passive_effects_data.command_type
-        const target_range_ = passive_effects_data.target_range_
-
-        const dispatch = useDispatch();
+      const dispatch = useDispatch();
 
     const jptoggledata = useSelector((state) => 
         state.toggle.toggle
@@ -1298,35 +1261,14 @@ const SpheresDirect =({
                 loc={loc}
                 file={"exskill"}
                 Single={true}
-                passivenames={passivenames}
-                equipmentpassivenames={equipmentpassivenames}
-                AilmentNames={AilmentNames}
-                CommandNames={CommandNames}
-                CondData={CondData}
-                Ailment_Effects={Ailment_Effects}
-                MessageData_Category={MessageData_Category}
-                MessageData_FFSeries={MessageData_FFSeries}
-                command_data_effects={command_data_effects}
-                passive_effects_data={passive_effects_data}
-                ailment_group={ailment_group[ver]}
-                command_group={command_group[ver]}
-                CastNames={CastNames}
-                enemy_type={enemy_type}
-                char_id={char_id}
-                cast_targets={cast_targets}
-                effect_={effect_}
-                require_passive={require_passive}
-                passive_target={passive_target}
-                trap_type={trap_type}
-                param_id={param_id}
-                attack_type={attack_type}
-                killer_type={killer_type}
-                elementid_1={elementid_1}
+
+                master_index={master_index}
+
+                
                 sphere_type={passive.sphere_type}
                 sphere_letter={passive.ex_category_id}
                 release={passive.start_date}
-                target_range_={target_range_}
-                command_type={command_type}
+              
                 formatting={true}
 
                 banner_color={"newblue"}

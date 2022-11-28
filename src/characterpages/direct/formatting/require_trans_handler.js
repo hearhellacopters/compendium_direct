@@ -9,22 +9,27 @@ const require_trans_handler = (
     require_value2,
     require_value3,
 
-    require_passive,
-    passive_target,
-    CommandNames,
-    AilmentNames,
-    elementid_1,
-    attack_type,
-    killer_type,
-    command_group,
-    ailment_group,
-    trap_type,
-    passivenames,
-    equipmentpassivenames,
-    enemy_type,
-    command_type,
-    target_range_
+    master_index,
+    ver,
+
     )=>{
+
+        const require_passive = master_index.passive_effects.require_passive
+        const passive_target = master_index.passive_effects.passive_target
+        const CommandNames = master_index.commands
+        const AilmentNames = master_index.ailments
+        const elementid_1 = master_index.passive_effects.elementid_1
+        const attack_type = master_index.passive_effects.attack_type
+        const killer_type = master_index.passive_effects.killer_type
+        const command_group = master_index.command_group_full[ver]
+        const ailment_group = master_index.ailment_group_full[ver]
+        const trap_type = master_index.passive_effects.trap_type
+        const passivenames = master_index.passivenames
+        const equipmentpassivenames = master_index.equipmentpassivenames
+        const enemy_type = master_index.enemy_type
+        const command_type = master_index.passive_effects.command_type
+        const target_range_ = master_index.passive_effects.target_range_
+        const ailment_type = master_index.passive_effects.ailment_type
 
         var require = require_passive[require_]
 
@@ -203,13 +208,26 @@ const require_trans_handler = (
         }
 
         if(value_trans == "ailment_type_between_nozero"){
-            //no idea for value1
+            if(ailment_type[require_value1] != undefined){
+                require_value1 = ailment_type[require_value1].ailment_type
+            } else {
+                require_value1 = `ailment type #${require_value1}`
+            }
             if((require_value3 - 1 ) < 1){
-                require_value2 = `at least level ${require_value2}`
+                require_value2 = `at least ${require_value2}`
                 require_value3 = ""
             } else{
-                require_value2 = `between levels ${require_value2} - ${require_value3 - 1}`
+                require_value2 = `between ${require_value2} - ${require_value3 - 1}`
                 require_value3 = ""
+            }
+        }
+
+        if(value_trans == "own_party"){
+            if(require_target == 2){
+                require_str = require_str.replace(/\[target\]/gm,"own")
+            }
+            if(require_target == 31){
+                require_str = require_str.replace(/\[target\]/gm,"Party")
             }
         }
 

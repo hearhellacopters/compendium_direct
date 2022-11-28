@@ -5,22 +5,14 @@ import SilderStyleRank from './SilderStyleRank';
 
 const Ailment_Field_Attached =({
     ailment_field,
-    ailment_group,
-    command_group,
-    AilmentNames,
-    CastNames,
-    CommandNames,
-    CondData,
-    Ailment_Effects,
-    MessageData_FFSeries,
-    MessageData_Category,
     loc,
     slider,
     castlocation,
     formatting,
-    char_id,
     base_color,
-    ver
+    ver,
+    master_index,
+    spacer
 })=>{
 
         const [highestlvl, setHighestlvl] = useState(10);
@@ -62,17 +54,10 @@ const Ailment_Field_Attached =({
             <div>
             <Field_Effect_Pars
             match={ailment_field} 
+
             ver={ver}
-            AilmentNames={AilmentNames} 
-            CondData={CondData} 
-            base_buff={ailment_field}
-            MessageData_FFSeries={MessageData_FFSeries}
-            MessageData_Category={MessageData_Category}
-            CastNames={CastNames}
-            CommandNames={CommandNames}
-            ailment_group={ailment_group}
-            command_group={command_group}
-            Ailment_Effects={Ailment_Effects}
+            master_index={master_index}
+
             is_buff={undefined}
             loc={loc}
             slider={slider}
@@ -94,8 +79,7 @@ const Ailment_Field_Attached =({
             alt_rank={undefined}
             alt_aug1={undefined}
             alt_aug2={undefined}
-            char_id={char_id}
-            is_passive={true}
+            spacer={spacer}
             />
             </div>
             </div>
