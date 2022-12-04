@@ -106,7 +106,7 @@ const FRCond = ({ match, ProcessedCharacters, jptoggledata }) => {
                 <div className="infotitleholder">
                     <div className="force_background">
                         <div className="faceandiconholder">
-                            <Link to={`/characters/` + match.ShortName}>
+                            <Link to={`/characters/${match.ShortName}`}>
                             <div className="faceholder">
                                 <LazyLoadImage effect="opacity" alt={match.CharacterName} className="faceicon" src={`https://dissidiacompendium.com/images/static/characters/${match.CharacterURLName}/face.png`}/>
                                 <div className="facetext">{`${match.CharacterName == "Cloud of Darkness" ? "CoD" : match.CharacterName == "Warrior of Light" ? "WoL" : match.CharacterName}`}</div>
@@ -114,7 +114,7 @@ const FRCond = ({ match, ProcessedCharacters, jptoggledata }) => {
                             </Link>
                         </div>
                         <div className="faceandiconholder">
-                            <Link to={`/characters/` + Partner && Partner.ShortName}>
+                            <Link to={`/characters/${Partner.ShortName}`}>
                             <div className="faceholder">
                                 <LazyLoadImage effect="opacity" alt={Partner && Partner.CharacterName} className="faceicon" src={Partner && `https://dissidiacompendium.com/images/static/characters/${Partner.CharacterURLName}/face.png`}/>
                                 <div className="facetext">{`${Partner && Partner.CharacterName == "Cloud of Darkness" ? "CoD" : Partner && Partner.CharacterName == "Warrior of Light" ? "WoL" : Partner && Partner.CharacterName}`}</div>

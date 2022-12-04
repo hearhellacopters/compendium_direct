@@ -7,7 +7,7 @@ const Character_Ability_List =({
     ver,
     file,
     buff_data,
-
+    ProcessedCharacters,
     formatting,
     tag_override,
     all_options,
@@ -64,7 +64,7 @@ const Character_Ability_List =({
                                 file={file}
             
                                 master_index={master_index}
-                                
+                                ProcessedCharacters={ProcessedCharacters}
                                 buff_data={buff_data}
             
                                 formatting={formatting}

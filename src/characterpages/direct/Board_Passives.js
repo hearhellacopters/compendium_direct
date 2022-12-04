@@ -18,7 +18,7 @@ const Sum_Fix_Passive =({
   loc,
   file, 
   newcompare,
-
+  ProcessedCharacters,
   formatting,
   showFilter,
   master_index
@@ -379,7 +379,7 @@ const Sum_Fix_Passive =({
                   key={passive.sfp_id}
 
                   master_index={master_index}
-
+                  ProcessedCharacters={ProcessedCharacters}
                   character_ability={passive.command}
                   ver={ver}
                   loc={loc}

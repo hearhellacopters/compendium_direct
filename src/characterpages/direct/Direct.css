@@ -186,7 +186,6 @@ margin-right: auto;
     -webkit-filter: drop-shadow(1px 1px 1px #222);
     padding-left: 2px;
     min-height: 45px;
-    margin-bottom: 5px;
 }
 
 .Debuffsubbanner2{
@@ -195,16 +194,17 @@ margin-right: auto;
     -webkit-filter: drop-shadow(1px 1px 1px #222);
     padding-left: 2px;
     min-height: 45px;
-    margin-bottom: 5px;
 }
 
 .Buffsubbase2{
+    padding-top: 5px;
     background: linear-gradient( 90deg , #346746f0 0%, #346746f0 16%, rgba(77,86,97,0) 100%);
     filter: drop-shadow(1px 1px 1px #222);
     -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
 .Debuffsubbase2{
+    padding-top: 5px;
     background: linear-gradient( 90deg , #773040f0 0%, #773040f0 16%, rgba(77,86,97,0) 100%);
     filter: drop-shadow(1px 1px 1px #222);
     -webkit-filter: drop-shadow(1px 1px 1px #222);

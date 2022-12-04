@@ -110,42 +110,25 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
         if(activeOrb == true || activeForce == true){
             if(ran == false){
                 var helpers_str = []
-                if(match[`ForceRoleTag${ForcetimeTab}`] != undefined){
-                    helpers_str = match[`ForceRoleTag${ForcetimeTab}`] && match[`ForceRoleTag${ForcetimeTab}`].split(" ")
-                } else if(match && match.RoleTag != undefined){
-                    helpers_str = match.RoleTag && match.RoleTag.split(" ")
+            if(match.ForceGauge != undefined){
+                if(match.ForceGauge[ForcetimeTab].RoleTag != undefined){
+                    helpers_str = match.ForceGauge[ForcetimeTab].RoleTag .split(" ")
                 }
-                sethelpers([])
-                helpers_str.map(self=>{
-                    const helper_pull = Object.values(ProcessedCharacters).filter(function (ef) {
-                        return ef[`${ver}traits`] && ef[`${ver}traits`][`${self}`] == true;
-                    });
-                    
-                    helper_pull.map(self3=>{
-                        if(helper_holder[self3.CharID] == undefined){
-                            Object.assign(helper_holder,{[self3.CharID]: 
-                                {GLOrder: self3.GLOrder, 
-                                    RealmPars: self3.RealmPars, 
-                                    Sort: self3.Sort, 
-                                    ShortName: self3.ShortName, 
-                                    CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${self3.CharacterURLName}/face.png`, 
-                                    CharacterName: self3.CharacterName, 
-                                    CharID: self3.CharID, 
-                                    roles:[self]}})
-                        } else {
-                            var new_set = new Set(helper_holder[self3.CharID].roles)
-                            new_set.add(self)
-                            const holder = []
-                            new_set.forEach(self=>{holder.push(self)})
-                            Object.assign(helper_holder[self3.CharID],{roles: holder})
-                        }
-                    })
-                })
-                if(match[`ForceRoleTag${ForcetimeTab}`] == undefined){
-                    set_chars && set_chars.map(self=>{
+                if(match.ForceGauge[ForcetimeTab].CharArray != undefined){
+                    match.ForceGauge[ForcetimeTab].CharArray.map(self=>{
                         const single = ProcessedCharacters[self.CharID] && ProcessedCharacters[self.CharID]
                         if(helper_holder[self.CharID] == undefined){
-                            Object.assign(helper_holder,{[self.CharID]: {GLOrder: single.GLOrder, RealmPars: single.RealmPars, Sort: single.Sort, ShortName: single.ShortName, CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${single.CharacterURLName}/face.png`, CharacterName: single.CharacterName, CharID: self.CharID, roles: ["Enemy"]}})
+                            Object.assign(helper_holder,{[self.CharID]: {
+                                GLOrder: single.GLOrder, 
+                                RealmPars: single.RealmPars, 
+                                Sort: single.Sort, 
+                                ShortName: single.ShortName, 
+                                CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${single.CharacterURLName}/face.png`, 
+                                CharacterName: 
+                                single.CharacterName, 
+                                CharID: self.CharID, 
+                                roles: ["Enemy"]
+                            }})
                         } else {
                             var new_set = new Set(helper_holder[self.CharID].roles)
                             new_set.add("Enemy")
@@ -155,10 +138,9 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
                         }
                     })
                 }
-
-                if(match.ForceCond1 != undefined){
+                if(match.ForceGauge[ForcetimeTab].ForceCond1 != undefined){
                     const charType = {}
-                    match.ForceCond1.split(" ").forEach(self=>{
+                    match.ForceGauge[ForcetimeTab].ForceCond1.split(" ").forEach(self=>{
                         Object.assign(charType,{[self]:true})
                     })
                     const filtermerge = Object.values(ProcessedCharacters).filter((oneChar) => {
@@ -188,10 +170,9 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
                         }
                       })
                 }
-    
-                if(match.ForceCond2 != undefined){
+                if(match.ForceGauge[ForcetimeTab].ForceCond2 != undefined){
                     const charType = {}
-                    match.ForceCond2.split(" ").forEach(self=>{
+                    match.ForceGauge[ForcetimeTab].ForceCond2.split(" ").forEach(self=>{
                         Object.assign(charType,{[self]:true})
                     })
                     const filtermerge = Object.values(ProcessedCharacters).filter((oneChar) => {
@@ -221,6 +202,59 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
                         }
                       })
                 }
+            } else if(match && match.RoleTag != undefined){
+                helpers_str = match.RoleTag && match.RoleTag.split(" ")
+            }
+            sethelpers([])
+            helpers_str.map(self=>{
+                const helper_pull = Object.values(ProcessedCharacters).filter(function (ef) {
+                    return ef[`${ver}traits`] && ef[`${ver}traits`][`${self}`] == true;
+                  });
+                  
+                  helper_pull.map(self3=>{
+                    if(helper_holder[self3.CharID] == undefined){
+                        Object.assign(helper_holder,{[self3.CharID]: {
+                            GLOrder: self3.GLOrder, 
+                            RealmPars: self3.RealmPars, 
+                            Sort: self3.Sort, 
+                            ShortName: self3.ShortName, 
+                            CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${self3.CharacterURLName}/face.png`, 
+                            CharacterName: 
+                            self3.CharacterName, 
+                            CharID: self3.CharID, 
+                            roles:[self]
+                        }})
+                    } else {
+                        var new_set = new Set(helper_holder[self3.CharID].roles)
+                        new_set.add(self)
+                        const holder = []
+                        new_set.forEach(self=>{holder.push(self)})
+                        Object.assign(helper_holder[self3.CharID],{roles: holder})
+                    }
+                  })
+            })
+            set_chars && set_chars.map(self=>{
+                const single = ProcessedCharacters[self.CharID] && ProcessedCharacters[self.CharID]
+                if(helper_holder[self.CharID] == undefined){
+                    Object.assign(helper_holder,{[self.CharID]: {
+                        GLOrder: single.GLOrder, 
+                        RealmPars: single.RealmPars, 
+                        Sort: single.Sort, 
+                        ShortName: single.ShortName, 
+                        CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${single.CharacterURLName}/face.png`, 
+                        CharacterName: 
+                        single.CharacterName, 
+                        CharID: self.CharID, 
+                        roles: ["Enemy"]
+                    }})
+                } else {
+                    var new_set = new Set(helper_holder[self.CharID].roles)
+                    new_set.add("Enemy")
+                    const holder = []
+                    new_set.forEach(self=>{holder.push(self)})
+                    Object.assign(helper_holder[self.CharID],{roles: holder})
+                }
+            })
 
                 const final_arry = Object.values(helper_holder).sort((a, b) => cmp(a.RealmPars, b.RealmPars) || cmp(a.Sort,b.Sort))
                 setran(true)
@@ -744,33 +778,26 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
                                 </div>
                             </div>
                             :''}
-                            {activeForce == true && getForce && getForce[`ForceGauge${1}`] != undefined ?
+                            {activeForce == true && getForce && getForce[`ForceGauge`] != undefined && getForce[`ForceGauge`].length > 1?
                             <ul className="enemybannertabs">
-                                <li className={ForcetimeTab == 0 ? "active" : ""} onClick={()=>ForceTimeSelect(0)}>
-                                {ForcetimeTab == 0 ?
-                                <span className="gemselected"/>
-                                :""}
-                                    Force Time 1
-                                    </li>
-                                {getForce[`ForceGauge${1}`] != undefined ?
-                                <li className={ForcetimeTab == 1 ? "active" : ""} onClick={()=>ForceTimeSelect(1)}>
-                                {ForcetimeTab == 1 ?
-                                <span className="gemselected"/>
-                                :""}
-                                    Force Time 2
-                                    </li>
-                                :""}
+                                {enemy[`ForceGauge`].map((self,i)=>(
+                                <li key={i} className={ForcetimeTab == i ? "active" : ""} onClick={()=>ForceTimeSelect(i)}>
+                                    {ForcetimeTab == i ?<span className="gemselected"/>
+                                    :""}
+                                    {`Force Time ${i+1}`}
+                                </li>
+                                ))}
                             </ul>
                             :""}
-                            {activeForce == true && getForce != undefined && getForce[`ForceGauge${ForcetimeTab}`] != undefined ?
-                            <div className={`enemyholderdesc${getForce && getForce.ForceGauge1 != undefined ? "2":""}`}>
+                            {activeForce == true && getForce != undefined && getForce[`ForceGauge`] && getForce[`ForceGauge`][ForcetimeTab] != undefined ?
+                            <div className={`enemyholderdesc${enemy[`ForceGauge`].length > 1 ? "2":""}`}>
                                 <div className="enemyforcesubbanner">Force Gauge</div>
-                                {getForce[`ForceGauge${ForcetimeTab}`].map((self,i)=>(
-                                    <div className="buffunit" key={`${self.id}${ForcetimeTab}${i}`}>
+                                {getForce[`ForceGauge`][ForcetimeTab] && getForce[`ForceGauge`][ForcetimeTab].ForceGauge.sort((a,b)=>a.id-b.id).map((self,i)=>(
+                                    <div className="buffunit" key={i}>
                                         <div className="infoholder egfbanner">
                                     <div className={`infonameholderenemybuff centeralign ${self.name == "Force Weakness" ? "blackbanner" : self.name =="Force Gauge Increase" ? "Buffbanner" : "Debuffbanner"}`}>
                                         <span className="unique">
-                                            {self.name && replace_title(self.name)}
+                                            {self.name && replace_title(self.name )}
                                         </span>
                                         {self.name == "Force Weakness" ? "":
                                         <EnemyForceGauge gauge_min={self.gauge_min} gauge_max={self.gauge_max}/>

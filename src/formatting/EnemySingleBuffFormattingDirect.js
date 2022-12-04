@@ -1,6 +1,6 @@
 import React, {useState, useEffect } from 'react';
 import replacer_title from '../processing/replacer_titles'
-import Ailment_Data_Formatting from '../formatting/Buff_Handler/Ailment_Data_Formating';
+import Ailment_Data_Formatting from './Buff_Handler/Ailment_Data_Formating';
 
 const EnemySingleBuffFormattingDirect = ({match}) => {
 

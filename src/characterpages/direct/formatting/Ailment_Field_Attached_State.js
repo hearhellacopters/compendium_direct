@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import Field_Effect_Pars from './Field_Effect_Pars';
+import Ailment_Field_Effect_Pars from './Ailment_Field_Effect_Pars';
+import Ailment_Data_Pars_Handler from './Ailment_Data_Pars_Handler';
 import ReactJson from '@microlink/react-json-view'
 
 const Ailment_Field_Attached_State =({
@@ -37,7 +38,24 @@ const Ailment_Field_Attached_State =({
 
     const handleChangeRank = (e) => {
         setcurrentrank(parseInt(e.x));
-      };
+    };
+
+    const field_data = Ailment_Field_Effect_Pars(
+        ailment_field,
+        false, //Single
+    
+        undefined, //is_buff
+        undefined, //AugValue1
+        undefined, //AugValue2
+        highestlvl, //max_level
+        currentrank, //rank
+        undefined, //alt_rank
+        undefined, //alt_aug1
+        undefined, //alt_aug2
+        ver,
+        ailment_field,
+        master_index
+    )
 
     if(hide_disp == true || ailment_field.no_show == true){
         return(
@@ -46,16 +64,9 @@ const Ailment_Field_Attached_State =({
     } else {
         return (
             <div >
-                <Field_Effect_Pars
-                match={ailment_field} 
-                ver={ver}
-                master_index={master_index}
-                base_buff={ailment_field}
-
-                is_buff={undefined}
-                loc={loc}
+                <Ailment_Data_Pars_Handler
+                effect_id={field_data} 
                 slider={slider}
-                castlocation={castlocation == undefined ? false : castlocation}
                 currentrank={currentrank}
                 currentlevel={currentrank}
                 currentturns={currentrank}
@@ -70,9 +81,7 @@ const Ailment_Field_Attached_State =({
                 currenthp={currentrank}
                 charactersleft={currentrank}
                 formatting={formatting}
-                alt_rank={undefined}
-                alt_aug1={undefined}
-                alt_aug2={undefined}
+                castlocation={castlocation == undefined ? false : castlocation}
                 hide_type={hide_type}
                 spacer={spacer}
                 />

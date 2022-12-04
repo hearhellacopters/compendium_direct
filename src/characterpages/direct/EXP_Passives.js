@@ -11,7 +11,7 @@ const EXP_Passives =({
   loc,
   file, 
   newcompare,
-  
+  ProcessedCharacters,
   passive_data,
 
   formatting,
@@ -317,7 +317,7 @@ const EXP_Passives =({
                   key={passive.cla_id}
 
                   character_ability={passive.command}
-
+                  ProcessedCharacters={ProcessedCharacters}
                   ver={ver}
                   loc={loc}
                   file={"character_ability"}

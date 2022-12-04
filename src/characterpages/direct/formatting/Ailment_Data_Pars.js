@@ -2,7 +2,6 @@ import val_edit_type_handler from "./val_edit_type_handler"
 import split_by_2 from "./split_by_2_handler"
 
 const ailment_data_pars = (
-    loc,
     ailment_id,
     effect_id, 
     val_type,	
@@ -35,11 +34,6 @@ const ailment_data_pars = (
     const ailment_group = master_index.ailment_group_full[ver]
     const command_group = master_index.command_group_full[ver]
     const char_id = master_index.charid
-
-    //console.log(char_id == undefined ? ailment_id : "")
-    //console.log(char_id == undefined ? `${ailment_id} - ${effect_num}` : "")
-    //console.log(char_id == undefined ? rank_table : "")
-    //console.log(char_id == undefined ? loc : "")
 
     const EffectID = master_index.ailment_effect_id_index.effect_id
     const ValType = master_index.ailment_effect_id_index.val_type
@@ -4815,10 +4809,15 @@ const ailment_data_pars = (
                 var rank1strcast = `[${rank1cat && rank1cat.name && rank1cat.name}] - #${rank1cat && rank1cat.id}`
                 if(rank1strcast == "[undefined] - #0"){
                     rank1strcast = undefined
-                 }
-                 if(rank1strcast == "[undefined] - #undefined"){
-                    rank1strcast = undefined
-                 }
+                }
+                if(rank1strcast == "[undefined] - #undefined"){
+                rank1strcast = undefined
+                }
+                if(rank1value2cast == 0){
+                    rank1value2cast = ""
+                } else {
+                    rank1value2cast = `${rank1value2cast} level${rank1value2cast!=1?"s":""} of `
+                }
                 var rank2value1cast = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(0, 4));
                 var rank2value2cast = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(4, 6));
                 var rank2value3cast = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(6, 8));
@@ -4827,10 +4826,15 @@ const ailment_data_pars = (
                 var rank2strcast = `[${rank2cat && rank2cat.name&& rank2cat.name}] - #${rank2cat && rank2cat.id}`
                 if(rank2strcast == "[undefined] - #0"){
                     rank2strcast = undefined
-                 }
-                 if(rank2strcast == "[undefined] - #undefined"){
-                    rank2strcast = undefined
-                 }
+                }
+                if(rank2strcast == "[undefined] - #undefined"){
+                rank2strcast = undefined
+                }
+                if(rank2value2cast == 0){
+                    rank2value2cast = ""
+                } else {
+                    rank2value2cast = `${rank2value2cast} level${rank2value2cast!=1?"s":""} of `
+                }
                 var rank3value1cast = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(0, 4));
                 var rank3value2cast = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(4, 6));
                 var rank3value3cast = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(6, 8));
@@ -4839,10 +4843,15 @@ const ailment_data_pars = (
                 var rank3strcast = `[${rank3cat && rank3cat.name&& rank3cat.name}] - #${rank3cat && rank3cat.id}`
                 if(rank3strcast == "[undefined] - #0"){
                     rank3strcast = undefined
-                 }
-                 if(rank3strcast == "[undefined] - #undefined"){
-                    rank3strcast = undefined
-                 }
+                }
+                if(rank3strcast == "[undefined] - #undefined"){
+                rank3strcast = undefined
+                }
+                if(rank3value2cast == 0){
+                    rank3value2cast = ""
+                } else {
+                    rank3value2cast = `${rank3value2cast} level${rank3value2cast!=1?"s":""} of `
+                }
                 var rank4value1cast = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(0, 4));
                 var rank4value2cast = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(4, 6));
                 var rank4value3cast = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(6, 8));
@@ -4851,10 +4860,15 @@ const ailment_data_pars = (
                 var rank4strcast = `[${rank4cat && rank4cat.name&& rank4cat.name}] - #${rank4cat && rank4cat.id}`
                 if(rank4strcast == "[undefined] - #0"){
                     rank4strcast = undefined
-                 }
-                 if(rank4strcast == "[undefined] - #undefined"){
-                    rank4strcast = undefined
-                 }
+                }
+                if(rank4strcast == "[undefined] - #undefined"){
+                rank4strcast = undefined
+                }
+                if(rank4value2cast == 0){
+                    rank4value2cast = ""
+                } else {
+                    rank4value2cast = `${rank4value2cast} level${rank4value2cast!=1?"s":""} of `
+                }
                 var rank5value1cast = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(0, 4));
                 var rank5value2cast = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(4, 6));
                 var rank5value3cast = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(6, 8));
@@ -4863,10 +4877,15 @@ const ailment_data_pars = (
                 var rank5strcast = `[${rank5cat && rank5cat.name && rank5cat.name}] - #${rank5cat && rank5cat.id}`
                 if(rank5strcast == "[undefined] - #0"){
                     rank5strcast = undefined
-                 }
-                 if(rank5strcast == "[undefined] - #undefined"){
-                    rank5strcast = undefined
-                 }
+                }
+                if(rank5strcast == "[undefined] - #undefined"){
+                rank5strcast = undefined
+                }
+                if(rank5value2cast == 0){
+                    rank5value2cast = ""
+                } else {
+                    rank5value2cast = `${rank5value2cast} level${rank5value2cast!=1?"s":""} of `
+                }
                 var rank6value1cast = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(0, 4));
                 var rank6value2cast = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(4, 6));
                 var rank6value3cast = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(6, 8));
@@ -4875,10 +4894,15 @@ const ailment_data_pars = (
                 var rank6strcast = `[${rank6cat && rank6cat.name && rank6cat.name}] - #${rank6cat && rank6cat.id}`
                 if(rank6strcast == "[undefined] - #0"){
                     rank6strcast = undefined
-                 }
-                 if(rank6strcast == "[undefined] - #undefined"){
-                    rank6strcast = undefined
-                 }
+                }
+                if(rank6strcast == "[undefined] - #undefined"){
+                rank6strcast = undefined
+                }
+                if(rank6value2cast == 0){
+                    rank6value2cast = ""
+                } else {
+                    rank6value2cast = `${rank6value2cast} level${rank6value2cast!=1?"s":""} of `
+                }
                 var rank7value1cast = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(0, 4));
                 var rank7value2cast = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(4, 6));
                 var rank7value3cast = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(6, 8));
@@ -4887,10 +4911,15 @@ const ailment_data_pars = (
                 var rank7strcast = `[${rank7cat && rank7cat.name && rank7cat.name}] - #${rank7cat && rank7cat.id}`
                 if(rank7strcast == "[undefined] - #0"){
                     rank7strcast = undefined
-                 }
-                 if(rank7strcast == "[undefined] - #undefined"){
-                    rank7strcast = undefined
-                 }
+                }
+                if(rank7strcast == "[undefined] - #undefined"){
+                rank7strcast = undefined
+                }
+                if(rank7value2cast == 0){
+                    rank7value2cast = ""
+                } else {
+                    rank7value2cast = `${rank7value2cast} level${rank7value2cast!=1?"s":""} of `
+                }
                 var rank8value1cast = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(0, 4));
                 var rank8value2cast = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(4, 6));
                 var rank8value3cast = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(6, 8));
@@ -4899,10 +4928,15 @@ const ailment_data_pars = (
                 var rank8strcast = `[${rank8cat  && rank8cat.name && rank8cat.name}] - #${rank8cat && rank8cat.id}`
                 if(rank8strcast == "[undefined] - #0"){
                     rank8strcast = undefined
-                 }
-                 if(rank8strcast == "[undefined] - #undefined"){
-                    rank8strcast = undefined
-                 }
+                }
+                if(rank8strcast == "[undefined] - #undefined"){
+                rank8strcast = undefined
+                }
+                if(rank8value2cast == 0){
+                    rank8value2cast = ""
+                } else {
+                    rank8value2cast = `${rank8value2cast} level${rank8value2cast!=1?"s":""} of `
+                }
                 var rank9value1cast = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(0, 4));
                 var rank9value2cast = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(4, 6));
                 var rank9value3cast = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(6, 8));
@@ -4911,10 +4945,15 @@ const ailment_data_pars = (
                 var rank9strcast = `[${rank9cat && rank9cat.name && rank9cat.name}] - #${rank9cat && rank9cat.id}`
                 if(rank9strcast == "[undefined] - #0"){
                     rank9strcast = undefined
-                 }
-                 if(rank9strcast == "[undefined] - #undefined"){
-                    rank9strcast = undefined
-                 }
+                }
+                if(rank9strcast == "[undefined] - #undefined"){
+                rank9strcast = undefined
+                }
+                if(rank9value2cast == 0){
+                    rank9value2cast = ""
+                } else {
+                    rank9value2cast = `${rank9value2cast} level${rank9value2cast!=1?"s":""} of `
+                }
                 var rank10value1cast = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(0, 4));
                 var rank10value2cast = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(4, 6));
                 var rank10value3cast = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(6, 8));
@@ -4923,70 +4962,75 @@ const ailment_data_pars = (
                 var rank10strcast = `[${rank10cat && rank10cat.name && rank10cat.name}] - #${rank10cat && rank10cat.id}`
                 if(rank10strcast == "[undefined] - #0"){
                     rank10strcast = undefined
-                 }
-                 if(rank10strcast == "[undefined] - #undefined"){
-                    rank10strcast = undefined
-                 }
+                }
+                if(rank10strcast == "[undefined] - #undefined"){
+                rank10strcast = undefined
+                }
+                if(rank10value2cast == 0){
+                    rank10value2cast = ""
+                } else {
+                    rank10value2cast = `${rank10value2cast} level${rank10value2cast!=1?"s":""} of `
+                }
                 tables = {
                     rank1: {
                         value1: rank1strcast,
                         value2: rank1value2cast,
                         value3: rank1value3cast,
-                        value4: `${rank1value4cast} turn${rank1value4cast!=1?"s":""}`
+                        value4: rank1value4cast == 0 ? "" :` for ${rank1value4cast} turn${rank1value4cast!=1?"s":""}`
                     },
                     rank2: {
                         value1: rank2strcast,
                         value2: rank2value2cast,
                         value3: rank2value3cast,
-                        value4: `${rank2value4cast} turn${rank2value4cast!=1?"s":""}`
+                        value4: rank2value4cast == 0 ? "" : ` for ${rank2value4cast} turn${rank2value4cast!=1?"s":""}`
                     },
                     rank3: {
                         value1: rank3strcast,
                         value2: rank3value2cast,
                         value3: rank3value3cast,
-                        value4: `${rank3value4cast} turn${rank3value4cast!=1?"s":""}`
+                        value4: rank3value4cast == 0 ? "" : ` for ${rank3value4cast} turn${rank3value4cast!=1?"s":""}`
                     },
                     rank4: {
                         value1: rank4strcast,
                         value2: rank4value2cast,
                         value3: rank4value3cast,
-                        value4: `${rank4value4cast} turn${rank4value4cast!=1?"s":""}`
+                        value4: rank4value4cast == 0 ? "" : ` for ${rank4value4cast} turn${rank4value4cast!=1?"s":""}`
                     },
                     rank5: {
                         value1: rank5strcast,
                         value2: rank5value2cast,
                         value3: rank5value3cast,
-                        value4: `${rank5value4cast} turn${rank5value4cast!=1?"s":""}`
+                        value4: rank5value4cast == 0 ? "" : ` for ${rank5value4cast} turn${rank5value4cast!=1?"s":""}`
                     },
                     rank6: {
                         value1: rank6strcast,
                         value2: rank6value2cast,
                         value3: rank6value3cast,
-                        value4: `${rank6value4cast} turn${rank6value4cast!=1?"s":""}`
+                        value4: rank6value4cast == 0 ? "" : ` for ${rank6value4cast} turn${rank6value4cast!=1?"s":""}`
                     },
                     rank7: {
                         value1: rank7strcast,
                         value2: rank7value2cast,
                         value3: rank7value3cast,
-                        value4: `${rank7value4cast} turn${rank7value4cast!=1?"s":""}`
+                        value4: rank7value4cast == 0 ? "" : ` for ${rank7value4cast} turn${rank7value4cast!=1?"s":""}`
                     },
                     rank8: {
                         value1: rank8strcast,
                         value2: rank8value2cast,
                         value3: rank8value3cast,
-                        value4: `${rank8value4cast} turn${rank8value4cast!=1?"s":""}`
+                        value4: rank8value4cast == 0 ? "" : ` for ${rank8value4cast} turn${rank8value4cast!=1?"s":""}`
                     },
                     rank9: {
                         value1: rank9strcast,
                         value2: rank9value2cast,
                         value3: rank9value3cast,
-                        value4: `${rank9value4cast} turn${rank9value4cast!=1?"s":""}`
+                        value4: rank9value4cast == 0 ? "" : ` for ${rank9value4cast} turn${rank9value4cast!=1?"s":""}`
                     },
                     rank10:  {
                         value1: rank10strcast,
                         value2: rank10value2cast,
                         value3: rank10value3cast,
-                        value4: `${rank10value4cast} turn${rank10value4cast!=1?"s":""}`
+                        value4: rank10value4cast == 0 ? "" : ` for ${rank10value4cast} turn${rank10value4cast!=1?"s":""}`
                     },
                     effectstr: effectstr,
                     cond_id: condstr,

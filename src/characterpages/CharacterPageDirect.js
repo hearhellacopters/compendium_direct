@@ -670,6 +670,7 @@ const CharacterPageDirect = ({
                     file={"sum_fix_passive"}
 
                     master_index={master_index}
+                    ProcessedCharacters={ProcessedCharacters} 
 
                     formatting={formatting}
                     showFilter={showFilter}
@@ -715,6 +716,7 @@ const CharacterPageDirect = ({
                     loc={"equipment_passive"}
 
                     master_index={master_index}
+                    ProcessedCharacters={ProcessedCharacters} 
                     
                     formatting={formatting}
                     showFilter={showFilter}
@@ -734,6 +736,7 @@ const CharacterPageDirect = ({
                         loc={"equipment_passive"}
 
                         master_index={master_index}
+                        ProcessedCharacters={ProcessedCharacters} 
                         
                         formatting={formatting}
                         showFilter={showFilter}
@@ -754,6 +757,7 @@ const CharacterPageDirect = ({
                     newcompare={"new"}
 
                     master_index={master_index}
+                    ProcessedCharacters={ProcessedCharacters} 
                     
                     formatting={formatting}
                     showFilter={showFilter}
@@ -773,7 +777,7 @@ const CharacterPageDirect = ({
                         ver={ver}
                         loc={"sum_fix_passive"}
                         newcompare={"new"}
-
+                        ProcessedCharacters={ProcessedCharacters} 
                         master_index={master_index}
                         
                         formatting={formatting}
@@ -792,7 +796,7 @@ const CharacterPageDirect = ({
                         ver={ver}
                         newcompare={"new"}
                         loc={"equipment_passive"}
-
+                        ProcessedCharacters={ProcessedCharacters} 
                         master_index={master_index}
                 
                         formatting={formatting}
@@ -814,7 +818,7 @@ const CharacterPageDirect = ({
                     newcompare={"new"}
                     loc={"art_passive"}
                     file={"art_passive"}
-
+                    ProcessedCharacters={ProcessedCharacters} 
                     master_index={master_index}
                    
                     formatting={formatting}
@@ -851,7 +855,7 @@ const CharacterPageDirect = ({
                         char_data={selected_char}
                         ver={ver}
                         loc={"ex_skill"}
-
+                        ProcessedCharacters={ProcessedCharacters} 
                         master_index={master_index}
 
                         formatting={formatting}

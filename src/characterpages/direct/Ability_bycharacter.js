@@ -23,7 +23,7 @@ const Ability_bycharacter =({
     ability_data,
     buff_data,
     selected_id,
-
+    ProcessedCharacters,
     ver,
     loc,
     newcompare,
@@ -1376,7 +1376,7 @@ const Ability_bycharacter =({
                     file={file}
 
                     master_index={master_index}
-                   
+                    ProcessedCharacters={ProcessedCharacters}
                     formatting={formatting}
                     all_options={false}
                     buff_data={buff_data}
@@ -1390,7 +1390,7 @@ const Ability_bycharacter =({
                     file={file}
 
                     master_index={master_index}
-                   
+                    ProcessedCharacters={ProcessedCharacters}
                     formatting={formatting}
                     all_options={false}
                     buff_data={buff_data}
@@ -1404,7 +1404,7 @@ const Ability_bycharacter =({
                     file={file}
 
                     master_index={master_index}
-                    
+                    ProcessedCharacters={ProcessedCharacters}
                     formatting={formatting}
                     all_options={false}
                     buff_data={buff_data}
@@ -1418,7 +1418,7 @@ const Ability_bycharacter =({
                     file={file}
 
                     master_index={master_index}
-                    
+                    ProcessedCharacters={ProcessedCharacters}
                     formatting={formatting}
                     all_options={false}
                     buff_data={buff_data}
@@ -1432,7 +1432,7 @@ const Ability_bycharacter =({
                     file={file}
 
                     master_index={master_index}
-                    
+                    ProcessedCharacters={ProcessedCharacters}
                     formatting={formatting}
                     all_options={false}
                     buff_data={buff_data}
@@ -1446,7 +1446,7 @@ const Ability_bycharacter =({
                     file={file}
 
                     master_index={master_index}
-                    
+                    ProcessedCharacters={ProcessedCharacters}
                     formatting={formatting}
                     all_options={false}
                     buff_data={buff_data}
@@ -1460,7 +1460,7 @@ const Ability_bycharacter =({
                     file={file}
 
                     master_index={master_index}
-                    
+                    ProcessedCharacters={ProcessedCharacters}
                     formatting={formatting}
                     all_options={false}
                     buff_data={buff_data}
@@ -1474,7 +1474,7 @@ const Ability_bycharacter =({
                     file={file}
 
                     master_index={master_index}
-                    
+                    ProcessedCharacters={ProcessedCharacters}
                     formatting={formatting}
                     all_options={false}
                     buff_data={buff_data}
@@ -1488,7 +1488,7 @@ const Ability_bycharacter =({
                     file={file}
 
                     master_index={master_index}
-                    
+                    ProcessedCharacters={ProcessedCharacters}
                     formatting={formatting}
                     all_options={false}
                     buff_data={buff_data}
@@ -1502,7 +1502,7 @@ const Ability_bycharacter =({
                     file={file}
 
                     master_index={master_index}
-                    
+                    ProcessedCharacters={ProcessedCharacters}
                     formatting={formatting}
                     all_options={false}
                     buff_data={buff_data}
@@ -1516,7 +1516,7 @@ const Ability_bycharacter =({
                     file={file}
 
                     master_index={master_index}
-
+                    ProcessedCharacters={ProcessedCharacters}
                     formatting={formatting}
                     all_options={false}
                     buff_data={buff_data}
@@ -1530,7 +1530,7 @@ const Ability_bycharacter =({
                     file={file}
 
                     master_index={master_index}
-
+                    ProcessedCharacters={ProcessedCharacters}
                     formatting={formatting}
                     all_options={false}
                     buff_data={buff_data}

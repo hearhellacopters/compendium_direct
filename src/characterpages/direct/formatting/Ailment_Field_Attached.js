@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import Field_Effect_Pars from './Field_Effect_Pars';
+import Ailment_Field_Effect_Pars from './Ailment_Field_Effect_Pars';
+import Ailment_Data_Pars_Handler from './Ailment_Data_Pars_Handler';
 import Slider from 'react-input-slider';
 import SilderStyleRank from './SilderStyleRank';
 
@@ -15,7 +16,7 @@ const Ailment_Field_Attached =({
     spacer
 })=>{
 
-        const [highestlvl, setHighestlvl] = useState(10);
+    const [highestlvl, setHighestlvl] = useState(10);
 
     useEffect(()=>{
         if(ailment_field.max_level <= 10 && ailment_field.max_level != -1 && ailment_field.max_level != 0){
@@ -31,7 +32,24 @@ const Ailment_Field_Attached =({
 
     const handleChangeRank = (e) => {
         setcurrentrank(parseInt(e.x));
-      };
+    };
+
+    const field_data = Ailment_Field_Effect_Pars(
+        ailment_field,
+        false, //Single
+    
+        undefined, //is_buff
+        undefined, //AugValue1
+        undefined, //AugValue2
+        highestlvl, //max_level
+        currentrank, //rank
+        undefined, //alt_rank
+        undefined, //alt_aug1
+        undefined, //alt_aug2
+        ver,
+        undefined,
+        master_index
+    )
 
     return (
         <div>
@@ -52,16 +70,9 @@ const Ailment_Field_Attached =({
                 </div>
                 :""}
             <div>
-            <Field_Effect_Pars
-            match={ailment_field} 
-
-            ver={ver}
-            master_index={master_index}
-
-            is_buff={undefined}
-            loc={loc}
-            slider={slider}
-            castlocation={castlocation == undefined ? false : castlocation}
+            <Ailment_Data_Pars_Handler
+            effect_id={field_data} 
+            slider={slider}      
             currentrank={currentrank}
             currentlevel={currentrank}
             currentturns={currentrank}
@@ -76,10 +87,8 @@ const Ailment_Field_Attached =({
             currenthp={currentrank}
             charactersleft={currentrank}
             formatting={formatting}
-            alt_rank={undefined}
-            alt_aug1={undefined}
-            alt_aug2={undefined}
             spacer={spacer}
+            castlocation={castlocation == undefined ? false : castlocation}
             />
             </div>
             </div>

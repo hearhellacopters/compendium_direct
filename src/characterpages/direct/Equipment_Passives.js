@@ -16,7 +16,7 @@ const Equipment_Passives =({
     ver,
     loc,
     newcompare,
-    
+    ProcessedCharacters,
     formatting,
     showFilter,
     master_index

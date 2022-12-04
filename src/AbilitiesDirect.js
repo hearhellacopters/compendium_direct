@@ -21,7 +21,7 @@ import { setFalse, setTrue } from './redux/ducks/jptoggle'
 
 const AbilitiesDirect =({
     ProcessedAbilities,
-
+    ProcessedCharacters,
     ver,
     loc,
     file,
@@ -1502,7 +1502,7 @@ const AbilitiesDirect =({
                 ver={ver}
                 loc={loc}
                 file={file}
-
+                ProcessedCharacters={ProcessedCharacters}
                 master_index={master_index}
 
                 formatting={true}

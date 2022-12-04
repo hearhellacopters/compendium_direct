@@ -18,7 +18,7 @@ const Crystal_Passives =({
     ver,
     newcompare,
     loc,
-
+    ProcessedCharacters,
     formatting,
 
     showFilter,
@@ -497,7 +497,7 @@ const Crystal_Passives =({
                         tag_override={`cl${passive.level}`}
 
                         character_ability={passive.command}
-
+                        ProcessedCharacters={ProcessedCharacters}
                         ver={ver}
                         loc={loc}
                         file={"character_ability"}
@@ -550,7 +550,7 @@ const Crystal_Passives =({
                         tag_override={`cl${passive.level}`}
 
                         character_ability={passive.command}
-
+                        ProcessedCharacters={ProcessedCharacters}
                         ver={ver}
                         loc={loc}
                         file={"character_ability"}
@@ -566,7 +566,7 @@ const Crystal_Passives =({
                         tag_override={`cl${passive.level}`}
 
                         character_ability={passive.command}
-
+                        ProcessedCharacters={ProcessedCharacters}
                         ver={ver}
                         loc={loc}
                         file={"character_ability"}
@@ -582,7 +582,7 @@ const Crystal_Passives =({
                         tag_override={`cl${passive.level}`}
 
                         character_ability={passive.command}
-
+                        ProcessedCharacters={ProcessedCharacters}
                         ver={ver}
                         loc={loc}
                         file={"character_ability"}
@@ -599,7 +599,7 @@ const Crystal_Passives =({
                         tag_override={`cl${passive.level}`}
 
                         character_ability={passive.command}
-
+                        ProcessedCharacters={ProcessedCharacters}
                         ver={ver}
                         loc={loc}
                         file={"character_ability"}

@@ -12,7 +12,7 @@ const Spheres_Page = ({
     profiledata,
     char_data,
     ProcessedEventsIndex,
-
+    ProcessedCharacters,
     master_index,
     formatting
 }) =>{

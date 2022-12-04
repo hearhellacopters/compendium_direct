@@ -6,7 +6,7 @@ import replace_title from '../processing/replacer_titles'
 import { Link } from 'react-router-dom'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
-import EnemySingleBuffFormattingDirect from '../passoff/EnemySingleBuffFormattingDirect.js'
+import EnemySingleBuffFormattingDirect from './EnemySingleBuffFormattingDirect.js'
 import DevSwitch from '../redux/DevSwitch'
 import axios from "axios";
 import Enemy_Option_Pars from './Ability_Handler/Enemy_Option_Pars';

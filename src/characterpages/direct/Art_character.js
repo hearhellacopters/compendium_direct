@@ -8,7 +8,7 @@ import reactStringReplace from "react-string-replace"
 
 const Art_bycharacter =({
     art_passive,
-
+    ProcessedCharacters,
     ver,
     newcompare,
     loc,

@@ -1,43 +1,22 @@
-import React, {useState, useEffect} from 'react';
 import Ailment_Data_Pars from './Ailment_Data_Pars'
 import val_edit_type_handler from "./val_edit_type_handler"
-import Ailment_Data_Pars_Field_Handler from './Ailment_Data_Pars_Field_Handler';
-const Field_Effect_Pars = ({
+
+const Ailment_Field_Effect_Pars = (
     match,
     Single,
 
     is_buff,
-    loc,
-    slider,
-    file,
     AugValue1,
     AugValue2,
     max_level,
     rank,
-    currentrank,
-    currentlevel,
-    currentturns,
-    currentenemies,
-    currentstacks,
-    currentdebuffsranks,
-    currentdebuffsmuliply,
-    currentbuffsranks,
-    currentbuffsmuliply,
-    castlocation,
-    currentfieldbuffsranks,
-    currentgroupstacks,
-    currenthp,
-    charactersleft,
-    formatting,
     alt_rank,
     alt_aug1,
     alt_aug2,
-    hide_type,
     ver,
     base_buff,
-    spacer,
     master_index
-}) =>{
+) =>{
 
     const EffectID = master_index.ailment_effect_id_index.effect_id
     const ValType = master_index.ailment_effect_id_index.val_type
@@ -140,7 +119,7 @@ const Field_Effect_Pars = ({
         if(targ_pull != undefined){
             targetstr = `${targ_pull} `
         } else {
-            targetstr `Unknown target: ${effect_target_id}`
+            targetstr = `Unknown target: ${effect_target_id}`
         }
         
 
@@ -1363,7 +1342,6 @@ const Field_Effect_Pars = ({
         }
             
         geteffect = Ailment_Data_Pars(
-            loc,
             ailment_id,
             ailment_effect, 
             //val_type
@@ -1401,29 +1379,7 @@ const Field_Effect_Pars = ({
     }
 
     return(
-        <div>
-            <Ailment_Data_Pars_Field_Handler
-            effect_id={geteffect}
-            slider={slider}
-            currentrank={currentrank}
-            currentlevel={currentlevel}
-            currentturns={currentturns}
-            currentenemies={currentenemies}
-            currentstacks={currentstacks}
-            currentdebuffsranks={currentdebuffsranks}
-            currentdebuffsmuliply={currentdebuffsmuliply}
-            currentbuffsranks={currentbuffsranks}
-            currentbuffsmuliply={currentbuffsmuliply}
-            castlocation={castlocation}
-            currentgroupstacks={currentgroupstacks}
-            currentfieldbuffsranks={currentfieldbuffsranks}
-            currenthp={currenthp}
-            charactersleft={charactersleft}
-            formatting={formatting}
-            hide_type={hide_type}
-            spacer={spacer}
-            /> 
-        </div>
+        geteffect
     )
 }
-export default Field_Effect_Pars
+export default Ailment_Field_Effect_Pars

@@ -105,7 +105,7 @@ const CallAbilitiesDirect = () =>{
 
       return (
        ver != undefined &&
-
+       ProcessedCharacters != undefined &&
         ProcessedAbilities != undefined &&
 
         master_index != undefined 
@@ -113,11 +113,10 @@ const CallAbilitiesDirect = () =>{
 		?
 		
         <AbilitiesDirect 
-       ProcessedAbilities={ProcessedAbilities}
+        ProcessedAbilities={ProcessedAbilities}
+        ProcessedCharacters={ProcessedCharacters}
         ver={ver}
-		
-        match={match} 
-
+        match={match}
         master_index={master_index}
         />
 		

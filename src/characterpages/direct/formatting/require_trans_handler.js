@@ -224,10 +224,10 @@ const require_trans_handler = (
 
         if(value_trans == "own_party"){
             if(require_target == 2){
-                require_str = require_str.replace(/\[target\]/gm,"own")
+                require_str = require_str.replace(/\[target\]/gm," own")
             }
             if(require_target == 31){
-                require_str = require_str.replace(/\[target\]/gm,"Party")
+                require_str = require_str.replace(/\[target\]/gm," Party")
             }
         }
 

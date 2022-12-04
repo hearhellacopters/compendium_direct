@@ -90,7 +90,7 @@ const Ailment_Combination_Formatting = ({
         if(base_id == components.ailment_id){  
             display_str = `*Displayed while${fullstr} ${passives.length > 1 ? "are": "is"} active`
         } else {
-            display_str = `*Displays [${master_ailment}] #${components.ailment_id} ${passives.length != 0 ? "while": ""}${fullstr} ${passives.length != 1 ? passives.length == 0 ? "when" :"are": "is"} active`
+            display_str = `*Displays [${master_ailment}] #${components.ailment_id}${passives.length != 0 ? " while": ""}${fullstr}${passives.length != 1 ? passives.length == 0 ? " when" :" are": " is"} active`
         }
     
     if(Single == true){

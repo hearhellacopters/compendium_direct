@@ -16,7 +16,7 @@ const Link_Passives =({
     ver,
     newcompare,
     loc,
-
+    ProcessedCharacters,
     master_index,
 
     formatting,

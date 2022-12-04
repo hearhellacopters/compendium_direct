@@ -34,9 +34,7 @@ const Character_Ability_Pars =({
     loc,
     ver,
     file,
-
-    buff_data,
-
+    ProcessedCharacters,
     formatting,
     tag_override,
     all_options,
@@ -739,6 +737,14 @@ const Character_Ability_Pars =({
                 </div>
                 :""}
 
+                {character_ability.FR == true ?
+                ProcessedCharacters[character_ability.charaID] &&
+                ProcessedCharacters[character_ability.charaID].FR_Partner != undefined &&
+                char_id[ProcessedCharacters[character_ability.charaID].FR_Partner] != undefined ?
+                    `Summons ${char_id[ProcessedCharacters[character_ability.charaID].FR_Partner].name}`
+                :""
+                :""}
+
                 {hit_map[`B1`] != undefined && hit_map[`B1`].show != false ?
                 <Hit_Data_Pars
                 key={`B1`}
@@ -1116,7 +1122,6 @@ const Character_Ability_Pars =({
 
                 formatting={formatting}
                 gear={false}
-                char_id={char_id}
                 />
                 :""}
                 {selectedbuff.length != 0 && selectedbuff.is_passive == true?

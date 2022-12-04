@@ -5,7 +5,7 @@ import 'react-lazy-load-image-component/src/effects/opacity.css';
 import ailment_data_pars from './Ailment_Data_Pars'
 import Ailment_Data_Pars_Handler from './Ailment_Data_Pars_Handler';
 import Ailment_Level_Settings from './Ailment_Level_Settings';
-import Field_Effect_Pars from './Field_Effect_Pars';
+import Ailment_Field_Effect_Pars from './Ailment_Field_Effect_Pars';
 import Ailment_Meta_Handler from './Ailment_Meta_Handler.js'
 import Char_Face_Maker from './Char_Face_Maker'
 import Slider_Handler from './Slider_Handler';
@@ -340,43 +340,21 @@ const Ailment_Data_Formatting_bycharacter = ({
                                    effect_value_type_field,
                                    val_edit_type_field);
 
-    const effect_id_0 = ailment_data.effect_id && ailment_data_pars(
-           loc,
-           ailment_data.id,
-           ailment_data.effect_id, 
-           ailment_data.val_type,	
-           ailment_data.val_specify, 
-           ailment_data.val_edit_type, 
-           ailment_data.cond_id, 
-           ailment_data.rank_table, 
-           ailment_data.is_buff,
-           //effect#
-           0,
-           master_index,
-           ver,
-           //aug1&2
-           arg1,
-           arg2,
-           highestlvl,
-           rank,
-           alt_rank,
-           alt_aug1,
-           alt_aug2,
-           undefined
-           )
+    const ailment_pars ={}
 
-        const effect_id_1 = ailment_data.effect_id_1 && ailment_data_pars(
-            loc,
+    for (let index = 0; index < 10; index++) {
+        const ail_data = ailment_data[`effect_id${index == 0 ? "" : `_${index}`}`] && 
+        ailment_data_pars(
             ailment_data.id,
-            ailment_data.effect_id_1, 
-            ailment_data.val_type_1,	
-            ailment_data.val_specify_1, 
-            ailment_data.val_edit_type_1, 
-            ailment_data.cond_id_1, 
-            ailment_data.rank_table_1, 
+            ailment_data[`effect_id${index == 0 ? "" : `_${index}`}`], 
+            ailment_data[`val_type${index == 0 ? "" : `_${index}`}`],	
+            ailment_data[`val_specify${index == 0 ? "" : `_${index}`}`], 
+            ailment_data[`val_edit_type${index == 0 ? "" : `_${index}`}`], 
+            ailment_data[`cond_id${index == 0 ? "" : `_${index}`}`], 
+            ailment_data[`rank_table${index == 0 ? "" : `_${index}`}`], 
             ailment_data.is_buff,
             //effect#
-            1,
+            index,
             master_index,
             ver,
             //aug1&2
@@ -387,213 +365,55 @@ const Ailment_Data_Formatting_bycharacter = ({
             alt_rank,
             alt_aug1,
             alt_aug2,
-            undefined
+            undefined,
             )
-
-        const effect_id_2 = ailment_data.effect_id_2 && ailment_data_pars(
-            loc,
-            ailment_data.id,
-            ailment_data.effect_id_2, 
-            ailment_data.val_type_2,	
-            ailment_data.val_specify_2, 
-            ailment_data.val_edit_type_2, 
-            ailment_data.cond_id_2, 
-            ailment_data.rank_table_2, 
-            ailment_data.is_buff,
-            //effect#
-            2,
-            master_index,
-            ver,
-            //aug1&2
-            arg1,
-            arg2,
-            highestlvl,
-            rank,
-            alt_rank,
-            alt_aug1,
-            alt_aug2,
-            undefined
-            )
-
-        const effect_id_3 = ailment_data.effect_id_3 && ailment_data_pars(
-            loc,
-            ailment_data.id,
-            ailment_data.effect_id_3, 
-            ailment_data.val_type_3,	
-            ailment_data.val_specify_3, 
-            ailment_data.val_edit_type_3, 
-            ailment_data.cond_id_3, 
-            ailment_data.rank_table_3, 
-            ailment_data.is_buff,
-            //effect#
-            3,
-            master_index,
-            ver,
-            //aug1&2
-            arg1,
-            arg2,
-            highestlvl,
-            rank,
-            alt_rank,
-            alt_aug1,
-            alt_aug2,
-            undefined
-            )
-
-            var effect_id_4 = undefined
-            if(ailment_data.effect_id_4 && ailment_data.effect_id_4 != 60){
-                effect_id_4 = ailment_data.effect_id_4 && ailment_data_pars(
-                    loc,
-                    ailment_data.id,
-                    ailment_data.effect_id_4, 
-                    ailment_data.val_type_4,	
-                    ailment_data.val_specify_4, 
-                    ailment_data.val_edit_type_4, 
-                    ailment_data.cond_id_4, 
-                    ailment_data.rank_table_4, 
-                    ailment_data.is_buff,
-                    //effect#
-                    4,
-                    master_index,
-                    ver,
-                    //aug1&2
-                    arg1,
-                    arg2,
-                    highestlvl,
-                    rank,
-                    alt_rank,
-                    alt_aug1,
-                    alt_aug2,
-                    undefined
-                    )
+        if(index == 4 && !(ailment_data.effect_id_4 == 60 && ailment_data.cond_id_4 == -1)){
+            if(ail_data != undefined){
+                Object.assign(ailment_pars,{[`effect_id_${index}`]: ail_data})
             }
-        
+        }
+        if(index != 4){
+            if(ail_data != undefined){
+                Object.assign(ailment_pars,{[`effect_id_${index}`]: ail_data})
+            }
+        }
+    }
 
-         const effect_id_5 = ailment_data.effect_id_5 && ailment_data_pars(
-            loc,
-            ailment_data.id,
-            ailment_data.effect_id_5, 
-            ailment_data.val_type_5,	
-            ailment_data.val_specify_5, 
-            ailment_data.val_edit_type_5, 
-            ailment_data.cond_id_5, 
-            ailment_data.rank_table_5, 
-            ailment_data.is_buff,
-            //effect#
-            5,
-            master_index,
-            ver,
-            //aug1&2
-            arg1,
-            arg2,
-            highestlvl,
-            rank,
-            alt_rank,
-            alt_aug1,
-            alt_aug2,
-            undefined
+    if(ailment_data.field != undefined){
+        Object.assign(ailment_pars,{field:[]})
+        ailment_data.field.forEach(self=>{
+            const field_data = Ailment_Field_Effect_Pars(
+                self,
+                false, //Single
+            
+                ailment_data.is_buff,
+                arg1,
+                arg2,
+                highestlvl,
+                rank,
+                alt_rank,
+                alt_aug1,
+                alt_aug2,
+                ver,
+                ailment_data,
+                master_index
             )
+            ailment_pars.field.push(field_data)
+        })
+    }
 
-         const effect_id_6 = ailment_data.effect_id_6 && ailment_data_pars(
-            loc,
-            ailment_data.id,
-            ailment_data.effect_id_6, 
-            ailment_data.val_type_6,	
-            ailment_data.val_specify_6, 
-            ailment_data.val_edit_type_6, 
-            ailment_data.cond_id_6, 
-            ailment_data.rank_table_6, 
-            ailment_data.is_buff,
-            //effect#
-            6,
-            master_index,
-            ver,
-            //aug1&2
-            arg1,
-            arg2,
-            highestlvl,
-            rank,
-            alt_rank,
-            alt_aug1,
-            alt_aug2,
-            undefined
-            )
-
-        const effect_id_7 = ailment_data.effect_id_7 && ailment_data_pars(
-            loc,
-            ailment_data.id,
-            ailment_data.effect_id_7, 
-            ailment_data.val_type_7,	
-            ailment_data.val_specify_7, 
-            ailment_data.val_edit_type_7, 
-            ailment_data.cond_id_7, 
-            ailment_data.rank_table_7, 
-            ailment_data.is_buff,
-            //effect#
-            7,
-            master_index,
-            ver,
-            //aug1&2
-            arg1,
-            arg2,
-            highestlvl,
-            rank,
-            alt_rank,
-            alt_aug1,
-            alt_aug2,
-            undefined
-            )
-        
-
-        const effect_id_8 = ailment_data.effect_id_8 && ailment_data_pars(
-            loc,
-            ailment_data.id,
-            ailment_data.effect_id_8, 
-            ailment_data.val_type_8,	
-            ailment_data.val_specify_8, 
-            ailment_data.val_edit_type_8, 
-            ailment_data.cond_id_8, 
-            ailment_data.rank_table_8, 
-            ailment_data.is_buff,
-            //effect#
-            8,
-            master_index,
-            ver,
-            //aug1&2
-            arg1,
-            arg2,
-            highestlvl,
-            rank,
-            alt_rank,
-            alt_aug1,
-            alt_aug2,
-            undefined
-            )
-
-        const effect_id_9 = ailment_data.effect_id_9 && ailment_data_pars(
-            loc,
-            ailment_data.id,
-            ailment_data.effect_id_9, 
-            ailment_data.val_type_9,	
-            ailment_data.val_specify_9, 
-            ailment_data.val_edit_type_9, 
-            ailment_data.cond_id_9, 
-            ailment_data.rank_table_9, 
-            ailment_data.is_buff,
-            //effect#
-            9,
-            master_index,
-            ver,
-            //aug1&2
-            arg1,
-            arg2,
-            highestlvl,
-            rank,
-            alt_rank,
-            alt_aug1,
-            alt_aug2,
-            undefined
-            )
+    const ailment_num = [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ]
  
     const metadata = Ailment_Meta_Handler(
         ailment_data.icon_type, 
@@ -668,16 +488,7 @@ const Ailment_Data_Formatting_bycharacter = ({
     const minH = window.innerWidth <= 800 ? 210 : 150;
 
     const ailment_debug = {
-        effect_id_0:effect_id_0,
-        effect_id_1:effect_id_1,
-        effect_id_2:effect_id_2,
-        effect_id_3:effect_id_3,
-        effect_id_4:effect_id_4,
-        effect_id_5:effect_id_5,
-        effect_id_6:effect_id_6,
-        effect_id_7:effect_id_7,
-        effect_id_8:effect_id_8,
-        effect_id_9:effect_id_9,
+        ailment_pars:ailment_pars,
         sliders: sliders,
         metadata: metadata
     } 
@@ -948,238 +759,42 @@ const Ailment_Data_Formatting_bycharacter = ({
                                 )}
                             </div>
                             :""}
-                            <Ailment_Data_Pars_Handler
-                            file={file}
-                            effect_id={effect_id_0}
-                            castlocation={castlocation}
-                            currentrank={currentrank}
-                            currentlevel={currentlevel}
-                            currentturns={currentturns}
-                            currentenemies={currentenemies}
-                            currentstacks={currentstacks}
-                            currentdebuffsranks={currentdebuffsranks}
-                            currentdebuffsmuliply={currentdebuffsmuliply}
-                            currentbuffsranks={currentbuffsranks}
-                            currentfieldbuffsranks={currentfieldbuffsranks}
-                            currentbuffsmuliply={currentbuffsmuliply}
-                            currentgroupstacks={currentgroupstacks}
-                            currenthp={currenthp}
-                            charactersleft={charactersleft}
-                            formatting={formatting}
-                            setonion_passoff={setonion_passoff}
-                            setshowdesc={setshowdesc}
-                            />
-                            <Ailment_Data_Pars_Handler
-                            file={file}
-                            effect_id={effect_id_1}
-                            castlocation={castlocation}
-                            currentrank={currentrank}
-                            currentlevel={currentlevel}
-                            currentturns={currentturns}
-                            currentenemies={currentenemies}
-                            currentstacks={currentstacks}
-                            currentdebuffsranks={currentdebuffsranks}
-                            currentdebuffsmuliply={currentdebuffsmuliply}
-                            currentbuffsranks={currentbuffsranks}
-                            currentfieldbuffsranks={currentfieldbuffsranks}
-                            currentbuffsmuliply={currentbuffsmuliply}
-                            currentgroupstacks={currentgroupstacks}
-                            currenthp={currenthp}
-                            charactersleft={charactersleft}
-                            formatting={formatting}
-                            setonion_passoff={setonion_passoff}
-                            setshowdesc={setshowdesc}
-                            />
-                            <Ailment_Data_Pars_Handler
-                            file={file}
-                            effect_id={effect_id_2}
-                            castlocation={castlocation}
-                            currentrank={currentrank}
-                            currentlevel={currentlevel}
-                            currentturns={currentturns}
-                            currentenemies={currentenemies}
-                            currentstacks={currentstacks}
-                            currentdebuffsranks={currentdebuffsranks}
-                            currentdebuffsmuliply={currentdebuffsmuliply}
-                            currentbuffsranks={currentbuffsranks}
-                            currentfieldbuffsranks={currentfieldbuffsranks}
-                            currentbuffsmuliply={currentbuffsmuliply}
-                            currentgroupstacks={currentgroupstacks}
-                            currenthp={currenthp}
-                            charactersleft={charactersleft}
-                            formatting={formatting}
-                            setonion_passoff={setonion_passoff}
-                            setshowdesc={setshowdesc}
-                            />
-                            <Ailment_Data_Pars_Handler
-                            file={file}
-                            effect_id={effect_id_3}
-                            castlocation={castlocation}
-                            currentrank={currentrank}
-                            currentlevel={currentlevel}
-                            currentturns={currentturns}
-                            currentenemies={currentenemies}
-                            currentstacks={currentstacks}
-                            currentdebuffsranks={currentdebuffsranks}
-                            currentdebuffsmuliply={currentdebuffsmuliply}
-                            currentbuffsranks={currentbuffsranks}
-                            currentfieldbuffsranks={currentfieldbuffsranks}
-                            currentbuffsmuliply={currentbuffsmuliply}
-                            currentgroupstacks={currentgroupstacks}
-                            currenthp={currenthp}
-                            charactersleft={charactersleft}
-                            formatting={formatting}
-                            setonion_passoff={setonion_passoff}
-                            setshowdesc={setshowdesc}
-                            />
-                            <Ailment_Data_Pars_Handler
-                            file={file}
-                            effect_id={effect_id_4}
-                            castlocation={castlocation}
-                            currentrank={currentrank}
-                            currentlevel={currentlevel}
-                            currentturns={currentturns}
-                            currentenemies={currentenemies}
-                            currentstacks={currentstacks}
-                            currentdebuffsranks={currentdebuffsranks}
-                            currentdebuffsmuliply={currentdebuffsmuliply}
-                            currentbuffsranks={currentbuffsranks}
-                            currentfieldbuffsranks={currentfieldbuffsranks}
-                            currentbuffsmuliply={currentbuffsmuliply}
-                            currentgroupstacks={currentgroupstacks}
-                            currenthp={currenthp}
-                            charactersleft={charactersleft}
-                            formatting={formatting}
-                            setonion_passoff={setonion_passoff}
-                            setshowdesc={setshowdesc}
-                            />
-                            <Ailment_Data_Pars_Handler
-                            file={file}
-                            effect_id={effect_id_5}
-                            castlocation={castlocation}
-                            currentrank={currentrank}
-                            currentlevel={currentlevel}
-                            currentturns={currentturns}
-                            currentenemies={currentenemies}
-                            currentstacks={currentstacks}
-                            currentdebuffsranks={currentdebuffsranks}
-                            currentdebuffsmuliply={currentdebuffsmuliply}
-                            currentbuffsranks={currentbuffsranks}
-                            currentfieldbuffsranks={currentfieldbuffsranks}
-                            currentbuffsmuliply={currentbuffsmuliply}
-                            currentgroupstacks={currentgroupstacks}
-                            currenthp={currenthp}
-                            charactersleft={charactersleft}
-                            formatting={formatting}
-                            setonion_passoff={setonion_passoff}
-                            setshowdesc={setshowdesc}
-                            />
-                            <Ailment_Data_Pars_Handler
-                            file={file}
-                            effect_id={effect_id_6}
-                            castlocation={castlocation}
-                            currentrank={currentrank}
-                            currentlevel={currentlevel}
-                            currentturns={currentturns}
-                            currentenemies={currentenemies}
-                            currentstacks={currentstacks}
-                            currentdebuffsranks={currentdebuffsranks}
-                            currentdebuffsmuliply={currentdebuffsmuliply}
-                            currentbuffsranks={currentbuffsranks}
-                            currentfieldbuffsranks={currentfieldbuffsranks}
-                            currentbuffsmuliply={currentbuffsmuliply}
-                            currentgroupstacks={currentgroupstacks}
-                            currenthp={currenthp}
-                            charactersleft={charactersleft}
-                            formatting={formatting}
-                            setonion_passoff={setonion_passoff}
-                            setshowdesc={setshowdesc}
-                            />
-                            <Ailment_Data_Pars_Handler
-                            file={file}
-                            effect_id={effect_id_7}
-                            castlocation={castlocation}
-                            currentrank={currentrank}
-                            currentlevel={currentlevel}
-                            currentturns={currentturns}
-                            currentenemies={currentenemies}
-                            currentstacks={currentstacks}
-                            currentdebuffsranks={currentdebuffsranks}
-                            currentdebuffsmuliply={currentdebuffsmuliply}
-                            currentbuffsranks={currentbuffsranks}
-                            currentfieldbuffsranks={currentfieldbuffsranks}
-                            currentbuffsmuliply={currentbuffsmuliply}
-                            currentgroupstacks={currentgroupstacks}
-                            currenthp={currenthp}
-                            charactersleft={charactersleft}
-                            formatting={formatting}
-                            setonion_passoff={setonion_passoff}
-                            setshowdesc={setshowdesc}
-                            />
-                            <Ailment_Data_Pars_Handler
-                            file={file}
-                            effect_id={effect_id_8}
-                            castlocation={castlocation}
-                            currentrank={currentrank}
-                            currentlevel={currentlevel}
-                            currentturns={currentturns}
-                            currentenemies={currentenemies}
-                            currentstacks={currentstacks}
-                            currentdebuffsranks={currentdebuffsranks}
-                            currentdebuffsmuliply={currentdebuffsmuliply}
-                            currentbuffsranks={currentbuffsranks}
-                            currentfieldbuffsranks={currentfieldbuffsranks}
-                            currentbuffsmuliply={currentbuffsmuliply}
-                            currentgroupstacks={currentgroupstacks}
-                            currenthp={currenthp}
-                            charactersleft={charactersleft}
-                            formatting={formatting}
-                            setonion_passoff={setonion_passoff}
-                            setshowdesc={setshowdesc}
-                            />
-                            <Ailment_Data_Pars_Handler
-                            file={file}
-                            effect_id={effect_id_9}
-                            castlocation={castlocation}
-                            currentrank={currentrank}
-                            currentlevel={currentlevel}
-                            currentturns={currentturns}
-                            currentenemies={currentenemies}
-                            currentstacks={currentstacks}
-                            currentdebuffsranks={currentdebuffsranks}
-                            currentdebuffsmuliply={currentdebuffsmuliply}
-                            currentbuffsranks={currentbuffsranks}
-                            currentfieldbuffsranks={currentfieldbuffsranks}
-                            currentbuffsmuliply={currentbuffsmuliply}
-                            currentgroupstacks={currentgroupstacks}
-                            currenthp={currenthp}
-                            charactersleft={charactersleft}
-                            formatting={formatting}
-                            setonion_passoff={setonion_passoff}
-                            setshowdesc={setshowdesc}
-                            />
-                            {ailment_data.field != undefined ?
+                            {ailment_num.map(num=>(
+                                <Ailment_Data_Pars_Handler
+                                key={num}
+                                effect_id={ailment_pars[`effect_id_${num}`]}
+                                slider={slider}
+                                castlocation={castlocation}
+                                currentrank={currentrank}
+                                currentlevel={currentlevel}
+                                currentturns={currentturns}
+                                currentenemies={currentenemies}
+                                currentstacks={currentstacks}
+                                currentdebuffsranks={currentdebuffsranks}
+                                currentdebuffsmuliply={currentdebuffsmuliply}
+                                currentbuffsranks={currentbuffsranks}
+                                currentfieldbuffsranks={currentfieldbuffsranks}
+                                currentbuffsmuliply={currentbuffsmuliply}
+                                currentgroupstacks={currentgroupstacks}
+                                currenthp={currenthp}
+                                charactersleft={charactersleft}
+                                formatting={formatting}
+                                setonion_passoff={setonion_passoff}
+                                setshowdesc={setshowdesc}
+                                />
+                            ))}
+                            {ailment_pars.field != undefined ?
                             <div className="">
                                 <div className='spacearound'>
                                    <DefaultTippy content="Field Effects">
                                     <span className='fieldeffects'></span>
                                     </DefaultTippy>
                                 </div>
-                                {ailment_data.field.map((item, i) => 
-                                <Field_Effect_Pars 
+                                {ailment_pars.field.map((item, i) => 
+                                <Ailment_Data_Pars_Handler 
                                 key={i} 
-                                file={file}
-                                ver={ver}
-                                base_buff={ailment_data}
-                                match={item} 
-                                master_index={master_index}
-                                is_buff={ailment_data.is_buff}
-                                loc={loc}
+                                effect_id={item} 
                                 slider={slider}
-                                max_level={highestlvl}
-                                rank={rank}
-                                AugValue1={arg1}
-                                AugValue2={arg2}
                                 currentrank={currentrank}
                                 currentlevel={currentlevel}
                                 currentturns={currentturns}
@@ -1194,9 +809,6 @@ const Ailment_Data_Formatting_bycharacter = ({
                                 currenthp={currenthp}
                                 charactersleft={charactersleft}
                                 castlocation={castlocation}
-                                alt_rank={alt_rank}
-                                alt_aug1={alt_aug1}
-                                alt_aug2={alt_aug2}
                                 formatting={formatting}
                                 />
                                 )}
