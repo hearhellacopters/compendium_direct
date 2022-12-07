@@ -146,7 +146,7 @@ const EventsFormatting = ({ match, permapage, EventGuideData, master_index }) =>
         <li id={match.type} key={match.eventindex}>
             <div className={permapage == true ? "singleeventtitlebanner" : "eventtitlebanner"} style={{ minHeight: "40px"}}>
                 {permapage == false ? 
-                <Link to={`/events/` + match.eventindex} >
+                <Link style={{color: "white"}} to={`/events/` + match.eventindex} >
                     <h3 className={permapage == false ? "toevents" : "atevents"}>{match.name}</h3>
                 </Link> :
                 <h3 className={permapage == false ? "toevents" : "atevents"}>{match.name}</h3>

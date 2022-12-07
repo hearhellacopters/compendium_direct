@@ -21,7 +21,7 @@ function withRouter(Component) {
   return ComponentWithRouterProp;
 }
 
-const ScrollToTop = ({ children, location: { pathname } }) => {
+const ScrollToHere = ({ children }) => {
   useEffect(() => {
     document.getElementById('scrollhere').scrollIntoView();
   }, []);
@@ -30,4 +30,4 @@ const ScrollToTop = ({ children, location: { pathname } }) => {
   return children || null;
 };
 
-export default withRouter(ScrollToTop);
+export default withRouter(ScrollToHere);

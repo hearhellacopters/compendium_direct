@@ -392,7 +392,7 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
     }
 
     return(
-        <div className="wrapper">
+        <div>
             <Helmet>
                   <title>{title}</title>
                   <meta name="description" content={enemy.Name}/>

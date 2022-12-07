@@ -573,7 +573,7 @@ const CharacterPageDirect = ({
     },[loc,match,setbanner_loc,selected_char,ver,sethide_page])
 
     return(
-        <div className="wrapper">
+        <div>
         <Helmet>
             <title>{selected_char.CharacterName} Direct - Dissidia Compendium</title>
             <meta property="og:site_name" content="Dissidia Compendium"/>
@@ -611,6 +611,7 @@ const CharacterPageDirect = ({
                     </DefaultTippy>
                   </span>{" "}
                     {selected_char.CharacterName}
+                    <div className='abilityJPname'>{selected_char.JPName}</div>
                     </h1>}
                   match={match}
                   newmatch={selected_char}
@@ -834,6 +835,7 @@ const CharacterPageDirect = ({
                   ProcessedReworks !=undefined ?
                   <CharacterReworks
                   ProcessedReworks={ProcessedReworks} 
+                  master_index={master_index}
                   ProcessedCharacters={ProcessedCharacters} 
                   match={match} 
                   selected_chara={selected_char}

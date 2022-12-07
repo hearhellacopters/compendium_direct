@@ -648,7 +648,7 @@ const Forecast = ({ProcessedBanners,ProcessedCharacters,jptoggledata}) =>{
      const releases = listDisplay;
 
     return(
-        <div className="wrapper">
+        <div>
       <Helmet>
           <title>Release Forecast - Dissidia Compendium</title>
           <meta property="og:site_name" content="Dissidia Compendium"/>

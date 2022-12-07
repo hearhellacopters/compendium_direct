@@ -63,7 +63,7 @@ const EventPassOff = ({ match, ProcessedBanners }) => {
         const url = window.location.href
 
         return(
-            <div className="wrapper">
+            <div>
                 <Helmet>
                     <title>{bannerpull.name} Banner - Dissidia Compendium</title>
                     <meta property="og:site_name" content="Dissidia Compendium"/>

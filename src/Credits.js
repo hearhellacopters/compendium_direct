@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const Credits = () => {
 
     return(
-        <div className="wrapper">
+        <div className="">
             <Helmet>
                 <title>Acknowledgements - Dissidia Compendium</title>
                 <meta property="og:site_name" content="Dissidia Compendium"/>

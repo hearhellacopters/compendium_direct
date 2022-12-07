@@ -244,7 +244,7 @@ const UltimaPage = ({
   const listgear = listDisplay;
   if(matchweapon == "sword" || matchweapon == undefined || matchweapon == "greatsword" || matchweapon == "staff" || matchweapon == "fist" || matchweapon == "dagger" || matchweapon == "gun" || matchweapon == "throwing" || matchweapon == "whip" || matchweapon == "bow" || matchweapon == "spear" || matchweapon == "other") {
     return(
-        <div className="wrapper">
+        <div>
             <Helmet>
                 <title>Ultima Weapons - Dissidia Compendium</title>
                 <meta property="og:site_name" content="Dissidia Compendium"/>

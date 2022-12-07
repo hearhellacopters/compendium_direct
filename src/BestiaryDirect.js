@@ -771,7 +771,7 @@ const BestiaryDirect = ({ProcessedEnemy, jptoggledata, ProcessedCharacters, Part
   }
 
 return (
-  <div className="wrapper">
+  <div>
     <Helmet>
       <title>Bestiary - Dissidia Compendium</title>
       <meta property="og:site_name" content="Dissidia Compendium"/>

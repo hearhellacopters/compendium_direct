@@ -257,7 +257,7 @@ useEffect(() => {
   const listgear = listDisplay;
 
     return(
-        <div className="wrapper">
+        <div>
             <Helmet>
                 <title>Force Time - Dissidia Compendium</title>
                 <meta property="og:site_name" content="Dissidia Compendium"/>

@@ -239,7 +239,7 @@ const EnemyBuffsDirect = ({ProcessedEnemyBuffs}) => {
   const listBuff = listDisplay;
 
     return (
-      <div className="wrapper">
+      <div>
         <Helmet>
           <title>Enemy Buffs - Dissidia Compendium</title>
           <meta property="og:site_name" content="Dissidia Compendium"/>

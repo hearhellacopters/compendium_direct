@@ -3,10 +3,18 @@ import { Link } from 'react-router-dom'
 
 const log = () =>{
     return(
-        <div className="wrapper">
+        <div className="">
         <div className="content fullheight">
                 <h1>Update Log</h1>
                 <div className="creditsholder">
+                <div className="filterholderflair" >
+                    V.5.1
+                </div> 
+                <ul className="creditslist">
+                ┬ Header bar now floats in desktop view<br/>
+                └─ For constant access to version and player<br/>
+                - Added ability compare to rework page
+                </ul>
                 <div className="filterholderflair" >
                     V.5.0
                 </div> 

@@ -167,7 +167,7 @@ const Home = ({ProcessedUpdates, jptoggledata}) => {
       setspoilers((prevValue)=>!prevValue)
     }
     return(
-        <div  className="wrapper">
+        <div>
               <Helmet>
                 <title>Dissidia Compendium | Home</title>
                 <meta property="og:site_name" content="Dissidia Compendium"/>
@@ -185,7 +185,7 @@ const Home = ({ProcessedUpdates, jptoggledata}) => {
                 <meta property="og:url" content="https://dissidiacompendium.com"/>
               </Helmet>
           <div className="content">
-            <h1 className="maintitle" >Welcome to Dissidia Compendium <Link className="updatelink" to="/log">v5.0!</Link><span className="squallsmile"></span></h1>
+            <h1 className="maintitle" >Welcome to Dissidia Compendium <Link className="updatelink" to="/log">v5.1!</Link><span className="squallsmile"></span></h1>
             <div className="enemyholderdesc" style={{whiteSpace: "normal"}}>
               <div className="subheader">
                 <div className="homewelcomeholder noselect">

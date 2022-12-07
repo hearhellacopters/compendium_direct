@@ -22,7 +22,7 @@ const Command_Ability_Pars = (
     if(command_ability.show == 0){
         var show_str = "*Doesn't display banner"
     }
-    var cost_str = `${command_ability.cost == 0 ? "*Instant Turn Rate" : `Turn Rate: ${command_ability.cost}`}`
+    var cost_str = `${command_ability.cost == 0 ? "*Instant Turn Rate" : `Turn Rate: -${command_ability.cost}`}`
     if(command_ability.blow == 0 || command_ability.command_type == 7){
         var blow_str = "*Can not knock back"
     }

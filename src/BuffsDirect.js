@@ -2904,7 +2904,7 @@ const BuffsDirect =({
       };
 
     return(
-        <div className="wrapper">
+        <div>
         <Helmet>
           <title>Buffs - Dissidia Compendium</title>
           <meta property="og:site_name" content="Dissidia Compendium"/>

@@ -429,7 +429,7 @@ const Events = ({ProcessedBanners, ProcessedCharacters, jptoggledata}) => {
    const banners = listDisplay;
 
   return (
-    <div className="wrapper">
+    <div>
       <Helmet>
           <title>Banners Search - Dissidia Compendium</title>
           <meta property="og:site_name" content="Dissidia Compendium"/>

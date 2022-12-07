@@ -1011,7 +1011,7 @@ const SpheresDirect =({
     };
 
     return(
-        <div className="wrapper">
+        <div>
         <Helmet>
           <title>Spheres - Dissidia Compendium</title>
           <meta property="og:site_name" content="Dissidia Compendium"/>

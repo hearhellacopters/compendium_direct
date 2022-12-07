@@ -1052,7 +1052,7 @@ const GearDirect =({
       };
 
     return(
-        <div className="wrapper">
+        <div>
         <Helmet>
           <title>Gear - Dissidia Compendium</title>
           <meta property="og:site_name" content="Dissidia Compendium"/>

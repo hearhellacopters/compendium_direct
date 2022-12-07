@@ -176,7 +176,7 @@ const CharacterWardrobe = ({
   const listCharacters = listDisplay;
 
     return(
-        <div className="wrapper">
+        <div>
             <Helmet>
                 <title>Character Wardrobe Page - Dissidia Compendium</title>
                 <meta property="og:site_name" content="Dissidia Compendium"/>

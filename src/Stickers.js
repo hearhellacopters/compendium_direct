@@ -332,7 +332,7 @@ const Stickers = ({ProcessedStickers, ProcessedCharacters, jptoggledata}) => {
     };
 
     return (
-      <div className="wrapper">
+      <div>
         <Helmet>
           <title>Stickers - Dissidia Compendium</title>
           <meta property="og:site_name" content="Dissidia Compendium"/>

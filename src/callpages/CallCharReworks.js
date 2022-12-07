@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 import { getCharacters } from '../redux/ducks/characters';
 import { getJPToggle } from '../redux/ducks/jptoggle';
+import { getMasterIndex } from '../redux/ducks/master_index';
 import CallReworksHandoff from './CallCharReworksHandOff';
 import Loading from './_loading'
 import {Navigate} from 'react-router-dom';
@@ -27,6 +28,10 @@ const CallCharReworks = () =>{
     state.toggle.toggle
     );
 
+    const master_index = useSelector((state) => 
+    state.master_index.master_index
+    );
+
     useEffect(() => {
         let mounted = true
         if (mounted && ProcessedCharacters == undefined) {
@@ -35,24 +40,32 @@ const CallCharReworks = () =>{
         if (mounted) {
         dispatch(getJPToggle());
         }
-        if (mounted) {
-            dispatch(getJPToggle());
-            }
         return function cleanup() {
             mounted = false
         }
     }, [dispatch,ProcessedCharacters]);
 
+    useEffect(() => {
+        let mounted = true
+        if (mounted && master_index == undefined) {
+        dispatch(getMasterIndex())
+        }
+        return function cleanup() {
+            mounted = false
+        }
+    }, [dispatch,master_index]);
+
 
     const filtered = ProcessedCharacters && ProcessedCharacters[Access[match.params.id]]
     
     return (
-        Access != undefined && ProcessedCharacters != undefined && jptoggledata != undefined?
+        Access != undefined && ProcessedCharacters != undefined && jptoggledata != undefined && master_index !=undefined?
         filtered == undefined ?
         <Navigate replace to="/404"/>
         :
         <CallReworksHandoff 
         match={match} 
+        master_index={master_index}
         ProcessedCharacters={ProcessedCharacters}
         filtered={filtered}
         jptoggledata={jptoggledata}

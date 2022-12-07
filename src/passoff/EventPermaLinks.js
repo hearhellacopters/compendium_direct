@@ -87,7 +87,7 @@ const EventPassOff = ({ match, ProcessedEvents, EventGuideData, master_index, jp
         const url = window.location.href
 
         return(
-            <div className="wrapper">
+            <div>
                 <Helmet>
                     <title>Event {eventpull.name} - Dissidia Compendium</title>
                     <meta property="og:site_name" content="Dissidia Compendium"/>

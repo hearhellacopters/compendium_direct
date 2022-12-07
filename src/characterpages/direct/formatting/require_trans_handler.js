@@ -11,7 +11,6 @@ const require_trans_handler = (
 
     master_index,
     ver,
-
     )=>{
 
         const require_passive = master_index.passive_effects.require_passive

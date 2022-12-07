@@ -11,7 +11,6 @@
 
 .abilityusesholder{
     display: table;
-    width: 110px;
     margin-left: auto;
     padding-right: 5px;
     margin-top: auto;
@@ -363,9 +362,6 @@
     .bufflistbannerbattle{
         margin-left: 0px;
         width: auto;
-    }
-    .abilityusesholder{
-        width: 100px;
     }
     .undertaga{
         height: 24px;

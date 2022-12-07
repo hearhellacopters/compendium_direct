@@ -128,7 +128,7 @@ const Ailment_Data_Pars_Handler = ({
             }
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[override,rank,displayrank,set_max_brv_cap,set_brv_cap, currentbuffsmuliply,currentdebuffsmuliply, castlocation,currenthp,charactersleft,currentgroupstacks,currentfieldbuffsranks, currentbuffsranks,currentdebuffsranks,currentenemies,currentstacks,currentturns, slider, currentrank, effect_id, currentlevel, setrank])
+    },[override,rank,set_max_brv_cap,set_brv_cap, currentbuffsmuliply,currentdebuffsmuliply, castlocation,currenthp,charactersleft,currentgroupstacks,currentfieldbuffsranks, currentbuffsranks,currentdebuffsranks,currentenemies,currentstacks,currentturns, slider, currentrank, effect_id, currentlevel, setrank])
 
     const [cond_str,setcond_str] = useStateIfMounted()
     const [eff_str,seteff_str] = useStateIfMounted()

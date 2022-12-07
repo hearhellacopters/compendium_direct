@@ -633,7 +633,7 @@ const [typeListArray, settypeListArray] = useStateIfMounted(false);
 
   const events = listDisplay;
   return (
-    <div className="wrapper">
+    <div>
       <Helmet>
           <title>Events Search - Dissidia Compendium</title>
           <meta property="og:site_name" content="Dissidia Compendium"/>

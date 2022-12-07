@@ -13,11 +13,21 @@ const Diff = require('diff');
 import {EndsInTimer, StartsInTimer} from '../formatting/Timers'
 import addformatting from '../processing/replacer_abilitycontent';
 import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
+import Character_Ability_Dif_Handler from './direct/formatting/command_ability/Character_Ability_Dif_Handler.js';
 import '../Passives.css';
 
-const ReworksPageFormatting = ({match, ProcessedReworks, selected_chara, ProcessedCharacters,jptoggledata}) => {
+const ReworksPageFormatting = ({
+  match, 
+  ProcessedReworks, 
+  selected_chara, 
+  master_index,
+  ProcessedCharacters,
+  jptoggledata
+}) => {
 
     const [reworks, setreworks] = useState(ProcessedReworks);
+    const [show2,setshow2] = useState(false);
+    const [show3,setshow3] = useState(false);
 
     const [random ] = useState(Random(7));
 
@@ -135,6 +145,13 @@ const ReworksPageFormatting = ({match, ProcessedReworks, selected_chara, Process
                 :""}
                 </>
               :""}
+              {passives.Abilities3 != undefined ?
+               <Character_Ability_Dif_Handler
+                  ability_data={passives.Abilities3}
+                  master_index={master_index}
+                  ProcessedCharacters={ProcessedCharacters}
+               />
+              :""}
             </div>
             </div>
               :""}
@@ -229,6 +246,13 @@ const ReworksPageFormatting = ({match, ProcessedReworks, selected_chara, Process
                 :""}
                 </>
                 :""}
+                {passives.Abilities2 != undefined ?
+               <Character_Ability_Dif_Handler
+                  ability_data={passives.Abilities2}
+                  master_index={master_index}
+                  ProcessedCharacters={ProcessedCharacters}
+               />
+              :""}
               </div>
               </div>
               :""}
@@ -347,6 +371,13 @@ const ReworksPageFormatting = ({match, ProcessedReworks, selected_chara, Process
                 </div>
                 :""}
                 </>
+              :""}
+               {passives.Abilities1 != undefined ?
+               <Character_Ability_Dif_Handler
+                  ability_data={passives.Abilities1}
+                  master_index={master_index}
+                  ProcessedCharacters={ProcessedCharacters}
+               />
               :""}
               </div>
               </div>

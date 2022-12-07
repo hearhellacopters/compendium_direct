@@ -369,7 +369,7 @@ const Passive_Ability_Formatting = ({
                 passive_ability={passive_ability}
 
                 master_index={master_index}
-
+                ver={ver}
                 file={file}
                 
                 formatting={formatting}

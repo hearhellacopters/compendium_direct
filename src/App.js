@@ -121,6 +121,7 @@ const jponlybutton = () => {
           <JukeBoxMini/>
       </header>
         <div className="wrapper">
+          <ErrorBoundary>
           <Nav />
           <Routes>
             <Route path="/" exact element={<Home/>} />
@@ -174,6 +175,7 @@ const jponlybutton = () => {
             <Route path='*' element={<NotFoundPage/>} />
             <Route element={<NotFoundPage/>} />
           </Routes>
+          </ErrorBoundary>
         </div>
         <Footer/>
       </Router>
@@ -182,3 +184,22 @@ const jponlybutton = () => {
   
 }
 export default App;
+
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+  componentDidCatch(error, errorInfo) {
+    console.log(error, errorInfo);
+  }
+  render() {
+    if (this.state.hasError) {
+      return <div className='content'><h1>Something went wrong.</h1></div>;
+    }
+    return this.props.children;
+  }
+}

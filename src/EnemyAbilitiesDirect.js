@@ -548,7 +548,7 @@ const handleChange = (e) => {
   const listabilities = listDisplay;
 
     return (
-      <div className="wrapper">
+      <div>
         <Helmet>
           <title>Enemy Abilities - Dissidia Compendium</title>
           <meta property="og:site_name" content="Dissidia Compendium"/>

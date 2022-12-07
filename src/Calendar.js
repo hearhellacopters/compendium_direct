@@ -245,7 +245,7 @@ const Calendar = ({JPCalendarData, EventData, BannerData, jptoggledata}) => {
   };
 
   return (
-    <div className="wrapper">
+    <div>
       <Helmet>
           <title>Calendar - Dissidia Compendium</title>
           <meta property="og:site_name" content="Dissidia Compendium"/>

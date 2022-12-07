@@ -832,7 +832,7 @@ const PassiveDirect =({
     };
 
     return(
-        <div className="wrapper">
+        <div>
         <Helmet>
           <title>Passives - Dissidia Compendium</title>
           <meta property="og:site_name" content="Dissidia Compendium"/>

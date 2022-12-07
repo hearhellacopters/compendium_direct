@@ -8,7 +8,7 @@ const NotFound = () => {
     const randomimage = Random(7);
 
     return(
-        <div className="wrapper">
+        <div className="">
             <Helmet>
                 <title>Page Not Found - Dissidia Compendium</title>
             </Helmet>

@@ -6,7 +6,7 @@ import Loading from './_loading'
 import DevSwitch from '../redux/DevSwitch';
 import {Navigate} from 'react-router-dom';
 
-const CallCharBuffsHandoff = ({match, ProcessedCharacters, jptoggledata, filtered}) =>{
+const CallCharBuffsHandoff = ({match, ProcessedCharacters, jptoggledata, filtered,master_index}) =>{
     
     const [ProcessedReworks, setProcessedReworks] = useStateIfMounted()
 
@@ -37,10 +37,11 @@ const CallCharBuffsHandoff = ({match, ProcessedCharacters, jptoggledata, filtere
           }
 
         return (
-            ProcessedReworks != undefined && ProcessedCharacters != undefined && jptoggledata != undefined?
+            ProcessedReworks != undefined && ProcessedCharacters != undefined && jptoggledata != undefined && master_index != undefined?
             <CharacterReworks
              ProcessedReworks={ProcessedReworks} 
              ProcessedCharacters={ProcessedCharacters} 
+             master_index={master_index}
              match={match} 
              selected_chara={filtered}
              jptoggledata={jptoggledata}

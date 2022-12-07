@@ -3033,7 +3033,7 @@ const Characters = ({ProcessedCharacters,jptoggledata}) => {
   };
 
   return (
-    <div className="wrapper">
+    <div>
       <Helmet>
         <title>Characters - Dissidia Compendium</title>
         <meta property="og:site_name" content="Dissidia Compendium"/>

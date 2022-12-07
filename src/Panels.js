@@ -66,7 +66,7 @@ const jponlybutton = () => {
   const GLdata = GLdataPreSort.sort((a, b) => new Date(a.outdate) - new Date(b.outdate))
 
   return (
-    <div className="wrapper">
+    <div>
       <Helmet>
           <title>Panels - Dissidia Compendium</title>
           <meta property="og:site_name" content="Dissidia Compendium"/>

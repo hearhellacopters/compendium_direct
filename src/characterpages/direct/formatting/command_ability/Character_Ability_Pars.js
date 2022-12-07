@@ -685,7 +685,7 @@ const Character_Ability_Pars =({
                             </div>
                             {use_num > 100 ?
                             <Tippy content={recast_tip}>
-                            <div className="abilityusesholder">
+                            <div className={character_ability.UseNum<100?"abilityusesholder":"abilityusesholder2"}>
                             {character_ability.UseNum<100?
                             <span className={tag_override != undefined ? tag_override : character_ability.command && character_ability.command.rank && rank_trans(character_ability.command.rank)}></span>
                             :""}
@@ -705,7 +705,7 @@ const Character_Ability_Pars =({
                             </div>
                             </Tippy>
                             :
-                            <div className="abilityusesholder">
+                            <div className={character_ability.UseNum<100?"abilityusesholder":"abilityusesholder2"}>
                             {character_ability.UseNum<100?
                             <span className={tag_override != undefined ? tag_override : character_ability.command && character_ability.command.rank && rank_trans(character_ability.command.rank)}></span>
                             :""}
