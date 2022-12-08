@@ -661,10 +661,10 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
                         ))}
                     </ul>
                     :""}
-                    {enemy[`ForceGauge`] && enemy[`ForceGauge`][ForcetimeTab] != undefined ?
+                    {enemy[`ForceGauge`] && enemy[`ForceGauge`][ForcetimeTab] && enemy[`ForceGauge`][ForcetimeTab].ForceGauge != undefined ?
                     <div className={`enemyholderdesc${enemy[`ForceGauge`].length > 1 ? "2":""}`}>
                         <div className="enemyforcesubbanner">Force Gauge</div>
-                        {enemy[`ForceGauge`][ForcetimeTab] && enemy[`ForceGauge`][ForcetimeTab].ForceGauge.sort((a,b)=>a.id-b.id).map((self,i)=>(
+                        {enemy[`ForceGauge`][ForcetimeTab] && enemy[`ForceGauge`][ForcetimeTab].ForceGauge && enemy[`ForceGauge`][ForcetimeTab].ForceGauge.sort((a,b)=>a.id-b.id).map((self,i)=>(
                             <div className="buffunit" key={i}>
                                 <div className="infoholder egfbanner">
                             <div className={`infonameholderenemybuff centeralign ${self.name == "Force Weakness" ? "blackbanner" : self.name =="Force Gauge Increase" ? "Buffbanner" : "Debuffbanner"}`}>

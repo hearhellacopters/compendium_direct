@@ -174,7 +174,7 @@ const counter =(
                     }
                 }
                 if(hp_effect2 == true){
-                        if(hit_1.show == undefined){
+                        if(hit_1.show == undefined && holder[`hit_${count-2}`].atk_str != undefined){
                             const hp_str = `+ ${holder[`hit_${count-2}`].atk_str.replace(/{Attack}/gm,"Attack").replace(/<Melee> /gm,"").replace(/<Ranged> /gm,"").replace(/<Magic> /gm,"")}`
                             Object.assign(hit_1,{show: true,
                                 hit_count:`${count-3}-Hit `,
@@ -252,7 +252,7 @@ const counter =(
                     }
                 }
                 if( hp_effect_before_after == true &&  count > 3){
-                        if(hit_1.show == undefined){
+                        if(hit_1.show == undefined && holder[`hit_${count-1}`].atk_str != undefined){
                             const hp_str = `+ ${holder[`hit_${count-1}`].atk_str.replace(/{Attack}/gm,"Attack").replace(/<Melee> /gm,"").replace(/<Ranged> /gm,"").replace(/<Magic> /gm,"")}`
                             Object.assign(hit_1,{show: true,
                                 hit_count:`${count-3}-Hit `,
@@ -315,7 +315,7 @@ const counter =(
                     }
                 }
                 if(hp_and_effect == true){
-                        if(hit_1.show == undefined){
+                        if(hit_1.show == undefined && holder[`hit_${count-1}`].atk_str != undefined){
                             const hp_str = `+ ${holder[`hit_${count-1}`].atk_str.replace(/{Attack}/gm,"Attack").replace(/<Melee> /gm,"").replace(/<Ranged> /gm,"").replace(/<Magic> /gm,"")}`
                             Object.assign(hit_1,{show: true,
                                 hit_count:`${count-2}-Hit `,
@@ -375,7 +375,7 @@ const counter =(
                     }
                 }
                 if(hp_effect_before == true){
-                        if(hit_1.show == undefined){
+                        if(hit_1.show == undefined && holder[`hit_${count}`].atk_str != undefined){
                             const hp_str = `+ ${holder[`hit_${count}`].atk_str.replace(/{Attack}/gm,"Attack").replace(/<Melee> /gm,"").replace(/<Ranged> /gm,"").replace(/<Magic> /gm,"")}`
                             Object.assign(hit_1,{show: true,
                                 hit_count:`${count-2}-Hit `,
@@ -420,7 +420,7 @@ const counter =(
                     }
                 }
                 if(hp_last == true){
-                        if(hit_1.show == undefined){
+                        if(hit_1.show == undefined && holder[`hit_${count}`].atk_str != undefined){
                             const hp_str = `+ ${holder[`hit_${count}`].atk_str.replace(/{Attack}/gm,"Attack").replace(/<Melee> /gm,"").replace(/<Ranged> /gm,"").replace(/<Magic> /gm,"")}`
                             Object.assign(hit_1,{
                                 show: true,

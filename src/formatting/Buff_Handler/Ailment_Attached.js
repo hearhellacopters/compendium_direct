@@ -8,12 +8,12 @@ import Ailment_Modify_Formatting from './Ailment_Modify_Formatting';
 import replacer from '../../processing/replacer_titles'
 import Slider from 'react-input-slider';
 import DefaultTippy from '../../formatting/TippyDefaults'
-import SilderStyleLevel from './SilderStyleLevel';
-import SilderStyleRank from './SilderStyleRank';
-import SilderStyleTurns from './SilderStyleTurns';
-import SilderStyleDebuff from './SilderStyleDebuff';
-import SilderStyleHP from './SilderStyleHP';
-import SilderStyleBuff from './SilderStyleBuff';
+import SilderStyleLevel from '../../characterpages/direct/formatting/SilderStyleLevel';
+import SilderStyleRank from '../../characterpages/direct/formatting/SilderStyleRank';
+import SilderStyleTurns from '../../characterpages/direct/formatting/SilderStyleTurns';
+import SilderStyleDebuff from '../../characterpages/direct/formatting/SilderStyleDebuff';
+import SilderStyleHP from '../../characterpages/direct/formatting/SilderStyleHP';
+import SilderStyleBuff from '../../characterpages/direct/formatting/SilderStyleBuff';
 import replacer_buff from '../../processing/replacer_buffcontent'
 import ReactJson from '@microlink/react-json-view'
 

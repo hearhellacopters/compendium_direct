@@ -4,11 +4,11 @@ import DefaultTippy from  '../TippyDefaults'
 import { useStateIfMounted } from 'use-state-if-mounted';
 import Ailment_Level_Settings from './Ailment_Level_Settings';
 import Slider from 'react-input-slider';
-import SilderStyleLevel from './SilderStyleLevel';
-import SilderStyleTurns from './SilderStyleTurns';
-import SilderStyleDebuff from './SilderStyleDebuff';
-import SilderStyleHP from './SilderStyleHP';
-import SilderStyleBuff from './SilderStyleBuff';
+import SilderStyleLevel from '../../characterpages/direct/formatting/SilderStyleLevel';
+import SilderStyleTurns from '../../characterpages/direct/formatting/SilderStyleTurns';
+import SilderStyleDebuff from '../../characterpages/direct/formatting/SilderStyleDebuff';
+import SilderStyleHP from '../../characterpages/direct/formatting/SilderStyleHP';
+import SilderStyleBuff from '../../characterpages/direct/formatting/SilderStyleBuff';
 import Ailment_Data_Combination_Formatting from './Ailment_Combination_Formatting'
 import Ailment_Modify_Formatting from './Ailment_Modify_Formatting';
 import Ailment_Attached from './Ailment_Attached';
