@@ -13,7 +13,7 @@ const GetCharacter = ( {index, CharGuideData} ) => {
             const thischarpull = rawdata.filter(function (el) {
                 return el["CharID"] == index; 
                 })
-                return thischarpull
+                return thischarpull[0] && thischarpull[0].Links
         } catch (e) {
             console.log(e)
             error = true
@@ -63,12 +63,12 @@ const GetCharacter = ( {index, CharGuideData} ) => {
         )
     }else{ 
         return (
-        thischar[0] != undefined ? 
+            thischar && thischar.length != 0 ? 
         <div className="zone">
             <div className="guidebanner ">Community Help</div>
             <div className="guidelinksflair">
                 <ul className="guidelist">
-                    {thischar[0].Links.map((links , index) =>(
+                    {thischar.sort((a,b)=>b.id-a.id).map((links , index) =>(
                         is_youtube(links.url) == true ? 
                         <div key={index} className='video-wrap'>
                             <LazyLoadComponent>

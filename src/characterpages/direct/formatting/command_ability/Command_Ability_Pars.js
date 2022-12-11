@@ -26,7 +26,7 @@ const Command_Ability_Pars = (
     if(command_ability.blow == 0 || command_ability.command_type == 7){
         var blow_str = "*Can not knock back"
     }
-    var stun_str = command_ability.stun == 50 ? "Initiates a <Knock Back>" : command_ability.blow == 0 ? "" : command_ability.command_type == 7 ? "" : `Chase +${command_ability.stun}`
+    var stun_str = command_ability.stun == 50 ? "Initiates a <Knock Back>" : command_ability.blow == 0 ? undefined : command_ability.command_type == 7 ? undefined : `Chase +${command_ability.stun}`
     if(command_ability.kcon != undefined){
         var kcon_str = Killer_Cond_Handler(
             command_ability.kcon,

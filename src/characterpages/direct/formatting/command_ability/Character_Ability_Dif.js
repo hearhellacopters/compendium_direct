@@ -497,12 +497,12 @@ const Character_Ability_Dif = ({
                             {character_ability.increase !=undefined && character_ability.UseNum != 0 ?
                             character_ability.increase.map((self,i)=>(
                                 self.recast!=undefined?
-                                <div key={i}>
-                                <span className={self.loc_tag}></span>+{self.recast}%
+                                <div key={i} style={{whiteSpace: "nowrap"}}>
+                                <span className={self.loc_tag}></span>{`+${self.recast}%`}
                                 </div>
                                 :self.use == 0 ? "":
-                                <div key={i}>
-                                <span className={self.loc_tag}></span>+{self.use}
+                                <div key={i} style={{whiteSpace: "nowrap"}}>
+                                <span className={self.loc_tag}></span>{`+${self.use}`}
                                 </div>
                             ))
                             :""}
@@ -517,12 +517,12 @@ const Character_Ability_Dif = ({
                             {character_ability.increase !=undefined && character_ability.UseNum != 0 ?
                             character_ability.increase.map((self,i)=>(
                                 self.recast!=undefined?
-                                <div key={i}>
-                                <span className={self.loc_tag}></span>+{self.recast}%
+                                <div key={i} style={{whiteSpace: "nowrap"}}>
+                                <span className={self.loc_tag}></span>{`+${self.recast}%`}
                                 </div>
                                 :self.use == 0 ? "":
-                                <div key={i}>
-                                <span className={self.loc_tag}></span>+{self.use}
+                                <div key={i} style={{whiteSpace: "nowrap"}}>
+                                <span className={self.loc_tag}></span>{`+${self.use}`}
                                 </div>
                             ))
                             :""}

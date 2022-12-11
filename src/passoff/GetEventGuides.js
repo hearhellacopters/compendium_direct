@@ -15,10 +15,8 @@ const GetEvent = ( {index, EventGuideData} ) => {
                 return el["eventindex"] == index; 
             
                 })
-                return thiseventpull
+                return thiseventpull[0] && thiseventpull[0].Links
         } catch (e) {
-            console.log(e)
-            error = true
             return []
         }
     }
@@ -65,12 +63,12 @@ const GetEvent = ( {index, EventGuideData} ) => {
         )
     }else{ 
         return (
-            thisevent[0] != undefined && index != 1 ?
+            thisevent && thisevent.length != 0 && index != 1 ?
         <div className="zone">
             <div className="guidebanner nobordertop">Community Help</div>
             <div className="guidelinksflair">
                 <ul className="guidelist">
-                    {thisevent[0].Links.map((links , index) =>(
+                    {thisevent.sort((a,b)=>b.id-a.id).map((links , index) =>(
                         is_youtube(links.url) == true ? 
                         <div key={index} className='video-wrap'>
                             <LazyLoadComponent>
