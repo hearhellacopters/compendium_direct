@@ -67,43 +67,44 @@ const Ability_bycharacter =({
     const [showCALLLD, setshowCALLLD] = useStateIfMounted(false);
 
     useEffect(()=>{
-        if(Object.values(ability_data).some(self=>self.BRV == true)){
+        const filtered_ability = Object.values(ability_data).filter(self=>self.full == true)
+        if(filtered_ability.some(self=>self.BRV == true)){
             setshowBRV(true)
         }
-        if(Object.values(ability_data).some(self=>self.HP == true)){
+        if(filtered_ability.some(self=>self.HP == true)){
             setshowHP(true)
         }
-        if(Object.values(ability_data).some(self=>self.S1 == true)){
+        if(filtered_ability.some(self=>self.S1 == true)){
             setshowS1(true)
         }
-        if(Object.values(ability_data).some(self=>self.S2 == true)){
+        if(filtered_ability.some(self=>self.S2 == true)){
             setshowS2(true)
         }
-        if(Object.values(ability_data).some(self=>self.AA == true)){
+        if(filtered_ability.some(self=>self.AA == true)){
             setshowAA(true)
         }
-        if(Object.values(ability_data).some(self=>self.EX == true)){
+        if(filtered_ability.some(self=>self.EX == true)){
             setshowEX(true)
         }
-        if(Object.values(ability_data).some(self=>self.LD == true)){
+        if(filtered_ability.some(self=>self.LD == true)){
             setshowLD(true)
         }
-        if(Object.values(ability_data).some(self=>self.BT == true)){
+        if(filtered_ability.some(self=>self.BT == true)){
             setshowBT(true)
         }
-        if(Object.values(ability_data).some(self=>self.BTplus == true)){
+        if(filtered_ability.some(self=>self.BTplus == true)){
             setshowBT(true)
         }
-        if(Object.values(ability_data).some(self=>self.FR == true)){
+        if(filtered_ability.some(self=>self.FR == true)){
             setshowFR(true)
         }
-        if(Object.values(ability_data).some(self=>self.FRExt == true)){
+        if(filtered_ability.some(self=>self.FRExt == true)){
             setshowFR(true)
         }
-        if(Object.values(ability_data).some(self=>self.Call75 == true)){
+        if(filtered_ability.some(self=>self.Call75 == true)){
             setshowCALL75(true)
         }
-        if(Object.values(ability_data).some(self=>self.CallLD == true)){
+        if(filtered_ability.some(self=>self.CallLD == true)){
             setshowCALLLD(true)
         }
         // eslint-disable-next-line
