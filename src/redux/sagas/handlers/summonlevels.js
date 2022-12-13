@@ -7,7 +7,7 @@ export function* handleGetSummonLevels(action) {
   try {
     const response = yield call(requestGetSummonLevels);
     const { data } = response;
-    if(isJson(data,"GetSummonLevels") == true){
+    if (isJson(data, "GetSummonLevels") == true) {
       yield put(setSummonLevels(data));
     }
   } catch (error) {

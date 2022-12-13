@@ -1,11 +1,11 @@
 export const GET_JPGAMELISTAILMENT = "GET_JPGAMELISTAILMENT";
-const SET_JPGAMELISTAILMENT= "SET_JPGAMELISTAILMENT";
+const SET_JPGAMELISTAILMENT = "SET_JPGAMELISTAILMENT";
 
 export const getJPGameListAilment = () => ({
   type: GET_JPGAMELISTAILMENT
 });
 
-export const setJPGameListAilment= (jp_gamelist_ailment) => ({
+export const setJPGameListAilment = (jp_gamelist_ailment) => ({
   type: SET_JPGAMELISTAILMENT,
   jp_gamelist_ailment: jp_gamelist_ailment
 });

@@ -1,4 +1,4 @@
-.tickholder{
+.tickholder {
     display: flex;
     text-align: center;
     justify-content: center;
@@ -7,6 +7,7 @@
     flex-direction: row;
     align-items: center;
 }
-.spacerleft{
-    margin-left:.35em;
+
+.spacerleft {
+    margin-left: .35em;
 }

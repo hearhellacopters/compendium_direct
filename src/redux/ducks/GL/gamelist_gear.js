@@ -1,11 +1,11 @@
 export const GET_GLGAMELISTGEAR = "GET_GLGAMELISTGEAR";
-const SET_GLGAMELISTGEAR= "SET_GLGAMELISTGEAR";
+const SET_GLGAMELISTGEAR = "SET_GLGAMELISTGEAR";
 
 export const getGLGameListGear = () => ({
   type: GET_GLGAMELISTGEAR
 });
 
-export const setGLGameListGear= (gl_gamelist_gear) => ({
+export const setGLGameListGear = (gl_gamelist_gear) => ({
   type: SET_GLGAMELISTGEAR,
   gl_gamelist_gear: gl_gamelist_gear
 });

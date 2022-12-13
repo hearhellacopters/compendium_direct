@@ -7,7 +7,7 @@ export function* handleGetAccess(action) {
   try {
     const response = yield call(requestGetAccess);
     const { data } = response;
-    if(isJson(data,"GetAccess") == true){
+    if (isJson(data, "GetAccess") == true) {
       yield put(setAccess(data));
     }
   } catch (error) {

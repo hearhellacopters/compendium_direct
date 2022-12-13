@@ -1,4 +1,4 @@
-.add_button{
+.add_button {
     height: 20px;
     width: 20px;
     display: inline-block;
@@ -8,30 +8,35 @@
     background-image: url("https://dissidiacompendium.com/images/static/icons/misc/plus_s.png");
 }
 
-.button_addall{
+.button_addall {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/play/add.png");
 }
-.button_list1{
+
+.button_list1 {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/play/list1.png");
 }
-.button_list2{
+
+.button_list2 {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/play/list2.png");
 }
-.button_list3{
+
+.button_list3 {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/play/list3.png");
 }
-.button_list3{
+
+.button_list3 {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/play/list3.png");
 }
-.button_master{
+
+.button_master {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/play/master.png");
 }
 
-.button_reset{
+.button_reset {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/play/reset.png");
-  }
+}
 
-.songplayerselect{
+.songplayerselect {
     margin-left: calc(50% - 128px);
     margin-right: calc(50% - 128px);
     margin-top: -35px;
@@ -452,7 +457,7 @@
     }
 }
 
-.music-player{
+.music-player {
     text-shadow: -1px -1px #000, 1px -1px #000, -1px 1px #000, 1px 1px #000;
 }
 
@@ -688,28 +693,34 @@
     vertical-align: text-bottom !important
 }
 
-@media  screen and (max-width:767px) {
+@media screen and (max-width:767px) {
     .react-jinke-music-player-mobile-play-model-tip-title svg {
         color: #fff !important;
         font-size: 19px
     }
+
     .audio-lists-panel-header-delete-btn svg {
         font-size: 19px
     }
+
     .audio-lists-panel-header-close-btn:hover svg {
         animation: imgRotate .35s cubic-bezier(.43, -.1, .16, 1.1)
     }
+
     .react-jinke-music-player-main .music-player-lyric {
         font-size: 16px;
         z-index: 999
     }
+
     .react-jinke-music-player .audio-circle-process-bar,
     .react-jinke-music-player .audio-circle-process-bar circle {
         transform: matrix(0, -1, 1, 0, 0, 60)
     }
+
     .react-jinke-music-player-main svg {
         font-size: 22px
     }
+
     .react-jinke-music-player .music-player-controller i {
         font-size: 20px
     }
@@ -723,6 +734,7 @@
     .react-jinke-music-player .music-player-controller:hover .music-player-controller-setting {
         transform: scale(1)
     }
+
     .react-jinke-music-player-main.light-theme .audio-lists-panel .audio-item {
         background-color: #fff !important
     }
@@ -730,24 +742,30 @@
     .react-jinke-music-player-main.light-theme .audio-lists-panel .audio-item.playing {
         background-color: #f2f2f2 !important
     }
+
     /*here*/
     .react-jinke-music-player-main.light-theme .audio-lists-panel .audio-item.playing,
     .react-jinke-music-player-main.light-theme .audio-lists-panel .audio-item.playing svg {
         color: #3f5b92 !important
     }
+
     .react-jinke-music-player .music-player .destroy-btn {
         right: -3px
     }
+
     .react-jinke-music-player-main .music-player-panel .panel-content .player-content .play-sounds {
         display: none !important
     }
+
     .react-jinke-music-player-main .music-player-panel .panel-content .img-content {
         height: 40px;
         width: 40px
     }
+
     .react-jinke-music-player-main .music-player-panel .panel-content .progress-bar-content {
         display: none !important
     }
+
     .react-jinke-music-player-main .music-player-panel .panel-content .player-content>.group {
         margin: 0 6px
     }
@@ -811,11 +829,13 @@
     .react-jinke-music-player-mobile-singer {
         padding: 0
     }
+
     .react-jinke-music-player-mobile-cover {
         height: 230px;
         margin: 10px auto;
         width: 230px
     }
+
     .react-jinke-music-player-mobile-toggle {
         padding: 10px 0
     }
@@ -827,6 +847,7 @@
     .react-jinke-music-player-mobile-toggle .play-btn svg {
         font-size: 40px
     }
+
     .react-jinke-music-player-main .music-player-panel .panel-content .player-content>.group {
         margin: 0 4px
     }
@@ -1167,6 +1188,7 @@
 .audio-lists-panel-content .audio-item.playing {
     background-color: rgba(0, 0, 0, .35)
 }
+
 /*here*/
 .audio-lists-panel-content .audio-item.playing,
 .audio-lists-panel-content .audio-item.playing svg {
@@ -1392,6 +1414,7 @@
 .react-jinke-music-player-main .music-player-panel .panel-content .img-content img {
     width: 100%
 }
+
 /* animate
 .react-jinke-music-player-main .music-player-panel .panel-content .img-rotate {
     animation: imgRotate 15s linear infinite
@@ -1613,7 +1636,7 @@
     background-color: rgba(0, 0, 0, .09) !important
 }
 
-.music-player-controller{
+.music-player-controller {
     background-image: none !important;
 }
 
@@ -1723,10 +1746,12 @@
 .react-jinke-music-player-main.light-theme .audio-item.playing {
     background-color: #fafafa !important
 }
+
 /*here*/
 .react-jinke-music-player-main.light-theme .audio-item.playing svg {
     color: #3f5b92
 }
+
 /*here*/
 .react-jinke-music-player-main.light-theme .audio-item.playing .player-singer {
     color: #3f5b92 !important
@@ -1772,6 +1797,7 @@
 .react-jinke-music-player-main.light-theme .react-jinke-music-player-mobile-singer-name:before {
     background-color: #444
 }
+
 /*here*/
 .react-jinke-music-player-main.light-theme .play-mode-title {
     background-color: #fff;
@@ -1826,11 +1852,13 @@
     transition: all .3s cubic-bezier(.43, -.1, .16, 1.1);
     z-index: 99
 }
-@media screen and (max-width: 800px){
-    .react-jinke-music-player{
+
+@media screen and (max-width: 800px) {
+    .react-jinke-music-player {
         top: 15px !important;
         left: calc(50% + 60px) !important;
     }
+
     .react-jinke-music-player .music-player-controller {
         position: fixed
     }
@@ -1839,7 +1867,8 @@
 .react-jinke-music-player .music-player-controller:focus {
     outline: none
 }
-.music-player-playing{
+
+.music-player-playing {
     color: #f7f91d !important;
 }
 
@@ -1907,6 +1936,7 @@
 .react-jinke-music-player .audio-circle-process-bar circle[class=bg] {
     stroke: #fff
 }
+
 /*here*/
 .react-jinke-music-player .audio-circle-process-bar circle[class=stroke] {
     stroke: #3f5b92

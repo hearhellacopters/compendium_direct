@@ -58,8 +58,8 @@ export default class TopBar extends Component {
   };
 
   static defaultProps = {
-    onPrevClick: () => {},
-    onNextClick: () => {}
+    onPrevClick: () => { },
+    onNextClick: () => { }
   };
 
   render() {
@@ -68,7 +68,7 @@ export default class TopBar extends Component {
       <Container>
         <img src={PrevArrow} onClick={onPrevClick} alt="previous month" />
         <span key={date.format()} style={titleTextStyle}>
-        <span className={flag}></span>{" "}{date.format('MMMM YYYY').toUpperCase()}{" "}
+          <span className={flag}></span>{" "}{date.format('MMMM YYYY').toUpperCase()}{" "}
         </span>
         <img src={NextArrow} onClick={onNextClick} alt="next month" />
       </Container>

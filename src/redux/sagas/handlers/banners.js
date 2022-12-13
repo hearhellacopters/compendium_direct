@@ -7,7 +7,7 @@ export function* handleGetBanners(action) {
   try {
     const response = yield call(requestGetBanners);
     const { data } = response;
-    if(isJson(data,"GetBanners") == true){
+    if (isJson(data, "GetBanners") == true) {
       yield put(setBanners(data));
     }
   } catch (error) {

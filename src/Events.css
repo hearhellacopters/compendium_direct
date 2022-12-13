@@ -1,14 +1,14 @@
-.redcolor{
+.redcolor {
   margin-top: 5px;
   color: #e87973;
 }
 
-.greencolor{
+.greencolor {
   margin-top: 5px;
   color: #1af12a;
 }
 
-.toevents{
+.toevents {
   color: white;
   cursor: pointer;
   text-decoration: underline;
@@ -16,7 +16,7 @@
   display: contents;
 }
 
-.atevents{
+.atevents {
   color: white;
   text-decoration: underline;
   font-size: larger;
@@ -30,20 +30,21 @@
     -webkit-filter: brightness(1.2);
     transition: all ease 0.3s;
   }
+
   .chq-atc--dropdown a:hover {
     color: #f7f91d;
     background-color: #1e3758f0;
   }
 }
-  
-.chq-atc--button:active{
+
+.chq-atc--button:active {
   filter: drop-shadow(0px 0px 2px #222) brightness(.8);
   -webkit-filter: drop-shadow(0px 0px 2px #222) brightness(.8);
   transition: all 0s;
 }
 
 
-.chq-atc--button{
+.chq-atc--button {
   background-color: transparent;
   background-image: url(https://dissidiacompendium.com/images/static/icons/buttons/svg/blue-button.svg);
   background-repeat: no-repeat;
@@ -67,7 +68,8 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
-.chq-atc--dropdown{
+
+.chq-atc--dropdown {
   background-color: #81a0c9;
   border-radius: 5px;
   border: 1px solid black;
@@ -80,7 +82,7 @@
   z-index: 999;
 }
 
-.chq-atc--button svg{
+.chq-atc--button svg {
   vertical-align: text-bottom;
   filter: invert(1) drop-shadow(1px 0 0 rgb(0, 0, 0)) drop-shadow(0 1px 0 rgb(0, 0, 0)) drop-shadow(0 -1px 0 rgb(0, 0, 0)) drop-shadow(-1px 0 0 rgb(0, 0, 0));
   -webkit-filter: invert(1) drop-shadow(1px 0 0 #000000) drop-shadow(0 1px 0 #000000) drop-shadow(0 -1px 0 #000000) drop-shadow(-1px 0 0 #000000);
@@ -94,7 +96,7 @@
   border-bottom: 1px solid black;
 }
 
-.chq-atc{
+.chq-atc {
   background-color: transparent;
   display: inline-block;
   position: relative;
@@ -112,56 +114,59 @@
 
 
 @media (hover: hover) {
-.toevents:hover{
-  color: #f7f91d;
-  transition: .3s ease color;
+  .toevents:hover {
+    color: #f7f91d;
+    transition: .3s ease color;
+  }
 }
-}
-.bannerholdertabs{
-  
+
+.bannerholdertabs {
+
   display: grid;
   transition: .3s ease all;
   justify-content: center;
 }
 
 @media (hover: hover) {
-  .inactiveeventtab:hover{
+  .inactiveeventtab:hover {
     color: #f7f91d;
     cursor: pointer;
     transition: .3s ease color;
   }
-  .activeeventtab:hover{
+
+  .activeeventtab:hover {
     color: #f7f91d;
     cursor: pointer;
     transition: .3s ease color;
   }
-  .showlink:hover{
+
+  .showlink:hover {
     transform: translateY(-1px);
     filter: brightness(1.2);
     -webkit-filter: brightness(1.2);
     transition: all ease 0.3s;
   }
-  }
+}
 
-.eventablist{
+.eventablist {
   list-style: none;
   padding-left: 8px;
   z-index: 1;
 }
 
-.eventtabs{
+.eventtabs {
   display: grid;
   justify-content: center;
   z-index: -1;
 }
 
-.nolistdisplay{
+.nolistdisplay {
   list-style-type: none;
   padding: 0px;
   margin: 0px;
 }
 
-.eventwithbackgorundtabs{
+.eventwithbackgorundtabs {
   margin-top: 5px;
   background-color: #81a0c9;
   border: solid 3px #7a7a7a;
@@ -171,12 +176,12 @@
   z-index: 1;
 }
 
-.withshadow{
+.withshadow {
   filter: drop-shadow(3px 3px 3px #222);
   -webkit-filter: drop-shadow(3px 3px 3px #222);
 }
 
-.joinup{
+.joinup {
   text-align: center;
   padding-left: 8px;
   padding-right: 5px;
@@ -196,7 +201,7 @@
   background-color: #346746f0;
 }
 
-.inactiveeventtab{
+.inactiveeventtab {
   border-left: solid 3px #7a7a7a;
   border-right: solid 3px #7a7a7a;
   border-bottom: solid 3px #7a7a7a;
@@ -216,7 +221,7 @@
   filter: drop-shadow(0px 3px 2px rgba(0, 0, 0, 0.493));
 }
 
-.activeeventtab{
+.activeeventtab {
   border-left: solid 3px #7a7a7a;
   border-right: solid 3px #7a7a7a;
   border-bottom: solid 3px #7a7a7a;
@@ -238,25 +243,25 @@
   z-index: 1;
 }
 
-.eventholder{
+.eventholder {
   width: 100%;
   position: relative;
   overflow: hidden;
   background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #263252 3.67%, #263252 96.44%, rgba(30, 55, 88, 0) 100%);
 }
 
-.BTCharacter{
+.BTCharacter {
   opacity: .30;
   z-index: 0;
   margin-top: -15px;
   position: absolute;
   height: 267px;
   width: 192px;
-  right:0;
+  right: 0;
   top: 0;
 }
 
-.eventbutton{
+.eventbutton {
   margin-right: 8px;
   margin-left: 8px;
   margin-top: 5px;
@@ -270,86 +275,86 @@
 
 /*cal buttons*/
 
-.SixManCal{
+.SixManCal {
   content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/6Man2.png');
 }
 
-.AbyssButtonCal{
+.AbyssButtonCal {
   content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Abyss.png');
 }
 
-.ActOneCal{
+.ActOneCal {
   content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Act1.png');
 }
 
-.ActTwoCal{
+.ActTwoCal {
   content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Act2.png');
 }
 
-.ActThreeCal{
+.ActThreeCal {
   content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Act3.png');
 }
 
-.ActFourCal{
+.ActFourCal {
   content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Act4.png');
 }
 
-.BossRushCal{
+.BossRushCal {
   content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/BossRush.png');
 }
 
-.DimensionsEndCal{
+.DimensionsEndCal {
   content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/DimensionsEnd.png');
 }
 
-.EventsCal{
+.EventsCal {
   content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Events.png');
 }
 
-.BannerOnly{
+.BannerOnly {
   content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Banner.png');
 }
 
-.HereticButtonCal{
+.HereticButtonCal {
   content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Heretic.png');
 }
 
-.HuntsCal{
+.HuntsCal {
   content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Hunts.png');
 }
 
-.LostChaptersCal{
+.LostChaptersCal {
   content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/LostChapters.png');
 }
 
-.MissionDungeonCal{
+.MissionDungeonCal {
   content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/MissionDungeon.png');
 }
 
-.RaidButtonCal{
+.RaidButtonCal {
   content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Raid.png');
 }
 
-.LufeniaplusCal{
+.LufeniaplusCal {
   content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Lufenia+.png');
 }
 
-.WorldofIllusionsCal{
+.WorldofIllusionsCal {
   content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/WorldofIllusions.png');
 }
 
-.EntangledWillsCal{
+.EntangledWillsCal {
   content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/EntangledWills.png');
 }
 
-.tableholder{
+.tableholder {
   display: flex;
   position: relative;
   z-index: 2;
   box-sizing: border-box;
 }
 
-.buttoncal{
+.buttoncal {
   text-align: center;
   margin: auto;
   margin-top: auto;
@@ -358,12 +363,13 @@
   position: absolute;
   inset: 0px;
   filter: drop-shadow(3px 3px 3px #222);
-    -webkit-filter: drop-shadow(3px 3px 3px #222);
+  -webkit-filter: drop-shadow(3px 3px 3px #222);
 }
-@media screen and (max-width: 735px){
-  .buttoncal{
+
+@media screen and (max-width: 735px) {
+  .buttoncal {
     max-width: 100%;
-    filter:none;
+    filter: none;
     -webkit-filter: none;
   }
 }
@@ -376,35 +382,41 @@
   max-width: 600px;
 }
 
-.bottomspace{
+.bottomspace {
   margin-bottom: 5px;
 }
 
-.ohno0{
+.ohno0 {
   width: 128px;
   height: 126px;
 }
-.ohno1{
+
+.ohno1 {
   width: 128px;
   height: 128px;
 }
-.ohno2{
+
+.ohno2 {
   width: 130px;
   height: 130px;
 }
-.ohno3{
+
+.ohno3 {
   width: 137px;
   height: 131px;
 }
-.ohno4{
+
+.ohno4 {
   width: 116px;
   height: 116px;
 }
-.ohno5{
+
+.ohno5 {
   width: 128px;
   height: 128px;
 }
-.ohno6{
+
+.ohno6 {
   width: 128px;
   height: 128px;
 }
@@ -429,17 +441,19 @@
   align-items: center;
 }
 
-.eventbuttons{
+.eventbuttons {
   margin-left: auto;
   margin-right: auto;
   display: flex;
   margin: auto;
   width: fit-content;
 }
-.eventbuttons div{
+
+.eventbuttons div {
   margin: 0px;
 }
-.guidelist{
+
+.guidelist {
   clear: both;
   display: block;
   list-style-type: none;
@@ -451,7 +465,7 @@
   margin-right: auto;
 }
 
-.guidelinksflair{
+.guidelinksflair {
   height: auto;
   transition: flex 0.3s ease-out;
   border-bottom: 2px solid black;
@@ -467,18 +481,18 @@
   text-align: left;
 }
 
-.jpsmallinactive{
-  filter:  drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
+.jpsmallinactive {
+  filter: drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
   -webkit-filter: drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
 }
 
-.jpsmallactive{
-  filter:  drop-shadow(1px 0px 0px rgb(229, 255, 0)) drop-shadow(0px 1px 0px rgb(229, 255, 0)) drop-shadow(0px -1px 0px rgb(229, 255, 0)) drop-shadow(-1px 0px 0px rgb(229, 255, 0));
+.jpsmallactive {
+  filter: drop-shadow(1px 0px 0px rgb(229, 255, 0)) drop-shadow(0px 1px 0px rgb(229, 255, 0)) drop-shadow(0px -1px 0px rgb(229, 255, 0)) drop-shadow(-1px 0px 0px rgb(229, 255, 0));
   -webkit-filter: drop-shadow(1px 0px 0px rgb(229, 255, 0)) drop-shadow(0px 1px 0px rgb(229, 255, 0)) drop-shadow(0px -1px 0px rgb(229, 255, 0)) drop-shadow(-1px 0px 0px rgb(229, 255, 0));
 }
 
-.jponlybackground{
-  background: linear-gradient(0deg, rgba(77,86,97,0) 0%, rgba(77,86,97,0.5060399159663865) 3%, rgba(32,36,40,1) 34%, rgba(0,0,0,1) 65%, rgba(77,86,97,0.427608543417367) 97%, rgba(77,86,97,0) 100%);
+.jponlybackground {
+  background: linear-gradient(0deg, rgba(77, 86, 97, 0) 0%, rgba(77, 86, 97, 0.5060399159663865) 3%, rgba(32, 36, 40, 1) 34%, rgba(0, 0, 0, 1) 65%, rgba(77, 86, 97, 0.427608543417367) 97%, rgba(77, 86, 97, 0) 100%);
   height: 30px;
   width: 30px;
   display: inline-table;
@@ -487,7 +501,7 @@
   -webkit-filter: drop-shadow(1px 1px 2px #222);
 }
 
-.GLonlybackground{
+.GLonlybackground {
   height: 30px;
   width: 30px;
   display: inline-table;
@@ -496,7 +510,7 @@
   -webkit-filter: drop-shadow(1px 1px 2px #222);
 }
 
-.Spoilerbackground{
+.Spoilerbackground {
   height: 30px;
   width: 30px;
   display: inline-table;
@@ -505,8 +519,8 @@
   -webkit-filter: drop-shadow(1px 1px 2px #222);
 }
 
-.pasteventbackground{
-  background: radial-gradient(circle, rgba(77,86,97,1) 25%, rgba(0,0,0,0.9612219887955182) 50%, rgba(77,86,97,0) 75%);
+.pasteventbackground {
+  background: radial-gradient(circle, rgba(77, 86, 97, 1) 25%, rgba(0, 0, 0, 0.9612219887955182) 50%, rgba(77, 86, 97, 0) 75%);
   height: 30px;
   width: 30px;
   display: inline-table;
@@ -515,8 +529,8 @@
   -webkit-filter: drop-shadow(1px 1px 2px #222);
 }
 
-.futureeventbackground{
-  background: radial-gradient(circle, rgba(77,86,97,1) 25%, rgba(0,0,0,0.9612219887955182) 50%, rgba(77,86,97,0) 75%);
+.futureeventbackground {
+  background: radial-gradient(circle, rgba(77, 86, 97, 1) 25%, rgba(0, 0, 0, 0.9612219887955182) 50%, rgba(77, 86, 97, 0) 75%);
   height: 30px;
   width: 30px;
   display: inline-table;
@@ -525,7 +539,7 @@
   -webkit-filter: drop-shadow(1px 1px 2px #222);
 }
 
-.pastevents{
+.pastevents {
   content: url(https://dissidiacompendium.com/images/static/icons/misc/backevents1.svg);
   display: inline-block;
   vertical-align: middle;
@@ -534,7 +548,7 @@
   cursor: pointer;
 }
 
-.spoiler_toggle{
+.spoiler_toggle {
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -542,7 +556,7 @@
   cursor: pointer;
 }
 
-.futureevents{
+.futureevents {
   content: url(https://dissidiacompendium.com/images/static/icons/misc/forwardevents1.svg);
   display: inline-block;
   vertical-align: middle;
@@ -551,27 +565,27 @@
   cursor: pointer;
 }
 
-.spoiler_off{
+.spoiler_off {
   filter: grayscale(1) drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
   -webkit-filter: grayscale(1) drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
 }
 
-.pastsmallactive{
+.pastsmallactive {
   filter: invert(100%) drop-shadow(1px 0px 0px rgb(229, 255, 0)) drop-shadow(0px 1px 0px rgb(229, 255, 0)) drop-shadow(0px -1px 0px rgb(229, 255, 0)) drop-shadow(-1px 0px 0px rgb(229, 255, 0));
-  -webkit-filter: invert(100%)  drop-shadow(1px 0px 0px rgb(229, 255, 0)) drop-shadow(0px 1px 0px rgb(229, 255, 0)) drop-shadow(0px -1px 0px rgb(229, 255, 0)) drop-shadow(-1px 0px 0px rgb(229, 255, 0));
+  -webkit-filter: invert(100%) drop-shadow(1px 0px 0px rgb(229, 255, 0)) drop-shadow(0px 1px 0px rgb(229, 255, 0)) drop-shadow(0px -1px 0px rgb(229, 255, 0)) drop-shadow(-1px 0px 0px rgb(229, 255, 0));
 }
 
-.pastsmallinactive{
+.pastsmallinactive {
   filter: drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
   -webkit-filter: drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
 }
 
-.margright{
+.margright {
   margin-left: auto;
 }
 
-.nolinksholder{
-  position: relative; 
+.nolinksholder {
+  position: relative;
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
@@ -580,21 +594,21 @@
   align-self: flex-end;
 }
 
-.nolinkstext{
-  position: absolute; 
-  left: 0px; 
+.nolinkstext {
+  position: absolute;
+  left: 0px;
   bottom: 0px;
-  width: 100%; 
+  width: 100%;
   align-self: flex-end;
   text-align: center;
   display: flex;
-  vertical-align: baseline ;
+  vertical-align: baseline;
   height: 100px;
-  -webkit-box-shadow: inset 0px -50px 34px -28px #455065; 
-box-shadow: inset 0px -50px 34px -28px #455065;
+  -webkit-box-shadow: inset 0px -50px 34px -28px #455065;
+  box-shadow: inset 0px -50px 34px -28px #455065;
 }
 
-.sitsatbottom{
+.sitsatbottom {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -605,34 +619,37 @@ box-shadow: inset 0px -50px 34px -28px #455065;
 }
 
 
-.smalleventbutton{
+.smalleventbutton {
   cursor: pointer;
 }
 
 @media (hover: hover) {
-  .spoiler_toggle:hover{
-    transform: translateY(-1px);
-    transition: all ease 0.3s;
-  }
-  .pastevents:hover{
-    transform: translateY(-1px);
-    transition: all ease 0.3s;
-  }
-  .futureevents:hover{
-    transform: translateY(-1px);
-    transition: all ease 0.3s;
-  }
-  .smalleventbutton:hover{
+  .spoiler_toggle:hover {
     transform: translateY(-1px);
     transition: all ease 0.3s;
   }
 
+  .pastevents:hover {
+    transform: translateY(-1px);
+    transition: all ease 0.3s;
   }
-  
+
+  .futureevents:hover {
+    transform: translateY(-1px);
+    transition: all ease 0.3s;
+  }
+
+  .smalleventbutton:hover {
+    transform: translateY(-1px);
+    transition: all ease 0.3s;
+  }
+
+}
+
 
 
 @media (hover: hover) {
-  .loadbanners:hover{  
+  .loadbanners:hover {
     filter: brightness(1.2);
     -webkit-filter: brightness(1.2);
     transition: all ease 0.3s;
@@ -640,14 +657,14 @@ box-shadow: inset 0px -50px 34px -28px #455065;
     transition: .3s ease color;
   }
 }
-  
-.loadbanners:active{
+
+.loadbanners:active {
   filter: brightness(.8);
   -webkit-filter: brightness(.8);
   transition: all 0s;
 }
-  
-.bannerbutton{
+
+.bannerbutton {
   margin-right: 8px;
   margin-left: 8px;
   margin-top: 5px;
@@ -657,35 +674,37 @@ box-shadow: inset 0px -50px 34px -28px #455065;
   height: 27px;
   cursor: pointer;
 }
+
 @media (hover: hover) {
-  .bannername:hover{
+  .bannername:hover {
     color: #f7f91d;
     transition: .3s ease color;
   }
 }
 
-.eventtypes{
+.eventtypes {
   padding-left: 0px;
-  margin:auto;
+  margin: auto;
   margin-top: 5px;
   margin-bottom: 5px;
   max-width: 500px;
 }
-.spanhelper span{
+
+.spanhelper span {
   display: block !important;
 }
 
-.eventtypes li{
+.eventtypes li {
   display: inline-block;
 }
 
-.bannertypes{
+.bannertypes {
   list-style: none;
   padding-left: 0px;
   margin-top: 5px;
 }
 
-.bannertypes ul{
+.bannertypes ul {
   display: block;
   padding-left: 0px;
   margin-left: 0px;
@@ -699,25 +718,25 @@ box-shadow: inset 0px -50px 34px -28px #455065;
   list-style: none;
 }
 
-.bannertypes li{
+.bannertypes li {
   padding-left: 0px;
   list-style: none;
   clear: both;
   display: inline-block;
 }
 
-.bannerholder{
+.bannerholder {
   padding-top: 15px;
   list-style: none;
   background: #43517a;
   padding-left: 0px;
   padding-bottom: 8px;
   box-shadow: inset 5px 0px 4px rgba(0, 0, 0, 0.5), inset -5px 5px 4px rgba(0, 0, 0, 0.5), inset 0px -5px 4px rgba(0, 0, 0, 0.5);
-  border-radius: 19px; 
+  border-radius: 19px;
   clear: both;
 }
 
-.charholderflair{
+.charholderflair {
   border-bottom: 2px solid black;
   margin-top: 0px;
   padding-top: 5px;
@@ -730,7 +749,7 @@ box-shadow: inset 0px -50px 34px -28px #455065;
   background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #b2b2b4 3.67%, #b2b2b4 96.44%, rgba(30, 55, 88, 0) 100%);
 }
 
-.charholderflairlight{
+.charholderflairlight {
   border-bottom: 2px solid black;
   margin-top: 0px;
   padding-top: 5px;
@@ -740,10 +759,10 @@ box-shadow: inset 0px -50px 34px -28px #455065;
   z-index: 1;
   text-align: center;
   font-weight: bold;
-  background: linear-gradient( 90deg , rgba(30, 55, 88, 0) 0%, #3f5b92   3.67%, #3f5b92  96.44%, rgba(30, 55, 88, 0) 100%);
+  background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #3f5b92 3.67%, #3f5b92 96.44%, rgba(30, 55, 88, 0) 100%);
 }
 
-.banneroneventholder{
+.banneroneventholder {
   transform-origin: 50% 0;
   display: flex;
   align-items: center;
@@ -753,107 +772,107 @@ box-shadow: inset 0px -50px 34px -28px #455065;
 
 /* Icons */
 
-.Weekly{
+.Weekly {
   background-image: url('https://dissidiacompendium.com/images/static/banners/icons/banners/Weekly.png');
 }
 
-.Special{
+.Special {
   background-image: url('https://dissidiacompendium.com/images/static/banners/icons/banners/Special.png');
 }
 
-.EventsBanner{
+.EventsBanner {
   background-image: url('https://dissidiacompendium.com/images/static/banners/icons/banners/Event.png');
 }
 
-.Campaign{
+.Campaign {
   background-image: url('https://dissidiacompendium.com/images/static/banners/icons/banners/Campaign.png');
 }
 
-.Story{
+.Story {
   background-image: url('https://dissidiacompendium.com/images/static/banners/icons/banners/Story.png');
 }
 
-.SixMan{
+.SixMan {
   background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/6Man2.png');
 }
 
-.AbyssButton{
+.AbyssButton {
   background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Abyss.png');
 }
 
-.ActOne{
+.ActOne {
   background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Act1.png');
 }
 
-.ActTwo{
+.ActTwo {
   background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Act2.png');
 }
 
-.ActThree{
+.ActThree {
   background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Act3.png');
 }
 
-.ActFour{
+.ActFour {
   background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Act4.png');
 }
 
-.BossRush{
+.BossRush {
   background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/BossRush.png');
 }
 
-.DimensionsEnd{
+.DimensionsEnd {
   background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/DimensionsEnd.png');
 }
 
-.Events{
+.Events {
   background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Events.png');
 }
 
-.HereticButton{
+.HereticButton {
   background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Heretic.png');
 }
 
-.Hunts{
+.Hunts {
   background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Hunts.png');
 }
 
-.LostChapters{
+.LostChapters {
   background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/LostChapters.png');
 }
 
-.MissionDungeon{
+.MissionDungeon {
   background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/MissionDungeon.png');
 }
 
-.RaidButton{
+.RaidButton {
   background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Raid.png');
 }
 
-.Lufeniaplus{
+.Lufeniaplus {
   background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Lufenia+.png');
 }
 
-.WorldofIllusions{
+.WorldofIllusions {
   background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/WorldofIllusions.png');
 }
 
-.JPOnly{
+.JPOnly {
   background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/JPOnly.png');
 }
 
-.PastEvents{
+.PastEvents {
   background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/PastEvents.png');
 }
 
-.FutureEvents{
+.FutureEvents {
   background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/ForwardEvents.png');
 }
 
-.EntangledWills{
+.EntangledWills {
   background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/EntangledWills.png');
 }
 
-.eventimage{
+.eventimage {
   z-index: 2;
   position: relative;
   padding: 5px;
@@ -861,7 +880,7 @@ box-shadow: inset 0px -50px 34px -28px #455065;
   height: 152px;
 }
 
-.similarbanner{
+.similarbanner {
   margin-bottom: 0px;
   margin-top: 0px;
   padding: 5px;
@@ -870,7 +889,7 @@ box-shadow: inset 0px -50px 34px -28px #455065;
   background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, rgba(30, 55, 88, 0.940205) 3.67%, rgba(30, 55, 88, 0.85) 96.44%, rgba(30, 55, 88, 0) 100%);
 }
 
-.similarbannerred{
+.similarbannerred {
   margin-bottom: 0px;
   margin-top: 0px;
   padding: 5px;
@@ -879,7 +898,7 @@ box-shadow: inset 0px -50px 34px -28px #455065;
   background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #af2123 3.67%, #af2123 96.44%, rgba(30, 55, 88, 0) 100%);
 }
 
-.similarbanneruni{
+.similarbanneruni {
   margin-bottom: 0px;
   margin-top: 0px;
   padding: 5px;
@@ -888,31 +907,31 @@ box-shadow: inset 0px -50px 34px -28px #455065;
   background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #3f5b92 3.67%, #3f5b92 96.44%, rgba(30, 55, 88, 0) 100%);
 }
 
-.bannerimage{
+.bannerimage {
   z-index: 2;
   width: 800px;
   position: relative;
   padding: 10px
 }
 
-.panelimage{
+.panelimage {
   height: 450px;
   width: 800px;
   position: relative;
   padding: 10px
 }
 
-.infoimg{
+.infoimg {
   width: 800px;
   position: relative;
   padding: 10px
 }
 
-.shareholder{
+.shareholder {
   margin-bottom: 10px;
 }
 
-.eventtitlebanner{
+.eventtitlebanner {
   border-top: solid black 2px;
   border-bottom: solid black 2px;
   margin-bottom: 0px;
@@ -921,10 +940,10 @@ box-shadow: inset 0px -50px 34px -28px #455065;
   z-index: 5;
   text-align: center;
   font-weight: bold;
-  background: linear-gradient( 90deg , rgba(30, 55, 88, 0) 0%, #81a0c9  3.67%, #81a0c9  96.44%, rgba(30, 55, 88, 0) 100%);
+  background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #81a0c9 3.67%, #81a0c9 96.44%, rgba(30, 55, 88, 0) 100%);
 }
 
-.singleeventtitlebanner{
+.singleeventtitlebanner {
   border-top: 2px solid black;
   border-bottom: 2px solid black;
   margin-top: 0px;
@@ -934,33 +953,33 @@ box-shadow: inset 0px -50px 34px -28px #455065;
   background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, rgba(30, 55, 88, 0.940205) 3.67%, rgba(30, 55, 88, 0.85) 96.44%, rgba(30, 55, 88, 0) 100%);
 }
 
-.featuredbanner{
+.featuredbanner {
   border-top: solid black 2px;
   border-bottom: solid black 2px;
   padding-top: 10px;
   z-index: 1;
   padding-bottom: 10px;
-  background: linear-gradient( 90deg , rgba(30, 55, 88, 0) 0%, #3f5b92   3.67%, #3f5b92  96.44%, rgba(30, 55, 88, 0) 100%);
+  background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #3f5b92 3.67%, #3f5b92 96.44%, rgba(30, 55, 88, 0) 100%);
 }
 
-.featuredbannernotop{
+.featuredbannernotop {
   border-bottom: solid black 2px;
   padding-top: 10px;
   z-index: 1;
   padding-bottom: 10px;
-  background: linear-gradient( 90deg , rgba(30, 55, 88, 0) 0%, #3f5b92   3.67%, #3f5b92  96.44%, rgba(30, 55, 88, 0) 100%);
+  background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #3f5b92 3.67%, #3f5b92 96.44%, rgba(30, 55, 88, 0) 100%);
 }
 
-.featuredbanner2{
+.featuredbanner2 {
   border-top: solid black 2px;
   padding-top: 10px;
   z-index: 1;
   padding-bottom: 10px;
-  background: linear-gradient( 90deg , rgba(30, 55, 88, 0) 0%, #3f5b92   3.67%, #3f5b92  96.44%, rgba(30, 55, 88, 0) 100%);
+  background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #3f5b92 3.67%, #3f5b92 96.44%, rgba(30, 55, 88, 0) 100%);
 }
 
 
-.featuredbannerdark{
+.featuredbannerdark {
   border-top: solid black 2px;
   border-bottom: solid black 2px;
   padding-top: 10px;
@@ -969,37 +988,37 @@ box-shadow: inset 0px -50px 34px -28px #455065;
   background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #263252 3.67%, #263252 96.44%, rgba(30, 55, 88, 0) 100%);
 }
 
-.guidebanner{
+.guidebanner {
   border-top: solid black 2px;
   border-bottom: solid black 2px;
   padding-top: 10px;
   padding-bottom: 10px;
-  background: linear-gradient( 90deg , rgba(30, 55, 88, 0) 0%, #242b35   3.67%, #242b35  96.44%, rgba(30, 55, 88, 0) 100%);
+  background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #242b35 3.67%, #242b35 96.44%, rgba(30, 55, 88, 0) 100%);
 }
 
-.enemyevents{
+.enemyevents {
   transition: all .2s;
   transform-origin: 50% 0;
   padding: 0 8px 8px 8px;
-  background: linear-gradient( 90deg , rgba(30, 55, 88, 0) 0%, #8e8f8f   3.67%, #8e8f8f   96.44%, rgba(30, 55, 88, 0) 100%);
+  background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #8e8f8f 3.67%, #8e8f8f 96.44%, rgba(30, 55, 88, 0) 100%);
   clear: both;
 }
 
-.charenemyevents{
+.charenemyevents {
   transition: all .2s;
   transform-origin: 50% 0;
   padding: 0 8px 8px 8px;
-  background: linear-gradient( 90deg , rgba(30, 55, 88, 0) 0%, #696969   3.67%, #696969   96.44%, rgba(30, 55, 88, 0) 100%);
+  background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #696969 3.67%, #696969 96.44%, rgba(30, 55, 88, 0) 100%);
   clear: both;
   margin: auto;
 }
 
-.znone{
+.znone {
   z-index: -1;
   display: grid;
 }
 
-.enemyevents li{
+.enemyevents li {
   width: 128px;
   height: 128px;
   padding: 4px;
@@ -1008,7 +1027,7 @@ box-shadow: inset 0px -50px 34px -28px #455065;
   transition: all .2s;
 }
 
-.charenemyevents li{
+.charenemyevents li {
   width: 128px;
   height: 128px;
   padding: 4px;
@@ -1017,28 +1036,28 @@ box-shadow: inset 0px -50px 34px -28px #455065;
   transition: all .2s;
 }
 
-.enemyunits{
+.enemyunits {
   z-index: 1;
 }
 
-.btgreen{
+.btgreen {
   box-shadow: inset 5px 0px 4px #218327, inset -5px 5px 4px #218327, inset 0px -5px 4px #218327;
   background-color: black;
   border-radius: 5px;
 }
 
-.bannernamepopout{
+.bannernamepopout {
   z-index: 2;
 }
 
-.automarg{
+.automarg {
   display: block;
   margin-left: auto;
   margin-right: auto;
   line-height: 40px;
 }
 
-.bannername{
+.bannername {
   display: grid;
   z-index: -1;
   padding-bottom: 8px;
@@ -1047,11 +1066,11 @@ box-shadow: inset 0px -50px 34px -28px #455065;
   color: white;
 }
 
-.MuiPaper-root{
+.MuiPaper-root {
   text-shadow: none;
 }
 
-.calholder{
+.calholder {
   padding-top: 15px;
   list-style: none;
   background: #43517a;
@@ -1062,49 +1081,51 @@ box-shadow: inset 0px -50px 34px -28px #455065;
   clear: both;
 }
 
-.facetextlist{
+.facetextlist {
   position: absolute;
   width: 100%;
   bottom: 0;
   text-align: center;
   white-space: nowrap;
 }
-.warning{
+
+.warning {
   max-width: 500px;
   margin-left: auto;
   margin-right: auto;
 }
-.singleevenimageholder{
+
+.singleevenimageholder {
   margin-left: 0px;
   margin-right: 0px;
   display: inline-table;
   width: fit-content;
 }
 
-.titlemainupdateholder a{
+.titlemainupdateholder a {
   height: auto;
   width: auto;
   display: inline-block;
 }
 
-.singleevenimageholder span{
+.singleevenimageholder span {
   margin-left: 0px;
   margin-right: 0px;
 }
 
-.guidelist li{
+.guidelist li {
   margin-bottom: 10px;
 }
 
-.nobordertop{
+.nobordertop {
   border-top: 0px !important;
 }
 
-.guidelink{
+.guidelink {
   color: white;
 }
 
-.loadmorespheres{  
+.loadmorespheres {
   background-image: url("https://dissidiacompendium.com/images/static/icons/buttons/svg/blue-button.svg");
   background-repeat: no-repeat;
   background-size: contain;
@@ -1123,35 +1144,36 @@ box-shadow: inset 0px -50px 34px -28px #455065;
   justify-content: center;
   align-items: center;
 }
+
 @media (hover: hover) {
-.loadmorespheres:hover{  
-  filter: brightness(1.2);
-  -webkit-filter: brightness(1.2);
-  transition: all ease 0.3s;
-}
+  .loadmorespheres:hover {
+    filter: brightness(1.2);
+    -webkit-filter: brightness(1.2);
+    transition: all ease 0.3s;
+  }
 }
 
-.loadmorespheres:active{
+.loadmorespheres:active {
   filter: drop-shadow(0px 0px 2px #222) brightness(.8);
   -webkit-filter: drop-shadow(0px 0px 2px #222) brightness(.8);
   transition: all 0s;
 }
 
 @media (hover: hover) {
-  .guidelink:hover{
+  .guidelink:hover {
     color: #f7f91d;
   }
 }
 
-.sphereslistholder{
-  background: linear-gradient(90deg , rgba(30, 55, 88, 0) 0%, #43517a 3.67%, #43517a 96.44%, rgba(30, 55, 88, 0) 100%);
+.sphereslistholder {
+  background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #43517a 3.67%, #43517a 96.44%, rgba(30, 55, 88, 0) 100%);
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
 }
 
-.sphereeventunit{
+.sphereeventunit {
   -ms-flex-flow: row wrap;
   flex-flow: row wrap;
   display: -ms-flexbox;
@@ -1163,66 +1185,74 @@ box-shadow: inset 0px -50px 34px -28px #455065;
 }
 
 /*Calender*/
-.calcenter{
+.calcenter {
   display: flex;
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.calholder img{
+.calholder img {
   filter: brightness(2) drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
-  -webkit-filter: brightness(2)  drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
+  -webkit-filter: brightness(2) drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
 }
+
 /*Calender*/
 
-@media screen and (max-width: 870px){
-  .bannerimage{
+@media screen and (max-width: 870px) {
+  .bannerimage {
     width: 300px;
     padding: 5px;
   }
-  .panelimage{
+
+  .panelimage {
     width: 300px;
     height: 169px;
     padding: 5px;
   }
-  .infoimg{
+
+  .infoimg {
     width: 300px;
     padding: 5px;
   }
 }
 
-@media screen and (max-width: 360px){
-  .bannerimage{
+@media screen and (max-width: 360px) {
+  .bannerimage {
     width: 200px;
     padding: 5px;
   }
-  .panelimage{
+
+  .panelimage {
     width: 200px;
     height: 113px;
     padding: 5px;
   }
-  .infoimg{
+
+  .infoimg {
     width: 200px;
     padding: 5px;
   }
-  .eventimage{
+
+  .eventimage {
     max-width: 200px !important;
     height: auto;
   }
 }
 
-@media screen and (max-width: 380px){
-  .bannerimage{
+@media screen and (max-width: 380px) {
+  .bannerimage {
     width: 250px;
     padding: 5px;
   }
-  .panelimage{
+
+  .panelimage {
     width: 250px;
     height: 141px;
     padding: 5px;
   }
-  .infoimg{
+
+  .infoimg {
     width: 250px;
     padding: 5px;
   }
@@ -1233,7 +1263,8 @@ box-shadow: inset 0px -50px 34px -28px #455065;
   position: relative;
   overflow: hidden;
   height: 0;
-  padding-bottom: 56.25%; /* creates a 16:9 aspect ratio */
+  padding-bottom: 56.25%;
+  /* creates a 16:9 aspect ratio */
 }
 
 .video-container iframe,
@@ -1255,28 +1286,33 @@ box-shadow: inset 0px -50px 34px -28px #455065;
 }
 
 @media screen and (max-width: 800px) {
-  .joinup{
+  .joinup {
     font-size: small;
   }
-  .guidelist{
-   font-size: smaller;
+
+  .guidelist {
+    font-size: smaller;
   }
-  .similarbanner{
+
+  .similarbanner {
     font-size: 12px;
   }
-  .loadbanners{
+
+  .loadbanners {
     text-align: center;
     background-size: contain;
     width: 90px;
     height: 25px;
     font-size: x-small;
   }
-  .calholder{
+
+  .calholder {
     border-radius: 0px;
     box-shadow: none;
     padding-top: 0px;
   }
-  .calholder{
+
+  .calholder {
     margin-top: 0px;
     border-radius: 0 0 19px 19px;
     box-shadow: none;
@@ -1284,7 +1320,8 @@ box-shadow: inset 0px -50px 34px -28px #455065;
     border-right: solid 3px #7a7a7a;
     border-bottom: solid 3px #7a7a7a;
   }
-  .bannerholder{
+
+  .bannerholder {
     margin-top: 0px;
     border-radius: 0 0 19px 19px;
     box-shadow: none;
@@ -1292,62 +1329,78 @@ box-shadow: inset 0px -50px 34px -28px #455065;
     border-right: solid 3px #7a7a7a;
     border-bottom: solid 3px #7a7a7a;
   }
-  .bannername{
+
+  .bannername {
     font-size: small;
   }
-  .eventbutton{
+
+  .eventbutton {
     height: 61px;
     width: 61px;
     background-size: 61px;
   }
-  .eventtitlebanner{
+
+  .eventtitlebanner {
     font-size: small;
   }
-  .singleeventtitlebanner{
+
+  .singleeventtitlebanner {
     font-size: small;
   }
-  .featuredbannernotop{
+
+  .featuredbannernotop {
     font-size: 13px;
   }
-  .featuredbanner{
+
+  .featuredbanner {
     font-size: 13px;
   }
-  .featuredbanner2{
+
+  .featuredbanner2 {
     font-size: 13px;
   }
-  .guidebanner{
+
+  .guidebanner {
     font-size: small;
   }
-  .eventimage{
+
+  .eventimage {
     width: 250px;
     height: 82px;
     height: auto;
   }
-  .BTCharacter{
+
+  .BTCharacter {
     margin-top: -15px;
     width: 128px;
     height: 178px;
   }
-  .eventablist li{
+
+  .eventablist li {
     font-size: small;
   }
-  .enemyevents li{
+
+  .enemyevents li {
     height: 96px;
     width: 96px;
   }
-  .charenemyevents li{
+
+  .charenemyevents li {
     height: 96px;
     width: 96px;
   }
-  .faceiconlist{
+
+  .faceiconlist {
     height: 28px;
     width: 82px;
   }
+
   .CharListHolder span {
     margin-left: auto;
     margin-right: auto;
   }
-  .facetextlist{
+
+  .facetextlist {
     font-size: small;
   }
 

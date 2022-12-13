@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from "react-redux";
 import Tippy from './formatting/TippyDefaults'
 import { setFalse, setTrue } from './redux/ducks/jptoggle'
@@ -17,22 +17,22 @@ import BannersFormatting from './formatting/SingleBannersFormatting.js'
 import UpdatesFormmating from './formatting/UpdatesFormatter.js'
 import { ImWarning } from 'react-icons/im';
 import { Link } from 'react-router-dom'
-import 'react-lazy-load-image-component/src/effects/opacity.css'; 
-import {getQuery, getQueryStringVal,useQueryParam } from './processing/urlparams'
+import 'react-lazy-load-image-component/src/effects/opacity.css';
+import { getQuery, getQueryStringVal, useQueryParam } from './processing/urlparams'
 
-const Home = ({ProcessedUpdates, jptoggledata}) => {
+const Home = ({ ProcessedUpdates, jptoggledata }) => {
 
   const dispatch = useDispatch();
 
   const startinglimit = 10;
-  
+
   const rawData = ProcessedUpdates;
 
   const lastupdate = rawData[0];
 
   const updatelen = rawData.length;
 
-  const olderupdates = rawData.slice(1 , updatelen);
+  const olderupdates = rawData.slice(1, updatelen);
 
   const banerDisplayTerm = "updates";
 
@@ -44,7 +44,7 @@ const Home = ({ProcessedUpdates, jptoggledata}) => {
     olderupdates && olderupdates.slice(0, startinglimit)
   );
 
-  const [spoilers,setspoilers] = useState(lastupdate && lastupdate.JPFlag == "GL"  ? true : false)
+  const [spoilers, setspoilers] = useState(lastupdate && lastupdate.JPFlag == "GL" ? true : false)
   const [listLength, setListLength] = useState(listDisplay.length);
   const [showLoadMore, setShowLoadMore] = useState(true);
   const [displayBanner, setDisplayBanner] = useState(
@@ -55,7 +55,7 @@ const Home = ({ProcessedUpdates, jptoggledata}) => {
 
   //jp params
   useEffect(() => {
-    if(getQueryStringVal("JP") == "true" ){
+    if (getQueryStringVal("JP") == "true") {
       dispatch(setTrue())
       setJPSearch("true")
       setShowGLToggle(true)
@@ -64,16 +64,16 @@ const Home = ({ProcessedUpdates, jptoggledata}) => {
       setJPSearch("")
       setShowGLToggle(false)
     }
-  },[setJPSearch,dispatch])
+  }, [setJPSearch, dispatch])
 
   useEffect(() => {
-    if(jptoggledata == true ){
+    if (jptoggledata == true) {
       setJPSearch("true")
     }
-    if(getQueryStringVal("JP") == "true" ){
+    if (getQueryStringVal("JP") == "true") {
       dispatch(setTrue())
     }
-  },[jptoggledata,dispatch,setJPSearch])
+  }, [jptoggledata, dispatch, setJPSearch])
 
   useEffect(() => {
     setShowLoadMore(true);
@@ -112,12 +112,12 @@ const Home = ({ProcessedUpdates, jptoggledata}) => {
 
   function ordinal(n) {
     var s = ["th", "st", "nd", "rd"];
-    var v = n%100;
-    return n + (s[(v-20)%10] || s[v] || s[0]);
+    var v = n % 100;
+    return n + (s[(v - 20) % 10] || s[v] || s[0]);
   }
 
-  const handletoggle = (toggle) =>{
-    if(toggle == false){ 
+  const handletoggle = (toggle) => {
+    if (toggle == false) {
       setShowGLToggle(true)
       dispatch(setTrue())
       setJPSearch("true")
@@ -128,207 +128,206 @@ const Home = ({ProcessedUpdates, jptoggledata}) => {
     }
   }
 
-    useEffect(() => {
-    if(getQueryStringVal("JP") == "true" ){
-        dispatch(setTrue())
-        setJPSearch("true")
+  useEffect(() => {
+    if (getQueryStringVal("JP") == "true") {
+      dispatch(setTrue())
+      setJPSearch("true")
     } else {
-        dispatch(setFalse())
-        setJPSearch("")
+      dispatch(setFalse())
+      setJPSearch("")
     }
 
-    },[setJPSearch,dispatch])
+  }, [setJPSearch, dispatch])
 
-    const jponlybutton = () => {
-        if (jptoggledata == false) {
-            dispatch(setTrue())
-            setJPSearch("true")
-        }    
-    };
-
-    const glonlybutton = () => {
-        if (jptoggledata == true) {
-            dispatch(setFalse())
-            setJPSearch("")
-        }
-    };
-
-    const togglebutton = () => {
-      if (jptoggledata == true) {
-          dispatch(setFalse())
-          setJPSearch("")
-      } else {
-        dispatch(setTrue())
-            setJPSearch("true")
-      }
+  const jponlybutton = () => {
+    if (jptoggledata == false) {
+      dispatch(setTrue())
+      setJPSearch("true")
+    }
   };
 
-    const toggle_spoilers=()=>{
-      setspoilers((prevValue)=>!prevValue)
+  const glonlybutton = () => {
+    if (jptoggledata == true) {
+      dispatch(setFalse())
+      setJPSearch("")
     }
-    return(
-        <div>
-              <Helmet>
-                <title>Dissidia Compendium | Home</title>
-                <meta property="og:site_name" content="Dissidia Compendium"/>
-                <meta property="og:type" content="website" />
-                <meta name="robots" content="index, follow"/>
-                <meta name="description" content="Dissidia Final Fantasy Opera Omnia mobile game Database. We provide English and Japanese translations for both Global and Japanese versions. Here you'll find all character abilities, enemies and summons, as well as a complete timeline of game events with community guides"/>
-                <meta name="twitter:title" content="Dissidia Compendium"/>
-                <meta name="twitter:description" content="Dissidia Final Fantasy Opera Omnia mobile game Database. We provide English and Japanese translations for both Global and Japanese versions. Here you'll find all character abilities, enemies and summons, as well as a complete timeline of game events with community guides"/>
-                <meta name="twitter:image" content="https://dissidiacompendium.com/images/static/site/logo512.png"/>
-                <meta name="twitter:card" content="summary_large_image"/>
-                <meta name="twitter:image:alt" content="Dissidia Compendium"/>
-                <meta property="og:title" content="Dissidia Compendium"/>
-                <meta property="og:description" content="Dissidia Final Fantasy Opera Omnia mobile game Database. We provide English and Japanese translations for both Global and Japanese versions. Here you'll find all character abilities, enemies and summons, as well as a complete timeline of game events with community guides"/>
-                <meta property="og:image" content="https://dissidiacompendium.com/images/static/site/logo512.png"/>
-                <meta property="og:url" content="https://dissidiacompendium.com"/>
-              </Helmet>
-          <div className="content">
-            <h1 className="maintitle" >Welcome to Dissidia Compendium <Link className="updatelink" to="/log">v5.1!</Link><span className="squallsmile"></span></h1>
-            <div className="enemyholderdesc" style={{whiteSpace: "normal"}}>
-              <div className="subheader">
-                <div className="homewelcomeholder noselect">
-                Dissidia Final Fantasy Opera Omnia mobile game database.<br/><br/>
-                We provide translations for both the Global 
-                and Japanese versions. Here you'll find all character abilities, 
-                enemies and summons, as well as a complete timeline of game events 
-                with community guides. You can switch databases by using the upper <span className="emoji clicky" onClick={glonlybutton}>🌎</span> or <span className="jpflagupdate clicker" onClick={jponlybutton}></span> icons 
-                or the button below:
-                <br/>
-                <br/>
-                <div className='center'>
-                <Tippy content={jptoggledata == false ? "GL": "JP"}>
-                        <span className={`${jptoggledata == false ? "ver_gl": "ver_jp"} buffbutton filterinactive`} onClick={togglebutton}></span>
-                </Tippy>   
-                </div>
-                <span className="center" id="red">
-                  <ImWarning className='jpsmallinactive'></ImWarning>
-                  {" SPOILER WARNING "}
-                  <ImWarning className='jpsmallinactive'></ImWarning>
-                </span>
-                <span className="center">{"If you're a Global player who rather not know about upcoming content."}</span><br/>
-                <div className="centertext">
-                  {"Join our "}<a className="updatelink" target="_blank" rel="noreferrer" href="https://discord.gg/Y3Yn6gb"><span className="discord"></span></a>{" for the latest updates!"}</div>
+  };
+
+  const togglebutton = () => {
+    if (jptoggledata == true) {
+      dispatch(setFalse())
+      setJPSearch("")
+    } else {
+      dispatch(setTrue())
+      setJPSearch("true")
+    }
+  };
+
+  const toggle_spoilers = () => {
+    setspoilers((prevValue) => !prevValue)
+  }
+  return (
+    <div>
+      <Helmet>
+        <title>Dissidia Compendium | Home</title>
+        <meta property="og:site_name" content="Dissidia Compendium" />
+        <meta property="og:type" content="website" />
+        <meta name="robots" content="index, follow" />
+        <meta name="description" content="Dissidia Final Fantasy Opera Omnia mobile game Database. We provide English and Japanese translations for both Global and Japanese versions. Here you'll find all character abilities, enemies and summons, as well as a complete timeline of game events with community guides" />
+        <meta name="twitter:title" content="Dissidia Compendium" />
+        <meta name="twitter:description" content="Dissidia Final Fantasy Opera Omnia mobile game Database. We provide English and Japanese translations for both Global and Japanese versions. Here you'll find all character abilities, enemies and summons, as well as a complete timeline of game events with community guides" />
+        <meta name="twitter:image" content="https://dissidiacompendium.com/images/static/site/logo512.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image:alt" content="Dissidia Compendium" />
+        <meta property="og:title" content="Dissidia Compendium" />
+        <meta property="og:description" content="Dissidia Final Fantasy Opera Omnia mobile game Database. We provide English and Japanese translations for both Global and Japanese versions. Here you'll find all character abilities, enemies and summons, as well as a complete timeline of game events with community guides" />
+        <meta property="og:image" content="https://dissidiacompendium.com/images/static/site/logo512.png" />
+        <meta property="og:url" content="https://dissidiacompendium.com" />
+      </Helmet>
+      <div className="content">
+        <h1 className="maintitle" >Welcome to Dissidia Compendium <Link className="updatelink" to="/log">v5.1!</Link><span className="squallsmile"></span></h1>
+        <div className="enemyholderdesc" style={{ whiteSpace: "normal" }}>
+          <div className="subheader">
+            <div className="homewelcomeholder noselect">
+              Dissidia Final Fantasy Opera Omnia mobile game database.<br /><br />
+              We provide translations for both the Global
+              and Japanese versions. Here you'll find all character abilities,
+              enemies and summons, as well as a complete timeline of game events
+              with community guides. You can switch databases by using the upper <span className="emoji clicky" onClick={glonlybutton}>🌎</span> or <span className="jpflagupdate clicker" onClick={jponlybutton}></span> icons
+              or the button below:
+              <br />
+              <br />
+              <div className='center'>
+                <Tippy content={jptoggledata == false ? "GL" : "JP"}>
+                  <span className={`${jptoggledata == false ? "ver_gl" : "ver_jp"} buffbutton filterinactive`} onClick={togglebutton}></span>
+                </Tippy>
               </div>
-              </div>
+              <span className="center" id="red">
+                <ImWarning className='jpsmallinactive'></ImWarning>
+                {" SPOILER WARNING "}
+                <ImWarning className='jpsmallinactive'></ImWarning>
+              </span>
+              <span className="center">{"If you're a Global player who rather not know about upcoming content."}</span><br />
+              <div className="centertext">
+                {"Join our "}<a className="updatelink" target="_blank" rel="noreferrer" href="https://discord.gg/Y3Yn6gb"><span className="discord"></span></a>{" for the latest updates!"}</div>
             </div>
-            <div className="updatesholder">
-              <div className="lastupdate">Latest Update</div>
-              <div className="featuredbannernotop">{lastupdate.Title}</div>
-              {(spoilers == false && showGLToggle == false)
-              ? 
-              <div className='titlemainupdateholder'>
+          </div>
+        </div>
+        <div className="updatesholder">
+          <div className="lastupdate">Latest Update</div>
+          <div className="featuredbannernotop">{lastupdate.Title}</div>
+          {(spoilers == false && showGLToggle == false)
+            ?
+            <div className='titlemainupdateholder'>
               <div id="red" className='spoiler_text' onClick={toggle_spoilers}>
                 <ImWarning className='jpsmallinactive'></ImWarning>
-                  {" SPOILER WARNING "}
-                  <ImWarning className='jpsmallinactive'></ImWarning><br/>
-                  <span className='updatelink'>- Click to show -</span>
+                {" SPOILER WARNING "}
+                <ImWarning className='jpsmallinactive'></ImWarning><br />
+                <span className='updatelink'>- Click to show -</span>
               </div>
-              </div>
-              :
-              <>
+            </div>
+            :
+            <>
               <div className="updateunit">
                 <div className="updatedate">
                   {lastupdate.JPFlag == "GL" ? <span className="emoji">🌎</span> : <span className="jpflagupdate"></span>} {months[new Date(lastupdate.DateUpdate).getMonth()] + " " + ordinal(new Date(lastupdate.DateUpdate).getDate()) + " " + new Date(lastupdate.DateUpdate).getFullYear()}
                 </div>
                 <div className="titlemainupdateholder notop">
                   <div className="updatetitle">
-                  {lastupdate.Summary}
+                    {lastupdate.Summary}
                   </div>
                   <div className="updatemain">
-                    {lastupdate.Main != undefined ? addformatting(lastupdate.Main):""}
+                    {lastupdate.Main != undefined ? addformatting(lastupdate.Main) : ""}
                   </div>
                 </div>
               </div>
               {lastupdate.CharList == undefined ? "" :
-              <div className="zone">
-                <div className="featuredbanner">Updated Characters</div>
+                <div className="zone">
+                  <div className="featuredbanner">Updated Characters</div>
                   <div className="charalistflarholder">
-                      <div className="titlemainupdateholder">
-                  <ul className="CharListHolder">
+                    <div className="titlemainupdateholder">
+                      <ul className="CharListHolder">
                         {lastupdate.CharList.map(char => (
-                            <FaceMaker key={char.CharID} match={char} location={char.charurl}/>
+                          <FaceMaker key={char.CharID} match={char} location={char.charurl} />
                         ))
                         }
-                  </ul>
+                      </ul>
+                    </div>
                   </div>
-                  </div>
-              </div>}
+                </div>}
               {lastupdate.EventList == undefined ? "" :
-              <div className="">
-                <div className="featuredbanner">Updated Events</div>
-                {lastupdate.EventList.map(events => (
-                  <EventListing key={events.eventindex} match={events} permapage={false}/>
-               ))}
-              </div>
+                <div className="">
+                  <div className="featuredbanner">Updated Events</div>
+                  {lastupdate.EventList.map(events => (
+                    <EventListing key={events.eventindex} match={events} permapage={false} />
+                  ))}
+                </div>
               }
               {lastupdate.BannersList == undefined ? "" :
-              <div className="">
-              <div className="featuredbanner">Updated Banners</div>
-              {lastupdate.BannersList.map(events => (
-                <BannersFormatting key={events.bannerindex} match={events} showbanner={false} permapage={false}/>
-             ))}
-             </div>}
-             {lastupdate.EnemyList == undefined ? "" :
-              <div>
+                <div className="">
+                  <div className="featuredbanner">Updated Banners</div>
+                  {lastupdate.BannersList.map(events => (
+                    <BannersFormatting key={events.bannerindex} match={events} showbanner={false} permapage={false} />
+                  ))}
+                </div>}
+              {lastupdate.EnemyList == undefined ? "" :
+                <div>
                   <div className="featuredbanner">Updated Enemies</div>
                   <ul className="enemyholder nomargbottom nomargtop charalistflarholder notop">
-                  <div className="titlemainupdateholder">
-                    <div className="singlenemyholder">
-                    {lastupdate.EnemyList.map(enemy => (
-                        <EnemyListingsDirect key={enemy.battle_enemy_id} match={enemy} />
-                    ))} 
-                    </div>
+                    <div className="titlemainupdateholder">
+                      <div className="singlenemyholder">
+                        {lastupdate.EnemyList.map(enemy => (
+                          <EnemyListingsDirect key={enemy.battle_enemy_id} match={enemy} />
+                        ))}
+                      </div>
                     </div>
                   </ul>
-              </div>
-             }
-             {lastupdate.SummList == undefined ? "" :
-              <div>
-              <div className="featuredbanner">Updated Summons</div>
-                <div className="charholderflair notop">
-                  <div className="titlemainupdateholder">
-                  <ul className="summonupdatelist">
-                    {lastupdate.SummList.map(summons => (
-                    <li key={summons.SummonID}>
-                      <Link to={`/summons/${summons.SummonNameShort}`}>
-                      <DefaultTippy content={summons.SummonName}>
-                          <img alt={summons.SummonName} className="summonimglink" src={`https://dissidiacompendium.com/images/static/icons/summons/face/${summons.SummonFace}`} />
-                      </DefaultTippy>
-                      </Link>
-                    </li>
-                    ))}
-                  </ul>
                 </div>
+              }
+              {lastupdate.SummList == undefined ? "" :
+                <div>
+                  <div className="featuredbanner">Updated Summons</div>
+                  <div className="charholderflair notop">
+                    <div className="titlemainupdateholder">
+                      <ul className="summonupdatelist">
+                        {lastupdate.SummList.map(summons => (
+                          <li key={summons.SummonID}>
+                            <Link to={`/summons/${summons.SummonNameShort}`}>
+                              <DefaultTippy content={summons.SummonName}>
+                                <img alt={summons.SummonName} className="summonimglink" src={`https://dissidiacompendium.com/images/static/icons/summons/face/${summons.SummonFace}`} />
+                              </DefaultTippy>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-              </div>
-             }
-             </>
-            }
+              }
+            </>
+          }
+        </div>
+        <div className="updatesholder">
+          <div className="lastupdate nobottom">Previous Updates</div>
+          {listDisplay.map(updates => (
+            <UpdatesFormmating
+              key={updates.UpdateKey}
+              match={updates}
+              jptoggledata={jptoggledata}
+            />
+          ))}
+          <div className="">
+            <div className="subtextbottom">
+              {displayBanner}
             </div>
-            <div className="updatesholder">
-            <div className="lastupdate nobottom">Previous Updates</div>
-              {listDisplay.map(updates =>(
-                <UpdatesFormmating 
-                key={updates.UpdateKey} 
-                match={updates}
-                jptoggledata={jptoggledata}
-                />
-              ))}
-              <div className="">
-                <div className="subtextbottom">
-                  {displayBanner}
-                </div>
-                {showLoadMore && 
-                <div className="loadmore" onClick={loadMoreButton}> Load More </div>}
-                </div>
-              </div>
+            {showLoadMore &&
+              <div className="loadmore" onClick={loadMoreButton}> Load More </div>}
           </div>
         </div>
-)
+      </div>
+    </div>
+  )
 };
 export default Home;
-  
 
-  
+

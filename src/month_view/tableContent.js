@@ -16,13 +16,13 @@ const TD = styled.td`
   width: 14.28571429%;
   position: relative;
   ${(props) =>
-    props.unactive ?  "background: #949494 !important;" : ""}
+    props.unactive ? "background: #949494 !important;" : ""}
   background-color: ${(props) =>
     props.smallCalendar
       ? "white"
       : props.isToday
-      ? COLORS.lightgray
-      : COLORS.verylightgray};
+        ? COLORS.lightgray
+        : COLORS.verylightgray};
   border: ${`1px solid lightgray`};
   border-width: ${(props) =>
     props.smallCalendar && props.isToday ? "0.1em" : "0px"};
@@ -59,8 +59,8 @@ const DayNumber = styled.div`
     isSunday(props.date)
       ? "#f26f63"
       : isSaturday(props.date)
-      ? "#61b9d1"
-      : "black"};
+        ? "#61b9d1"
+        : "black"};
   background-color: transparent;
 
   p {
@@ -83,8 +83,8 @@ export default class TableContent extends Component {
   };
 
   static defaultProps = {
-    renderDay: () => {},
-    onClickDay: () => {},
+    renderDay: () => { },
+    onClickDay: () => { },
   };
 
   // renders the calendar days, split by weeks per calendar row

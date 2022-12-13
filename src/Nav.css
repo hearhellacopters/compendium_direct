@@ -1,5 +1,5 @@
 /*Nav Menu*/
-.access{
+.access {
     transition-duration: .3s;
     position: relative;
     margin-bottom: -12px;
@@ -8,7 +8,7 @@
     width: 100%;
 }
 
-.menu{
+.menu {
     margin: 0 1em;
     border: 0;
     padding: 0;
@@ -17,14 +17,14 @@
     user-select: none;
 }
 
-.menu ul{
+.menu ul {
     padding-left: 0;
     display: table;
     margin: 0 auto;
     list-style: none;
 }
 
-.menu li{
+.menu li {
     padding: 0.5em 1.5em;
     border-left: solid 3px #7a7a7a;
     border-right: solid 3px #7a7a7a;
@@ -37,25 +37,26 @@
     margin-bottom: 12px;
     white-space: nowrap;
     border-radius: 7px 7px 0 0;
-    box-shadow: 0 -0.2em 4px rgba(0,0,0,0.1) inset;
+    box-shadow: 0 -0.2em 4px rgba(0, 0, 0, 0.1) inset;
 }
 
-.navactive{
-    color: #f7f91d;
-    transition: .3s ease color;
-}
-.menu li:hover{
+.navactive {
     color: #f7f91d;
     transition: .3s ease color;
 }
 
-.menu button{
+.menu li:hover {
+    color: #f7f91d;
+    transition: .3s ease color;
+}
+
+.menu button {
     display: none;
     margin-left: 20px;
 }
 
 
-.prime_nav a{
+.prime_nav a {
     color: #FFF;
 }
 
@@ -73,47 +74,48 @@
     margin: 0 3px;
     white-space: nowrap;
     border-radius: 7px 7px 0 0;
-    box-shadow: 0 0em 0px rgba(0,0,0,0.1) inset;
+    box-shadow: 0 0em 0px rgba(0, 0, 0, 0.1) inset;
 }
 
-#navtoggle{
+#navtoggle {
     display: none;
 }
 
-#table{
+#table {
     display: table;
 }
 
-#hidden{
+#hidden {
     display: table;
 }
 
-#shown{
+#shown {
     display: table;
 }
 
 @media screen and (max-width: 800px) {
-    #hidden{
+    #hidden {
         opacity: 0;
-        visibility: hidden; 
-        transition:.2s;
+        visibility: hidden;
+        transition: .2s;
     }
 
-    #shown{
+    #shown {
         margin-top: 5px;
-        transition:.2s;
+        transition: .2s;
     }
 
-    #logo{
+    #logo {
         height: 45px;
         width: auto;
     }
-    .menuspan{
+
+    .menuspan {
         margin-bottom: auto;
         margin-top: auto;
     }
 
-    .mobilelines{
+    .mobilelines {
         margin-top: auto;
         margin-bottom: auto;
         height: 20px;
@@ -121,30 +123,34 @@
         filter: drop-shadow(1px 0 0 rgb(0, 0, 0)) drop-shadow(0 1px 0 rgb(0, 0, 0)) drop-shadow(0 -1px 0 rgb(0, 0, 0)) drop-shadow(-1px 0 0 rgb(0, 0, 0));
         -webkit-filter: drop-shadow(1px 0 0 #000000) drop-shadow(0 1px 0 #000000) drop-shadow(0 -1px 0 #000000) drop-shadow(-1px 0 0 #000000);
     }
+
     .active li {
-        background: linear-gradient(180deg, rgba(122,122,122,1) 0%, rgba(119,130,153,1) 9%, rgba(63,91,146,1) 24%, rgba(63,91,146,1) 75%, #18224e 97%, rgba(15,15,15,1) 100%) !important;
+        background: linear-gradient(180deg, rgba(122, 122, 122, 1) 0%, rgba(119, 130, 153, 1) 9%, rgba(63, 91, 146, 1) 24%, rgba(63, 91, 146, 1) 75%, #18224e 97%, rgba(15, 15, 15, 1) 100%) !important;
     }
-    .menu button{
+
+    .menu button {
         display: flex;
     }
-    .menu .prime_nav{
+
+    .menu .prime_nav {
         display: none;
         width: 100%;
     }
-    .menu{
+
+    .menu {
         margin-left: 0px;
         margin-right: 0px;
         margin-bottom: 12px;
     }
 
-    .menu li{
+    .menu li {
         margin-left: 0px;
         margin-right: 0px;
         width: 100%;
         border-left: 0px;
         border-right: 0px;
         border-top: 0px;
-        background: linear-gradient(180deg, rgba(122,122,122,1) 0%, rgba(153,154,156,1) 9%, rgba(106,106,106,1) 24%, rgba(134,134,134,1) 75%, rgba(62,62,64,1) 97%, rgba(15,15,15,1) 100%);
+        background: linear-gradient(180deg, rgba(122, 122, 122, 1) 0%, rgba(153, 154, 156, 1) 9%, rgba(106, 106, 106, 1) 24%, rgba(134, 134, 134, 1) 75%, rgba(62, 62, 64, 1) 97%, rgba(15, 15, 15, 1) 100%);
         border-bottom: 2px black solid;
         padding-left: 0px;
         padding-right: 0px;
@@ -152,12 +158,12 @@
         margin-bottom: 0px;
     }
 
-    #shown a{
+    #shown a {
         width: 100%;
         top: 25px;
     }
 
-    #navtoggle{
+    #navtoggle {
         position: fixed;
         top: 0;
         display: flex;
@@ -170,7 +176,7 @@
         height: 25px;
     }
 
-    .prime_nav{
+    .prime_nav {
         position: fixed;
         top: 45px;
         z-index: 99;

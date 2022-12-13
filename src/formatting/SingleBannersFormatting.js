@@ -4,9 +4,9 @@ import Tippy from '../formatting/TippyDefaults.js';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
 
-const SingleBannersFormatting = ({ match , permapage }) => {
+const SingleBannersFormatting = ({ match, permapage }) => {
 
-    return(
+    return (
         <li id={match.type} key={match.bannerindex}>
             <div className="charalistflarholder">
                 <div className="titlemainupdateholder">

@@ -7,7 +7,7 @@ export function* handleGetTransNames(action) {
   try {
     const response = yield call(requestGetTransNames);
     const { data } = response;
-    if(isJson(data,"GetTransNames") == true){
+    if (isJson(data, "GetTransNames") == true) {
       yield put(setTransNames(data));
     }
   } catch (error) {

@@ -7,7 +7,7 @@ export function* handleGetStickers(action) {
   try {
     const response = yield call(requestGetStickers);
     const { data } = response;
-    if(isJson(data,"GetStickers") == true){
+    if (isJson(data, "GetStickers") == true) {
       yield put(setStickers(data));
     }
   } catch (error) {

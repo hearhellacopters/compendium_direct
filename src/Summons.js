@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import {useLocation, Link, Navigate } from 'react-router-dom';
+import { useLocation, Link, Navigate } from 'react-router-dom';
 import './Summons.css'
-import { Helmet} from 'react-helmet-async';
+import { Helmet } from 'react-helmet-async';
 import SummonsFormatting from './formatting/SummonsFormatting';
 
 const Summons = ({
@@ -14,7 +14,7 @@ const Summons = ({
 
   const [locator, setLocator] = useState(capitalize(match.params.id));
 
-  const urls = ["","Ifrit","Shiva","Ramuh","Leviathan","Brothers","Pandemonium","Diabolos","Alexander","Odin","Bahamut","Chocobo","Sylph","Mog"]
+  const urls = ["", "Ifrit", "Shiva", "Ramuh", "Leviathan", "Brothers", "Pandemonium", "Diabolos", "Alexander", "Odin", "Bahamut", "Chocobo", "Sylph", "Mog"]
 
   useEffect(() => {
     setLocator(capitalize(match.params.id))
@@ -22,151 +22,153 @@ const Summons = ({
   }, [match])
 
   function capitalize(str) {
-    if(str !== undefined ) {
-    return  str.charAt(0).toUpperCase() + str.slice(1);
-  } else {
-    return ""
-  }}
+    if (str !== undefined) {
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    } else {
+      return ""
+    }
+  }
 
-  const filtered = urls.filter(function (el) { 
+  const filtered = urls.filter(function (el) {
     return el == capitalize(match.params.id);
-}); 
+  });
 
-if(filtered.length === 0 ) {
-    return(
-    <Navigate replace to="/404"/>
+  if (filtered.length === 0) {
+    return (
+      <Navigate replace to="/404" />
     )
   } else {
-  
-  const ifritbutton = () => {
-    setLocator("Ifrit");
-    
-  };
-  const shivabutton = () => {
-    setLocator("Shiva");
-    
-  };
-  const ramuhbutton = () => {
-    setLocator("Ramuh");
-    
-  };
-  const leviathanbutton = () => {
-    setLocator("Leviathan");
-    
-  };
-  const brothersbutton = () => {
-    setLocator("Brothers");
-    
-  };
-  const pandemoniumbutton = () => {
-    setLocator("Pandemonium");
-    
-  };
-  const diabolosbutton = () => {
-    setLocator("Diabolos");
-    
-  };
-  const alexanderbutton = () => {
-    setLocator("Alexander");
-    
-  };
-  const odinbutton = () => {
-    setLocator("Odin");
-    
-  };
-  const bahamutbutton = () => {
-    setLocator("Bahamut");
-    
-  };
-  const chocobobutton = () => {
-    setLocator("Chocobo");
-    
-  };
-  const sylphbutton = () => {
-    setLocator("Sylph");
-  };
-  const mogbutton = () => {
-    setLocator("Mog");
-  };
+
+    const ifritbutton = () => {
+      setLocator("Ifrit");
+
+    };
+    const shivabutton = () => {
+      setLocator("Shiva");
+
+    };
+    const ramuhbutton = () => {
+      setLocator("Ramuh");
+
+    };
+    const leviathanbutton = () => {
+      setLocator("Leviathan");
+
+    };
+    const brothersbutton = () => {
+      setLocator("Brothers");
+
+    };
+    const pandemoniumbutton = () => {
+      setLocator("Pandemonium");
+
+    };
+    const diabolosbutton = () => {
+      setLocator("Diabolos");
+
+    };
+    const alexanderbutton = () => {
+      setLocator("Alexander");
+
+    };
+    const odinbutton = () => {
+      setLocator("Odin");
+
+    };
+    const bahamutbutton = () => {
+      setLocator("Bahamut");
+
+    };
+    const chocobobutton = () => {
+      setLocator("Chocobo");
+
+    };
+    const sylphbutton = () => {
+      setLocator("Sylph");
+    };
+    const mogbutton = () => {
+      setLocator("Mog");
+    };
 
 
-  const params = match.params.id;
+    const params = match.params.id;
 
-  const titlestring = `${(match.params.id !== undefined ? capitalize(match.params.id) + " " : "") + "Summons"} - Dissidia Compendium`;
+    const titlestring = `${(match.params.id !== undefined ? capitalize(match.params.id) + " " : "") + "Summons"} - Dissidia Compendium`;
 
-  return (
-    <div>
-      <Helmet>
+    return (
+      <div>
+        <Helmet>
           <title>{titlestring}</title>
-          <meta property="og:site_name" content="Dissidia Compendium"/>
+          <meta property="og:site_name" content="Dissidia Compendium" />
           <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://dissidiacompendium.com"/>
-          <meta name="description" content={`Summon Info`}/>
-          <meta name="twitter:title" content={`${(match.params.id !== undefined ? capitalize(match.params.id) + " " : "") + "Summon"} - Dissidia Compendium`}/>
-          <meta name="twitter:description" content={`Summon Info`}/>
-          <meta property="og:title" content={`${(match.params.id !== undefined ? capitalize(match.params.id) + " " : "") + "Summon"} - Dissidia Compendium`}/>
-          <meta property="og:description" content={`Summon Info`}/>
-      </Helmet>
-      <div className="content">
-        <h1>Summons</h1>
-        <div className="filterholder noselect">
-        <div className="sumsubheader">Select a Summon</div>
-          <div className="filterholderflair">
-            <ul className="summoniconholder">
-              <Link to={`/summons/ifrit`}>
-              <li alt="Ifrit" onClick={ifritbutton} className={`${locator == "Ifrit" ? "gemactive": "geminactive"} IfritIcon summonsgem`} ></li>
-              </Link>
-              <Link to={`/summons/shiva`}>
-              <li alt="Shiva" onClick={shivabutton} className={`${locator == "Shiva" ? "gemactive": "geminactive"} ShivaIcon summonsgem`} ></li>
-              </Link>
-              <Link to={`/summons/ramuh`}>
-              <li alt="Ramuh" onClick={ramuhbutton} className={`${locator == "Ramuh" ? "gemactive": "geminactive"} RamuhIcon summonsgem`} ></li>
-              </Link>
-              <Link to={`/summons/leviathan`}>
-              <li alt="Leviathan" onClick={leviathanbutton} className={`${locator == "Leviathan" ? "gemactive": "geminactive"} LeviathanIcon summonsgem`} ></li>
-              </Link>
-              <Link to={`/summons/brothers`}>
-              <li alt="Brothers" onClick={brothersbutton} className={`${locator == "Brothers" ? "gemactive": "geminactive"} BrothersIcon summonsgem`} ></li>
-              </Link>
-              <Link to={`/summons/pandemonium`}>
-              <li alt="Pandemonium" onClick={pandemoniumbutton} className={`${locator == "Pandemonium" ? "gemactive": "geminactive"} PandemoniumIcon summonsgem`} ></li>
-              </Link>
-              <Link to={`/summons/diabolos`}>
-              <li alt="Diabolos" onClick={diabolosbutton} className={`${locator == "Diabolos" ? "gemactive": "geminactive"} DiabolosIcon summonsgem`} ></li>
-              </Link>
-              <Link to={`/summons/alexander`}>
-              <li alt="Alexander" onClick={alexanderbutton} className={`${locator == "Alexander" ? "gemactive": "geminactive"} AlexanderIcon summonsgem`} ></li>
-              </Link>
-              <Link to={`/summons/odin`}>
-              <li alt="Odin" onClick={odinbutton} className={`${locator == "Odin" ? "gemactive": "geminactive"} OdinIcon summonsgem`} ></li>
-              </Link>
-              <Link to={`/summons/bahamut`}>
-              <li alt="Bahamut" onClick={bahamutbutton} className={`${locator == "Bahamut" ? "gemactive": "geminactive"} BahamutIcon summonsgem`} ></li>
-              </Link>
-              <Link to={`/summons/chocobo`}>
-              <li alt="Chocobo" onClick={chocobobutton} className={`${locator == "Chocobo" ? "gemactive": "geminactive"} ChocoboIcon summonsgem`} ></li>
-              </Link>
-              <Link to={`/summons/sylph`}>
-              <li alt="Sylph" onClick={sylphbutton} className={`${locator == "Sylph" ? "gemactive": "geminactive"} SylphIcon summonsgem`} ></li>
-              </Link>
-              <Link to={`/summons/mog`}>
-              <li alt="Mog" onClick={mogbutton} className={`${locator == "Mog" ? "gemactive": "geminactive"} MogIcon summonsgem`} ></li>
-              </Link>
-            </ul>
+          <meta property="og:url" content="https://dissidiacompendium.com" />
+          <meta name="description" content={`Summon Info`} />
+          <meta name="twitter:title" content={`${(match.params.id !== undefined ? capitalize(match.params.id) + " " : "") + "Summon"} - Dissidia Compendium`} />
+          <meta name="twitter:description" content={`Summon Info`} />
+          <meta property="og:title" content={`${(match.params.id !== undefined ? capitalize(match.params.id) + " " : "") + "Summon"} - Dissidia Compendium`} />
+          <meta property="og:description" content={`Summon Info`} />
+        </Helmet>
+        <div className="content">
+          <h1>Summons</h1>
+          <div className="filterholder noselect">
+            <div className="sumsubheader">Select a Summon</div>
+            <div className="filterholderflair">
+              <ul className="summoniconholder">
+                <Link to={`/summons/ifrit`}>
+                  <li alt="Ifrit" onClick={ifritbutton} className={`${locator == "Ifrit" ? "gemactive" : "geminactive"} IfritIcon summonsgem`} ></li>
+                </Link>
+                <Link to={`/summons/shiva`}>
+                  <li alt="Shiva" onClick={shivabutton} className={`${locator == "Shiva" ? "gemactive" : "geminactive"} ShivaIcon summonsgem`} ></li>
+                </Link>
+                <Link to={`/summons/ramuh`}>
+                  <li alt="Ramuh" onClick={ramuhbutton} className={`${locator == "Ramuh" ? "gemactive" : "geminactive"} RamuhIcon summonsgem`} ></li>
+                </Link>
+                <Link to={`/summons/leviathan`}>
+                  <li alt="Leviathan" onClick={leviathanbutton} className={`${locator == "Leviathan" ? "gemactive" : "geminactive"} LeviathanIcon summonsgem`} ></li>
+                </Link>
+                <Link to={`/summons/brothers`}>
+                  <li alt="Brothers" onClick={brothersbutton} className={`${locator == "Brothers" ? "gemactive" : "geminactive"} BrothersIcon summonsgem`} ></li>
+                </Link>
+                <Link to={`/summons/pandemonium`}>
+                  <li alt="Pandemonium" onClick={pandemoniumbutton} className={`${locator == "Pandemonium" ? "gemactive" : "geminactive"} PandemoniumIcon summonsgem`} ></li>
+                </Link>
+                <Link to={`/summons/diabolos`}>
+                  <li alt="Diabolos" onClick={diabolosbutton} className={`${locator == "Diabolos" ? "gemactive" : "geminactive"} DiabolosIcon summonsgem`} ></li>
+                </Link>
+                <Link to={`/summons/alexander`}>
+                  <li alt="Alexander" onClick={alexanderbutton} className={`${locator == "Alexander" ? "gemactive" : "geminactive"} AlexanderIcon summonsgem`} ></li>
+                </Link>
+                <Link to={`/summons/odin`}>
+                  <li alt="Odin" onClick={odinbutton} className={`${locator == "Odin" ? "gemactive" : "geminactive"} OdinIcon summonsgem`} ></li>
+                </Link>
+                <Link to={`/summons/bahamut`}>
+                  <li alt="Bahamut" onClick={bahamutbutton} className={`${locator == "Bahamut" ? "gemactive" : "geminactive"} BahamutIcon summonsgem`} ></li>
+                </Link>
+                <Link to={`/summons/chocobo`}>
+                  <li alt="Chocobo" onClick={chocobobutton} className={`${locator == "Chocobo" ? "gemactive" : "geminactive"} ChocoboIcon summonsgem`} ></li>
+                </Link>
+                <Link to={`/summons/sylph`}>
+                  <li alt="Sylph" onClick={sylphbutton} className={`${locator == "Sylph" ? "gemactive" : "geminactive"} SylphIcon summonsgem`} ></li>
+                </Link>
+                <Link to={`/summons/mog`}>
+                  <li alt="Mog" onClick={mogbutton} className={`${locator == "Mog" ? "gemactive" : "geminactive"} MogIcon summonsgem`} ></li>
+                </Link>
+              </ul>
+            </div>
           </div>
+          {params == undefined ? "" :
+            <SummonsFormatting
+              key={match.params.id}
+              match={capitalize(match.params.id)}
+              ProcessedSummons={ProcessedSummons}
+              ProcessedSummonLevels={ProcessedSummonLevels}
+              ProcessedSummonPassives={ProcessedSummonPassives}
+            />
+          }
         </div>
-        {params == undefined ? "" :
-          <SummonsFormatting 
-          key={match.params.id} 
-          match={capitalize(match.params.id)}
-          ProcessedSummons={ProcessedSummons}
-          ProcessedSummonLevels={ProcessedSummonLevels}
-          ProcessedSummonPassives={ProcessedSummonPassives}
-          />
-        }
       </div>
-  </div>
-  );
-}}
+    );
+  }
+}
 
 export default Summons;

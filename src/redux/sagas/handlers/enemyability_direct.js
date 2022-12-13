@@ -7,7 +7,7 @@ export function* handleGetEnemyAbilityDirect(action) {
   try {
     const response = yield call(requestGetEnemyAbilityDirect);
     const { data } = response;
-    if(isJson(data,"GetEnemyAbilityDirect") == true){
+    if (isJson(data, "GetEnemyAbilityDirect") == true) {
       yield put(setEnemyAbilityDirect(data));
     }
   } catch (error) {

@@ -1,4 +1,4 @@
-#welcome{
+#welcome {
     max-width: 800px;
     margin: auto;
     text-align: left;
@@ -15,26 +15,28 @@
 }
 
 @media (hover: hover) {
-    .updatelink:hover{
+    .updatelink:hover {
         color: yellow;
         transition: .3s ease color;
     }
 }
 
-.nomargtop{
+.nomargtop {
     margin-top: 0px !important;
 }
-.updatelink{
+
+.updatelink {
     text-decoration: underline;
     color: rgb(183 165 0);
 }
 
-.homewelcomeholder{
+.homewelcomeholder {
     max-width: 900px;
     margin: auto;
-    text-align:left;
+    text-align: left;
 }
-.UpdateTable{
+
+.UpdateTable {
     width: 100%;
     transition: all .2s;
     transform-origin: 50% 0;
@@ -44,7 +46,8 @@
     border-radius: 19px;
     clear: both;
 }
-.squallsmile{
+
+.squallsmile {
     content: url("https://dissidiacompendium.com/images/static/icons/misc/squallsmile.png");
     display: inline-block;
     vertical-align: middle;
@@ -53,60 +56,61 @@
     height: 35px;
 }
 
-.vayne{
+.vayne {
     content: url("https://dissidiacompendium.com/images/static/icons/misc/vayne2.png");
     display: block;
     background-size: contain;
     height: 35px;
 }
 
-.stragocrazy{
+.stragocrazy {
     content: url("https://dissidiacompendium.com/images/static/icons/misc/stragocrazy2.png");
     display: block;
     background-size: contain;
     height: 35px;
 }
 
-.liliwink{
+.liliwink {
     content: url("https://dissidiacompendium.com/images/static/icons/misc/liliwink2.png");
     display: block;
     background-size: contain;
     height: 35px;
 }
 
-.alisaie{
+.alisaie {
     content: url("https://dissidiacompendium.com/images/static/icons/misc/alisaie2.png");
     display: block;
     background-size: contain;
     height: 35px;
 }
-.aphmau{
+
+.aphmau {
     content: url("https://dissidiacompendium.com/images/static/icons/misc/aphmau2.png");
     display: block;
     background-size: contain;
     height: 35px;
 }
 
-.emojiholder{
+.emojiholder {
     display: flex;
     width: fit-content;
     margin: auto;
 }
 
-.updatedate{
+.updatedate {
     padding-top: 10px;
     display: block;
     width: 200px;
     border-right: 2px black solid;
 }
 
-.spoiler_red{
+.spoiler_red {
     color: #c43e40;
     text-decoration: underline;
     text-shadow: -1px -1px #FFFF, 1px -1px #FFFF, -1px 1px #FFFF, 1px 1px #FFFF;
 }
 
-.updatetitle{
+.updatetitle {
     display: block;
     width: auto;
     font-size: 20px;
@@ -115,26 +119,26 @@
     background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, rgba(30, 55, 88, 0.940205) 3.67%, rgba(30, 55, 88, 0.85) 96.44%, rgba(30, 55, 88, 0) 100%);
 }
 
-.updatemain{
+.updatemain {
     width: 95%;
     padding: 5px;
     padding-left: 15px;
     text-align: left;
 }
 
-.titlemainupdateholder{
+.titlemainupdateholder {
     padding-top: 5px;
     padding-bottom: 5px;
     background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #696969 3.67%, #696969 96.44%, rgba(30, 55, 88, 0) 100%);
-    width: 100%; 
+    width: 100%;
 }
 
 
-.notop{
+.notop {
     padding-top: 0px !important;
 }
 
-.charalistflarholder{
+.charalistflarholder {
     transition: all .2s;
     transform-origin: 50% 0;
     margin-top: 0px;
@@ -146,19 +150,20 @@
     clear: both;
 }
 
-#red{
+#red {
     color: rgb(196, 107, 107);
 }
 
-.nobottom{
-    border-bottom: 0px !important ;
+.nobottom {
+    border-bottom: 0px !important;
 }
-.temptogglespacer{
+
+.temptogglespacer {
     margin-top: 5px;
     margin-bottom: 2px;
 }
 
-.updatesholder{
+.updatesholder {
     padding: 15px !important;
     list-style: none;
     padding-top: 8px;
@@ -183,41 +188,43 @@
     background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #81a0c9 3.67%, #81a0c9 96.44%, rgba(30, 55, 88, 0) 100%);
 }
 
-.centertext{
+.centertext {
     text-align: center;
 }
 
-.discord{
+.discord {
     content: url("https://dissidiacompendium.com/images/static/icons/misc/DiscordWhite.svg");
     height: 2em;
     margin-bottom: -.8em;
     margin-top: -3em;
-    filter:  invert(0.5) sepia(1) saturate(9) hue-rotate(1104deg) drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
-    -webkit-filter:  invert(0.5) sepia(1) saturate(9) hue-rotate(1104deg) drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
-}
-@media (hover: hover) {
-.discord:hover{
-    filter: invert(0) sepia(1) saturate(100) hue-rotate(1074deg) drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
-    -webkit-filter: invert(0) sepia(1) saturate(100) hue-rotate(1074deg) drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
-}
+    filter: invert(0.5) sepia(1) saturate(9) hue-rotate(1104deg) drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
+    -webkit-filter: invert(0.5) sepia(1) saturate(9) hue-rotate(1104deg) drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
 }
 
-.discordcredit{
+@media (hover: hover) {
+    .discord:hover {
+        filter: invert(0) sepia(1) saturate(100) hue-rotate(1074deg) drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
+        -webkit-filter: invert(0) sepia(1) saturate(100) hue-rotate(1074deg) drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
+    }
+}
+
+.discordcredit {
     content: url("https://dissidiacompendium.com/images/static/icons/misc/Discord-Wordmark-White.svg");
     height: 1em;
     margin-bottom: -.1em;
     margin-top: -.5em;
-    filter:  invert(0.5) sepia(1) saturate(9) hue-rotate(1104deg) drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
-    -webkit-filter:  invert(0.5) sepia(1) saturate(9) hue-rotate(1104deg) drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
-}
-@media (hover: hover) {
-.discordcredit:hover{
-    filter: invert(0) sepia(1) saturate(100) hue-rotate(1074deg) drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
-    -webkit-filter: invert(0) sepia(1) saturate(100) hue-rotate(1074deg) drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
-}
+    filter: invert(0.5) sepia(1) saturate(9) hue-rotate(1104deg) drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
+    -webkit-filter: invert(0.5) sepia(1) saturate(9) hue-rotate(1104deg) drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
 }
 
-.updateunit{
+@media (hover: hover) {
+    .discordcredit:hover {
+        filter: invert(0) sepia(1) saturate(100) hue-rotate(1074deg) drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
+        -webkit-filter: invert(0) sepia(1) saturate(100) hue-rotate(1074deg) drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
+    }
+}
+
+.updateunit {
     display: flex;
     transition: all .2s;
     transform-origin: 50% 0;
@@ -231,7 +238,7 @@
     border-bottom: solid black 2px;
 }
 
-.singlenemyholder{
+.singlenemyholder {
     display: block;
     transform-origin: 50% 0;
     max-width: 800px;
@@ -240,117 +247,132 @@
     padding: 0%;
     list-style-type: disc;
 }
+
 @media screen and (max-width: 800px) {
-    .discord{
+    .discord {
         height: 1.5em;
         margin-bottom: -.5em;
         margin-top: -.1em;
     }
-    .discordcredit{
+
+    .discordcredit {
         height: 1em;
         margin-bottom: -.1em;
         margin-top: -.5em;
     }
+
     .homewelcomeholder {
         font-size: smaller;
     }
-    .updatetitle{
+
+    .updatetitle {
         font-size: 14px;
     }
-    .lastupdate{
+
+    .lastupdate {
         font-size: 14px;
     }
-    .updatedate{
+
+    .updatedate {
         width: auto;
         border-right: 0px;
         border-bottom: 2px black solid;
         padding-bottom: 5px;
     }
-    .updateunit{
+
+    .updateunit {
         font-size: small;
         display: block;
-    }  
+    }
 }
 
 @media screen and (max-width: 530px) {
-    .squallsmile{
+    .squallsmile {
         height: 25px;
     }
-    .stragocrazy{
+
+    .stragocrazy {
         height: 25px;
     }
-    .alisaie{
+
+    .alisaie {
         height: 25px;
     }
-    .aphmau{
+
+    .aphmau {
         height: 25px;
     }
-    .liliwink{
+
+    .liliwink {
         height: 25px;
     }
-    .vayne{
+
+    .vayne {
         height: 25px;
     }
-    .summonimglink{
+
+    .summonimglink {
         width: 250px;
     }
 }
 
-.smallerbanners{
+.smallerbanners {
     width: 450px;
 }
 
 
-@media screen and (max-width: 870px){
-    .smallerbanners{
-      width: 300px;
-      height: auto;
-      padding: 5px;
+@media screen and (max-width: 870px) {
+    .smallerbanners {
+        width: 300px;
+        height: auto;
+        padding: 5px;
     }
 }
-  
-@media screen and (max-width: 450px){
-    .maintitle{
+
+@media screen and (max-width: 450px) {
+    .maintitle {
         font-size: smaller;
     }
-    .smallerbanners{
+
+    .smallerbanners {
         width: 250px;
         padding: 5px;
     }
 }
 
-.nomargbottom{
+.nomargbottom {
     padding-bottom: 0px !important;
     margin-bottom: 0px !important;
 }
-.summonupdatelist{
+
+.summonupdatelist {
     list-style-type: none;
     padding-left: 0px;
     margin: 0px;
 }
 
-.summonimglink{
+.summonimglink {
     filter: drop-shadow(2px 2px 2px #222);
     cursor: pointer;
     margin-bottom: 5px;
     margin-top: 2px;
 }
 
-@media screen and (max-width: 360px){
-    .summonimglink{
+@media screen and (max-width: 360px) {
+    .summonimglink {
         width: 200px;
     }
 }
 
-@media screen and (max-width: 380px){
-    .smallerbanners{
-      width: 200px;
-      padding: 5px;
+@media screen and (max-width: 380px) {
+    .smallerbanners {
+        width: 200px;
+        padding: 5px;
     }
 }
 
 @media (hover: hover) {
-    .summonimglink:hover{
+    .summonimglink:hover {
         transform: translateY(-1px);
         filter: brightness(1.2);
         -webkit-filter: brightness(1.2);
@@ -358,52 +380,52 @@
     }
 }
 
-.jpflagupdate{
+.jpflagupdate {
     content: url(https://dissidiacompendium.com/images/static/icons/misc/japan.svg);
     display: inline-block;
     vertical-align: middle;
     background-size: contain;
     height: 20px;
-    filter:  drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
+    filter: drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
     -webkit-filter: drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
 }
 
-.jpflagtick{
+.jpflagtick {
     content: url(https://dissidiacompendium.com/images/static/icons/misc/japan.svg);
     display: inline-block;
     vertical-align: middle;
     background-size: contain;
     height: 20px;
-    filter:  drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black) drop-shadow(2px 2px 2px #222);
+    filter: drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black) drop-shadow(2px 2px 2px #222);
     -webkit-filter: drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black) drop-shadow(2px 2px 2x #222);
 }
 
-.glshadow{
+.glshadow {
     filter: drop-shadow(2px 2px 2px #222);
     -webkit-filter: drop-shadow(2px 2px 2x #222);
 }
 
-.jpflagcharcard{
+.jpflagcharcard {
     content: url(https://dissidiacompendium.com/images/static/icons/misc/japan.svg);
     display: inline-block;
     vertical-align: middle;
     background-size: contain;
     height: 10px;
-    filter:  drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
+    filter: drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
     -webkit-filter: drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
 }
 
-@media screen and (max-width: 800px){
-    .jpflagcharcard{
+@media screen and (max-width: 800px) {
+    .jpflagcharcard {
         height: 6px;
     }
 }
 
-.updateunitholder{
+.updateunitholder {
     border-top: 2px solid black;
-    background: linear-gradient( 90deg , rgba(30, 55, 88, 0) 0%, #263252 3.67%, #263252 96.44%, rgba(30, 55, 88, 0) 100%);
+    background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #263252 3.67%, #263252 96.44%, rgba(30, 55, 88, 0) 100%);
 }
 
-.outline{
+.outline {
     border-top: 2px black solid;
 }

@@ -1,17 +1,17 @@
 export const GET_MASTERINDEX = "GET_MASTERINDEX";
-const SET_MASTERINDEX= "SET_MASTERINDEX";
+const SET_MASTERINDEX = "SET_MASTERINDEX";
 
-const make_casts =(master_index)=>{
-    const CastNames = {}
-    Object.values(master_index.ailments).forEach(self=>{
-      if(self.castID != undefined){
-        Object.assign(CastNames, {[self.castID]: self})
-      }
-    })
-    Object.assign(master_index,{cast_names: CastNames})
-    return master_index
-  }
-   
+const make_casts = (master_index) => {
+  const CastNames = {}
+  Object.values(master_index.ailments).forEach(self => {
+    if (self.castID != undefined) {
+      Object.assign(CastNames, { [self.castID]: self })
+    }
+  })
+  Object.assign(master_index, { cast_names: CastNames })
+  return master_index
+}
+
 
 export const getMasterIndex = () => ({
   type: GET_MASTERINDEX

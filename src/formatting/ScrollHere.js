@@ -1,4 +1,4 @@
-import React ,{ useEffect } from "react";
+import React, { useEffect } from "react";
 import {
   useLocation,
   useNavigate,
@@ -26,7 +26,7 @@ const ScrollToHere = ({ children }) => {
     document.getElementById('scrollhere').scrollIntoView();
   }, []);
 
-  
+
   return children || null;
 };
 

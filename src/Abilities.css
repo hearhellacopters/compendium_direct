@@ -1,15 +1,16 @@
-.toggleforabilities{
+.toggleforabilities {
     padding-top: 8px;
     position: absolute;
     width: 145px;
     margin-top: 140px;
 }
-.toggleforminigear{
+
+.toggleforminigear {
     position: absolute;
     width: 145px;
 }
 
-.abilityusesholder{
+.abilityusesholder {
     display: table;
     margin-left: auto;
     padding-right: 5px;
@@ -17,7 +18,7 @@
     margin-bottom: auto;
 }
 
-.abilityglreworkbanner{
+.abilityglreworkbanner {
     margin-top: 5px;
     margin-bottom: 5px;
     padding-top: 5px;
@@ -26,15 +27,15 @@
     padding-right: 10px;
     text-align: center;
     font-weight: bold;
-    background: linear-gradient( 90deg, rgba(30, 55, 88, 0) 0%, rgba(30, 55, 88, 0.940205) 3.67%, rgba(30, 55, 88, 0.85) 96.44%, rgba(30, 55, 88, 0) 100%);
+    background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, rgba(30, 55, 88, 0.940205) 3.67%, rgba(30, 55, 88, 0.85) 96.44%, rgba(30, 55, 88, 0) 100%);
 }
 
-.abilityJPname{
+.abilityJPname {
     font-size: 12px;
     color: rgb(180, 180, 180);
 }
 
-.refineabilities{
+.refineabilities {
     display: inline-block;
     padding-left: 0px;
     margin: auto;
@@ -43,17 +44,21 @@
     max-width: 500px;
 }
 
-.deleted  {background-color : LightPink;
-    text-decoration  : line-through}
-    
-.inserted {background-color : PaleGreen}
+.deleted {
+    background-color: LightPink;
+    text-decoration: line-through
+}
+
+.inserted {
+    background-color: PaleGreen
+}
 
 .abilityspacearound {
     display: flex;
     align-items: center;
 }
 
-.bufflistbanner{
+.bufflistbanner {
     padding-left: 8px;
     padding-right: 5px;
     margin-top: 5px;
@@ -65,12 +70,12 @@
     border-radius: 5px;
     box-shadow: inset 0px 0px 10px #000000;
     transition: .4s;
-    width: calc(100% - 170px); 
+    width: calc(100% - 170px);
     margin-left: auto;
     font-size: 1rem;
 }
 
-.gearbufflistbanner{
+.gearbufflistbanner {
     padding-left: 8px;
     padding-right: 5px;
     margin-top: 5px;
@@ -82,12 +87,12 @@
     border-radius: 5px;
     box-shadow: inset 0px 0px 10px #000000;
     transition: .4s;
-    width: calc(100% - 170px); 
+    width: calc(100% - 170px);
     margin-left: auto;
     font-size: 1rem;
 }
 
-.bufflistbannerbattle{
+.bufflistbannerbattle {
     padding-left: 8px;
     padding-right: 5px;
     margin-top: 5px;
@@ -99,11 +104,11 @@
     border-radius: 5px;
     box-shadow: inset 0px 0px 10px #000000;
     transition: .4s;
-    width: calc(100% - 216px); 
+    width: calc(100% - 216px);
     margin-left: auto;
 }
 
-.rainbow_tag{
+.rainbow_tag {
     height: 27px;
     vertical-align: middle;
     background-size: contain;
@@ -112,7 +117,7 @@
     -webkit-filter: drop-shadow(1px 0 0 #000000) drop-shadow(0 1px 0 #000000) drop-shadow(0 -1px 0 #000000) drop-shadow(-1px 0 0 #000000);
 }
 
-.undertaga{
+.undertaga {
     width: 54px;
     height: 27px;
     vertical-align: middle;
@@ -122,26 +127,30 @@
     -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
-.abilitydisplayfex{
+.abilitydisplayfex {
     display: inline;
 }
-.abilitydisplayfex div{
+
+.abilitydisplayfex div {
     display: inline;
 }
-.sidewaystextholder{
+
+.sidewaystextholder {
     width: 1.5em;
     position: relative;
     display: inline-block;
     height: auto;
 }
-.usesmaker{
+
+.usesmaker {
     display: flex;
     height: auto;
     margin-left: auto;
     border-left: 2px solid black;
-    background: linear-gradient(90deg, rgba(30,55,88,1) 0%, rgba(30,55,88,0.9612219887955182) 16%, rgba(30,55,88,0) 100%);
+    background: linear-gradient(90deg, rgba(30, 55, 88, 1) 0%, rgba(30, 55, 88, 0.9612219887955182) 16%, rgba(30, 55, 88, 0) 100%);
 }
-.sidewaystext{
+
+.sidewaystext {
     text-align: center;
     transform: translateX(-50%) translateY(-50%) rotate(-90deg);
     position: absolute;
@@ -149,14 +158,15 @@
     left: 50%;
 }
 
-.passiveinfobase{
+.passiveinfobase {
     font-size: 1rem;
 }
 
-.abilityurlholder{
+.abilityurlholder {
     text-decoration: none;
 }
-.abilityinfobase{
+
+.abilityinfobase {
     padding-left: 8px;
     padding-right: 5px;
     margin-top: 5px;
@@ -174,7 +184,7 @@
     font-size: 1rem;
 }
 
-.enemyabilityinfobase{
+.enemyabilityinfobase {
     padding-left: 8px;
     padding-right: 5px;
     margin-top: 5px;
@@ -199,31 +209,32 @@
     margin-top: -1em;
     position: sticky;
     z-index: 2;
-    background: rgb(30,55,88);
-    background: linear-gradient(0deg, rgba(30,55,88,1) 0%, rgba(30,55,88,0.8015581232492998) 64%, rgba(30,55,88,0) 100%);   
+    background: rgb(30, 55, 88);
+    background: linear-gradient(0deg, rgba(30, 55, 88, 1) 0%, rgba(30, 55, 88, 0.8015581232492998) 64%, rgba(30, 55, 88, 0) 100%);
 }
 
 /*buff icons*/
 
-.listbufficon{
+.listbufficon {
     display: contents;
 }
-.ailmenttext{
-    background: linear-gradient(90deg, rgba(77,86,97,1) 0%, rgba(77,86,97,0.9612219887955182) 16%, rgba(77,86,97,0) 100%);  
+
+.ailmenttext {
+    background: linear-gradient(90deg, rgba(77, 86, 97, 1) 0%, rgba(77, 86, 97, 0.9612219887955182) 16%, rgba(77, 86, 97, 0) 100%);
     display: block;
     filter: drop-shadow(1px 1px 1px #222);
     -webkit-filter: drop-shadow(1px 1px 1px #222);
     padding-left: 2px;
 }
 
-.biconspacer{
+.biconspacer {
     display: contents;
     width: 58px;
     height: 44px;
 }
 
-.abilitybufflist{
-    list-style-type:none ;
+.abilitybufflist {
+    list-style-type: none;
     clear: both;
     padding: 0px;
     margin: 0px;
@@ -231,7 +242,7 @@
     height: 44px;
 }
 
-.buffabilityrowiconholder{
+.buffabilityrowiconholder {
     width: 58px;
     height: 50px;
     margin: 0px;
@@ -239,7 +250,7 @@
     justify-content: center;
 }
 
-.abilitybufficonsholder{
+.abilitybufficonsholder {
     vertical-align: middle;
     width: 58px;
     height: 44px;
@@ -247,24 +258,25 @@
     filter: drop-shadow(2px 2px 2px #222);
     -webkit-filter: drop-shadow(2px 2px 2px #222);
 }
-.abilitybufficon{
+
+.abilitybufficon {
     vertical-align: middle;
     margin: auto;
 }
- 
 
-.Buffsubbanner{
+
+.Buffsubbanner {
     font-size: 1.2rem;
-    background: linear-gradient( 90deg , #47ab9a 0%, #47ab9a 16%, rgba(77,86,97,0) 100%);
+    background: linear-gradient(90deg, #47ab9a 0%, #47ab9a 16%, rgba(77, 86, 97, 0) 100%);
     filter: drop-shadow(1px 1px 1px #222);
     -webkit-filter: drop-shadow(1px 1px 1px #222);
     padding-left: 2px;
     margin-bottom: 5px;
 }
 
-.Debuffsubbanner{
+.Debuffsubbanner {
     font-size: 1.2rem;
-    background: linear-gradient( 90deg , #be3f52 0%, #be3f52 16%, rgba(77,86,97,0) 100%);
+    background: linear-gradient(90deg, #be3f52 0%, #be3f52 16%, rgba(77, 86, 97, 0) 100%);
     filter: drop-shadow(1px 1px 1px #222);
     -webkit-filter: drop-shadow(1px 1px 1px #222);
     padding-left: 2px;
@@ -273,17 +285,17 @@
 
 
 @media (hover: hover) {
-    .buffactive:hover{
-      transform: translateY(-1px);
-      box-shadow: inset 0px 0px 0px 3px white, inset 0px 0px 10px 5px yellow;
-      -webkit-box-shadow: inset 0px 0px 0px 3px white, inset 0px 0px 10px 5px yellow;
-      -moz-box-shadow: inset 0px 0px 0px 3px white, inset 0px 0px 10px 5px yellow;
-      border-radius: 5px;
-      transition: all .2s;
+    .buffactive:hover {
+        transform: translateY(-1px);
+        box-shadow: inset 0px 0px 0px 3px white, inset 0px 0px 10px 5px yellow;
+        -webkit-box-shadow: inset 0px 0px 0px 3px white, inset 0px 0px 10px 5px yellow;
+        -moz-box-shadow: inset 0px 0px 0px 3px white, inset 0px 0px 10px 5px yellow;
+        border-radius: 5px;
+        transition: all .2s;
     }
 }
-    
-.buffactive{
+
+.buffactive {
     transition: all .2s;
     cursor: pointer;
     box-shadow: inset 0px 0px 0px 3px white, inset 0px 0px 10px 5px yellow;
@@ -292,12 +304,13 @@
     border-radius: 5px;
 }
 
-.toggleforbuffabilities{
+.toggleforbuffabilities {
     padding-top: 8px;
     position: absolute;
     width: 145px;
 }
-.forcedtoggleforbuffabilities{
+
+.forcedtoggleforbuffabilities {
     padding-left: 0px;
     padding-top: 8px;
     position: inherit;
@@ -309,37 +322,46 @@
 }
 
 @media screen and (max-width: 900px) {
-    .abilityinfobase{
+    .abilityinfobase {
         font-size: .6rem;
     }
-    .passiveinfobase{
+
+    .passiveinfobase {
         font-size: .6rem;
     }
-    .bufflistbanner{
+
+    .bufflistbanner {
         font-size: .6rem;
     }
-    .gearbufflistbanner{
+
+    .gearbufflistbanner {
         font-size: .6rem;
     }
-    .abilityJPname{
+
+    .abilityJPname {
         font-size: .6rem;
     }
 }
+
 @media screen and (max-width: 700px) {
-    .abilityJPname{
+    .abilityJPname {
         font-size: .8rem;
     }
-    .Buffsubbanner{
+
+    .Buffsubbanner {
         font-size: 1rem;
     }
-    .Debuffsubbanner{
+
+    .Debuffsubbanner {
         font-size: 1rem;
     }
-    .forcedtoggleforbuffabilities{
+
+    .forcedtoggleforbuffabilities {
         padding-top: 0px;
         width: 60px;
     }
-    .toggleforbuffabilities{
+
+    .toggleforbuffabilities {
         padding-left: 0px;
         padding-top: 0px;
         position: inherit;
@@ -349,49 +371,60 @@
         margin-left: auto;
         margin-right: auto;
     }
-    .bufflistbanner{
+
+    .bufflistbanner {
         margin-left: 0px;
         width: auto;
         font-size: .8rem;
     }
-    .gearbufflistbanner{
+
+    .gearbufflistbanner {
         width: auto;
         font-size: .8rem;
         margin-left: 0px;
     }
-    .bufflistbannerbattle{
+
+    .bufflistbannerbattle {
         margin-left: 0px;
         width: auto;
     }
-    .undertaga{
+
+    .undertaga {
         height: 24px;
         width: 48px
     }
-    .ver_gl{
+
+    .ver_gl {
         height: 24px;
         width: 48px
     }
-    .ver_jp{
+
+    .ver_jp {
         height: 24px;
         width: 48px
     }
-    .rainbow_tag{
+
+    .rainbow_tag {
         height: 30px;
     }
-    .abilityinfobase{
+
+    .abilityinfobase {
         margin-left: 0px;
         width: auto;
         min-height: auto;
         font-size: .8rem;
     }
-    .passiveinfobase{
+
+    .passiveinfobase {
         font-size: .8rem;
     }
-    .enemyabilityinfobase{
+
+    .enemyabilityinfobase {
         margin-left: 0px;
         width: auto;
         min-height: auto;
     }
+
     .toggleforabilities {
         padding-top: 8px;
         position: inherit;
@@ -399,6 +432,7 @@
         margin-top: 5px;
         align-items: center;
     }
+
     .toggleforminigear {
         position: inherit;
         width: 60px;

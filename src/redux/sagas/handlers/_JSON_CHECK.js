@@ -1,4 +1,4 @@
-export default function isJson(item,logitem) {
+export default function isJson(item, logitem) {
     item = typeof item !== "string"
         ? JSON.stringify(item)
         : item;

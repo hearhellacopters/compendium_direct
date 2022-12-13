@@ -7,7 +7,7 @@ export function* handleGetUltimaWeapon(action) {
   try {
     const response = yield call(requestGetUltimaWeapon);
     const { data } = response;
-    if(isJson(data,"GetUltimaWeapon") == true){
+    if (isJson(data, "GetUltimaWeapon") == true) {
       yield put(setUltimaWeapon(data));
     }
   } catch (error) {

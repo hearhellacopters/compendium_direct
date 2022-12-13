@@ -1,33 +1,33 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { getEnemyAbilityDirect } from '../redux/ducks/enemyability_direct';
 import EnemyAbilitiesDirect from '../EnemyAbilitiesDirect';
 import Loading from './_loading'
 
-const CallBestiary = () =>{
-    
+const CallBestiary = () => {
+
     const dispatch = useDispatch();
 
-    const ProcessedEnemyAbilities = useSelector((state) => 
-    state.enemyability_direct.enemyability_direct
+    const ProcessedEnemyAbilities = useSelector((state) =>
+        state.enemyability_direct.enemyability_direct
     );
 
     useEffect(() => {
         let mounted = true
         if (mounted && ProcessedEnemyAbilities == undefined) {
-        dispatch(getEnemyAbilityDirect());
+            dispatch(getEnemyAbilityDirect());
         }
         return function cleanup() {
             mounted = false
         }
-    }, [dispatch,ProcessedEnemyAbilities]);
+    }, [dispatch, ProcessedEnemyAbilities]);
 
 
     return (
-        ProcessedEnemyAbilities != undefined?
-        <EnemyAbilitiesDirect ProcessedEnemyAbilities={Object.values(ProcessedEnemyAbilities)}/>
-        : 
-        <Loading/>
+        ProcessedEnemyAbilities != undefined ?
+            <EnemyAbilitiesDirect ProcessedEnemyAbilities={Object.values(ProcessedEnemyAbilities)} />
+            :
+            <Loading />
     )
 
 }

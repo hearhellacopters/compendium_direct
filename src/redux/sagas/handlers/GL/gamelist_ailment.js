@@ -7,8 +7,8 @@ export function* handleGetGLGameListAilment(action) {
   try {
     const response = yield call(requestGetGLGameListAilment);
     const { data } = response;
-    if(isJson(data) == true){
-        yield put(setGLGameListAilment(data));
+    if (isJson(data) == true) {
+      yield put(setGLGameListAilment(data));
     }
   } catch (error) {
     console.log(error);

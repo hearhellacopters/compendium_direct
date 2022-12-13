@@ -7,7 +7,7 @@ export function* handleGetMasterIndex(action) {
   try {
     const response = yield call(requestGetMasterIndex);
     const { data } = response;
-    if(isJson(data,"GetMasterIndex") == true){
+    if (isJson(data, "GetMasterIndex") == true) {
       yield put(setMasterIndex(data));
     }
   } catch (error) {

@@ -1,11 +1,11 @@
 export const GET_JPGAMELISTGEAR = "GET_JPGAMELISTGEAR";
-const SET_JPGAMELISTGEAR= "SET_JPGAMELISTGEAR";
+const SET_JPGAMELISTGEAR = "SET_JPGAMELISTGEAR";
 
 export const getJPGameListGear = () => ({
   type: GET_JPGAMELISTGEAR
 });
 
-export const setJPGameListGear= (jp_gamelist_gear) => ({
+export const setJPGameListGear = (jp_gamelist_gear) => ({
   type: SET_JPGAMELISTGEAR,
   jp_gamelist_gear: jp_gamelist_gear
 });

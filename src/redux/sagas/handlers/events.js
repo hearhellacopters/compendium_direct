@@ -7,7 +7,7 @@ export function* handleGetEvents(action) {
   try {
     const response = yield call(requestGetEvents);
     const { data } = response;
-    if(isJson(data,"GetEvents") == true){
+    if (isJson(data, "GetEvents") == true) {
       yield put(setEvents(data));
     }
   } catch (error) {

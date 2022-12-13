@@ -1,4 +1,4 @@
-.enemyholder{
+.enemyholder {
     transition: all .2s;
     transform-origin: 50% 0;
     margin-top: 5px;
@@ -6,7 +6,7 @@
     padding: 10px;
 }
 
-.nonenemyholder{
+.nonenemyholder {
     padding: 8px;
     transition: all .2s;
     transform-origin: 50% 0;
@@ -14,7 +14,7 @@
     clear: both;
 }
 
-.directbuffholder{
+.directbuffholder {
     padding: 8px;
     transition: all .2s;
     transform-origin: 50% 0;
@@ -26,14 +26,14 @@
     box-shadow: inset 5px 0px 4px rgba(0, 0, 0, 0.5), inset -5px 5px 4px rgba(0, 0, 0, 0.5), inset 0px -5px 4px rgba(0, 0, 0, 0.5);
 }
 
-.enemyholderstyling{
+.enemyholderstyling {
     padding-top: 8px;
     border-radius: 19px;
     background: #43517a;
     box-shadow: inset 5px 0px 4px rgba(0, 0, 0, 0.5), inset -5px 5px 4px rgba(0, 0, 0, 0.5), inset 0px -5px 4px rgba(0, 0, 0, 0.5);
 }
 
-.enemyholderli{
+.enemyholderli {
     width: 128px;
     height: 128px;
     padding: 4px;
@@ -42,13 +42,13 @@
     transition: all .2s;
 }
 
-.similarformating{
+.similarformating {
     padding: 0px;
     margin: 0 5px 5px 5px;
-    background: linear-gradient( 90deg, rgba(30, 55, 88, 0) 0%, #8e8f8f 3.67%, #8e8f8f 96.44%, rgba(30, 55, 88, 0) 100%);
+    background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #8e8f8f 3.67%, #8e8f8f 96.44%, rgba(30, 55, 88, 0) 100%);
 }
 
-.enemycard{
+.enemycard {
     height: 128px;
     width: 128px;
     background-size: contain;
@@ -56,21 +56,23 @@
     display: block;
     position: relative;
     -webkit-filter: drop-shadow(2px 2px 2px #222);
-    filter: drop-shadow(2px 2px 2px #222);filter: drop-shadow(2px 2px 2px #222);
+    filter: drop-shadow(2px 2px 2px #222);
+    filter: drop-shadow(2px 2px 2px #222);
 }
+
 @media (hover: hover) {
-.enemycard:hover{
-    transform: translateY(-1px);
-    transition: all .2s;
-    cursor: pointer;
-    -webkit-filter: drop-shadow(0px 0px 0px) brightness(1.1);
-    filter: drop-shadow(0px 0px 0px) brightness(1.1);
-}
+    .enemycard:hover {
+        transform: translateY(-1px);
+        transition: all .2s;
+        cursor: pointer;
+        -webkit-filter: drop-shadow(0px 0px 0px) brightness(1.1);
+        filter: drop-shadow(0px 0px 0px) brightness(1.1);
+    }
 }
 
 
-.smallJPflag{
-    content: url(https://dissidiacompendium.com/images/static/icons/misc/japan.svg); 
+.smallJPflag {
+    content: url(https://dissidiacompendium.com/images/static/icons/misc/japan.svg);
     text-decoration: none;
     z-index: 2;
     position: absolute;
@@ -83,8 +85,8 @@
     filter: drop-shadow(2px 2px 2px #222);
 }
 
-.lufflag{
-    content: url(https://dissidiacompendium.com/images/static/icons/misc/luf.png); 
+.lufflag {
+    content: url(https://dissidiacompendium.com/images/static/icons/misc/luf.png);
     text-decoration: none;
     z-index: 2;
     position: absolute;
@@ -97,8 +99,8 @@
     filter: drop-shadow(2px 2px 2px #222);
 }
 
-.shinflag{
-    content: url(https://dissidiacompendium.com/images/static/icons/misc/Shinryu2.png); 
+.shinflag {
+    content: url(https://dissidiacompendium.com/images/static/icons/misc/Shinryu2.png);
     text-decoration: none;
     z-index: 2;
     position: absolute;
@@ -111,8 +113,8 @@
     filter: drop-shadow(2px 2px 2px #222);
 }
 
-.lufplusflag{
-    content: url(https://dissidiacompendium.com/images/static/icons/misc/luf+.png); 
+.lufplusflag {
+    content: url(https://dissidiacompendium.com/images/static/icons/misc/luf+.png);
     text-decoration: none;
     z-index: 2;
     position: absolute;
@@ -125,21 +127,21 @@
     filter: drop-shadow(2px 2px 2px #222);
 }
 
-.enemytypes{
+.enemytypes {
     display: inline-block;
     padding-left: 0px;
-    margin:auto;
+    margin: auto;
     margin-top: 5px;
     margin-bottom: 5px;
     max-width: 800px;
-  }
-  
-  .enemytypes li{
+}
+
+.enemytypes li {
     display: inline-block;
     margin-bottom: 5px;
-  }
+}
 
-.enemybutton{
+.enemybutton {
     display: inline-block;
     margin-right: 8px;
     margin-left: 8px;
@@ -150,86 +152,93 @@
     background-repeat: no-repeat;
     position: static;
     cursor: pointer;
-  }
-  @media (hover: hover) {
-  .enemybutton:hover{
-    transform: translateY(-1px);
-    transition: all .2s;
-    cursor: pointer;
-  }
 }
 
-  .reverse{
-      position: absolute;
-      margin-top: 25px;
-      margin-left: -68px;
-      font-size: 40px;
-  }
-  @media (hover: hover) {
-  .reverse:hover{
-    transform: translateY(-1px);
-    transition: all .2s;
-    cursor: pointer;
-    filter: brightness(1.2);
-    -webkit-filter: brightness(1.2); 
-  }
+@media (hover: hover) {
+    .enemybutton:hover {
+        transform: translateY(-1px);
+        transition: all .2s;
+        cursor: pointer;
+    }
 }
 
-.darkerblue{
+.reverse {
+    position: absolute;
+    margin-top: 25px;
+    margin-left: -68px;
+    font-size: 40px;
+}
+
+@media (hover: hover) {
+    .reverse:hover {
+        transform: translateY(-1px);
+        transition: all .2s;
+        cursor: pointer;
+        filter: brightness(1.2);
+        -webkit-filter: brightness(1.2);
+    }
+}
+
+.darkerblue {
     background: #263252 !important;
 }
 
-.lufeniaPlusButton{
+.lufeniaPlusButton {
     background-image: url('https://dissidiacompendium.com/images/static/enemy/types/Lufenia+2.png');
 }
-.dimensionButton{
+
+.dimensionButton {
     background-image: url('https://dissidiacompendium.com/images/static/enemy/types/Dimension2.png');
 }
 
-.shinryuButton{
+.shinryuButton {
     background-image: url('https://dissidiacompendium.com/images/static/enemy/types/Shinryu2.png');
 }
 
-.spiritusButton{
+.spiritusButton {
     background-image: url('https://dissidiacompendium.com/images/static/enemy/types/Spiritus.png');
 }
 
-.lufeniaButton{
+.lufeniaButton {
     background-image: url('https://dissidiacompendium.com/images/static/enemy/types/Lufenia2.png');
 }
 
-.reverseButton{
+.reverseButton {
     background-image: url('https://dissidiacompendium.com/images/static/enemy/types/Reverse.png');
 }
 
-.lunaticButton{
+.lunaticButton {
     background-image: url('https://dissidiacompendium.com/images/static/enemy/types/Lunatic.png');
 }
 
-.hereticButton{
+.hereticButton {
     background-image: url('https://dissidiacompendium.com/images/static/enemy/types/Heretic.png');
 }
-.jpButton{
+
+.jpButton {
     background-image: url('https://dissidiacompendium.com/images/static/enemy/types/JPOnly.png');
 }
-.DetailsButton{
+
+.DetailsButton {
     background-image: url('https://dissidiacompendium.com/images/static/enemy/types/Details.png');
 }
-.glButton{
+
+.glButton {
     background-image: url('https://dissidiacompendium.com/images/static/enemy/types/GLOnly.png');
 }
 
-.manikinButton{
+.manikinButton {
     background-image: url('https://dissidiacompendium.com/images/static/enemy/types/Manikin.png');
 }
 
 @media screen and (max-width: 800px) {
-    .enemybutton{
+    .enemybutton {
         height: 61px;
         width: 61px;
         background-size: 61px;
-      }
-      .enemyholder {
+    }
+
+    .enemyholder {
         margin-top: 0;
         border-radius: 0 0 19px 19px;
         box-shadow: none;
@@ -237,41 +246,49 @@
         border-right: 3px solid #7a7a7a;
         border-bottom: 3px solid #7a7a7a;
         padding: 0px;
-      }
-      .nonenemyholder {
+    }
+
+    .nonenemyholder {
         margin-top: 0;
         border-radius: 0 0 19px 19px;
         box-shadow: none;
         border-left: 3px solid #7a7a7a;
         border-right: 3px solid #7a7a7a;
         border-bottom: 3px solid #7a7a7a;
-      }
-      .directbuffholder {
+    }
+
+    .directbuffholder {
         margin-top: 0;
         border-radius: 0 0 19px 19px;
         box-shadow: none;
-      }
-    .lufplusflag{
+    }
+
+    .lufplusflag {
         margin-top: 77px;
         margin-left: -26px;
     }
-    .lufflag{
+
+    .lufflag {
         margin-top: 77px;
         margin-left: -26px;
     }
-    .shinflag{
+
+    .shinflag {
         margin-top: 77px;
         margin-left: -26px;
     }
-    .smallJPflag{
+
+    .smallJPflag {
         margin-top: 77px;
         margin-left: -100px;
     }
-    .enemycard{
+
+    .enemycard {
         height: 96px;
         width: 96px;
     }
-    .enemyholderli{
+
+    .enemyholderli {
         height: 96px;
         width: 96px;
     }

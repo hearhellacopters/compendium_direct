@@ -1,11 +1,11 @@
 export const GET_JPGAMELISTPASSIVE = "GET_JPGAMELISTPASSIVE";
-const SET_JPGAMELISTPASSIVE= "SET_JPGAMELISTPASSIVE";
+const SET_JPGAMELISTPASSIVE = "SET_JPGAMELISTPASSIVE";
 
 export const getJPGameListPassive = () => ({
   type: GET_JPGAMELISTPASSIVE
 });
 
-export const setJPGameListPassive= (jp_gamelist_passive) => ({
+export const setJPGameListPassive = (jp_gamelist_passive) => ({
   type: SET_JPGAMELISTPASSIVE,
   jp_gamelist_passive: jp_gamelist_passive
 });

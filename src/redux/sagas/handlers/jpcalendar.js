@@ -7,7 +7,7 @@ export function* handleGetJPCalendar(action) {
   try {
     const response = yield call(requestGetJPCalendar);
     const { data } = response;
-    if(isJson(data,"GetJPCalendar") == true){
+    if (isJson(data, "GetJPCalendar") == true) {
       yield put(setJPCalendar(data));
     }
   } catch (error) {

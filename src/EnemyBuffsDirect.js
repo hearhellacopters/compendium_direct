@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
 import { Link } from 'react-router-dom'
 import './Buffs.css';
@@ -12,29 +12,29 @@ import { ImSortAmountDesc } from 'react-icons/im';
 import { TiArrowSortedDown } from 'react-icons/ti';
 import { TiArrowSortedUp } from 'react-icons/ti';
 import { IoMdCloseCircleOutline } from 'react-icons/io';
-import { IoSearch } from 'react-icons/io5'; 
+import { IoSearch } from 'react-icons/io5';
 import { FaUndoAlt } from 'react-icons/fa'
 import { getQuery, getQueryStringVal, useQueryParam } from './processing/urlparams'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { FaShareSquare } from 'react-icons/fa';
 
-const EnemyBuffsDirect = ({ProcessedEnemyBuffs}) => {
+const EnemyBuffsDirect = ({ ProcessedEnemyBuffs }) => {
 
 
   const startinglimit = window.innerWidth <= 815 ? 30 : 50;
-  
+
   const rawData = ProcessedEnemyBuffs;
 
   const banerDisplayTerm = "buffs";
 
-  const [showFilter, setShowFilter] = useState(getQueryStringVal("filter") != null  ? true : false);
+  const [showFilter, setShowFilter] = useState(getQueryStringVal("filter") != null ? true : false);
   const [clearFilter, setclearFilter] = useStateIfMounted(false);
 
-  const [buffs, setBuffs] = useState(getQueryStringVal("buffs") != null  ? true : false);
-  const [debuffs, setDebuffs] = useState(getQueryStringVal("debuffs") != null  ? true : false);
+  const [buffs, setBuffs] = useState(getQueryStringVal("buffs") != null ? true : false);
+  const [debuffs, setDebuffs] = useState(getQueryStringVal("debuffs") != null ? true : false);
 
   const [loop, setLoop] = useStateIfMounted(false);
-  const [reverse, setReverse] = useState(getQueryStringVal("rev") != null  ? true : false);
+  const [reverse, setReverse] = useState(getQueryStringVal("rev") != null ? true : false);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchdisplay, setsearchdisplay] = useState("");
   const [filterResults, setFilterResults] = useState(rawData);
@@ -62,74 +62,74 @@ const EnemyBuffsDirect = ({ProcessedEnemyBuffs}) => {
 
   useEffect(() => {
     //search params
-    if(getQueryStringVal("search") != null){
-      setSearchTerm(getQueryStringVal("search") != null  ? getQueryStringVal("search").toLowerCase() : "")
+    if (getQueryStringVal("search") != null) {
+      setSearchTerm(getQueryStringVal("search") != null ? getQueryStringVal("search").toLowerCase() : "")
       setTEXTsearch(getQueryStringVal("search") != null ? getQueryStringVal("search") : "")
       setsearchdisplay(getQueryStringVal("search") != null ? getQueryStringVal("search") : "")
     }
-    }, [setTEXTsearch,setFiltersearch])
+  }, [setTEXTsearch, setFiltersearch])
 
-    
+
   //unique
   function onlyUnique(value, index, self) {
     return self.indexOf(value) === index;
   }
 
-   //filter
-   useEffect(() => {
-     const filterholder = [];
-    
-     if (debuffs == false && buffs == true) {
-       const filteredout = rawData.filter(
-         (enemies) => enemies["is_buff"] == 1
-       );
-       filterholder.push(...filteredout);
-     }
-     if (debuffs == true && buffs == false) {
-       const filteredout = rawData.filter(
-         (enemies) => enemies["is_buff"] === 0
-       );
-       filterholder.push(...filteredout);
-     }
+  //filter
+  useEffect(() => {
+    const filterholder = [];
 
-      if(debuffs == false && buffs == false){
-        filterholder.push(...rawData)
-      }
-      if(debuffs == true && buffs == true){
+    if (debuffs == false && buffs == true) {
+      const filteredout = rawData.filter(
+        (enemies) => enemies["is_buff"] == 1
+      );
+      filterholder.push(...filteredout);
+    }
+    if (debuffs == true && buffs == false) {
+      const filteredout = rawData.filter(
+        (enemies) => enemies["is_buff"] === 0
+      );
+      filterholder.push(...filteredout);
+    }
+
+    if (debuffs == false && buffs == false) {
       filterholder.push(...rawData)
     }
-  
-     if (filterholder.length === 0) {
-       filterholder.push(...rawData);
-     }
-  
-       const makeUnique = filterholder
-         .sort((a, b) => 
-         reverse === false ?
-         a.id - b.id:
-         b.id - a.id);
-       const searchit = makeUnique.filter((e) =>
-         (`${e.name && e.name.replace(/(<)/gm,"").replace(/(<)/gm,"")} ${e.jpname} #${e.id}`).toLowerCase().includes(searchTerm)
-       );
-       setFilterResults(makeUnique);
-       setSearchResults(searchit);
-       const newlistdisplay = searchit.slice(0, limits);
-       if (limits < searchit.length) {
-         setShowLoadMore(true);
-         setListDisplay(newlistdisplay);
-         setListLength(searchit.length);
-         setDisplayBanner(
-          <>Displaying <span className="subtextgold">{newlistdisplay.length}</span> of <span className="subtextgold"> {searchit.length}</span> {banerDisplayTerm}</>
-         );
-       } else {
-         setShowLoadMore(false);
-         setListDisplay(newlistdisplay);
-         setListLength(newlistdisplay.length);
-         setDisplayBanner(
-          <>Displaying <span className="subtextgold">{newlistdisplay.length}</span> of <span className="subtextgold"> {newlistdisplay.length}</span> {banerDisplayTerm}</>
-         );
-       }
-     }, [limits, rawData, searchTerm, clearFilter, buffs, debuffs, reverse]);
+    if (debuffs == true && buffs == true) {
+      filterholder.push(...rawData)
+    }
+
+    if (filterholder.length === 0) {
+      filterholder.push(...rawData);
+    }
+
+    const makeUnique = filterholder
+      .sort((a, b) =>
+        reverse === false ?
+          a.id - b.id :
+          b.id - a.id);
+    const searchit = makeUnique.filter((e) =>
+      (`${e.name && e.name.replace(/(<)/gm, "").replace(/(<)/gm, "")} ${e.jpname} #${e.id}`).toLowerCase().includes(searchTerm)
+    );
+    setFilterResults(makeUnique);
+    setSearchResults(searchit);
+    const newlistdisplay = searchit.slice(0, limits);
+    if (limits < searchit.length) {
+      setShowLoadMore(true);
+      setListDisplay(newlistdisplay);
+      setListLength(searchit.length);
+      setDisplayBanner(
+        <>Displaying <span className="subtextgold">{newlistdisplay.length}</span> of <span className="subtextgold"> {searchit.length}</span> {banerDisplayTerm}</>
+      );
+    } else {
+      setShowLoadMore(false);
+      setListDisplay(newlistdisplay);
+      setListLength(newlistdisplay.length);
+      setDisplayBanner(
+        <>Displaying <span className="subtextgold">{newlistdisplay.length}</span> of <span className="subtextgold"> {newlistdisplay.length}</span> {banerDisplayTerm}</>
+      );
+    }
+  }, [limits, rawData, searchTerm, clearFilter, buffs, debuffs, reverse]);
 
   //buttons
   const buffsbutton = () => {
@@ -137,7 +137,7 @@ const EnemyBuffsDirect = ({ProcessedEnemyBuffs}) => {
       setBuffssearch("true")
       setDebuffssearch("")
       setDebuffs(false)
-    } 
+    }
     if (buffs == true) {
       setBuffssearch("")
       setDebuffssearch("")
@@ -220,7 +220,7 @@ const EnemyBuffsDirect = ({ProcessedEnemyBuffs}) => {
 
 
   //clear
-  const resetbutton = () =>{
+  const resetbutton = () => {
     setclearFilter(true);
     setReverse(false)
     setDebuffs(false);
@@ -238,118 +238,118 @@ const EnemyBuffsDirect = ({ProcessedEnemyBuffs}) => {
 
   const listBuff = listDisplay;
 
-    return (
-      <div>
-        <Helmet>
-          <title>Enemy Buffs - Dissidia Compendium</title>
-          <meta property="og:site_name" content="Dissidia Compendium"/>
-          <meta property="og:type" content="website" />
-          <meta name="description" content="Enemy Buffs Search"/>
-          <meta name="twitter:title" content="Enemy Buffs Search"/>
-          <meta name="twitter:description" content="Enemy Buffs Search"/>
-          <meta property="og:title" content="Enemy Buffs Search"/>
-          <meta property="og:description" content="Enemy Buffs Search"/>
-          <meta property="og:url" content="https://dissidiacompendium.com/bestiary/buffs"/>
-        </Helmet>
-            <div className="content">
-              <h1  >Enemy Buffs</h1>
-              <div className="subheader">Use filters to limit returns</div>
-              <div className="charfilterspacer"/>
-              <div key="filter1" onClick={showfilterbutton} className="charfilter"><span className="filterstext"></span>{showFilter ? <TiArrowSortedUp className="uparrow"/> : <TiArrowSortedDown className="downarrow"/>}</div>
-              {showFilter == false ? 
-              <div className="char-search-reverse-holder">
-                <IoSearch className="searchicon"/>
-              <div className="search-holder el">
-                <input 
-                    className="char-search-bar" 
-                    type="text"
-                    placeholder="Buff Name / Effects"
-                    value={searchdisplay}
-                    onChange={handleChange}
-                    onKeyDown={handleKeyDown}
-                />
-                {searchTerm === "" ? "" : 
+  return (
+    <div>
+      <Helmet>
+        <title>Enemy Buffs - Dissidia Compendium</title>
+        <meta property="og:site_name" content="Dissidia Compendium" />
+        <meta property="og:type" content="website" />
+        <meta name="description" content="Enemy Buffs Search" />
+        <meta name="twitter:title" content="Enemy Buffs Search" />
+        <meta name="twitter:description" content="Enemy Buffs Search" />
+        <meta property="og:title" content="Enemy Buffs Search" />
+        <meta property="og:description" content="Enemy Buffs Search" />
+        <meta property="og:url" content="https://dissidiacompendium.com/bestiary/buffs" />
+      </Helmet>
+      <div className="content">
+        <h1  >Enemy Buffs</h1>
+        <div className="subheader">Use filters to limit returns</div>
+        <div className="charfilterspacer" />
+        <div key="filter1" onClick={showfilterbutton} className="charfilter"><span className="filterstext"></span>{showFilter ? <TiArrowSortedUp className="uparrow" /> : <TiArrowSortedDown className="downarrow" />}</div>
+        {showFilter == false ?
+          <div className="char-search-reverse-holder">
+            <IoSearch className="searchicon" />
+            <div className="search-holder el">
+              <input
+                className="char-search-bar"
+                type="text"
+                placeholder="Buff Name / Effects"
+                value={searchdisplay}
+                onChange={handleChange}
+                onKeyDown={handleKeyDown}
+              />
+              {searchTerm === "" ? "" :
                 <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
-                </div>
-                </div>
-              :""
-              }
-                <div className="filterholder noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
-                  <div className="similarbanner">Refine</div>
-                  <div className="filterholderflair">
-                    <ul className="bufftypes">
-                      <li className={`${buffs ? "filteractive": "filterinactive"} buffsbutton buffsButton`} onClick={buffsbutton}></li>
-                      <li className={`${debuffs ? "filteractive": "filterinactive"} buffsbutton debuffsButton`} onClick={debuffsbutton}></li>
-                    </ul>
-                    <br/>
-                    <div className="search-reverse-holder">
-                      <div className="search-holder">
-                      <IoSearch className="innersearchicon"/>
-                        <input 
-                            className="search-bar" 
-                            type="text"
-                            placeholder="Buff Name / Effects"
-                            value={searchdisplay}
-                            onChange={handleChange}
-                            onKeyDown={handleKeyDown}
-                        />
-                        {searchTerm === "" ? "" : 
-                        <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
-                      </div>
-                        <Tippy content="Reverse Order" className="tooltip" >
-                          <div className={`reversebox`} ><i onClick={reversebutton} className={`reversebutton ${loop ? "flip": ""}`} ><ImSortAmountDesc className={`reversebutton ${reverse ? "": "nodisplay"}`}/><ImSortAmountAsc className={`reversebutton ${reverse ? "nodisplay": ""}`}/></i></div>
-                        </Tippy>
-                    </div>
-                    <div>
-                          <CopyToClipboard text={url}>
-                          <div className="sharebox">
-                              <Tippy content="Link Copied!" inertia={true} animation={"shift-away"} touch={true} arrow={false} trigger={"click"} placement={"top"} duration={[100,500]}>
-                                  <div className="centertext"><FaShareSquare className="shareicon"/>&nbsp;Share</div>
-                              </Tippy>
-                          </div>
-                          </CopyToClipboard>
-                          <Tippy content="Reset Filters" className="tooltip" >
-                            <div onClick={resetbutton} className={`clearbox`} ><div className="makecenter">Reset&nbsp;<FaUndoAlt  className={`clearbutton ${clearFilter ? "loop": ""}`} ></FaUndoAlt></div></div>
-                          </Tippy>
-                          </div>
-                  </div>
-                  <span className="subtext">Strength of buff is determined by ability</span>
-                </div>
-                {showFilter == true ? "" :
-                  <span className="subtext">Strength of buff is determined by ability</span>
-                   }
-                <ul className="bannertabs">
-                <Link to={`/bestiary/enemies`}>
-                  <li className={""} >Enemies</li>
-                </Link>
-                <Link to={`/bestiary/abilities`}>
-                  <li className={""} >Abilities</li>
-                </Link>
-                <Link to={`/bestiary/buffs`}>
-                  <li className={"active"} ><span className="gemselected"/>Buffs</li>
-                </Link>
+            </div>
+          </div>
+          : ""
+        }
+        <div className="filterholder noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
+          <div className="similarbanner">Refine</div>
+          <div className="filterholderflair">
+            <ul className="bufftypes">
+              <li className={`${buffs ? "filteractive" : "filterinactive"} buffsbutton buffsButton`} onClick={buffsbutton}></li>
+              <li className={`${debuffs ? "filteractive" : "filterinactive"} buffsbutton debuffsButton`} onClick={debuffsbutton}></li>
             </ul>
-              <div className="nonenemyholder enemyholderstyling">
-                <div className="subtext">
-                  {displayBanner}
+            <br />
+            <div className="search-reverse-holder">
+              <div className="search-holder">
+                <IoSearch className="innersearchicon" />
+                <input
+                  className="search-bar"
+                  type="text"
+                  placeholder="Buff Name / Effects"
+                  value={searchdisplay}
+                  onChange={handleChange}
+                  onKeyDown={handleKeyDown}
+                />
+                {searchTerm === "" ? "" :
+                  <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
+              </div>
+              <Tippy content="Reverse Order" className="tooltip" >
+                <div className={`reversebox`} ><i onClick={reversebutton} className={`reversebutton ${loop ? "flip" : ""}`} ><ImSortAmountDesc className={`reversebutton ${reverse ? "" : "nodisplay"}`} /><ImSortAmountAsc className={`reversebutton ${reverse ? "nodisplay" : ""}`} /></i></div>
+              </Tippy>
+            </div>
+            <div>
+              <CopyToClipboard text={url}>
+                <div className="sharebox">
+                  <Tippy content="Link Copied!" inertia={true} animation={"shift-away"} touch={true} arrow={false} trigger={"click"} placement={"top"} duration={[100, 500]}>
+                    <div className="centertext"><FaShareSquare className="shareicon" />&nbsp;Share</div>
+                  </Tippy>
                 </div>
-              {listBuff.length > 0 ?  (
-              listBuff.map(buffs => (
-                <EnemyBuffsFormatingDirect 
+              </CopyToClipboard>
+              <Tippy content="Reset Filters" className="tooltip" >
+                <div onClick={resetbutton} className={`clearbox`} ><div className="makecenter">Reset&nbsp;<FaUndoAlt className={`clearbutton ${clearFilter ? "loop" : ""}`} ></FaUndoAlt></div></div>
+              </Tippy>
+            </div>
+          </div>
+          <span className="subtext">Strength of buff is determined by ability</span>
+        </div>
+        {showFilter == true ? "" :
+          <span className="subtext">Strength of buff is determined by ability</span>
+        }
+        <ul className="bannertabs">
+          <Link to={`/bestiary/enemies`}>
+            <li className={""} >Enemies</li>
+          </Link>
+          <Link to={`/bestiary/abilities`}>
+            <li className={""} >Abilities</li>
+          </Link>
+          <Link to={`/bestiary/buffs`}>
+            <li className={"active"} ><span className="gemselected" />Buffs</li>
+          </Link>
+        </ul>
+        <div className="nonenemyholder enemyholderstyling">
+          <div className="subtext">
+            {displayBanner}
+          </div>
+          {listBuff.length > 0 ? (
+            listBuff.map(buffs => (
+              <EnemyBuffsFormatingDirect
                 key={buffs.id}
                 match={buffs}
-                />
-                ))) : (
-                  <div>No results</div>
-                )}
-                <div className="subtextbottom">
-                  {displayBanner}
-                </div>
-                {showLoadMore && 
-                <div className="loadmore" onClick={loadMoreButton}> Load More </div>}
-            </div>
+              />
+            ))) : (
+            <div>No results</div>
+          )}
+          <div className="subtextbottom">
+            {displayBanner}
+          </div>
+          {showLoadMore &&
+            <div className="loadmore" onClick={loadMoreButton}> Load More </div>}
         </div>
       </div>
-    );
+    </div>
+  );
 }
 export default EnemyBuffsDirect;

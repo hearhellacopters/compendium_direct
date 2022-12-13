@@ -7,7 +7,7 @@ export function* handleGetEventGuide(action) {
   try {
     const response = yield call(requestGetEventGuide);
     const { data } = response;
-    if(isJson(data,"GetEventGuide") == true){
+    if (isJson(data, "GetEventGuide") == true) {
       yield put(setEventGuide(data));
     }
   } catch (error) {

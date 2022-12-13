@@ -1,6 +1,6 @@
 import hit_data_handler from "../hit_data_handler"
 
-const Hit_Data_For_Ability =(
+const Hit_Data_For_Ability = (
     ability,
 
     master_index,
@@ -50,7 +50,7 @@ const Hit_Data_For_Ability =(
     faf,
     bdlur,
     mblur
-)=>{
+) => {
 
     const hit_effect_id = master_index.hit_trans_data.hit_effect_id
 
@@ -97,11 +97,11 @@ const Hit_Data_For_Ability =(
         hit_data_id_39: hit_data_id_39
     }
 
-    const check_hidden=(id)=>{
-        if(id == undefined){
+    const check_hidden = (id) => {
+        if (id == undefined) {
             return true
         }
-        if(hit_effect_id[id] && hit_effect_id[id].hidden == true){
+        if (hit_effect_id[id] && hit_effect_id[id].hidden == true) {
             return false
         } else {
             return true
@@ -109,53 +109,53 @@ const Hit_Data_For_Ability =(
     }
 
     const hitreturn = {
-        hit_pars:{}
+        hit_pars: {}
     }
     var hit_counter = 0
     for (let index = 0; index < 40; index++) {
         const hit_data = caller[`hit_data_id${index == 0 ? "" : `_${index}`}`]
-        if( hit_data != undefined && 
-            hit_data.hitdata_id != -1 && 
+        if (hit_data != undefined &&
+            hit_data.hitdata_id != -1 &&
             hit_data.hitdata_id != 518 && //blanks
             (hit_data.effect_id != 37 && hit_data.m_nARG_4 != 2809) && //hide models
             check_hidden(hit_data.effect_id)
-            ){
+        ) {
             var hit_data_id_pars = ""
-            if(hit_data == undefined){
+            if (hit_data == undefined) {
                 hit_counter = hit_counter + 1
                 hit_data_id_pars = {
                     atk_str: `REMOVED HIT #${hit_data.hitdata_id}`,
                     id: hit_data.hitdata_id,
                     hit_num: hit_counter
-                } 
+                }
             } else {
                 hit_counter = hit_counter + 1
                 hit_data_id_pars = hit_data_handler(
                     hit_data,
-        
+
                     master_index,
                     ver,
-        
+
                     faf,
                     bdlur,
                     mblur,
                     hit_counter
                 )
             }
-            if( hit_data && hit_data.effect_id == 159||
+            if (hit_data && hit_data.effect_id == 159 ||
                 hit_data && hit_data.effect_id == 258
-                ){
-                    hit_counter = hit_counter - 1
-                    Object.assign(hit_data_id_pars,{hit_num:`B${hit_data.m_nARG}`})
-                    Object.assign(hitreturn.hit_pars,{[`B${hit_data.m_nARG}`]: hit_data_id_pars == "" ? undefined : hit_data_id_pars})
+            ) {
+                hit_counter = hit_counter - 1
+                Object.assign(hit_data_id_pars, { hit_num: `B${hit_data.m_nARG}` })
+                Object.assign(hitreturn.hit_pars, { [`B${hit_data.m_nARG}`]: hit_data_id_pars == "" ? undefined : hit_data_id_pars })
             } else {
-                Object.assign(hitreturn.hit_pars,{[`hit_${hit_counter}`]: hit_data_id_pars == "" ? undefined : hit_data_id_pars})
+                Object.assign(hitreturn.hit_pars, { [`hit_${hit_counter}`]: hit_data_id_pars == "" ? undefined : hit_data_id_pars })
             }
-        }   
+        }
 
     }
 
-    return(
+    return (
         hitreturn
     )
 }

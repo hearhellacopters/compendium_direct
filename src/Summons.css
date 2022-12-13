@@ -1,57 +1,69 @@
-.IfritIcon{
+.IfritIcon {
     content: url("https://dissidiacompendium.com/images/static/icons/summons/unlocked/Summon_Ifrit.png")
 }
-.ShivaIcon{
+
+.ShivaIcon {
     content: url("https://dissidiacompendium.com/images/static/icons/summons/unlocked/Summon_Shiva.png")
 }
-.RamuhIcon{
+
+.RamuhIcon {
     content: url("https://dissidiacompendium.com/images/static/icons/summons/unlocked/Summon_Ramuh.png")
 }
-.LeviathanIcon{
+
+.LeviathanIcon {
     content: url("https://dissidiacompendium.com/images/static/icons/summons/unlocked/Summon_Leviathan.png")
 }
-.BrothersIcon{
+
+.BrothersIcon {
     content: url("https://dissidiacompendium.com/images/static/icons/summons/unlocked/Summon_Brothers.png")
 }
-.PandemoniumIcon{
+
+.PandemoniumIcon {
     content: url("https://dissidiacompendium.com/images/static/icons/summons/unlocked/Summon_Pandemonium.png")
 }
-.DiabolosIcon{
+
+.DiabolosIcon {
     content: url("https://dissidiacompendium.com/images/static/icons/summons/unlocked/Summon_Diabolos.png")
 }
-.AlexanderIcon{
+
+.AlexanderIcon {
     content: url("https://dissidiacompendium.com/images/static/icons/summons/unlocked/Summon_Alexander.png")
 }
-.OdinIcon{
+
+.OdinIcon {
     content: url("https://dissidiacompendium.com/images/static/icons/summons/unlocked/Summon_Odin.png")
 }
-.BahamutIcon{
+
+.BahamutIcon {
     content: url("https://dissidiacompendium.com/images/static/icons/summons/unlocked/Summon_Bahamut.png")
 }
-.ChocoboIcon{
+
+.ChocoboIcon {
     content: url("https://dissidiacompendium.com/images/static/icons/summons/unlocked/Summon_Chocobo.png")
 }
-.SylphIcon{
+
+.SylphIcon {
     content: url("https://dissidiacompendium.com/images/static/icons/summons/unlocked/Summon_Sylph.png")
 }
-.MogIcon{
+
+.MogIcon {
     content: url("https://dissidiacompendium.com/images/static/icons/summons/unlocked/Summon_Mog.png")
 }
 
-.suminfoholder{
+.suminfoholder {
     padding: 10px;
     border-radius: 19px;
     background: #43517a;
     box-shadow: inset 5px 0px 4px rgb(0 0 0 / 50%), inset -5px 5px 4px rgb(0 0 0 / 50%), inset 0px -5px 4px rgb(0 0 0 / 50%);
 }
 
-.abilitysubJPname{
+.abilitysubJPname {
     font-size: 12px;
     color: rgb(180, 180, 180);
     display: inline-block;
 }
 
-.sumtitle{
+.sumtitle {
     border-top: 2px solid black;
     border-bottom: 2px solid black;
     margin-top: 5px;
@@ -59,28 +71,28 @@
     font-size: 2em;
     text-align: center;
     font-weight: bold;
-    background: linear-gradient( 90deg , rgba(30, 55, 88, 0) 0%, #81a0c9 3.67%, #81a0c9 96.44%, rgba(30, 55, 88, 0) 100%);
+    background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #81a0c9 3.67%, #81a0c9 96.44%, rgba(30, 55, 88, 0) 100%);
 }
 
-.sumelehelper{
+.sumelehelper {
     background: black;
 }
 
-.sumimgholder{
+.sumimgholder {
     width: 330px;
     display: inline-table;
 }
 
-.sumimg{
+.sumimg {
     width: 307px;
     height: 112px;
 }
 
-.sumcompholder{
+.sumcompholder {
     display: flow-root;
 }
 
-.sumlv{
+.sumlv {
     font-size: 20px;
     position: absolute;
     margin-top: 90px;
@@ -88,7 +100,7 @@
     z-index: 2;
 }
 
-.sumele{
+.sumele {
     position: absolute;
     border-radius: 20px;
     z-index: 2;
@@ -97,7 +109,7 @@
     filter: drop-shadow(2px 2px 2px #222);
 }
 
-.sumsubheader{
+.sumsubheader {
     margin-top: 0px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -108,30 +120,31 @@
     background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #3f5b92 3.67%, #3f5b92 96.44%, rgba(30, 55, 88, 0) 100%);
 }
 
-.summonsgem{
+.summonsgem {
     height: 103px;
     width: 87px;
 }
 
-.gemactive{
+.gemactive {
     box-shadow: 0px 0px 8px 8px rgb(255 248 0 / 75%) inset;
     -webkit-box-shadow: 0px 0px 8px 8px rgb(255 248 0 / 75%) inset;
-    -moz-box-shadow: 0px 0px 8px 8px rgba(255,248,0,0.75) inset;
+    -moz-box-shadow: 0px 0px 8px 8px rgba(255, 248, 0, 0.75) inset;
     border-radius: 50px;
 }
+
 @media (hover: hover) {
-.summonsgem:hover{
-    transform: translateY(-1px);
-    transition: all .2s;
-    filter: brightness(1.2);
-    -webkit-filter: brightness(1.2);
-    cursor: pointer;
+    .summonsgem:hover {
+        transform: translateY(-1px);
+        transition: all .2s;
+        filter: brightness(1.2);
+        -webkit-filter: brightness(1.2);
+        cursor: pointer;
+    }
 }
-}
 
 
 
-.summoniconholder{
+.summoniconholder {
     clear: both;
     margin: 0px;
     padding-left: 0px;
@@ -140,7 +153,7 @@
     margin-right: auto;
 }
 
-.summoniconholder ul{
+.summoniconholder ul {
     margin: auto;
     max-width: 800px;
     padding-top: 8px;
@@ -148,7 +161,7 @@
     padding-bottom: 8px;
 }
 
-.summoniconholder li{
+.summoniconholder li {
     display: inline-block;
     vertical-align: top;
     margin: 2px;
@@ -161,40 +174,43 @@
     height: 40px;
     display: flex;
 }
-.sumdescholder{
+
+.sumdescholder {
     display: flex;
 }
 
-.sumabilitydesc{
+.sumabilitydesc {
     text-align: left;
 }
 
-.sumabilholder{
+.sumabilholder {
     display: block;
     width: 100%;
     margin-left: 20px;
     margin-right: 20px;
 }
-.lowerspace{
+
+.lowerspace {
     margin-bottom: 5px;
 }
-.makefull{
+
+.makefull {
     display: block;
 }
 
-.sumblessing{
+.sumblessing {
     text-align: left;
 }
 
-.sumphase{
+.sumphase {
     width: 307px;
 }
 
-.phaseart{
+.phaseart {
     width: 100px;
 }
 
-.topphase{
+.topphase {
     display: flex;
     margin-top: 0px;
     padding-top: 5px;
@@ -203,9 +219,10 @@
     padding-right: 10px;
     text-align: center;
     font-weight: bold;
-    background: linear-gradient( 90deg, rgba(30, 55, 88, 0) 0%, #81a0c9 3.67%, #81a0c9 96.44%, rgba(30, 55, 88, 0) 100%);
+    background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #81a0c9 3.67%, #81a0c9 96.44%, rgba(30, 55, 88, 0) 100%);
 }
-.bottomphase{
+
+.bottomphase {
     display: flex;
     transition: all .2s;
     transform-origin: 50% 0;
@@ -219,7 +236,7 @@
     clear: both;
 }
 
-.sumboardheader{
+.sumboardheader {
     border-top: 2px solid black;
     border-bottom: 2px solid black;
     margin-top: 5px;
@@ -227,10 +244,10 @@
     font-size: 2em;
     text-align: center;
     font-weight: bold;
-    background: linear-gradient( 90deg , rgba(30, 55, 88, 0) 0%, #3f5b92 3.67%, #3f5b92 96.44%, rgba(30, 55, 88, 0) 100%);
+    background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #3f5b92 3.67%, #3f5b92 96.44%, rgba(30, 55, 88, 0) 100%);
 }
 
-.sumpassiveholder{
+.sumpassiveholder {
     padding: 5px;
     background: #263252;
     box-shadow: inset 5px 0px 4px rgb(0 0 0 / 50%), inset -5px 5px 4px rgb(0 0 0 / 50%), inset 0px -5px 4px rgb(0 0 0 / 50%);
@@ -241,7 +258,7 @@
     min-width: 250px;
 }
 
-.boardstatstitle{
+.boardstatstitle {
     border-top: 2px solid black;
     border-bottom: 2px solid black;
     padding-top: 5px;
@@ -250,15 +267,15 @@
     font-size: medium;
     text-align: center;
     font-weight: bold;
-    background: linear-gradient( 90deg , rgba(30, 55, 88, 0) 0%, #81a0c9 3.67%, #81a0c9 96.44%, rgba(30, 55, 88, 0) 100%);
+    background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #81a0c9 3.67%, #81a0c9 96.44%, rgba(30, 55, 88, 0) 100%);
 }
 
-.margauto{
+.margauto {
     margin-left: auto;
     margin-right: auto;
 }
 
-.sumCPReqHolder{
+.sumCPReqHolder {
     display: table;
     width: 100px;
     margin-left: auto;
@@ -266,58 +283,73 @@
 }
 
 @media screen and (max-width: 800px) {
-    .sumCPReqHolder{
+    .sumCPReqHolder {
         width: 80px;
     }
-    .sumtitle{
+
+    .sumtitle {
         font-size: 18px;
     }
-    .sumboardheader{
+
+    .sumboardheader {
         font-size: 18px;
     }
-    .smallspecial{
+
+    .smallspecial {
         width: 36px;
         height: 18px;
     }
-    .makefull{
+
+    .makefull {
         font-size: small;
     }
-    .sumphase{
+
+    .sumphase {
         width: auto;
     }
-    .phaseart{
+
+    .phaseart {
         width: 80px;
         font-size: small;
     }
-    .sumimgholder{
+
+    .sumimgholder {
         margin-top: 5px;
     }
-    .sumdescholder{
+
+    .sumdescholder {
         display: block;
     }
-    .sumimg{
+
+    .sumimg {
         height: 82px;
         width: 230px;
     }
-    .summonsgem{
+
+    .summonsgem {
         width: 80px;
         height: auto;
     }
+
     .sumlv {
         margin-top: 67px;
     }
-    .sumsilder{
+
+    .sumsilder {
         width: 230px;
         margin: 0px;
     }
-    .sumabilholder{
+
+    .sumabilholder {
         margin-left: 0px;
         margin-right: 0px;
     }
-    .sumslider{
+
+    .sumslider {
         width: 230px;
     }
-    .sumimgholder{
+
+    .sumimgholder {
         width: auto;
     }
 }

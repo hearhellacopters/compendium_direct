@@ -7,7 +7,7 @@ export function* handleGetLevels(action) {
   try {
     const response = yield call(requestGetLevels);
     const { data } = response;
-    if(isJson(data,"GetLevels") == true){
+    if (isJson(data, "GetLevels") == true) {
       yield put(setLevels(data));
     }
   } catch (error) {

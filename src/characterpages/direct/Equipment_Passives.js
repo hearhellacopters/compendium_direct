@@ -1,119 +1,119 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Tippy from '../../formatting/TippyDefaults'
 import { useStateIfMounted } from "use-state-if-mounted";
 import { ImSortAmountAsc } from 'react-icons/im';
 import { ImSortAmountDesc } from 'react-icons/im';
 import { IoMdCloseCircleOutline } from 'react-icons/io';
-import { IoSearch } from 'react-icons/io5'; 
+import { IoSearch } from 'react-icons/io5';
 import { FaUndoAlt } from 'react-icons/fa'
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
 import { getQuery, getQueryStringVal, useQueryParam } from '../../processing/urlparams'
 import Equipment_Passive_Handler from './Equipment_Passives_Handler';
 
-const Equipment_Passives =({
-    equipment_passive_ability,
-    ver,
-    loc,
-    newcompare,
-    ProcessedCharacters,
-    formatting,
-    showFilter,
-    master_index
-})=>{
+const Equipment_Passives = ({
+  equipment_passive_ability,
+  ver,
+  loc,
+  newcompare,
+  ProcessedCharacters,
+  formatting,
+  showFilter,
+  master_index
+}) => {
 
-    const rawData = Object.values(equipment_passive_ability && equipment_passive_ability.sort((a,b)=>b.ranked - a.ranked))
+  const rawData = Object.values(equipment_passive_ability && equipment_passive_ability.sort((a, b) => b.ranked - a.ranked))
 
-    const banerDisplayTerm = "equipment passive abilities";
+  const banerDisplayTerm = "equipment passive abilities";
 
-    const startinglimit = 9999
+  const startinglimit = 9999
 
-    const [clearFilter, setclearFilter] = useStateIfMounted(false);
+  const [clearFilter, setclearFilter] = useStateIfMounted(false);
 
-     //show icons
+  //show icons
 
-    const [showBTPlus, setshowBTPlus] = useStateIfMounted(false);
-    const [showBT, setshowBT] = useStateIfMounted(false);
-    const [showFR, setshowFR] = useStateIfMounted(false);
-    const [showEXPlus, setshowEXPlus] = useStateIfMounted(false);
-    const [showLD, setshowLD] = useStateIfMounted(false);
-    const [showEX, setshowEX] = useStateIfMounted(false);
-    const [showDark, setshowDark] = useStateIfMounted(false);
-    const [show35, setshow35] = useStateIfMounted(false);
-    const [showNT, setshowNT] = useStateIfMounted(false);
-    const [showWOI, setshowWOI] = useStateIfMounted(false);
-    const [show15, setshow15] = useStateIfMounted(false);
-    const [show4, setshow4] = useStateIfMounted(false);
+  const [showBTPlus, setshowBTPlus] = useStateIfMounted(false);
+  const [showBT, setshowBT] = useStateIfMounted(false);
+  const [showFR, setshowFR] = useStateIfMounted(false);
+  const [showEXPlus, setshowEXPlus] = useStateIfMounted(false);
+  const [showLD, setshowLD] = useStateIfMounted(false);
+  const [showEX, setshowEX] = useStateIfMounted(false);
+  const [showDark, setshowDark] = useStateIfMounted(false);
+  const [show35, setshow35] = useStateIfMounted(false);
+  const [showNT, setshowNT] = useStateIfMounted(false);
+  const [showWOI, setshowWOI] = useStateIfMounted(false);
+  const [show15, setshow15] = useStateIfMounted(false);
+  const [show4, setshow4] = useStateIfMounted(false);
 
-    const [show7APlus, setshow7APlus] = useStateIfMounted(false);
-    const [show7A, setshow7A] = useStateIfMounted(false);
-    const [showHGPlus, setshowHGPlus] = useStateIfMounted(false);
-    const [showHG, setshowHG] = useStateIfMounted(false);
-    const [show35a, setshow35a] = useStateIfMounted(false);
-    const [show4a, setshow4a] = useStateIfMounted(false);
-    const [showbloom, setshowbloom] = useStateIfMounted(false);
+  const [show7APlus, setshow7APlus] = useStateIfMounted(false);
+  const [show7A, setshow7A] = useStateIfMounted(false);
+  const [showHGPlus, setshowHGPlus] = useStateIfMounted(false);
+  const [showHG, setshowHG] = useStateIfMounted(false);
+  const [show35a, setshow35a] = useStateIfMounted(false);
+  const [show4a, setshow4a] = useStateIfMounted(false);
+  const [showbloom, setshowbloom] = useStateIfMounted(false);
 
-    useEffect(()=>{
-      if(Object.values(equipment_passive_ability).some(self=>self.gear_tag == "wpbtplus")){
-        setshowBTPlus(true)
-      }
-      if(Object.values(equipment_passive_ability).some(self=>self.gear_tag == "wpbt")){
-        setshowBT(true)
-      }
-      if(Object.values(equipment_passive_ability).some(self=>self.gear_tag == "wpfr")){
-        setshowFR(true)
-      }
-      if(Object.values(equipment_passive_ability).some(self=>self.gear_tag == "wpexplus")){
-        setshowEXPlus(true)
-      }
-      if(Object.values(equipment_passive_ability).some(self=>self.gear_tag == "wpld")){
-        setshowLD(true)
-      }
-      if(Object.values(equipment_passive_ability).some(self=>self.gear_tag == "wpex")){
-        setshowEX(true)
-      }
-      if(Object.values(equipment_passive_ability).some(self=>self.gear_tag == "wpdark")){
-        setshowDark(true)
-      }
-      if(Object.values(equipment_passive_ability).some(self=>self.gear_tag == "wp35")){
-        setshow35(true)
-      }
-      if(Object.values(equipment_passive_ability).some(self=>self.gear_tag == "wpnt")){
-        setshowNT(true)
-      }
-      if(Object.values(equipment_passive_ability).some(self=>self.gear_tag == "wpwoi")){
-        setshowWOI(true)
-      }
-      if(Object.values(equipment_passive_ability).some(self=>self.gear_tag == "wp15")){
-        setshow15(true)
-      }
-      if(Object.values(equipment_passive_ability).some(self=>self.gear_tag == "wp4w")){
-        setshow4(true)
-      }
+  useEffect(() => {
+    if (Object.values(equipment_passive_ability).some(self => self.gear_tag == "wpbtplus")) {
+      setshowBTPlus(true)
+    }
+    if (Object.values(equipment_passive_ability).some(self => self.gear_tag == "wpbt")) {
+      setshowBT(true)
+    }
+    if (Object.values(equipment_passive_ability).some(self => self.gear_tag == "wpfr")) {
+      setshowFR(true)
+    }
+    if (Object.values(equipment_passive_ability).some(self => self.gear_tag == "wpexplus")) {
+      setshowEXPlus(true)
+    }
+    if (Object.values(equipment_passive_ability).some(self => self.gear_tag == "wpld")) {
+      setshowLD(true)
+    }
+    if (Object.values(equipment_passive_ability).some(self => self.gear_tag == "wpex")) {
+      setshowEX(true)
+    }
+    if (Object.values(equipment_passive_ability).some(self => self.gear_tag == "wpdark")) {
+      setshowDark(true)
+    }
+    if (Object.values(equipment_passive_ability).some(self => self.gear_tag == "wp35")) {
+      setshow35(true)
+    }
+    if (Object.values(equipment_passive_ability).some(self => self.gear_tag == "wpnt")) {
+      setshowNT(true)
+    }
+    if (Object.values(equipment_passive_ability).some(self => self.gear_tag == "wpwoi")) {
+      setshowWOI(true)
+    }
+    if (Object.values(equipment_passive_ability).some(self => self.gear_tag == "wp15")) {
+      setshow15(true)
+    }
+    if (Object.values(equipment_passive_ability).some(self => self.gear_tag == "wp4w")) {
+      setshow4(true)
+    }
 
-      if(Object.values(equipment_passive_ability).some(self=>self.gear_tag == "arm7aplus")){
-        setshow7APlus(true)
-      }
-      if(Object.values(equipment_passive_ability).some(self=>self.gear_tag == "arm7a")){
-        setshow7A(true)
-      }
-      if(Object.values(equipment_passive_ability).some(self=>self.gear_tag == "armhgplus")){
-        setshowHGPlus(true)
-      }
-      if(Object.values(equipment_passive_ability).some(self=>self.gear_tag == "armhg")){
-        setshowHG(true)
-      }
-      if(Object.values(equipment_passive_ability).some(self=>self.gear_tag == "arm35a")){
-        setshow35a(true)
-      }
-      if(Object.values(equipment_passive_ability).some(self=>self.gear_tag == "arm4a")){
-        setshow4a(true)
-      }
-      if(Object.values(equipment_passive_ability).some(self=>self.gear_tag == "armbloom")){
-        setshowbloom(true)
-      }
-      // eslint-disable-next-line
-  },[equipment_passive_ability])
+    if (Object.values(equipment_passive_ability).some(self => self.gear_tag == "arm7aplus")) {
+      setshow7APlus(true)
+    }
+    if (Object.values(equipment_passive_ability).some(self => self.gear_tag == "arm7a")) {
+      setshow7A(true)
+    }
+    if (Object.values(equipment_passive_ability).some(self => self.gear_tag == "armhgplus")) {
+      setshowHGPlus(true)
+    }
+    if (Object.values(equipment_passive_ability).some(self => self.gear_tag == "armhg")) {
+      setshowHG(true)
+    }
+    if (Object.values(equipment_passive_ability).some(self => self.gear_tag == "arm35a")) {
+      setshow35a(true)
+    }
+    if (Object.values(equipment_passive_ability).some(self => self.gear_tag == "arm4a")) {
+      setshow4a(true)
+    }
+    if (Object.values(equipment_passive_ability).some(self => self.gear_tag == "armbloom")) {
+      setshowbloom(true)
+    }
+    // eslint-disable-next-line
+  }, [equipment_passive_ability])
 
 
   const [activeBTPlussearch, setactiveBTPlussearch] = useQueryParam("BTPlus", "");
@@ -137,581 +137,581 @@ const Equipment_Passives =({
   const [active4asearch, setactive4asearch] = useQueryParam("4a", "");
   const [activebloomsearch, setactivebloomsearch] = useQueryParam("bloom", "");
 
-  const [activeBTPlus, setactiveBTPlus] = useStateIfMounted(getQueryStringVal("BTPlus") != null  ? true : false);
-  const [activeBT, setactiveBT] = useStateIfMounted(getQueryStringVal("BT") != null  ? true : false);
-  const [activeFR, setactiveFR] = useStateIfMounted(getQueryStringVal("FR") != null  ? true : false);
-  const [activeEXPlus, setactiveEXPlus] = useStateIfMounted(getQueryStringVal("EXPlus") != null  ? true : false);
-  const [activeLD, setactiveLD] = useStateIfMounted(getQueryStringVal("LD") != null  ? true : false);
-  const [activeEX, setactiveEX] = useStateIfMounted(getQueryStringVal("EX") != null  ? true : false);
-  const [activeDark, setactiveDark] = useStateIfMounted(getQueryStringVal("Dark") != null  ? true : false);
-  const [active35, setactive35] = useStateIfMounted(getQueryStringVal("35") != null  ? true : false);
-  const [activeNT, setactiveNT] = useStateIfMounted(getQueryStringVal("NT") != null  ? true : false);
-  const [activeWOI, setactiveWOI] = useStateIfMounted(getQueryStringVal("WOI") != null  ? true : false);
-  const [active15, setactive15] = useStateIfMounted(getQueryStringVal("15") != null  ? true : false);
-  const [active4, setactive4] = useStateIfMounted(getQueryStringVal("4") != null  ? true : false);
+  const [activeBTPlus, setactiveBTPlus] = useStateIfMounted(getQueryStringVal("BTPlus") != null ? true : false);
+  const [activeBT, setactiveBT] = useStateIfMounted(getQueryStringVal("BT") != null ? true : false);
+  const [activeFR, setactiveFR] = useStateIfMounted(getQueryStringVal("FR") != null ? true : false);
+  const [activeEXPlus, setactiveEXPlus] = useStateIfMounted(getQueryStringVal("EXPlus") != null ? true : false);
+  const [activeLD, setactiveLD] = useStateIfMounted(getQueryStringVal("LD") != null ? true : false);
+  const [activeEX, setactiveEX] = useStateIfMounted(getQueryStringVal("EX") != null ? true : false);
+  const [activeDark, setactiveDark] = useStateIfMounted(getQueryStringVal("Dark") != null ? true : false);
+  const [active35, setactive35] = useStateIfMounted(getQueryStringVal("35") != null ? true : false);
+  const [activeNT, setactiveNT] = useStateIfMounted(getQueryStringVal("NT") != null ? true : false);
+  const [activeWOI, setactiveWOI] = useStateIfMounted(getQueryStringVal("WOI") != null ? true : false);
+  const [active15, setactive15] = useStateIfMounted(getQueryStringVal("15") != null ? true : false);
+  const [active4, setactive4] = useStateIfMounted(getQueryStringVal("4") != null ? true : false);
 
-  const [active7APlus, setactive7APlus] = useStateIfMounted(getQueryStringVal("7APlus") != null  ? true : false);
-  const [active7A, setactive7A] = useStateIfMounted(getQueryStringVal("7A") != null  ? true : false);
-  const [activeHGPlus, setactiveHGPlus] = useStateIfMounted(getQueryStringVal("HGPlus") != null  ? true : false);
-  const [activeHG, setactiveHG] = useStateIfMounted(getQueryStringVal("HG") != null  ? true : false);
-  const [active35a, setactive35a] = useStateIfMounted(getQueryStringVal("35a") != null  ? true : false);
-  const [active4a, setactive4a] = useStateIfMounted(getQueryStringVal("4a") != null  ? true : false);
-  const [activebloom, setactivebloom] = useStateIfMounted(getQueryStringVal("bloom") != null  ? true : false);
+  const [active7APlus, setactive7APlus] = useStateIfMounted(getQueryStringVal("7APlus") != null ? true : false);
+  const [active7A, setactive7A] = useStateIfMounted(getQueryStringVal("7A") != null ? true : false);
+  const [activeHGPlus, setactiveHGPlus] = useStateIfMounted(getQueryStringVal("HGPlus") != null ? true : false);
+  const [activeHG, setactiveHG] = useStateIfMounted(getQueryStringVal("HG") != null ? true : false);
+  const [active35a, setactive35a] = useStateIfMounted(getQueryStringVal("35a") != null ? true : false);
+  const [active4a, setactive4a] = useStateIfMounted(getQueryStringVal("4a") != null ? true : false);
+  const [activebloom, setactivebloom] = useStateIfMounted(getQueryStringVal("bloom") != null ? true : false);
 
-  useEffect(()=>{
-    if(activeBTPlus == false){
+  useEffect(() => {
+    if (activeBTPlus == false) {
       setactiveBTPlussearch("")
     } else {
       setactiveBTPlussearch("true")
     }
-    if(activeBT == false){
+    if (activeBT == false) {
       setactiveBTsearch("")
     } else {
       setactiveBTsearch("true")
     }
-    if(activeFR == false){
+    if (activeFR == false) {
       setactiveFRsearch("")
     } else {
       setactiveFRsearch("true")
     }
-    if(activeEXPlus == false){
+    if (activeEXPlus == false) {
       setactiveEXPlussearch("")
     } else {
       setactiveEXPlussearch("true")
     }
-    if(activeLD == false){
+    if (activeLD == false) {
       setactiveLDsearch("")
     } else {
       setactiveLDsearch("true")
     }
-    if(activeEX == false){
+    if (activeEX == false) {
       setactiveEXsearch("")
     } else {
       setactiveEXsearch("true")
     }
-    if(activeDark == false){
+    if (activeDark == false) {
       setactiveDarksearch("")
     } else {
       setactiveDarksearch("true")
     }
-    if(active35 == false){
+    if (active35 == false) {
       setactive35search("")
     } else {
       setactive35search("true")
     }
-    if(activeNT == false){
+    if (activeNT == false) {
       setactiveNTsearch("")
     } else {
       setactiveNTsearch("true")
     }
-    if(activeWOI == false){
+    if (activeWOI == false) {
       setactiveWOIsearch("")
     } else {
       setactiveWOIsearch("true")
     }
-    if(active15 == false){
+    if (active15 == false) {
       setactive15search("")
     } else {
       setactive15search("true")
     }
-    if(active4 == false){
+    if (active4 == false) {
       setactive4search("")
     } else {
       setactive4search("true")
     }
 
-    if(active7APlus == false){
+    if (active7APlus == false) {
       setactive7APlussearch("")
     } else {
       setactive7APlussearch("true")
     }
-    if(active7A == false){
+    if (active7A == false) {
       setactive7Asearch("")
     } else {
       setactive7Asearch("true")
     }
-    if(activeHGPlus == false){
+    if (activeHGPlus == false) {
       setactiveHGPlussearch("")
     } else {
       setactiveHGPlussearch("true")
     }
-    if(activeHG == false){
+    if (activeHG == false) {
       setactiveHGsearch("")
     } else {
       setactiveHGsearch("true")
     }
-    if(active35a == false){
+    if (active35a == false) {
       setactive35asearch("")
     } else {
       setactive35asearch("true")
     }
-    if(active4a == false){
+    if (active4a == false) {
       setactive4asearch("")
     } else {
       setactive4asearch("true")
     }
-    if(activebloom == false){
+    if (activebloom == false) {
       setactivebloomsearch("")
     } else {
       setactivebloomsearch("true")
     }
-     // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[activebloom,active4a,active35a,activeHG,activeHGPlus,active7A,active7APlus,active4,activeBTPlus,activeBT,activeFR,activeEXPlus,activeEX,activeLD,activeDark,active35,activeNT,activeWOI,active15])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activebloom, active4a, active35a, activeHG, activeHGPlus, active7A, active7APlus, active4, activeBTPlus, activeBT, activeFR, activeEXPlus, activeEX, activeLD, activeDark, active35, activeNT, activeWOI, active15])
 
   const BTPlusbutton = () => {
     if (activeBTPlus == false) {
-        setactiveBTPlussearch("true")
+      setactiveBTPlussearch("true")
     } else {
-        setactiveBTPlussearch("")
+      setactiveBTPlussearch("")
     }
     setactiveBTPlus((prevValue) => !prevValue);
   }
 
   const BTbutton = () => {
     if (activeBT == false) {
-        setactiveBTsearch("true")
+      setactiveBTsearch("true")
     } else {
-        setactiveBTsearch("")
+      setactiveBTsearch("")
     }
     setactiveBT((prevValue) => !prevValue);
   }
 
   const FRbutton = () => {
     if (activeFR == false) {
-        setactiveFRsearch("true")
+      setactiveFRsearch("true")
     } else {
-        setactiveFRsearch("")
+      setactiveFRsearch("")
     }
     setactiveFR((prevValue) => !prevValue);
   }
 
   const EXPlusbutton = () => {
     if (activeEXPlus == false) {
-        setactiveEXPlussearch("true")
+      setactiveEXPlussearch("true")
     } else {
-        setactiveEXPlussearch("")
+      setactiveEXPlussearch("")
     }
     setactiveEXPlus((prevValue) => !prevValue);
   }
 
   const LDbutton = () => {
     if (activeLD == false) {
-        setactiveLDsearch("true")
+      setactiveLDsearch("true")
     } else {
-        setactiveLDsearch("")
+      setactiveLDsearch("")
     }
     setactiveLD((prevValue) => !prevValue);
   }
 
   const EXbutton = () => {
     if (activeEX == false) {
-        setactiveEXsearch("true")
+      setactiveEXsearch("true")
     } else {
-        setactiveEXsearch("")
+      setactiveEXsearch("")
     }
     setactiveEX((prevValue) => !prevValue);
   }
 
   const Darkbutton = () => {
     if (activeDark == false) {
-        setactiveDarksearch("true")
+      setactiveDarksearch("true")
     } else {
-        setactiveDarksearch("")
+      setactiveDarksearch("")
     }
     setactiveDark((prevValue) => !prevValue);
   }
   const _35button = () => {
     if (active35 == false) {
-        setactive35search("true")
+      setactive35search("true")
     } else {
-        setactive35search("")
+      setactive35search("")
     }
     setactive35((prevValue) => !prevValue);
   }
   const NTbutton = () => {
     if (activeNT == false) {
-        setactiveNTsearch("true")
+      setactiveNTsearch("true")
     } else {
-        setactiveNTsearch("")
+      setactiveNTsearch("")
     }
     setactiveNT((prevValue) => !prevValue);
   }
   const WOIbutton = () => {
     if (activeWOI == false) {
-        setactiveWOIsearch("true")
+      setactiveWOIsearch("true")
     } else {
-        setactiveWOIsearch("")
+      setactiveWOIsearch("")
     }
     setactiveWOI((prevValue) => !prevValue);
   }
   const _15button = () => {
     if (active15 == false) {
-        setactive15search("true")
+      setactive15search("true")
     } else {
-        setactive15search("")
+      setactive15search("")
     }
     setactive15((prevValue) => !prevValue);
   }
   const _4button = () => {
     if (active15 == false) {
-        setactive4search("true")
+      setactive4search("true")
     } else {
-        setactive4search("")
+      setactive4search("")
     }
     setactive4((prevValue) => !prevValue);
   }
 
   const _7APlusbutton = () => {
     if (active7APlus == false) {
-        setactive7APlussearch("true")
+      setactive7APlussearch("true")
     } else {
-        setactive7APlussearch("")
+      setactive7APlussearch("")
     }
     setactive7APlus((prevValue) => !prevValue);
   }
   const _7Abutton = () => {
     if (active7A == false) {
-        setactive7Asearch("true")
+      setactive7Asearch("true")
     } else {
-        setactive7Asearch("")
+      setactive7Asearch("")
     }
     setactive7A((prevValue) => !prevValue);
   }
 
   const HGPlusbutton = () => {
-      if (activeHGPlus == false) {
-          setactiveHGPlussearch("true")
-      } else {
-          setactiveHGPlussearch("")
-      }
-      setactiveHGPlus((prevValue) => !prevValue);
+    if (activeHGPlus == false) {
+      setactiveHGPlussearch("true")
+    } else {
+      setactiveHGPlussearch("")
+    }
+    setactiveHGPlus((prevValue) => !prevValue);
   }
-  
+
   const HGbutton = () => {
     if (activeHG == false) {
-        setactiveHGsearch("true")
+      setactiveHGsearch("true")
     } else {
-        setactiveHGsearch("")
+      setactiveHGsearch("")
     }
     setactiveHG((prevValue) => !prevValue);
   }
   const _35abutton = () => {
     if (active35a == false) {
-        setactive35asearch("true")
+      setactive35asearch("true")
     } else {
-        setactive35asearch("")
+      setactive35asearch("")
     }
     setactive35a((prevValue) => !prevValue);
   }
   const _4abutton = () => {
     if (active4a == false) {
-        setactive4asearch("true")
+      setactive4asearch("true")
     } else {
-        setactive4asearch("")
+      setactive4asearch("")
     }
     setactive4a((prevValue) => !prevValue);
   }
   const bloombutton = () => {
     if (activebloom == false) {
-        setactivebloomsearch("true")
+      setactivebloomsearch("true")
     } else {
-        setactivebloomsearch("")
+      setactivebloomsearch("")
     }
     setactivebloom((prevValue) => !prevValue);
   }
 
-    const [loop, setLoop] = useStateIfMounted(false);
-    const [reverse, setReverse] = useState(getQueryStringVal("rev") != null  ? true : false);
-    const [searchTerm, setSearchTerm] = useState("");
-    const [searchdisplay, setsearchdisplay] = useState("");
-    const [condFilter, setCondFilter] = useState("");
-    const [condFilter2, setCondFilter2] = useState("");
-    const [condFilter3, setCondFilter3] = useState("");
-    const [condFilter4, setCondFilter4] = useState("");
-    const [filterResults, setFilterResults] = useState(rawData);
-    const [searchResults, setSearchResults] = useState(rawData);
-    const [limits, setLimits] = useState(startinglimit);
-    const [listDisplay, setListDisplay] = useState(
-      rawData && rawData.slice(0, startinglimit)
-    );
-    const [listLength, setListLength] = useState(listDisplay.length);
-    const [showLoadMore, setShowLoadMore] = useState(true);
-    const [displayBanner, setDisplayBanner] = useState(
-      `Displaying ${listLength} of ${rawData.length} ${banerDisplayTerm}`
-    );
-    const { protocol, pathname, host } = window.location;
-    const query = getQuery();
-    const url = `${protocol}//${host}${pathname}?${query.toString()}`
-    const [Reversesearch, setReversesearch] = useQueryParam("rev", "");
-    const [TEXTsearch, setTEXTsearch] = useQueryParam("search", "");
-    const [Filtersearch, setFiltersearch] = useQueryParam("filter", "");
+  const [loop, setLoop] = useStateIfMounted(false);
+  const [reverse, setReverse] = useState(getQueryStringVal("rev") != null ? true : false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchdisplay, setsearchdisplay] = useState("");
+  const [condFilter, setCondFilter] = useState("");
+  const [condFilter2, setCondFilter2] = useState("");
+  const [condFilter3, setCondFilter3] = useState("");
+  const [condFilter4, setCondFilter4] = useState("");
+  const [filterResults, setFilterResults] = useState(rawData);
+  const [searchResults, setSearchResults] = useState(rawData);
+  const [limits, setLimits] = useState(startinglimit);
+  const [listDisplay, setListDisplay] = useState(
+    rawData && rawData.slice(0, startinglimit)
+  );
+  const [listLength, setListLength] = useState(listDisplay.length);
+  const [showLoadMore, setShowLoadMore] = useState(true);
+  const [displayBanner, setDisplayBanner] = useState(
+    `Displaying ${listLength} of ${rawData.length} ${banerDisplayTerm}`
+  );
+  const { protocol, pathname, host } = window.location;
+  const query = getQuery();
+  const url = `${protocol}//${host}${pathname}?${query.toString()}`
+  const [Reversesearch, setReversesearch] = useQueryParam("rev", "");
+  const [TEXTsearch, setTEXTsearch] = useQueryParam("search", "");
+  const [Filtersearch, setFiltersearch] = useQueryParam("filter", "");
 
 
-    //button toogle
-    useEffect(() => {
-      if (reverse == true) {
-        setReversesearch("true")
+  //button toogle
+  useEffect(() => {
+    if (reverse == true) {
+      setReversesearch("true")
     } else {
-        setReversesearch("")
+      setReversesearch("")
     }
-// eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [Reversesearch,setReverse,reverse])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [Reversesearch, setReverse, reverse])
 
-    const reversebutton = () => {
+  const reversebutton = () => {
     setLoop(true);
     setReverse((prevValue) => !prevValue);
     setTimeout(() => setLoop(false), 1000);
-    };
+  };
 
-    useEffect(() => {
-        //search params
-        if(getQueryStringVal("search") != null){
-            setSearchTerm(getQueryStringVal("search") != null  ? getQueryStringVal("search").toLowerCase() : "")
-            setTEXTsearch(getQueryStringVal("search") != null ? getQueryStringVal("search") : "")
-            setsearchdisplay(getQueryStringVal("search") != null ? getQueryStringVal("search") : "")
-        }
-        }, [setTEXTsearch,setFiltersearch])
+  useEffect(() => {
+    //search params
+    if (getQueryStringVal("search") != null) {
+      setSearchTerm(getQueryStringVal("search") != null ? getQueryStringVal("search").toLowerCase() : "")
+      setTEXTsearch(getQueryStringVal("search") != null ? getQueryStringVal("search") : "")
+      setsearchdisplay(getQueryStringVal("search") != null ? getQueryStringVal("search") : "")
+    }
+  }, [setTEXTsearch, setFiltersearch])
 
-    //load more
-    const loadMoreButton = () => {
-        const newlimits = limits + startinglimit;
-        const newLoadMore = searchResults.length > newlimits;
-        const newlistdisplay = listDisplay.concat(
-        searchResults.slice(limits, newlimits)
-        );
-        setLimits(newlimits);
-        if (newlimits <= newlistdisplay.length) {
-        setDisplayBanner(
-            `Displaying ${newlimits} of ${searchResults.length} ${banerDisplayTerm} `
-        );
-        } else {
-        setDisplayBanner(
-            `Displaying ${searchResults.length} of ${searchResults.length} ${banerDisplayTerm} `
-        );
-        }
-        setShowLoadMore(newLoadMore);
-        setListDisplay(newlistdisplay);
-        setListLength(newlistdisplay.length);
-    };
+  //load more
+  const loadMoreButton = () => {
+    const newlimits = limits + startinglimit;
+    const newLoadMore = searchResults.length > newlimits;
+    const newlistdisplay = listDisplay.concat(
+      searchResults.slice(limits, newlimits)
+    );
+    setLimits(newlimits);
+    if (newlimits <= newlistdisplay.length) {
+      setDisplayBanner(
+        `Displaying ${newlimits} of ${searchResults.length} ${banerDisplayTerm} `
+      );
+    } else {
+      setDisplayBanner(
+        `Displaying ${searchResults.length} of ${searchResults.length} ${banerDisplayTerm} `
+      );
+    }
+    setShowLoadMore(newLoadMore);
+    setListDisplay(newlistdisplay);
+    setListLength(newlistdisplay.length);
+  };
 
-    //unique
-    function onlyUnique(value, index, self) {
-        return self.indexOf(value) === index;
-        }
-    
-     //filter
+  //unique
+  function onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+  }
+
+  //filter
   useEffect(() => {
     const filterholder = [];
 
     //weapons
-    if(activeBTPlus == true){
+    if (activeBTPlus == true) {
       const filteredout = rawData.filter(
-        (ef) => 
-        ef && ef.gear_tag == "wpbtplus"
+        (ef) =>
+          ef && ef.gear_tag == "wpbtplus"
       );
       filterholder.push(...filteredout);
     }
 
-    if(activeBT == true){
+    if (activeBT == true) {
       const filteredout = rawData.filter(
-        (ef) => 
-        ef && ef.gear_tag == "wpbt"
+        (ef) =>
+          ef && ef.gear_tag == "wpbt"
       );
       filterholder.push(...filteredout);
     }
 
-    if(activeFR == true){
+    if (activeFR == true) {
       const filteredout = rawData.filter(
-        (ef) => 
-        ef && ef.gear_tag == "wpfr"
+        (ef) =>
+          ef && ef.gear_tag == "wpfr"
       );
       filterholder.push(...filteredout);
     }
 
-    if(activeEXPlus == true){
+    if (activeEXPlus == true) {
       const filteredout = rawData.filter(
-        (ef) => 
-        ef && ef.gear_tag == "wpexplus"
+        (ef) =>
+          ef && ef.gear_tag == "wpexplus"
       );
       filterholder.push(...filteredout);
     }
 
-    if(activeLD == true){
+    if (activeLD == true) {
       const filteredout = rawData.filter(
-        (ef) => 
-        ef && ef.gear_tag == "wpld"
+        (ef) =>
+          ef && ef.gear_tag == "wpld"
       );
       filterholder.push(...filteredout);
     }
 
-    if(activeEX == true){
+    if (activeEX == true) {
       const filteredout = rawData.filter(
-        (ef) => 
-        ef && ef.gear_tag == "wpex"
+        (ef) =>
+          ef && ef.gear_tag == "wpex"
       );
       filterholder.push(...filteredout);
     }
 
-    if(activeDark == true){
+    if (activeDark == true) {
       const filteredout = rawData.filter(
-        (ef) => 
-        ef && ef.gear_tag == "wpdark"
+        (ef) =>
+          ef && ef.gear_tag == "wpdark"
       );
       filterholder.push(...filteredout);
     }
 
-    if(active35 == true){
+    if (active35 == true) {
       const filteredout = rawData.filter(
-        (ef) => 
-        ef && ef.gear_tag == "wp35"
+        (ef) =>
+          ef && ef.gear_tag == "wp35"
       );
       filterholder.push(...filteredout);
     }
 
-    if(activeNT == true){
+    if (activeNT == true) {
       const filteredout = rawData.filter(
-        (ef) => 
-        ef && ef.gear_tag == "wpnt"
+        (ef) =>
+          ef && ef.gear_tag == "wpnt"
       );
       filterholder.push(...filteredout);
     }
 
-    if(activeWOI == true){
+    if (activeWOI == true) {
       const filteredout = rawData.filter(
-        (ef) => 
-        ef && ef.gear_tag == "wpwoi"
+        (ef) =>
+          ef && ef.gear_tag == "wpwoi"
       );
       filterholder.push(...filteredout);
     }
 
-    if(active15 == true){
+    if (active15 == true) {
       const filteredout = rawData.filter(
-        (ef) => 
-        ef && ef.gear_tag == "wp15"
+        (ef) =>
+          ef && ef.gear_tag == "wp15"
       );
       filterholder.push(...filteredout);
     }
 
-    if(active4 == true){
+    if (active4 == true) {
       const filteredout = rawData.filter(
-        (ef) => 
-        ef && ef.gear_tag == "wp4w"
+        (ef) =>
+          ef && ef.gear_tag == "wp4w"
       );
       filterholder.push(...filteredout);
     }
 
     //armor
 
-    if(active7APlus == true){
+    if (active7APlus == true) {
       const filteredout = rawData.filter(
-        (ef) => 
-        ef && ef.gear_tag == "arm7aplus"
+        (ef) =>
+          ef && ef.gear_tag == "arm7aplus"
       );
       filterholder.push(...filteredout);
     }
 
-    if(active7A == true){
+    if (active7A == true) {
       const filteredout = rawData.filter(
-        (ef) => 
-        ef && ef.gear_tag == "arm7a"
+        (ef) =>
+          ef && ef.gear_tag == "arm7a"
       );
       filterholder.push(...filteredout);
     }
 
-    if(activeHGPlus == true){
+    if (activeHGPlus == true) {
       const filteredout = rawData.filter(
-        (ef) => 
-        ef && ef.gear_tag == "armhgplus"
+        (ef) =>
+          ef && ef.gear_tag == "armhgplus"
       );
       filterholder.push(...filteredout);
     }
 
-    if(activeHG == true){
+    if (activeHG == true) {
       const filteredout = rawData.filter(
-        (ef) => 
-        ef && ef.gear_tag == "armhg"
+        (ef) =>
+          ef && ef.gear_tag == "armhg"
       );
       filterholder.push(...filteredout);
     }
 
-    if(active35a == true){
+    if (active35a == true) {
       const filteredout = rawData.filter(
-        (ef) => 
-        ef && ef.gear_tag == "arm35a"
+        (ef) =>
+          ef && ef.gear_tag == "arm35a"
       );
       filterholder.push(...filteredout);
     }
 
-    if(active4a == true){
+    if (active4a == true) {
       const filteredout = rawData.filter(
-        (ef) => 
-        ef && ef.gear_tag == "arm4a"
+        (ef) =>
+          ef && ef.gear_tag == "arm4a"
       );
       filterholder.push(...filteredout);
     }
 
-    if(activebloom == true){
+    if (activebloom == true) {
       const filteredout = rawData.filter(
-        (ef) => 
-        ef && ef.gear_tag == "armbloom"
+        (ef) =>
+          ef && ef.gear_tag == "armbloom"
       );
       filterholder.push(...filteredout);
     }
 
     if (filterholder.length === 0) {
       filterholder.push(...rawData);
-      }
-
-      const makeUnique = filterholder.filter(onlyUnique)
-      .sort((a, b) => 
-      reverse === false ?
-      b.ranked - a.ranked:
-      a.ranked - b.ranked);
-        const searchit = makeUnique.filter((gear) =>
-        (`${ver == "GL" ? gear.passives && gear.passives.map(self=>` ${self.jpname}`) : ""} ${gear.passives && gear.passives.map(self=>` ${self.name}`)} ${gear.name} ${ver == "JP" ? gear.glname : gear.jpname} ${ver == "JP" ? gear.passives && gear.passives.map(self=>` ${self.glname}`) :""} - #${gear.equip_id}`).toLowerCase().includes(searchTerm)
-        );
-        setFilterResults(makeUnique);
-        setSearchResults(searchit);
-        const newlistdisplay = searchit.slice(0, limits);
-        if (limits < searchit.length) {
-            setShowLoadMore(true);
-            setListDisplay(newlistdisplay);
-            setListLength(searchit.length);
-            setDisplayBanner(
-              `Displaying ${newlistdisplay.length} of ${searchit.length} ${banerDisplayTerm}`
-            );
-          } else {
-            setShowLoadMore(false);
-            setListDisplay(newlistdisplay);
-            setListLength(newlistdisplay.length);
-            setDisplayBanner(
-              `Displaying ${newlistdisplay.length} of ${newlistdisplay.length} ${banerDisplayTerm}`
-            );
-          }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activebloom,active4a,active35a,activeHG,activeHGPlus,active7A,active7APlus,active4,active15,activeWOI,activeNT,active35,activeDark,activeLD,activeEX,activeEXPlus,activeFR,activeBT,activeBTPlus,searchTerm, clearFilter, condFilter, condFilter2, condFilter3, condFilter4, reverse]);
-
-
-    //search bar
-    const handleChange = (e) => {
-        setsearchdisplay(e.target.value)
-        setSearchTerm(e.target.value.toLowerCase());
-        setTEXTsearch(e.target.value)
-    };
-    const handleKeyDown = (event) => {
-        if (event.key === 'Enter') {
-        setSearchTerm(searchdisplay.toLowerCase());
-        setTEXTsearch(searchdisplay)
-        }
     }
-    const clearSearch = () => {
-        setsearchdisplay("")
-        setSearchTerm("");
-        setTEXTsearch("")
-    };
 
-        //clear
-  const resetbutton = () =>{
+    const makeUnique = filterholder.filter(onlyUnique)
+      .sort((a, b) =>
+        reverse === false ?
+          b.ranked - a.ranked :
+          a.ranked - b.ranked);
+    const searchit = makeUnique.filter((gear) =>
+      (`${ver == "GL" ? gear.passives && gear.passives.map(self => ` ${self.jpname}`) : ""} ${gear.passives && gear.passives.map(self => ` ${self.name}`)} ${gear.name} ${ver == "JP" ? gear.glname : gear.jpname} ${ver == "JP" ? gear.passives && gear.passives.map(self => ` ${self.glname}`) : ""} - #${gear.equip_id}`).toLowerCase().includes(searchTerm)
+    );
+    setFilterResults(makeUnique);
+    setSearchResults(searchit);
+    const newlistdisplay = searchit.slice(0, limits);
+    if (limits < searchit.length) {
+      setShowLoadMore(true);
+      setListDisplay(newlistdisplay);
+      setListLength(searchit.length);
+      setDisplayBanner(
+        `Displaying ${newlistdisplay.length} of ${searchit.length} ${banerDisplayTerm}`
+      );
+    } else {
+      setShowLoadMore(false);
+      setListDisplay(newlistdisplay);
+      setListLength(newlistdisplay.length);
+      setDisplayBanner(
+        `Displaying ${newlistdisplay.length} of ${newlistdisplay.length} ${banerDisplayTerm}`
+      );
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activebloom, active4a, active35a, activeHG, activeHGPlus, active7A, active7APlus, active4, active15, activeWOI, activeNT, active35, activeDark, activeLD, activeEX, activeEXPlus, activeFR, activeBT, activeBTPlus, searchTerm, clearFilter, condFilter, condFilter2, condFilter3, condFilter4, reverse]);
+
+
+  //search bar
+  const handleChange = (e) => {
+    setsearchdisplay(e.target.value)
+    setSearchTerm(e.target.value.toLowerCase());
+    setTEXTsearch(e.target.value)
+  };
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      setSearchTerm(searchdisplay.toLowerCase());
+      setTEXTsearch(searchdisplay)
+    }
+  }
+  const clearSearch = () => {
+    setsearchdisplay("")
+    setSearchTerm("");
+    setTEXTsearch("")
+  };
+
+  //clear
+  const resetbutton = () => {
     setclearFilter(true);
     setReverse(false)
     setactiveBTPlus(false)
@@ -747,186 +747,186 @@ const Equipment_Passives =({
 
 
   const listPassives = listDisplay;
-   
-    if(equipment_passive_ability.length == 0){
-        return(
-          <div className='characterpageholder'>
-            No Data
+
+  if (equipment_passive_ability.length == 0) {
+    return (
+      <div className='characterpageholder'>
+        No Data
+      </div>
+    )
+  } else {
+    return (
+      <div>
+        <div className="filterholder noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
+          <div className="similarbanner">Subcategories</div>
+          <div className="filterholderflair">
+            <ul className='bufftypes'>
+              {showBTPlus == true ?
+                <Tippy content="BT+ Weapon">
+                  <li onClick={BTPlusbutton} className={`${activeBTPlus == true ? "filteractive" : "filterinactive"} buffbutton wpbtplusbutton`}>
+                  </li>
+                </Tippy>
+                : ""}
+              {showBT == true ?
+                <Tippy content="BT Weapon">
+                  <li onClick={BTbutton} className={`${activeBT == true ? "filteractive" : "filterinactive"} buffbutton wpbtbutton`}>
+                  </li>
+                </Tippy>
+                : ""}
+              {showFR == true ?
+                <Tippy content="FR Weapon">
+                  <li onClick={FRbutton} className={`${activeFR == true ? "filteractive" : "filterinactive"} buffbutton wpfrbutton`}>
+                  </li>
+                </Tippy>
+                : ""}
+              {showEXPlus == true ?
+                <Tippy content="EX Weapon">
+                  <li onClick={EXPlusbutton} className={`${activeEXPlus == true ? "filteractive" : "filterinactive"} buffbutton wpexplusbutton`}>
+                  </li>
+                </Tippy>
+                : ""}
+              {showLD == true ?
+                <Tippy content="LD Weapon">
+                  <li onClick={LDbutton} className={`${activeLD == true ? "filteractive" : "filterinactive"} buffbutton wpldbutton`}>
+                  </li>
+                </Tippy>
+                : ""}
+              {showEX == true ?
+                <Tippy content="EX+ Weapon">
+                  <li onClick={EXbutton} className={`${activeEX == true ? "filteractive" : "filterinactive"} buffbutton wpexbutton`}>
+                  </li>
+                </Tippy>
+                : ""}
+              {showDark == true ?
+                <Tippy content="Dark Weapon">
+                  <li onClick={Darkbutton} className={`${activeDark == true ? "filteractive" : "filterinactive"} buffbutton wpdarkbutton`}>
+                  </li>
+                </Tippy>
+                : ""}
+              {show35 == true ?
+                <Tippy content="35CP Weapon">
+                  <li onClick={_35button} className={`${active35 == true ? "filteractive" : "filterinactive"} buffbutton wp35button`}>
+                  </li>
+                </Tippy>
+                : ""}
+              {showNT == true ?
+                <Tippy content="NT Weapon">
+                  <li onClick={NTbutton} className={`${activeNT == true ? "filteractive" : "filterinactive"} buffbutton wpntbutton`}>
+                  </li>
+                </Tippy>
+                : ""}
+              {showWOI == true ?
+                <Tippy content="World of Illsions Weapon">
+                  <li onClick={WOIbutton} className={`${activeWOI == true ? "filteractive" : "filterinactive"} buffbutton wpwoibutton`}>
+                  </li>
+                </Tippy>
+                : ""}
+              {show15 == true ?
+                <Tippy content="15CP Weapon">
+                  <li onClick={_15button} className={`${active15 == true ? "filteractive" : "filterinactive"} buffbutton wp15button`}>
+                  </li>
+                </Tippy>
+                : ""}
+              {show4 == true ?
+                <Tippy content="4★ Weapon">
+                  <li onClick={_4button} className={`${active4 == true ? "filteractive" : "filterinactive"} buffbutton wp4wbutton`}>
+                  </li>
+                </Tippy>
+                : ""}
+              <br />
+              {show7APlus == true ?
+                <Tippy content="7★+ Armor">
+                  <li onClick={_7APlusbutton} className={`${active7APlus == true ? "filteractive" : "filterinactive"} buffbutton arm7aplusbutton`}>
+                  </li>
+                </Tippy>
+                : ""}
+              {show7A == true ?
+                <Tippy content="7★ Armor">
+                  <li onClick={_7Abutton} className={`${active7A == true ? "filteractive" : "filterinactive"} buffbutton arm7abutton`}>
+                  </li>
+                </Tippy>
+                : ""}
+              {showHGPlus == true ?
+                <Tippy content="HG+ Armor">
+                  <li onClick={HGPlusbutton} className={`${activeHGPlus == true ? "filteractive" : "filterinactive"} buffbutton armhgplusbutton`}>
+                  </li>
+                </Tippy>
+                : ""}
+              {showHG == true ?
+                <Tippy content="HG Armor">
+                  <li onClick={HGbutton} className={`${activeHG == true ? "filteractive" : "filterinactive"} buffbutton armhgbutton`}>
+                  </li>
+                </Tippy>
+                : ""}
+              {show35a == true ?
+                <Tippy content="35CP Armor">
+                  <li onClick={_35abutton} className={`${active35a == true ? "filteractive" : "filterinactive"} buffbutton arm35abutton`}>
+                  </li>
+                </Tippy>
+                : ""}
+              {show4a == true ?
+                <Tippy content="4★ Armor">
+                  <li onClick={_4abutton} className={`${active4a == true ? "filteractive" : "filterinactive"} buffbutton arm4abutton`}>
+                  </li>
+                </Tippy>
+                : ""}
+              {showbloom == true ?
+                <Tippy content="Bloom Stone">
+                  <li onClick={bloombutton} className={`${activebloom == true ? "filteractive" : "filterinactive"} buffbutton armbloombutton`}>
+                  </li>
+                </Tippy>
+                : ""}
+            </ul>
+            <br />
+            <div className="search-reverse-holder">
+              <div className="search-holder">
+                <IoSearch className="innersearchicon" />
+                <input
+                  className="search-bar"
+                  type="text"
+                  placeholder="Name Search"
+                  value={searchdisplay}
+                  onChange={handleChange}
+                  onKeyDown={handleKeyDown}
+                />
+                {searchTerm === "" ? "" :
+                  <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
+              </div>
+              <Tippy content="Reverse Order" className="tooltip" >
+                <div className={`reversebox`} ><i onClick={reversebutton} className={`reversebutton ${loop ? "flip" : ""}`} ><ImSortAmountDesc className={`reversebutton ${reverse ? "" : "nodisplay"}`} /><ImSortAmountAsc className={`reversebutton ${reverse ? "nodisplay" : ""}`} /></i></div>
+              </Tippy>
             </div>
-        )
-    } else {
-        return(
             <div>
-                <div className="filterholder noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
-                  <div className="similarbanner">Subcategories</div>
-                  <div className="filterholderflair">
-                    <ul className='bufftypes'>
-                        {showBTPlus == true ? 
-                        <Tippy content="BT+ Weapon">
-                        <li onClick={BTPlusbutton} className={`${activeBTPlus == true ? "filteractive": "filterinactive"} buffbutton wpbtplusbutton`}>
-                            </li>
-                        </Tippy>
-                        :""}
-                        {showBT == true ? 
-                        <Tippy content="BT Weapon">
-                        <li onClick={BTbutton} className={`${activeBT == true ? "filteractive": "filterinactive"} buffbutton wpbtbutton`}>
-                            </li>
-                        </Tippy>
-                        :""}
-                        {showFR == true ? 
-                        <Tippy content="FR Weapon">
-                        <li onClick={FRbutton} className={`${activeFR == true ? "filteractive": "filterinactive"} buffbutton wpfrbutton`}>
-                            </li>
-                        </Tippy>
-                        :""}
-                        {showEXPlus == true ? 
-                        <Tippy content="EX Weapon">
-                        <li onClick={EXPlusbutton} className={`${activeEXPlus == true ? "filteractive": "filterinactive"} buffbutton wpexplusbutton`}>
-                            </li>
-                        </Tippy>
-                        :""}
-                        {showLD == true ? 
-                        <Tippy content="LD Weapon">
-                        <li onClick={LDbutton} className={`${activeLD == true ? "filteractive": "filterinactive"} buffbutton wpldbutton`}>
-                            </li>
-                        </Tippy>
-                        :""}
-                        {showEX == true ? 
-                        <Tippy content="EX+ Weapon">
-                        <li onClick={EXbutton} className={`${activeEX == true ? "filteractive": "filterinactive"} buffbutton wpexbutton`}>
-                            </li>
-                        </Tippy>
-                        :""}
-                        {showDark == true ? 
-                        <Tippy content="Dark Weapon">
-                        <li onClick={Darkbutton} className={`${activeDark == true ? "filteractive": "filterinactive"} buffbutton wpdarkbutton`}>
-                            </li>
-                        </Tippy>
-                        :""}
-                        {show35 == true ? 
-                        <Tippy content="35CP Weapon">
-                        <li onClick={_35button} className={`${active35 == true ? "filteractive": "filterinactive"} buffbutton wp35button`}>
-                            </li>
-                        </Tippy>
-                        :""}
-                        {showNT == true ? 
-                        <Tippy content="NT Weapon">
-                        <li onClick={NTbutton} className={`${activeNT == true ? "filteractive": "filterinactive"} buffbutton wpntbutton`}>
-                            </li>
-                        </Tippy>
-                        :""}
-                        {showWOI == true ? 
-                        <Tippy content="World of Illsions Weapon">
-                        <li onClick={WOIbutton} className={`${activeWOI == true ? "filteractive": "filterinactive"} buffbutton wpwoibutton`}>
-                            </li>
-                        </Tippy>
-                        :""}
-                        {show15 == true ? 
-                        <Tippy content="15CP Weapon">
-                        <li onClick={_15button} className={`${active15 == true ? "filteractive": "filterinactive"} buffbutton wp15button`}>
-                            </li>
-                        </Tippy>
-                        :""}
-                        {show4 == true ? 
-                        <Tippy content="4★ Weapon">
-                        <li onClick={_4button} className={`${active4 == true ? "filteractive": "filterinactive"} buffbutton wp4wbutton`}>
-                            </li>
-                        </Tippy>
-                        :""}
-                        <br/>
-                        {show7APlus == true ? 
-                        <Tippy content="7★+ Armor">
-                        <li onClick={_7APlusbutton} className={`${active7APlus == true ? "filteractive": "filterinactive"} buffbutton arm7aplusbutton`}>
-                            </li>
-                        </Tippy>
-                        :""}
-                        {show7A == true ? 
-                        <Tippy content="7★ Armor">
-                        <li onClick={_7Abutton} className={`${active7A == true ? "filteractive": "filterinactive"} buffbutton arm7abutton`}>
-                            </li>
-                        </Tippy>
-                        :""}
-                        {showHGPlus == true ? 
-                        <Tippy content="HG+ Armor">
-                        <li onClick={HGPlusbutton} className={`${activeHGPlus == true ? "filteractive": "filterinactive"} buffbutton armhgplusbutton`}>
-                            </li>
-                        </Tippy>
-                        :""}
-                        {showHG == true ? 
-                        <Tippy content="HG Armor">
-                        <li onClick={HGbutton} className={`${activeHG == true ? "filteractive": "filterinactive"} buffbutton armhgbutton`}>
-                            </li>
-                        </Tippy>
-                        :""}
-                        {show35a == true ? 
-                        <Tippy content="35CP Armor">
-                        <li onClick={_35abutton} className={`${active35a == true ? "filteractive": "filterinactive"} buffbutton arm35abutton`}>
-                            </li>
-                        </Tippy>
-                        :""}
-                        {show4a == true ? 
-                        <Tippy content="4★ Armor">
-                        <li onClick={_4abutton} className={`${active4a == true ? "filteractive": "filterinactive"} buffbutton arm4abutton`}>
-                            </li>
-                        </Tippy>
-                        :""}
-                        {showbloom == true ? 
-                        <Tippy content="Bloom Stone">
-                        <li onClick={bloombutton} className={`${activebloom == true ? "filteractive": "filterinactive"} buffbutton armbloombutton`}>
-                            </li>
-                        </Tippy>
-                        :""}
-                    </ul>
-                    <br/>
-                    <div className="search-reverse-holder">
-                      <div className="search-holder">
-                      <IoSearch className="innersearchicon"/>
-                        <input 
-                            className="search-bar" 
-                            type="text"
-                            placeholder="Name Search"
-                            value={searchdisplay}
-                            onChange={handleChange}
-                            onKeyDown={handleKeyDown}
-                        />
-                        {searchTerm === "" ? "" : 
-                        <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
-                      </div>
-                        <Tippy content="Reverse Order" className="tooltip" >
-                          <div className={`reversebox`} ><i onClick={reversebutton} className={`reversebutton ${loop ? "flip": ""}`} ><ImSortAmountDesc className={`reversebutton ${reverse ? "": "nodisplay"}`}/><ImSortAmountAsc className={`reversebutton ${reverse ? "nodisplay": ""}`}/></i></div>
-                        </Tippy>
-                    </div>
-                    <div>
-                          <Tippy content="Reset Filters" className="tooltip" >
-                            <div onClick={resetbutton} className={`clearbox`} ><div className="makecenter">Reset&nbsp;<FaUndoAlt  className={`clearbutton ${clearFilter ? "loop": ""}`} ></FaUndoAlt></div></div>
-                          </Tippy>
-                          </div>
-                  </div>
-                </div>
-                <div className="characterpageholder">
-                {
-                listPassives.length > 0 ?  (
-                listPassives.map(gear => (
-                    <Equipment_Passive_Handler
-                    key={gear.equip_id}
-                    gear={gear}
-                    ver={ver}
-                    loc={loc}
-                    file={"equipment"}
-                    Single={true}
-
-                    master_index={master_index}
-
-                    formatting={formatting}
-                    />
-                ))) : (
-                  <div>No results</div>
-                )
-                }
-                </div>
+              <Tippy content="Reset Filters" className="tooltip" >
+                <div onClick={resetbutton} className={`clearbox`} ><div className="makecenter">Reset&nbsp;<FaUndoAlt className={`clearbutton ${clearFilter ? "loop" : ""}`} ></FaUndoAlt></div></div>
+              </Tippy>
+            </div>
+          </div>
         </div>
-        )
-    }
-    
+        <div className="characterpageholder">
+          {
+            listPassives.length > 0 ? (
+              listPassives.map(gear => (
+                <Equipment_Passive_Handler
+                  key={gear.equip_id}
+                  gear={gear}
+                  ver={ver}
+                  loc={loc}
+                  file={"equipment"}
+                  Single={true}
+
+                  master_index={master_index}
+
+                  formatting={formatting}
+                />
+              ))) : (
+              <div>No results</div>
+            )
+          }
+        </div>
+      </div>
+    )
+  }
+
 }
 export default Equipment_Passives

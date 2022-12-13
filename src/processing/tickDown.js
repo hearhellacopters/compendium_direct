@@ -13,23 +13,23 @@ export default class Flip extends React.Component {
     this._tickInstance = Tick.DOM.create(this._tickRef.current, {
       value: this.props.value,
       view:
-    // definition for top level tick element
-    {
-        children:[
-            // presenter object
-            {
-                root: 'div',
-                children: [
-                    // presenter object
-                    {
-                        view: 'flip'
-                    }
-                ]
-            }
+      // definition for top level tick element
+      {
+        children: [
+          // presenter object
+          {
+            root: 'div',
+            children: [
+              // presenter object
+              {
+                view: 'flip'
+              }
+            ]
+          }
         ]
-    }
-  });
-}
+      }
+    });
+  }
 
   componentDidUpdate() {
     if (!this._tickInstance) return;

@@ -7,8 +7,8 @@ export function* handleGetJPGameListSphere(action) {
   try {
     const response = yield call(requestGetJPGameListSphere);
     const { data } = response;
-    if(isJson(data) == true){
-        yield put(setJPGameListSphere(data));
+    if (isJson(data) == true) {
+      yield put(setJPGameListSphere(data));
     }
   } catch (error) {
     console.log(error);

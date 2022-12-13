@@ -7,7 +7,7 @@ export function* handleGetSummonPassives(action) {
   try {
     const response = yield call(requestGetSummonPassives);
     const { data } = response;
-    if(isJson(data,"GetSummonPassives") == true){
+    if (isJson(data, "GetSummonPassives") == true) {
       yield put(setSummonPassives(data));
     }
   } catch (error) {

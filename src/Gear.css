@@ -1,22 +1,24 @@
-.gearimage{
+.gearimage {
     height: 182px;
     width: 256px;
 }
-.fullnow{
+
+.fullnow {
     width: auto !important;
     margin-left: auto !important;
 }
-.geartoplevel{
+
+.geartoplevel {
     text-align: center;
     display: flex;
     align-items: center;
 }
 
-.spacearound2{
+.spacearound2 {
     align-items: center;
 }
 
-.splitrow{
+.splitrow {
     display: block;
     height: -moz-fit-content;
     height: fit-content;
@@ -24,27 +26,27 @@
     margin-bottom: auto;
 }
 
-.geartag{
+.geartag {
     position: absolute !important;
     margin-left: 0px !important;
     margin-bottom: 3px;
     bottom: 0px;
 }
 
-.gearimageholder{
+.gearimageholder {
     position: relative;
 }
 
-.gearcardholder{
+.gearcardholder {
     margin-right: 5px;
 }
 
 
-.geartitletext{
+.geartitletext {
     display: inline-table;
 }
 
-.gearablspeed{
+.gearablspeed {
     display: block;
     text-align: center;
     z-index: 2;
@@ -52,23 +54,23 @@
     margin-top: -1em;
     position: sticky;
     z-index: 2;
-    background: rgb(30,55,88);
-    background: linear-gradient(0deg, rgba(30,55,88,1) 0%, rgba(30,55,88,0.8015581232492998) 64%, rgba(30,55,88,0) 100%); 
+    background: rgb(30, 55, 88);
+    background: linear-gradient(0deg, rgba(30, 55, 88, 1) 0%, rgba(30, 55, 88, 0.8015581232492998) 64%, rgba(30, 55, 88, 0) 100%);
     width: 112px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.gearabilityiconholder{
+.gearabilityiconholder {
     display: none;
     margin-left: auto;
     margin-right: 5px;
     width: 145px;
 }
 
-.gearsaholder{
+.gearsaholder {
     display: table;
-    background-image:  url(https://dissidiacompendium.com/images/static/icons/misc/saholder.png);
+    background-image: url(https://dissidiacompendium.com/images/static/icons/misc/saholder.png);
     z-index: 2;
     height: 28px;
     width: 42px;
@@ -77,25 +79,28 @@
     position: absolute;
     text-align: center;
 }
-.gearsanumber{
+
+.gearsanumber {
     margin-top: 5px;
     display: block;
     margin-bottom: auto;
     z-index: 3;
 }
 
-.gearfaceandiconholder{
+.gearfaceandiconholder {
     margin-left: auto;
     justify-content: flex-start;
     align-items: flex-start;
     display: flex;
     margin-right: 5px;
 }
-.gearfaceandiconholder a{
+
+.gearfaceandiconholder a {
     margin-top: auto;
     margin-bottom: auto;
 }
-.gearfaceholder{
+
+.gearfaceholder {
     width: 128px;
     height: 40px;
     display: block;
@@ -104,12 +109,14 @@
     margin: 0px;
 
 }
-.gearfaceicon{
+
+.gearfaceicon {
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
-.gearfacetext{
+
+.gearfacetext {
     position: absolute;
     width: 100%;
     bottom: 0;
@@ -117,21 +124,26 @@
     margin-bottom: -5px;
     white-space: nowrap;
 }
+
 .gearfaceholder span {
     display: block !important;
 }
-.gearabilityuses{
+
+.gearabilityuses {
     display: none;
 }
-.shadow{
+
+.shadow {
     filter: drop-shadow(0px 0px 3px #222);
     -webkit-filter: drop-shadow(0px 0px 3px #222);
 }
-.blockfix{
+
+.blockfix {
     display: block;
     margin-left: -112px;
 }
-.undertag{
+
+.undertag {
     width: 54px;
     height: 27px;
     vertical-align: middle;
@@ -142,21 +154,23 @@
     cursor: pointer;
 }
 
-.flexdisplay{
+.flexdisplay {
     display: flex;
 }
-.gearCPReqHolder{
+
+.gearCPReqHolder {
     display: table;
     width: 95px;
     margin-left: auto;
     padding-right: 5px;
 }
-.spacearound{
+
+.spacearound {
     display: flex;
     align-items: center;
 }
 
-.gearbuffbutton{
+.gearbuffbutton {
     height: 36px;
     width: 72px;
     display: inline-block;
@@ -166,40 +180,43 @@
     position: static;
 }
 
-.newbackbanner{
+.newbackbanner {
     background-color: #4c4c4c;
 }
-.newblue{
+
+.newblue {
     background-color: #242b35;
 }
-.tableformatting{
+
+.tableformatting {
     display: grid;
-    border-collapse:collapse;
-    border-spacing:0;
+    border-collapse: collapse;
+    border-spacing: 0;
     font-size: smaller;
     text-align: center;
     align-content: space-evenly;
     justify-content: space-evenly;
 }
-.subpassiveflair{
+
+.subpassiveflair {
     margin-bottom: 5px;
     border-top: 1px black solid;
     border-bottom: 1px black solid;
-    background: linear-gradient( 90deg , #242b35 0%, #242b35 16%, rgba(77,86,97,0) 100%);
+    background: linear-gradient(90deg, #242b35 0%, #242b35 16%, rgba(77, 86, 97, 0) 100%);
     filter: drop-shadow(1px 1px 1px #222);
     -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
-.subpassiveflair2{
+.subpassiveflair2 {
     margin-bottom: 5px;
     border-top: 1px #433e22f0 solid;
     border-bottom: 1px #433e22f0 solid;
-    background: linear-gradient( 90deg , #6d642ff0 0%, #766b31f0 16%, rgba(77,86,97,0) 100%);
+    background: linear-gradient(90deg, #6d642ff0 0%, #766b31f0 16%, rgba(77, 86, 97, 0) 100%);
     filter: drop-shadow(1px 1px 1px #222);
     -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
-.statsflair{
+.statsflair {
     border-collapse: collapse;
     text-align: center;
     align-content: space-evenly;
@@ -207,33 +224,36 @@
     min-width: 250px;
     margin-top: 10px;
     border: 2px black solid;
-    background:#43517a ;
+    background: #43517a;
 }
 
-.statframe{
+.statframe {
     border-bottom: 2px black solid;
     border-top: 2px black solid;
     margin-bottom: 10px;
     margin-top: 10px;
 }
-.statsflairperstat{
+
+.statsflairperstat {
     text-align: center;
     align-content: space-evenly;
     justify-content: space-evenly;
-    background:  #91a3d8 ;
-}
-.rightborder{
-    border-right: 2px black solid ;
+    background: #91a3d8;
 }
 
-.leftborder{
-    border-left: 2px black solid ;
-}
-.topborder{
-    border-top: 2px black solid ;
+.rightborder {
+    border-right: 2px black solid;
 }
 
-.gearinfonameholder{
+.leftborder {
+    border-left: 2px black solid;
+}
+
+.topborder {
+    border-top: 2px black solid;
+}
+
+.gearinfonameholder {
     padding: 5px;
     padding-left: 8px;
     border: solid 3px #d9dade;
@@ -241,7 +261,7 @@
     box-shadow: inset 0px 0px 10px #000000;
 }
 
-.gearstatsholder{
+.gearstatsholder {
     font-size: smaller;
     display: flex;
     padding-right: 10px;
@@ -250,95 +270,104 @@
     margin-right: auto;
     align-items: center;
 }
-.statsaligment{
+
+.statsaligment {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
 }
 
-.statstable{
+.statstable {
     margin-left: auto;
     margin-right: auto;
     border-spacing: 0px;
 }
 
-.statstablenonmoble{
+.statstablenonmoble {
     margin-left: auto;
     margin-right: 20px;
     border-spacing: 0px;
 }
-.tableven{
+
+.tableven {
     min-width: 40px;
 }
 
-.intbrv::before{
+.intbrv::before {
     content: "iBRV";
 }
-.maxbrv::before{
+
+.maxbrv::before {
     content: "mBRV";
 }
-.lbspacer{
+
+.lbspacer {
     display: table;
     margin-left: 10px;
 }
-.enderspacer{
+
+.enderspacer {
     margin-bottom: 12px;
 }
-.lsmaller{
+
+.lsmaller {
     display: block;
     margin-left: auto;
     margin-right: auto;
     background-position: center;
     background-repeat: no-repeat;
 }
-.tablemobile{
+
+.tablemobile {
     display: none;
     width: 100%;
 }
 
-.lsmallerinline{
+.lsmallerinline {
     display: flex;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-.click{
+.click {
     cursor: pointer;
 }
 
-.tablenonmobile{
+.tablenonmobile {
     display: table;
 }
 
-.blackbg{
+.blackbg {
     background-color: #000000;
 }
-.greybackground{
+
+.greybackground {
     background-color: #8e8f8f;
 }
-.blackcapborder{
+
+.blackcapborder {
     border-right: 2px black solid;
     border-left: 2px black solid;
 }
 
-.whitetopborder{
+.whitetopborder {
     border-top: 2px white solid !important;
 }
 
-.whiterightborder{
+.whiterightborder {
     border-left: 2px white solid;
     border-right: 2px white solid !important;
 }
 
-.whitebottomborder{
+.whitebottomborder {
     border-bottom: 2px white solid !important;
 }
 
-.whiteborder{
+.whiteborder {
     border: 2px white solid
 }
 
-.inlinegearabilityiconholder{
+.inlinegearabilityiconholder {
     margin-top: 15px;
     margin-right: auto;
     width: 145px;
@@ -346,12 +375,14 @@
     position: absolute;
     text-align: center;
 }
-.inlinegearabilityiconholder span{
+
+.inlinegearabilityiconholder span {
     display: block !important;
     margin-right: auto;
     margin-left: auto;
 }
-.inlinegearsaholder{
+
+.inlinegearsaholder {
     display: table;
     background-image: url(https://dissidiacompendium.com/images/static/icons/misc/saholder.png);
     z-index: 2;
@@ -362,11 +393,13 @@
     position: absolute;
     text-align: center;
 }
-.spoiler_text{
+
+.spoiler_text {
     text-align: center;
     display: inline;
 }
-.inlinegearsaholderg{
+
+.inlinegearsaholderg {
     display: table;
     background-image: url(https://dissidiacompendium.com/images/static/icons/misc/saholderg.png);
     z-index: 2;
@@ -377,15 +410,17 @@
     position: absolute;
     text-align: center;
 }
+
 @media (hover: hover) {
-    .gearfaceholder:hover{
+    .gearfaceholder:hover {
         transform: translateY(-1px);
         color: #f7f91d;
         filter: brightness(1.2);
         -webkit-filter: brightness(1.2);
         transition: all ease 0.3s;
     }
-    .clicky:hover{
+
+    .clicky:hover {
         transform: translateY(-1px);
         color: #f7f91d;
         filter: brightness(1.1);
@@ -393,7 +428,8 @@
         transition: all ease 0.3s;
         cursor: pointer;
     }
-    .spoiler_text:hover{
+
+    .spoiler_text:hover {
         transform: translateY(-1px);
         color: #f7f91d;
         filter: brightness(1.1);
@@ -403,7 +439,7 @@
     }
 }
 
-.mastergearinfobanner{
+.mastergearinfobanner {
     padding-left: 8px;
     padding-right: 5px;
     margin-top: 5px;
@@ -418,7 +454,7 @@
     font-size: 1rem;
 }
 
-.gearinfobanner{
+.gearinfobanner {
     padding-left: 8px;
     padding-right: 5px;
     margin-top: 5px;
@@ -438,100 +474,123 @@
         font-size: .6rem;
     }
 }
+
 @media screen and (max-width: 700px) {
-    .gearabilityuses{
+    .gearabilityuses {
         display: block;
     }
 }
+
 @media screen and (max-width: 800px) {
     .gearfaceicon {
         height: 28px;
         width: 82px;
     }
-    .gearfaceholder{
+
+    .gearfaceholder {
         width: 82px;
         height: 30px;
     }
-    .gearablspeed{
+
+    .gearablspeed {
         width: auto;
-    }    
-    .tablemobile{
+    }
+
+    .tablemobile {
         margin-top: 5px;
         display: table;
     }
-    .tablenonmobile{
+
+    .tablenonmobile {
         display: none;
     }
-    .lsmaller{
+
+    .lsmaller {
         width: 16px;
         height: 15px;
         display: inline-table;
-        background-size: contain ;
+        background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
-    .lsmallerinline{
+
+    .lsmallerinline {
         width: 16px;
         height: 15px;
         display: inline-table;
-        background-size: contain ;
+        background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
-    .intbrv::before{
+
+    .intbrv::before {
         content: "iBRV";
     }
-    .maxbrv::before{
+
+    .maxbrv::before {
         content: "mBRV";
     }
-    .undertag{
+
+    .undertag {
         height: 24px;
         width: 48px;
     }
-    .gearinfonameholder{
+
+    .gearinfonameholder {
         margin-left: 0px;
         width: calc(100% - 19px);
     }
-    .gearCPReqHolder{
+
+    .gearCPReqHolder {
         width: 85px;
     }
-    .gearsaholder{
+
+    .gearsaholder {
         display: none;
     }
-    .gearabilityholder{
+
+    .gearabilityholder {
         margin-right: 5px;
     }
-    .geartitletext{
+
+    .geartitletext {
         display: inline-table;
     }
-    .CharGearFactHolder{
+
+    .CharGearFactHolder {
         width: 85px;
     }
-    .geartag{
+
+    .geartag {
         background-size: contain;
         height: 24px !important;
-        width:48px !important;
+        width: 48px !important;
     }
-    .gearimage{
+
+    .gearimage {
         height: 91px;
         width: 128px;
     }
 }
+
 @media screen and (max-width: 700px) {
     .mastergearinfobanner {
         margin-left: 0px;
         width: auto;
         font-size: .8rem;
     }
+
     .gearinfobanner {
         margin-left: 0px;
         width: auto;
         font-size: .8rem;
     }
-    .inlinegearabilityiconholder{
+
+    .inlinegearabilityiconholder {
         display: none;
     }
-    .gearabilityiconholder{
+
+    .gearabilityiconholder {
         display: block;
         margin-right: 10px;
     }

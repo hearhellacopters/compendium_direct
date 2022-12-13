@@ -7,8 +7,8 @@ export function* handleGetJPGameListAbility(action) {
   try {
     const response = yield call(requestGetJPGameListAbility);
     const { data } = response;
-    if(isJson(data) == true){
-        yield put(setJPGameListAbility(data));
+    if (isJson(data) == true) {
+      yield put(setJPGameListAbility(data));
     }
   } catch (error) {
     console.log(error);

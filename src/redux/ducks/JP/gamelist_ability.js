@@ -1,11 +1,11 @@
 export const GET_JPGAMELISTABILITY = "GET_JPGAMELISTABILITY";
-const SET_JPGAMELISTABILITY= "SET_JPGAMELISTABILITY";
+const SET_JPGAMELISTABILITY = "SET_JPGAMELISTABILITY";
 
 export const getJPGameListAbility = () => ({
   type: GET_JPGAMELISTABILITY
 });
 
-export const setJPGameListAbility= (jp_gamelist_ability) => ({
+export const setJPGameListAbility = (jp_gamelist_ability) => ({
   type: SET_JPGAMELISTABILITY,
   jp_gamelist_ability: jp_gamelist_ability
 });

@@ -7,7 +7,7 @@ export function* handleGetEventsIndex(action) {
   try {
     const response = yield call(requestGetEventsIndex);
     const { data } = response;
-    if(isJson(data,"GetEvents") == true){
+    if (isJson(data, "GetEvents") == true) {
       yield put(setEventsIndex(data));
     }
   } catch (error) {

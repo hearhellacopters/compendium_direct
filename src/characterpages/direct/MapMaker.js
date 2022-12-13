@@ -2,8 +2,8 @@
 import React, { useState, useCallback } from 'react';
 import ReactFlow, {
   ReactFlowProvider,
-  applyNodeChanges, 
-  applyEdgeChanges, 
+  applyNodeChanges,
+  applyEdgeChanges,
   addEdge,
   isNode,
   Background,
@@ -14,7 +14,7 @@ import dagre from 'dagre';
 
 const MapMaker = ({
   initialElements,
-}) => { 
+}) => {
 
   const dagreGraph = new dagre.graphlib.Graph();
   dagreGraph.setDefaultEdgeLabel(() => ({}));
@@ -24,7 +24,7 @@ const MapMaker = ({
   // const nodes = useStoreState(state => state.nodes) and then node.__rf.width, node.__rf.height
 
   const nodeWidth = 250;
-  const nodeHeight = 40 ;
+  const nodeHeight = 40;
 
   const getLayoutedElements = (elements, direction = 'LR') => {
     const isHorizontal = direction === 'LR';
@@ -62,25 +62,25 @@ const MapMaker = ({
 
   const layoutedElements = getLayoutedElements(initialElements);
 
-  const initialNodes = layoutedElements && layoutedElements.filter(self=>self.source == undefined)
-  const initialEdges = layoutedElements && layoutedElements.filter(self=>self.source != undefined)
+  const initialNodes = layoutedElements && layoutedElements.filter(self => self.source == undefined)
+  const initialEdges = layoutedElements && layoutedElements.filter(self => self.source != undefined)
 
   const [nodes, setNodes] = useState(initialNodes);
   const [edges, setEdges] = useState(initialEdges);
 
   const onConnect = useCallback((params) => setEdges((eds) => addEdge(params, eds)));
-    
-    const onNodesChange = useCallback(
-      (params) => setNodes((ns) => applyNodeChanges(params, ns)),
-      []
-    );
-    const onEdgesChange = useCallback(
-      (params) => setEdges((es) => applyEdgeChanges(params, es)),
-      []
-    );
 
-    const startinglimit = window.innerWidth <= 700 ? 100 : 200;
-    const startingzoom = window.innerWidth <= 700 ? .8 : 1;
+  const onNodesChange = useCallback(
+    (params) => setNodes((ns) => applyNodeChanges(params, ns)),
+    []
+  );
+  const onEdgesChange = useCallback(
+    (params) => setEdges((es) => applyEdgeChanges(params, es)),
+    []
+  );
+
+  const startinglimit = window.innerWidth <= 700 ? 100 : 200;
+  const startingzoom = window.innerWidth <= 700 ? .8 : 1;
 
   return (
     <div className="flowholder">
@@ -101,34 +101,34 @@ const MapMaker = ({
           onlyRenderVisibleElements={true}
           defaultZoom={startingzoom}
         >
-          
+
           <Background
-          variant="dots"
-          gap={12}
-          size={3}
-          color="#00000065"
+            variant="dots"
+            gap={12}
+            size={3}
+            color="#00000065"
           />
           <MiniMap
-          className='minimap'
-          nodeColor={(node) => {
+            className='minimap'
+            nodeColor={(node) => {
               switch (node.type) {
-              case 'input':
+                case 'input':
                   return '#00ff00';
-              case 'default':
+                case 'default':
                   return 'red';
-              case 'output':
+                case 'output':
                   return 'rgb(0,0,255)';
-              default:
+                default:
                   return '#eee';
               }
-          }}
-          maskColor="#00000065"
+            }}
+            maskColor="#00000065"
           />
-           
+
           <Controls
-          showInteractive={false}/>
-          </ReactFlow>
-          </ReactFlowProvider>
+            showInteractive={false} />
+        </ReactFlow>
+      </ReactFlowProvider>
     </div>
   );
 };

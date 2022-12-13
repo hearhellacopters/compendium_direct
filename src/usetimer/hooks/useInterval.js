@@ -10,7 +10,7 @@ export default function useInterval(callback, delay) {
 
   useEffect(() => {
     if (!delay) {
-      return () => {};
+      return () => { };
     }
 
     const interval = setInterval(() => {

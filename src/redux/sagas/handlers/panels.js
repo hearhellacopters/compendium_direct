@@ -7,7 +7,7 @@ export function* handleGetPanels(action) {
   try {
     const response = yield call(requestGetPanels);
     const { data } = response;
-    if(isJson(data,"GetPanels") == true){
+    if (isJson(data, "GetPanels") == true) {
       yield put(setPanels(data));
     }
   } catch (error) {

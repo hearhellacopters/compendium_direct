@@ -1,4 +1,4 @@
-.characterpageholder{
+.characterpageholder {
     display: block;
     transform-origin: 50% 0;
     padding: 8px;
@@ -10,15 +10,17 @@
     overflow: hidden;
     height: auto;
 }
-.charpageautotitle{
+
+.charpageautotitle {
     margin-top: auto;
     margin-bottom: auto;
 }
 
-.autoleft{
+.autoleft {
     margin-left: auto;
 }
-.spheresbuttontag{
+
+.spheresbuttontag {
     width: 32px;
     height: 32px;
     vertical-align: middle;
@@ -29,9 +31,9 @@
     cursor: pointer;
 }
 
-.bluebutton{
-    background-color: #2c5ad8!important;
-    background: linear-gradient(180deg,hsla(0,0%,100%,.6392156862745098) 5.73%,rgba(130,153,216,.49411764705882355) 29.69%,rgba(39,241,207,0) 47.92%,rgba(39,241,207,0) 52.08%,#224199 81.25%,#2446a5),#2c5ad8!important;
+.bluebutton {
+    background-color: #2c5ad8 !important;
+    background: linear-gradient(180deg, hsla(0, 0%, 100%, .6392156862745098) 5.73%, rgba(130, 153, 216, .49411764705882355) 29.69%, rgba(39, 241, 207, 0) 47.92%, rgba(39, 241, 207, 0) 52.08%, #224199 81.25%, #2446a5), #2c5ad8 !important;
     box-shadow: inset -2px -2px 4px #000, inset 2px 0 4px #939cb3;
     height: 30px;
     width: 150px;
@@ -51,42 +53,42 @@
 
 .blink_me {
     animation: blinker 2s linear infinite;
-  }
-  
-@keyframes blinker {
-50% {
-    opacity: 0;
-}
 }
 
-.inactiveeffect{
-    color:#7a7a7a !important;
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+.inactiveeffect {
+    color: #7a7a7a !important;
     text-decoration: line-through !important;
 }
 
-.filelistclass{
-    text-align: left; 
+.filelistclass {
+    text-align: left;
     margin-top: 5px;
-  }
+}
 
-.upcomingbutton{
+.upcomingbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/upcoming.png")
 }
 
-.artpassivedirect{
+.artpassivedirect {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/artpass_direct.png")
 }
 
-.eventsdirect{
+.eventsdirect {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/events_direct.png")
 }
 
-.enemiesforcharbutton{
+.enemiesforcharbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/enemies.png")
 }
 
-.chartopimageholder{
-    -webkit-box-shadow: inset 0px 0px 30px 11px #000000; 
+.chartopimageholder {
+    -webkit-box-shadow: inset 0px 0px 30px 11px #000000;
     box-shadow: inset 0px 0px 30px 11px #000000;
     border-radius: 20px;
     width: 512px;
@@ -94,31 +96,32 @@
     position: absolute;
 }
 
-.charCystal{
+.charCystal {
     display: table;
     position: absolute;
     text-align: center;
     height: 64px;
     width: 64px;
-    top:0;
+    top: 0;
     left: 64px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.charstats{
+.charstats {
     margin-left: auto;
     margin-right: auto;
     display: table;
     position: absolute;
     text-align: center;
-    top:5px;
-    right:5px;
+    top: 5px;
+    right: 5px;
     height: 90px;
     width: 134px;
     z-index: 1;
 }
-.spherestop{
+
+.spherestop {
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -126,9 +129,10 @@
     text-align: center;
     height: 42px;
     bottom: 0;
-    left:0;
+    left: 0;
 }
-.charalts{
+
+.charalts {
     margin-left: auto;
     margin-right: auto;
     display: table;
@@ -137,50 +141,38 @@
     height: 82px;
     width: 97px;
     bottom: 0;
-    right:0;
+    right: 0;
     opacity: .75;
 }
 
-.charweapon{
-    background: radial-gradient(circle, rgb(45, 48, 53) 25%, rgba(0,0,0,0.9612219887955182) 50%, rgba(77,86,97,0) 65%);
+.charweapon {
+    background: radial-gradient(circle, rgb(45, 48, 53) 25%, rgba(0, 0, 0, 0.9612219887955182) 50%, rgba(77, 86, 97, 0) 65%);
     display: table;
     position: absolute;
     text-align: center;
     height: 64px;
     width: 64px;
-    top:0;
+    top: 0;
     left: 0px;
     margin-left: auto;
     margin-right: auto;
     filter: drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
     -webkit-filter: drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
 }
-.charimagetoptopholder{
+
+.charimagetoptopholder {
     display: inline-table;
     height: 512px;
     width: 512px;
     flex: 0 0 auto;
 }
-.introclassflex{
+
+.introclassflex {
     display: flex;
     justify-content: center;
 }
-.introflex{
-    padding-left: 8px;
-    padding-right: 5px;
-    margin-top: 5px;
-    list-style: none;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    clear: both;
-    border: solid 3px #d9dade;
-    border-radius: 5px;
-    box-shadow: inset 0px 0px 10px #000000;
-    transition: .4s;
-    min-height: 45px;
-    text-align: left;
-}
-.introflex2{
+
+.introflex {
     padding-left: 8px;
     padding-right: 5px;
     margin-top: 5px;
@@ -196,26 +188,43 @@
     text-align: left;
 }
 
-.newblack{
+.introflex2 {
+    padding-left: 8px;
+    padding-right: 5px;
+    margin-top: 5px;
+    list-style: none;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    clear: both;
+    border: solid 3px #d9dade;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 10px #000000;
+    transition: .4s;
+    min-height: 45px;
+    text-align: left;
+}
+
+.newblack {
     background-color: #393f48;
 }
-.exbrvcolor{
+
+.exbrvcolor {
     background: #90580c;
 }
 
-.alignright{
+.alignright {
     display: block;
 }
 
-.brvattacks{
+.brvattacks {
     background: #52430cf0;
 }
 
-.hpattackes{
+.hpattackes {
     background: #0e520cf0;
 }
 
-.brevityholder{
+.brevityholder {
     box-sizing: border-box;
     display: block;
     width: 100%;
@@ -223,27 +232,27 @@
     height: auto;
 }
 
-.nolistevents{
+.nolistevents {
     display: block;
     list-style: none;
 }
 
-.makeitfull{
+.makeitfull {
     width: 100%;
 }
 
-.brevityrow{
+.brevityrow {
     /*display: flex;*/
     flex-flow: row wrap;
     justify-content: center;
 }
 
-.JPReworkbutton{
+.JPReworkbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_RW.png");
     background-size: contain;
 }
 
-.glinfobanner{
+.glinfobanner {
     margin-top: 5px;
     padding: 5px;
     padding-left: 8px;
@@ -253,7 +262,7 @@
     transition: .4s;
 }
 
-.charglupdates{
+.charglupdates {
     margin-left: auto;
     margin-right: auto;
     width: fit-content;
@@ -262,7 +271,7 @@
     text-align: center;
 }
 
-.calforchar{
+.calforchar {
     filter: invert(1) drop-shadow(1px 0 0 rgb(0, 0, 0)) drop-shadow(0 1px 0 rgb(0, 0, 0)) drop-shadow(0 -1px 0 rgb(0, 0, 0)) drop-shadow(-1px 0 0 rgb(0, 0, 0));
     -webkit-filter: invert(1) drop-shadow(1px 0 0 #000000) drop-shadow(0 1px 0 #000000) drop-shadow(0 -1px 0 #000000) drop-shadow(-1px 0 0 #000000);
 }
@@ -270,46 +279,49 @@
 .glupdategreen {
     color: rgb(47, 255, 47);
 }
+
 .yellowcolor {
     color: #f7f91d;
 }
 
-.bluecolor{
+.bluecolor {
     color: #6b9fff;
 }
 
-.pinkcolor{
-    color:#ff7bf0;
+.pinkcolor {
+    color: #ff7bf0;
 }
 
-.redcolortext{
-    color:#ff4b85;
+.redcolortext {
+    color: #ff4b85;
 }
 
-.reworkicon{
+.reworkicon {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/rework.png");
     display: inline-block;
 }
 
-.reworktab{
+.reworktab {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/rework2.png");
     display: inline-block;
 }
-.reworktabred{
+
+.reworktabred {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/rework2red.png");
     display: inline-block;
 }
 
-.reworktab_direct{
+.reworktab_direct {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/rework2_direct.png");
     display: inline-block;
 }
-.reworktabred_direct{
+
+.reworktabred_direct {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/rework2red_direct.png");
     display: inline-block;
 }
 
-.gemicon{
+.gemicon {
     content: url(https://dissidiacompendium.com/images/static/icons/misc/LimitBreakSmall.png);
     vertical-align: middle;
     background-size: contain;
@@ -318,7 +330,7 @@
     margin-bottom: 2px;
 }
 
-.glinfobase{
+.glinfobase {
     margin-top: 5px;
     padding-left: 8px;
     padding-right: 5px;
@@ -332,38 +344,40 @@
     transition: .4s;
 }
 
-.charbackgroundBlack{
+.charbackgroundBlack {
     background-color: #333355;
 }
 
-.charbackgroundGreen{
+.charbackgroundGreen {
     background-color: #336136;
 }
-.charbackgroundRed{
-    background-color: rgba(119,48,64,.9411764705882353);
+
+.charbackgroundRed {
+    background-color: rgba(119, 48, 64, .9411764705882353);
 }
 
-.charbackgroundWhite{
+.charbackgroundWhite {
     background-color: #cccccc
 }
 
-.charbackgroundYellow{
+.charbackgroundYellow {
     background-color: #626d27
 }
-.charbackgroundBlue{
+
+.charbackgroundBlue {
     background-color: #254173
 }
 
-.ldblue{
+.ldblue {
     background-color: #2967b9;
 }
 
-.arm7aicon{
+.arm7aicon {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/7a.png");
     display: inline-block;
-  }
+}
 
-.brevcell{
+.brevcell {
     padding-left: 8px;
     padding-right: 5px;
     margin-top: 0px;
@@ -382,38 +396,41 @@
     text-align: left;
     vertical-align: top;
 }
-.charmanimage{
+
+.charmanimage {
     height: 512px;
     width: 512px;
 }
 
-.facetop{
+.facetop {
     margin-bottom: 5px;
     margin-top: 0px;
     padding-top: 5px;
     padding-bottom: 5px;
-    background: linear-gradient( 90deg, rgba(30, 55, 88, 0) 0%, rgba(30, 55, 88, 0.940205) 3.67%, rgba(30, 55, 88, 0.85) 96.44%, rgba(30, 55, 88, 0) 100%);
+    background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, rgba(30, 55, 88, 0.940205) 3.67%, rgba(30, 55, 88, 0.85) 96.44%, rgba(30, 55, 88, 0) 100%);
 }
 
-.sphereletter{
-    display: flex; 
+.sphereletter {
+    display: flex;
     width: 40px;
     height: 40px;
 }
-.sphereletter span{
+
+.sphereletter span {
     width: 32px;
     display: block;
     height: 32px;
     margin: auto;
 }
-.sphereletterholder{
+
+.sphereletterholder {
     display: flex;
     justify-content: center;
     margin-right: auto;
     margin-left: auto;
 }
 
-.lockedslot{
+.lockedslot {
     background: #7f7676;
     border-radius: 50px;
     border: 1px black solid;
@@ -423,7 +440,7 @@
     -webkit-filter: drop-shadow(2px 2px 2px #222);
 }
 
-.unlockedslot{
+.unlockedslot {
     background: #2e303a;
     border-radius: 50px;
     border: 1px black solid;
@@ -433,12 +450,12 @@
     -webkit-filter: drop-shadow(2px 2px 2px #222);
 }
 
-.backtopage a{
+.backtopage a {
     color: white;
     transition: ease color .3s;
 }
 
-.singlesubbanner{
+.singlesubbanner {
     margin-bottom: 0px;
     margin-top: 0px;
     padding: 5px;
@@ -448,7 +465,7 @@
     background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, rgba(30, 55, 88, 0.940205) 3.67%, rgba(30, 55, 88, 0.85) 96.44%, rgba(30, 55, 88, 0) 100%);
 }
 
-.classdisplay{
+.classdisplay {
     height: 32px;
     width: 32px;
     margin-right: 2px;
@@ -457,7 +474,7 @@
     position: static;
 }
 
-.sideclass{
+.sideclass {
     float: right;
     text-align: right;
     list-style-position: inside;
@@ -472,7 +489,7 @@
     padding: 0px;
 }
 
-.sidemain{
+.sidemain {
     display: flex !important;
     flex-direction: column;
     flex-wrap: wrap;
@@ -483,7 +500,7 @@
     padding: 0px;
 }
 
-.smallclass{
+.smallclass {
     font-size: small;
     display: none;
     padding-left: 0px;
@@ -491,11 +508,12 @@
     margin-top: 5px;
     margin-bottom: 5px;
 }
-.largertext{
+
+.largertext {
     font-size: larger;
 }
 
-.abilitygreensinglebutton{
+.abilitygreensinglebutton {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 0px;
@@ -505,7 +523,8 @@
     font-weight: bold;
     font-size: large;
     background: linear-gradient(180deg, #FFFFFF 5.73%, rgba(142, 248, 230, 0.476923) 29.69%, rgba(39, 241, 207, 0) 47.92%, rgba(39, 241, 207, 0) 52.08%, #27F1CF 81.25%, #27F1CF 100%), #03a971;
-    box-shadow: inset -2px -2px 4px #000000, inset 2px 0px 4px #93b3a8;    filter: drop-shadow(1px 1px 1px #222);
+    box-shadow: inset -2px -2px 4px #000000, inset 2px 0px 4px #93b3a8;
+    filter: drop-shadow(1px 1px 1px #222);
     -webkit-filter: drop-shadow(1px 1px 1px #222);
     border: 1px solid black;
     border-radius: 7px 7px 7px 7px;
@@ -515,7 +534,7 @@
     user-select: none;
 }
 
-.minibuff{
+.minibuff {
     height: 32px;
     width: 32px;
     vertical-align: middle;
@@ -523,15 +542,15 @@
     background-repeat: no-repeat;
 }
 
-.inlineblock{
+.inlineblock {
     display: inline-block;
 }
 
-.noshowsyn{
+.noshowsyn {
     display: none;
 }
 
-.abilitybluesinglebutton{
+.abilitybluesinglebutton {
     display: flex;
     margin-left: auto;
     margin-right: auto;
@@ -542,7 +561,7 @@
     font-weight: bold;
     font-size: large;
     background: linear-gradient(180deg, #FFFFFF 5.73%, #8bb8f382 29.69%, #2d81f100 47.92%, #2980f300 52.08%, #2a81f5 81.25%, #2781f7 100%), #4086e2;
-    box-shadow: inset -2px -2px 4px #000000, inset 2px 0px 4px #93a0b3;  
+    box-shadow: inset -2px -2px 4px #000000, inset 2px 0px 4px #93a0b3;
     filter: drop-shadow(1px 1px 1px #222);
     -webkit-filter: drop-shadow(1px 1px 1px #222);
     border: 1px solid black;
@@ -552,7 +571,8 @@
     -webkit-user-select: none;
     user-select: none;
 }
-.abilitygreysinglebutton{
+
+.abilitygreysinglebutton {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 0px;
@@ -569,89 +589,107 @@
     border-radius: 7px 7px 7px 7px;
 }
 
-.limit{
-    background: #e95091; 
-  }
+.limit {
+    background: #e95091;
+}
 
-.margtop{
+.margtop {
     margin-top: 10px;
 }
 
-.profilebutton{
+.profilebutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/profile.png");
 }
 
-.buffsdebuffsbutton{
+.buffsdebuffsbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/buffsdebuffs.png");
 }
 
-.descbuttons{
+.descbuttons {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/desc.png");
 }
 
-.abilitiesbutton{
+.abilitiesbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/abilities.png");
 }
-.directabilitiesbutton{
+
+.directabilitiesbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/abilities_direct.png");
 }
-.directcrystalpassives{
+
+.directcrystalpassives {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/cpassives_direct.png")
 }
-.directexppassives{
+
+.directexppassives {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/exp_direct.png")
 }
-.directprofile{
+
+.directprofile {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/profile_direct.png")
 }
-.directpassives{
+
+.directpassives {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/passives_direct.png")
 }
-.communityprofile{
+
+.communityprofile {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/community_direct.png")
 }
-.bpassivesbutton{
+
+.bpassivesbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/bpassives_direct.png")
 }
-.linkbutton{
+
+.linkbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard_direct.png");
 }
-.summonsbutton{
+
+.summonsbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/summons.png");
 }
-.statsbutton{
+
+.statsbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/stats.png");
 }
-.orbsbutton{
+
+.orbsbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/orb.png");
 }
-.forcesbutton{
+
+.forcesbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/force.png");
 }
-.graphicbutton{
+
+.graphicbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/graphic.png");
 }
-.passivesbutton{
+
+.passivesbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/passives.png");
 }
-.gearbutton{
+
+.gearbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/gear.png");
 }
-.eventspagebutton{
+
+.eventspagebutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/events.png");
 }
-.directspherespagebutton{
+
+.directspherespagebutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/spheres_direct.png");
 }
-.spherespagebutton{
+
+.spherespagebutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/spheres.png");
 }
 
-.characterpageshare{
+.characterpageshare {
     display: inline-block;
 }
 
-.noresultsflair{
+.noresultsflair {
     transition: all .2s;
     transform-origin: 50% 0;
     margin-top: 0px;
@@ -663,7 +701,8 @@
     font-weight: bold;
     clear: both;
 }
-.noresults{
+
+.noresults {
     position: relative;
     width: -moz-fit-content;
     width: fit-content;
@@ -674,7 +713,7 @@
     align-self: flex-end;
 }
 
-.singlenolinkstext{
+.singlenolinkstext {
     position: absolute;
     left: 0px;
     bottom: 0px;
@@ -687,7 +726,7 @@
     box-shadow: inset 0px -50px 34px -28px #43517a;
 }
 
-.sharefilter{
+.sharefilter {
     background: linear-gradient(180deg, #FFFFFF 5.73%, rgba(142, 248, 230, 0.476923) 29.69%, rgba(39, 241, 207, 0) 47.92%, rgba(39, 241, 207, 0) 52.08%, #27F1CF 81.25%, #27F1CF 100%), #03a971;
     box-shadow: inset -2px -2px 4px #000000, inset 2px 0px 4px #93b3a8;
     height: 30px;
@@ -707,61 +746,67 @@
 }
 
 @media (hover: hover) {
-    .abilitybluesinglebutton:hover{
-        filter: brightness(1.2);
-      -webkit-filter: brightness(1.2);
-      transition: all ease 0.3s;
-    }
-    .abilitygreensinglebutton:hover{
-        filter: brightness(1.2);
-      -webkit-filter: brightness(1.2);
-      transition: all ease 0.3s;
-    }
-    .sharefilter:hover{
-      filter: brightness(1.2);
-      -webkit-filter: brightness(1.2);
-      transition: all ease 0.3s;
-    }
-    .filterinfopad:hover{
+    .abilitybluesinglebutton:hover {
         filter: brightness(1.2);
         -webkit-filter: brightness(1.2);
         transition: all ease 0.3s;
-      }
     }
 
-.abilitygreensinglebutton:active{
-    filter: drop-shadow(0px 0px 2px #222) brightness(.8);
-    -webkit-filter: drop-shadow(0px 0px 2px #222) brightness(.8);
-    transition: all 0s;
+    .abilitygreensinglebutton:hover {
+        filter: brightness(1.2);
+        -webkit-filter: brightness(1.2);
+        transition: all ease 0.3s;
+    }
+
+    .sharefilter:hover {
+        filter: brightness(1.2);
+        -webkit-filter: brightness(1.2);
+        transition: all ease 0.3s;
+    }
+
+    .filterinfopad:hover {
+        filter: brightness(1.2);
+        -webkit-filter: brightness(1.2);
+        transition: all ease 0.3s;
+    }
 }
-.abilitybluesinglebutton:active{
-    filter: drop-shadow(0px 0px 2px #222) brightness(.8);
-    -webkit-filter: drop-shadow(0px 0px 2px #222) brightness(.8);
-    transition: all 0s;
-}
-    
-.sharefilter:active{
-    filter: drop-shadow(0px 0px 2px #222) brightness(.8);
-    -webkit-filter: drop-shadow(0px 0px 2px #222) brightness(.8);
-    transition: all 0s;
-}
-.filterinfopad:active{
+
+.abilitygreensinglebutton:active {
     filter: drop-shadow(0px 0px 2px #222) brightness(.8);
     -webkit-filter: drop-shadow(0px 0px 2px #222) brightness(.8);
     transition: all 0s;
 }
 
-.crystalpage{
+.abilitybluesinglebutton:active {
+    filter: drop-shadow(0px 0px 2px #222) brightness(.8);
+    -webkit-filter: drop-shadow(0px 0px 2px #222) brightness(.8);
+    transition: all 0s;
+}
+
+.sharefilter:active {
+    filter: drop-shadow(0px 0px 2px #222) brightness(.8);
+    -webkit-filter: drop-shadow(0px 0px 2px #222) brightness(.8);
+    transition: all 0s;
+}
+
+.filterinfopad:active {
+    filter: drop-shadow(0px 0px 2px #222) brightness(.8);
+    -webkit-filter: drop-shadow(0px 0px 2px #222) brightness(.8);
+    transition: all 0s;
+}
+
+.crystalpage {
     width: 32px;
     height: 32px;
 }
 
-.pagecrystalholder{
+.pagecrystalholder {
     display: flex;
     width: fit-content;
     margin: auto;
 }
-.pagecrystalholder span{
+
+.pagecrystalholder span {
     margin: auto;
 }
 
@@ -769,12 +814,13 @@
     margin-top: 5px;
     margin-left: auto;
 }
+
 .filterinfopad span {
     margin-top: 5px;
     margin-left: auto;
 }
 
-.filterpadding{
+.filterpadding {
     height: 30px;
     width: 150px;
     text-align: center;
@@ -786,7 +832,7 @@
     opacity: 0%;
 }
 
-.filterinfopad{
+.filterinfopad {
     background: linear-gradient(180deg, #FFFFFF 5.73%, rgba(142, 248, 230, 0.476923) 29.69%, rgba(39, 241, 207, 0) 47.92%, rgba(39, 241, 207, 0) 52.08%, #27F1CF 81.25%, #27F1CF 100%), #03a971;
     box-shadow: inset -2px -2px 4px #000000, inset 2px 0px 4px #93b3a8;
     height: 30px;
@@ -803,31 +849,33 @@
     filter: drop-shadow(0px 0px 2px #222);
     -webkit-filter: drop-shadow(0px 0px 2px #222);
     transition: all ease 0.3s;
-    
+
 }
 
-.classcolor{
+.classcolor {
     background: #1e3758f0;
 }
-.introcolor{
+
+.introcolor {
     background: #3f5b92;
 }
 
-.startingattack{
+.startingattack {
     background: #626d27
 }
 
-.syngholder{
+.syngholder {
     display: none;
 }
-.syngholder2{
+
+.syngholder2 {
     margin-left: auto;
     margin-right: auto;
     display: table;
     position: absolute;
     text-align: center;
-    top:5px;
-    left:128px;
+    top: 5px;
+    left: 128px;
     width: 250px;
     background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #3030307a 10%, #3030307a 90%, rgba(30, 55, 88, 0) 100%);
     -webkit-touch-callout: none;
@@ -835,7 +883,7 @@
     user-select: none;
 }
 
-.smallsubtext{
+.smallsubtext {
     text-align: right;
     margin-bottom: 5px;
     font-size: small;
@@ -843,7 +891,7 @@
     color: rgb(167, 167, 167);
 }
 
-.singleventholder{
+.singleventholder {
     padding: 8px;
     border: 1px black solid;
     background: #8e8f8f;
@@ -856,16 +904,19 @@
 }
 
 @media screen and (max-width: 580px) {
-    .spherestop{
+    .spherestop {
         display: none;
     }
-    .sideclass{
+
+    .sideclass {
         display: none !important;
     }
-    .sidemain{
+
+    .sidemain {
         display: none !important;
     }
-    .smallclass{
+
+    .smallclass {
         text-align: left;
         display: block;
         padding: 5px;
@@ -874,39 +925,46 @@
         border-radius: 5px;
         box-shadow: inset 0px 0px 10px #000000;
     }
-    .charstats{
+
+    .charstats {
         height: 45px;
         width: 67px;
     }
-    .charalts{
+
+    .charalts {
         height: 41px;
         width: 48px;
     }
-    .charweapon{
+
+    .charweapon {
         height: 32px;
         width: 32px;
     }
-    .charCystal{
+
+    .charCystal {
         height: 32px;
         width: 32px;
         left: 32px;
     }
-    .charimagetoptopholder{
+
+    .charimagetoptopholder {
         height: 256px;
         width: 256px;
     }
-    .charmanimage{
+
+    .charmanimage {
         height: 256px;
         width: 256px;
     }
-    .chartopimageholder{
+
+    .chartopimageholder {
         height: 256px;
         width: 256px;
     }
 }
 
 @media (hover: hover) {
-    .bluebutton:hover{
+    .bluebutton:hover {
         filter: brightness(1.2);
         -webkit-filter: brightness(1.2);
         transition: all ease 0.3s;
@@ -914,41 +972,50 @@
 }
 
 @media screen and (max-width: 800px) {
-    .bluebutton{
+    .bluebutton {
         width: 50px;
         margin-left: auto;
     }
-    .glinfobanner{
+
+    .glinfobanner {
         font-size: small;
     }
-    .glinfobase{
+
+    .glinfobase {
         font-size: small;
     }
-    .sharefilter{
-    width: 50px;
-    margin-left: auto;
+
+    .sharefilter {
+        width: 50px;
+        margin-left: auto;
     }
-    .filterpadding{
-    width: 50px;
-    margin-left: auto;
+
+    .filterpadding {
+        width: 50px;
+        margin-left: auto;
     }
-    .filterinfopad{
-    width: 50px;
-    margin-left: auto;
+
+    .filterinfopad {
+        width: 50px;
+        margin-left: auto;
     }
 }
+
 @media screen and (max-width: 860px) {
-    .charimagetoptopholder{
+    .charimagetoptopholder {
         display: block;
     }
-    .brevcell{
+
+    .brevcell {
         margin-top: 5px;
         margin-left: 0px;
     }
-    .syngholder2{
+
+    .syngholder2 {
         display: none;
     }
-    .syngholder{
+
+    .syngholder {
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -957,28 +1024,34 @@
         padding-left: 8px;
         background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, rgba(30, 55, 88, 0.940205) 3.67%, rgba(30, 55, 88, 0.85) 96.44%, rgba(30, 55, 88, 0) 100%);
     }
-    .noshowsyn{
+
+    .noshowsyn {
         display: block;
     }
-    .introclassflex{
+
+    .introclassflex {
         display: block;
     }
-    .brevityholder{
+
+    .brevityholder {
         margin-top: 5px;
         margin-bottom: 5px;
         font-size: small;
     }
-    .charimagetoptopholder{
+
+    .charimagetoptopholder {
         margin-left: auto;
         margin-right: auto;
     }
-    .introflex{
+
+    .introflex {
         font-size: small;
         max-width: none;
         margin-left: auto;
         margin-right: auto;
     }
-    .introflex2{
+
+    .introflex2 {
         max-width: none;
         margin-left: auto;
         margin-right: auto;

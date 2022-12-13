@@ -1,121 +1,121 @@
 {
-    "AnyBreak":{ 
+    "AnyBreak": {
         "name": "After any party member inflicts a BREAK",
         "url": "battlestate/AnyBreak"
     },
-    "GroupCritical":{ 
+    "GroupCritical": {
         "name": "When dealing a critical hit with a Group BRV Attack",
         "url": "battlestate/GroupCritical"
     },
-    "InflictBreak":{ 
+    "InflictBreak": {
         "name": "When inflicting a BREAK",
         "url": "battlestate/InflictBreak"
     },
-    "InflictBreakAttackBreak":{ 
+    "InflictBreakAttackBreak": {
         "name": "When inflicting BREAK or attacking a target afflicted with BREAK",
         "url": "battlestate/BreakorBroken"
     },
-    "AttackBreak":{ 
+    "AttackBreak": {
         "name": "When attacking a target afflicted with BREAK",
         "url": "battlestate/BrokenTarget"
     },
-    "Critical":{ 
+    "Critical": {
         "name": "When dealing a critical hit",
         "url": "battlestate/Critical"
     },
-    "DebuffedEnemy":{ 
+    "DebuffedEnemy": {
         "name": "While an enemy is debuffed",
         "url": "battlestate/DebuffedEnemy"
     },
-    "Evade":{ 
+    "Evade": {
         "name": "After evading an attack",
         "url": "battlestate/Evade"
     },
-    "HPOver100":{ 
+    "HPOver100": {
         "name": "While HP is Max",
         "url": "battlestate/HPOver100"
     },
-    "HealedHP":{ 
+    "HealedHP": {
         "name": "When own HP is healed",
         "url": "battlestate/HealedHP"
     },
-    "HPOver80":{ 
+    "HPOver80": {
         "name": "While HP is ≥ 80% of Max HP",
         "url": "battlestate/HPOver80"
     },
-    "FinalWaveHPOver50":{ 
+    "FinalWaveHPOver50": {
         "name": "While HP is ≥ 50% of Max HP at start of final wave",
         "url": "battlestate/FinalWaveHPOver50"
     },
-    "KnockBack":{ 
+    "KnockBack": {
         "name": "When attacking during a Knock Back",
         "url": "battlestate/KnockBack"
     },
-    "HPUnder80":{ 
+    "HPUnder80": {
         "name": "While HP is ≤ 80% of Max HP",
         "url": "battlestate/HPUnder80"
     },
-    "Group":{ 
+    "Group": {
         "name": "When attacking with a Group BRV Attack",
         "url": "battlestate/Group"
     },
-    "NotTargetingYou":{ 
+    "NotTargetingYou": {
         "name": "When attacking an enemy not targeting self",
         "url": "battlestate/NotTargetingYou"
     },
-    "Target1Critical":{ 
+    "Target1Critical": {
         "name": "When dealing a critical hit to a single target",
         "url": "battlestate/Target1Critical"
     },
-    "Target1":{ 
+    "Target1": {
         "name": "When attacking a single target",
         "url": "battlestate/Target1"
     },
-    "Weak":{ 
+    "Weak": {
         "name": "When dealing weakness BRV damage",
         "url": "battlestate/Weak"
     },
-    "Ability":{ 
+    "Ability": {
         "name": "After using an ability",
         "url": "battlestate/Ability"
     },
-    "HPDamage":{ 
+    "HPDamage": {
         "name": "When taking HP damage",
         "url": "battlestate/HPDamage"
     },
-    "TargetingYou":{ 
+    "TargetingYou": {
         "name": "When attacking an enemy targeting self",
         "url": "battlestate/TargetingYou"
     },
-    "GrantBuff":{ 
+    "GrantBuff": {
         "name": "When granting a buff",
         "url": "battlestate/GrantBuff"
     },
-    "InflictDebuff":{ 
+    "InflictDebuff": {
         "name": "When inflicting a debuff",
         "url": "battlestate/InflictDebuff"
     },
-    "InflictBreakAttackBreakHPOver100":{ 
+    "InflictBreakAttackBreakHPOver100": {
         "name": "While HP is Max and inflicting BREAK or attacking a target afflicted with BREAK",
         "url": "battlestate/InflictBreakAttackBreakHPOver100"
     },
-    "HPUnder50HPDamage":{ 
+    "HPUnder50HPDamage": {
         "name": "When taking HP damage and while HP is ≤ 50%",
         "url": "battlestate/HPUnder50HPDamage"
     },
-    "WhileBuffed5":{ 
+    "WhileBuffed5": {
         "name": "While 5 or more buffs are active",
         "url": "battlestate/WhileBuffed5"
     },
-    "WhileBuffed3":{ 
+    "WhileBuffed3": {
         "name": "While 3 or more buffs are active",
         "url": "battlestate/WhileBuffed3"
     },
-    "BattleStart":{ 
+    "BattleStart": {
         "name": "At start of quest",
         "url": "battlestate/BattleStart"
     },
-    "HPOver100Critical":{ 
+    "HPOver100Critical": {
         "name": "While HP is Max and dealing a critical hit",
         "url": "battlestate/HPOver100Critical"
     }

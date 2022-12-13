@@ -6,16 +6,16 @@ const EnemyDetailsLevelHanlder = ({
     Level,
     ProcessedLevels,
     chase
-})=>{
+}) => {
 
-    const filtered = ProcessedLevels.filter(self=>self.enemyID == enemy_id).reverse()
+    const filtered = ProcessedLevels.filter(self => self.enemyID == enemy_id).reverse()
 
-    return(
+    return (
         filtered != undefined ?
-        <div className={`enemyholderdesc margtop lighterblue`}>
-            <LevelsFormattingDetails setlevel={Level} alllevels={filtered} chase={chase} enemy_id={enemy_id}/>
-        </div>
-        : "Loading..."
+            <div className={`enemyholderdesc margtop lighterblue`}>
+                <LevelsFormattingDetails setlevel={Level} alllevels={filtered} chase={chase} enemy_id={enemy_id} />
+            </div>
+            : "Loading..."
     )
 }
 export default EnemyDetailsLevelHanlder

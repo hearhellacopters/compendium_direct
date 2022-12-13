@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
 import { Link } from 'react-router-dom'
 import './Spheres.css';
@@ -13,8 +13,8 @@ import { ImSortAmountDesc } from 'react-icons/im';
 import { TiArrowSortedDown } from 'react-icons/ti';
 import { TiArrowSortedUp } from 'react-icons/ti';
 import { IoMdCloseCircleOutline } from 'react-icons/io';
-import { IoSearch } from 'react-icons/io5'; 
-import { FaUndoAlt } from 'react-icons/fa'; 
+import { IoSearch } from 'react-icons/io5';
+import { FaUndoAlt } from 'react-icons/fa';
 import { getQuery, getQueryStringVal, useQueryParam } from './processing/urlparams'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { FaShareSquare } from 'react-icons/fa';
@@ -22,32 +22,32 @@ import { FaShareSquare } from 'react-icons/fa';
 const EnemyAbilitiesDirect = ({ ProcessedEnemyAbilities }) => {
 
   const passivelimit = window.innerWidth <= 815 ? 15 : 30;
-  
+
   const rawData = ProcessedEnemyAbilities;
 
   const banerDisplayTerm = "abilities";
 
-  const [showFilter, setShowFilter] = useState(getQueryStringVal("filter") != null  ? true : false);
+  const [showFilter, setShowFilter] = useState(getQueryStringVal("filter") != null ? true : false);
   const [clearFilter, setclearFilter] = useStateIfMounted(false);
 
-  const [aoe, setaoe] = useState(getQueryStringVal("aoe") != null  ? true : false);
-  const [magic, setmagic] = useState(getQueryStringVal("magic") != null  ? true : false);
-  const [ranged, setranged] = useState(getQueryStringVal("ranged") != null  ? true : false);
-  const [melee, setmelee] = useState(getQueryStringVal("melee") != null  ? true : false);
-  const [fire, setfire] = useState(getQueryStringVal("fire") != null  ? true : false);
-  const [thunder, setthunder] = useState(getQueryStringVal("thunder") != null  ? true : false);
-  const [earth, setearth] = useState(getQueryStringVal("earth") != null  ? true : false);
-  const [water, setwater] = useState(getQueryStringVal("water") != null  ? true : false);
-  const [ice, setice] = useState(getQueryStringVal("ice") != null  ? true : false);
-  const [wind, setwind] = useState(getQueryStringVal("wind") != null  ? true : false);
-  const [holy, setholy] = useState(getQueryStringVal("holy") != null  ? true : false);
-  const [dark, setdark] = useState(getQueryStringVal("dark") != null  ? true : false);
+  const [aoe, setaoe] = useState(getQueryStringVal("aoe") != null ? true : false);
+  const [magic, setmagic] = useState(getQueryStringVal("magic") != null ? true : false);
+  const [ranged, setranged] = useState(getQueryStringVal("ranged") != null ? true : false);
+  const [melee, setmelee] = useState(getQueryStringVal("melee") != null ? true : false);
+  const [fire, setfire] = useState(getQueryStringVal("fire") != null ? true : false);
+  const [thunder, setthunder] = useState(getQueryStringVal("thunder") != null ? true : false);
+  const [earth, setearth] = useState(getQueryStringVal("earth") != null ? true : false);
+  const [water, setwater] = useState(getQueryStringVal("water") != null ? true : false);
+  const [ice, setice] = useState(getQueryStringVal("ice") != null ? true : false);
+  const [wind, setwind] = useState(getQueryStringVal("wind") != null ? true : false);
+  const [holy, setholy] = useState(getQueryStringVal("holy") != null ? true : false);
+  const [dark, setdark] = useState(getQueryStringVal("dark") != null ? true : false);
 
-  const [merge, setMerge] = useState(getQueryStringVal("merge") != null  ? true : false);
+  const [merge, setMerge] = useState(getQueryStringVal("merge") != null ? true : false);
 
   const [loop, setLoop] = useStateIfMounted(false);
-  const [reverse, setReverse] = useState(getQueryStringVal("rev") != null  ? true : false);
-  const [searchTerm, setSearchTerm] = useState(getQueryStringVal("search") != null  ? getQueryStringVal("search").toLowerCase() : "");
+  const [reverse, setReverse] = useState(getQueryStringVal("rev") != null ? true : false);
+  const [searchTerm, setSearchTerm] = useState(getQueryStringVal("search") != null ? getQueryStringVal("search").toLowerCase() : "");
   const [condFilter, setCondFilter] = useState("");
   const [searchdisplay, setsearchdisplay] = useState(getQueryStringVal("search") != null ? getQueryStringVal("search") : "");
   const [filterResults, setFilterResults] = useState(rawData);
@@ -63,7 +63,7 @@ const EnemyAbilitiesDirect = ({ ProcessedEnemyAbilities }) => {
     <>Displaying <span className="subtextgold">{listLength}</span> of <span className="subtextgold"> {rawData.length}</span> {banerDisplayTerm}</>
   );
 
-  
+
   const [aoesearch, setaoesearch] = useQueryParam("aoe", "");
   const [magicsearch, setmagicsearch] = useQueryParam("magic", "");
   const [rangedsearch, setrangedsearch] = useQueryParam("ranged", "");
@@ -87,131 +87,132 @@ const EnemyAbilitiesDirect = ({ ProcessedEnemyAbilities }) => {
   const url = `${protocol}//${host}${pathname}?${query.toString()}`;
 
 
-   useEffect(() => {
-       //type params
-       if(Typesearch != null){
-        const filteredtype = ProcessedEnemyAbilities.filter(function (ef) {
-          const newfilterpull = ef["EnemyName"] === getQueryStringVal("Enemy");
-          return newfilterpull;
-        })
-        if(filteredtype.length != 0){
-          setTypesearch(getQueryStringVal("Enemy"))
-          setCondFilter(filteredtype[0].battle_enemy_id)
-        } else{
-          setTypesearch("")
-          setCondFilter("")
-        }
+  useEffect(() => {
+    //type params
+    if (Typesearch != null) {
+      const filteredtype = ProcessedEnemyAbilities.filter(function (ef) {
+        const newfilterpull = ef["EnemyName"] === getQueryStringVal("Enemy");
+        return newfilterpull;
+      })
+      if (filteredtype.length != 0) {
+        setTypesearch(getQueryStringVal("Enemy"))
+        setCondFilter(filteredtype[0].battle_enemy_id)
+      } else {
+        setTypesearch("")
+        setCondFilter("")
       }
-    },[setCondFilter,ProcessedEnemyAbilities,Typesearch,setTypesearch])
+    }
+  }, [setCondFilter, ProcessedEnemyAbilities, Typesearch, setTypesearch])
 
 
-    useEffect(() => {
+  useEffect(() => {
     //search params
-    if(getQueryStringVal("search") != null){
-      setSearchTerm(getQueryStringVal("search") != null  ? getQueryStringVal("search").toLowerCase() : "")
+    if (getQueryStringVal("search") != null) {
+      setSearchTerm(getQueryStringVal("search") != null ? getQueryStringVal("search").toLowerCase() : "")
       setTEXTsearch(getQueryStringVal("search") != null ? getQueryStringVal("search") : "")
       setsearchdisplay(getQueryStringVal("search") != null ? getQueryStringVal("search") : "")
     }
-    }, [setTEXTsearch,setFiltersearch])
+  }, [setTEXTsearch, setFiltersearch])
 
 
   //filter
   useEffect(() => {
-    if(merge != true){
-    const filterholder = [];
-    if (aoe === true) {
-      const filteredout = rawData.filter(
-        (ability) => ability["AOE"] == true
-      );
-      filterholder.push(...filteredout);
-    }
-    if (magic === true) {
-      const filteredout = rawData.filter(
-        (ability) => ability["Magic"] == true
-      );
-      filterholder.push(...filteredout);
-    }
-    if (ranged === true) {
-      const filteredout = rawData.filter(
-        (ability) => ability["Ranged"] == true
-      );
-      filterholder.push(...filteredout);
-    }
-    if (melee === true) {
-      const filteredout = rawData.filter(
-        (ability) => ability["Melee"] == true
-      );
-      filterholder.push(...filteredout);
-    }
-    if (fire === true) {
-      const filteredout = rawData.filter(
-        (ability) => ability["Fire"] == true
-      );
-      filterholder.push(...filteredout);
-    }
-    if (thunder === true) {
-      const filteredout = rawData.filter(
-        (ability) => ability["Thunder"] == true
-      );
-      filterholder.push(...filteredout);
-    }
-    if (earth === true) {
-      const filteredout = rawData.filter(
-        (ability) => ability["Earth"] == true
-      );
-      filterholder.push(...filteredout);
-    }
-    if (water === true) {
-      const filteredout = rawData.filter(
-        (ability) => ability["Water"] == true
-      );
-      filterholder.push(...filteredout);
-    }
-    if (ice === true) {
-      const filteredout = rawData.filter(
-        (ability) => ability["Ice"] == true
-      );
-      filterholder.push(...filteredout);
-    }
-    if (wind === true) {
-      const filteredout = rawData.filter(
-        (ability) => ability["Wind"] == true
-      );
-      filterholder.push(...filteredout);
-    }
-    if (holy === true) {
-      const filteredout = rawData.filter(
-        (ability) => ability["Holy"] == true
-      );
-      filterholder.push(...filteredout);
-    }
-    if (dark === true) {
-      const filteredout = rawData.filter(
-        (ability) => ability["Dark"] == true
-      );
-      filterholder.push(...filteredout);
-    }
+    if (merge != true) {
+      const filterholder = [];
+      if (aoe === true) {
+        const filteredout = rawData.filter(
+          (ability) => ability["AOE"] == true
+        );
+        filterholder.push(...filteredout);
+      }
+      if (magic === true) {
+        const filteredout = rawData.filter(
+          (ability) => ability["Magic"] == true
+        );
+        filterholder.push(...filteredout);
+      }
+      if (ranged === true) {
+        const filteredout = rawData.filter(
+          (ability) => ability["Ranged"] == true
+        );
+        filterholder.push(...filteredout);
+      }
+      if (melee === true) {
+        const filteredout = rawData.filter(
+          (ability) => ability["Melee"] == true
+        );
+        filterholder.push(...filteredout);
+      }
+      if (fire === true) {
+        const filteredout = rawData.filter(
+          (ability) => ability["Fire"] == true
+        );
+        filterholder.push(...filteredout);
+      }
+      if (thunder === true) {
+        const filteredout = rawData.filter(
+          (ability) => ability["Thunder"] == true
+        );
+        filterholder.push(...filteredout);
+      }
+      if (earth === true) {
+        const filteredout = rawData.filter(
+          (ability) => ability["Earth"] == true
+        );
+        filterholder.push(...filteredout);
+      }
+      if (water === true) {
+        const filteredout = rawData.filter(
+          (ability) => ability["Water"] == true
+        );
+        filterholder.push(...filteredout);
+      }
+      if (ice === true) {
+        const filteredout = rawData.filter(
+          (ability) => ability["Ice"] == true
+        );
+        filterholder.push(...filteredout);
+      }
+      if (wind === true) {
+        const filteredout = rawData.filter(
+          (ability) => ability["Wind"] == true
+        );
+        filterholder.push(...filteredout);
+      }
+      if (holy === true) {
+        const filteredout = rawData.filter(
+          (ability) => ability["Holy"] == true
+        );
+        filterholder.push(...filteredout);
+      }
+      if (dark === true) {
+        const filteredout = rawData.filter(
+          (ability) => ability["Dark"] == true
+        );
+        filterholder.push(...filteredout);
+      }
 
-  
-    if (filterholder.length === 0) {
-      filterholder.push(...rawData);
-    }
+
+      if (filterholder.length === 0) {
+        filterholder.push(...rawData);
+      }
       const makeUnique = filterholder
         .filter(onlyUnique)
-        .sort((a, b) => 
-        reverse == false ? 
-        a.data_id - b.data_id :
-        b.data_id - a.data_id );
+        .sort((a, b) =>
+          reverse == false ?
+            a.data_id - b.data_id :
+            b.data_id - a.data_id);
       const searchit = makeUnique.filter((e) =>
-      (`${e.Name} ${e.JPName}`).toLowerCase().includes(searchTerm)
+        (`${e.Name} ${e.JPName}`).toLowerCase().includes(searchTerm)
       );
       const getcondfilter = searchit.filter(function (ef) {
         const newfilterpull = ef["battle_enemy_id"] === condFilter;
-        if(condFilter !== "") {
+        if (condFilter !== "") {
           return newfilterpull;
         } else {
           return ef
-        }});
+        }
+      });
       setFilterResults(makeUnique);
       setSearchResults(getcondfilter);
       const newlistdisplay = getcondfilter.slice(0, limits);
@@ -231,11 +232,11 @@ const EnemyAbilitiesDirect = ({ ProcessedEnemyAbilities }) => {
         );
       }
     }
-  }, [merge, searchTerm,rawData,limits, aoe, magic, ranged, melee, fire, thunder, earth, water, ice, wind, holy, dark, condFilter, reverse]);
+  }, [merge, searchTerm, rawData, limits, aoe, magic, ranged, melee, fire, thunder, earth, water, ice, wind, holy, dark, condFilter, reverse]);
 
   //filter
   useEffect(() => {
-    if(merge == true){
+    if (merge == true) {
       const charType = {
         Magic: magic,
         Melee: melee,
@@ -255,23 +256,24 @@ const EnemyAbilitiesDirect = ({ ProcessedEnemyAbilities }) => {
           .filter(entry => entry[1])
           .every(([key, value]) => oneChar[key] === value);
       });
-    
+
       const makeUnique = filtermerge
         .filter(onlyUnique)
-        .sort((a, b) => 
-        reverse == false ? 
-        a.data_id - b.data_id :
-        b.data_id - a.data_id );
+        .sort((a, b) =>
+          reverse == false ?
+            a.data_id - b.data_id :
+            b.data_id - a.data_id);
       const searchit = makeUnique.filter((e) =>
-      (`${e.Name} ${e.JPName}`).toLowerCase().includes(searchTerm)
+        (`${e.Name} ${e.JPName}`).toLowerCase().includes(searchTerm)
       );
       const getcondfilter = searchit.filter(function (ef) {
         const newfilterpull = ef["battle_enemy_id"] === condFilter;
-        if(condFilter !== "") {
+        if (condFilter !== "") {
           return newfilterpull;
         } else {
           return ef
-        }});
+        }
+      });
       setFilterResults(makeUnique);
       setSearchResults(getcondfilter);
       const newlistdisplay = getcondfilter.slice(0, limits);
@@ -291,106 +293,106 @@ const EnemyAbilitiesDirect = ({ ProcessedEnemyAbilities }) => {
         );
       }
     }
-  }, [merge, searchTerm,rawData,limits, aoe, magic, ranged, melee, fire, thunder, earth, water, ice, wind, holy, dark, condFilter, reverse]);
+  }, [merge, searchTerm, rawData, limits, aoe, magic, ranged, melee, fire, thunder, earth, water, ice, wind, holy, dark, condFilter, reverse]);
 
   //buttons
   const aoebutton = () => {
-    if(aoe == false){
+    if (aoe == false) {
       setaoesearch("true")
-      } else {
+    } else {
       setaoesearch("")
-      }
+    }
     setaoe((prevValue) => !prevValue);
   };
   const magicbutton = () => {
-    if(magic == false){
+    if (magic == false) {
       setmagicsearch("true")
-      } else {
+    } else {
       setmagicsearch("")
-      }
+    }
     setmagic((prevValue) => !prevValue);
   };
   const rangedbutton = () => {
-    if(ranged == false){
+    if (ranged == false) {
       setrangedsearch("true")
-      } else {
+    } else {
       setrangedsearch("")
-      }
+    }
     setranged((prevValue) => !prevValue);
   };
   const meleebutton = () => {
-    if(melee == false){
+    if (melee == false) {
       setmeleesearch("true")
-      } else {
+    } else {
       setmeleesearch("")
-      }
+    }
     setmelee((prevValue) => !prevValue);
   };
   const firebutton = () => {
-    if(fire == false){
+    if (fire == false) {
       setfiresearch("true")
-      } else {
+    } else {
       setfiresearch("")
-      }
+    }
     setfire((prevValue) => !prevValue);
   };
   const icebutton = () => {
-    if(ice == false){
+    if (ice == false) {
       seticesearch("true")
-      } else {
+    } else {
       seticesearch("")
-      }
+    }
     setice((prevValue) => !prevValue);
   };
   const thunderbutton = () => {
-    if(thunder == false){
+    if (thunder == false) {
       setthundersearch("true")
-      } else {
+    } else {
       setthundersearch("")
-      }
+    }
     setthunder((prevValue) => !prevValue);
   };
   const earthbutton = () => {
-    if(earth == false){
+    if (earth == false) {
       setearthsearch("true")
-      } else {
+    } else {
       setearthsearch("")
-      }
+    }
     setearth((prevValue) => !prevValue);
   };
   const waterbutton = () => {
-    if(water == false){
+    if (water == false) {
       setwatersearch("true")
-      } else {
+    } else {
       setwatersearch("")
-      }
+    }
     setwater((prevValue) => !prevValue);
   };
   const windbutton = () => {
-    if(wind == false){
+    if (wind == false) {
       setwindsearch("true")
-      } else {
+    } else {
       setwindsearch("")
-      }
+    }
     setwind((prevValue) => !prevValue);
   };
   const holybutton = () => {
-    if(holy == false){
+    if (holy == false) {
       setholysearch("true")
-      } else {
+    } else {
       setholysearch("")
-      }
+    }
     setholy((prevValue) => !prevValue);
   };
   const darkbutton = () => {
-    if(dark == false){
+    if (dark == false) {
       setdarksearch("true")
-      } else {
+    } else {
       setdarksearch("")
-      }
+    }
     setdark((prevValue) => !prevValue);
   };
-  
+
   const reversebutton = () => {
     if (reverse == false) {
       setReversesearch("true")
@@ -413,22 +415,22 @@ const EnemyAbilitiesDirect = ({ ProcessedEnemyAbilities }) => {
   const togglemerge = () => {
     if (merge == false) {
       setMergesearch("true")
-    } else{
+    } else {
       setMergesearch("")
     }
     setMerge((prevValue) => !prevValue);
   }
 
-    //type selector
-    const CondSelect = (e) => {
-      if (e !== null) {
-        setTypesearch(e.label)
-        setCondFilter(e.value);
-      } else {
-        setCondFilter("");
-        setTypesearch('')
-      }
-    };
+  //type selector
+  const CondSelect = (e) => {
+    if (e !== null) {
+      setTypesearch(e.label)
+      setCondFilter(e.value);
+    } else {
+      setCondFilter("");
+      setTypesearch('')
+    }
+  };
 
   //load more
   const loadMoreButton = () => {
@@ -457,8 +459,8 @@ const EnemyAbilitiesDirect = ({ ProcessedEnemyAbilities }) => {
     return self.indexOf(value) === index;
   }
 
-    //type list
-    const typeListArray = ProcessedEnemyAbilities.map((typeListUnique) => ({
+  //type list
+  const typeListArray = ProcessedEnemyAbilities.map((typeListUnique) => ({
     value: typeListUnique.battle_enemy_id,
     label: typeListUnique.EnemyName
   }));
@@ -467,29 +469,29 @@ const EnemyAbilitiesDirect = ({ ProcessedEnemyAbilities }) => {
 
   const uniquetypeListArray = typeListArray.filter(el => {
     const val = mymap.get(el.label);
-    if(val) {
-        if(el.value < val) {
-            mymap.delete(el.label);
-            mymap.set(el.label, el.value);
-            return true;
-        } else {
-            return false;
-        }
+    if (val) {
+      if (el.value < val) {
+        mymap.delete(el.label);
+        mymap.set(el.label, el.value);
+        return true;
+      } else {
+        return false;
+      }
     }
     mymap.set(el.label, el.value);
     return true;
-});
+  });
 
-const filteredarray = uniquetypeListArray.filter(el => {
-  return el["label"] != ""
-})
+  const filteredarray = uniquetypeListArray.filter(el => {
+    return el["label"] != ""
+  })
 
   //search bar
-const handleChange = (e) => {
-  setsearchdisplay(e.target.value);
-  setSearchTerm(e.target.value.toLowerCase());
-  setTEXTsearch(e.target.value)
-};
+  const handleChange = (e) => {
+    setsearchdisplay(e.target.value);
+    setSearchTerm(e.target.value.toLowerCase());
+    setTEXTsearch(e.target.value)
+  };
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
@@ -504,7 +506,7 @@ const handleChange = (e) => {
     setTEXTsearch("")
   };
 
-  const resetbutton = () =>{
+  const resetbutton = () => {
     setclearFilter(true);
     setReverse(false);
     setaoe(false);
@@ -547,169 +549,169 @@ const handleChange = (e) => {
 
   const listabilities = listDisplay;
 
-    return (
-      <div>
-        <Helmet>
-          <title>Enemy Abilities - Dissidia Compendium</title>
-          <meta property="og:site_name" content="Dissidia Compendium"/>
-          <meta property="og:type" content="website" />
-          <meta name="description" content="Abilities Search"/>
-          <meta name="twitter:title" content="Abilities Search"/>
-          <meta name="twitter:description" content="Abilities Search"/>
-          <meta property="og:title" content="Abilities Search"/>
-          <meta property="og:description" content="Abilities Search"/>
-          <meta property="og:url" content="https://dissidiacompendium.com/search/abilities"/>
-        </Helmet>
-            <div className="content">
-              <h1  >Enemy Abilities</h1>
-              <div className="subheader">Use filters to limit returns</div>
-              <div className="charfilterspacer"/>
-              <div key="filter1" onClick={showfilterbutton} className="charfilter"><span className="filterstext"></span>{showFilter ? <TiArrowSortedUp className="uparrow"/> : <TiArrowSortedDown className="downarrow"/>}</div>
-              {showFilter == false ? 
-              <div className="char-search-reverse-holder">
-                <IoSearch className="searchicon"/>
-              <div className="search-holder">
-                <input 
-                    className="char-search-bar" 
-                    type="text"
-                    placeholder="Ability Name / Effects"
-                    value={searchdisplay}
-                    onChange={handleChange}
-                    onKeyDown={handleKeyDown}
-                />
-                {searchTerm === "" ? "" : 
+  return (
+    <div>
+      <Helmet>
+        <title>Enemy Abilities - Dissidia Compendium</title>
+        <meta property="og:site_name" content="Dissidia Compendium" />
+        <meta property="og:type" content="website" />
+        <meta name="description" content="Abilities Search" />
+        <meta name="twitter:title" content="Abilities Search" />
+        <meta name="twitter:description" content="Abilities Search" />
+        <meta property="og:title" content="Abilities Search" />
+        <meta property="og:description" content="Abilities Search" />
+        <meta property="og:url" content="https://dissidiacompendium.com/search/abilities" />
+      </Helmet>
+      <div className="content">
+        <h1  >Enemy Abilities</h1>
+        <div className="subheader">Use filters to limit returns</div>
+        <div className="charfilterspacer" />
+        <div key="filter1" onClick={showfilterbutton} className="charfilter"><span className="filterstext"></span>{showFilter ? <TiArrowSortedUp className="uparrow" /> : <TiArrowSortedDown className="downarrow" />}</div>
+        {showFilter == false ?
+          <div className="char-search-reverse-holder">
+            <IoSearch className="searchicon" />
+            <div className="search-holder">
+              <input
+                className="char-search-bar"
+                type="text"
+                placeholder="Ability Name / Effects"
+                value={searchdisplay}
+                onChange={handleChange}
+                onKeyDown={handleKeyDown}
+              />
+              {searchTerm === "" ? "" :
                 <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
-                </div>
-                </div>
-              :""
-              }
-                <div className="filterholder noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
-                  <div className="similarbanner">Multiple filters can be active</div>
-                    <div className="filterholderflair">
-                    <ul className="bufftypes">
-                        <Tippy content="Magic BRV Damage">
-                        <li className={`${magic ? "filteractive": "filterinactive"} buffbutton magictypebutton`} onClick={magicbutton}></li> 
-                        </Tippy>
-                        <Tippy content="Melee BRV Damage">
-                        <li className={`${melee ? "filteractive": "filterinactive"} buffbutton meleetypebutton`} onClick={meleebutton}></li>
-                        </Tippy>
-                        <Tippy content="Ranged BRV Damage">
-                        <li className={`${ranged ? "filteractive": "filterinactive"} buffbutton rangedtypebutton`} onClick={rangedbutton}></li>
-                        </Tippy>
-                        <Tippy content="Group Attacks">
-                        <li className={`${aoe ? "filteractive": "filterinactive"} buffbutton aoetypebutton`} onClick={aoebutton}></li>
-                        </Tippy>
-                      </ul>
-                      <br/>
-                    <ul className="bufftypes">
-                      <Tippy content="Fire BRV Damage">
-                        <li className={`${fire ? "filteractive": "filterinactive"} spheresbutton Firebutton`} onClick={firebutton}></li>
-                        </Tippy>
-                        <Tippy content="Ice BRV Damage">
-                        <li className={`${ice ? "filteractive": "filterinactive"} spheresbutton Icebutton`} onClick={icebutton}></li>
-                        </Tippy>
-                        <Tippy content="Thunder BRV Damage">
-                        <li className={`${thunder ? "filteractive": "filterinactive"} spheresbutton Thunderbutton`} onClick={thunderbutton}></li>
-                        </Tippy>
-                        <Tippy content="Earth BRV Damage">
-                        <li className={`${earth ? "filteractive": "filterinactive"} spheresbutton Earthbutton`} onClick={earthbutton}></li>
-                        </Tippy>
-                        <Tippy content="Water BRV Damage">
-                        <li className={`${water ? "filteractive": "filterinactive"} spheresbutton Waterbutton`} onClick={waterbutton}></li>   
-                        </Tippy>
-                        <Tippy content="Wind BRV Damage">
-                        <li className={`${wind ? "filteractive": "filterinactive"} spheresbutton Windbutton`} onClick={windbutton}></li>
-                        </Tippy>
-                        <Tippy content="Holy BRV Damage">
-                        <li className={`${holy ? "filteractive": "filterinactive"} spheresbutton Holybutton`} onClick={holybutton}></li>
-                        </Tippy>
-                        <Tippy content="Dark BRV Damage">
-                        <li className={`${dark ? "filteractive": "filterinactive"} spheresbutton Darkbutton`} onClick={darkbutton}></li>
-                        </Tippy>
-                      </ul>  
-                      <br/>                               
-                      <div className="similarbanner">Refine</div>
-                      <div className="margeholder">
-                      <div className="Merge">
-                        <label className="MergeText">Merge Filters?</label>
-                        <div key="mergecheck1" className={`${merge == true ? "nodisplay" :  `uncheck`}`} onClick={togglemerge}/>
-                        <div key="mergecheck2" className={`${merge == true ? "check" :  `nodisplay`}`} onClick={togglemerge}/>
-                      </div>
-                      </div>
-                      <div className="typeholder">
-                        <Select
-                        defaultValue={Typesearch != "" ? {value: Typesearch, label: Typesearch } : null}
-                        key={Typesearch}
-                        isSearchable={true} 
-                        placeholder="Enemy Select..."
-                        className='typecontainer' 
-                        classNamePrefix="typetext" 
-                        onChange={CondSelect}  
-                        options={filteredarray} 
-                        isClearable={true}
-                        />
-                      </div>
-                      <div className="search-reverse-holder">
-                        <div className="search-holder">
-                        <IoSearch className="innersearchicon"/>
-                          <input 
-                              className="search-bar" 
-                              type="text"
-                              placeholder="Ability Name / Effects"
-                              value={searchdisplay}
-                              onChange={handleChange}
-                              onKeyDown={handleKeyDown}
-                          />
-                          {searchTerm === "" ? "" : 
-                          <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
-                        </div>
-                        <Tippy content="Reverse Order" className="tooltip" >
-                          <div className={`reversebox`} ><i onClick={reversebutton} className={`reversebutton ${loop ? "flip": ""}`} ><ImSortAmountDesc className={`reversebutton ${reverse ? "": "nodisplay"}`}/><ImSortAmountAsc className={`reversebutton ${reverse ? "nodisplay": ""}`}/></i></div>
-                        </Tippy>
-                         </div>
-                         <div>
-                          <CopyToClipboard text={url}>
-                          <div className="sharebox">
-                              <Tippy content="Link Copied!" inertia={true} animation={"shift-away"} touch={true} arrow={false} trigger={"click"} placement={"top"} duration={[100,500]}>
-                                  <div className="centertext"><FaShareSquare className="shareicon"/>&nbsp;Share</div>
-                              </Tippy>
-                          </div>
-                          </CopyToClipboard>
-                          <Tippy content="Reset Filters" className="tooltip" >
-                            <div onClick={resetbutton} className={`clearbox`} ><div className="makecenter">Reset&nbsp;<FaUndoAlt  className={`clearbutton ${clearFilter ? "loop": ""}`} ></FaUndoAlt></div></div>
-                          </Tippy>
-                          </div>
-                        </div>
-                  </div>
-              <ul className="bannertabs">
-              <Link to={`/bestiary/enemies`}>
-                  <li className={""} >Enemies</li>
-                </Link>
-                <Link to={`/bestiary/abilities`}>
-                  <li className={"active"} ><span className="gemselected"/>Abilities</li>
-                </Link>
-                <Link to={`/bestiary/buffs`}>
-                  <li className={""} >Buffs</li>
-                </Link>
-              </ul>
-              <div className="nonenemyholder enemyholderstyling">
-                <div className="subtext">
-                  {displayBanner}
-                </div>
-              {listabilities.length > 0 ?  (
-              listabilities.map(abilities =>(
-                  <EnemyAbilitiesListingFormattingDirect key={abilities.data_id} match={abilities}/>
-                ))) : (
-                  <div>No results</div>
-                )}
-                <div className="subtextbottom">
-                  {displayBanner}
-                </div>
-                {showLoadMore && 
-                <div className="loadmore" onClick={loadMoreButton}> Load More </div>}
             </div>
+          </div>
+          : ""
+        }
+        <div className="filterholder noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
+          <div className="similarbanner">Multiple filters can be active</div>
+          <div className="filterholderflair">
+            <ul className="bufftypes">
+              <Tippy content="Magic BRV Damage">
+                <li className={`${magic ? "filteractive" : "filterinactive"} buffbutton magictypebutton`} onClick={magicbutton}></li>
+              </Tippy>
+              <Tippy content="Melee BRV Damage">
+                <li className={`${melee ? "filteractive" : "filterinactive"} buffbutton meleetypebutton`} onClick={meleebutton}></li>
+              </Tippy>
+              <Tippy content="Ranged BRV Damage">
+                <li className={`${ranged ? "filteractive" : "filterinactive"} buffbutton rangedtypebutton`} onClick={rangedbutton}></li>
+              </Tippy>
+              <Tippy content="Group Attacks">
+                <li className={`${aoe ? "filteractive" : "filterinactive"} buffbutton aoetypebutton`} onClick={aoebutton}></li>
+              </Tippy>
+            </ul>
+            <br />
+            <ul className="bufftypes">
+              <Tippy content="Fire BRV Damage">
+                <li className={`${fire ? "filteractive" : "filterinactive"} spheresbutton Firebutton`} onClick={firebutton}></li>
+              </Tippy>
+              <Tippy content="Ice BRV Damage">
+                <li className={`${ice ? "filteractive" : "filterinactive"} spheresbutton Icebutton`} onClick={icebutton}></li>
+              </Tippy>
+              <Tippy content="Thunder BRV Damage">
+                <li className={`${thunder ? "filteractive" : "filterinactive"} spheresbutton Thunderbutton`} onClick={thunderbutton}></li>
+              </Tippy>
+              <Tippy content="Earth BRV Damage">
+                <li className={`${earth ? "filteractive" : "filterinactive"} spheresbutton Earthbutton`} onClick={earthbutton}></li>
+              </Tippy>
+              <Tippy content="Water BRV Damage">
+                <li className={`${water ? "filteractive" : "filterinactive"} spheresbutton Waterbutton`} onClick={waterbutton}></li>
+              </Tippy>
+              <Tippy content="Wind BRV Damage">
+                <li className={`${wind ? "filteractive" : "filterinactive"} spheresbutton Windbutton`} onClick={windbutton}></li>
+              </Tippy>
+              <Tippy content="Holy BRV Damage">
+                <li className={`${holy ? "filteractive" : "filterinactive"} spheresbutton Holybutton`} onClick={holybutton}></li>
+              </Tippy>
+              <Tippy content="Dark BRV Damage">
+                <li className={`${dark ? "filteractive" : "filterinactive"} spheresbutton Darkbutton`} onClick={darkbutton}></li>
+              </Tippy>
+            </ul>
+            <br />
+            <div className="similarbanner">Refine</div>
+            <div className="margeholder">
+              <div className="Merge">
+                <label className="MergeText">Merge Filters?</label>
+                <div key="mergecheck1" className={`${merge == true ? "nodisplay" : `uncheck`}`} onClick={togglemerge} />
+                <div key="mergecheck2" className={`${merge == true ? "check" : `nodisplay`}`} onClick={togglemerge} />
+              </div>
+            </div>
+            <div className="typeholder">
+              <Select
+                defaultValue={Typesearch != "" ? { value: Typesearch, label: Typesearch } : null}
+                key={Typesearch}
+                isSearchable={true}
+                placeholder="Enemy Select..."
+                className='typecontainer'
+                classNamePrefix="typetext"
+                onChange={CondSelect}
+                options={filteredarray}
+                isClearable={true}
+              />
+            </div>
+            <div className="search-reverse-holder">
+              <div className="search-holder">
+                <IoSearch className="innersearchicon" />
+                <input
+                  className="search-bar"
+                  type="text"
+                  placeholder="Ability Name / Effects"
+                  value={searchdisplay}
+                  onChange={handleChange}
+                  onKeyDown={handleKeyDown}
+                />
+                {searchTerm === "" ? "" :
+                  <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
+              </div>
+              <Tippy content="Reverse Order" className="tooltip" >
+                <div className={`reversebox`} ><i onClick={reversebutton} className={`reversebutton ${loop ? "flip" : ""}`} ><ImSortAmountDesc className={`reversebutton ${reverse ? "" : "nodisplay"}`} /><ImSortAmountAsc className={`reversebutton ${reverse ? "nodisplay" : ""}`} /></i></div>
+              </Tippy>
+            </div>
+            <div>
+              <CopyToClipboard text={url}>
+                <div className="sharebox">
+                  <Tippy content="Link Copied!" inertia={true} animation={"shift-away"} touch={true} arrow={false} trigger={"click"} placement={"top"} duration={[100, 500]}>
+                    <div className="centertext"><FaShareSquare className="shareicon" />&nbsp;Share</div>
+                  </Tippy>
+                </div>
+              </CopyToClipboard>
+              <Tippy content="Reset Filters" className="tooltip" >
+                <div onClick={resetbutton} className={`clearbox`} ><div className="makecenter">Reset&nbsp;<FaUndoAlt className={`clearbutton ${clearFilter ? "loop" : ""}`} ></FaUndoAlt></div></div>
+              </Tippy>
+            </div>
+          </div>
+        </div>
+        <ul className="bannertabs">
+          <Link to={`/bestiary/enemies`}>
+            <li className={""} >Enemies</li>
+          </Link>
+          <Link to={`/bestiary/abilities`}>
+            <li className={"active"} ><span className="gemselected" />Abilities</li>
+          </Link>
+          <Link to={`/bestiary/buffs`}>
+            <li className={""} >Buffs</li>
+          </Link>
+        </ul>
+        <div className="nonenemyholder enemyholderstyling">
+          <div className="subtext">
+            {displayBanner}
+          </div>
+          {listabilities.length > 0 ? (
+            listabilities.map(abilities => (
+              <EnemyAbilitiesListingFormattingDirect key={abilities.data_id} match={abilities} />
+            ))) : (
+            <div>No results</div>
+          )}
+          <div className="subtextbottom">
+            {displayBanner}
+          </div>
+          {showLoadMore &&
+            <div className="loadmore" onClick={loadMoreButton}> Load More </div>}
         </div>
       </div>
-    );
+    </div>
+  );
 }
 export default EnemyAbilitiesDirect;

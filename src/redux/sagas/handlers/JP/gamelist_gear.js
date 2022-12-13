@@ -7,8 +7,8 @@ export function* handleGetJPGameListGear(action) {
   try {
     const response = yield call(requestGetJPGameListGear);
     const { data } = response;
-    if(isJson(data) == true){
-        yield put(setJPGameListGear(data));
+    if (isJson(data) == true) {
+      yield put(setJPGameListGear(data));
     }
   } catch (error) {
     console.log(error);

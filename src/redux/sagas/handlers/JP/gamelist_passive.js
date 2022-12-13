@@ -7,8 +7,8 @@ export function* handleGetJPGameListPassive(action) {
   try {
     const response = yield call(requestGetJPGameListPassive);
     const { data } = response;
-    if(isJson(data) == true){
-        yield put(setJPGameListPassive(data));
+    if (isJson(data) == true) {
+      yield put(setJPGameListPassive(data));
     }
   } catch (error) {
     console.log(error);

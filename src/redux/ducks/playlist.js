@@ -79,7 +79,7 @@ export const setUpdate = (update) => ({
   update: update
 });
 
-export const setRemove = (remove_track,full_list) => ({
+export const setRemove = (remove_track, full_list) => ({
   type: SET_REMOVE,
   remove_track: remove_track,
   full_list: full_list
@@ -133,62 +133,62 @@ export default (state = initialState, action) => {
     case GETADD_PLAYLIST:
       return { ...state, add_track: state.add_track }
     case SET_FULLLIST:
-      return { ...state, full_list: action.full_list};
+      return { ...state, full_list: action.full_list };
     case GET_FULLLIST:
-      return { ...state, full_list: state.full_list};
+      return { ...state, full_list: state.full_list };
     case ADD_PLAYLIST:
-      if(state.playlist == "master"){
+      if (state.playlist == "master") {
         return { ...state, add_track: action.add_track }
       }
-      if(state.playlist == "list1"){
-        const addlist1 = playlist_addhandler(state.playlist,action.add_track,state)
-        return { ...state, list1: addlist1, playlist: state.playlist, add_track: action.add_track}
+      if (state.playlist == "list1") {
+        const addlist1 = playlist_addhandler(state.playlist, action.add_track, state)
+        return { ...state, list1: addlist1, playlist: state.playlist, add_track: action.add_track }
       }
-      if(state.playlist == "list2"){
-        const addlist2 = playlist_addhandler(state.playlist,action.add_track,state)
+      if (state.playlist == "list2") {
+        const addlist2 = playlist_addhandler(state.playlist, action.add_track, state)
         return { ...state, list2: addlist2, playlist: state.playlist, add_track: action.add_track }
       }
-      if(state.playlist == "list3"){
-        const addlist3 = playlist_addhandler(state.playlist,action.add_track,state)
+      if (state.playlist == "list3") {
+        const addlist3 = playlist_addhandler(state.playlist, action.add_track, state)
         return { ...state, list3: addlist3, playlist: state.playlist, add_track: action.add_track }
       }
       return { ...state, add_track: action.add_track };
     case SET_UPDATE:
-      if(state.playlist == "master"){
+      if (state.playlist == "master") {
         return { ...state, update: action.update }
       }
-      if(state.playlist == "list1"){
-        const makelist1 = playlist_updatehandler(state.playlist,action.update,state)
+      if (state.playlist == "list1") {
+        const makelist1 = playlist_updatehandler(state.playlist, action.update, state)
         return { ...state, list1: makelist1, update: action.update, playlist: state.playlist }
       }
-      if(state.playlist == "list2"){
-        const makelist2 = playlist_updatehandler(state.playlist,action.update,state)
+      if (state.playlist == "list2") {
+        const makelist2 = playlist_updatehandler(state.playlist, action.update, state)
         return { ...state, list2: makelist2, update: action.update, playlist: state.playlist }
       }
-      if(state.playlist == "list3"){
-        const makelist3 = playlist_updatehandler(state.playlist,action.update,state)
+      if (state.playlist == "list3") {
+        const makelist3 = playlist_updatehandler(state.playlist, action.update, state)
         return { ...state, list3: makelist3, update: action.update, playlist: state.playlist }
       }
       return { ...state, update: action.update };
 
     case SET_REMOVE:
-      if(state.playlist == "master"){
-        const master_list = playlist_removehandler(state.playlist, action.remove_track,state, action.full_list)
+      if (state.playlist == "master") {
+        const master_list = playlist_removehandler(state.playlist, action.remove_track, state, action.full_list)
         return { ...state, full_list: master_list, playlist: state.playlist, remove_track: action.remove_track }
       }
-      if(state.playlist == "list1"){
-        const addlist1 = playlist_removehandler(state.playlist, action.remove_track, state,action.full_list)
-        return { ...state, list1: addlist1, playlist: state.playlist, remove_track: action.remove_track, full_list: action.full_list}
+      if (state.playlist == "list1") {
+        const addlist1 = playlist_removehandler(state.playlist, action.remove_track, state, action.full_list)
+        return { ...state, list1: addlist1, playlist: state.playlist, remove_track: action.remove_track, full_list: action.full_list }
       }
-      if(state.playlist == "list2"){
-        const addlist2 = playlist_removehandler(state.playlist, action.remove_track,state, action.full_list)
+      if (state.playlist == "list2") {
+        const addlist2 = playlist_removehandler(state.playlist, action.remove_track, state, action.full_list)
         return { ...state, list2: addlist2, playlist: state.playlist, remove_track: action.remove_track, full_list: action.full_list }
       }
-      if(state.playlist == "list3"){
-        const addlist3 = playlist_removehandler(state.playlist, action.remove_track, state,action.full_list)
+      if (state.playlist == "list3") {
+        const addlist3 = playlist_removehandler(state.playlist, action.remove_track, state, action.full_list)
         return { ...state, list3: addlist3, playlist: state.playlist, remove_track: action.remove_track, full_list: action.full_list }
       }
-      return { ...state, remove_track: action.remove_track, full_list: action.full_list};
+      return { ...state, remove_track: action.remove_track, full_list: action.full_list };
 
     default:
       return state;

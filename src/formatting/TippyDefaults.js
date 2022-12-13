@@ -1,4 +1,4 @@
-import Tippy  from '@tippyjs/react';
+import Tippy from '@tippyjs/react';
 import 'tippy.js/animations/shift-away.css';
 import '../App.css'
 
@@ -9,8 +9,8 @@ Tippy.defaultProps = {
   animation: "shift-away",
   placement: "top",
   className: "tooltip",
-  duration: [50,500],
-  touch: ["hold",250],
+  duration: [50, 500],
+  touch: ["hold", 250],
   theme: 'new-white-boarder',
 }
 

@@ -10,9 +10,9 @@ export function* handleGetCharacters(action) {
     const data = response.data
     const response2 = yield call(requestGetAccess);
     const data2 = response2.data
-    if(isJson(data,"GetCharacters") == true && isJson(data2,"GetAccess") == true){
+    if (isJson(data, "GetCharacters") == true && isJson(data2, "GetAccess") == true) {
       yield put(setCharacters(data, data2));
-    } 
+    }
   } catch (error) {
     console.log(error);
   }

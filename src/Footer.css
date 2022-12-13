@@ -1,15 +1,15 @@
-#footer{
+#footer {
     margin: 0;
     clear: both;
-    width:100%;
+    width: 100%;
     position: relative;
-    background: linear-gradient(0deg, rgba(38,41,47,1) 0%, rgba(0,212,255,0) 100%);
+    background: linear-gradient(0deg, rgba(38, 41, 47, 1) 0%, rgba(0, 212, 255, 0) 100%);
     padding-top: 5px;
     padding-bottom: 5px;
     min-width: 335px;
 }
 
-#footerholder{
+#footerholder {
     max-width: 1140px;
     text-align: center;
     display: block;
@@ -19,22 +19,22 @@
     padding-right: 10px;
     color: #7a7a7a;
     font-size: .8rem;
-    
+
 }
-#footerholder a{
+
+#footerholder a {
     text-decoration: none;
     color: #0D85CC;
 }
 
 @media screen and (max-width: 800px) {
-    #footerholder{
-        font-size:.7rem;
+    #footerholder {
+        font-size: .7rem;
     }
 }
 
 @media screen and (max-width: 900px) {
-    #footerholder{
-        font-size:.6rem;
+    #footerholder {
+        font-size: .6rem;
     }
 }
-

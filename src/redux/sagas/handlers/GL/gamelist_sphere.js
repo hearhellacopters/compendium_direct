@@ -7,8 +7,8 @@ export function* handleGetGLGameListSphere(action) {
   try {
     const response = yield call(requestGetGLGameListSphere);
     const { data } = response;
-    if(isJson(data) == true){
-        yield put(setGLGameListSphere(data));
+    if (isJson(data) == true) {
+      yield put(setGLGameListSphere(data));
     }
   } catch (error) {
     console.log(error);

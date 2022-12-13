@@ -5,13 +5,13 @@ export const getEnemyAbilityDirect = () => ({
   type: GET_ENEMYABILITY_DIRECT
 });
 
-export const setEnemyAbilityDirect= (enemyability_direct) => ({
+export const setEnemyAbilityDirect = (enemyability_direct) => ({
   type: SET_ENEMYABILITY_DIRECT,
   enemyability_direct: enemyability_direct
 });
 
 const initialState = {
-    enemyability_direct: undefined
+  enemyability_direct: undefined
 };
 
 export default (state = initialState, action) => {

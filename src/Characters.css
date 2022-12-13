@@ -1,394 +1,471 @@
 /*Buttons*/
-.magictypebutton{
+.magictypebutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/magic.png");
     background-size: contain;
 }
-.rangedtypebutton{
+
+.rangedtypebutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ranged.png");
     background-size: contain;
 }
-.meleetypebutton{
+
+.meleetypebutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/melee.png");
     background-size: contain;
 }
-.aoetypebutton{
+
+.aoetypebutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/group.png");
     background-size: contain;
 }
-.traptypebutton{
+
+.traptypebutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/trap2.png");
     background-size: contain;
 }
-.countertypebutton{
+
+.countertypebutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/counter.png");
     background-size: contain;
 }
-.followuptypebutton{
+
+.followuptypebutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/followup.png");
     background-size: contain;
 }
-.magicbutton{
+
+.magicbutton {
     background-image: url(https://dissidiacompendium.com/images/static/icons/DMGType/DMGType_Magic_Icon.png);
 }
 
-.meleebutton{
+.meleebutton {
     background-image: url(https://dissidiacompendium.com/images/static/icons/DMGType/DMGType_Melee_Icon.png);
 }
-.rangedbutton{
+
+.rangedbutton {
     background-image: url(https://dissidiacompendium.com/images/static/icons/DMGType/DMGType_Ranged_Icon.png);
 }
 
-.maxlevel{
+.maxlevel {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv80.png");
 }
 
-.Firebutton{
+.Firebutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Fire.png");
     background-size: contain;
 }
-.Icebutton{
+
+.Icebutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Ice.png");
     background-size: contain;
 }
-.Thunderbutton{
+
+.Thunderbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Thunder.png");
     background-size: contain;
 }
-.Waterbutton{
+
+.Waterbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Water.png");
     background-size: contain;
 }
-.Earthbutton{
+
+.Earthbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Earth.png");
     background-size: contain;
 }
-.Windbutton{
+
+.Windbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Wind.png");
     background-size: contain;
 }
-.Darkbutton{
+
+.Darkbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Dark.png");
     background-size: contain;
 }
-.Holybutton{
+
+.Holybutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Holy.png");
     background-size: contain;
 }
 
-.reworkbutton{
+.reworkbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/rework.png");
     background-size: contain;
 }
 
-.ldcharbutton{
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ld.png");
-  background-size: contain;
+.ldcharbutton {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ld.png");
+    background-size: contain;
 }
 
-.frcharbutton{
+.frcharbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/fr.png");
     background-size: contain;
-  }
+}
 
-.btcharbutton{
+.btcharbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/bt.png");
     background-size: contain;
 }
 
-.ldextcharbutton{
+.ldextcharbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ench4.png");
     background-size: contain;
 }
 
-.btpluscharbutton{
+.btpluscharbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/bt+m.png");
     background-size: contain;
 }
 
-.arm7pluscharbutton{
+.arm7pluscharbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/7a+.png");
     background-size: contain;
 }
 
-.arm7charbutton{
+.arm7charbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/7a.png");
     background-size: contain;
 }
 
-.redcrystalbutton{
+.redcrystalbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/crystalcolors/buttons/Red.png");
     background-size: contain;
 }
-.bluecrystalbutton{
+
+.bluecrystalbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/crystalcolors/buttons/Blue.png");
     background-size: contain;
 }
-.greencrystalbutton{
+
+.greencrystalbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/crystalcolors/buttons/Green.png");
     background-size: contain;
 }
-.yellowcrystalbutton{
+
+.yellowcrystalbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/crystalcolors/buttons/Yellow.png");
     background-size: contain;
 }
-.blackcrystalbutton{
+
+.blackcrystalbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/crystalcolors/buttons/Black.png");
     background-size: contain;
 }
-.whitecrystalbutton{
+
+.whitecrystalbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/crystalcolors/buttons/White.png");
     background-size: contain;
 }
 
-.daggerbutton{
+.daggerbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/weapon/Dagger.png");
     background-size: contain;
 }
-.swordbutton{
+
+.swordbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/weapon/Shortsword.png");
     background-size: contain;
 }
-.greatswordbutton{
+
+.greatswordbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/weapon/Longsword.png");
     background-size: contain;
 }
-.staffbutton{
+
+.staffbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/weapon/Staff.png");
     background-size: contain;
 }
-.gunbutton{
+
+.gunbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/weapon/Pistol.png");
     background-size: contain;
 }
-.fistbutton{
+
+.fistbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/weapon/Gloves.png");
     background-size: contain;
 }
-.throwingbutton{
+
+.throwingbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/weapon/Boomerang.png");
     background-size: contain;
 }
-.spearbutton{
+
+.spearbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/weapon/Spear.png");
     background-size: contain;
 }
-.bowbutton{
+
+.bowbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/weapon/Longbow.png");
     background-size: contain;
 }
-.whipbutton{
+
+.whipbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/weapon/Whip.png");
     background-size: contain;
 }
-.otherbutton{
+
+.otherbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/weapon/Other.png");
     background-size: contain;
 }
 
-.Tankbutton{
+.Tankbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_Icon_Tank.png");
     background-size: contain;
 }
-.BRVControlbutton{
+
+.BRVControlbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_Icon_BRV-Control.png");
     background-size: contain;
 }
-.BRVPoisonbutton{
+
+.BRVPoisonbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_BRVPoison.png");
     background-size: contain;
 }
-.BRVDamageResistbutton{
+
+.BRVDamageResistbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_BRVResist.png");
     background-size: contain;
 }
-.BRVResistDownbutton{
+
+.BRVResistDownbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_BRVResistDown.png");
     background-size: contain;
 }
-.BRVShieldbutton{
+
+.BRVShieldbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_BRVShield.png");
     background-size: contain;
 }
-.BRVRegenbutton{
+
+.BRVRegenbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_BRVRegen.png");
     background-size: contain;
 }
-.Batterybutton{
+
+.Batterybutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_Icon_Battery.png");
     background-size: contain;
 }
 
-.Debufferbutton{
+.Debufferbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/buff/debuff_persondown_unframed.png");
     background-size: contain;
 }
-.Counterbutton{
+
+.Counterbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_Icon_Counter.png");
     background-size: contain;
 }
-.DarkEnchantbutton{
+
+.DarkEnchantbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Up/Dark.png");
     background-size: contain;
 }
-.DarkImperilbutton{
+
+.DarkImperilbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Down/Dark.png");
     background-size: contain;
 }
-.HolyEnchantbutton{
+
+.HolyEnchantbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Up/Holy.png");
     background-size: contain;
 }
-.HolyImperilbutton{
+
+.HolyImperilbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Down/Holy.png");
     background-size: contain;
 }
-.WindEnchantbutton{
+
+.WindEnchantbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Up/Wind.png");
     background-size: contain;
 }
-.WindImperilbutton{
+
+.WindImperilbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Down/Wind.png");
     background-size: contain;
 }
-.EarthEnchantbutton{
+
+.EarthEnchantbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Up/Earth.png");
     background-size: contain;
 }
-.EarthImperilbutton{
+
+.EarthImperilbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Down/Earth.png");
     background-size: contain;
 }
-.WaterEnchantbutton{
+
+.WaterEnchantbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Up/Water.png");
     background-size: contain;
 }
-.WaterImperilbutton{
+
+.WaterImperilbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Down/Water.png");
     background-size: contain;
 }
-.ThunderEnchantbutton{
+
+.ThunderEnchantbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Up/Thunder.png");
     background-size: contain;
 }
-.ThunderImperilbutton{
+
+.ThunderImperilbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Down/Thunder.png");
     background-size: contain;
 }
-.IceEnchantbutton{
+
+.IceEnchantbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Up/Ice.png");
     background-size: contain;
 }
-.IceImperilbutton{
+
+.IceImperilbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Down/Ice.png");
     background-size: contain;
 }
-.FireEnchantbutton{
+
+.FireEnchantbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Up/Fire.png");
     background-size: contain;
 }
-.FireImperilbutton{
+
+.FireImperilbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Down/Fire.png");
     background-size: contain;
 }
-.MagicImperilbutton{
+
+.MagicImperilbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_MagicImperil.png");
     background-size: contain;
 }
-.MeleeImperilbutton{
+
+.MeleeImperilbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_MeleeImperil.png");
     background-size: contain;
 }
-.RangedImperilbutton{
+
+.RangedImperilbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_RangedImperil.png");
     background-size: contain;
 }
-.DebuffDelaybutton{
+
+.DebuffDelaybutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_DebuffDelayer.png");
     background-size: contain;
 }
-.DeleteTurnsbutton{
+
+.DeleteTurnsbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_DeleteTurns.png");
     background-size: contain;
 }
-.Disablebutton{
+
+.Disablebutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_Icon_Disable.png");
     background-size: contain;
 }
-.HPHealAbilitybutton{
+
+.HPHealAbilitybutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_HP_Heal_Ability.png");
     background-size: contain;
 }
-.FiftyHPHealAbilitybutton{
+
+.FiftyHPHealAbilitybutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_Fifty_HP_Heal_Ability.png");
     background-size: contain;
 }
-.ForceBreakbutton{
+
+.ForceBreakbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_ForcedBreak.png");
     background-size: contain;
 }
-.FourDebuffbutton{
+
+.FourDebuffbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_4Debuffer.png");
     background-size: contain;
 }
-.HPDamageResistbutton{
+
+.HPDamageResistbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_HPResist.png");
     background-size: contain;
 }
-.HPResistDownbutton{
+
+.HPResistDownbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_HPResistDown.png");
     background-size: contain;
 }
-.HPPoisonbutton{
+
+.HPPoisonbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_HPPoison.png");
     background-size: contain;
 }
-.HPRegenbutton{
+
+.HPRegenbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_HPRegen.png");
     background-size: contain;
 }
-.Launcherbutton{
+
+.Launcherbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_KnockBack.png");
     background-size: contain;
 }
-.SixBuffsbutton{
+
+.SixBuffsbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_SixBuffs.png");
     background-size: contain;
 }
-.ThreeDelaybutton{
+
+.ThreeDelaybutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_3Delay.png");
     background-size: contain;
 }
-.Trapbutton{
+
+.Trapbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_Trap.png");
     background-size: contain;
 }
-.TwoAbilitiesRecoverbutton{
+
+.TwoAbilitiesRecoverbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_Two_Abilities_Recover.png");
     background-size: contain;
 }
-.CritRateUpbutton{
+
+.CritRateUpbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_Crit_Rate_Up.png");
     background-size: contain;
 }
 
-.Evadebutton{
+.Evadebutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/buff/buff_dodge_unframed.png");
     background-size: contain;
 }
-.Ignore_DEFbutton{
+
+.Ignore_DEFbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_Ignore_DEF.png");
     background-size: contain;
 }
-.KO_Preventbutton{
+
+.KO_Preventbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_KO_Prevent.png");
     background-size: contain;
 }
-.Reviverbutton{
+
+.Reviverbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_Reviver.png");
     background-size: contain;
 }
 
-.characterclasses{
+.characterclasses {
     display: inline-block;
     padding-left: 0px;
     margin: auto;
@@ -397,7 +474,7 @@
     max-width: 420px;
 }
 
-.infoiconholderbutton{
+.infoiconholderbutton {
     width: 58px;
     height: 50px;
     margin: 0px;
@@ -420,7 +497,7 @@
     cursor: pointer;
 }
 
-.rolesforforce{
+.rolesforforce {
     width: 32px;
     height: 32px;
     display: inline-block;
@@ -433,7 +510,7 @@
 }
 
 /*end buttons*/
-.margeholder{
+.margeholder {
     border-top: 2px black solid;
     border-bottom: 2px black solid;
     width: 256px;
@@ -442,11 +519,12 @@
     margin-top: 5px;
     margin-bottom: 5px;
     padding: 5px;
-    background: linear-gradient( 90deg , rgba(30, 55, 88, 0) 0%, #3f5b92 3.67%, #3f5b92 96.44%, rgba(30, 55, 88, 0) 100%);
+    background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #3f5b92 3.67%, #3f5b92 96.44%, rgba(30, 55, 88, 0) 100%);
     filter: drop-shadow(2px 2px 2px #222);
-    -webkit-filter: drop-shadow(2px 2px 2px #222); 
+    -webkit-filter: drop-shadow(2px 2px 2px #222);
 }
-.Merge{
+
+.Merge {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -456,7 +534,7 @@
     color: white;
 }
 
-.MergeBox{
+.MergeBox {
     height: 22px;
     width: 22px;
     margin-left: 8px;
@@ -464,7 +542,7 @@
     -webkit-filter: drop-shadow(2px 2px 2px #222);
 }
 
-.crystalbutton{
+.crystalbutton {
     width: 48px;
     height: 48px;
     display: inline-block;
@@ -475,15 +553,15 @@
     cursor: pointer;
 }
 
-.greentext{
+.greentext {
     color: #03690a;
 }
 
-.redtext{
+.redtext {
     color: #920101;
 }
 
-.textloc1{
+.textloc1 {
     font-size: 10px;
     text-align: center;
     z-index: 3;
@@ -494,10 +572,10 @@
     display: inherit;
     text-shadow: none;
     font-weight: bold;
-    line-height:100%;
+    line-height: 100%;
 }
 
-.textloc2{
+.textloc2 {
     font-size: 10px;
     text-align: center;
     z-index: 3;
@@ -508,10 +586,10 @@
     display: inherit;
     text-shadow: none;
     font-weight: bold;
-    line-height:100%;
+    line-height: 100%;
 }
 
-.bubble1{
+.bubble1 {
     content: url(https://dissidiacompendium.com/images/static/icons/misc/bubbles1.png);
     position: absolute;
     z-index: 2;
@@ -522,7 +600,7 @@
     -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
-.bubble2{
+.bubble2 {
     content: url(https://dissidiacompendium.com/images/static/icons/misc/bubbles2.png);
     position: absolute;
     z-index: 2;
@@ -533,7 +611,7 @@
     -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
-.fakedivtip{
+.fakedivtip {
     position: absolute;
     z-index: 4;
     width: 155px;
@@ -545,41 +623,46 @@
 }
 
 @media screen and (max-width: 800px) {
-    .rolesforforce{
+    .rolesforforce {
         width: 16px;
         height: 16px;
         margin-right: 3px;
         margin-left: 3px;
     }
-    .fakedivtip{
+
+    .fakedivtip {
         width: 80px;
         height: 22px;
         margin-top: 6px;
         margin-left: -95px;
     }
-    .textloc2{
+
+    .textloc2 {
         font-size: 7px;
         margin-top: 6px;
         margin-left: -58px;
     }
-    .textloc1{
+
+    .textloc1 {
         font-size: 7px;
         margin-top: 6px;
         margin-left: -38px;
     }
-    .bubble1{
+
+    .bubble1 {
         margin-left: -97px;
         width: 40px;
         margin-left: -44px;
     }
-    .bubble2{
+
+    .bubble2 {
         margin-left: -97px;
         width: 62px;
         margin-left: -66px;
     }
 }
 
-.nonmatchheader{
+.nonmatchheader {
     padding-top: 5px;
     padding-bottom: 5px;
     margin-bottom: 5px;
@@ -587,20 +670,21 @@
     font-size: medium;
     text-align: center;
     font-weight: bold;
-    background: linear-gradient( 90deg , rgba(30, 55, 88, 0) 0%, #81a0c9 3.67%, #81a0c9 96.44%, rgba(30, 55, 88, 0) 100%);
+    background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #81a0c9 3.67%, #81a0c9 96.44%, rgba(30, 55, 88, 0) 100%);
 }
 
-.dim{
+.dim {
     opacity: .4;
 }
 
-.charlistholder{
+.charlistholder {
     width: 979px;
     text-align: left;
     margin-right: auto;
     margin-left: auto;
 }
-.centeralign{
+
+.centeralign {
     margin-right: auto;
     margin-left: auto;
 }
@@ -614,7 +698,7 @@
     text-align: center;
 }
 
-.charactercard{
+.charactercard {
     height: 155px;
     width: 155px;
     background-size: contain;
@@ -626,16 +710,16 @@
 }
 
 @media (hover: hover) {
-.charactercard:hover{
-    transform: translateY(-1px);
-    transition: all .2s;
-    cursor: pointer;
-    -webkit-filter: drop-shadow(0px 0px 0px) brightness(1.1);
-    filter: drop-shadow(0px 0px 0px) brightness(1.1);
-}
+    .charactercard:hover {
+        transform: translateY(-1px);
+        transition: all .2s;
+        cursor: pointer;
+        -webkit-filter: drop-shadow(0px 0px 0px) brightness(1.1);
+        filter: drop-shadow(0px 0px 0px) brightness(1.1);
+    }
 }
 
-.artworkholder{
+.artworkholder {
     transition: all .2s;
     transform-origin: 50% 0;
     padding: 8px;
@@ -645,8 +729,9 @@
     clear: both;
     margin-top: 5px;
 }
+
 @media screen and (max-width: 825px) {
-    .artworkholder{
+    .artworkholder {
         margin-top: 0px;
         border-radius: 0 0 19px 19px;
         box-shadow: none;
@@ -656,7 +741,7 @@
     }
 }
 
-.characterholder{
+.characterholder {
     transition: all .2s;
     transform-origin: 50% 0;
     padding: 8px;
@@ -667,7 +752,7 @@
     margin-top: 5px;
 }
 
-.characterholder li{
+.characterholder li {
     width: 155px;
     height: 155px;
     padding: 4px;
@@ -676,7 +761,7 @@
     transition: all .2s;
 }
 
-.gear_butt{
+.gear_butt {
     width: 24px;
     height: 24px;
     background-repeat: no-repeat;
@@ -686,58 +771,66 @@
     filter: drop-shadow(1px 1px 1px #222);
     -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
+
 @media screen and (max-width: 1050px) {
-    .charlistholder{
+    .charlistholder {
         width: 820px;
     }
 }
+
 @media screen and (max-width: 890px) {
-    .charlistholder{
+    .charlistholder {
         width: 658px;
     }
 }
 
 @media screen and (max-width: 800px) {
-    .gear_butt{
+    .gear_butt {
         height: 16px;
         width: 16px;
-      }
-    .charlistholder{
+    }
+
+    .charlistholder {
         width: 710px;
     }
-    .characterholder li{
+
+    .characterholder li {
         height: 93px;
         width: 93px;
     }
-    .charactercard{
+
+    .charactercard {
         height: 93px;
-        width: 93px;  
+        width: 93px;
     }
 }
+
 @media screen and (max-width: 785px) {
-    .charlistholder{
+    .charlistholder {
         width: 608px;
     }
 }
+
 @media screen and (max-width: 690px) {
-    .charlistholder{
+    .charlistholder {
         width: 508px;
     }
 }
 
 @media screen and (max-width: 580px) {
-    .charlistholder{
+    .charlistholder {
         width: 407px;
     }
 }
 
 @media screen and (max-width: 480px) {
-    .charlistholder{
+    .charlistholder {
         width: 306px;
     }
 }
-@media  screen and (max-width: 370px) {
-    .charlistholder{
+
+@media screen and (max-width: 370px) {
+    .charlistholder {
         width: 205px;
     }
 }

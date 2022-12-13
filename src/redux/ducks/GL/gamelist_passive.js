@@ -1,11 +1,11 @@
 export const GET_GLGAMELISTPASSIVE = "GET_GLGAMELISTPASSIVE";
-const SET_GLGAMELISTPASSIVE= "SET_GLGAMELISTPASSIVE";
+const SET_GLGAMELISTPASSIVE = "SET_GLGAMELISTPASSIVE";
 
 export const getGLGameListPassive = () => ({
   type: GET_GLGAMELISTPASSIVE
 });
 
-export const setGLGameListPassive= (gl_gamelist_passive) => ({
+export const setGLGameListPassive = (gl_gamelist_passive) => ({
   type: SET_GLGAMELISTPASSIVE,
   gl_gamelist_passive: gl_gamelist_passive
 });

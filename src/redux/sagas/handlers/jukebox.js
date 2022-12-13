@@ -7,8 +7,8 @@ export function* handleGetJukeBox(action) {
   try {
     const response = yield call(requestGetJukeBox);
     const { data } = response;
-    if(isJson(data,"GetJukeBox") == true){
-    yield put(setJukeBox(data));
+    if (isJson(data, "GetJukeBox") == true) {
+      yield put(setJukeBox(data));
     }
   } catch (error) {
     console.log(error);

@@ -1,5 +1,5 @@
 import { combineReducers, createStore, applyMiddleware } from "redux";
-import createSagaMiddleware from "redux-saga"; 
+import createSagaMiddleware from "redux-saga";
 import eventGuideReducer from "./ducks/EventGuide";
 import characterReducer from "./ducks/characters";
 import master_indexReducer from "./ducks/master_index";
@@ -47,7 +47,7 @@ const reducer = combineReducers({
   charGuide: charGuideReducer,
   eventGuide: eventGuideReducer,
   characters: characterReducer,
-  updates : updatesReducer,
+  updates: updatesReducer,
   summons: summonsReducer,
   levels: levelsReducer,
   jpcalendar: jpcalendarReducer,

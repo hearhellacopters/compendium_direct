@@ -7,7 +7,7 @@ export function* handleGetSummons(action) {
   try {
     const response = yield call(requestGetSummons);
     const { data } = response;
-    if(isJson(data,"GetSummons") == true){
+    if (isJson(data, "GetSummons") == true) {
       yield put(setSummons(data));
     }
   } catch (error) {

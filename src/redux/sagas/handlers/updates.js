@@ -7,7 +7,7 @@ export function* handleGetUpdates(action) {
   try {
     const response = yield call(requestGetUpdates);
     const { data } = response;
-    if(isJson(data,"GetUpdates") == true){
+    if (isJson(data, "GetUpdates") == true) {
       yield put(setUpdates(data));
     }
   } catch (error) {

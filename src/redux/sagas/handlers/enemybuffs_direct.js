@@ -7,7 +7,7 @@ export function* handleGetEnemyBuffsDirect(action) {
   try {
     const response = yield call(requestGetEnemyBuffsDirect);
     const { data } = response;
-    if(isJson(data,"GetEnemyBuffsDirect") == true){
+    if (isJson(data, "GetEnemyBuffsDirect") == true) {
       yield put(setEnemyBuffsDirect(data));
     }
   } catch (error) {

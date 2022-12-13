@@ -7,8 +7,8 @@ export function* handleGetJPGameListAilment(action) {
   try {
     const response = yield call(requestGetJPGameListAilment);
     const { data } = response;
-    if(isJson(data) == true){
-        yield put(setJPGameListAilment(data));
+    if (isJson(data) == true) {
+      yield put(setJPGameListAilment(data));
     }
   } catch (error) {
     console.log(error);

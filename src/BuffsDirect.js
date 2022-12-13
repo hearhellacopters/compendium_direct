@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
 import Tippy from './formatting/TippyDefaults'
 import { useDispatch, useSelector } from "react-redux";
@@ -9,7 +9,7 @@ import { ImSortAmountDesc } from 'react-icons/im';
 import { TiArrowSortedDown } from 'react-icons/ti';
 import { TiArrowSortedUp } from 'react-icons/ti';
 import { IoMdCloseCircleOutline } from 'react-icons/io';
-import { IoSearch } from 'react-icons/io5'; 
+import { IoSearch } from 'react-icons/io5';
 import { FaUndoAlt } from 'react-icons/fa'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { FaShareSquare } from 'react-icons/fa';
@@ -20,7 +20,7 @@ import ailment_tags from './characterpages/direct/formatting/command_ability/ail
 
 import { setFalse, setTrue } from './redux/ducks/jptoggle'
 
-const BuffsDirect =({
+const BuffsDirect = ({
     ver,
     loc,
     file,
@@ -29,8 +29,8 @@ const BuffsDirect =({
     ProcessedBuffs,
 
     master_index
-})=>{
-   
+}) => {
+
     const char_id = master_index.charid
 
     const startinglimit = window.innerWidth <= 815 ? 30 : 50;
@@ -39,98 +39,98 @@ const BuffsDirect =({
 
     const banerDisplayTerm = "casts";
 
-    const [showFilter, setShowFilter] = useState(getQueryStringVal("filter") != null  ? true : false);
+    const [showFilter, setShowFilter] = useState(getQueryStringVal("filter") != null ? true : false);
     const [clearFilter, setclearFilter] = useStateIfMounted(false);
 
-    const [aBuff, setABuff] = useState(getQueryStringVal("aa") != null  ? true : false);
-    const [burstBuff, setBurstBuff] = useState(getQueryStringVal("burst") != null  ? true : false);
-    const [calls, setCalls] = useState(getQueryStringVal("call") != null  ? true : false);
-    const [starting, setStarting] = useState(getQueryStringVal("s1") != null  ? true : false);
-    const [s20, setS20] = useState(getQueryStringVal("s2") != null  ? true : false);
-    const [ld, setLD] = useState(getQueryStringVal("ld") != null  ? true : false);
-    const [fr, setFR] = useState(getQueryStringVal("fr") != null  ? true : false);
-    const [ex, setEX] = useState(getQueryStringVal("ex") != null  ? true : false);
-    const [bstate, setbstate] = useState(getQueryStringVal("state") != null  ? true : false);
-    const [start, setstart] = useState(getQueryStringVal("start") != null  ? true : false);
-    const [buffs, setBuffs] = useState(getQueryStringVal("buffs") != null  ? true : false);
-    const [debuffs, setDebuffs] = useState(getQueryStringVal("debuffs") != null  ? true : false);
-    const [party, setparty] = useState(getQueryStringVal("party") != null  ? true : false);
+    const [aBuff, setABuff] = useState(getQueryStringVal("aa") != null ? true : false);
+    const [burstBuff, setBurstBuff] = useState(getQueryStringVal("burst") != null ? true : false);
+    const [calls, setCalls] = useState(getQueryStringVal("call") != null ? true : false);
+    const [starting, setStarting] = useState(getQueryStringVal("s1") != null ? true : false);
+    const [s20, setS20] = useState(getQueryStringVal("s2") != null ? true : false);
+    const [ld, setLD] = useState(getQueryStringVal("ld") != null ? true : false);
+    const [fr, setFR] = useState(getQueryStringVal("fr") != null ? true : false);
+    const [ex, setEX] = useState(getQueryStringVal("ex") != null ? true : false);
+    const [bstate, setbstate] = useState(getQueryStringVal("state") != null ? true : false);
+    const [start, setstart] = useState(getQueryStringVal("start") != null ? true : false);
+    const [buffs, setBuffs] = useState(getQueryStringVal("buffs") != null ? true : false);
+    const [debuffs, setDebuffs] = useState(getQueryStringVal("debuffs") != null ? true : false);
+    const [party, setparty] = useState(getQueryStringVal("party") != null ? true : false);
 
-    const [Break, setBreak] = useState(getQueryStringVal("Break")  != null ? true : false);
-    const [BreakCancel, setBreakCancel] = useState(getQueryStringVal("BreakCancel")  != null ? true : false);
-    const [BreakPrevent, setBreakPrevent] = useState(getQueryStringVal("BreakPrevent")  != null ? true : false);
-    const [BRVCap, setBRVCap] = useState(getQueryStringVal("BRVCap")  != null ? true : false);
-    const [BRVFreeze, setBRVFreeze] = useState(getQueryStringVal("BRVFreeze")  != null ? true : false);
-    const [Launch_Support, setLaunch_Support] = useState(getQueryStringVal("Launch_Support")  != null ? true : false);
-    const [HP_Damage_Up,setHP_Damage_Up]= useState(getQueryStringVal("HP_Damage_Up")  != null ? true : false);
-    const [BRV_Resist_Down,setBRV_Resist_Down]= useState(getQueryStringVal("BRV_Resist_Down")  != null ? true : false);
-    const [Reviver,setReviver]= useState(getQueryStringVal("Reviver")  != null ? true : false);
-    const [Gains, setGains] = useState(getQueryStringVal("Gains")  != null ? true : false);
-    const [Refund, setRefund] = useState(getQueryStringVal("Refund")  != null ? true : false);
-    const [BRVRegen, setBRVRegen] = useState(getQueryStringVal("BRVRegen")  != null ? true : false);
-    const [BRVRetain, setBRVRetain] = useState(getQueryStringVal("BRVRetain")  != null ? true : false);
-    const [StolenBRV, setStolenBRV] = useState(getQueryStringVal("StolenBRV")  != null ? true : false);
-    const [BuffPrevent, setBuffPrevent] = useState(getQueryStringVal("BuffPrevent")  != null ? true : false);
-    const [CappedBRV, setCappedBRV] = useState(getQueryStringVal("CappedBRV")  != null ? true : false);
-    const [Cleanse, setCleanse] = useState(getQueryStringVal("Cleanse")  != null ? true : false);
-    const [Cover, setCover] = useState(getQueryStringVal("Cover")  != null ? true : false);
-    const [CriticalUp, setCriticalUp] = useState(getQueryStringVal("CriticalUp")  != null ? true : false);
-    const [CriticalRate, setCriticalRate] = useState(getQueryStringVal("CriticalRate")  != null ? true : false);
-    const [DebuffResist, setDebuffResist] = useState(getQueryStringVal("DebuffResist")  != null ? true : false);
-    const [IgnoreDEF, setIgnoreDEF] = useState(getQueryStringVal("IgnoreDEF")  != null ? true : false);
-    const [Delay, setDelay] = useState(getQueryStringVal("Delay")  != null ? true : false);
-    const [Delete, setDelete] = useState(getQueryStringVal("Delete")  != null ? true : false);
-    const [Dispel, setDispel] = useState(getQueryStringVal("Dispel")  != null ? true : false);
-    const [ElementalWeak, setElementalWeak] = useState(getQueryStringVal("ElementalWeak")  != null ? true : false);
-    const [Fire, setFire] = useState(getQueryStringVal("Fire")  != null ? true : false);
-    const [Ice, setIce] = useState(getQueryStringVal("Ice")  != null ? true : false);
-    const [Thunder, setThunder] = useState(getQueryStringVal("Thunder")  != null ? true : false);
-    const [Wind, setWind] = useState(getQueryStringVal("Wind")  != null ? true : false);
-    const [Water, setWater] = useState(getQueryStringVal("Water")  != null ? true : false);
-    const [Earth, setEarth] = useState(getQueryStringVal("Earth")  != null ? true : false);
-    const [Holy, setHoly] = useState(getQueryStringVal("Holy")  != null ? true : false);
-    const [Dark, setDark] = useState(getQueryStringVal("Dark")  != null ? true : false);
-    const [Evade, setEvade] = useState(getQueryStringVal("Evade")  != null ? true : false);
-    const [EXFill, setEXFill] = useState(getQueryStringVal("EXFill")  != null ? true : false);
-    const [EXRate, setEXRate] = useState(getQueryStringVal("EXRate")  != null ? true : false);
-    const [FreeUse, setFreeUse] = useState(getQueryStringVal("FreeUse")  != null ? true : false);
-    const [FreeTurn, setFreeTurn] = useState(getQueryStringVal("FreeTurn")  != null ? true : false);
-    const [StackedDebuff, setStackedDebuff] = useState(getQueryStringVal("StackedDebuff")  != null ? true : false);
-    const [StackedDebuff5, setStackedDebuff5] = useState(getQueryStringVal("StackedDebuff5")  != null ? true : false);
-    const [StackedBuff, setStackedBuff] = useState(getQueryStringVal("StackedBuff")  != null ? true : false);
-    const [StackedBuff5, setStackedBuff5] = useState(getQueryStringVal("StackedBuff5")  != null ? true : false);
-    const [DMGShield, setDMGShield] = useState(getQueryStringVal("DMGShield")  != null ? true : false);
-    const [GoldDebuff, setGoldDebuff] = useState(getQueryStringVal("GoldDebuff")  != null ? true : false);
-    const [GoldBuff, setGoldBuff] = useState(getQueryStringVal("GoldBuff")  != null ? true : false);
-    const [SpecialBuff, setSpecialBuff] = useState(getQueryStringVal("SpecialBuff")  != null ? true : false);
-    const [AddHP, setAddHP] = useState(getQueryStringVal("AddHP")  != null ? true : false);
-    const [MAXBRVCap, setMAXBRVCap] = useState(getQueryStringVal("MAXBRVCap")  != null ? true : false);
-    const [HPResistUp, setHPResistUp] = useState(getQueryStringVal("HPResistUp")  != null ? true : false);
-    const [HPResistDown, setHPResistDown] = useState(getQueryStringVal("HPResistDown")  != null ? true : false);
-    const [BRVPoison, setBRVPoison] = useState(getQueryStringVal("BRVPoison")  != null ? true : false);
-    const [HPPoison, setHPPoison] = useState(getQueryStringVal("HPPoison")  != null ? true : false);
-    const [HPHeal, setHPHeal] = useState(getQueryStringVal("HPHeal")  != null ? true : false);
-    const [HPRegen, setHPRegen] = useState(getQueryStringVal("HPRegen")  != null ? true : false);
-    const [Disable, setDisable] = useState(getQueryStringVal("Disable")  != null ? true : false);
-    const [FireDown, setFireDown] = useState(getQueryStringVal("FireDown")  != null ? true : false);
-    const [IceDown, setIceDown] = useState(getQueryStringVal("IceDown")  != null ? true : false);
-    const [ThunderDown, setThunderDown] = useState(getQueryStringVal("ThunderDown")  != null ? true : false);
-    const [WindDown, setWindDown] = useState(getQueryStringVal("WindDown")  != null ? true : false);
-    const [WaterDown, setWaterDown] = useState(getQueryStringVal("WaterDown")  != null ? true : false);
-    const [EarthDown, setEarthDown] = useState(getQueryStringVal("EarthDown")  != null ? true : false);
-    const [HolyDown, setHolyDown] = useState(getQueryStringVal("HolyDown")  != null ? true : false);
-    const [DarkDown, setDarkDown] = useState(getQueryStringVal("DarkDown")  != null ? true : false);
-    const [MeleeDown, setMeleeDown] = useState(getQueryStringVal("MeleeDown")  != null ? true : false);
-    const [RangedDown, setRangedDown] = useState(getQueryStringVal("RangedDown")  != null ? true : false);
-    const [MagicDown, setMagicDown] = useState(getQueryStringVal("MagicDown")  != null ? true : false);
-    const [Instant, setInstant] = useState(getQueryStringVal("Instant")  != null ? true : false);
-    const [LastStand, setLastStand] = useState(getQueryStringVal("LastStand")  != null ? true : false);
-    const [Turn_Interrupter, setTurn_Interrupter] = useState(getQueryStringVal("Turn_Interrupter")  != null ? true : false);
-    const [Continuous_Turns, setContinuous_Turns] =useState(getQueryStringVal("Continuous_Turns")  != null ? true : false);
-    const [TurnManip, setTurnManip] = useState(getQueryStringVal("TurnManip")  != null ? true : false);
-    const [Buff_Extension,setBuff_Extension]= useState(getQueryStringVal("Buff_Extension")  != null ? true : false);
-    const [Self_Harm,setSelf_Harm]= useState(getQueryStringVal("Self_Harm")  != null ? true : false);
-    const [BRV_Damage_Resist,setBRV_Damage_Resist]= useState(getQueryStringVal("BRV_Damage_Resist")  != null ? true : false);
+    const [Break, setBreak] = useState(getQueryStringVal("Break") != null ? true : false);
+    const [BreakCancel, setBreakCancel] = useState(getQueryStringVal("BreakCancel") != null ? true : false);
+    const [BreakPrevent, setBreakPrevent] = useState(getQueryStringVal("BreakPrevent") != null ? true : false);
+    const [BRVCap, setBRVCap] = useState(getQueryStringVal("BRVCap") != null ? true : false);
+    const [BRVFreeze, setBRVFreeze] = useState(getQueryStringVal("BRVFreeze") != null ? true : false);
+    const [Launch_Support, setLaunch_Support] = useState(getQueryStringVal("Launch_Support") != null ? true : false);
+    const [HP_Damage_Up, setHP_Damage_Up] = useState(getQueryStringVal("HP_Damage_Up") != null ? true : false);
+    const [BRV_Resist_Down, setBRV_Resist_Down] = useState(getQueryStringVal("BRV_Resist_Down") != null ? true : false);
+    const [Reviver, setReviver] = useState(getQueryStringVal("Reviver") != null ? true : false);
+    const [Gains, setGains] = useState(getQueryStringVal("Gains") != null ? true : false);
+    const [Refund, setRefund] = useState(getQueryStringVal("Refund") != null ? true : false);
+    const [BRVRegen, setBRVRegen] = useState(getQueryStringVal("BRVRegen") != null ? true : false);
+    const [BRVRetain, setBRVRetain] = useState(getQueryStringVal("BRVRetain") != null ? true : false);
+    const [StolenBRV, setStolenBRV] = useState(getQueryStringVal("StolenBRV") != null ? true : false);
+    const [BuffPrevent, setBuffPrevent] = useState(getQueryStringVal("BuffPrevent") != null ? true : false);
+    const [CappedBRV, setCappedBRV] = useState(getQueryStringVal("CappedBRV") != null ? true : false);
+    const [Cleanse, setCleanse] = useState(getQueryStringVal("Cleanse") != null ? true : false);
+    const [Cover, setCover] = useState(getQueryStringVal("Cover") != null ? true : false);
+    const [CriticalUp, setCriticalUp] = useState(getQueryStringVal("CriticalUp") != null ? true : false);
+    const [CriticalRate, setCriticalRate] = useState(getQueryStringVal("CriticalRate") != null ? true : false);
+    const [DebuffResist, setDebuffResist] = useState(getQueryStringVal("DebuffResist") != null ? true : false);
+    const [IgnoreDEF, setIgnoreDEF] = useState(getQueryStringVal("IgnoreDEF") != null ? true : false);
+    const [Delay, setDelay] = useState(getQueryStringVal("Delay") != null ? true : false);
+    const [Delete, setDelete] = useState(getQueryStringVal("Delete") != null ? true : false);
+    const [Dispel, setDispel] = useState(getQueryStringVal("Dispel") != null ? true : false);
+    const [ElementalWeak, setElementalWeak] = useState(getQueryStringVal("ElementalWeak") != null ? true : false);
+    const [Fire, setFire] = useState(getQueryStringVal("Fire") != null ? true : false);
+    const [Ice, setIce] = useState(getQueryStringVal("Ice") != null ? true : false);
+    const [Thunder, setThunder] = useState(getQueryStringVal("Thunder") != null ? true : false);
+    const [Wind, setWind] = useState(getQueryStringVal("Wind") != null ? true : false);
+    const [Water, setWater] = useState(getQueryStringVal("Water") != null ? true : false);
+    const [Earth, setEarth] = useState(getQueryStringVal("Earth") != null ? true : false);
+    const [Holy, setHoly] = useState(getQueryStringVal("Holy") != null ? true : false);
+    const [Dark, setDark] = useState(getQueryStringVal("Dark") != null ? true : false);
+    const [Evade, setEvade] = useState(getQueryStringVal("Evade") != null ? true : false);
+    const [EXFill, setEXFill] = useState(getQueryStringVal("EXFill") != null ? true : false);
+    const [EXRate, setEXRate] = useState(getQueryStringVal("EXRate") != null ? true : false);
+    const [FreeUse, setFreeUse] = useState(getQueryStringVal("FreeUse") != null ? true : false);
+    const [FreeTurn, setFreeTurn] = useState(getQueryStringVal("FreeTurn") != null ? true : false);
+    const [StackedDebuff, setStackedDebuff] = useState(getQueryStringVal("StackedDebuff") != null ? true : false);
+    const [StackedDebuff5, setStackedDebuff5] = useState(getQueryStringVal("StackedDebuff5") != null ? true : false);
+    const [StackedBuff, setStackedBuff] = useState(getQueryStringVal("StackedBuff") != null ? true : false);
+    const [StackedBuff5, setStackedBuff5] = useState(getQueryStringVal("StackedBuff5") != null ? true : false);
+    const [DMGShield, setDMGShield] = useState(getQueryStringVal("DMGShield") != null ? true : false);
+    const [GoldDebuff, setGoldDebuff] = useState(getQueryStringVal("GoldDebuff") != null ? true : false);
+    const [GoldBuff, setGoldBuff] = useState(getQueryStringVal("GoldBuff") != null ? true : false);
+    const [SpecialBuff, setSpecialBuff] = useState(getQueryStringVal("SpecialBuff") != null ? true : false);
+    const [AddHP, setAddHP] = useState(getQueryStringVal("AddHP") != null ? true : false);
+    const [MAXBRVCap, setMAXBRVCap] = useState(getQueryStringVal("MAXBRVCap") != null ? true : false);
+    const [HPResistUp, setHPResistUp] = useState(getQueryStringVal("HPResistUp") != null ? true : false);
+    const [HPResistDown, setHPResistDown] = useState(getQueryStringVal("HPResistDown") != null ? true : false);
+    const [BRVPoison, setBRVPoison] = useState(getQueryStringVal("BRVPoison") != null ? true : false);
+    const [HPPoison, setHPPoison] = useState(getQueryStringVal("HPPoison") != null ? true : false);
+    const [HPHeal, setHPHeal] = useState(getQueryStringVal("HPHeal") != null ? true : false);
+    const [HPRegen, setHPRegen] = useState(getQueryStringVal("HPRegen") != null ? true : false);
+    const [Disable, setDisable] = useState(getQueryStringVal("Disable") != null ? true : false);
+    const [FireDown, setFireDown] = useState(getQueryStringVal("FireDown") != null ? true : false);
+    const [IceDown, setIceDown] = useState(getQueryStringVal("IceDown") != null ? true : false);
+    const [ThunderDown, setThunderDown] = useState(getQueryStringVal("ThunderDown") != null ? true : false);
+    const [WindDown, setWindDown] = useState(getQueryStringVal("WindDown") != null ? true : false);
+    const [WaterDown, setWaterDown] = useState(getQueryStringVal("WaterDown") != null ? true : false);
+    const [EarthDown, setEarthDown] = useState(getQueryStringVal("EarthDown") != null ? true : false);
+    const [HolyDown, setHolyDown] = useState(getQueryStringVal("HolyDown") != null ? true : false);
+    const [DarkDown, setDarkDown] = useState(getQueryStringVal("DarkDown") != null ? true : false);
+    const [MeleeDown, setMeleeDown] = useState(getQueryStringVal("MeleeDown") != null ? true : false);
+    const [RangedDown, setRangedDown] = useState(getQueryStringVal("RangedDown") != null ? true : false);
+    const [MagicDown, setMagicDown] = useState(getQueryStringVal("MagicDown") != null ? true : false);
+    const [Instant, setInstant] = useState(getQueryStringVal("Instant") != null ? true : false);
+    const [LastStand, setLastStand] = useState(getQueryStringVal("LastStand") != null ? true : false);
+    const [Turn_Interrupter, setTurn_Interrupter] = useState(getQueryStringVal("Turn_Interrupter") != null ? true : false);
+    const [Continuous_Turns, setContinuous_Turns] = useState(getQueryStringVal("Continuous_Turns") != null ? true : false);
+    const [TurnManip, setTurnManip] = useState(getQueryStringVal("TurnManip") != null ? true : false);
+    const [Buff_Extension, setBuff_Extension] = useState(getQueryStringVal("Buff_Extension") != null ? true : false);
+    const [Self_Harm, setSelf_Harm] = useState(getQueryStringVal("Self_Harm") != null ? true : false);
+    const [BRV_Damage_Resist, setBRV_Damage_Resist] = useState(getQueryStringVal("BRV_Damage_Resist") != null ? true : false);
     const [Trap, setTrap] = useState(getQueryStringVal("Trap") != null ? true : false)
     const [Trap_After_Trigger, setTrap_After_Trigger] = useState(getQueryStringVal("Trap_After_Trigger") != null ? true : false)
     const [Trap_Before_Turn, setTrap_Before_Turn] = useState(getQueryStringVal("Trap_Before_Turn") != null ? true : false)
@@ -145,10 +145,10 @@ const BuffsDirect =({
     const [Target_Lock, setTarget_Lock] = useState(getQueryStringVal("Target_Lock") != null ? true : false)
 
     const [loop, setLoop] = useStateIfMounted(false);
-    const [reverse, setReverse] = useState(getQueryStringVal("rev") != null  ? true : false);
+    const [reverse, setReverse] = useState(getQueryStringVal("rev") != null ? true : false);
     const [searchTerm, setSearchTerm] = useState("");
     const [searchdisplay, setsearchdisplay] = useState("");
-    const [merge, setMerge] = useState(getQueryStringVal("merge") != null  ? true : false);
+    const [merge, setMerge] = useState(getQueryStringVal("merge") != null ? true : false);
     const [condFilter, setCondFilter] = useState("");
     const [filterResults, setFilterResults] = useState(rawData);
     const [searchResults, setSearchResults] = useState(rawData);
@@ -164,7 +164,7 @@ const BuffsDirect =({
 
     function onlyUnique(value, index, self) {
         return self.indexOf(value) === index;
-        }
+    }
 
     const [aBuffsearch, setABuffsearch] = useQueryParam("aa", "");
     const [burstBuffsearch, setBurstBuffsearch] = useQueryParam("burst", "");
@@ -180,82 +180,82 @@ const BuffsDirect =({
     const [debuffssearch, setDebuffssearch] = useQueryParam("debuffs", "");
     const [partysearch, setpartysearch] = useQueryParam("party", "");
 
-    const [Breaksearch, setBreaksearch] = useQueryParam("Break","")
-    const [BreakCancelsearch, setBreakCancelsearch] = useQueryParam("BreakCancel","")
-    const [BreakPreventsearch, setBreakPreventsearch] = useQueryParam("BreakPrevent","")
-    const [BRVCapsearch, setBRVCapsearch] = useQueryParam("BRVCap","")
-    const [BRVFreezesearch, setBRVFreezesearch] = useQueryParam("BRVFreeze","")
-    const [Launch_Supportsearch, setLaunch_Supportsearch] = useQueryParam("Launch_Support","")
-    const [HP_Damage_Upsearch, setHP_Damage_Upsearch]  = useQueryParam("HP_Damage_Up","")
-    const [BRV_Resist_Downsearch,setBRV_Resist_Downsearch] = useQueryParam("BRV_Resist_Down","")
-    const [Reviversearch,setReviversearch]= useQueryParam("Reviver","")
-    const [Gainssearch, setGainssearch] = useQueryParam("Gains","")
-    const [Refundsearch, setRefundsearch] = useQueryParam("Refund","")
-    const [BRVRegensearch, setBRVRegensearch] = useQueryParam("BRVRegen","")
-    const [BRVRetainsearch, setBRVRetainsearch] = useQueryParam("BRVRetain","")
-    const [StolenBRVsearch, setStolenBRVsearch] = useQueryParam("StolenBRV","")
-    const [BuffPreventsearch, setBuffPreventsearch] = useQueryParam("BuffPrevent","")
-    const [CappedBRVsearch, setCappedBRVsearch] = useQueryParam("CappedBRV","")
-    const [Cleansesearch, setCleansesearch] = useQueryParam("Cleanse","")
-    const [Coversearch, setCoversearch] = useQueryParam("Cover","")
-    const [CriticalUpsearch, setCriticalUpsearch] = useQueryParam("CriticalUp","")
-    const [CriticalRatesearch, setCriticalRatesearch] = useQueryParam("CriticalRate","")
-    const [DebuffResistsearch, setDebuffResistsearch] = useQueryParam("DebuffResist","")
-    const [IgnoreDEFsearch, setIgnoreDEFsearch] = useQueryParam("IgnoreDEF","")
-    const [Delaysearch, setDelaysearch] = useQueryParam("Delay","")
-    const [Deletesearch, setDeletesearch] = useQueryParam("Delete","")
-    const [Dispelsearch, setDispelsearch] = useQueryParam("Dispel","")
-    const [ElementalWeaksearch, setElementalWeaksearch] = useQueryParam("ElementalWeak","")
-    const [Firesearch, setFiresearch] = useQueryParam("Fire","")
-    const [Icesearch, setIcesearch] = useQueryParam("Ice","")
-    const [Thundersearch, setThundersearch] = useQueryParam("Thunder","")
-    const [Windsearch, setWindsearch] = useQueryParam("Wind","")
-    const [Watersearch, setWatersearch] = useQueryParam("Water","")
-    const [Earthsearch, setEarthsearch] = useQueryParam("Earth","")
-    const [Holysearch, setHolysearch] = useQueryParam("Holy","")
-    const [Darksearch, setDarksearch] = useQueryParam("Dark","")
-    const [Evadesearch, setEvadesearch] = useQueryParam("Evade","")
-    const [EXFillsearch, setEXFillsearch] = useQueryParam("EXFill","")
-    const [EXRatesearch, setEXRatesearch] = useQueryParam("EXRate","")
-    const [FreeUsesearch, setFreeUsesearch] = useQueryParam("FreeUse","")
-    const [FreeTurnsearch, setFreeTurnsearch] = useQueryParam("FreeTurn","")
-    const [StackedBuffsearch, setStackedBuffsearch] = useQueryParam("StackedBuff","")
-    const [StackedBuff5search, setStackedBuff5search] = useQueryParam("StackedBuff5","")
-    const [StackedDebuffsearch, setStackedDebuffsearch] = useQueryParam("StackedDebuff","")
-    const [StackedDebuff5search, setStackedDebuff5search] = useQueryParam("StackedDebuff5","")
-    const [DMGShieldsearch, setDMGShieldsearch] = useQueryParam("DMGShield","")
-    const [GoldDebuffsearch, setGoldDebuffsearch] = useQueryParam("GoldDebuff","")
-    const [GoldBuffsearch, setGoldBuffsearch] = useQueryParam("GoldBuff","")
-    const [SpecialBuffsearch, setSpecialBuffsearch] = useQueryParam("SpecialBuff","")
-    const [AddHPsearch, setAddHPsearch] = useQueryParam("AddHP","")
-    const [MAXBRVCapsearch, setMAXBRVCapsearch] = useQueryParam("MAXBRVCap","")
-    const [HPResistUpsearch, setHPResistUpsearch] = useQueryParam("HPResistUp","")
-    const [HPResistDownsearch, setHPResistDownsearch] = useQueryParam("HPResistDown","")
-    const [BRVPoisonsearch, setBRVPoisonsearch] = useQueryParam("BRVPoison","")
-    const [HPPoisonsearch, setHPPoisonsearch] = useQueryParam("HPPoison","")
-    const [HPHealsearch, setHPHealsearch] = useQueryParam("HPHeal","")
-    const [HPRegensearch, setHPRegensearch] = useQueryParam("HPRegen","")
-    const [Disablesearch, setDisablesearch] = useQueryParam("Disable","")
-    const [FireDownsearch, setFireDownsearch] = useQueryParam("FireDown","")
-    const [IceDownsearch, setIceDownsearch] = useQueryParam("IceDown","")
-    const [ThunderDownsearch, setThunderDownsearch] = useQueryParam("ThunderDown","")
-    const [WindDownsearch, setWindDownsearch] = useQueryParam("WindDown","")
-    const [WaterDownsearch, setWaterDownsearch] = useQueryParam("WaterDown","")
-    const [EarthDownsearch, setEarthDownsearch] = useQueryParam("EarthDown","")
-    const [HolyDownsearch, setHolyDownsearch] = useQueryParam("HolyDown","")
-    const [DarkDownsearch, setDarkDownsearch] = useQueryParam("DarkDown","")
-    const [MeleeDownsearch, setMeleeDownsearch] = useQueryParam("MeleeDown","")
-    const [RangedDownsearch, setRangedDownsearch] = useQueryParam("RangedDown","")
-    const [MagicDownsearch, setMagicDownsearch] = useQueryParam("MagicDown","")
-    const [Instantsearch, setInstantsearch] = useQueryParam("Instant","")
-    const [LastStandsearch, setLastStandsearch] = useQueryParam("LastStand","")
-    const [Turn_Interruptersearch, setTurn_Interruptersearch] = useQueryParam("Turn_Interrupter","")
-    const [Continuous_Turnssearch, setContinuous_Turnssearch] = useQueryParam("Continuous_Turns","")
-    const [TurnManipsearch, setTurnManipsearch] = useQueryParam("TurnManip","")
+    const [Breaksearch, setBreaksearch] = useQueryParam("Break", "")
+    const [BreakCancelsearch, setBreakCancelsearch] = useQueryParam("BreakCancel", "")
+    const [BreakPreventsearch, setBreakPreventsearch] = useQueryParam("BreakPrevent", "")
+    const [BRVCapsearch, setBRVCapsearch] = useQueryParam("BRVCap", "")
+    const [BRVFreezesearch, setBRVFreezesearch] = useQueryParam("BRVFreeze", "")
+    const [Launch_Supportsearch, setLaunch_Supportsearch] = useQueryParam("Launch_Support", "")
+    const [HP_Damage_Upsearch, setHP_Damage_Upsearch] = useQueryParam("HP_Damage_Up", "")
+    const [BRV_Resist_Downsearch, setBRV_Resist_Downsearch] = useQueryParam("BRV_Resist_Down", "")
+    const [Reviversearch, setReviversearch] = useQueryParam("Reviver", "")
+    const [Gainssearch, setGainssearch] = useQueryParam("Gains", "")
+    const [Refundsearch, setRefundsearch] = useQueryParam("Refund", "")
+    const [BRVRegensearch, setBRVRegensearch] = useQueryParam("BRVRegen", "")
+    const [BRVRetainsearch, setBRVRetainsearch] = useQueryParam("BRVRetain", "")
+    const [StolenBRVsearch, setStolenBRVsearch] = useQueryParam("StolenBRV", "")
+    const [BuffPreventsearch, setBuffPreventsearch] = useQueryParam("BuffPrevent", "")
+    const [CappedBRVsearch, setCappedBRVsearch] = useQueryParam("CappedBRV", "")
+    const [Cleansesearch, setCleansesearch] = useQueryParam("Cleanse", "")
+    const [Coversearch, setCoversearch] = useQueryParam("Cover", "")
+    const [CriticalUpsearch, setCriticalUpsearch] = useQueryParam("CriticalUp", "")
+    const [CriticalRatesearch, setCriticalRatesearch] = useQueryParam("CriticalRate", "")
+    const [DebuffResistsearch, setDebuffResistsearch] = useQueryParam("DebuffResist", "")
+    const [IgnoreDEFsearch, setIgnoreDEFsearch] = useQueryParam("IgnoreDEF", "")
+    const [Delaysearch, setDelaysearch] = useQueryParam("Delay", "")
+    const [Deletesearch, setDeletesearch] = useQueryParam("Delete", "")
+    const [Dispelsearch, setDispelsearch] = useQueryParam("Dispel", "")
+    const [ElementalWeaksearch, setElementalWeaksearch] = useQueryParam("ElementalWeak", "")
+    const [Firesearch, setFiresearch] = useQueryParam("Fire", "")
+    const [Icesearch, setIcesearch] = useQueryParam("Ice", "")
+    const [Thundersearch, setThundersearch] = useQueryParam("Thunder", "")
+    const [Windsearch, setWindsearch] = useQueryParam("Wind", "")
+    const [Watersearch, setWatersearch] = useQueryParam("Water", "")
+    const [Earthsearch, setEarthsearch] = useQueryParam("Earth", "")
+    const [Holysearch, setHolysearch] = useQueryParam("Holy", "")
+    const [Darksearch, setDarksearch] = useQueryParam("Dark", "")
+    const [Evadesearch, setEvadesearch] = useQueryParam("Evade", "")
+    const [EXFillsearch, setEXFillsearch] = useQueryParam("EXFill", "")
+    const [EXRatesearch, setEXRatesearch] = useQueryParam("EXRate", "")
+    const [FreeUsesearch, setFreeUsesearch] = useQueryParam("FreeUse", "")
+    const [FreeTurnsearch, setFreeTurnsearch] = useQueryParam("FreeTurn", "")
+    const [StackedBuffsearch, setStackedBuffsearch] = useQueryParam("StackedBuff", "")
+    const [StackedBuff5search, setStackedBuff5search] = useQueryParam("StackedBuff5", "")
+    const [StackedDebuffsearch, setStackedDebuffsearch] = useQueryParam("StackedDebuff", "")
+    const [StackedDebuff5search, setStackedDebuff5search] = useQueryParam("StackedDebuff5", "")
+    const [DMGShieldsearch, setDMGShieldsearch] = useQueryParam("DMGShield", "")
+    const [GoldDebuffsearch, setGoldDebuffsearch] = useQueryParam("GoldDebuff", "")
+    const [GoldBuffsearch, setGoldBuffsearch] = useQueryParam("GoldBuff", "")
+    const [SpecialBuffsearch, setSpecialBuffsearch] = useQueryParam("SpecialBuff", "")
+    const [AddHPsearch, setAddHPsearch] = useQueryParam("AddHP", "")
+    const [MAXBRVCapsearch, setMAXBRVCapsearch] = useQueryParam("MAXBRVCap", "")
+    const [HPResistUpsearch, setHPResistUpsearch] = useQueryParam("HPResistUp", "")
+    const [HPResistDownsearch, setHPResistDownsearch] = useQueryParam("HPResistDown", "")
+    const [BRVPoisonsearch, setBRVPoisonsearch] = useQueryParam("BRVPoison", "")
+    const [HPPoisonsearch, setHPPoisonsearch] = useQueryParam("HPPoison", "")
+    const [HPHealsearch, setHPHealsearch] = useQueryParam("HPHeal", "")
+    const [HPRegensearch, setHPRegensearch] = useQueryParam("HPRegen", "")
+    const [Disablesearch, setDisablesearch] = useQueryParam("Disable", "")
+    const [FireDownsearch, setFireDownsearch] = useQueryParam("FireDown", "")
+    const [IceDownsearch, setIceDownsearch] = useQueryParam("IceDown", "")
+    const [ThunderDownsearch, setThunderDownsearch] = useQueryParam("ThunderDown", "")
+    const [WindDownsearch, setWindDownsearch] = useQueryParam("WindDown", "")
+    const [WaterDownsearch, setWaterDownsearch] = useQueryParam("WaterDown", "")
+    const [EarthDownsearch, setEarthDownsearch] = useQueryParam("EarthDown", "")
+    const [HolyDownsearch, setHolyDownsearch] = useQueryParam("HolyDown", "")
+    const [DarkDownsearch, setDarkDownsearch] = useQueryParam("DarkDown", "")
+    const [MeleeDownsearch, setMeleeDownsearch] = useQueryParam("MeleeDown", "")
+    const [RangedDownsearch, setRangedDownsearch] = useQueryParam("RangedDown", "")
+    const [MagicDownsearch, setMagicDownsearch] = useQueryParam("MagicDown", "")
+    const [Instantsearch, setInstantsearch] = useQueryParam("Instant", "")
+    const [LastStandsearch, setLastStandsearch] = useQueryParam("LastStand", "")
+    const [Turn_Interruptersearch, setTurn_Interruptersearch] = useQueryParam("Turn_Interrupter", "")
+    const [Continuous_Turnssearch, setContinuous_Turnssearch] = useQueryParam("Continuous_Turns", "")
+    const [TurnManipsearch, setTurnManipsearch] = useQueryParam("TurnManip", "")
     const [mergesearch, setMergesearch] = useQueryParam("merge", "");
-    const [Buff_Extensionsearch,setBuff_Extensionsearch]= useQueryParam("Buff_Extension", "");
-    const [Self_Harmsearch,setSelf_Harmsearch]= useQueryParam("Self_Harm", "");
-    const [BRV_Damage_Resistsearch,setBRV_Damage_Resistsearch]= useQueryParam("BRV_Damage_Resist", "");
+    const [Buff_Extensionsearch, setBuff_Extensionsearch] = useQueryParam("Buff_Extension", "");
+    const [Self_Harmsearch, setSelf_Harmsearch] = useQueryParam("Self_Harm", "");
+    const [BRV_Damage_Resistsearch, setBRV_Damage_Resistsearch] = useQueryParam("BRV_Damage_Resist", "");
     const [Trapsearch, setTrapsearch] = useQueryParam("Trap", "")
     const [Trap_After_Triggersearch, setTrap_After_Triggersearch] = useQueryParam("Trap_After_Trigger", "")
     const [Trap_Before_Turnsearch, setTrap_Before_Turnsearch] = useQueryParam("Trap_Before_Turn", "")
@@ -267,7 +267,7 @@ const BuffsDirect =({
     const [FollowUp_Before_Player_Turnsearch, setFollowUp_Before_Player_Turnsearch] = useQueryParam("FollowUp_Before_Player_Turn", "")
     const [FollowUp_Before_Abilitysearch, setFollowUp_Before_Abilitysearch] = useQueryParam("FollowUp_Before_Ability", "")
     const [Blindsearch, setBlindsearch] = useQueryParam("Blind", "")
-    const [Target_Locksearch,setTarget_Locksearch]= useQueryParam("Target_Lock", "")
+    const [Target_Locksearch, setTarget_Locksearch] = useQueryParam("Target_Lock", "")
 
     const [Reversesearch, setReversesearch] = useQueryParam("rev", "");
     const [TEXTsearch, setTEXTsearch] = useQueryParam("search", "");
@@ -279,1179 +279,1179 @@ const BuffsDirect =({
 
     useEffect(() => {
         //type params
-        if(Typesearch != null){
-         const ID_PULL = Object.values(char_id).filter(self=>self.name == getQueryStringVal("Char"))
-         const match_id = ID_PULL[0] && ID_PULL[0].id
-         const filteredtype = ProcessedBuffs.filter(self=>self.chara_id == match_id)
-         if(filteredtype.length != 0){
-           setTypesearch(getQueryStringVal("Char"))
-           setCondFilter(filteredtype[0].chara_id)
-         } else{
-           setTypesearch("")
-           setCondFilter("")
-         }
-       }
-     },[setCondFilter,ProcessedBuffs,Typesearch,setTypesearch,char_id])
+        if (Typesearch != null) {
+            const ID_PULL = Object.values(char_id).filter(self => self.name == getQueryStringVal("Char"))
+            const match_id = ID_PULL[0] && ID_PULL[0].id
+            const filteredtype = ProcessedBuffs.filter(self => self.chara_id == match_id)
+            if (filteredtype.length != 0) {
+                setTypesearch(getQueryStringVal("Char"))
+                setCondFilter(filteredtype[0].chara_id)
+            } else {
+                setTypesearch("")
+                setCondFilter("")
+            }
+        }
+    }, [setCondFilter, ProcessedBuffs, Typesearch, setTypesearch, char_id])
 
     useEffect(() => {
         //search params
-        if(getQueryStringVal("search") != null){
-          setSearchTerm(getQueryStringVal("search") != null  ? getQueryStringVal("search").toLowerCase() : "")
-          setTEXTsearch(getQueryStringVal("search") != null ? getQueryStringVal("search") : "")
-          setsearchdisplay(getQueryStringVal("search") != null ? getQueryStringVal("search") : "")
+        if (getQueryStringVal("search") != null) {
+            setSearchTerm(getQueryStringVal("search") != null ? getQueryStringVal("search").toLowerCase() : "")
+            setTEXTsearch(getQueryStringVal("search") != null ? getQueryStringVal("search") : "")
+            setsearchdisplay(getQueryStringVal("search") != null ? getQueryStringVal("search") : "")
         }
-    }, [setTEXTsearch,setFiltersearch])
+    }, [setTEXTsearch, setFiltersearch])
 
     //filter non-merge
     useEffect(() => {
-        if(merge == false){
-        var filterholder = [];
+        if (merge == false) {
+            var filterholder = [];
 
-        if(buffs == true){
-            const filteredout = rawData.filter(
-                (ef) =>ef.is_buff == 1
-            );
-            filterholder.push(...filteredout);
-        }
-        if(debuffs == true){
-            const filteredout = rawData.filter(
-                (ef) =>ef.is_buff == 0
-            );
-            filterholder.push(...filteredout);
-        }
-        if(bstate == true){
-            const filteredout = rawData.filter(
-                (ef) =>ef.state == true
-            );
-            filterholder.push(...filteredout);
-        }
-        if(start == true){
-            const filteredout = rawData.filter(
-                (ef) =>ef.start == true
-            );
-            filterholder.push(...filteredout);
-        }
-        if(calls == true){
-            const filteredout = rawData.filter(
-                (ef) =>ef.Call == true
-            );
-            filterholder.push(...filteredout);
-        }
-        if(aBuff == true){
-            const filteredout = rawData.filter(
-                (ef) =>ef.AA == true
-            );
-            filterholder.push(...filteredout);
-        }
-        if(starting == true){
-            const filteredout = rawData.filter(
-                (ef) =>ef.S1 == true
-            );
-            filterholder.push(...filteredout);
-        }
-        if(s20 == true){
-            const filteredout = rawData.filter(
-                (ef) =>ef.S2 == true
-            );
-            filterholder.push(...filteredout);
-        }
-        if(ex == true){
-            const filteredout = rawData.filter(
-                (ef) =>ef.EX == true
-            );
-            filterholder.push(...filteredout);
-        }
-        if(ld == true){
-            const filteredout = rawData.filter(
-                (ef) =>ef.LD == true
-            );
-            filterholder.push(...filteredout);
-        }
-        if(fr == true){
-            const filteredout = rawData.filter(
-                (ef) =>ef.FR == true
-            );
-            filterholder.push(...filteredout);
-        }
-        if(burstBuff == true){
-            const filteredout = rawData.filter(
-                (ef) =>ef.BT == true
-            );
-            filterholder.push(...filteredout);
-        }
-
-        //advanced
-        if(party != true){
-            if(Break == true){
+            if (buffs == true) {
                 const filteredout = rawData.filter(
-                    (ef)=> ef.Force_Break == true
+                    (ef) => ef.is_buff == 1
                 );
-                filterholder.push(...filteredout)
+                filterholder.push(...filteredout);
             }
-            if(BreakCancel == true){
+            if (debuffs == true) {
                 const filteredout = rawData.filter(
-                    (ef)=> ef.Break_Reset == true
+                    (ef) => ef.is_buff == 0
                 );
-                filterholder.push(...filteredout)
+                filterholder.push(...filteredout);
             }
-            if(BreakPrevent == true){
+            if (bstate == true) {
                 const filteredout = rawData.filter(
-                    (ef)=> ef.Cannot_Break == true
+                    (ef) => ef.state == true
                 );
-                filterholder.push(...filteredout)
+                filterholder.push(...filteredout);
             }
-            if(BRVCap == true){
+            if (start == true) {
                 const filteredout = rawData.filter(
-                    (ef)=> ef.BRVCap == true
+                    (ef) => ef.start == true
                 );
-                filterholder.push(...filteredout)
+                filterholder.push(...filteredout);
             }
-            if(BRVFreeze == true){
+            if (calls == true) {
                 const filteredout = rawData.filter(
-                    (ef)=> ef.BRV_Control == true
+                    (ef) => ef.Call == true
                 );
-                filterholder.push(...filteredout)
+                filterholder.push(...filteredout);
             }
-            if(Launch_Support == true){
+            if (aBuff == true) {
                 const filteredout = rawData.filter(
-                    (ef)=> ef.Launch_Support == true
+                    (ef) => ef.AA == true
                 );
-                filterholder.push(...filteredout)
+                filterholder.push(...filteredout);
             }
-            if(HP_Damage_Up == true){
+            if (starting == true) {
                 const filteredout = rawData.filter(
-                    (ef)=> ef.HP_Damage_Up_Party == true
+                    (ef) => ef.S1 == true
                 );
-                filterholder.push(...filteredout)
+                filterholder.push(...filteredout);
             }
-            if(Gains == true){
+            if (s20 == true) {
                 const filteredout = rawData.filter(
-                    (ef)=> ef.Gains == true
+                    (ef) => ef.S2 == true
                 );
-                filterholder.push(...filteredout)
+                filterholder.push(...filteredout);
             }
-            if(Refund == true){
+            if (ex == true) {
                 const filteredout = rawData.filter(
-                    (ef)=> ef.Refund == true
+                    (ef) => ef.EX == true
                 );
-                filterholder.push(...filteredout)
+                filterholder.push(...filteredout);
             }
-            if(BRVRegen == true){
+            if (ld == true) {
                 const filteredout = rawData.filter(
-                    (ef)=> ef.BRV_Regen == true
+                    (ef) => ef.LD == true
                 );
-                filterholder.push(...filteredout)
+                filterholder.push(...filteredout);
             }
-            if(BRVRetain == true){
+            if (fr == true) {
                 const filteredout = rawData.filter(
-                    (ef)=> ef.BRVRetain == true
+                    (ef) => ef.FR == true
                 );
-                filterholder.push(...filteredout)
+                filterholder.push(...filteredout);
             }
-            if(StolenBRV == true){
+            if (burstBuff == true) {
                 const filteredout = rawData.filter(
-                    (ef)=> ef.StolenBRV == true
+                    (ef) => ef.BT == true
                 );
-                filterholder.push(...filteredout)
-            }
-            if(BuffPrevent == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.BuffPrevent == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(CappedBRV == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.BRV_Damage_Cap == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Cleanse == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Cleanse == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Cover == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Cover == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(CriticalUp == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.CriticalUp == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(CriticalRate == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Crit_Rate_Up == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(DebuffResist == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Debuff_Evade == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(IgnoreDEF == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Ignore_DEF == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Delay == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Delay == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Delete == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Delete_Turns == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Dispel == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Dispel == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(ElementalWeak == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.ElementalWeak == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Fire == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Fire_Enchant == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Ice == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Ice_Enchant == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Thunder == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Thunder_Enchant == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Wind == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Wind_Enchant == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Water == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Water_Enchant == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Earth == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Earth_Enchant == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Holy == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Holy_Enchant == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Dark == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Dark_Enchant == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Evade == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Evade == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(EXFill == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.EX_MAX == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(EXRate == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.EXRate == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(FreeUse == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Free_Ability == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(FreeTurn == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.FreeTurn == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(StackedBuff == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Stacked_Buff == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(StackedBuff5 == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Stacked_Buff_Five == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(StackedDebuff == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Stacked_Debuff == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(StackedDebuff5 == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Stacked_Debuff_Five == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(DMGShield == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.BRV_Shield == true
-                );
-                filterholder.push(...filteredout)
+                filterholder.push(...filteredout);
             }
 
-            if(GoldDebuff == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Debuff_Gold == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(GoldBuff == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Buff_Gold == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(SpecialBuff == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Special_Buff == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(AddHP == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.AddHP == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(MAXBRVCap == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.MAXBRVCap == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(HPResistUp == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.HP_Damage_Resist == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(HPResistDown == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.HP_Resist_Down == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(BRV_Resist_Down == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.BRV_Resist_Down == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(BRVPoison == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.BRV_Poison == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(HPPoison == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.HP_Poison == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(HPHeal == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.HPHealBuff == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(HPRegen == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.HP_Regen == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Disable == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Disable == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(FireDown == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Fire_Imperil == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(IceDown == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Ice_Imperil == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(ThunderDown == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Thunder_Imperil == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(WindDown == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Wind_Imperil == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(WaterDown == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Water_Imperil == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(EarthDown == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Earth_Imperil == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(HolyDown == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Holy_Imperil == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(DarkDown == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Dark_Imperil == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(MeleeDown == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Melee_Imperil == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(RangedDown == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Ranged_Imperil == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(MagicDown == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Magic_Imperil == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Instant == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Instant == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(LastStand == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.KO_Prevent == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Turn_Interrupter == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Turn_Interrupter == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Continuous_Turns == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Continuous_Turns == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(TurnManip == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Ally_Turn_Manipulator == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Reviver == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Reviver == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Buff_Extension == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Buff_Extension == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Self_Harm == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Self_Harm == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(BRV_Damage_Resist == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.BRV_Damage_Resist == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Trap == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Trap == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Trap_After_Trigger == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Trap_After_Trigger == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Trap_Before_Turn == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Trap_Before_Turn == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Counter == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Counter == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(FollowUp == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.FollowUp == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(FollowUp_Extension == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.FollowUp_Extension == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(FollowUp_Action_On_Enemy == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.FollowUp_Action_On_Enemy == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(FollowUp_Start_Of_Next == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.FollowUp_Start_Of_Next == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(FollowUp_Before_Player_Turn == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.FollowUp_Before_Player_Turn == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(FollowUp_Before_Ability == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.FollowUp_Before_Ability == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Blind == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Blind == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Target_Lock == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Target_Lock == true
-                );
-                filterholder.push(...filteredout)
-            }
-        }
+            //advanced
+            if (party != true) {
+                if (Break == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Force_Break == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (BreakCancel == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Break_Reset == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (BreakPrevent == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Cannot_Break == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (BRVCap == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.BRVCap == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (BRVFreeze == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.BRV_Control == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Launch_Support == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Launch_Support == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (HP_Damage_Up == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.HP_Damage_Up_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Gains == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Gains == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Refund == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Refund == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (BRVRegen == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.BRV_Regen == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (BRVRetain == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.BRVRetain == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (StolenBRV == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.StolenBRV == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (BuffPrevent == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.BuffPrevent == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (CappedBRV == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.BRV_Damage_Cap == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Cleanse == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Cleanse == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Cover == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Cover == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (CriticalUp == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.CriticalUp == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (CriticalRate == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Crit_Rate_Up == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (DebuffResist == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Debuff_Evade == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (IgnoreDEF == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Ignore_DEF == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Delay == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Delay == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Delete == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Delete_Turns == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Dispel == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Dispel == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (ElementalWeak == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.ElementalWeak == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Fire == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Fire_Enchant == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Ice == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Ice_Enchant == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Thunder == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Thunder_Enchant == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Wind == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Wind_Enchant == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Water == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Water_Enchant == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Earth == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Earth_Enchant == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Holy == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Holy_Enchant == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Dark == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Dark_Enchant == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Evade == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Evade == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (EXFill == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.EX_MAX == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (EXRate == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.EXRate == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (FreeUse == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Free_Ability == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (FreeTurn == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.FreeTurn == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (StackedBuff == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Stacked_Buff == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (StackedBuff5 == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Stacked_Buff_Five == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (StackedDebuff == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Stacked_Debuff == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (StackedDebuff5 == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Stacked_Debuff_Five == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (DMGShield == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.BRV_Shield == true
+                    );
+                    filterholder.push(...filteredout)
+                }
 
-        //party
-        if(party == true){
-            if(Break == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Force_Break_Party == true
-                );
-                filterholder.push(...filteredout)
+                if (GoldDebuff == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Debuff_Gold == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (GoldBuff == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Buff_Gold == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (SpecialBuff == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Special_Buff == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (AddHP == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.AddHP == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (MAXBRVCap == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.MAXBRVCap == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (HPResistUp == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.HP_Damage_Resist == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (HPResistDown == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.HP_Resist_Down == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (BRV_Resist_Down == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.BRV_Resist_Down == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (BRVPoison == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.BRV_Poison == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (HPPoison == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.HP_Poison == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (HPHeal == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.HPHealBuff == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (HPRegen == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.HP_Regen == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Disable == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Disable == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (FireDown == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Fire_Imperil == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (IceDown == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Ice_Imperil == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (ThunderDown == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Thunder_Imperil == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (WindDown == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Wind_Imperil == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (WaterDown == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Water_Imperil == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (EarthDown == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Earth_Imperil == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (HolyDown == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Holy_Imperil == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (DarkDown == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Dark_Imperil == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (MeleeDown == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Melee_Imperil == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (RangedDown == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Ranged_Imperil == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (MagicDown == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Magic_Imperil == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Instant == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Instant == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (LastStand == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.KO_Prevent == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Turn_Interrupter == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Turn_Interrupter == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Continuous_Turns == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Continuous_Turns == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (TurnManip == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Ally_Turn_Manipulator == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Reviver == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Reviver == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Buff_Extension == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Buff_Extension == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Self_Harm == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Self_Harm == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (BRV_Damage_Resist == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.BRV_Damage_Resist == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Trap == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Trap == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Trap_After_Trigger == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Trap_After_Trigger == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Trap_Before_Turn == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Trap_Before_Turn == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Counter == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Counter == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (FollowUp == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.FollowUp == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (FollowUp_Extension == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.FollowUp_Extension == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (FollowUp_Action_On_Enemy == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.FollowUp_Action_On_Enemy == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (FollowUp_Start_Of_Next == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.FollowUp_Start_Of_Next == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (FollowUp_Before_Player_Turn == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.FollowUp_Before_Player_Turn == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (FollowUp_Before_Ability == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.FollowUp_Before_Ability == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Blind == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Blind == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Target_Lock == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Target_Lock == true
+                    );
+                    filterholder.push(...filteredout)
+                }
             }
-            if(BreakCancel == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Break_Reset_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(BreakPrevent == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Cannot_Break_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(BRVCap == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.BRVCap_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(BRVFreeze == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.BRV_Control_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Launch_Support == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Launch_Support_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(HP_Damage_Up == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.HP_Damage_Up_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Gains == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Gains_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Refund == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Refund_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(BRVRegen == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.BRV_Regen_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(BRVRetain == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.BRVRetain_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(StolenBRV == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.StolenBRV_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(BuffPrevent == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.BuffPrevent_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(CappedBRV == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.BRV_Damage_Cap_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Cleanse == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Cleanse_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Cover == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Cover_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(CriticalUp == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.CriticalUp_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(CriticalRate == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Crit_Rate_Up_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(DebuffResist == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Debuff_Evade_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(IgnoreDEF == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Ignore_DEF_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Delay == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Delay_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Delete == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Delete_Turns_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Dispel == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Dispel_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(ElementalWeak == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.ElementalWeak_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Fire == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Fire_Enchant_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Ice == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Ice_Enchant_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Thunder == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Thunder_Enchant_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Wind == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Wind_Enchant_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Water == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Water_Enchant_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Earth == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Earth_Enchant_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Holy == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Holy_Enchant_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Dark == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Dark_Enchant_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Evade == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Evade_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(EXFill == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.EX_MAX_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(EXRate == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.EXRate_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(FreeUse == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Free_Ability_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(FreeTurn == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.FreeTurn_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(StackedBuff == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Stacked_Buff_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(StackedBuff5 == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Stacked_Buff_Five_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(StackedDebuff == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Stacked_Debuff_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(StackedDebuff5 == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Stacked_Debuff_Five_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(DMGShield == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.BRV_Shield_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(GoldDebuff == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Debuff_Gold_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(GoldBuff == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Buff_Gold_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(SpecialBuff == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Special_Buff_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(AddHP == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.AddHP_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(MAXBRVCap == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.MAXBRVCap_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(HPResistUp == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.HP_Damage_Resist_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(HPResistDown == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.HP_Resist_Down_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(BRV_Resist_Down == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.BRV_Resist_Down_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(BRVPoison == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.BRV_Poison_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(HPPoison == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.HP_Poison_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(HPHeal == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.HPHealBuff_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(HPRegen == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.HP_Regen_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Disable == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Disable_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(FireDown == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Fire_Imperil_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(IceDown == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Ice_Imperil_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(ThunderDown == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.ThunderDown_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(WindDown == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Wind_Imperil_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(WaterDown == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Water_Imperil_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(EarthDown == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Earth_Imperil_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(HolyDown == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Holy_Imperil_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(DarkDown == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Dark_Imperil_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(MeleeDown == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Melee_Imperil_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(RangedDown == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Ranged_Imperil_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(MagicDown == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Magic_Imperil_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Instant == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Instant_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(LastStand == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.KO_Prevent_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Turn_Interrupter == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Turn_Interrupter_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Continuous_Turns == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Continuous_Turns_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(TurnManip == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Ally_Turn_Manipulator_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Reviver == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Reviver_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Buff_Extension == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Buff_Extension_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Self_Harm == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Self_Harm_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(BRV_Damage_Resist){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.BRV_Damage_Resist_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Trap == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Trap_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Trap_After_Trigger == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Trap_After_Trigger_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Trap_Before_Turn == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Trap_Before_Turn_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Counter == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Counter_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(FollowUp == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.FollowUp_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(FollowUp_Extension == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.FollowUp_Extension_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(FollowUp_Action_On_Enemy == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.FollowUp_Action_On_Enemy_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(FollowUp_Start_Of_Next == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.FollowUp_Start_Of_Next_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(FollowUp_Before_Player_Turn == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.FollowUp_Before_Player_Turn_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(FollowUp_Before_Ability == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.FollowUp_Before_Ability_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Blind == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Blind_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-            if(Target_Lock == true){
-                const filteredout = rawData.filter(
-                    (ef)=> ef.Target_Lock_Party == true
-                );
-                filterholder.push(...filteredout)
-            }
-        }
 
-        if (filterholder.length === 0) {
-            filterholder.push(...rawData);
-        }
+            //party
+            if (party == true) {
+                if (Break == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Force_Break_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (BreakCancel == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Break_Reset_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (BreakPrevent == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Cannot_Break_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (BRVCap == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.BRVCap_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (BRVFreeze == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.BRV_Control_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Launch_Support == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Launch_Support_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (HP_Damage_Up == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.HP_Damage_Up_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Gains == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Gains_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Refund == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Refund_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (BRVRegen == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.BRV_Regen_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (BRVRetain == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.BRVRetain_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (StolenBRV == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.StolenBRV_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (BuffPrevent == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.BuffPrevent_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (CappedBRV == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.BRV_Damage_Cap_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Cleanse == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Cleanse_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Cover == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Cover_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (CriticalUp == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.CriticalUp_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (CriticalRate == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Crit_Rate_Up_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (DebuffResist == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Debuff_Evade_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (IgnoreDEF == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Ignore_DEF_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Delay == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Delay_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Delete == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Delete_Turns_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Dispel == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Dispel_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (ElementalWeak == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.ElementalWeak_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Fire == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Fire_Enchant_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Ice == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Ice_Enchant_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Thunder == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Thunder_Enchant_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Wind == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Wind_Enchant_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Water == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Water_Enchant_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Earth == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Earth_Enchant_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Holy == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Holy_Enchant_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Dark == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Dark_Enchant_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Evade == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Evade_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (EXFill == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.EX_MAX_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (EXRate == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.EXRate_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (FreeUse == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Free_Ability_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (FreeTurn == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.FreeTurn_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (StackedBuff == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Stacked_Buff_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (StackedBuff5 == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Stacked_Buff_Five_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (StackedDebuff == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Stacked_Debuff_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (StackedDebuff5 == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Stacked_Debuff_Five_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (DMGShield == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.BRV_Shield_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (GoldDebuff == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Debuff_Gold_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (GoldBuff == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Buff_Gold_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (SpecialBuff == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Special_Buff_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (AddHP == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.AddHP_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (MAXBRVCap == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.MAXBRVCap_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (HPResistUp == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.HP_Damage_Resist_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (HPResistDown == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.HP_Resist_Down_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (BRV_Resist_Down == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.BRV_Resist_Down_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (BRVPoison == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.BRV_Poison_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (HPPoison == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.HP_Poison_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (HPHeal == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.HPHealBuff_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (HPRegen == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.HP_Regen_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Disable == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Disable_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (FireDown == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Fire_Imperil_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (IceDown == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Ice_Imperil_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (ThunderDown == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.ThunderDown_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (WindDown == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Wind_Imperil_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (WaterDown == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Water_Imperil_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (EarthDown == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Earth_Imperil_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (HolyDown == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Holy_Imperil_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (DarkDown == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Dark_Imperil_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (MeleeDown == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Melee_Imperil_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (RangedDown == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Ranged_Imperil_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (MagicDown == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Magic_Imperil_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Instant == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Instant_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (LastStand == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.KO_Prevent_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Turn_Interrupter == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Turn_Interrupter_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Continuous_Turns == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Continuous_Turns_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (TurnManip == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Ally_Turn_Manipulator_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Reviver == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Reviver_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Buff_Extension == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Buff_Extension_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Self_Harm == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Self_Harm_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (BRV_Damage_Resist) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.BRV_Damage_Resist_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Trap == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Trap_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Trap_After_Trigger == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Trap_After_Trigger_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Trap_Before_Turn == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Trap_Before_Turn_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Counter == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Counter_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (FollowUp == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.FollowUp_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (FollowUp_Extension == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.FollowUp_Extension_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (FollowUp_Action_On_Enemy == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.FollowUp_Action_On_Enemy_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (FollowUp_Start_Of_Next == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.FollowUp_Start_Of_Next_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (FollowUp_Before_Player_Turn == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.FollowUp_Before_Player_Turn_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (FollowUp_Before_Ability == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.FollowUp_Before_Ability_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Blind == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Blind_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+                if (Target_Lock == true) {
+                    const filteredout = rawData.filter(
+                        (ef) => ef.Target_Lock_Party == true
+                    );
+                    filterholder.push(...filteredout)
+                }
+            }
 
-        if(condFilter != ""){
-            filterholder = filterholder.filter(
-                (ef)=> ef.chara_id == condFilter
-            );
-        }
+            if (filterholder.length === 0) {
+                filterholder.push(...rawData);
+            }
 
-        const makeUnique = filterholder
-            .filter(onlyUnique)
-            .sort((a, b) => 
-            reverse === false ?
-            a.order - b.order:
-            b.order - a.order
-            );
+            if (condFilter != "") {
+                filterholder = filterholder.filter(
+                    (ef) => ef.chara_id == condFilter
+                );
+            }
+
+            const makeUnique = filterholder
+                .filter(onlyUnique)
+                .sort((a, b) =>
+                    reverse === false ?
+                        a.order - b.order :
+                        b.order - a.order
+                );
             const searchit = searchTerm == "" ? makeUnique : makeUnique.filter((buff) =>
-            (`${buff && buff.name} ${buff && buff.jpname} ${buff && buff.ability_name} ${buff && buff.ability_namegl} - #${buff.id}`).toLowerCase().includes(searchTerm)
+                (`${buff && buff.name} ${buff && buff.jpname} ${buff && buff.ability_name} ${buff && buff.ability_namegl} - #${buff.id}`).toLowerCase().includes(searchTerm)
             );
             setFilterResults(makeUnique);
             setSearchResults(searchit);
@@ -1472,23 +1472,23 @@ const BuffsDirect =({
                 );
             }
         }
-    },[merge,rawData,limits,searchTerm,reverse,condFilter,party,start,Launch_Support,Target_Lock,Blind,BRV_Damage_Resist,HP_Damage_Up, Trap, Trap_After_Trigger, Trap_Before_Turn, Counter, FollowUp, FollowUp_Extension, FollowUp_Action_On_Enemy, FollowUp_Start_Of_Next, FollowUp_Before_Player_Turn, FollowUp_Before_Ability, Self_Harm,Buff_Extension,BRV_Resist_Down,Reviver,aBuff,bstate,buffs,Turn_Interrupter,Continuous_Turns,DMGShield,StackedBuff,StackedBuff5,StackedDebuff,StackedDebuff5,SpecialBuff,burstBuff,calls,debuffs,ex,GoldBuff,fr,ld,s20,starting,Break,BreakCancel,BreakPrevent,BRVCap,BRVFreeze,Gains,Refund,BRVRegen,BRVRetain,StolenBRV,BuffPrevent,CappedBRV,Cleanse,Cover,CriticalUp,CriticalRate,DebuffResist,IgnoreDEF,Delay,Delete,Dispel,ElementalWeak,Fire,Ice,Thunder,Wind,Water,Earth,Holy,Dark,Evade,EXFill,EXRate,FreeUse,FreeTurn,GoldDebuff,AddHP,MAXBRVCap,HPResistUp,HPResistDown,BRVPoison,HPPoison,HPHeal,HPRegen,Disable,FireDown,IceDown,ThunderDown,WindDown,WaterDown,EarthDown,HolyDown,DarkDown,MeleeDown,RangedDown,MagicDown,Instant,LastStand,TurnManip])
+    }, [merge, rawData, limits, searchTerm, reverse, condFilter, party, start, Launch_Support, Target_Lock, Blind, BRV_Damage_Resist, HP_Damage_Up, Trap, Trap_After_Trigger, Trap_Before_Turn, Counter, FollowUp, FollowUp_Extension, FollowUp_Action_On_Enemy, FollowUp_Start_Of_Next, FollowUp_Before_Player_Turn, FollowUp_Before_Ability, Self_Harm, Buff_Extension, BRV_Resist_Down, Reviver, aBuff, bstate, buffs, Turn_Interrupter, Continuous_Turns, DMGShield, StackedBuff, StackedBuff5, StackedDebuff, StackedDebuff5, SpecialBuff, burstBuff, calls, debuffs, ex, GoldBuff, fr, ld, s20, starting, Break, BreakCancel, BreakPrevent, BRVCap, BRVFreeze, Gains, Refund, BRVRegen, BRVRetain, StolenBRV, BuffPrevent, CappedBRV, Cleanse, Cover, CriticalUp, CriticalRate, DebuffResist, IgnoreDEF, Delay, Delete, Dispel, ElementalWeak, Fire, Ice, Thunder, Wind, Water, Earth, Holy, Dark, Evade, EXFill, EXRate, FreeUse, FreeTurn, GoldDebuff, AddHP, MAXBRVCap, HPResistUp, HPResistDown, BRVPoison, HPPoison, HPHeal, HPRegen, Disable, FireDown, IceDown, ThunderDown, WindDown, WaterDown, EarthDown, HolyDown, DarkDown, MeleeDown, RangedDown, MagicDown, Instant, LastStand, TurnManip])
 
     //filter merge
     useEffect(() => {
-        if(merge == true){
+        if (merge == true) {
             const filterholder = [];
             var buff_debuff = undefined
-            if(buffs == true){
+            if (buffs == true) {
                 buff_debuff = 1
             }
-            if(debuffs == true){
-                buff_debuff = "0" 
+            if (debuffs == true) {
+                buff_debuff = "0"
             }
             var charType = {}
-            if(party == false){
+            if (party == false) {
                 charType = {
-                    chara_id: condFilter != "" ? condFilter: undefined,
+                    chara_id: condFilter != "" ? condFilter : undefined,
                     AA: aBuff != true ? undefined : aBuff,
                     state: bstate != true ? undefined : bstate,
                     start: start != true ? undefined : start,
@@ -1500,7 +1500,7 @@ const BuffsDirect =({
                     LF: ld != true ? undefined : ld,
                     S2: s20 != true ? undefined : s20,
                     S1: starting != true ? undefined : starting,
-    
+
                     Force_Break: Break != true ? undefined : Break,
                     Break_Reset: BreakCancel != true ? undefined : BreakCancel,
                     Cannot_Break: BreakPrevent != true ? undefined : BreakPrevent,
@@ -1573,7 +1573,7 @@ const BuffsDirect =({
                     Turn_Interrupter: Turn_Interrupter != true ? undefined : Turn_Interrupter,
                     Continuous_Turns: Continuous_Turns != true ? undefined : Continuous_Turns,
                     Ally_Turn_Manipulator: TurnManip != true ? undefined : TurnManip,
-                    Buff_Extension: Buff_Extension!= true ? undefined : Buff_Extension,
+                    Buff_Extension: Buff_Extension != true ? undefined : Buff_Extension,
                     Self_Harm: Self_Harm != true ? undefined : Self_Harm,
                     BRV_Damage_Resist: BRV_Damage_Resist != true ? undefined : BRV_Damage_Resist,
                     Trap: Trap != true ? undefined : Trap,
@@ -1587,12 +1587,12 @@ const BuffsDirect =({
                     FollowUp_Before_Player_Turn: FollowUp_Before_Player_Turn != true ? undefined : FollowUp_Before_Player_Turn,
                     FollowUp_Before_Ability: FollowUp_Before_Ability != true ? undefined : FollowUp_Before_Ability,
                     Blind: Blind != true ? undefined : Blind,
-                    Target_Lock: Target_Lock !=true ? undefined : Target_Lock,
+                    Target_Lock: Target_Lock != true ? undefined : Target_Lock,
                 }
             }
-            if(party == true){
+            if (party == true) {
                 charType = {
-                    chara_id: condFilter != "" ? condFilter: undefined,
+                    chara_id: condFilter != "" ? condFilter : undefined,
                     AA: aBuff != true ? undefined : aBuff,
                     state: bstate != true ? undefined : bstate,
                     start: start != true ? undefined : start,
@@ -1677,7 +1677,7 @@ const BuffsDirect =({
                     Turn_Interrupter_Party: Turn_Interrupter != true ? undefined : Turn_Interrupter,
                     Continuous_Turns_Party: Continuous_Turns != true ? undefined : Continuous_Turns,
                     Ally_Turn_Manipulator_Party: TurnManip != true ? undefined : TurnManip,
-                    Buff_Extension_Party: Buff_Extension!= true ? undefined : Buff_Extension,
+                    Buff_Extension_Party: Buff_Extension != true ? undefined : Buff_Extension,
                     Self_Harm_Party: Self_Harm != true ? undefined : Self_Harm,
                     BRV_Damage_Resist_Party: BRV_Damage_Resist != true ? undefined : BRV_Damage_Resist,
                     Trap_Party: Trap != true ? undefined : Trap,
@@ -1691,28 +1691,28 @@ const BuffsDirect =({
                     FollowUp_Before_Player_Turn_Party: FollowUp_Before_Player_Turn != true ? undefined : FollowUp_Before_Player_Turn,
                     FollowUp_Before_Ability_Party: FollowUp_Before_Ability != true ? undefined : FollowUp_Before_Ability,
                     Blind_Party: Blind != true ? undefined : Blind,
-                    Target_Lock_Party: Target_Lock !=true ? undefined : Target_Lock,
+                    Target_Lock_Party: Target_Lock != true ? undefined : Target_Lock,
                 }
             }
             const filtermerge = rawData.filter((oneChar) => {
                 return Object.entries(charType)
-                  .filter(entry => entry[1])
-                  .every(([key, value]) => oneChar[key] == value);
-              });
+                    .filter(entry => entry[1])
+                    .every(([key, value]) => oneChar[key] == value);
+            });
 
-              if (filterholder.length === 0) {
+            if (filterholder.length === 0) {
                 filterholder.push(...filtermerge);
-              }
+            }
 
-              const makeUnique = filterholder
-            .filter(onlyUnique)
-            .sort((a, b) => 
-            reverse === false ?
-            a.order - b.order:
-            b.order - a.order
-            );
+            const makeUnique = filterholder
+                .filter(onlyUnique)
+                .sort((a, b) =>
+                    reverse === false ?
+                        a.order - b.order :
+                        b.order - a.order
+                );
             const searchit = searchTerm == "" ? makeUnique : makeUnique.filter((buff) =>
-            (`${buff && buff.name} ${buff && buff.jpname} ${buff && buff.ability_name} ${buff && buff.ability_namegl} - #${buff.id}`).toLowerCase().includes(searchTerm)
+                (`${buff && buff.name} ${buff && buff.jpname} ${buff && buff.ability_name} ${buff && buff.ability_namegl} - #${buff.id}`).toLowerCase().includes(searchTerm)
             );
             setFilterResults(makeUnique);
             setSearchResults(searchit);
@@ -1733,134 +1733,134 @@ const BuffsDirect =({
                 );
             }
         }
-    },[merge,rawData,limits,party,searchTerm,reverse,Blind,condFilter,Target_Lock,start,aBuff,bstate,buffs,Self_Harm,Trap, Trap_After_Trigger, Trap_Before_Turn, Counter, FollowUp, FollowUp_Extension, FollowUp_Action_On_Enemy, FollowUp_Start_Of_Next, FollowUp_Before_Player_Turn, FollowUp_Before_Ability, BRV_Damage_Resist,HP_Damage_Up,Buff_Extension,Reviver,BRV_Resist_Down,Launch_Support,Turn_Interrupter,Continuous_Turns,DMGShield,StackedBuff,StackedBuff5,StackedDebuff,StackedDebuff5,SpecialBuff,burstBuff,calls,debuffs,GoldBuff,ex,fr,ld,s20,starting,Break,BreakCancel,BreakPrevent,BRVCap,BRVFreeze,Gains,Refund,BRVRegen,BRVRetain,StolenBRV,BuffPrevent,CappedBRV,Cleanse,Cover,CriticalUp,CriticalRate,DebuffResist,IgnoreDEF,Delay,Delete,Dispel,ElementalWeak,Fire,Ice,Thunder,Wind,Water,Earth,Holy,Dark,Evade,EXFill,EXRate,FreeUse,FreeTurn,GoldDebuff,AddHP,MAXBRVCap,HPResistUp,HPResistDown,BRVPoison,HPPoison,HPHeal,HPRegen,Disable,FireDown,IceDown,ThunderDown,WindDown,WaterDown,EarthDown,HolyDown,DarkDown,MeleeDown,RangedDown,MagicDown,Instant,LastStand,TurnManip])
-    
+    }, [merge, rawData, limits, party, searchTerm, reverse, Blind, condFilter, Target_Lock, start, aBuff, bstate, buffs, Self_Harm, Trap, Trap_After_Trigger, Trap_Before_Turn, Counter, FollowUp, FollowUp_Extension, FollowUp_Action_On_Enemy, FollowUp_Start_Of_Next, FollowUp_Before_Player_Turn, FollowUp_Before_Ability, BRV_Damage_Resist, HP_Damage_Up, Buff_Extension, Reviver, BRV_Resist_Down, Launch_Support, Turn_Interrupter, Continuous_Turns, DMGShield, StackedBuff, StackedBuff5, StackedDebuff, StackedDebuff5, SpecialBuff, burstBuff, calls, debuffs, GoldBuff, ex, fr, ld, s20, starting, Break, BreakCancel, BreakPrevent, BRVCap, BRVFreeze, Gains, Refund, BRVRegen, BRVRetain, StolenBRV, BuffPrevent, CappedBRV, Cleanse, Cover, CriticalUp, CriticalRate, DebuffResist, IgnoreDEF, Delay, Delete, Dispel, ElementalWeak, Fire, Ice, Thunder, Wind, Water, Earth, Holy, Dark, Evade, EXFill, EXRate, FreeUse, FreeTurn, GoldDebuff, AddHP, MAXBRVCap, HPResistUp, HPResistDown, BRVPoison, HPPoison, HPHeal, HPRegen, Disable, FireDown, IceDown, ThunderDown, WindDown, WaterDown, EarthDown, HolyDown, DarkDown, MeleeDown, RangedDown, MagicDown, Instant, LastStand, TurnManip])
+
     //buttons
     const aBuffbutton = () => {
         if (aBuff == false) {
-        setABuffsearch("true")
+            setABuffsearch("true")
         } else {
-        setABuffsearch("")
+            setABuffsearch("")
         }
         setABuff((prevValue) => !prevValue);
     };
     const burstBuffbutton = () => {
         if (burstBuff == false) {
-        setBurstBuffsearch("true")
+            setBurstBuffsearch("true")
         } else {
-        setBurstBuffsearch("")
+            setBurstBuffsearch("")
         }
         setBurstBuff((prevValue) => !prevValue);
     };
     const callsbutton = () => {
         if (calls == false) {
-        setCallssearch("true")
+            setCallssearch("true")
         } else {
-        setCallssearch("")
+            setCallssearch("")
         }
         setCalls((prevValue) => !prevValue);
     };
     const startingbutton = () => {
         if (starting == false) {
-        setStartingsearch("true")
+            setStartingsearch("true")
         } else {
-        setStartingsearch("")
+            setStartingsearch("")
         }
         setStarting((prevValue) => !prevValue);
     };
     const startbutton = () => {
         if (start == false) {
-        setstartsearch("true")
+            setstartsearch("true")
         } else {
-        setstartsearch("")
+            setstartsearch("")
         }
         setstart((prevValue) => !prevValue);
     };
     const s20button = () => {
         if (s20 == false) {
-        setS20search("true")
+            setS20search("true")
         } else {
-        setS20search("")
+            setS20search("")
         }
         setS20((prevValue) => !prevValue);
     };
     const ldbutton = () => {
         if (ld == false) {
-        setLDsearch("true")
+            setLDsearch("true")
         } else {
-        setLDsearch("")
+            setLDsearch("")
         }
         setLD((prevValue) => !prevValue);
     };
     const frbutton = () => {
         if (fr == false) {
-        setFRsearch("true")
+            setFRsearch("true")
         } else {
-        setFRsearch("")
+            setFRsearch("")
         }
         setFR((prevValue) => !prevValue);
     };
     const exbutton = () => {
         if (ex == false) {
-        setEXsearch("true")
+            setEXsearch("true")
         } else {
-        setEXsearch("")
+            setEXsearch("")
         }
         setEX((prevValue) => !prevValue);
     };
-    const Blindbutton =()=>{
-    if (Blind == false) {
-        setBlindsearch("true")
+    const Blindbutton = () => {
+        if (Blind == false) {
+            setBlindsearch("true")
         } else {
-        setBlindsearch("")
+            setBlindsearch("")
         }
         setBlind((prevValue) => !prevValue);
     }
     const buffsbutton = () => {
         if (buffs == false) {
-          setBuffssearch("true")
-          setDebuffssearch("")
-          setDebuffs(false)
+            setBuffssearch("true")
+            setDebuffssearch("")
+            setDebuffs(false)
         } else {
-          setBuffssearch("")
-          setDebuffssearch("")
+            setBuffssearch("")
+            setDebuffssearch("")
         }
         setBuffs((prevValue) => !prevValue);
-      };
+    };
     const debuffsbutton = () => {
-    if (debuffs == false) {
-        setDebuffssearch("true")
-        setBuffssearch("")
-        setBuffs(false)
-    } else {
-        setDebuffssearch("")
-        setBuffssearch("")
-    }
-    setDebuffs((prevValue) => !prevValue);
+        if (debuffs == false) {
+            setDebuffssearch("true")
+            setBuffssearch("")
+            setBuffs(false)
+        } else {
+            setDebuffssearch("")
+            setBuffssearch("")
+        }
+        setDebuffs((prevValue) => !prevValue);
     };
     const bstatebutton = () => {
         if (bstate == false) {
-          setbstatesearch("true")
+            setbstatesearch("true")
         } else {
-          setbstatesearch("")
+            setbstatesearch("")
         }
         setbstate((prevValue) => !prevValue)
     }
 
     const showfilterbutton = () => {
         if (showFilter == false) {
-          setFiltersearch("true")
+            setFiltersearch("true")
         } else {
-          setFiltersearch("")
+            setFiltersearch("")
         }
         setShowFilter((prevValue) => !prevValue);
     }
 
     const reversebutton = () => {
         if (reverse == false) {
-          setReversesearch("true")
+            setReversesearch("true")
         } else {
-          setReversesearch("")
+            setReversesearch("")
         }
         setLoop(true);
         setReverse((prevValue) => !prevValue);
@@ -1869,720 +1869,720 @@ const BuffsDirect =({
 
     const togglemerge = () => {
         if (merge == false) {
-          setMergesearch("true")
-        } else{
-          setMergesearch("")
+            setMergesearch("true")
+        } else {
+            setMergesearch("")
         }
         setMerge((prevValue) => !prevValue);
-      }
+    }
 
-      const partybutton = () => {
+    const partybutton = () => {
         if (party == false) {
-        setpartysearch("true")
+            setpartysearch("true")
         } else {
-        setpartysearch("")
+            setpartysearch("")
         }
         setparty((prevValue) => !prevValue);
-        };
+    };
 
-      const Breakbutton = () => {
+    const Breakbutton = () => {
         if (Break == false) {
-        setBreaksearch("true")
+            setBreaksearch("true")
         } else {
-        setBreaksearch("")
+            setBreaksearch("")
         }
         setBreak((prevValue) => !prevValue);
-        };
-        const BreakCancelbutton = () => {
+    };
+    const BreakCancelbutton = () => {
         if (BreakCancel == false) {
-        setBreakCancelsearch("true")
+            setBreakCancelsearch("true")
         } else {
-        setBreakCancelsearch("")
+            setBreakCancelsearch("")
         }
         setBreakCancel((prevValue) => !prevValue);
-        };
-        const BreakPreventbutton = () => {
+    };
+    const BreakPreventbutton = () => {
         if (BreakPrevent == false) {
-        setBreakPreventsearch("true")
+            setBreakPreventsearch("true")
         } else {
-        setBreakPreventsearch("")
+            setBreakPreventsearch("")
         }
         setBreakPrevent((prevValue) => !prevValue);
-        };
-        const BRVCapbutton = () => {
+    };
+    const BRVCapbutton = () => {
         if (BRVCap == false) {
-        setBRVCapsearch("true")
+            setBRVCapsearch("true")
         } else {
-        setBRVCapsearch("")
+            setBRVCapsearch("")
         }
         setBRVCap((prevValue) => !prevValue);
-        };
-        const BRVFreezebutton = () => {
+    };
+    const BRVFreezebutton = () => {
         if (BRVFreeze == false) {
-        setBRVFreezesearch("true")
+            setBRVFreezesearch("true")
         } else {
-        setBRVFreezesearch("")
+            setBRVFreezesearch("")
         }
         setBRVFreeze((prevValue) => !prevValue);
-        };
-        const Gainsbutton = () => {
+    };
+    const Gainsbutton = () => {
         if (Gains == false) {
-        setGainssearch("true")
+            setGainssearch("true")
         } else {
-        setGainssearch("")
+            setGainssearch("")
         }
         setGains((prevValue) => !prevValue);
-        };
-        const Launch_Supportbutton = () => {
+    };
+    const Launch_Supportbutton = () => {
         if (Launch_Support == false) {
-        setLaunch_Supportsearch("true")
+            setLaunch_Supportsearch("true")
         } else {
-        setLaunch_Supportsearch("")
+            setLaunch_Supportsearch("")
         }
         setLaunch_Support((prevValue) => !prevValue);
-        };
-        const HP_Damage_Upbutton = () => {
+    };
+    const HP_Damage_Upbutton = () => {
         if (HP_Damage_Up == false) {
-        setHP_Damage_Upsearch("true")
+            setHP_Damage_Upsearch("true")
         } else {
-        setHP_Damage_Upsearch("")
+            setHP_Damage_Upsearch("")
         }
         setHP_Damage_Up((prevValue) => !prevValue);
-        };
-        const Buff_Extensionbutton = () => {
+    };
+    const Buff_Extensionbutton = () => {
         if (Buff_Extension == false) {
-        setBuff_Extensionsearch("true")
+            setBuff_Extensionsearch("true")
         } else {
-        setBuff_Extensionsearch("")
+            setBuff_Extensionsearch("")
         }
         setBuff_Extension((prevValue) => !prevValue);
-        };
-        const Refundbutton = () => {
+    };
+    const Refundbutton = () => {
         if (Refund == false) {
-        setRefundsearch("true")
+            setRefundsearch("true")
         } else {
-        setRefundsearch("")
+            setRefundsearch("")
         }
         setRefund((prevValue) => !prevValue);
-        };
-        const BRVRegenbutton = () => {
+    };
+    const BRVRegenbutton = () => {
         if (BRVRegen == false) {
-        setBRVRegensearch("true")
+            setBRVRegensearch("true")
         } else {
-        setBRVRegensearch("")
+            setBRVRegensearch("")
         }
         setBRVRegen((prevValue) => !prevValue);
-        };
-        const BRVRetainbutton = () => {
+    };
+    const BRVRetainbutton = () => {
         if (BRVRetain == false) {
-        setBRVRetainsearch("true")
+            setBRVRetainsearch("true")
         } else {
-        setBRVRetainsearch("")
+            setBRVRetainsearch("")
         }
         setBRVRetain((prevValue) => !prevValue);
-        };
-        const StolenBRVbutton = () => {
+    };
+    const StolenBRVbutton = () => {
         if (StolenBRV == false) {
-        setStolenBRVsearch("true")
+            setStolenBRVsearch("true")
         } else {
-        setStolenBRVsearch("")
+            setStolenBRVsearch("")
         }
         setStolenBRV((prevValue) => !prevValue);
-        };
-        const BuffPreventbutton = () => {
+    };
+    const BuffPreventbutton = () => {
         if (BuffPrevent == false) {
-        setBuffPreventsearch("true")
+            setBuffPreventsearch("true")
         } else {
-        setBuffPreventsearch("")
+            setBuffPreventsearch("")
         }
         setBuffPrevent((prevValue) => !prevValue);
-        };
-        const CappedBRVbutton = () => {
+    };
+    const CappedBRVbutton = () => {
         if (CappedBRV == false) {
-        setCappedBRVsearch("true")
+            setCappedBRVsearch("true")
         } else {
-        setCappedBRVsearch("")
+            setCappedBRVsearch("")
         }
         setCappedBRV((prevValue) => !prevValue);
-        };
-        const Cleansebutton = () => {
+    };
+    const Cleansebutton = () => {
         if (Cleanse == false) {
-        setCleansesearch("true")
+            setCleansesearch("true")
         } else {
-        setCleansesearch("")
+            setCleansesearch("")
         }
         setCleanse((prevValue) => !prevValue);
-        };
-        const Coverbutton = () => {
+    };
+    const Coverbutton = () => {
         if (Cover == false) {
-        setCoversearch("true")
+            setCoversearch("true")
         } else {
-        setCoversearch("")
+            setCoversearch("")
         }
         setCover((prevValue) => !prevValue);
-        };
-        const CriticalUpbutton = () => {
+    };
+    const CriticalUpbutton = () => {
         if (CriticalUp == false) {
-        setCriticalUpsearch("true")
+            setCriticalUpsearch("true")
         } else {
-        setCriticalUpsearch("")
+            setCriticalUpsearch("")
         }
         setCriticalUp((prevValue) => !prevValue);
-        };
-        const CriticalRatebutton = () => {
+    };
+    const CriticalRatebutton = () => {
         if (CriticalRate == false) {
-        setCriticalRatesearch("true")
+            setCriticalRatesearch("true")
         } else {
-        setCriticalRatesearch("")
+            setCriticalRatesearch("")
         }
         setCriticalRate((prevValue) => !prevValue);
-        };
-        const DebuffResistbutton = () => {
+    };
+    const DebuffResistbutton = () => {
         if (DebuffResist == false) {
-        setDebuffResistsearch("true")
+            setDebuffResistsearch("true")
         } else {
-        setDebuffResistsearch("")
+            setDebuffResistsearch("")
         }
         setDebuffResist((prevValue) => !prevValue);
-        };
-        const IgnoreDEFbutton = () => {
+    };
+    const IgnoreDEFbutton = () => {
         if (IgnoreDEF == false) {
-        setIgnoreDEFsearch("true")
+            setIgnoreDEFsearch("true")
         } else {
-        setIgnoreDEFsearch("")
+            setIgnoreDEFsearch("")
         }
         setIgnoreDEF((prevValue) => !prevValue);
-        };
-        const Delaybutton = () => {
+    };
+    const Delaybutton = () => {
         if (Delay == false) {
-        setDelaysearch("true")
+            setDelaysearch("true")
         } else {
-        setDelaysearch("")
+            setDelaysearch("")
         }
         setDelay((prevValue) => !prevValue);
-        };
-        const Deletebutton = () => {
+    };
+    const Deletebutton = () => {
         if (Delete == false) {
-        setDeletesearch("true")
+            setDeletesearch("true")
         } else {
-        setDeletesearch("")
+            setDeletesearch("")
         }
         setDelete((prevValue) => !prevValue);
-        };
-        const Dispelbutton = () => {
+    };
+    const Dispelbutton = () => {
         if (Dispel == false) {
-        setDispelsearch("true")
+            setDispelsearch("true")
         } else {
-        setDispelsearch("")
+            setDispelsearch("")
         }
         setDispel((prevValue) => !prevValue);
-        };
-        const ElementalWeakbutton = () => {
+    };
+    const ElementalWeakbutton = () => {
         if (ElementalWeak == false) {
-        setElementalWeaksearch("true")
+            setElementalWeaksearch("true")
         } else {
-        setElementalWeaksearch("")
+            setElementalWeaksearch("")
         }
         setElementalWeak((prevValue) => !prevValue);
-        };
-        const Firebutton = () => {
+    };
+    const Firebutton = () => {
         if (Fire == false) {
-        setFiresearch("true")
+            setFiresearch("true")
         } else {
-        setFiresearch("")
+            setFiresearch("")
         }
         setFire((prevValue) => !prevValue);
-        };
-        const Icebutton = () => {
+    };
+    const Icebutton = () => {
         if (Ice == false) {
-        setIcesearch("true")
+            setIcesearch("true")
         } else {
-        setIcesearch("")
+            setIcesearch("")
         }
         setIce((prevValue) => !prevValue);
-        };
-        const Thunderbutton = () => {
+    };
+    const Thunderbutton = () => {
         if (Thunder == false) {
-        setThundersearch("true")
+            setThundersearch("true")
         } else {
-        setThundersearch("")
+            setThundersearch("")
         }
         setThunder((prevValue) => !prevValue);
-        };
-        const Windbutton = () => {
+    };
+    const Windbutton = () => {
         if (Wind == false) {
-        setWindsearch("true")
+            setWindsearch("true")
         } else {
-        setWindsearch("")
+            setWindsearch("")
         }
         setWind((prevValue) => !prevValue);
-        };
-        const Waterbutton = () => {
+    };
+    const Waterbutton = () => {
         if (Water == false) {
-        setWatersearch("true")
+            setWatersearch("true")
         } else {
-        setWatersearch("")
+            setWatersearch("")
         }
         setWater((prevValue) => !prevValue);
-        };
-        const Earthbutton = () => {
+    };
+    const Earthbutton = () => {
         if (Earth == false) {
-        setEarthsearch("true")
+            setEarthsearch("true")
         } else {
-        setEarthsearch("")
+            setEarthsearch("")
         }
         setEarth((prevValue) => !prevValue);
-        };
-        const Holybutton = () => {
+    };
+    const Holybutton = () => {
         if (Holy == false) {
-        setHolysearch("true")
+            setHolysearch("true")
         } else {
-        setHolysearch("")
+            setHolysearch("")
         }
         setHoly((prevValue) => !prevValue);
-        };
-        const Darkbutton = () => {
+    };
+    const Darkbutton = () => {
         if (Dark == false) {
-        setDarksearch("true")
+            setDarksearch("true")
         } else {
-        setDarksearch("")
+            setDarksearch("")
         }
         setDark((prevValue) => !prevValue);
-        };
-        const Evadebutton = () => {
+    };
+    const Evadebutton = () => {
         if (Evade == false) {
-        setEvadesearch("true")
+            setEvadesearch("true")
         } else {
-        setEvadesearch("")
+            setEvadesearch("")
         }
         setEvade((prevValue) => !prevValue);
-        };
-        const EXFillbutton = () => {
+    };
+    const EXFillbutton = () => {
         if (EXFill == false) {
-        setEXFillsearch("true")
+            setEXFillsearch("true")
         } else {
-        setEXFillsearch("")
+            setEXFillsearch("")
         }
         setEXFill((prevValue) => !prevValue);
-        };
-        const EXRatebutton = () => {
+    };
+    const EXRatebutton = () => {
         if (EXRate == false) {
-        setEXRatesearch("true")
+            setEXRatesearch("true")
         } else {
-        setEXRatesearch("")
+            setEXRatesearch("")
         }
         setEXRate((prevValue) => !prevValue);
-        };
-        const FreeUsebutton = () => {
+    };
+    const FreeUsebutton = () => {
         if (FreeUse == false) {
-        setFreeUsesearch("true")
+            setFreeUsesearch("true")
         } else {
-        setFreeUsesearch("")
+            setFreeUsesearch("")
         }
         setFreeUse((prevValue) => !prevValue);
-        };
-        const FreeTurnbutton = () => {
+    };
+    const FreeTurnbutton = () => {
         if (FreeTurn == false) {
-        setFreeTurnsearch("true")
+            setFreeTurnsearch("true")
         } else {
-        setFreeTurnsearch("")
+            setFreeTurnsearch("")
         }
         setFreeTurn((prevValue) => !prevValue);
-        };
-        const GoldDebuffbutton = () => {
+    };
+    const GoldDebuffbutton = () => {
         if (GoldDebuff == false) {
-        setGoldDebuffsearch("true")
+            setGoldDebuffsearch("true")
         } else {
-        setGoldDebuffsearch("")
+            setGoldDebuffsearch("")
         }
         setGoldDebuff((prevValue) => !prevValue);
-        };
-        const Reviverbutton=()=>{
+    };
+    const Reviverbutton = () => {
         if (Reviver == false) {
-        setReviversearch("true")
+            setReviversearch("true")
         } else {
-        setReviversearch("")
+            setReviversearch("")
         }
         setReviver((prevValue) => !prevValue);
-        }
-        const StackedBuffbutton = () => {
+    }
+    const StackedBuffbutton = () => {
         if (StackedBuff == false) {
-        setStackedBuffsearch("true")
+            setStackedBuffsearch("true")
         } else {
-        setStackedBuffsearch("")
+            setStackedBuffsearch("")
         }
         setStackedBuff((prevValue) => !prevValue);
-        };
-        const StackedBuff5button = () => {
+    };
+    const StackedBuff5button = () => {
         if (StackedBuff5 == false) {
-        setStackedBuff5search("true")
+            setStackedBuff5search("true")
         } else {
-        setStackedBuff5search("")
+            setStackedBuff5search("")
         }
         setStackedBuff5((prevValue) => !prevValue);
-        };
-        const StackedDebuffbutton = () => {
+    };
+    const StackedDebuffbutton = () => {
         if (StackedDebuff == false) {
-        setStackedDebuffsearch("true")
+            setStackedDebuffsearch("true")
         } else {
-        setStackedDebuffsearch("")
+            setStackedDebuffsearch("")
         }
         setStackedDebuff((prevValue) => !prevValue);
-        };
-        const StackedDebuff5button = () => {
+    };
+    const StackedDebuff5button = () => {
         if (StackedDebuff5 == false) {
-        setStackedDebuff5search("true")
+            setStackedDebuff5search("true")
         } else {
-        setStackedDebuff5search("")
+            setStackedDebuff5search("")
         }
         setStackedDebuff5((prevValue) => !prevValue);
-        };
-        const GoldBuffbutton = () => {
+    };
+    const GoldBuffbutton = () => {
         if (GoldBuff == false) {
-        setGoldBuffsearch("true")
+            setGoldBuffsearch("true")
         } else {
-        setGoldBuffsearch("")
+            setGoldBuffsearch("")
         }
         setGoldBuff((prevValue) => !prevValue);
-        };
-        const SpecialBuffbutton = () => {
+    };
+    const SpecialBuffbutton = () => {
         if (SpecialBuff == false) {
-        setSpecialBuffsearch("true")
+            setSpecialBuffsearch("true")
         } else {
-        setSpecialBuffsearch("")
+            setSpecialBuffsearch("")
         }
         setSpecialBuff((prevValue) => !prevValue);
-        };
-        const DMGShieldbutton = () => {
+    };
+    const DMGShieldbutton = () => {
         if (DMGShield == false) {
-        setDMGShieldsearch("true")
+            setDMGShieldsearch("true")
         } else {
-        setDMGShieldsearch("")
+            setDMGShieldsearch("")
         }
         setDMGShield((prevValue) => !prevValue);
-        };
-        const AddHPbutton = () => {
+    };
+    const AddHPbutton = () => {
         if (AddHP == false) {
-        setAddHPsearch("true")
+            setAddHPsearch("true")
         } else {
-        setAddHPsearch("")
+            setAddHPsearch("")
         }
         setAddHP((prevValue) => !prevValue);
-        };
-        const MAXBRVCapbutton = () => {
+    };
+    const MAXBRVCapbutton = () => {
         if (MAXBRVCap == false) {
-        setMAXBRVCapsearch("true")
+            setMAXBRVCapsearch("true")
         } else {
-        setMAXBRVCapsearch("")
+            setMAXBRVCapsearch("")
         }
         setMAXBRVCap((prevValue) => !prevValue);
-        };
-        const HPResistUpbutton = () => {
+    };
+    const HPResistUpbutton = () => {
         if (HPResistUp == false) {
-        setHPResistUpsearch("true")
+            setHPResistUpsearch("true")
         } else {
-        setHPResistUpsearch("")
+            setHPResistUpsearch("")
         }
         setHPResistUp((prevValue) => !prevValue);
-        };
-        const HPResistDownbutton = () => {
+    };
+    const HPResistDownbutton = () => {
         if (HPResistDown == false) {
-        setHPResistDownsearch("true")
+            setHPResistDownsearch("true")
         } else {
-        setHPResistDownsearch("")
+            setHPResistDownsearch("")
         }
         setHPResistDown((prevValue) => !prevValue);
-        };
-        const BRV_Resist_Downbutton = () => {
+    };
+    const BRV_Resist_Downbutton = () => {
         if (BRV_Resist_Down == false) {
-        setBRV_Resist_Downsearch("true")
+            setBRV_Resist_Downsearch("true")
         } else {
-        setBRV_Resist_Downsearch("")
+            setBRV_Resist_Downsearch("")
         }
         setBRV_Resist_Down((prevValue) => !prevValue);
-        };
-        const BRV_Damage_Resistbutton = () => {
+    };
+    const BRV_Damage_Resistbutton = () => {
         if (BRV_Damage_Resist == false) {
-        setBRV_Damage_Resistsearch("true")
+            setBRV_Damage_Resistsearch("true")
         } else {
-        setBRV_Damage_Resistsearch("")
+            setBRV_Damage_Resistsearch("")
         }
         setBRV_Damage_Resist((prevValue) => !prevValue);
-        };
-        const BRVPoisonbutton = () => {
+    };
+    const BRVPoisonbutton = () => {
         if (BRVPoison == false) {
-        setBRVPoisonsearch("true")
+            setBRVPoisonsearch("true")
         } else {
-        setBRVPoisonsearch("")
+            setBRVPoisonsearch("")
         }
         setBRVPoison((prevValue) => !prevValue);
-        };
-        const HPPoisonbutton = () => {
+    };
+    const HPPoisonbutton = () => {
         if (HPPoison == false) {
-        setHPPoisonsearch("true")
+            setHPPoisonsearch("true")
         } else {
-        setHPPoisonsearch("")
+            setHPPoisonsearch("")
         }
         setHPPoison((prevValue) => !prevValue);
-        };
-        const HPHealbutton = () => {
+    };
+    const HPHealbutton = () => {
         if (HPHeal == false) {
-        setHPHealsearch("true")
+            setHPHealsearch("true")
         } else {
-        setHPHealsearch("")
+            setHPHealsearch("")
         }
         setHPHeal((prevValue) => !prevValue);
-        };
-        const HPRegenbutton = () => {
+    };
+    const HPRegenbutton = () => {
         if (HPRegen == false) {
-        setHPRegensearch("true")
+            setHPRegensearch("true")
         } else {
-        setHPRegensearch("")
+            setHPRegensearch("")
         }
         setHPRegen((prevValue) => !prevValue);
-        };
-        const Disablebutton = () => {
+    };
+    const Disablebutton = () => {
         if (Disable == false) {
-        setDisablesearch("true")
+            setDisablesearch("true")
         } else {
-        setDisablesearch("")
+            setDisablesearch("")
         }
         setDisable((prevValue) => !prevValue);
-        };
-        const FireDownbutton = () => {
+    };
+    const FireDownbutton = () => {
         if (FireDown == false) {
-        setFireDownsearch("true")
+            setFireDownsearch("true")
         } else {
-        setFireDownsearch("")
+            setFireDownsearch("")
         }
         setFireDown((prevValue) => !prevValue);
-        };
-        const IceDownbutton = () => {
+    };
+    const IceDownbutton = () => {
         if (IceDown == false) {
-        setIceDownsearch("true")
+            setIceDownsearch("true")
         } else {
-        setIceDownsearch("")
+            setIceDownsearch("")
         }
         setIceDown((prevValue) => !prevValue);
-        };
-        const ThunderDownbutton = () => {
+    };
+    const ThunderDownbutton = () => {
         if (ThunderDown == false) {
-        setThunderDownsearch("true")
+            setThunderDownsearch("true")
         } else {
-        setThunderDownsearch("")
+            setThunderDownsearch("")
         }
         setThunderDown((prevValue) => !prevValue);
-        };
-        const WindDownbutton = () => {
+    };
+    const WindDownbutton = () => {
         if (WindDown == false) {
-        setWindDownsearch("true")
+            setWindDownsearch("true")
         } else {
-        setWindDownsearch("")
+            setWindDownsearch("")
         }
         setWindDown((prevValue) => !prevValue);
-        };
-        const WaterDownbutton = () => {
+    };
+    const WaterDownbutton = () => {
         if (WaterDown == false) {
-        setWaterDownsearch("true")
+            setWaterDownsearch("true")
         } else {
-        setWaterDownsearch("")
+            setWaterDownsearch("")
         }
         setWaterDown((prevValue) => !prevValue);
-        };
-        const EarthDownbutton = () => {
+    };
+    const EarthDownbutton = () => {
         if (EarthDown == false) {
-        setEarthDownsearch("true")
+            setEarthDownsearch("true")
         } else {
-        setEarthDownsearch("")
+            setEarthDownsearch("")
         }
         setEarthDown((prevValue) => !prevValue);
-        };
-        const HolyDownbutton = () => {
+    };
+    const HolyDownbutton = () => {
         if (HolyDown == false) {
-        setHolyDownsearch("true")
+            setHolyDownsearch("true")
         } else {
-        setHolyDownsearch("")
+            setHolyDownsearch("")
         }
         setHolyDown((prevValue) => !prevValue);
-        };
-        const DarkDownbutton = () => {
+    };
+    const DarkDownbutton = () => {
         if (DarkDown == false) {
-        setDarkDownsearch("true")
+            setDarkDownsearch("true")
         } else {
-        setDarkDownsearch("")
+            setDarkDownsearch("")
         }
         setDarkDown((prevValue) => !prevValue);
-        };
-        const MeleeDownbutton = () => {
+    };
+    const MeleeDownbutton = () => {
         if (MeleeDown == false) {
-        setMeleeDownsearch("true")
+            setMeleeDownsearch("true")
         } else {
-        setMeleeDownsearch("")
+            setMeleeDownsearch("")
         }
         setMeleeDown((prevValue) => !prevValue);
-        };
-        const RangedDownbutton = () => {
+    };
+    const RangedDownbutton = () => {
         if (RangedDown == false) {
-        setRangedDownsearch("true")
+            setRangedDownsearch("true")
         } else {
-        setRangedDownsearch("")
+            setRangedDownsearch("")
         }
         setRangedDown((prevValue) => !prevValue);
-        };
-        const MagicDownbutton = () => {
+    };
+    const MagicDownbutton = () => {
         if (MagicDown == false) {
-        setMagicDownsearch("true")
+            setMagicDownsearch("true")
         } else {
-        setMagicDownsearch("")
+            setMagicDownsearch("")
         }
         setMagicDown((prevValue) => !prevValue);
-        };
-        const Instantbutton = () => {
+    };
+    const Instantbutton = () => {
         if (Instant == false) {
-        setInstantsearch("true")
+            setInstantsearch("true")
         } else {
-        setInstantsearch("")
+            setInstantsearch("")
         }
         setInstant((prevValue) => !prevValue);
-        };
-        const LastStandbutton = () => {
+    };
+    const LastStandbutton = () => {
         if (LastStand == false) {
-        setLastStandsearch("true")
+            setLastStandsearch("true")
         } else {
-        setLastStandsearch("")
+            setLastStandsearch("")
         }
         setLastStand((prevValue) => !prevValue);
-        };
-        const Turn_Interrupterbutton = () => {
+    };
+    const Turn_Interrupterbutton = () => {
         if (Turn_Interrupter == false) {
-        setTurn_Interruptersearch("true")
+            setTurn_Interruptersearch("true")
         } else {
-        setTurn_Interruptersearch("")
+            setTurn_Interruptersearch("")
         }
         setTurn_Interrupter((prevValue) => !prevValue);
-        };
-        const Continuous_Turnsbutton = () => {
+    };
+    const Continuous_Turnsbutton = () => {
         if (Continuous_Turns == false) {
-        setContinuous_Turnssearch("true")
+            setContinuous_Turnssearch("true")
         } else {
-        setContinuous_Turnssearch("")
+            setContinuous_Turnssearch("")
         }
         setContinuous_Turns((prevValue) => !prevValue);
-        };
-        const Self_Harmbutton = () => {
+    };
+    const Self_Harmbutton = () => {
         if (Self_Harm == false) {
-        setSelf_Harmsearch("true")
+            setSelf_Harmsearch("true")
         } else {
-        setSelf_Harmsearch("")
+            setSelf_Harmsearch("")
         }
         setSelf_Harm((prevValue) => !prevValue);
-        };
-        const TurnManipbutton = () => {
+    };
+    const TurnManipbutton = () => {
         if (TurnManip == false) {
-        setTurnManipsearch("true")
+            setTurnManipsearch("true")
         } else {
-        setTurnManipsearch("")
+            setTurnManipsearch("")
         }
         setTurnManip((prevValue) => !prevValue);
-        };
-        const Trapbutton=()=>{
-            if(Trap == false){
-                setTrapsearch("true")
-            } else {
-                setTrapsearch("")
-            }
-            setTrap((prevValue) => !prevValue)
+    };
+    const Trapbutton = () => {
+        if (Trap == false) {
+            setTrapsearch("true")
+        } else {
+            setTrapsearch("")
         }
-        const Trap_After_Triggerbutton=()=>{
-            if(Trap_After_Trigger == false){
-                setTrap_After_Triggersearch("true")
-            } else {
-                setTrap_After_Triggersearch("")
-            }
-            setTrap_After_Trigger((prevValue) => !prevValue)
+        setTrap((prevValue) => !prevValue)
+    }
+    const Trap_After_Triggerbutton = () => {
+        if (Trap_After_Trigger == false) {
+            setTrap_After_Triggersearch("true")
+        } else {
+            setTrap_After_Triggersearch("")
         }
-        const Trap_Before_Turnbutton=()=>{
-            if(Trap_Before_Turn == false){
-                setTrap_Before_Turnsearch("true")
-            } else {
-                setTrap_Before_Turnsearch("")
-            }
-            setTrap_Before_Turn((prevValue) => !prevValue)
+        setTrap_After_Trigger((prevValue) => !prevValue)
+    }
+    const Trap_Before_Turnbutton = () => {
+        if (Trap_Before_Turn == false) {
+            setTrap_Before_Turnsearch("true")
+        } else {
+            setTrap_Before_Turnsearch("")
         }
-        const Counterbutton=()=>{
-            if(Counter == false){
-                setCountersearch("true")
-            } else {
-                setCountersearch("")
-            }
-            setCounter((prevValue) => !prevValue)
+        setTrap_Before_Turn((prevValue) => !prevValue)
+    }
+    const Counterbutton = () => {
+        if (Counter == false) {
+            setCountersearch("true")
+        } else {
+            setCountersearch("")
         }
-        const FollowUpbutton=()=>{
-            if(FollowUp == false){
-                setFollowUpsearch("true")
-            } else {
-                setFollowUpsearch("")
-            }
-            setFollowUp((prevValue) => !prevValue)
+        setCounter((prevValue) => !prevValue)
+    }
+    const FollowUpbutton = () => {
+        if (FollowUp == false) {
+            setFollowUpsearch("true")
+        } else {
+            setFollowUpsearch("")
         }
-        const FollowUp_Extensionbutton=()=>{
-            if(FollowUp_Extension == false){
-                setFollowUp_Extensionsearch("true")
-            } else {
-                setFollowUp_Extensionsearch("")
-            }
-            setFollowUp_Extension((prevValue) => !prevValue)
+        setFollowUp((prevValue) => !prevValue)
+    }
+    const FollowUp_Extensionbutton = () => {
+        if (FollowUp_Extension == false) {
+            setFollowUp_Extensionsearch("true")
+        } else {
+            setFollowUp_Extensionsearch("")
         }
-        const FollowUp_Action_On_Enemybutton=()=>{
-            if(FollowUp_Action_On_Enemy == false){
-                setFollowUp_Action_On_Enemysearch("true")
-            } else {
-                setFollowUp_Action_On_Enemysearch("")
-            }
-            setFollowUp_Action_On_Enemy((prevValue) => !prevValue)
+        setFollowUp_Extension((prevValue) => !prevValue)
+    }
+    const FollowUp_Action_On_Enemybutton = () => {
+        if (FollowUp_Action_On_Enemy == false) {
+            setFollowUp_Action_On_Enemysearch("true")
+        } else {
+            setFollowUp_Action_On_Enemysearch("")
         }
-        const FollowUp_Start_Of_Nextbutton=()=>{
-            if(FollowUp_Start_Of_Next == false){
-                setFollowUp_Start_Of_Nextsearch("true")
-            } else {
-                setFollowUp_Start_Of_Nextsearch("")
-            }
-            setFollowUp_Start_Of_Next((prevValue) => !prevValue)
+        setFollowUp_Action_On_Enemy((prevValue) => !prevValue)
+    }
+    const FollowUp_Start_Of_Nextbutton = () => {
+        if (FollowUp_Start_Of_Next == false) {
+            setFollowUp_Start_Of_Nextsearch("true")
+        } else {
+            setFollowUp_Start_Of_Nextsearch("")
         }
-        const FollowUp_Before_Player_Turnbutton=()=>{
-            if(FollowUp_Before_Player_Turn == false){
-                setFollowUp_Before_Player_Turnsearch("true")
-            } else {
-                setFollowUp_Before_Player_Turnsearch("")
-            }
-            setFollowUp_Before_Player_Turn((prevValue) => !prevValue)
+        setFollowUp_Start_Of_Next((prevValue) => !prevValue)
+    }
+    const FollowUp_Before_Player_Turnbutton = () => {
+        if (FollowUp_Before_Player_Turn == false) {
+            setFollowUp_Before_Player_Turnsearch("true")
+        } else {
+            setFollowUp_Before_Player_Turnsearch("")
         }
-        const FollowUp_Before_Abilitybutton=()=>{
-            if(FollowUp_Before_Ability == false){
-                setFollowUp_Before_Abilitysearch("true")
-            } else {
-                setFollowUp_Before_Abilitysearch("")
-            }
-            setFollowUp_Before_Ability((prevValue) => !prevValue)
+        setFollowUp_Before_Player_Turn((prevValue) => !prevValue)
+    }
+    const FollowUp_Before_Abilitybutton = () => {
+        if (FollowUp_Before_Ability == false) {
+            setFollowUp_Before_Abilitysearch("true")
+        } else {
+            setFollowUp_Before_Abilitysearch("")
         }
+        setFollowUp_Before_Ability((prevValue) => !prevValue)
+    }
 
-        const Target_Lockbutton =()=>{
-            if(Target_Lock == false){
-                setTarget_Locksearch("true")
-            } else {
-                setTarget_Locksearch("")
-            }
-            setTarget_Lock((prevValue) => !prevValue)
+    const Target_Lockbutton = () => {
+        if (Target_Lock == false) {
+            setTarget_Locksearch("true")
+        } else {
+            setTarget_Locksearch("")
         }
+        setTarget_Lock((prevValue) => !prevValue)
+    }
 
     //type selector
     const CondSelect = (e) => {
         if (e !== null) {
-          setTypesearch(e.value)
-          setCondFilter(e.id);
+            setTypesearch(e.value)
+            setCondFilter(e.id);
         } else {
-          setCondFilter("");
-          setTypesearch("")
+            setCondFilter("");
+            setTypesearch("")
         }
     };
 
@@ -2591,17 +2591,17 @@ const BuffsDirect =({
         const newlimits = limits + startinglimit;
         const newLoadMore = searchResults.length > newlimits;
         const newlistdisplay = listDisplay.concat(
-        searchResults.slice(limits, newlimits)
+            searchResults.slice(limits, newlimits)
         );
         setLimits(newlimits);
         if (newlimits <= newlistdisplay.length) {
-        setDisplayBanner(
-            <>Displaying <span className="subtextgold">{newlimits}</span> of <span className="subtextgold"> {searchResults.length}</span> {banerDisplayTerm}</>
-        );
+            setDisplayBanner(
+                <>Displaying <span className="subtextgold">{newlimits}</span> of <span className="subtextgold"> {searchResults.length}</span> {banerDisplayTerm}</>
+            );
         } else {
-        setDisplayBanner(
-            <>Displaying <span className="subtextgold">{searchResults.length}</span> of <span className="subtextgold"> {searchResults.length}</span> {banerDisplayTerm}</>
-        );
+            setDisplayBanner(
+                <>Displaying <span className="subtextgold">{searchResults.length}</span> of <span className="subtextgold"> {searchResults.length}</span> {banerDisplayTerm}</>
+            );
         }
         setShowLoadMore(newLoadMore);
         setListDisplay(newlistdisplay);
@@ -2609,11 +2609,11 @@ const BuffsDirect =({
     };
 
     //type list
-    const typeListArray = Object.values(char_id).filter(self=>ver=="JP"? self.JPOrder != undefined : self.GLOrder != undefined).sort((a,b)=>ver=="JP"? b.JPOrder - a.JPOrder : b.GLOrder - a.GLOrder).map((typeListUnique) => ({
+    const typeListArray = Object.values(char_id).filter(self => ver == "JP" ? self.JPOrder != undefined : self.GLOrder != undefined).sort((a, b) => ver == "JP" ? b.JPOrder - a.JPOrder : b.GLOrder - a.GLOrder).map((typeListUnique) => ({
         value: typeListUnique.name,
         label: typeListUnique.name,
         id: typeListUnique.id,
-      }));
+    }));
 
     //search bar
     const handleChange = (e) => {
@@ -2623,8 +2623,8 @@ const BuffsDirect =({
     };
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
-        setSearchTerm(searchdisplay.toLowerCase());
-        setTEXTsearch(searchdisplay)
+            setSearchTerm(searchdisplay.toLowerCase());
+            setTEXTsearch(searchdisplay)
         }
     }
     const clearSearch = () => {
@@ -2633,9 +2633,9 @@ const BuffsDirect =({
         setTEXTsearch("")
     };
 
-      const resetbutton = () =>{
+    const resetbutton = () => {
         setclearFilter(true);
-        setReverse(false)    
+        setReverse(false)
         setReversesearch("")
         setTEXTsearch("")
         setsearchdisplay("");
@@ -2847,569 +2847,569 @@ const BuffsDirect =({
         setpartysearch("")
         setMerge(false)
         setMergesearch("")
-    
-        setTimeout(() => setclearFilter(false), 1000);
-      }
 
-      const listBuff = listDisplay;
+        setTimeout(() => setclearFilter(false), 1000);
+    }
+
+    const listBuff = listDisplay;
 
     const dispatch = useDispatch();
 
-    const jptoggledata = useSelector((state) => 
+    const jptoggledata = useSelector((state) =>
         state.toggle.toggle
-        );
+    );
 
     const [jponly, setJPonly] = useStateIfMounted(jptoggledata);
     const [JPsearch, setJPSearch] = useQueryParam("JP", "");
 
     useEffect(() => {
-    if(getQueryStringVal("JP") == "true" ){
-        dispatch(setTrue())
-        setJPSearch("true")
-        setJPonly(true)
-    } else {
-        dispatch(setFalse())
-        setJPSearch("")
-        setJPonly(false)
-    }
+        if (getQueryStringVal("JP") == "true") {
+            dispatch(setTrue())
+            setJPSearch("true")
+            setJPonly(true)
+        } else {
+            dispatch(setFalse())
+            setJPSearch("")
+            setJPonly(false)
+        }
 
-    },[setJPSearch,dispatch,setJPonly])
+    }, [setJPSearch, dispatch, setJPonly])
 
     const jponlybutton = () => {
         if (jponly == false) {
-          dispatch(setTrue())
-          setJPSearch("true")
-          setJPonly(true);
+            dispatch(setTrue())
+            setJPSearch("true")
+            setJPonly(true);
         } else {
-          dispatch(setFalse())
-          setJPSearch("")
-          setJPonly(false);
+            dispatch(setFalse())
+            setJPSearch("")
+            setJPonly(false);
         }
-      };
+    };
 
-      const setGLbutton = () => {
+    const setGLbutton = () => {
         if (jponly == true) {
-          dispatch(setFalse())
-          setJPSearch("")
-          setJPonly(false);
+            dispatch(setFalse())
+            setJPSearch("")
+            setJPonly(false);
         }
-      };
+    };
 
-      const setJPbutton = () => {
+    const setJPbutton = () => {
         if (jponly == false) {
-          dispatch(setTrue())
-          setJPSearch("true")
-          setJPonly(true);
-        } 
-      };
+            dispatch(setTrue())
+            setJPSearch("true")
+            setJPonly(true);
+        }
+    };
 
-    return(
+    return (
         <div>
-        <Helmet>
-          <title>Buffs - Dissidia Compendium</title>
-          <meta property="og:site_name" content="Dissidia Compendium"/>
-          <meta property="og:type" content="website" />
-          <meta name="description" content="Buffs Search"/>
-          <meta name="twitter:title" content="Buffs Search"/>
-          <meta name="twitter:description" content="Buffs Search"/>
-          <meta property="og:title" content="Buffs Search"/>
-          <meta property="og:description" content="Buffs Search"/>
-          <meta property="og:url" content="https://dissidiacompendium.com/search/buffs"/>
-        </Helmet>
+            <Helmet>
+                <title>Buffs - Dissidia Compendium</title>
+                <meta property="og:site_name" content="Dissidia Compendium" />
+                <meta property="og:type" content="website" />
+                <meta name="description" content="Buffs Search" />
+                <meta name="twitter:title" content="Buffs Search" />
+                <meta name="twitter:description" content="Buffs Search" />
+                <meta property="og:title" content="Buffs Search" />
+                <meta property="og:description" content="Buffs Search" />
+                <meta property="og:url" content="https://dissidiacompendium.com/search/buffs" />
+            </Helmet>
             <div className="content">
-            <h1>{`${jptoggledata == false ? "GL" : "JP"} Buffs & Debuffs`}</h1>
-              <div className="subheader">
-              Use filters to limit returns
-            </div>
-              <div className="charfilterspacer"/>
-             <div key="filter1" onClick={showfilterbutton} className="charfilter"><span className="filterstext"></span>{showFilter ? <TiArrowSortedUp className="uparrow"/> : <TiArrowSortedDown className="downarrow"/>}</div>
-              {showFilter == false ? 
-              <div className="event-search-reverse-holder">
-                 <span className={`${jponly ? "jponlybackground" : "GLonlybackground"}`}>
-                 <Tippy content={`${jponly == true? "Switch to GL" : "Switch to JP"}`} className="tooltip" >
-                <span onClick={jponlybutton} className={`${jponly ? "jpflage jpsmallinactive smalleventbutton" : "glflage smalleventbutton"}`}/>
-                </Tippy>
-                </span>
-                <IoSearch className="searchicon"/>
-              <div className="search-holder el">
-                <input 
-                    className="char-search-bar" 
-                    type="text"
-                    placeholder="Search"
-                    value={searchdisplay}
-                    onChange={handleChange}
-                    onKeyDown={handleKeyDown}
-                />
-                {searchTerm === "" ? "" : 
-                <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
+                <h1>{`${jptoggledata == false ? "GL" : "JP"} Buffs & Debuffs`}</h1>
+                <div className="subheader">
+                    Use filters to limit returns
                 </div>
-                </div>
-              :""
-              }
+                <div className="charfilterspacer" />
+                <div key="filter1" onClick={showfilterbutton} className="charfilter"><span className="filterstext"></span>{showFilter ? <TiArrowSortedUp className="uparrow" /> : <TiArrowSortedDown className="downarrow" />}</div>
+                {showFilter == false ?
+                    <div className="event-search-reverse-holder">
+                        <span className={`${jponly ? "jponlybackground" : "GLonlybackground"}`}>
+                            <Tippy content={`${jponly == true ? "Switch to GL" : "Switch to JP"}`} className="tooltip" >
+                                <span onClick={jponlybutton} className={`${jponly ? "jpflage jpsmallinactive smalleventbutton" : "glflage smalleventbutton"}`} />
+                            </Tippy>
+                        </span>
+                        <IoSearch className="searchicon" />
+                        <div className="search-holder el">
+                            <input
+                                className="char-search-bar"
+                                type="text"
+                                placeholder="Search"
+                                value={searchdisplay}
+                                onChange={handleChange}
+                                onKeyDown={handleKeyDown}
+                            />
+                            {searchTerm === "" ? "" :
+                                <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
+                        </div>
+                    </div>
+                    : ""
+                }
                 <div className="filterholder noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
-                  <div className="similarbanner">Ability Line</div>
-                  <div className="filterholderflair">
-                    <ul className="bufftypes">
-                      <Tippy content="Burst Line Casts">
-                      <li className={`${burstBuff ? "filteractive": "filterinactive"} buffbutton burstButton`} onClick={burstBuffbutton}></li>
-                      </Tippy>
-                      <Tippy content="FR Line Casts">
-                      <li className={`${fr ? "filteractive": "filterinactive"} buffbutton frbutton`} onClick={frbutton}></li>
-                      </Tippy>
-                      <Tippy content="Calls Line Casts">
-                      <li className={`${calls ? "filteractive": "filterinactive"} buffbutton callsButton`} onClick={callsbutton}></li>
-                      </Tippy>
-                      <Tippy content="LD Line Casts">
-                      <li className={`${ld ? "filteractive": "filterinactive"} buffbutton ldButton`} onClick={ldbutton}></li>
-                      </Tippy>
-                      <Tippy content="EX Line Casts">
-                      <li className={`${ex ? "filteractive": "filterinactive"} buffbutton exButton`} onClick={exbutton}></li>
-                      </Tippy>
-                      <Tippy content="AA Line Casts">
-                      <li className={`${aBuff ? "filteractive": "filterinactive"} buffbutton abuffButton`} onClick={aBuffbutton}></li>
-                      </Tippy>
-                      <Tippy content="Second Skill Line Casts">
-                      <li className={`${s20 ? "filteractive": "filterinactive"} buffbutton s20Button`} onClick={s20button}></li>
-                      </Tippy>
-                      <Tippy content="Starting Skill Line Casts">
-                      <li className={`${starting ? "filteractive": "filterinactive"} buffbutton startingButton`} onClick={startingbutton}></li>
-                      </Tippy>
-                      <br/>
-                        <Tippy content="Quest Starting Casts">
-                            <li className={`${start ? "filteractive": "filterinactive"} buffbutton startbutton`} onClick={startbutton}></li>
-                        </Tippy>
-                        <Tippy content="State Buffs">
-                            <li className={`${bstate ? "filteractive": "filterinactive"} buffbutton bstateButton`} onClick={bstatebutton}></li>
-                        </Tippy>
-                    </ul>
-                    <div className="similarbanner">Attacking</div>
-                    <ul className="characterclasses">
-                        <Tippy content={ailment_tags[`Melee_Imperil`].name}>
-                            <li className={`${MeleeDown ? "filteractive": "filterinactive"} spheresbutton`} onClick={MeleeDownbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Melee_Imperil`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Ranged_Imperil`].name}>
-                            <li className={`${RangedDown ? "filteractive": "filterinactive"} spheresbutton`} onClick={RangedDownbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Ranged_Imperil`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Magic_Imperil`].name}>
-                            <li className={`${MagicDown ? "filteractive": "filterinactive"} spheresbutton`} onClick={MagicDownbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Magic_Imperil`].url}.png)`}}></li>
-                        </Tippy>
-                        <br/>
-                        <Tippy content={ailment_tags[`Fire_Enchant`].name}>
-                            <li className={`${Fire ? "filteractive": "filterinactive"} spheresbutton`} onClick={Firebutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Fire_Enchant`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Ice_Enchant`].name}>
-                            <li className={`${Ice ? "filteractive": "filterinactive"} spheresbutton`} onClick={Icebutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Ice_Enchant`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Thunder_Enchant`].name}>
-                            <li className={`${Thunder ? "filteractive": "filterinactive"} spheresbutton`} onClick={Thunderbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Thunder_Enchant`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Wind_Enchant`].name}>
-                            <li className={`${Wind ? "filteractive": "filterinactive"} spheresbutton`} onClick={Windbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Wind_Enchant`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Water_Enchant`].name}>
-                            <li className={`${Water ? "filteractive": "filterinactive"} spheresbutton`} onClick={Waterbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Water_Enchant`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Earth_Enchant`].name}>
-                            <li className={`${Earth ? "filteractive": "filterinactive"} spheresbutton`} onClick={Earthbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Earth_Enchant`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Holy_Enchant`].name}>
-                            <li className={`${Holy ? "filteractive": "filterinactive"} spheresbutton`} onClick={Holybutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Holy_Enchant`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Dark_Enchant`].name}>
-                            <li className={`${Dark ? "filteractive": "filterinactive"} spheresbutton`} onClick={Darkbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Dark_Enchant`].url}.png)`}}></li>
-                        </Tippy>
-                        <br/>
-                        <Tippy content={ailment_tags[`Fire_Imperil`].name}>
-                            <li className={`${FireDown ? "filteractive": "filterinactive"} spheresbutton`} onClick={FireDownbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Fire_Imperil`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Ice_Imperil`].name}>
-                            <li className={`${IceDown ? "filteractive": "filterinactive"} spheresbutton`} onClick={IceDownbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Ice_Imperil`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Thunder_Imperil`].name}>
-                            <li className={`${ThunderDown ? "filteractive": "filterinactive"} spheresbutton`} onClick={ThunderDownbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Thunder_Imperil`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Wind_Imperil`].name}>
-                            <li className={`${WindDown ? "filteractive": "filterinactive"} spheresbutton`} onClick={WindDownbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Wind_Imperil`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Water_Imperil`].name}>
-                            <li className={`${WaterDown ? "filteractive": "filterinactive"} spheresbutton`} onClick={WaterDownbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Water_Imperil`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Earth_Imperil`].name}>
-                            <li className={`${EarthDown ? "filteractive": "filterinactive"} spheresbutton`} onClick={EarthDownbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Earth_Imperil`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Holy_Imperil`].name}>
-                            <li className={`${HolyDown ? "filteractive": "filterinactive"} spheresbutton`} onClick={HolyDownbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Holy_Imperil`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Dark_Imperil`].name}>
-                            <li className={`${DarkDown ? "filteractive": "filterinactive"} spheresbutton`} onClick={DarkDownbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Dark_Imperil`].url}.png)`}}></li>
-                        </Tippy>
-                        <br/>
-                        <Tippy content={ailment_tags[`Launch_Support`].name}>
-                            <li className={`${Launch_Support ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Launch_Supportbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Launch_Support`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Force_Break`].name}>
-                            <li className={`${Break ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Breakbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Force_Break`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`CriticalUp`].name}>
-                            <li className={`${CriticalUp ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={CriticalUpbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`CriticalUp`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Crit_Rate_Up`].name}>
-                            <li className={`${CriticalRate ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={CriticalRatebutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Crit_Rate_Up`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Ignore_DEF`].name}>
-                            <li className={`${IgnoreDEF ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={IgnoreDEFbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Ignore_DEF`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Continuous_Turns`].name}>
-                            <li className={`${Continuous_Turns ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Continuous_Turnsbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Continuous_Turns`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Turn_Interrupter`].name}>
-                            <li className={`${Turn_Interrupter ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Turn_Interrupterbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Turn_Interrupter`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Ally_Turn_Manipulator`].name}>
-                            <li className={`${TurnManip ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={TurnManipbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Ally_Turn_Manipulator`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`HP_Damage_Up_Party`].name}>
-                            <li className={`${HP_Damage_Up ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={HP_Damage_Upbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`HP_Damage_Up_Party`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`AddHP`].name}>
-                            <li className={`${AddHP ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={AddHPbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`AddHP`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`StolenBRV`].name}>
-                            <li className={`${StolenBRV ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={StolenBRVbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`StolenBRV`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`BRV_Damage_Cap`].name}>
-                            <li className={`${CappedBRV ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={CappedBRVbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`BRV_Damage_Cap`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`EX_MAX`].name}>
-                            <li className={`${EXFill ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={EXFillbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`EX_MAX`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`EXRate`].name}>
-                            <li className={`${EXRate ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={EXRatebutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`EXRate`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`BRV_Resist_Down`].name}>
-                            <li className={`${BRV_Resist_Down ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BRV_Resist_Downbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`BRV_Resist_Down`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`HP_Resist_Down`].name}>
-                            <li className={`${HPResistDown ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={HPResistDownbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`HP_Resist_Down`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`BRVCap`].name}>
-                            <li className={`${BRVCap ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BRVCapbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`BRVCap`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`MAXBRVCap`].name}>
-                            <li className={`${MAXBRVCap ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={MAXBRVCapbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`MAXBRVCap`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`ElementalWeak`].name}>
-                            <li className={`${ElementalWeak ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={ElementalWeakbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`ElementalWeak`].url}.png)`}}></li>
-                        </Tippy>
+                    <div className="similarbanner">Ability Line</div>
+                    <div className="filterholderflair">
+                        <ul className="bufftypes">
+                            <Tippy content="Burst Line Casts">
+                                <li className={`${burstBuff ? "filteractive" : "filterinactive"} buffbutton burstButton`} onClick={burstBuffbutton}></li>
+                            </Tippy>
+                            <Tippy content="FR Line Casts">
+                                <li className={`${fr ? "filteractive" : "filterinactive"} buffbutton frbutton`} onClick={frbutton}></li>
+                            </Tippy>
+                            <Tippy content="Calls Line Casts">
+                                <li className={`${calls ? "filteractive" : "filterinactive"} buffbutton callsButton`} onClick={callsbutton}></li>
+                            </Tippy>
+                            <Tippy content="LD Line Casts">
+                                <li className={`${ld ? "filteractive" : "filterinactive"} buffbutton ldButton`} onClick={ldbutton}></li>
+                            </Tippy>
+                            <Tippy content="EX Line Casts">
+                                <li className={`${ex ? "filteractive" : "filterinactive"} buffbutton exButton`} onClick={exbutton}></li>
+                            </Tippy>
+                            <Tippy content="AA Line Casts">
+                                <li className={`${aBuff ? "filteractive" : "filterinactive"} buffbutton abuffButton`} onClick={aBuffbutton}></li>
+                            </Tippy>
+                            <Tippy content="Second Skill Line Casts">
+                                <li className={`${s20 ? "filteractive" : "filterinactive"} buffbutton s20Button`} onClick={s20button}></li>
+                            </Tippy>
+                            <Tippy content="Starting Skill Line Casts">
+                                <li className={`${starting ? "filteractive" : "filterinactive"} buffbutton startingButton`} onClick={startingbutton}></li>
+                            </Tippy>
+                            <br />
+                            <Tippy content="Quest Starting Casts">
+                                <li className={`${start ? "filteractive" : "filterinactive"} buffbutton startbutton`} onClick={startbutton}></li>
+                            </Tippy>
+                            <Tippy content="State Buffs">
+                                <li className={`${bstate ? "filteractive" : "filterinactive"} buffbutton bstateButton`} onClick={bstatebutton}></li>
+                            </Tippy>
+                        </ul>
+                        <div className="similarbanner">Attacking</div>
+                        <ul className="characterclasses">
+                            <Tippy content={ailment_tags[`Melee_Imperil`].name}>
+                                <li className={`${MeleeDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={MeleeDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Melee_Imperil`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Ranged_Imperil`].name}>
+                                <li className={`${RangedDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={RangedDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Ranged_Imperil`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Magic_Imperil`].name}>
+                                <li className={`${MagicDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={MagicDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Magic_Imperil`].url}.png)` }}></li>
+                            </Tippy>
+                            <br />
+                            <Tippy content={ailment_tags[`Fire_Enchant`].name}>
+                                <li className={`${Fire ? "filteractive" : "filterinactive"} spheresbutton`} onClick={Firebutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Fire_Enchant`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Ice_Enchant`].name}>
+                                <li className={`${Ice ? "filteractive" : "filterinactive"} spheresbutton`} onClick={Icebutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Ice_Enchant`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Thunder_Enchant`].name}>
+                                <li className={`${Thunder ? "filteractive" : "filterinactive"} spheresbutton`} onClick={Thunderbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Thunder_Enchant`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Wind_Enchant`].name}>
+                                <li className={`${Wind ? "filteractive" : "filterinactive"} spheresbutton`} onClick={Windbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Wind_Enchant`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Water_Enchant`].name}>
+                                <li className={`${Water ? "filteractive" : "filterinactive"} spheresbutton`} onClick={Waterbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Water_Enchant`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Earth_Enchant`].name}>
+                                <li className={`${Earth ? "filteractive" : "filterinactive"} spheresbutton`} onClick={Earthbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Earth_Enchant`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Holy_Enchant`].name}>
+                                <li className={`${Holy ? "filteractive" : "filterinactive"} spheresbutton`} onClick={Holybutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Holy_Enchant`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Dark_Enchant`].name}>
+                                <li className={`${Dark ? "filteractive" : "filterinactive"} spheresbutton`} onClick={Darkbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Dark_Enchant`].url}.png)` }}></li>
+                            </Tippy>
+                            <br />
+                            <Tippy content={ailment_tags[`Fire_Imperil`].name}>
+                                <li className={`${FireDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={FireDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Fire_Imperil`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Ice_Imperil`].name}>
+                                <li className={`${IceDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={IceDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Ice_Imperil`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Thunder_Imperil`].name}>
+                                <li className={`${ThunderDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={ThunderDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Thunder_Imperil`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Wind_Imperil`].name}>
+                                <li className={`${WindDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={WindDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Wind_Imperil`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Water_Imperil`].name}>
+                                <li className={`${WaterDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={WaterDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Water_Imperil`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Earth_Imperil`].name}>
+                                <li className={`${EarthDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={EarthDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Earth_Imperil`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Holy_Imperil`].name}>
+                                <li className={`${HolyDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={HolyDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Holy_Imperil`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Dark_Imperil`].name}>
+                                <li className={`${DarkDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={DarkDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Dark_Imperil`].url}.png)` }}></li>
+                            </Tippy>
+                            <br />
+                            <Tippy content={ailment_tags[`Launch_Support`].name}>
+                                <li className={`${Launch_Support ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Launch_Supportbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Launch_Support`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Force_Break`].name}>
+                                <li className={`${Break ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Breakbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Force_Break`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`CriticalUp`].name}>
+                                <li className={`${CriticalUp ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={CriticalUpbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`CriticalUp`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Crit_Rate_Up`].name}>
+                                <li className={`${CriticalRate ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={CriticalRatebutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Crit_Rate_Up`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Ignore_DEF`].name}>
+                                <li className={`${IgnoreDEF ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={IgnoreDEFbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Ignore_DEF`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Continuous_Turns`].name}>
+                                <li className={`${Continuous_Turns ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Continuous_Turnsbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Continuous_Turns`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Turn_Interrupter`].name}>
+                                <li className={`${Turn_Interrupter ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Turn_Interrupterbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Turn_Interrupter`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Ally_Turn_Manipulator`].name}>
+                                <li className={`${TurnManip ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={TurnManipbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Ally_Turn_Manipulator`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`HP_Damage_Up_Party`].name}>
+                                <li className={`${HP_Damage_Up ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={HP_Damage_Upbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`HP_Damage_Up_Party`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`AddHP`].name}>
+                                <li className={`${AddHP ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={AddHPbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`AddHP`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`StolenBRV`].name}>
+                                <li className={`${StolenBRV ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={StolenBRVbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`StolenBRV`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`BRV_Damage_Cap`].name}>
+                                <li className={`${CappedBRV ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={CappedBRVbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`BRV_Damage_Cap`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`EX_MAX`].name}>
+                                <li className={`${EXFill ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={EXFillbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`EX_MAX`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`EXRate`].name}>
+                                <li className={`${EXRate ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={EXRatebutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`EXRate`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`BRV_Resist_Down`].name}>
+                                <li className={`${BRV_Resist_Down ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BRV_Resist_Downbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`BRV_Resist_Down`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`HP_Resist_Down`].name}>
+                                <li className={`${HPResistDown ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={HPResistDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`HP_Resist_Down`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`BRVCap`].name}>
+                                <li className={`${BRVCap ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BRVCapbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`BRVCap`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`MAXBRVCap`].name}>
+                                <li className={`${MAXBRVCap ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={MAXBRVCapbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`MAXBRVCap`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`ElementalWeak`].name}>
+                                <li className={`${ElementalWeak ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={ElementalWeakbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`ElementalWeak`].url}.png)` }}></li>
+                            </Tippy>
                         </ul>
                         <div className="similarbanner">Healing</div>
                         <ul className="characterclasses">
-                        <Tippy content={ailment_tags[`Cleanse`].name}>
-                            <li className={`${Cleanse ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Cleansebutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Cleanse`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Reviver`].name}>
-                            <li className={`${Reviver ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Reviverbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Reviver`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`KO_Prevent`].name}>
-                            <li className={`${LastStand ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={LastStandbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`KO_Prevent`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`HPHealBuff`].name}>
-                            <li className={`${HPHeal ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={HPHealbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`HPHealBuff`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`BRV_Regen`].name}>
-                            <li className={`${BRVRegen ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BRVRegenbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`BRV_Regen`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`HP_Regen`].name}>
-                            <li className={`${HPRegen ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={HPRegenbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`HP_Regen`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Gains`].name}>
-                            <li className={`${Gains ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Gainsbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Gains`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Buff_Extension`].name}>
-                            <li className={`${Buff_Extension ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Buff_Extensionbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Buff_Extension`].url}.png)`}}></li>
-                        </Tippy>
+                            <Tippy content={ailment_tags[`Cleanse`].name}>
+                                <li className={`${Cleanse ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Cleansebutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Cleanse`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Reviver`].name}>
+                                <li className={`${Reviver ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Reviverbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Reviver`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`KO_Prevent`].name}>
+                                <li className={`${LastStand ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={LastStandbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`KO_Prevent`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`HPHealBuff`].name}>
+                                <li className={`${HPHeal ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={HPHealbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`HPHealBuff`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`BRV_Regen`].name}>
+                                <li className={`${BRVRegen ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BRVRegenbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`BRV_Regen`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`HP_Regen`].name}>
+                                <li className={`${HPRegen ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={HPRegenbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`HP_Regen`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Gains`].name}>
+                                <li className={`${Gains ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Gainsbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Gains`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Buff_Extension`].name}>
+                                <li className={`${Buff_Extension ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Buff_Extensionbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Buff_Extension`].url}.png)` }}></li>
+                            </Tippy>
                         </ul>
                         <div className="similarbanner">Additional Attacks</div>
-                            <ul className="characterclasses">
+                        <ul className="characterclasses">
                             <Tippy content={ailment_tags[`Trap`].name}>
-                                <li className={`${Trap ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Trapbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Trap`].url}.png)`}}></li>
+                                <li className={`${Trap ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Trapbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Trap`].url}.png)` }}></li>
                             </Tippy>
                             <Tippy content={ailment_tags[`Trap_After_Trigger`].name}>
-                                <li className={`${Trap_After_Trigger ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Trap_After_Triggerbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Trap_After_Trigger`].url}.png)`}}></li>
+                                <li className={`${Trap_After_Trigger ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Trap_After_Triggerbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Trap_After_Trigger`].url}.png)` }}></li>
                             </Tippy>
                             <Tippy content={ailment_tags[`Trap_Before_Turn`].name}>
-                                <li className={`${Trap_Before_Turn ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Trap_Before_Turnbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Trap_Before_Turn`].url}.png)`}}></li>
+                                <li className={`${Trap_Before_Turn ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Trap_Before_Turnbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Trap_Before_Turn`].url}.png)` }}></li>
                             </Tippy>
                             <Tippy content={ailment_tags[`Counter`].name}>
-                                <li className={`${Counter ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Counterbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Counter`].url}.png)`}}></li>
+                                <li className={`${Counter ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Counterbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Counter`].url}.png)` }}></li>
                             </Tippy>
                             <Tippy content={ailment_tags[`FollowUp`].name}>
-                                <li className={`${FollowUp ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={FollowUpbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`FollowUp`].url}.png)`}}></li>
+                                <li className={`${FollowUp ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={FollowUpbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`FollowUp`].url}.png)` }}></li>
                             </Tippy>
                             <Tippy content={ailment_tags[`FollowUp_Before_Player_Turn`].name}>
-                                <li className={`${FollowUp_Before_Player_Turn ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={FollowUp_Before_Player_Turnbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`FollowUp_Before_Player_Turn`].url}.png)`}}></li>
+                                <li className={`${FollowUp_Before_Player_Turn ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={FollowUp_Before_Player_Turnbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`FollowUp_Before_Player_Turn`].url}.png)` }}></li>
                             </Tippy>
                             <Tippy content={ailment_tags[`FollowUp_Before_Ability`].name}>
-                                <li className={`${FollowUp_Before_Ability ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={FollowUp_Before_Abilitybutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`FollowUp_Before_Ability`].url}.png)`}}></li>
+                                <li className={`${FollowUp_Before_Ability ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={FollowUp_Before_Abilitybutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`FollowUp_Before_Ability`].url}.png)` }}></li>
                             </Tippy>
                             <Tippy content={ailment_tags[`FollowUp_Extension`].name}>
-                                <li className={`${FollowUp_Extension ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={FollowUp_Extensionbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`FollowUp_Extension`].url}.png)`}}></li>
+                                <li className={`${FollowUp_Extension ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={FollowUp_Extensionbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`FollowUp_Extension`].url}.png)` }}></li>
                             </Tippy>
                             <Tippy content={ailment_tags[`FollowUp_Start_Of_Next`].name}>
-                                <li className={`${FollowUp_Start_Of_Next ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={FollowUp_Start_Of_Nextbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`FollowUp_Start_Of_Next`].url}.png)`}}></li>
+                                <li className={`${FollowUp_Start_Of_Next ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={FollowUp_Start_Of_Nextbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`FollowUp_Start_Of_Next`].url}.png)` }}></li>
                             </Tippy>
                             <Tippy content={ailment_tags[`FollowUp_Action_On_Enemy`].name}>
-                                <li className={`${FollowUp_Action_On_Enemy ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={FollowUp_Action_On_Enemybutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`FollowUp_Action_On_Enemy`].url}.png)`}}></li>
+                                <li className={`${FollowUp_Action_On_Enemy ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={FollowUp_Action_On_Enemybutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`FollowUp_Action_On_Enemy`].url}.png)` }}></li>
                             </Tippy>
-                            </ul>
+                        </ul>
                         <div className="similarbanner">Defending</div>
                         <ul className="characterclasses">
-                        <Tippy content={ailment_tags[`Target_Lock`].name}>
-                            <li className={`${Target_Lock ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Target_Lockbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Target_Lock`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Cover`].name}>
-                            <li className={`${Cover ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Coverbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Cover`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Evade`].name}>
-                            <li className={`${Evade ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Evadebutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Evade`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`BRV_Shield`].name}>
-                            <li className={`${DMGShield ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={DMGShieldbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`BRV_Shield`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`BRV_Damage_Resist`].name}>
-                            <li className={`${BRV_Damage_Resist ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BRV_Damage_Resistbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`BRV_Damage_Resist`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`HP_Damage_Resist`].name}>
-                            <li className={`${HPResistUp ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={HPResistUpbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`HP_Damage_Resist`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Cannot_Break`].name}>
-                            <li className={`${BreakPrevent ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BreakPreventbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Cannot_Break`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Refund`].name}>
-                            <li className={`${Refund ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Refundbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Refund`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`BRVRetain`].name}>
-                            <li className={`${BRVRetain ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BRVRetainbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`BRVRetain`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Debuff_Evade`].name}>
-                            <li className={`${DebuffResist ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={DebuffResistbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Debuff_Evade`].url}.png)`}}></li>
-                        </Tippy>
+                            <Tippy content={ailment_tags[`Target_Lock`].name}>
+                                <li className={`${Target_Lock ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Target_Lockbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Target_Lock`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Cover`].name}>
+                                <li className={`${Cover ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Coverbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Cover`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Evade`].name}>
+                                <li className={`${Evade ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Evadebutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Evade`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`BRV_Shield`].name}>
+                                <li className={`${DMGShield ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={DMGShieldbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`BRV_Shield`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`BRV_Damage_Resist`].name}>
+                                <li className={`${BRV_Damage_Resist ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BRV_Damage_Resistbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`BRV_Damage_Resist`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`HP_Damage_Resist`].name}>
+                                <li className={`${HPResistUp ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={HPResistUpbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`HP_Damage_Resist`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Cannot_Break`].name}>
+                                <li className={`${BreakPrevent ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BreakPreventbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Cannot_Break`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Refund`].name}>
+                                <li className={`${Refund ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Refundbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Refund`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`BRVRetain`].name}>
+                                <li className={`${BRVRetain ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BRVRetainbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`BRVRetain`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Debuff_Evade`].name}>
+                                <li className={`${DebuffResist ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={DebuffResistbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Debuff_Evade`].url}.png)` }}></li>
+                            </Tippy>
                         </ul>
                         <div className="similarbanner">Interference</div>
                         <ul className="characterclasses">
-                        <Tippy content={ailment_tags[`Delay`].name}>
-                            <li className={`${Delay ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Delaybutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Delay`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Delete_Turns`].name}>
-                            <li className={`${Delete ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Deletebutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Delete_Turns`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`BuffPrevent`].name}>
-                            <li className={`${BuffPrevent ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BuffPreventbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`BuffPrevent`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Dispel`].name}>
-                            <li className={`${Dispel ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Dispelbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Dispel`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Break_Reset`].name}>
-                            <li className={`${BreakCancel ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BreakCancelbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Break_Reset`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`BRV_Poison`].name}>
-                            <li className={`${BRVPoison ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BRVPoisonbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`BRV_Poison`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`HP_Poison`].name}>
-                            <li className={`${HPPoison ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={HPPoisonbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`HP_Poison`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`BRV_Control`].name}>
-                            <li className={`${BRVFreeze ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={BRVFreezebutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`BRV_Control`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Disable`].name}>
-                            <li className={`${Disable ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Disablebutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Disable`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Blind`].name}>
-                            <li className={`${Blind ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Blindbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Blind`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Debuff_Gold`].name}>
-                            <li className={`${GoldDebuff ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={GoldDebuffbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Debuff_Gold`].url}.png)`}}></li>
-                        </Tippy>
+                            <Tippy content={ailment_tags[`Delay`].name}>
+                                <li className={`${Delay ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Delaybutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Delay`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Delete_Turns`].name}>
+                                <li className={`${Delete ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Deletebutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Delete_Turns`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`BuffPrevent`].name}>
+                                <li className={`${BuffPrevent ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BuffPreventbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`BuffPrevent`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Dispel`].name}>
+                                <li className={`${Dispel ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Dispelbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Dispel`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Break_Reset`].name}>
+                                <li className={`${BreakCancel ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BreakCancelbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Break_Reset`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`BRV_Poison`].name}>
+                                <li className={`${BRVPoison ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BRVPoisonbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`BRV_Poison`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`HP_Poison`].name}>
+                                <li className={`${HPPoison ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={HPPoisonbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`HP_Poison`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`BRV_Control`].name}>
+                                <li className={`${BRVFreeze ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BRVFreezebutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`BRV_Control`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Disable`].name}>
+                                <li className={`${Disable ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Disablebutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Disable`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Blind`].name}>
+                                <li className={`${Blind ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Blindbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Blind`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Debuff_Gold`].name}>
+                                <li className={`${GoldDebuff ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={GoldDebuffbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Debuff_Gold`].url}.png)` }}></li>
+                            </Tippy>
                         </ul>
                         <div className="similarbanner">Other</div>
                         <ul className="characterclasses">
-                        <Tippy content={ailment_tags[`Special_Buff`].name}>
-                            <li className={`${SpecialBuff ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={SpecialBuffbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Special_Buff`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Stacked_Debuff`].name}>
-                            <li className={`${StackedDebuff ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={StackedDebuffbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Stacked_Debuff`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Stacked_Debuff_Five`].name}>
-                            <li className={`${StackedDebuff5 ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={StackedDebuff5button} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Stacked_Debuff_Five`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Stacked_Buff`].name}>
-                            <li className={`${StackedBuff ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={StackedBuffbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Stacked_Buff`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Stacked_Buff_Five`].name}>
-                            <li className={`${StackedBuff5 ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={StackedBuff5button} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Stacked_Buff_Five`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Free_Ability`].name}>
-                            <li className={`${FreeUse ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={FreeUsebutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Free_Ability`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`FreeTurn`].name}>
-                            <li className={`${FreeTurn ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={FreeTurnbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`FreeTurn`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Instant`].name}>
-                            <li className={`${Instant ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Instantbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Instant`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Self_Harm`].name}>
-                            <li className={`${Self_Harm ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={Self_Harmbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Self_Harm`].url}.png)`}}></li>
-                        </Tippy>
-                        <Tippy content={ailment_tags[`Buff_Gold`].name}>
-                            <li className={`${GoldBuff ? "filteractive": "filterinactive"} characterclassesbutton`} onClick={GoldBuffbutton} style={{backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Buff_Gold`].url}.png)`}}></li>
-                        </Tippy>
-                    </ul>
-                    <div className="similarbanner">Refine</div>
-                    <ul className="bufftypes">
-                      <Tippy content="GL Database">
-                      <li className={`${jponly ? "filterinactive": "filteractive"} buffbutton ver_gl`} onClick={setGLbutton}></li>
-                      </Tippy>
-                      <Tippy content="JP Database">
-                      <li className={`${jponly ? "filteractive": "filterinactive"} buffbutton ver_jp`} onClick={setJPbutton}></li>
-                      </Tippy>
-                    </ul>
-                    <div className="margeholder">
-                      <div className="Merge">
-                        <label className="MergeText">Party Aura?</label>
-                        <div key="mergecheck1" className={`${party == true ? "nodisplay" :  `uncheck`}`} onClick={partybutton}/>
-                        <div key="mergecheck2" className={`${party == true ? "check" :  `nodisplay`}`} onClick={partybutton}/>
-                      </div>
+                            <Tippy content={ailment_tags[`Special_Buff`].name}>
+                                <li className={`${SpecialBuff ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={SpecialBuffbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Special_Buff`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Stacked_Debuff`].name}>
+                                <li className={`${StackedDebuff ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={StackedDebuffbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Stacked_Debuff`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Stacked_Debuff_Five`].name}>
+                                <li className={`${StackedDebuff5 ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={StackedDebuff5button} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Stacked_Debuff_Five`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Stacked_Buff`].name}>
+                                <li className={`${StackedBuff ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={StackedBuffbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Stacked_Buff`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Stacked_Buff_Five`].name}>
+                                <li className={`${StackedBuff5 ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={StackedBuff5button} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Stacked_Buff_Five`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Free_Ability`].name}>
+                                <li className={`${FreeUse ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={FreeUsebutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Free_Ability`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`FreeTurn`].name}>
+                                <li className={`${FreeTurn ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={FreeTurnbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`FreeTurn`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Instant`].name}>
+                                <li className={`${Instant ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Instantbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Instant`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Self_Harm`].name}>
+                                <li className={`${Self_Harm ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Self_Harmbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Self_Harm`].url}.png)` }}></li>
+                            </Tippy>
+                            <Tippy content={ailment_tags[`Buff_Gold`].name}>
+                                <li className={`${GoldBuff ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={GoldBuffbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[`Buff_Gold`].url}.png)` }}></li>
+                            </Tippy>
+                        </ul>
+                        <div className="similarbanner">Refine</div>
+                        <ul className="bufftypes">
+                            <Tippy content="GL Database">
+                                <li className={`${jponly ? "filterinactive" : "filteractive"} buffbutton ver_gl`} onClick={setGLbutton}></li>
+                            </Tippy>
+                            <Tippy content="JP Database">
+                                <li className={`${jponly ? "filteractive" : "filterinactive"} buffbutton ver_jp`} onClick={setJPbutton}></li>
+                            </Tippy>
+                        </ul>
+                        <div className="margeholder">
+                            <div className="Merge">
+                                <label className="MergeText">Party Aura?</label>
+                                <div key="mergecheck1" className={`${party == true ? "nodisplay" : `uncheck`}`} onClick={partybutton} />
+                                <div key="mergecheck2" className={`${party == true ? "check" : `nodisplay`}`} onClick={partybutton} />
+                            </div>
+                        </div>
+                        <div className="margeholder">
+                            <div className="Merge">
+                                <label className="MergeText">Merge Filters?</label>
+                                <div key="mergecheck1" className={`${merge == true ? "nodisplay" : `uncheck`}`} onClick={togglemerge} />
+                                <div key="mergecheck2" className={`${merge == true ? "check" : `nodisplay`}`} onClick={togglemerge} />
+                            </div>
+                        </div>
+                        <ul className="bufftypes">
+                            <li className={`${buffs ? "filteractive" : "filterinactive"} buffsbutton buffsButton`} onClick={buffsbutton}></li>
+                            <li className={`${debuffs ? "filteractive" : "filterinactive"} buffsbutton debuffsButton`} onClick={debuffsbutton}></li>
+                        </ul>
+                        <div className="typeholder">
+                            <Select
+                                defaultValue={Typesearch != "" ? { value: Typesearch, label: Typesearch } : null}
+                                key={Typesearch}
+                                isSearchable={true}
+                                placeholder="Character Select..."
+                                className='typecontainer'
+                                classNamePrefix="typetext"
+                                onChange={CondSelect}
+                                options={typeListArray}
+                                isClearable={true}
+                            />
+                        </div>
+                        <div className="search-reverse-holder">
+                            <div className="search-holder">
+                                <IoSearch className="innersearchicon" />
+                                <input
+                                    className="search-bar"
+                                    type="text"
+                                    placeholder="Search"
+                                    value={searchdisplay}
+                                    onChange={handleChange}
+                                    onKeyDown={handleKeyDown}
+                                />
+                                {searchTerm === "" ? "" :
+                                    <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
+                            </div>
+                            <Tippy content="Reverse Order" className="tooltip" >
+                                <div className={`reversebox`} ><i onClick={reversebutton} className={`reversebutton ${loop ? "flip" : ""}`} ><ImSortAmountDesc className={`reversebutton ${reverse ? "" : "nodisplay"}`} /><ImSortAmountAsc className={`reversebutton ${reverse ? "nodisplay" : ""}`} /></i></div>
+                            </Tippy>
+                        </div>
+                        <div>
+                            <CopyToClipboard text={url}>
+                                <div className="sharebox">
+                                    <Tippy content="Link Copied!" inertia={true} animation={"shift-away"} touch={true} arrow={false} trigger={"click"} placement={"top"} duration={[100, 500]}>
+                                        <div className="centertext"><FaShareSquare className="shareicon" />&nbsp;Share</div>
+                                    </Tippy>
+                                </div>
+                            </CopyToClipboard>
+                            <Tippy content="Reset Filters" className="tooltip" >
+                                <div onClick={resetbutton} className={`clearbox`} ><div className="makecenter">Reset&nbsp;<FaUndoAlt className={`clearbutton ${clearFilter ? "loop" : ""}`} ></FaUndoAlt></div></div>
+                            </Tippy>
+                        </div>
                     </div>
-                    <div className="margeholder">
-                      <div className="Merge">
-                        <label className="MergeText">Merge Filters?</label>
-                        <div key="mergecheck1" className={`${merge == true ? "nodisplay" :  `uncheck`}`} onClick={togglemerge}/>
-                        <div key="mergecheck2" className={`${merge == true ? "check" :  `nodisplay`}`} onClick={togglemerge}/>
-                      </div>
-                    </div>
-                    <ul className="bufftypes">
-                      <li className={`${buffs ? "filteractive": "filterinactive"} buffsbutton buffsButton`} onClick={buffsbutton}></li>
-                      <li className={`${debuffs ? "filteractive": "filterinactive"} buffsbutton debuffsButton`} onClick={debuffsbutton}></li>
-                    </ul>
-                    <div className="typeholder">
-                      <Select
-                      defaultValue={Typesearch != "" ? {value: Typesearch, label: Typesearch } : null}
-                      key={Typesearch}
-                      isSearchable={true} 
-                      placeholder="Character Select..."
-                      className='typecontainer' 
-                      classNamePrefix="typetext" 
-                      onChange={CondSelect}  
-                      options={typeListArray} 
-                      isClearable={true}
-                      />
-                    </div>
-                    <div className="search-reverse-holder">
-                      <div className="search-holder">
-                      <IoSearch className="innersearchicon"/>
-                        <input 
-                            className="search-bar" 
-                            type="text"
-                            placeholder="Search"
-                            value={searchdisplay}
-                            onChange={handleChange}
-                            onKeyDown={handleKeyDown}
-                        />
-                        {searchTerm === "" ? "" : 
-                        <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
-                      </div>
-                        <Tippy content="Reverse Order" className="tooltip" >
-                          <div className={`reversebox`} ><i onClick={reversebutton} className={`reversebutton ${loop ? "flip": ""}`} ><ImSortAmountDesc className={`reversebutton ${reverse ? "": "nodisplay"}`}/><ImSortAmountAsc className={`reversebutton ${reverse ? "nodisplay": ""}`}/></i></div>
-                        </Tippy>
-                    </div>
-                    <div>
-                          <CopyToClipboard text={url}>
-                          <div className="sharebox">
-                              <Tippy content="Link Copied!" inertia={true} animation={"shift-away"} touch={true} arrow={false} trigger={"click"} placement={"top"} duration={[100,500]}>
-                                  <div className="centertext"><FaShareSquare className="shareicon"/>&nbsp;Share</div>
-                              </Tippy>
-                          </div>
-                          </CopyToClipboard>
-                          <Tippy content="Reset Filters" className="tooltip" >
-                            <div onClick={resetbutton} className={`clearbox`} ><div className="makecenter">Reset&nbsp;<FaUndoAlt  className={`clearbutton ${clearFilter ? "loop": ""}`} ></FaUndoAlt></div></div>
-                          </Tippy>
-                          </div>
-                  </div>  
-                  <Link className="whitecolor" to={"/characters/forcetime"}>
-                    <span className="subtext">Check out the Force Time page</span>
-                    </Link>   
-                  </div>
-                  {showFilter == true ? "" :
-                  <span>
-                  <Link className="whitecolor" to={`/characters/forcetime${jptoggledata == false ? "":"?JP=true"}`}>
-                  <span className="subtext">Force Time</span>
-                  </Link> 
-                  </span> }
+                    <Link className="whitecolor" to={"/characters/forcetime"}>
+                        <span className="subtext">Check out the Force Time page</span>
+                    </Link>
+                </div>
+                {showFilter == true ? "" :
+                    <span>
+                        <Link className="whitecolor" to={`/characters/forcetime${jptoggledata == false ? "" : "?JP=true"}`}>
+                            <span className="subtext">Force Time</span>
+                        </Link>
+                    </span>}
                 <ul className="bannertabs">
-                <Link to={`/search/buffs${jptoggledata == false ? "":"?JP=true"}`}>
-                  <li className={"active"} ><span className="gemselected"/>Buffs</li>
-                </Link>
-                <Link to={`/search/abilities${jptoggledata == false ? "":"?JP=true"}`}>
-                  <li className={""} >Abilities</li>
-                </Link>
-                <Link to={`/search/gear${jptoggledata == false ? "":"?JP=true"}`}>
-                  <li className={""} >Gear</li>
-                </Link>
-                <Link to={`/search/passives${jptoggledata == false ? "":"?JP=true"}`}>
-                  <li className={""} >Passives</li>
-                </Link>
-                <Link to={`/search/spheres${jptoggledata == false ? "":"?JP=true"}`}>
-                  <li className={""} >Spheres</li>
-                </Link>
-                <Link to={`/search/stickers${jptoggledata == false ? "":"?JP=true"}`}>
-                  <li className={""} >Stickers</li>
-                </Link>
-                <Link to={`/search/music${jptoggledata == false ? "":"?JP=true"}`}>
-                  <li className={""} >Music</li>
-                </Link>
-              </ul>
-              <div className="buffsholder">
-                <div className="subtext">
-                  {displayBanner}
-                </div>
-              {listBuff.length > 0 ?  (
-              listBuff.map(self => (
-                <Ailment_Data_Formatting_bycharacter
-                    key={`${self.id}_${self.chara_id}`}
-                    file={file}
-                    loc={loc}
-                    ver={ver}
-                    ailment_data={self}
-                   
-                    master_index={master_index}
+                    <Link to={`/search/buffs${jptoggledata == false ? "" : "?JP=true"}`}>
+                        <li className={"active"} ><span className="gemselected" />Buffs</li>
+                    </Link>
+                    <Link to={`/search/abilities${jptoggledata == false ? "" : "?JP=true"}`}>
+                        <li className={""} >Abilities</li>
+                    </Link>
+                    <Link to={`/search/gear${jptoggledata == false ? "" : "?JP=true"}`}>
+                        <li className={""} >Gear</li>
+                    </Link>
+                    <Link to={`/search/passives${jptoggledata == false ? "" : "?JP=true"}`}>
+                        <li className={""} >Passives</li>
+                    </Link>
+                    <Link to={`/search/spheres${jptoggledata == false ? "" : "?JP=true"}`}>
+                        <li className={""} >Spheres</li>
+                    </Link>
+                    <Link to={`/search/stickers${jptoggledata == false ? "" : "?JP=true"}`}>
+                        <li className={""} >Stickers</li>
+                    </Link>
+                    <Link to={`/search/music${jptoggledata == false ? "" : "?JP=true"}`}>
+                        <li className={""} >Music</li>
+                    </Link>
+                </ul>
+                <div className="buffsholder">
+                    <div className="subtext">
+                        {displayBanner}
+                    </div>
+                    {listBuff.length > 0 ? (
+                        listBuff.map(self => (
+                            <Ailment_Data_Formatting_bycharacter
+                                key={`${self.id}_${self.chara_id}`}
+                                file={file}
+                                loc={loc}
+                                ver={ver}
+                                ailment_data={self}
 
-                    slider={true}
-                    rank={self.arank}
-                    arg1={self.aarg1}
-                    arg2={self.aarg2}
-                    alt_rank={self.aranka}
-                    alt_aug1={self.aarg1a}
-                    alt_aug2={self.aarg2a}
-                    castlocation={true}
-                    formatting={true}
-                    gear={false}
-                    rank_tag={self.rank_tag}
-                    turns={self.alife}
+                                master_index={master_index}
 
-                    link={"buffs"}
-                />
-                ))) : (
-                  <div>No results</div>
-                )}
-                <div className="subtextbottom">
-                  {displayBanner}
+                                slider={true}
+                                rank={self.arank}
+                                arg1={self.aarg1}
+                                arg2={self.aarg2}
+                                alt_rank={self.aranka}
+                                alt_aug1={self.aarg1a}
+                                alt_aug2={self.aarg2a}
+                                castlocation={true}
+                                formatting={true}
+                                gear={false}
+                                rank_tag={self.rank_tag}
+                                turns={self.alife}
+
+                                link={"buffs"}
+                            />
+                        ))) : (
+                        <div>No results</div>
+                    )}
+                    <div className="subtextbottom">
+                        {displayBanner}
+                    </div>
+                    {showLoadMore &&
+                        <div className="loadmore" onClick={loadMoreButton}> Load More </div>}
+
                 </div>
-                {showLoadMore && 
-                <div className="loadmore" onClick={loadMoreButton}> Load More </div>}
-    
+            </div>
         </div>
-        </div>
-      </div>
     )
 }
 

@@ -7,8 +7,8 @@ export function* handleGetGLGameListPassive(action) {
   try {
     const response = yield call(requestGetGLGameListPassive);
     const { data } = response;
-    if(isJson(data) == true){
-        yield put(setGLGameListPassive(data));
+    if (isJson(data) == true) {
+      yield put(setGLGameListPassive(data));
     }
   } catch (error) {
     console.log(error);

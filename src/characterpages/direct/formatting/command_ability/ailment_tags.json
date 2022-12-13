@@ -109,32 +109,32 @@
         "url": "elements/Holy",
         "hidden": true
     },
-    "Force_Enemy":{
+    "Force_Enemy": {
         "name": "Enemy Force Time Helper",
         "url": "roles/Role_Force",
         "hidden": true
     },
-    "Enemy":{
+    "Enemy": {
         "name": "Enemy Specific",
         "url": "buff/buff_mombomb_unframed",
         "hidden": true
-      },
-    "No_BRV_Attack":{
+    },
+    "No_BRV_Attack": {
         "name": "No BRV Damage",
         "url": "roles/Role_No_Attack",
         "hidden": true
     },
-    "Stacked_Debuff_Three":{
+    "Stacked_Debuff_Three": {
         "name": "Level Debuff over 3",
         "url": "debuff/debuff_down3_unframed",
         "hidden": true
     },
-    "Debuff_Two":{
+    "Debuff_Two": {
         "name": "2 Debuffs with ability",
         "url": "roles/Role_Debuff_Two",
         "hidden": true
     },
-    "Debuff_Three":{
+    "Debuff_Three": {
         "name": "3 Debuffs with ability",
         "url": "roles/Role_Debuff_Three",
         "hidden": true
@@ -144,22 +144,22 @@
         "url": "roles/Role_HP_Heal_Ability",
         "hidden": true
     },
-    "Party_Buffer":{
+    "Party_Buffer": {
         "name": "Party Buffer",
         "url": "buff/buff_support0_unframed",
         "hidden": true
     },
-    "ST_Target":{
+    "ST_Target": {
         "name": "Single Target Damage",
         "url": "roles/Role_ST_Target",
         "hidden": true
     },
-    "Group":{
+    "Group": {
         "name": "Group Target Damage",
         "url": "roles/Role_Group",
         "hidden": true
     },
-    "Increase":{
+    "Increase": {
         "name": "Ability Recover",
         "url": "roles/Role_Increase",
         "hidden": true
@@ -168,8 +168,6 @@
         "name": "Turn Manipulation",
         "url": "roles/Role_Turn_Manipulator"
     },
-
-
     "Magic_Imperil": {
         "name": "Magic Imperil",
         "url": "roles/Role_MagicImperil"
@@ -246,13 +244,11 @@
         "name": "Holy Imperil",
         "url": "elements/Down/Holy"
     },
-
-
     "Launcher": {
         "name": "Launcher",
         "url": "roles/Role_KnockBack"
     },
-    "Launch_Support":{
+    "Launch_Support": {
         "name": "Knock Back Support",
         "url": "roles/Role_Icon_Knock_Back_Support"
     },
@@ -272,11 +268,11 @@
         "name": "DEF Ignore",
         "url": "roles/Role_Ignore_DEF"
     },
-    "Continuous_Turns":{
+    "Continuous_Turns": {
         "name": "Consective Turns",
         "url": "roles/Role_Continuous_Turns"
     },
-    "Turn_Interrupter":{
+    "Turn_Interrupter": {
         "name": "Cut in Turn",
         "url": "roles/Role_Turn_Interrupter"
     },
@@ -288,7 +284,7 @@
         "name": "Proportional BRV Attack",
         "url": "roles/Role_BRV_Ratio"
     },
-    "HP_Damage_Up_Party":{
+    "HP_Damage_Up_Party": {
         "name": "Party HP Damage Up",
         "url": "roles/Role_HP_Damage_Up"
     },
@@ -304,7 +300,7 @@
         "name": "Capped BRV Damage",
         "url": "roles/Role_BRV_Cap"
     },
-    "EX_MAX_Party":{
+    "EX_MAX_Party": {
         "name": "EX Recast MAX All",
         "url": "roles/Role_EX_Gauge"
     },
@@ -320,7 +316,7 @@
         "name": "Debuffer",
         "url": "buff/debuff_persondown_unframed"
     },
-    "BRV_Resist_Down":{
+    "BRV_Resist_Down": {
         "name": "BRV Damage Resist Down",
         "url": "roles/Role_BRVResistDown"
     },
@@ -340,8 +336,6 @@
         "name": "Elemental Weakness Damage Up",
         "url": "roles/Role_WeakUp"
     },
-
-
     "Cleanse": {
         "name": "Debuff Cleanse",
         "url": "roles/Role_Cleanser"
@@ -350,7 +344,7 @@
         "name": "BRV Battery",
         "url": "roles/Role_Icon_Battery"
     },
-    "Reviver":{
+    "Reviver": {
         "name": "Raise",
         "url": "roles/Role_Reviver"
     },
@@ -382,12 +376,10 @@
         "name": "Recover 2 Abilities",
         "url": "roles/Role_Two_Abilities_Recover"
     },
-    "Buff_Extension":{
+    "Buff_Extension": {
         "name": "Buff Extension",
         "url": "roles/Role_Buff_Extension"
     },
-
-
     "Trap": {
         "name": "Trap",
         "url": "roles/Role_Trap"
@@ -400,37 +392,35 @@
         "name": "Trap before Enemy turn",
         "url": "roles/Role_Trap_Before"
     },
-    "Counter":{
+    "Counter": {
         "name": "Counter",
         "url": "roles/Role_Icon_Counter"
     },
-    "FollowUp":{
+    "FollowUp": {
         "name": "Follow Up Attack",
         "url": "buff/buff_fist_unframed"
     },
-    "FollowUp_Before_Player_Turn":{
+    "FollowUp_Before_Player_Turn": {
         "name": "Additional Attack before Player turn",
         "url": "roles/Role_Before_Player_Turn"
     },
-    "FollowUp_Before_Ability":{
+    "FollowUp_Before_Ability": {
         "name": "Additional Attack before Player ability",
         "url": "roles/Role_Before_Ability_Attack"
     },
-    "FollowUp_Extension":{
+    "FollowUp_Extension": {
         "name": "Ability Extension Follow Up",
         "url": "roles/Role_Ability_Extension_FollowUp"
     },
-    "FollowUp_Start_Of_Next":{
+    "FollowUp_Start_Of_Next": {
         "name": "Start of next turn Follow Up",
         "url": "roles/Role_Start_Of_Next_Turn"
     },
-    "FollowUp_Action_On_Enemy":{
+    "FollowUp_Action_On_Enemy": {
         "name": "Follow Up on Action against Enemy",
         "url": "roles/Role_Action_Against_Enemy_FollowUp"
     },
-
-
-    "Target_Lock":{
+    "Target_Lock": {
         "name": "Target Lock",
         "url": "debuff/debuff_persontarget_unframed"
     },
@@ -442,11 +432,11 @@
         "name": "Evade",
         "url": "buff/buff_dodge_unframed"
     },
-    "BRV_Shield":{
+    "BRV_Shield": {
         "name": "Damage Shield",
         "url": "roles/Role_BRVShield"
     },
-    "BRV_Damage_Resist":{
+    "BRV_Damage_Resist": {
         "name": "BRV Damage Resist Up",
         "url": "roles/Role_BRVResist"
     },
@@ -470,8 +460,6 @@
         "name": "Debuff Resist",
         "url": "buff/buff_bow_unframed"
     },
-
-
     "Delay": {
         "name": "Delay",
         "url": "roles/Role_Icon_Delay"
@@ -479,7 +467,7 @@
     "Three_Delay": {
         "name": "3 Turn Delay",
         "url": "roles/Role_3Delay"
-      },
+    },
     "Delete_Turns": {
         "name": "Turn Delete",
         "url": "roles/Role_DeleteTurns"
@@ -512,7 +500,7 @@
         "name": "Disable",
         "url": "roles/Role_Icon_Disable"
     },
-    "Blind":{
+    "Blind": {
         "name": "Blind",
         "url": "debuff/debuff_glasses_unframed"
     },
@@ -520,17 +508,15 @@
         "name": "Gold Framed Debuffs",
         "url": "roles/Role_Debuff_Gold"
     },
-    
-
     "Special_Buff": {
         "name": "Special Buffs",
         "url": "roles/Role_Special_Buff"
     },
-    "Stacked_Debuff":{
+    "Stacked_Debuff": {
         "name": "Level Debuff",
         "url": "roles/Role_Stacked_Debuff"
     },
-    "Stacked_Debuff_Five":{
+    "Stacked_Debuff_Five": {
         "name": "Level Debuff over 5",
         "url": "debuff/debuff_down5_unframed"
     },
@@ -554,10 +540,10 @@
         "name": "Instant Turn Rate",
         "url": "roles/Role_Instant2"
     },
-    "Self_Harm":{
+    "Self_Harm": {
         "name": "Self-Harm HP Damage",
         "url": "roles/Role_Self_Harm"
-    }, 
+    },
     "Buff_Gold": {
         "name": "Gold Framed Buffs",
         "url": "roles/Role_Buff_Gold"

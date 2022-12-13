@@ -7,7 +7,7 @@ export function* handleGetCharGuide(action) {
   try {
     const response = yield call(requestGetCharGuide);
     const { data } = response;
-    if(isJson(data,"GetCharGuide") == true){
+    if (isJson(data, "GetCharGuide") == true) {
       yield put(setCharGuide(data));
     }
   } catch (error) {

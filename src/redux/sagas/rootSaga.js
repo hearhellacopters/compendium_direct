@@ -101,7 +101,7 @@ import { handleGetGLGameListPassive } from "./handlers/GL/gamelist_passive";
 import { GET_GLGAMELISTPASSIVE } from "../ducks/GL/gamelist_passive";
 
 import { handleGetJPGameListPassive } from "./handlers/JP/gamelist_passive";
-import { GET_JPGAMELISTPASSIVE} from "../ducks/JP/gamelist_passive";
+import { GET_JPGAMELISTPASSIVE } from "../ducks/JP/gamelist_passive";
 
 export function* watcherSaga() {
   yield takeLatest(GET_CHARACTERS, handleGetCharacters);
@@ -109,34 +109,34 @@ export function* watcherSaga() {
   yield takeLatest(GET_CHARGUIDE, handleGetCharGuide);
   yield takeLatest(GET_UPDATES, handleGetUpdates);
   yield takeLatest(GET_SUMMONS, handleGetSummons);
-  yield takeLatest(GET_LEVELS , handleGetLevels);
-  yield takeLatest(GET_JPCALENDAR , handleGetJPCalendar);
-  yield takeLatest(GET_EVENTS , handleGetEvents);
-  yield takeLatest(GET_EVENTSINDEX , handleGetEventsIndex);
-  yield takeLatest(GET_ENEMIES_DIRECT , handleGetEnemiesDirect);
-  yield takeLatest(GET_BANNERS , handleGetBanners);
-  yield takeLatest(GET_SUMMONLEVELS , handleGetSummonLevels);
-  yield takeLatest(GET_SUMMONPASSIVES , handleGetSummonPassives);
-  yield takeLatest(GET_PANELS , handleGetPanels);
-  yield takeLatest(GET_STICKERS , handleGetStickers);
-  yield takeLatest(GET_JUKEBOX , handleGetJukeBox);
-  yield takeLatest(GET_ENEMYABILITY_DIRECT , handleGetEnemyAbilityDirect);
-  yield takeLatest(GET_ENEMYBUFFS_DIRECT , handleGetEnemyBuffsDirect);
-  yield takeLatest(GET_ULTIMAWEAPON , handleGetUltimaWeapon);
+  yield takeLatest(GET_LEVELS, handleGetLevels);
+  yield takeLatest(GET_JPCALENDAR, handleGetJPCalendar);
+  yield takeLatest(GET_EVENTS, handleGetEvents);
+  yield takeLatest(GET_EVENTSINDEX, handleGetEventsIndex);
+  yield takeLatest(GET_ENEMIES_DIRECT, handleGetEnemiesDirect);
+  yield takeLatest(GET_BANNERS, handleGetBanners);
+  yield takeLatest(GET_SUMMONLEVELS, handleGetSummonLevels);
+  yield takeLatest(GET_SUMMONPASSIVES, handleGetSummonPassives);
+  yield takeLatest(GET_PANELS, handleGetPanels);
+  yield takeLatest(GET_STICKERS, handleGetStickers);
+  yield takeLatest(GET_JUKEBOX, handleGetJukeBox);
+  yield takeLatest(GET_ENEMYABILITY_DIRECT, handleGetEnemyAbilityDirect);
+  yield takeLatest(GET_ENEMYBUFFS_DIRECT, handleGetEnemyBuffsDirect);
+  yield takeLatest(GET_ULTIMAWEAPON, handleGetUltimaWeapon);
   //direct
   yield takeLatest(GET_MASTERINDEX, handleGetMasterIndex);
   yield takeLatest(GET_TRANSNAMES, handleGetTransNames);
   yield takeLatest(GET_WEAPONSKINS, handleGetWeaponSkins);
   yield takeLatest(GET_ACCESS, handleGetAccess);
   //gamelists
-  yield takeLatest(GET_GLGAMELISTAILMENT , handleGetGLGameListAilment);
-  yield takeLatest(GET_JPGAMELISTAILMENT , handleGetJPGameListAilment);
-  yield takeLatest(GET_GLGAMELISTABILITY , handleGetGLGameListAbility);
-  yield takeLatest(GET_JPGAMELISTABILITY , handleGetJPGameListAbility);
-  yield takeLatest(GET_GLGAMELISTGEAR , handleGetGLGameListGear);
-  yield takeLatest(GET_JPGAMELISTGEAR , handleGetJPGameListGear);
-  yield takeLatest(GET_GLGAMELISTSPHERE , handleGetGLGameListSphere);
-  yield takeLatest(GET_JPGAMELISTSPHERE , handleGetJPGameListSphere);
-  yield takeLatest(GET_GLGAMELISTPASSIVE , handleGetGLGameListPassive);
-  yield takeLatest(GET_JPGAMELISTPASSIVE , handleGetJPGameListPassive);
+  yield takeLatest(GET_GLGAMELISTAILMENT, handleGetGLGameListAilment);
+  yield takeLatest(GET_JPGAMELISTAILMENT, handleGetJPGameListAilment);
+  yield takeLatest(GET_GLGAMELISTABILITY, handleGetGLGameListAbility);
+  yield takeLatest(GET_JPGAMELISTABILITY, handleGetJPGameListAbility);
+  yield takeLatest(GET_GLGAMELISTGEAR, handleGetGLGameListGear);
+  yield takeLatest(GET_JPGAMELISTGEAR, handleGetJPGameListGear);
+  yield takeLatest(GET_GLGAMELISTSPHERE, handleGetGLGameListSphere);
+  yield takeLatest(GET_JPGAMELISTSPHERE, handleGetJPGameListSphere);
+  yield takeLatest(GET_GLGAMELISTPASSIVE, handleGetGLGameListPassive);
+  yield takeLatest(GET_JPGAMELISTPASSIVE, handleGetJPGameListPassive);
 }

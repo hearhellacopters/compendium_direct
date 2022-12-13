@@ -1,27 +1,32 @@
-.aSpheresButton{
+.aSpheresButton {
     background-image: url(https://dissidiacompendium.com/images/static/icons/spheres/SphereLetterA.png);
 }
 
-.bSpheresButton{
+.bSpheresButton {
     background-image: url(https://dissidiacompendium.com/images/static/icons/spheres/SphereLetterB.png);
 }
-.cSpheresButton{
+
+.cSpheresButton {
     background-image: url(https://dissidiacompendium.com/images/static/icons/spheres/SphereLetterC.png);
 }
-.dSpheresButton{
+
+.dSpheresButton {
     background-image: url(https://dissidiacompendium.com/images/static/icons/spheres/SphereLetterD.png);
 }
-.eSpheresButton{
+
+.eSpheresButton {
     background-image: url(https://dissidiacompendium.com/images/static/icons/spheres/SphereLetterE.png);
 }
-.exSpheresButton{
+
+.exSpheresButton {
     background-image: url(https://dissidiacompendium.com/images/static/icons/spheres/SphereEX.png);
 }
-.rfSpheresButton{
+
+.rfSpheresButton {
     background-image: url(https://dissidiacompendium.com/images/static/icons/spheres/SphereRF.png);
 }
 
-.spheresbutton{
+.spheresbutton {
     width: 32px;
     height: 32px;
     display: inline-block;
@@ -32,7 +37,7 @@
     cursor: pointer;
 }
 
-.spheretypes{
+.spheretypes {
     display: inline-block;
     padding-left: 0px;
     margin: auto;
@@ -40,7 +45,7 @@
     margin-bottom: 5px;
 }
 
-.sphereicon{
+.sphereicon {
     display: flex;
     margin: auto;
     padding-top: 0px;
@@ -57,50 +62,50 @@
 }
 */
 
-.Abanner{
+.Abanner {
     background-color: #be3f52;
 }
 
-.Abase{
+.Abase {
     background-color: #773040f0;
 }
 
-.Bbanner{
+.Bbanner {
     background-color: #479cab;
 }
 
-.Bbase{
+.Bbase {
     background-color: #345767f0;
 }
 
-.Cbanner{
+.Cbanner {
     background-color: #47ab9a;
 }
 
-.Cbase{
+.Cbase {
     background-color: #346746f0;
 }
 
-.Dbanner{
+.Dbanner {
     background-color: #ab9447;
 }
 
-.Dbase{
+.Dbase {
     background-color: #675f34f0;
 }
 
-.Ebanner{
+.Ebanner {
     background-color: #5d38f1;
 }
 
-.Ebase{
+.Ebase {
     background-color: #473494;
 }
 
-#unique{
+#unique {
     color: #d0d093;
 }
 
-.subtextwhite{
+.subtextwhite {
     color: white;
 }

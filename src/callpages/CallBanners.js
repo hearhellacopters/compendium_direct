@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { getBanners } from '../redux/ducks/banners';
 import { getCharacters } from '../redux/ducks/characters';
@@ -6,32 +6,32 @@ import { getJPToggle } from '../redux/ducks/jptoggle';
 import Banners from '../Banners';
 import Loading from './_loading'
 
-const CallBannersPage = () =>{
-    
+const CallBannersPage = () => {
+
     const dispatch = useDispatch();
 
-    const ProcessedBanners = useSelector((state) => 
-    state.banners.banners
+    const ProcessedBanners = useSelector((state) =>
+        state.banners.banners
     );
 
-    const ProcessedCharacters = useSelector((state) => 
-    state.characters.characters
+    const ProcessedCharacters = useSelector((state) =>
+        state.characters.characters
     );
 
-    const jptoggledata = useSelector((state) => 
-    state.toggle.toggle
+    const jptoggledata = useSelector((state) =>
+        state.toggle.toggle
     );
 
     useEffect(() => {
         let mounted = true
         if (mounted && ProcessedBanners == undefined) {
-        dispatch(getBanners());
+            dispatch(getBanners());
         }
         if (mounted && ProcessedCharacters == undefined) {
-        dispatch(getCharacters());
+            dispatch(getCharacters());
         }
         if (mounted) {
-        dispatch(getJPToggle());
+            dispatch(getJPToggle());
         }
         return function cleanup() {
             mounted = false
@@ -39,10 +39,10 @@ const CallBannersPage = () =>{
     }, [dispatch, ProcessedCharacters, ProcessedBanners]);
 
     return (
-        ProcessedBanners != undefined && ProcessedCharacters != undefined && jptoggledata != undefined?
-        <Banners ProcessedBanners={ProcessedBanners} ProcessedCharacters={ProcessedCharacters} jptoggledata={jptoggledata}/>
-        : 
-        <Loading/>
+        ProcessedBanners != undefined && ProcessedCharacters != undefined && jptoggledata != undefined ?
+            <Banners ProcessedBanners={ProcessedBanners} ProcessedCharacters={ProcessedCharacters} jptoggledata={jptoggledata} />
+            :
+            <Loading />
     )
 
 }
