@@ -48,11 +48,13 @@ const Ailment_Character_Dif =({
 
     const [showraw,setshowraw] = useStateIfMounted(false)
 
-    const showmeraw = (current)=>{
-        if(current == false){
-            setshowraw(true)
-        }else{
-            setshowraw(false)
+    const showmeraw = (e)=>{
+        if(e.shiftKey){
+            if(showraw == false){
+                setshowraw(true)
+            } else{
+                setshowraw(false)
+            }
         }
     }
 
@@ -354,9 +356,7 @@ const Ailment_Character_Dif =({
             {castlocation == false ?
             <>
             <div className="infotitleholderenemybuff">
-            <DefaultTippy content={buff_new.icon && <div>Click to show raw<br/>Icon: {buff_new.icon.replace("icons/debuff/debuff_","").replace("icons/buff/buff_","").replace("numbered_icons/sp/","").replace("_framed","").replace("_unframed","").replace("_gold","").replace(".png","")}</div>}>
-                <img onClick={()=>showmeraw(showraw)} className="bufficonenemy cursorarrow" alt={buff_new.name && buff_new.name} src={"https://dissidiacompendium.com/images/static/" + buff_new.icon }/>
-            </DefaultTippy>
+                <img onClick={showmeraw} className="bufficonenemy" alt={buff_new.name && buff_new.name} src={"https://dissidiacompendium.com/images/static/" + buff_new.icon }/>
             </div>
             <div className={buff_new.is_buff == 0 ? "Debuffbanner infonameholderenemybuff" : "Buffbanner infonameholderenemybuff"}>
                 <div className="infotitle">
@@ -372,8 +372,7 @@ const Ailment_Character_Dif =({
             </div>
             </>
             :
-            <DefaultTippy content={"Click to show raw"}>
-                <div onClick={()=>showmeraw(showraw)} className={buff_new.is_buff == 1 ? "Buffsubbanner clicky" : "Debuffsubbanner clicky"}>
+                <div onClick={showmeraw} className={buff_new.is_buff == 1 ? "Buffsubbanner" : "Debuffsubbanner"}>
                     {replacer_titles(ailmentname  + " - #" + buff_new.id)} 
                     {ailmentjpname == "" || ailmentjpname == undefined ?
                     <div className="abilityJPname">
@@ -383,7 +382,6 @@ const Ailment_Character_Dif =({
                     {replacer_titles(ailmentjpname)}
                     </div>}
                 </div>
-                </DefaultTippy>
             }                    
             {sliders.levels == false && 
             sliders.turns == false && 

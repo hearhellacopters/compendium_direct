@@ -74,11 +74,13 @@ const Character_Ability_Dif = ({
     const [desc,setdesc] = useStateIfMounted(false)
     const [error, seterror] = useStateIfMounted()
 
-    const showmeraw = (current)=>{
-        if(current == false){
-            setshowraw(true)
-        } else{
-            setshowraw(false)
+    const showmeraw = (e)=>{
+        if(e.shiftKey){
+            if(showraw == false){
+                setshowraw(true)
+            } else{
+                setshowraw(false)
+            }
         }
     }
 
@@ -346,8 +348,7 @@ const Character_Ability_Dif = ({
                 <div className="faceandiconholder">
                     <div className="idoffset" id={character_ability.LearningAbility}></div>
                     <Char_Face_Maker char_id={char_id} id={character_ability.charaID} loc={undefined}/>
-                    <Tippy content="Display Raw" className="tooltip" >
-                    <div className="abilityiconholder clicky"  onClick={()=>showmeraw(showraw)}>
+                    <div className="abilityiconholder"  onClick={showmeraw}>
                     <div className="abilityurlholder">
                     <img className="abilityicon" alt={Name} src={`https://dissidiacompendium.com/images/static/${IconURL}.png`}/>
                     <div className={
@@ -365,7 +366,6 @@ const Character_Ability_Dif = ({
                     </div>
                     </div>
                 </div>
-                </Tippy>
                 </div>
             </div>
             <div className={`bluebanner infonameholder nobuffpadding `}>
