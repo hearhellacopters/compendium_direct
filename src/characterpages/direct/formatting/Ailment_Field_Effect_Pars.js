@@ -403,7 +403,7 @@ const Ailment_Field_Effect_Pars = (
     var slidertype = "ranks"
     var multiply = false
     var multiplyslider = undefined
-    var defaultrank = rank != undefined ? rank : 1
+    var defaultrank = rank != undefined ? rank < 1 ? 1 : rank : 1
 
     if (effect_value_type == 2) {
         slidertype = "levels"

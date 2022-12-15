@@ -465,7 +465,7 @@ const Passive_Battle_State = ({
                                     formatting={formatting}
                                     hide_type={true}
                                     hide_disp={hide_disp != true ? false : buffs.field_hide}
-                                    spacer={`${passive_ability.field.length == i + 1 ? "└─" : "├─"}`}
+                                    spacer={`${"-"}`}
                                 />
                             ))
                             : ""}
