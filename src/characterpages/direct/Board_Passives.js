@@ -89,20 +89,47 @@ const Sum_Fix_Passive = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeLDEXT, activeFRECHO, activeFREXT, activeLDCallEXT])
 
+  const clear_filter =()=>{
+    setactiveLDEXT(false)
+    setactiveLDCallEXT(false)
+    setactiveFRECHO(false)
+    setactiveFREXT(false)
+  }
+
   const LDEXTbutton = () => {
-    setactiveLDEXT((prevValue) => !prevValue);
+    if(activeLDEXT == false){
+      clear_filter()
+      setactiveLDEXT(true)
+    } else {
+      clear_filter()
+    }
   }
 
   const LDCallEXTbutton = () => {
-    setactiveLDCallEXT((prevValue) => !prevValue);
+    if(activeLDCallEXT== false){
+      clear_filter()
+      setactiveLDCallEXT(true)
+    } else {
+      clear_filter()
+    }
   }
 
   const FRECHObutton = () => {
-    setactiveFRECHO((prevValue) => !prevValue);
+    if(activeFRECHO== false){
+      clear_filter()
+      setactiveFRECHO(true)
+    } else {
+      clear_filter()
+    }
   }
 
   const FREXTbutton = () => {
-    setactiveFREXT((prevValue) => !prevValue);
+    if(activeFREXT){
+      clear_filter()
+      setactiveFREXT(true)
+    } else {
+      clear_filter()
+    }
   }
 
   const [loop, setLoop] = useStateIfMounted(false);

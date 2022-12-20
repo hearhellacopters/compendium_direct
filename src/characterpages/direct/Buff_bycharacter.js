@@ -67,6 +67,7 @@ const Buff_bycharacter = ({
 
     useEffect(() => {
         const buff_holder = []
+        const buff_hidden = []
         const stateholder = []
         buff_data && buff_data.forEach(self => {
             self.cast_id && self.cast_id.casts && self.cast_id.casts.forEach(selfcast => {
@@ -75,20 +76,28 @@ const Buff_bycharacter = ({
                         ...self,
                         cast: selfcast,
                         ailment_id: selfcast.id,
+                        cast_id: undefined,
                         active: self.active,
                         chara_id: self.chara_id
                     }
                 }
-                if (self.is_state != true) {
-                    buff_holder.push(holder)
+                if (selfcast.icon.includes("buff_hidden") == true) {
+                    buff_hidden.push(holder)
                     holder = undefined
                 } else {
-                    stateholder.push(holder)
-                    holder = undefined
+                    if (self.is_state != true) {
+                        buff_holder.push(holder)
+                        holder = undefined
+                    } else {
+                        stateholder.push(holder)
+                        holder = undefined
+                    }
                 }
             })
         })
         buff_holder.sort((a, b) => Object.keys(b) - Object.keys(a))
+        buff_hidden.sort((a, b) => Object.keys(b) - Object.keys(a))
+        buff_holder.push(...buff_hidden)
         stateholder.sort((a, b) => Object.keys(b) - Object.keys(a))
         setbufflist(buff_holder)
         setstatelist(stateholder)
@@ -290,91 +299,104 @@ const Buff_bycharacter = ({
         Object.assign(ParsBuffs[id], { tags: unique })
     })
 
+    const clear_filter=()=>{
+        setactiveBT(false)
+        setactiveFR(false)
+        setactiveLD(false)
+        setactiveEX(false)
+        setactiveS2(false)
+        setactiveS1(false)
+        setactiveAA(false)
+        setactiveCALL(false)
+        setactiveHP(false)
+        setactiveBRV(false)
+    }
+
     const BTbutton = () => {
         if (activeBT == false) {
-            setactiveBTsearch("true")
+            clear_filter()
+            setactiveBT(true)
         } else {
-            setactiveBTsearch("")
+            clear_filter()
         }
-        setactiveBT((prevValue) => !prevValue);
     }
 
     const FRbutton = () => {
         if (activeFR == false) {
-            setactiveFRsearch("true")
+            clear_filter()
+            setactiveFR(true)
         } else {
-            setactiveFRsearch("")
+            clear_filter()
         }
-        setactiveFR((prevValue) => !prevValue);
     }
 
     const LDbutton = () => {
         if (activeLD == false) {
-            setactiveLDsearch("true")
+            clear_filter()
+            setactiveLD(true)
         } else {
-            setactiveLDsearch("")
+            clear_filter()
         }
-        setactiveLD((prevValue) => !prevValue);
     }
 
     const EXbutton = () => {
         if (activeEX == false) {
-            setactiveEXsearch("true")
+            clear_filter()
+            setactiveEX(true)
         } else {
-            setactiveEXsearch("")
+            clear_filter()
         }
-        setactiveEX((prevValue) => !prevValue);
     }
 
     const S2button = () => {
         if (activeS2 == false) {
-            setactiveS2search("true")
+            clear_filter()
+            setactiveS2(true)
         } else {
-            setactiveS2search("")
+            clear_filter()
         }
-        setactiveS2((prevValue) => !prevValue);
     }
 
     const S1button = () => {
         if (activeS1 == false) {
-            setactiveS1search("true")
+            clear_filter()
+            setactiveS1(true)
         } else {
-            setactiveS1search("")
+            clear_filter()
         }
-        setactiveS1((prevValue) => !prevValue);
     }
     const AAbutton = () => {
         if (activeAA == false) {
-            setactiveAAsearch("true")
+            clear_filter()
+            setactiveAA(true)
         } else {
-            setactiveAAsearch("")
+            clear_filter()
         }
-        setactiveAA((prevValue) => !prevValue);
     }
 
     const Callbutton = () => {
         if (activeCALL == false) {
-            setactiveCALLsearch("true")
+            clear_filter()
+            setactiveCALL(true)
         } else {
-            setactiveCALLsearch("")
+            clear_filter()
         }
-        setactiveCALL((prevValue) => !prevValue);
     }
     const HPbutton = () => {
         if (activeHP == false) {
-            setactiveHPsearch("true")
+            clear_filter()
+            setactiveHP(true)
         } else {
-            setactiveHPsearch("")
+            clear_filter()
         }
-        setactiveHP((prevValue) => !prevValue);
     }
     const BRVbutton = () => {
         if (activeBRV == false) {
-            setactiveBRVsearch("true")
+            clear_filter()
+            setactiveBRV(true)
         } else {
-            setactiveBRVsearch("")
+            clear_filter()
         }
-        setactiveBRV((prevValue) => !prevValue);
     }
 
     const [rawData, setrawData] = useStateIfMounted(Object.values(ParsBuffs).sort((a, b) =>

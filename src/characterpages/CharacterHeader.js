@@ -123,17 +123,17 @@ const CharPageHeader = ({ nextevent,
                         <Link to={`/characters/${newmatch.ShortName}`}>
                             <li className={`${pageloc == "character" ? "filteractive" : "filterinactive"} buffbutton directprofile`}></li>
                         </Link>
-                        <Link to={`/characters/${newmatch.ShortName}/abilities`}>
+                        <Link to={`/characters/${newmatch.ShortName}/abilities${ver =="JP"?"?JP=true":""}`}>
                             <Tippy content="Abilities">
                                 <li className={`${pageloc == "abilities" ? "filteractive" : "filterinactive"}${(newmatch[`${ver}basic`] != true || newmatch[`${ver}abilities`] != true) ? "grey" : ""} buffbutton directabilitiesbutton`} ></li>
                             </Tippy>
                         </Link>
-                        <Link to={`/characters/${newmatch.ShortName}/buffs`}>
+                        <Link to={`/characters/${newmatch.ShortName}/buffs${ver =="JP"?"?JP=true":""}`}>
                             <Tippy content="Buffs">
                                 <li className={`${pageloc == "buffs" ? "filteractive" : "filterinactive"}${(newmatch[`${ver}basic`] != true || newmatch[`${ver}buffs`] != true) ? "grey" : ""} buffbutton directbuffsButton`} ></li>
                             </Tippy>
                         </Link>
-                        <Link to={`/characters/${newmatch.ShortName}/gear`}>
+                        <Link to={`/characters/${newmatch.ShortName}/gear${ver =="JP"?"?JP=true":""}`}>
                             <Tippy content="Equipment Passives">
                                 <li className={`${pageloc == "gear" ? "filteractive" : "filterinactive"}${(newmatch[`${ver}basic`] != true || newmatch[`${ver}gear`] != true) ? "grey" : ""} buffbutton directgearbutton`} ></li>
                             </Tippy>
@@ -145,34 +145,34 @@ const CharPageHeader = ({ nextevent,
                             newmatch[`${ver}art`] == true)
                             && newmatch[`${ver}basic`] == true
                             ?
-                            <Link to={`/characters/${newmatch.ShortName}/passives/crystal`}>
+                            <Link to={`/characters/${newmatch.ShortName}/passives/crystal${ver =="JP"?"?JP=true":""}`}>
                                 <Tippy content="Passives">
                                     <li className={`${pageloc == "passives" ? "filteractive" : "filterinactive"} buffbutton directpassives`} ></li>
                                 </Tippy>
                             </Link>
                             :
-                            <Link to={`/characters/${newmatch.ShortName}/passives/crystal`}>
+                            <Link to={`/characters/${newmatch.ShortName}/passives/crystal${ver =="JP"?"?JP=true":""}`}>
                                 <Tippy content="Passives">
                                     <li className={`${pageloc == "passives" ? "filteractive" : "filterinactive"}grey buffbutton directpassives`} ></li>
                                 </Tippy>
                             </Link>
                         }
-                        <Link to={`/characters/${newmatch.ShortName}/reworks`}>
+                        <Link to={`/characters/${newmatch.ShortName}/reworks${ver =="JP"?"?JP=true":""}`}>
                             <Tippy content="Upcoming Reworks">
                                 <li className={`${pageloc == "reworks" ? "filteractive" : "filterinactive"} buffbutton reworktab${newmatch.ActiveRework == true ? "red" : ""}_direct`} ></li>
                             </Tippy>
                         </Link>
-                        <Link to={`/characters/${newmatch.ShortName}/spheres`}>
+                        <Link to={`/characters/${newmatch.ShortName}/spheres${ver =="JP"?"?JP=true":""}`}>
                             <Tippy content="Spheres">
                                 <li className={`${pageloc == "spheres" ? "filteractive" : "filterinactive"}${(newmatch[`${ver}basic`] != true || newmatch[`${ver}spheres`] != true) ? "grey" : ""} buffbutton directspherespagebutton`} ></li>
                             </Tippy>
                         </Link>
-                        <Link to={`/characters/${newmatch.ShortName}/events`}>
+                        <Link to={`/characters/${newmatch.ShortName}/events${ver =="JP"?"?JP=true":""}`}>
                             <Tippy content="Associated Events">
                                 <li className={`${pageloc == "events" ? "filteractive" : "filterinactive"}${(newmatch[`${ver}basic`] != true || newmatch[`${ver}events`] != true) ? "grey" : ""} buffbutton eventsdirect`} ></li>
                             </Tippy>
                         </Link>
-                        <Link to={`/characters/${newmatch.ShortName}/community`}>
+                        <Link to={`/characters/${newmatch.ShortName}/community${ver =="JP"?"?JP=true":""}`}>
                             <Tippy content="Community Help">
                                 <li className={`${pageloc == "community" ? "filteractive" : "filterinactive"} buffbutton communityprofile`} ></li>
                             </Tippy>
@@ -186,27 +186,27 @@ const CharPageHeader = ({ nextevent,
                         direct_loc == "force" ||
                         direct_loc == "arts" ?
                         <ul className='bufftypes'>
-                            <Link to={`/characters/${newmatch.ShortName}/passives/exp`}>
+                            <Link to={`/characters/${newmatch.ShortName}/passives/exp${ver =="JP"?"?JP=true":""}`}>
                                 <Tippy content="Experience Passives">
                                     <li className={`${direct_loc == "exp" ? "filteractive" : "filterinactive"}${(newmatch[`${ver}basic`] != true || newmatch[`${ver}exp`] != true) ? "grey" : ""} buffbutton directexppassives`} ></li>
                                 </Tippy>
                             </Link>
-                            <Link to={`/characters/${newmatch.ShortName}/passives/crystal`}>
+                            <Link to={`/characters/${newmatch.ShortName}/passives/crystal${ver =="JP"?"?JP=true":""}`}>
                                 <Tippy content="Crystal Passives">
                                     <li className={`${direct_loc == "crystal" ? "filteractive" : "filterinactive"}${(newmatch[`${ver}basic`] != true || newmatch[`${ver}crystal`] != true) ? "grey" : ""} buffbutton directcrystalpassives`} ></li>
                                 </Tippy>
                             </Link>
-                            <Link to={`/characters/${newmatch.ShortName}/passives/boards`}>
+                            <Link to={`/characters/${newmatch.ShortName}/passives/boards${ver =="JP"?"?JP=true":""}`}>
                                 <Tippy content="Enhancement Boards">
                                     <li className={`${direct_loc == "boards" ? "filteractive" : "filterinactive"}${(newmatch[`${ver}basic`] != true || newmatch[`${ver}sum_fix`] != true) ? "grey" : ""} buffbutton bpassivesbutton`} ></li>
                                 </Tippy>
                             </Link>
-                            <Link to={`/characters/${newmatch.ShortName}/passives/force`}>
+                            <Link to={`/characters/${newmatch.ShortName}/passives/force${ver =="JP"?"?JP=true":""}`}>
                                 <Tippy content="Force Enhancement">
                                     <li className={`${direct_loc == "force" ? "filteractive" : "filterinactive"}${(newmatch[`${ver}basic`] != true || newmatch[`${ver}link`] != true) ? "grey" : ""} buffbutton linkbutton`} ></li>
                                 </Tippy>
                             </Link>
-                            <Link to={`/characters/${newmatch.ShortName}/passives/arts`}>
+                            <Link to={`/characters/${newmatch.ShortName}/passives/arts${ver =="JP"?"?JP=true":""}`}>
                                 <Tippy content="Artifact Passives">
                                     <li className={`${direct_loc == "arts" ? "filteractive" : "filterinactive"}${(newmatch[`${ver}basic`] != true || newmatch[`${ver}art`] != true) ? "grey" : ""} buffbutton artpassivedirect`} ></li>
                                 </Tippy>

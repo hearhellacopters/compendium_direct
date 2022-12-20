@@ -347,61 +347,71 @@ const Crystal_Passives = ({
 
   const displaydata = listDisplay
 
+  const clear_filter =()=>{
+    setactiveCl50(false)
+    setactiveCl55(false)
+    setactiveCl60(false)
+    setactiveCl70(false)
+    setactiveCl80(false)
+    setactiveCl85(false)
+    setactiveCl88(false)
+  }
+
   const Cl50button = () => {
     if (activeCl50 == false) {
-      setactiveCl50search("true")
+      clear_filter()
+      setactiveCl50(true)
     } else {
-      setactiveCl50search("")
+      clear_filter()
     }
-    setactiveCl50((prevValue) => !prevValue);
   }
   const Cl55button = () => {
     if (activeCl55 == false) {
-      setactiveCl55search("true")
+      clear_filter()
+      setactiveCl55(true)
     } else {
-      setactiveCl55search("")
+      clear_filter()
     }
-    setactiveCl55((prevValue) => !prevValue);
   }
   const Cl60button = () => {
     if (activeCl60 == false) {
-      setactiveCl60search("true")
+      clear_filter()
+      setactiveCl60(true)
     } else {
-      setactiveCl60search("")
+      clear_filter()
     }
-    setactiveCl60((prevValue) => !prevValue);
   }
   const Cl80button = () => {
     if (activeCl80 == false) {
-      setactiveCl80search("true")
+      clear_filter()
+      setactiveCl80(true)
     } else {
-      setactiveCl80search("")
+      clear_filter()
     }
-    setactiveCl80((prevValue) => !prevValue);
   }
   const Cl70button = () => {
     if (activeCl70 == false) {
-      setactiveCl70search("true")
+      clear_filter()
+      setactiveCl70(true)
     } else {
-      setactiveCl70search("")
+      clear_filter()
     }
-    setactiveCl70((prevValue) => !prevValue);
   }
   const Cl85button = () => {
     if (activeCl85 == false) {
-      setactiveCl85search("true")
+      clear_filter()
+      setactiveCl85(true)
     } else {
-      setactiveCl85search("")
+      clear_filter()
     }
-    setactiveCl85((prevValue) => !prevValue);
   }
   const Cl88button = () => {
     if (activeCl88 == false) {
-      setactiveCl88search("true")
+      clear_filter()
+      setactiveCl88(true)
     } else {
-      setactiveCl88search("")
+      clear_filter()
     }
-    setactiveCl88((prevValue) => !prevValue);
   }
 
   if (crydata.length == 0) {

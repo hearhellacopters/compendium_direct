@@ -258,166 +258,188 @@ const Equipment_Passives = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activebloom, active4a, active35a, activeHG, activeHGPlus, active7A, active7APlus, active4, activeBTPlus, activeBT, activeFR, activeEXPlus, activeEX, activeLD, activeDark, active35, activeNT, activeWOI, active15])
 
+
+  const clear_filter=()=>{
+    setactiveBTPlus(false)
+    setactiveBT(false)
+    setactiveFR(false)
+    setactiveEXPlus(false)
+    setactiveLD(false)
+    setactiveEX(false)
+    setactiveDark(false)
+    setactive35(false)
+    setactiveNT(false)
+    setactiveWOI(false)
+    setactive15(false)
+    setactive4(false)
+    setactive7APlus(false)
+    setactive7A(false)
+    setactiveHGPlus(false)
+    setactiveHG(false)
+    setactive35a(false)
+    setactive4a(false)
+    setactivebloom(false)
+  }
   const BTPlusbutton = () => {
     if (activeBTPlus == false) {
-      setactiveBTPlussearch("true")
+      clear_filter()
+      setactiveBTPlus(true)
     } else {
-      setactiveBTPlussearch("")
+      clear_filter()
     }
-    setactiveBTPlus((prevValue) => !prevValue);
   }
 
   const BTbutton = () => {
     if (activeBT == false) {
-      setactiveBTsearch("true")
+      clear_filter()
+      setactiveBT(true)
     } else {
-      setactiveBTsearch("")
+      clear_filter()
     }
-    setactiveBT((prevValue) => !prevValue);
   }
 
   const FRbutton = () => {
     if (activeFR == false) {
-      setactiveFRsearch("true")
+      clear_filter()
+      setactiveFR(true)
     } else {
-      setactiveFRsearch("")
+      clear_filter()
     }
-    setactiveFR((prevValue) => !prevValue);
   }
 
   const EXPlusbutton = () => {
     if (activeEXPlus == false) {
-      setactiveEXPlussearch("true")
+      clear_filter()
+      setactiveEXPlus(true)
     } else {
-      setactiveEXPlussearch("")
+      clear_filter()
     }
-    setactiveEXPlus((prevValue) => !prevValue);
   }
 
   const LDbutton = () => {
     if (activeLD == false) {
-      setactiveLDsearch("true")
+      clear_filter()
+      setactiveLD(true)
     } else {
-      setactiveLDsearch("")
+      clear_filter()
     }
-    setactiveLD((prevValue) => !prevValue);
   }
 
   const EXbutton = () => {
     if (activeEX == false) {
-      setactiveEXsearch("true")
+      clear_filter()
+      setactiveEX(true)
     } else {
-      setactiveEXsearch("")
+      clear_filter()
     }
-    setactiveEX((prevValue) => !prevValue);
   }
 
   const Darkbutton = () => {
     if (activeDark == false) {
-      setactiveDarksearch("true")
+      clear_filter()
+      setactiveDark(true)
     } else {
-      setactiveDarksearch("")
+      clear_filter()
     }
-    setactiveDark((prevValue) => !prevValue);
   }
   const _35button = () => {
     if (active35 == false) {
-      setactive35search("true")
+      clear_filter()
+      setactive35(true)
     } else {
-      setactive35search("")
+      clear_filter()
     }
-    setactive35((prevValue) => !prevValue);
   }
   const NTbutton = () => {
     if (activeNT == false) {
-      setactiveNTsearch("true")
+      clear_filter()
+      setactiveNT(true)
     } else {
-      setactiveNTsearch("")
+      clear_filter()
     }
-    setactiveNT((prevValue) => !prevValue);
   }
   const WOIbutton = () => {
     if (activeWOI == false) {
-      setactiveWOIsearch("true")
+      clear_filter()
+      setactiveWOI(true)
     } else {
-      setactiveWOIsearch("")
+      clear_filter()
     }
-    setactiveWOI((prevValue) => !prevValue);
   }
   const _15button = () => {
     if (active15 == false) {
-      setactive15search("true")
+      clear_filter()
+      setactive15(true)
     } else {
-      setactive15search("")
+      clear_filter()
     }
-    setactive15((prevValue) => !prevValue);
   }
   const _4button = () => {
     if (active15 == false) {
-      setactive4search("true")
+      clear_filter()
+      setactive4(true)
     } else {
-      setactive4search("")
+      clear_filter()
     }
-    setactive4((prevValue) => !prevValue);
   }
 
   const _7APlusbutton = () => {
     if (active7APlus == false) {
-      setactive7APlussearch("true")
+      clear_filter()
+      setactive7APlus(true)
     } else {
-      setactive7APlussearch("")
+      clear_filter()
     }
-    setactive7APlus((prevValue) => !prevValue);
   }
   const _7Abutton = () => {
     if (active7A == false) {
-      setactive7Asearch("true")
+      clear_filter()
+      setactive7A(true)
     } else {
-      setactive7Asearch("")
+      clear_filter()
     }
-    setactive7A((prevValue) => !prevValue);
   }
 
   const HGPlusbutton = () => {
     if (activeHGPlus == false) {
-      setactiveHGPlussearch("true")
+      clear_filter()
+      setactiveHGPlus(true)
     } else {
-      setactiveHGPlussearch("")
+      clear_filter()
     }
-    setactiveHGPlus((prevValue) => !prevValue);
   }
 
   const HGbutton = () => {
     if (activeHG == false) {
-      setactiveHGsearch("true")
+      clear_filter()
+      setactiveHG(true)
     } else {
-      setactiveHGsearch("")
+      clear_filter()
     }
-    setactiveHG((prevValue) => !prevValue);
   }
   const _35abutton = () => {
     if (active35a == false) {
-      setactive35asearch("true")
+      clear_filter()
+      setactive35a(true)
     } else {
-      setactive35asearch("")
+      clear_filter()
     }
-    setactive35a((prevValue) => !prevValue);
   }
   const _4abutton = () => {
     if (active4a == false) {
-      setactive4asearch("true")
+      clear_filter()
+      setactive4a(true)
     } else {
-      setactive4asearch("")
+      clear_filter()
     }
-    setactive4a((prevValue) => !prevValue);
   }
   const bloombutton = () => {
     if (activebloom == false) {
-      setactivebloomsearch("true")
+      clear_filter()
+      setactivebloom(true)
     } else {
-      setactivebloomsearch("")
+      clear_filter()
     }
-    setactivebloom((prevValue) => !prevValue);
   }
 
   const [loop, setLoop] = useStateIfMounted(false);

@@ -411,7 +411,7 @@ const Ailment_Field_Effect_Pars = (
     }
     if (effect_value_type == 3) {
         slidertype = "ranks"
-        defaultrank = rank != undefined ? rank : 1
+        defaultrank = rank != undefined ? rank < 1 ? 1 : rank : 1
     }
     if (effect_value_type == 6) {
         slidertype = "fieldbuffsrank"

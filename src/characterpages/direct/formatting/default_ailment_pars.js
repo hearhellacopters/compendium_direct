@@ -22,7 +22,7 @@ const Default_Ailment_Pars = ({
     const passivenames = master_index.passivenames
     const equipmentpassivenames = master_index.equipmentpassivenames
     const CommandNames = master_index.commands
-    const cast_targets = master_index.cast_names
+    const cast_targets = master_index.command_data_trans.cast_target
 
     const [showraw, setshowraw] = useStateIfMounted(false)
 

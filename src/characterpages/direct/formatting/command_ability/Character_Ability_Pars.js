@@ -1070,7 +1070,7 @@ const Character_Ability_Pars = ({
                             {bufflist && bufflist.length != 0 ?
                                 <>
                                     <div className="unique ailmenttext">
-                                        Conditional Casts:
+                                        Conditional Casts (Non-self):
                                     </div>
                                     <ul className="abilitybufflist">
                                         {bufflist && bufflist.length != 0 ?

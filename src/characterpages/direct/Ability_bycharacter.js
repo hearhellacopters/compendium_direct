@@ -1072,99 +1072,113 @@ const Ability_bycharacter = ({
 
     const [showinfo, setshowinfo] = useStateIfMounted(false);
 
+    const clear_filter=()=>{
+        setactiveBT(false)
+        setactiveFR(false)
+        setactiveLD(false)
+        setactiveEX(false)
+        setactiveS2(false)
+        setactiveS1(false)
+        setactiveAA(false)
+        setactiveCALL75(false)
+        setactiveCALLLD(false)
+        setactiveHP(false)
+        setactiveBRV(false)
+    }
+
     const BTbutton = () => {
         if (activeBT == false) {
-            setactiveBTsearch("true")
+            clear_filter()
+            setactiveBT(true)
         } else {
-            setactiveBTsearch("")
+            clear_filter()
         }
-        setactiveBT((prevValue) => !prevValue);
     }
 
     const FRbutton = () => {
         if (activeFR == false) {
-            setactiveFRsearch("true")
+            clear_filter()
+            setactiveFR(true)
         } else {
-            setactiveFRsearch("")
+            clear_filter()
         }
-        setactiveFR((prevValue) => !prevValue);
     }
 
     const LDbutton = () => {
         if (activeLD == false) {
-            setactiveLDsearch("true")
+            clear_filter()
+            setactiveLD(true)
         } else {
-            setactiveLDsearch("")
+            clear_filter()
         }
-        setactiveLD((prevValue) => !prevValue);
     }
 
     const EXbutton = () => {
         if (activeEX == false) {
-            setactiveEXsearch("true")
+            clear_filter()
+            setactiveEX(true)
         } else {
-            setactiveEXsearch("")
+            clear_filter()
         }
-        setactiveEX((prevValue) => !prevValue);
     }
 
     const S2button = () => {
         if (activeS2 == false) {
-            setactiveS2search("true")
+            clear_filter()
+            setactiveS2(true)
         } else {
-            setactiveS2search("")
+            clear_filter()
         }
-        setactiveS2((prevValue) => !prevValue);
     }
 
     const S1button = () => {
         if (activeS1 == false) {
-            setactiveS1search("true")
+            clear_filter()
+            setactiveS1(true)
         } else {
-            setactiveS1search("")
+            clear_filter()
         }
-        setactiveS1((prevValue) => !prevValue);
     }
     const AAbutton = () => {
         if (activeAA == false) {
-            setactiveAAsearch("true")
+            clear_filter()
+            setactiveAA(true)
         } else {
-            setactiveAAsearch("")
+            clear_filter()
         }
-        setactiveAA((prevValue) => !prevValue);
     }
 
     const CallLDbutton = () => {
         if (activeCALLLD == false) {
-            setactiveCALLLDsearch("true")
+            clear_filter()
+            setactiveCALLLD(true)
         } else {
-            setactiveCALLLDsearch("")
+            clear_filter()
         }
-        setactiveCALLLD((prevValue) => !prevValue);
     }
     const Call75button = () => {
         if (activeCALL75 == false) {
-            setactiveCALL75search("true")
+            clear_filter()
+            setactiveCALL75(true)
         } else {
-            setactiveCALL75search("")
+            clear_filter()
         }
-        setactiveCALL75((prevValue) => !prevValue);
     }
     const HPbutton = () => {
         if (activeHP == false) {
-            setactiveHPsearch("true")
+            clear_filter()
+            setactiveHP(true)
         } else {
-            setactiveHPsearch("")
+            clear_filter()
         }
-        setactiveHP((prevValue) => !prevValue);
     }
     const BRVbutton = () => {
         if (activeBRV == false) {
-            setactiveBRVsearch("true")
+            clear_filter()
+            setactiveBRV(true)
         } else {
-            setactiveBRVsearch("")
+            clear_filter()
         }
-        setactiveBRV((prevValue) => !prevValue);
     }
 
     //clear
