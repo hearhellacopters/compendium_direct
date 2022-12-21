@@ -205,6 +205,8 @@ const Ailment_Data_Formatting = ({
         if (ailment_data.max_level == -1 && arg2 == undefined) {
             setHighestlvl(10)
         }
+        var turns_set = ailment_data && ailment_data.alife != undefined ? ailment_data.alife : turns
+        setcurrentturns(turns_set == undefined ? 1 : turns_set < 1 ? 1 : turns_set)
         // eslint-disable-next-line
     }, [ailment_data, arg2])
 
