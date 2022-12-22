@@ -17,6 +17,8 @@ import { setRemove } from './redux/ducks/playlist';
 import { setFullList } from './redux/ducks/playlist';
 import { getFullList } from './redux/ducks/playlist';
 
+import { setPlayVolume } from './redux/ducks/playvolume'
+
 import { useDispatch, useSelector } from "react-redux";
 
 import Select from 'react-select';
@@ -181,6 +183,11 @@ const JukeBox = ({ ProcessedMusic, playing, volume, playlist, list1, list2, list
     }
   }
 
+  const handlevolume = (e) => {
+    window.localStorage.setItem('volume', parseFloat(e))
+    dispatch(setPlayVolume(parseFloat(e)))
+  };
+
   return (
     <div>
       {display == true ?
@@ -210,6 +217,7 @@ const JukeBox = ({ ProcessedMusic, playing, volume, playlist, list1, list2, list
         remember={true}
         audioLists={currentlist}
         updatePlayIndex={currentlist}
+        onAudioVolumeChange={handlevolume}
         onAudioListsChange={updateList}
         responsive={false}
         glassBg={true}

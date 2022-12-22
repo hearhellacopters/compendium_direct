@@ -12,7 +12,6 @@
 
 .abilityusesholder {
     display: table;
-    margin-left: auto;
     padding-right: 5px;
     margin-top: auto;
     margin-bottom: auto;
@@ -144,6 +143,7 @@
 
 .usesmaker {
     display: flex;
+    min-width: 100px;
     height: auto;
     margin-left: auto;
     border-left: 2px solid black;

@@ -442,6 +442,7 @@ const JukeBox = ({ ProcessedMusic, playing, volume, playindex, playlist, musicke
   }
 
   const handlevolume = (e) => {
+    window.localStorage.setItem('volume', parseFloat(e.target.value))
     dispatch(setPlayVolume(parseFloat(e.target.value)))
   };
 

@@ -65,7 +65,8 @@ const App = () => {
   const [JPsearch, setJPSearch] = useQueryParam("JP", "");
 
   useEffect(() => {
-    if (getQueryStringVal("JP") == "true") {
+    const prev = window.localStorage.getItem("ver")
+    if (getQueryStringVal("JP") == "true" || prev == "JP") {
       dispatch(setTrue())
       setJPSearch("true")
       setJPonly(true)

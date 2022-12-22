@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import './CharacterPage.css'
 import '../Spheres.css'
 import '../Events.css'
@@ -30,6 +31,7 @@ const CharacterPage = ({
   CharStickers
 }) => {
 
+  const [playingaudio, setplayingaudio] = useState(false)
   const [introvoice, setintrovoice] = useState("intro")
   const [ver, setver] = useState(jptoggledata == true ? "JP" : "GL")
   const [showraw, setshowraw] = useState(false)
@@ -48,15 +50,29 @@ const CharacterPage = ({
     setintrovoice("intro")
   }, [match])
 
+  const volume = useSelector((state) =>
+    state.volume.volume
+  );
+
   const onclick = (Voice) => {
-    try {
-      const myAudioElement = new Audio(`https://dissidiacompendium.com/images/static/voice/${Voice.CharID}/${Voice.voice}.mp3`)
-      myAudioElement.addEventListener("canplaythrough", (event) => {
-        /* the audio is now playable; play it if permissions allow */
-        myAudioElement.play();
-      });
-    } catch (error) {
-      console.log(error)
+    if(playingaudio != true){
+      try {
+        const myAudioElement = new Audio(`https://dissidiacompendium.com/images/static/voice/${Voice.CharID}/${Voice.voice}.mp3`)
+        myAudioElement.volume = volume
+        myAudioElement.style.display = "none"
+        setplayingaudio(true)
+        myAudioElement.addEventListener("canplaythrough", (event) => {
+          /* the audio is now playable; play it if permissions allow */
+          myAudioElement.play();
+        });
+        myAudioElement.onended = function(){
+          setplayingaudio(false)
+          myAudioElement.remove();
+      }
+      } catch (error) {
+        setplayingaudio(false)
+        console.log(error)
+      }
     }
   }
 

@@ -4466,6 +4466,15 @@ h3 {
   -webkit-filter: drop-shadow(1px 0 0 #000000) drop-shadow(0 1px 0 #000000) drop-shadow(0 -1px 0 #000000) drop-shadow(-1px 0 0 #000000);
 }
 
+.soundicon {
+  filter: drop-shadow(1px 0 0 rgb(0, 0, 0)) drop-shadow(0 1px 0 rgb(0, 0, 0)) drop-shadow(0 -1px 0 rgb(0, 0, 0)) drop-shadow(-1px 0 0 rgb(0, 0, 0));
+  -webkit-filter: drop-shadow(1px 0 0 #000000) drop-shadow(0 1px 0 #000000) drop-shadow(0 -1px 0 #000000) drop-shadow(-1px 0 0 #000000);
+  height: 24px;
+  width: 24px;
+  transition: color .8s;
+  vertical-align: middle;
+}
+
 .nexticon {
   margin-top: 15px;
   margin-left: 5px;

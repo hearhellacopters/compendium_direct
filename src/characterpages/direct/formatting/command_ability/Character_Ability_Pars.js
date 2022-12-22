@@ -19,6 +19,7 @@ import replacer_titles from '../../../../processing/replacer_titles'
 import replacer_buff from '../../../../processing/replacer_buffcontent'
 import { useDispatch, useSelector } from "react-redux";
 import { getTransNames } from '../../../../redux/ducks/transnames';
+import { MdRecordVoiceOver }from 'react-icons/md';
 import rank_trans from './rank_trans'
 import ReactJson from '@microlink/react-json-view'
 import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
@@ -102,6 +103,7 @@ const Character_Ability_Pars = ({
         state.transnames.transnames
     );
 
+    const [playingaudio, setplayingaudio] = useStateIfMounted(false)
     const [showraw, setshowraw] = useStateIfMounted(false)
     const [showoptions, setshowoptions] = useStateIfMounted(false)
     const [desc, setdesc] = useStateIfMounted(false)
@@ -137,6 +139,32 @@ const Character_Ability_Pars = ({
                 setshowraw(true)
             } else {
                 setshowraw(false)
+            }
+        }
+    }
+
+    const volume = useSelector((state) =>
+        state.volume.volume
+    );
+
+    const playvoice =()=>{
+        if(playingaudio != true && character_ability.voice_index != undefined){
+            try {
+                const myAudioElement = new Audio(`https://dissidiacompendium.com/images/static/voice/${character_ability.charaID}/${character_ability.voice_index}.mp3`)
+                myAudioElement.volume = volume
+                myAudioElement.style.display = "none"
+                setplayingaudio(true)
+                myAudioElement.addEventListener("canplaythrough", (event) => {
+                    /* the audio is now playable; play it if permissions allow */
+                    myAudioElement.play();
+                });
+                myAudioElement.onended = function(){
+                    setplayingaudio(false)
+                    myAudioElement.remove();
+                }
+            } catch (error) {
+                console.log(error)
+                setplayingaudio(false)
             }
         }
     }
@@ -676,6 +704,11 @@ const Character_Ability_Pars = ({
                                 <Tippy content="Scroll to top" className="tooltip" >
                                     <span onClick={() => window.scrollTo(0, 0)} className={tag_override != undefined ? `${tag_override} undertag clicky` : character_ability.command && character_ability.command.rank && `${rank_trans(character_ability.command.rank)} clicky`}></span>
                                 </Tippy>
+                                {character_ability.voice_index != undefined ?
+                                    <Tippy content="Play voice line" className="tooltip" >
+                                        <span>{" "}<MdRecordVoiceOver onClick={playvoice} className='soundicon click' style={{color:`${playingaudio == true ? "yellow":""}`}}/></span>
+                                    </Tippy>
+                                :""}
                             </div>
                             {use_num != 0 ?
                                 <div className="usesmaker">

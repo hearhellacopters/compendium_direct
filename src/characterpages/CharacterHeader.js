@@ -17,6 +17,7 @@ import 'tippy.js/animations/scale-subtle.css';
 import 'tippy.js/animations/scale-extreme.css';
 import { getQuery, getQueryStringVal, useQueryParam } from '../processing/urlparams'
 
+
 const CharPageHeader = ({ nextevent,
     previousevent,
     headertitle,

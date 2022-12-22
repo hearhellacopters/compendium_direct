@@ -16,7 +16,7 @@ import { getList1 } from '../redux/ducks/playlist';
 import { getList2 } from '../redux/ducks/playlist';
 import { getList3 } from '../redux/ducks/playlist';
 import { getRemove } from '../redux/ducks/playlist';
-
+import { setPlayVolume } from '../redux/ducks/playvolume'
 import { getMusicKey } from '../redux/ducks/playindex'
 
 
@@ -137,6 +137,9 @@ const CallJukeBoxPage = () => {
       if (window.localStorage.getItem("currentList") == null) {
         window.localStorage.setItem('currentList', "master")
       }
+      if(window.localStorage.getItem("volume") == null){
+        window.localStorage.setItem('volume', 1)
+      }
     } else {
       // No web storage Support.
 
@@ -147,6 +150,13 @@ const CallJukeBoxPage = () => {
   useEffect(() => {
     if (playlist == undefined) {
       const getlist = window.localStorage.getItem("currentList")
+      const getvolume = window.localStorage.getItem("volume")
+      if (getvolume == null) {
+        window.localStorage.setItem('volume', 1)
+        dispatch(setPlayVolume(1));
+      } else {
+        dispatch(setPlayVolume(getvolume));
+      }
       if (getlist == null) {
         window.localStorage.setItem('currentList', "master")
         dispatch(setPlayList("master"));

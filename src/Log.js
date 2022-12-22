@@ -1,4 +1,5 @@
 import React from 'react'
+import { MdRecordVoiceOver }from 'react-icons/md';
 import { Link } from 'react-router-dom'
 
 const log = () => {
@@ -7,6 +8,14 @@ const log = () => {
             <div className="content fullheight">
                 <h1>Update Log</h1>
                 <div className="creditsholder">
+                    <div className="filterholderflair" >
+                        V.5.2
+                    </div>
+                    <ul className="creditslist">
+                    - Added Character voice lines to abilities <MdRecordVoiceOver className='soundicon click'/><br/>
+                    - Music volume also controls voice volume<br/>
+                    - Site retains version after leaving
+                    </ul>
                     <div className="filterholderflair" >
                         V.5.1
                     </div>

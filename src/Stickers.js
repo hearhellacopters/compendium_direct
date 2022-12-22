@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import { useStateIfMounted } from "use-state-if-mounted";
-import { useDispatch } from "react-redux";
 import { Link } from 'react-router-dom'
 import './Spheres.css';
 import Tippy from './formatting/TippyDefaults.js';
@@ -28,6 +28,7 @@ const Stickers = ({ ProcessedStickers, ProcessedCharacters, jptoggledata }) => {
 
   const banerDisplayTerm = "stickers";
 
+  const [playingaudio, setplayingaudio] = useState(false)
   const [showFilter, setShowFilter] = useState(getQueryStringVal("filter") != null ? true : false);
   const [clearFilter, setclearFilter] = useStateIfMounted(false);
 
@@ -50,7 +51,6 @@ const Stickers = ({ ProcessedStickers, ProcessedCharacters, jptoggledata }) => {
   const [displayBanner, setDisplayBanner] = useState(
     <>Displaying <span className="subtextgold">{listLength}</span> of <span className="subtextgold"> {rawData.length}</span> {banerDisplayTerm}</>
   );
-
 
   const [animatedsearch, setanimatedsearch] = useQueryParam("animated", "");
   const [Reversesearch, setReversesearch] = useQueryParam("rev", "");
@@ -279,15 +279,29 @@ const Stickers = ({ ProcessedStickers, ProcessedCharacters, jptoggledata }) => {
 
   const listSpheres = listDisplay;
 
+  const volume = useSelector((state) =>
+    state.volume.volume
+  );
+
   const onclick = (Voice) => {
-    try {
-      const myAudioElement = new Audio(`https://dissidiacompendium.com/images/static/stamps/audio/${Voice}.mp3`)
-      myAudioElement.addEventListener("canplaythrough", (event) => {
-        /* the audio is now playable; play it if permissions allow */
-        myAudioElement.play();
-      });
-    } catch (error) {
-      console.log(error)
+    if(playingaudio != true){
+      try {
+        const myAudioElement = new Audio(`https://dissidiacompendium.com/images/static/stamps/audio/${Voice}.mp3`)
+        myAudioElement.volume = volume
+        myAudioElement.style.display = "none"
+        setplayingaudio(true)
+        myAudioElement.addEventListener("canplaythrough", (event) => {
+          /* the audio is now playable; play it if permissions allow */
+          myAudioElement.play();
+        });
+        myAudioElement.onended = function(){
+          setplayingaudio(false)
+          myAudioElement.remove();
+      }
+      } catch (error) {
+        setplayingaudio(false)
+        console.log(error)
+      }
     }
   }
 
