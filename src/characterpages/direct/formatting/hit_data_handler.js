@@ -127,8 +127,11 @@ const hit_data_handler = (
 
     var effect_value_type_str = ""
 
+    var effect_value_type_id_value_trans = ""
+
     if (effect_value_type_id && effect_value_type_id != 1 && effect_value_type_id != -1) {
         effect_value_type_str = effect_value_type_id_data[effect_value_type_id] && effect_value_type_id_data[effect_value_type_id].effect_value_type_id
+        effect_value_type_id_value_trans = effect_value_type_id_data[effect_value_type_id] && effect_value_type_id_data[effect_value_type_id].value_trans
     }
 
     var ability_target_str = ""
@@ -184,8 +187,19 @@ const hit_data_handler = (
         atk_str = `${attack_type_str} (${type_id_str})`
     }
 
-    //value trans
+    //typetrans
 
+    if (effect_value_type_id_value_trans == "aliment_amount") {
+        const ailment_pull = m_nARG.toString().slice(0, 4)
+        const ailment_value = m_nARG.toString().slice(6)
+        const ailment_name = AilmentNames[ailment_pull] && AilmentNames[ailment_pull].name
+        effect_value_type_str = effect_value_type_str
+            .replace(/\[m_nARG\]/gm, `[${ailment_name}] #${ailment_pull}`)
+            effect_value_type_str = effect_value_type_str
+            .replace(/\[m_nARG0\]/gm, ailment_value)
+    }
+
+    //value trans
 
     if (value_trans == "negone_all_debuffs") {
         if (m_nARG == -1) {
@@ -384,6 +398,9 @@ const hit_data_handler = (
         if (effect_value_type_id == 14) {
             effect_str = effect_str.replace(/Deals Splash/gm, `Deals ${m_nARG}% Splash`)
                 .replace(/by \[effect44\] /gm, "")
+        }
+        if (effect_value_type_id == 61) {
+            effect_str = effect_str.replace(/by \[effect44\] /gm, `by ${effect_value_type_str} `)
         }
         effect_str = effect_str.replace(/\[effect44\]/gm, `${m_nARG}% of ${effect_value_type_str}`)
     }
@@ -584,18 +601,6 @@ const hit_data_handler = (
         }
         effect_str = effect_str.replace(/\[effect_value_type\]/, effect_value_type_str)
             .replace(/\[target\]/gm, ability_target_str).replace(/own /, "").replace(/Self /, "")
-    }
-
-    if (value_trans == "effect265") {
-        effect_str = effect_str
-            .replace(/\[effect_value_type\]/gm, effect_value_type_str)
-        const ailment_pull = m_nARG.toString().slice(0, 4)
-        const ailment_value = m_nARG.toString().slice(6)
-        const ailment_name = AilmentNames[ailment_pull] && AilmentNames[ailment_pull].name
-        effect_str = effect_str
-            .replace(/\[m_nARG\]/gm, `[${ailment_name}] #${ailment_pull}`)
-        effect_str = effect_str
-            .replace(/\[m_nARG0\]/gm, ailment_value)
     }
 
     if (value_trans == "break_chance") {

@@ -20,7 +20,7 @@ export const useQueryParam = (key, defaultVal) => {
 
     const query = getQuery();
 
-    if (newVal.trim() !== "") {
+    if (newVal && newVal.trim() !== "") {
       query.set(key, newVal);
     } else {
       query.delete(key);

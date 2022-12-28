@@ -1,6 +1,7 @@
 import element_weakness from "../../../processing/element_weakness"
 import element_other from "../../../processing/element_other"
 import additional_attack from "../../../processing/additional_attack"
+import crystal from './crystal.json'
 
 const require_trans_handler = (
     require_,
@@ -61,6 +62,48 @@ const require_trans_handler = (
     //value trans
 
     const value_trans = require && require.value_trans
+
+    if(value_trans == "crystal_or"){
+        if (require_value1 == -1) {
+            require_value1 = ""
+        } else {
+            const color = crystal[require_value1]
+            require_value1 = color
+        }
+        if (require_value2 == -1) {
+            require_value2 = ""
+        } else {
+            const color = crystal[require_value2]
+            require_value2 = ` or ${color}`
+        }
+        if (require_value3 == -1) {
+            require_value3 = ""
+        } else {
+            const color = crystal[require_value3]
+            require_value3 = ` or ${color}`
+        }
+    }
+
+    if(value_trans == "crystal"){
+        if (require_value1 == -1) {
+            require_value1 = ""
+        } else {
+            const color = crystal[require_value1]
+            require_value1 = color
+        }
+        if (require_value2 == -1) {
+            require_value2 = ""
+        } else {
+            const color = crystal[require_value2]
+            require_value2 = ` and ${color}`
+        }
+        if (require_value3 == -1) {
+            require_value3 = ""
+        } else {
+            const color = crystal[require_value3]
+            require_value3 = ` and ${color}`
+        }
+    }
 
     if (value_trans == "command_id_1") {
         var getname0 = CommandNames[require_value1]
@@ -529,22 +572,32 @@ const require_trans_handler = (
     }
 
     if (value_trans == "buff_count") {
-        if (require_value1 == 0) {
+        if (require_value1 == 0 && require_value2 <= 1) {
             require_value1 = ``
             require_value2 = `no buffs`
         } else {
-            require_value1 = `between ${require_value1} & ${require_value2} buffs`
-            require_value2 = ""
+            if(require_value1 == 0 && require_value2 > 1){
+                require_value1 = `less than ${require_value2-1} buff${(require_value2 - 1) == 1 ?"":"s"}`
+                require_value2 = ""
+            } else {
+                require_value1 = `between ${require_value1} & ${require_value2-1} buff${(require_value2 - 1) == 1 ?"":"s"}`
+                require_value2 = ""
+            }
         }
     }
 
     if (value_trans == "debuff_count") {
-        if (require_value1 == 0) {
+        if (require_value1 == 0 && require_value2 <= 1) {
             require_value1 = ``
             require_value2 = `no debuffs`
         } else {
-            require_value1 = `between ${require_value1} & ${require_value2} debuffs`
-            require_value2 = ""
+            if(require_value1 == 0 && require_value2 > 1){
+                require_value1 = `less than ${require_value2-1} debuff${(require_value2 - 1) == 1? "" : "s"}`
+                require_value2 = ""
+            } else {
+                require_value1 = `between ${require_value1} & ${require_value2-1} debuff${(require_value2 - 1) == 1 ?"":"s"}`
+                require_value2 = ""
+            }
         }
     }
 

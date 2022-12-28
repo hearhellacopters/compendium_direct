@@ -82,6 +82,7 @@ const SpheresDirect = ({
   const [WhileBuffed5, setWhileBuffed5] = useState(getQueryStringVal("WhileBuffed5") != null ? true : false);
   const [WhileBuffed3, setWhileBuffed3] = useState(getQueryStringVal("WhileBuffed3") != null ? true : false);
   const [BattleStart, setBattleStart] = useState(getQueryStringVal("BattleStart") != null ? true : false);
+  const [MAXBRVOver50,setMAXBRVOver50] = useState(getQueryStringVal("MAXBRVOver50") != null ? true : false);
 
   const [loop, setLoop] = useStateIfMounted(false);
   const [reverse, setReverse] = useState(getQueryStringVal("rev") != null ? true : false);
@@ -135,6 +136,7 @@ const SpheresDirect = ({
   const [WhileBuffed5search, setWhileBuffed5search] = useQueryParam("WhileBuffed5", "");
   const [WhileBuffed3search, setWhileBuffed3search] = useQueryParam("WhileBuffed3", "");
   const [BattleStartsearch, setBattleStartsearch] = useQueryParam("BattleStart", "");
+  const [MAXBRVOver50search,setMAXBRVOver50search]= useQueryParam("MAXBRVOver50", "");
 
   const [Asearch, setAsearch] = useQueryParam("A", "");
   const [Bsearch, setBsearch] = useQueryParam("B", "");
@@ -157,7 +159,10 @@ const SpheresDirect = ({
     if (Typesearch != null) {
       const ID_PULL = Object.values(char_id).filter(self => self.name == getQueryStringVal("Char"))
       const match_id = ID_PULL[0] && ID_PULL[0].id
-      const filteredtype = ProcessedSpheres.filter(self => self.CharID == match_id)
+      var filteredtype = []
+      if(match_id != undefined){
+        filteredtype = ProcessedSpheres.filter(self => self.CharID == match_id)
+      }
       if (filteredtype.length != 0) {
         setTypesearch(getQueryStringVal("Char"))
         setCondFilter(filteredtype[0].CharID)
@@ -362,6 +367,13 @@ const SpheresDirect = ({
       filterholder.push(...filteredout);
     }
 
+    if (MAXBRVOver50 == true) {
+      const filteredout = rawData.filter(
+        (ef) => ef.MAXBRVOver50 == true
+      );
+      filterholder.push(...filteredout);
+    }
+
     if (filterholder.length === 0) {
       filterholder.push(...rawData);
     }
@@ -438,7 +450,7 @@ const SpheresDirect = ({
       );
     }
 
-  }, [rawData, limits, searchTerm, reverse, condFilter, aSpheres, bSpheres, cSpheres, dSpheres, eSpheres, exSpheres, rfSpheres, AnyBreak, InflictBreak, InflictBreakAttackBreak, AttackBreak, InflictBreakAttackBreakHPOver100, GroupCritical, Target1Critical, Critical, HPOver100Critical, HPOver100, HPOver80, HPUnder80, FinalWaveHPOver50, HPUnder50HPDamage, HPDamage, HealedHP, Weak, Evade, KnockBack, Target1, Group, DebuffedEnemy, NotTargetingYou, TargetingYou, Ability, InflictDebuff, GrantBuff, WhileBuffed5, WhileBuffed3, BattleStart])
+  }, [rawData, limits, searchTerm, reverse, condFilter, aSpheres, MAXBRVOver50, bSpheres, cSpheres, dSpheres, eSpheres, exSpheres, rfSpheres, AnyBreak, InflictBreak, InflictBreakAttackBreak, AttackBreak, InflictBreakAttackBreakHPOver100, GroupCritical, Target1Critical, Critical, HPOver100Critical, HPOver100, HPOver80, HPUnder80, FinalWaveHPOver50, HPUnder50HPDamage, HPDamage, HealedHP, Weak, Evade, KnockBack, Target1, Group, DebuffedEnemy, NotTargetingYou, TargetingYou, Ability, InflictDebuff, GrantBuff, WhileBuffed5, WhileBuffed3, BattleStart])
 
   //buttons
   const showfilterbutton = () => {
@@ -787,6 +799,14 @@ const SpheresDirect = ({
     }
     setBattleStart((prevValue) => !prevValue);
   };
+  const MAXBRVOver50button = () => {
+    if (MAXBRVOver50 == false) {
+      setMAXBRVOver50search("true")
+    } else {
+      setMAXBRVOver50search("")
+    }
+    setMAXBRVOver50((prevValue) => !prevValue);
+  };
 
   //type selector
   const CondSelect = (e) => {
@@ -907,6 +927,7 @@ const SpheresDirect = ({
     setWhileBuffed5(false)
     setWhileBuffed3(false)
     setBattleStart(false)
+    setMAXBRVOver50(false);
 
     setAnyBreaksearch("")
     setInflictBreaksearch("")
@@ -938,6 +959,7 @@ const SpheresDirect = ({
     setWhileBuffed5search("")
     setWhileBuffed3search("")
     setBattleStartsearch("")
+    setMAXBRVOver50search("");
 
     setAsearch("")
     setBsearch("")
@@ -1084,6 +1106,9 @@ const SpheresDirect = ({
               </Tippy>
               <Tippy content={sphere_tags[`HPOver100Critical`].name}>
                 <li className={`${HPOver100Critical ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={HPOver100Criticalbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${sphere_tags[`HPOver100Critical`].url}.png)` }}></li>
+              </Tippy>
+              <Tippy content={sphere_tags[`MAXBRVOver50`].name}>
+                <li className={`${MAXBRVOver50 ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={MAXBRVOver50button} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${sphere_tags[`MAXBRVOver50`].url}.png)` }}></li>
               </Tippy>
               <br />
               <Tippy content={sphere_tags[`HPOver100`].name}>

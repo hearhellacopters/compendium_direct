@@ -134,7 +134,7 @@ const passive_effect_handler = (
     }
 
     if (value_trans == "int_max") {
-        if (effect_value2 == 1) {
+        if (effect_value2 >= 1) {
             effect_value2 = "INT BRV"
         }
         if (effect_value2 == 0) {
@@ -146,7 +146,7 @@ const passive_effect_handler = (
         if (effect_value2 == 0) {
             effect_value2 = "INT BRV"
         }
-        if (effect_value2 == 1) {
+        if (effect_value2 >= 1) {
             effect_value2 = "MAX BRV"
         }
     }

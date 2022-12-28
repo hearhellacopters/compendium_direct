@@ -289,15 +289,16 @@ const Stickers = ({ ProcessedStickers, ProcessedCharacters, jptoggledata }) => {
         const myAudioElement = new Audio(`https://dissidiacompendium.com/images/static/stamps/audio/${Voice}.mp3`)
         myAudioElement.volume = volume
         myAudioElement.style.display = "none"
-        setplayingaudio(true)
         myAudioElement.addEventListener("canplaythrough", (event) => {
           /* the audio is now playable; play it if permissions allow */
+          setplayingaudio(true)
           myAudioElement.play();
         });
         myAudioElement.onended = function(){
           setplayingaudio(false)
           myAudioElement.remove();
-      }
+        }
+        myAudioElement.load();
       } catch (error) {
         setplayingaudio(false)
         console.log(error)

@@ -1372,7 +1372,7 @@ const AbilitiesDirect = ({
                             <Tippy content="Debuff Cleanse">
                                 <li className={`${Cleanse ? "filteractive" : "filterinactive"} buffbutton Cleansebutton`} onClick={Cleansebutton} />
                             </Tippy>
-                            <Tippy content="Dispel Debuffs">
+                            <Tippy content="Dispel Buffs">
                                 <li className={`${Dispel ? "filteractive" : "filterinactive"} buffbutton Dispelbutton`} onClick={Dispelbutton} />
                             </Tippy>
                             <Tippy content="Turn Delay">

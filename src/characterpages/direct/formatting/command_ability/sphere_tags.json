@@ -118,5 +118,9 @@
     "HPOver100Critical": {
         "name": "While HP is Max and dealing a critical hit",
         "url": "battlestate/HPOver100Critical"
+    },
+    "MAXBRVOver50":{
+        "name": "While current BRV is ≥ 50% of MAX BRV",
+        "url": "battlestate/MAXBRVOver50"
     }
 }

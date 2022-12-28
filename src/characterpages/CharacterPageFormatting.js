@@ -60,15 +60,17 @@ const CharacterPage = ({
         const myAudioElement = new Audio(`https://dissidiacompendium.com/images/static/voice/${Voice.CharID}/${Voice.voice}.mp3`)
         myAudioElement.volume = volume
         myAudioElement.style.display = "none"
-        setplayingaudio(true)
+        myAudioElement.load();
         myAudioElement.addEventListener("canplaythrough", (event) => {
           /* the audio is now playable; play it if permissions allow */
+          setplayingaudio(true)
           myAudioElement.play();
         });
         myAudioElement.onended = function(){
           setplayingaudio(false)
           myAudioElement.remove();
-      }
+        }
+        myAudioElement.load();
       } catch (error) {
         setplayingaudio(false)
         console.log(error)
@@ -83,6 +85,7 @@ const CharacterPage = ({
         /* the audio is now playable; play it if permissions allow */
         myAudioElement.play();
       });
+      myAudioElement.load();
     } catch (error) {
       console.log(error)
     }

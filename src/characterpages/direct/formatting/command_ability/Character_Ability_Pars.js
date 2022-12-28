@@ -153,15 +153,16 @@ const Character_Ability_Pars = ({
                 const myAudioElement = new Audio(`https://dissidiacompendium.com/images/static/voice/${character_ability.charaID}/${character_ability.voice_index}.mp3`)
                 myAudioElement.volume = volume
                 myAudioElement.style.display = "none"
-                setplayingaudio(true)
                 myAudioElement.addEventListener("canplaythrough", (event) => {
                     /* the audio is now playable; play it if permissions allow */
+                    setplayingaudio(true)
                     myAudioElement.play();
                 });
                 myAudioElement.onended = function(){
                     setplayingaudio(false)
                     myAudioElement.remove();
                 }
+                myAudioElement.load();
             } catch (error) {
                 console.log(error)
                 setplayingaudio(false)
