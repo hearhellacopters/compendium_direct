@@ -169,22 +169,34 @@ const hit_data_handler = (
         atk_type = "HP"
     }
 
-    if (effect_id == 52 || effect_id == 53 || effect_id == 107 || effect_id == 137 || effect_id == 225 || effect_id == 226 || effect_id == 238) {
+    if (effect_id == 52 || 
+        effect_id == 107 || 
+        effect_id == 137 || 
+        effect_id == 225 || 
+        effect_id == 226 || 
+        effect_id == 238) {
         atk_type = "HP"
     }
 
-    if (type_id == 1 || type_id == 9 || type_id == 12 || type_id == 14 || type_id == 21) {
+    if (type_id == 1 || 
+        type_id == 9 || 
+        type_id == 12 || 
+        type_id == 14 || 
+        type_id == 21) {
         atk_str = `${ability_target_id != 1 ? `${ability_target_str} ` : ``}${elem != "" ? `${elem} ` : ``}${attack_type_str} ${type_id_str} ${times == true ? "Attack" : "{Attack}"}`
     }
-    if (type_id == 2 || type_id == 19) {
+    if (type_id == 2 || 
+        type_id == 19) {
         atk_str = `${ability_target_id != 1 ? `${ability_target_str} ` : ``}${attack_type_str} ${type_id_str} ${times == true ? "Attack" : "{Attack}"}`
     }
-    if (type_id == 8 || type_id == 15) {
+    if (type_id == 8 || 
+        type_id == 15) {
         atk_str = `${attack_type_str != '' ? `${attack_type_str} ${brave_rate_numerator} ` : ""}${type_id_str}`
         pot_str = ""
     }
     if (type_id == 16) {
-        atk_str = `${attack_type_str} (${type_id_str})`
+        atk_str = `${attack_type_str}`
+        pot_str = `*${type_id_str} ${pot_str}`
     }
 
     //typetrans
@@ -625,6 +637,16 @@ const hit_data_handler = (
         new_atk_str = new_atk_str.replace(/Deals /gm, "")
         atk_str = new_atk_str
         effect_str = ""
+    }
+
+    if (type_id == 9 || 
+        type_id == 14) {
+            atk_str = atk_str.replace(/ \(Ignores DEF\)/gm, "")
+            effect_str = `Ignores DEF\n${effect_str}`
+    }
+    if (type_id == 21) {
+            atk_str = atk_str.replace(/ \(Ignores DEF & Buffs\)/gm, "")
+            effect_str = `Ignores DEF & Buffs\n${effect_str}`
     }
 
     var hit_return = {
