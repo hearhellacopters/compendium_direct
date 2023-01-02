@@ -8,6 +8,15 @@ const log = () => {
             <div className="content fullheight">
                 <h1>Update Log</h1>
                 <div className="creditsholder">
+                <div className="filterholderflair" >
+                        V.5.3
+                    </div>
+                    <ul className="creditslist">
+                        ┬ Enemy and character list hidden on event page on mobile<br />
+                        └─ For display performance, but not on solo page<br />
+                        - Better formatting for iOS deviced<br />
+                        - Fixed scrolling on music player for mobile
+                    </ul>
                     <div className="filterholderflair" >
                         V.5.2
                     </div>

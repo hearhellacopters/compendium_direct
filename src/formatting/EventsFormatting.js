@@ -9,6 +9,7 @@ import GetEvents from '../passoff/GetEventGuides.js'
 import { EndsInTimer, StartsInTimer } from './Timers'
 import TickDown from '../processing/tickDown'
 import TickUp from '../processing/tickUp'
+import BackMaker from './BackMaker.js';
 
 import Sphere_Passive_Ability_Formatting from '../characterpages/direct/formatting/passives/Sphere_Passive_Ability_Formatting.js';
 import { useDispatch, useSelector } from "react-redux";
@@ -20,6 +21,9 @@ import { getJPGameListSphere } from '../redux/ducks/JP/gamelist_sphere';
 import { getGLGameListSphere } from '../redux/ducks/GL/gamelist_sphere';
 
 const EventsFormatting = ({ match, permapage, EventGuideData, master_index }) => {
+
+    const char_id = master_index.charid
+    const hide_other = window.innerWidth != undefined && window.innerWidth < 799 ? permapage == true ? false : true : false
 
     useEffect(() => {
         setBannerdisplay("Banner1");
@@ -279,10 +283,10 @@ const EventsFormatting = ({ match, permapage, EventGuideData, master_index }) =>
                         </div>
                     }
                     {match.BTChar != undefined ?
-                        <div className="spanhelper">
-                            <LazyLoadImage effect="opacity" className="BTCharacter noselect" src={match.BTCharacter} alt={match.BTUnit.CharacterName} />
-                        </div>
+                            <BackMaker char_id={char_id} match={match.BTChar}/>
                         : ""}
+                    {hide_other != true ?
+                    <>
                     {match.EnemyList.length != 0 ?
                         <div className="znone">
                             <div className="enemyunits" >
@@ -391,6 +395,8 @@ const EventsFormatting = ({ match, permapage, EventGuideData, master_index }) =>
                             {totalbannercount == 0 ? "" : <div className="loadbanners bottomspace" onClick={() => setShowingBanners(false)}>Hide Banner</div>}
                         </div>
                     }
+                    </>
+                    :""}
                 </div>
             </div>
         </li>

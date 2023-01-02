@@ -27,6 +27,12 @@ import './JukeBoxStyle.css'
 
 const JukeBox = ({ ProcessedMusic, playing, volume, playlist, list1, list2, list3, musickey, getupdate, add_track }) => {
 
+  function isTouchDevice() {
+    return (('ontouchstart' in window) ||
+       (navigator.maxTouchPoints > 0) ||
+       (navigator.msMaxTouchPoints > 0));
+  }
+
   const dispatch = useDispatch();
   const [masterlist, setmasterlist] = useStateIfMounted(ProcessedMusic)
 
@@ -222,7 +228,7 @@ const JukeBox = ({ ProcessedMusic, playing, volume, playlist, list1, list2, list
         onAudioListsChange={updateList}
         responsive={false}
         glassBg={true}
-        sortableOptions={{ sort: true, disabled: false, animation: 0 }}
+        sortableOptions={{ sort: true, disabled: isTouchDevice(), animation: 0 }}
         autoHiddenCover={true}
         defaultPlayMode={"shufflePlay"}
         mobileMediaQuery="(max-width: 800px)"

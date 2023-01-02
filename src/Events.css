@@ -12,14 +12,12 @@
   color: white;
   cursor: pointer;
   text-decoration: underline;
-  font-size: larger;
   display: contents;
 }
 
 .atevents {
   color: white;
   text-decoration: underline;
-  font-size: larger;
 }
 
 /*Calandar Button*/
@@ -112,14 +110,6 @@
   -webkit-font-smoothing: antialiased;
 }
 
-
-@media (hover: hover) {
-  .toevents:hover {
-    color: #f7f91d;
-    transition: .3s ease color;
-  }
-}
-
 .bannerholdertabs {
 
   display: grid;
@@ -128,6 +118,10 @@
 }
 
 @media (hover: hover) {
+  .toevents:hover {
+    color: #f7f91d;
+    transition: .3s ease color;
+  }
   .inactiveeventtab:hover {
     color: #f7f91d;
     cursor: pointer;
@@ -1286,6 +1280,9 @@
 }
 
 @media screen and (max-width: 800px) {
+  .toevents{
+    font-size: 12px;
+  }
   .joinup {
     font-size: small;
   }

@@ -77,18 +77,18 @@ const Character_Option_Pars = ({
         )
     } else {
         return (
-            <div >
-                <div >
+            < >
+                <div className="small_tags">
                     {transdata && transdata.title_str && addformatting(`\xa0${transdata.label_str == "" ? "-" : "┬"} ${transdata.title_str}${transdata && transdata.passives && transdata.passives.length != 0 ? ` w/${transdata.passives.map(self => ` <${self.loc_tag && self.loc_tag}>`)}` : ""}`, "tl")}
                 </div>
 
                 {transdata && transdata.label_str != "" ?
-                    <div>
+                    <div className="small_tags">
                         {`\xa0${"└─"} `}{addformatting(transdata.label_str, "tl")}
                     </div>
                     : ""
                 }
-            </div>
+            </>
         )
     }
 }

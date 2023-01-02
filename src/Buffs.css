@@ -89,13 +89,13 @@
 .Upgrades::before {
     content: "Upgrades";
     color: #e98013;
-    font-size: 1rem;
+    font-size: inherit;
 }
 
 .Upgraded::before {
     content: "Upgraded";
     color: #e98013;
-    font-size: 1rem;
+    font-size: inherit;
 }
 
 .bufftypes_max {
@@ -909,6 +909,10 @@ hr {
 }
 
 @media screen and (max-width: 800px) {
+    .small_tags span{
+        height: 16px;
+	    width: 32px;
+    }
     .infotitle {
         font-size: 15px;
     }

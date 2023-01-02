@@ -482,6 +482,9 @@
 }
 
 @media screen and (max-width: 800px) {
+    .spoiler_text{
+        font-size: 12px;
+    }
     .gearfaceicon {
         height: 28px;
         width: 82px;

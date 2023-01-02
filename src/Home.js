@@ -185,7 +185,7 @@ const Home = ({ ProcessedUpdates, jptoggledata }) => {
         <meta property="og:url" content="https://dissidiacompendium.com" />
       </Helmet>
       <div className="content">
-        <h1 className="maintitle" >Welcome to Dissidia Compendium <Link className="updatelink" to="/log">v5.2!</Link><span className="squallsmile"></span></h1>
+        <h1 className="maintitle" >Welcome to Dissidia Compendium <Link className="updatelink" to="/log">v5.3!</Link><span className="squallsmile"></span></h1>
         <div className="enemyholderdesc" style={{ whiteSpace: "normal" }}>
           <div className="subheader">
             <div className="homewelcomeholder noselect">

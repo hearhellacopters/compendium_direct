@@ -600,13 +600,13 @@ h3 {
 .subtext {
   text-align: right;
   margin-bottom: 5px;
-  font-size: smaller;
+  font-size: 13px;
 }
 
 .subtext_brev {
   text-align: right;
   margin-bottom: 5px;
-  font-size: smaller;
+  font-size: 13px;
 }
 
 .upgradedorg {
@@ -639,7 +639,7 @@ h3 {
 .subtexttop {
   text-align: right;
   margin-bottom: 5px;
-  font-size: smaller;
+  font-size: 13px;
   margin-right: 10px;
 }
 
@@ -4385,67 +4385,67 @@ h3 {
 
 .AOE::before {
   content: "Group";
-  font-size: 1rem;
+  font-size: inherit;
 }
 
 .Follow::before {
   content: "Follow Up";
   color: rgb(41, 209, 41);
-  font-size: 1rem;
+  font-size: inherit;
 }
 
 .Follows_Up::before {
   content: "Follows Up";
   color: rgb(41, 209, 41);
-  font-size: 1rem;
+  font-size: inherit;
 }
 
 .Trap::before {
   content: "Trap";
   color: rgb(41, 209, 41);
-  font-size: 1rem;
+  font-size: inherit;
 }
 
 .Counter::before {
   content: "Counter";
   color: rgb(41, 209, 41);
-  font-size: 1rem;
+  font-size: inherit;
 }
 
 .Knock::before {
   content: "Knock Back";
   font-size: 1rem;
-  color: #33bbff;
+  font-size: inherit;
 }
 
 .Heal::before {
   content: "Heal";
-  font-size: 1rem;
+  font-size: inherit;
 }
 
 .Steal::before {
   content: "Steal";
-  font-size: 1rem;
+  font-size: inherit;
 }
 
 .Inflicts::before {
   content: "Inflicts";
-  font-size: 1rem;
+  font-size: inherit;
 }
 
 .Dispels::before {
   content: "Dispels";
-  font-size: 1rem;
+  font-size: inherit;
 }
 
 .Debuff::before {
   content: "Debuff";
-  font-size: 1rem;
+  font-size: inherit;
 }
 
 .Reduces::before {
   content: "Reduces";
-  font-size: 1rem;
+  font-size: inherit;
 }
 
 .upstat {
@@ -4769,61 +4769,6 @@ h3 {
 }
 
 @media screen and (max-width: 800px) {
-  .Upgrades::before {
-    font-size: .8rem !important;
-  }
-
-  .Upgraded::before {
-    font-size: .8rem !important;
-  }
-
-  .AOE::before {
-    font-size: .8rem !important;
-  }
-
-  .Follow::before {
-    font-size: .8rem !important;
-  }
-
-  .Follows_Up::before {
-    font-size: .8rem !important;
-  }
-
-  .Trap::before {
-    font-size: .8rem !important;
-  }
-
-  .Counter::before {
-    font-size: .8rem !important;
-  }
-
-  .Knock::before {
-    font-size: .8rem !important;
-  }
-
-  .Heal::before {
-    font-size: .8rem !important;
-  }
-
-  .Steal::before {
-    font-size: .8rem !important;
-  }
-
-  .Inflicts::before {
-    font-size: .8rem !important;
-  }
-
-  .Dispels::before {
-    font-size: .8rem !important;
-  }
-
-  .Debuff::before {
-    font-size: .8rem !important;
-  }
-
-  .Reduces::before {
-    font-size: .8rem !important;
-  }
 
   .ultimainfo {
     font-size: smaller;

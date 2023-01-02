@@ -19,7 +19,7 @@
     display: grid;
     align-content: center;
     width: 80px;
-    font-size: medium;
+    font-size: 16px;
 }
 
 .stattag {
@@ -282,7 +282,6 @@
     color: inherit;
     cursor: pointer;
     display: block;
-    font-size: inherit;
     padding: 8px 12px;
     width: 100%;
     -webkit-user-select: none;

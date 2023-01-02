@@ -38,7 +38,7 @@ const BannersFormatting = ({ match, permapage }) => {
         <li id={match.type} key={match.bannerindex}>
             <div className={permapage == true ? "singleeventtitlebanner" : "eventtitlebanner"}>
                 {permapage == false ?
-                    <Link to={`/events/banners/` + match.bannerindex} >
+                    <Link style={{ color: "white" }} to={`/events/banners/` + match.bannerindex} >
                         <h3 className={permapage == false ? "toevents" : "atevents"}>{match.name}</h3>
                     </Link> :
                     <h3 className={permapage == false ? "toevents" : "atevents"}>{match.name}</h3>
