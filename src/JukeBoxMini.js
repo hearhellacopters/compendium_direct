@@ -179,6 +179,7 @@ const JukeBox = ({ ProcessedMusic, playing, volume, playlist, list1, list2, list
     const current_track = currentlist[index]
     if (current_track != undefined) {
       setcurrenttrack([current_track])
+      setSong(index)
       dispatch(setPlayIndex(index))
     }
   }
