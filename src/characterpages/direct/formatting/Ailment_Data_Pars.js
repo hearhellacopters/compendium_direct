@@ -3772,7 +3772,7 @@ const ailment_data_pars = (
             defaultrank: defaultrank
         }
     }
-    if (value_trans == "split_by_2_rank1") {
+    if (value_trans == "split_by_2_level") {
         const rank1value5split = tables.rank1.value1 && split_by_2(5, parseInt(tables.rank1.value1));
         const rank1value4split = tables.rank1.value1 && split_by_2(4, parseInt(tables.rank1.value1));
         const rank1value3split = tables.rank1.value1 && split_by_2(3, parseInt(tables.rank1.value1));
@@ -3815,56 +3815,7 @@ const ailment_data_pars = (
             val_edit_typestr: val_edit_typestr,
             ValEditTypeShow: ValEditTypeShow,
             ValTypeShow: ValTypeShow,
-            slidertype: slidertype,
-            multiply: multiply,
-            multiplyslider: multiplyslider,
-            defaultrank: defaultrank
-        }
-    }
-    if(value_trans == "split_by_2_rank_up"){
-        const rank1value5splitx = tables.rank1.value1 && split_by_2(5, parseInt(tables.rank1.value1));
-        const rank1value4splitx = tables.rank1.value1 && split_by_2(4, parseInt(tables.rank1.value1));
-        const rank1value3splitx = tables.rank1.value1 && split_by_2(3, parseInt(tables.rank1.value1));
-        const rank1value2splitx = tables.rank1.value1 && split_by_2(2, parseInt(tables.rank1.value1));
-        const rank1value1splitx = tables.rank1.value1 && split_by_2(1, parseInt(tables.rank1.value1));
-        tables = {
-            rank1: {
-                value1: rank1value5splitx,
-            },
-            rank2: {
-                value1: rank1value4splitx,
-            },
-            rank3: {
-                value1: rank1value3splitx,
-            },
-            rank4: {
-                value1: rank1value2splitx,
-            },
-            rank5: {
-                value1: rank1value1splitx,
-            },
-            rank6: {
-                value1: rank1value1splitx,
-            },
-            rank7: {
-                value1: rank1value1splitx,
-            },
-            rank8: {
-                value1: rank1value1splitx,
-            },
-            rank9: {
-                value1: rank1value1splitx,
-            },
-            rank10: {
-                value1: rank1value1splitx,
-            },
-            effectstr: effectstr,
-            cond_id: condstr,
-            val_typestr: val_typestr,
-            val_edit_typestr: val_edit_typestr,
-            ValEditTypeShow: ValEditTypeShow,
-            ValTypeShow: ValTypeShow,
-            slidertype: slidertype,
+            slidertype: "levels",
             multiply: multiply,
             multiplyslider: multiplyslider,
             defaultrank: defaultrank
