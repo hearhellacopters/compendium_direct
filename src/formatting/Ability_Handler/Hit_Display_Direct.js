@@ -117,9 +117,9 @@ const Hit_Handler_Direct = ({
             {cast_list[-1] != undefined ?
                 cast_list[-1].map(self => (
                     <div key={self.id}>
-                        {self.cond != undefined ? `\xa0┬ ` : ""}{replacer(self.cond, "tl")}
+                        {self.cond != undefined ? `┬ ` : ""}{replacer(self.cond, "tl")}
                         {self.cond != undefined ? <br /> : ""}
-                        {self.cond != undefined ? `\xa0└─ ` : ""}{replacer(self.cast_str, "tl")}
+                        {self.cond != undefined ? `└─ ` : ""}{replacer(self.cast_str, "tl")}
                     </div>
                 ))
                 : ""}
@@ -128,9 +128,9 @@ const Hit_Handler_Direct = ({
                 <div key={number}>
                     {cast_list[number] && cast_list[number].map(self => (
                         <div key={self.id}>
-                            {self.cond != undefined ? `\xa0┬ ` : ""}{replacer(self.cond, "tl")}
+                            {self.cond != undefined ? `┬ ` : ""}{replacer(self.cond, "tl")}
                             {self.cond != undefined ? <br /> : ""}
-                            {self.cond != undefined ? `\xa0└─ ` : ""}{replacer(self.cast_str, "tl")}
+                            {self.cond != undefined ? `└─ ` : ""}{replacer(self.cast_str, "tl")}
                         </div>
                     ))}
                     {hit_map[number] != undefined && hit_map[number].show != false ?
@@ -145,9 +145,9 @@ const Hit_Handler_Direct = ({
             {cast_list[0] != undefined ?
                 cast_list[0].map(self => (
                     <div key={self.id}>
-                        {self.cond != undefined ? `\xa0┬ ` : ""}{replacer(self.cond, "tl")}
+                        {self.cond != undefined ? `┬ ` : ""}{replacer(self.cond, "tl")}
                         {self.cond != undefined ? <br /> : ""}
-                        {self.cond != undefined ? `\xa0└─ ` : ""}{replacer(self.cast_str, "tl")}
+                        {self.cond != undefined ? `└─ ` : ""}{replacer(self.cast_str, "tl")}
                     </div>
                 ))
                 : ""}

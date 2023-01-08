@@ -213,6 +213,12 @@ const hit_data_handler = (
 
     //value trans
 
+    if(value_trans == "instant_zero"){
+        if (m_nARG == 0) {
+            effect_str = effect_str.replace(/\[m_nARG\]/gm, `Instant`)
+        }
+    }
+
     if (value_trans == "negone_all_debuffs") {
         if (m_nARG == -1) {
             effect_str = effect_str.replace(/\[m_nARG\]/gm, `all debuffs`)

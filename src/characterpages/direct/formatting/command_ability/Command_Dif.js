@@ -160,7 +160,7 @@ const Command_Dif = (
     if (cast_list[-1] != undefined) {
         cast_list[-1].map(self => {
             if (self.cond != undefined) {
-                full_str = `${full_str} ┬ ${self.cond}\n └─ ${self.cast_str}\n`
+                full_str = `${full_str}┬ ${self.cond}\n└─ ${self.cast_str}\n`
             } else {
                 full_str = `${full_str}${self.cast_str}\n`
             }
@@ -171,7 +171,7 @@ const Command_Dif = (
         hit_count_map.map(number => {
             cast_list[number] && cast_list[number].map(self => {
                 self.cond != undefined ?
-                    full_str = `${full_str} ┬ ${self.cond}\n └─ ${self.cast_str}\n` :
+                    full_str = `${full_str}┬ ${self.cond}\n└─ ${self.cast_str}\n` :
                     full_str = `${full_str}${self.cast_str}\n`
             })
             if (hit_map[number] != undefined && hit_map[number].show != false) {
@@ -224,7 +224,7 @@ const Command_Dif = (
     if (cast_list[0] != undefined) {
         cast_list[0].map(self => {
             if (self.cond != undefined) {
-                full_str = `${full_str} ┬ ${self.cond}\n └─ ${self.cast_str}\n`
+                full_str = `${full_str}┬ ${self.cond}\n└─ ${self.cast_str}\n`
             } else {
                 full_str = `${full_str}${self.cast_str}\n`
             }

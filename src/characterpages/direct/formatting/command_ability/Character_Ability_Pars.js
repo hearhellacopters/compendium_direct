@@ -821,9 +821,9 @@ const Character_Ability_Pars = ({
                         {cast_list[-1] != undefined ?
                             cast_list[-1].map(self => (
                                 <div key={self.id}>
-                                    {self.cond != undefined ? `\xa0┬ ` : ""}{addformatting(self.cond, "tl")}
+                                    {self.cond != undefined ? `┬ ` : ""}{addformatting(self.cond, "tl")}
                                     {self.cond != undefined ? <br /> : ""}
-                                    {self.cond != undefined ? `\xa0└─ ` : ""}{addformatting(self.cast_str, "tl")}
+                                    {self.cond != undefined ? `└─ ` : ""}{addformatting(self.cast_str, "tl")}
                                 </div>
                             ))
                             : ""}
@@ -832,9 +832,9 @@ const Character_Ability_Pars = ({
                             <div key={number}>
                                 {cast_list[number] && cast_list[number].map(self => (
                                     <div key={self.id}>
-                                        {self.cond != undefined ? `\xa0┬ ` : ""}{addformatting(self.cond, "tl")}
+                                        {self.cond != undefined ? `┬ ` : ""}{addformatting(self.cond, "tl")}
                                         {self.cond != undefined ? <br /> : ""}
-                                        {self.cond != undefined ? `\xa0└─ ` : ""}{addformatting(self.cast_str, "tl")}
+                                        {self.cond != undefined ? `└─ ` : ""}{addformatting(self.cast_str, "tl")}
                                     </div>
                                 ))}
                                 {hit_map[number] != undefined && hit_map[number].show != false ?
@@ -851,9 +851,9 @@ const Character_Ability_Pars = ({
                         {cast_list[0] != undefined ?
                             cast_list[0].map(self => (
                                 <div key={self.id}>
-                                    {self.cond != undefined ? `\xa0┬ ` : ""}{addformatting(self.cond, "tl")}
+                                    {self.cond != undefined ? `┬ ` : ""}{addformatting(self.cond, "tl")}
                                     {self.cond != undefined ? <br /> : ""}
-                                    {self.cond != undefined ? `\xa0└─ ` : ""}{addformatting(self.cast_str, "tl")}
+                                    {self.cond != undefined ? `└─ ` : ""}{addformatting(self.cast_str, "tl")}
                                 </div>
                             ))
                             : ""}

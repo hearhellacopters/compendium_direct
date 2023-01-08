@@ -105,16 +105,6 @@ const Ailment_Data_Pars_Handler = ({
         if (effect_id && effect_id.multiply == false) {
             setdisplayrank(rank)
         }
-        if (effect_id && effect_id.multiply == true) {
-            if (effect_id && effect_id.multiplyslider == "debuffsmuliply") {
-                const holder = rank && rank.value1 * (currentdebuffsmuliply - 1)
-                setdisplayrank({ value1: holder })
-            }
-            if (effect_id && effect_id.multiplyslider == "buffsmuliply") {
-                const holder = rank && rank.value1 * (currentbuffsmuliply - 1)
-                setdisplayrank({ value1: holder })
-            }
-        }
         if (rank && rank.value1 != undefined) {
             if (typeof rank.value1 == "number") {
                 set_brv_cap(Math.round(rank.value1 * 100))
@@ -128,6 +118,19 @@ const Ailment_Data_Pars_Handler = ({
             }
         }
     }, [override, rank, set_max_brv_cap, set_brv_cap,displayrank,setdisplayrank, currentbuffsmuliply, currentdebuffsmuliply, castlocation, currenthp, charactersleft, currentgroupstacks, currentfieldbuffsranks, currentbuffsranks, currentdebuffsranks, currentenemies, currentstacks, currentturns, slider, currentrank, effect_id, currentlevel, setrank])
+
+    useEffect(()=>{
+        if (effect_id && effect_id.multiply == true) {
+            if (effect_id && effect_id.multiplyslider == "debuffsmuliply") {
+                const holder = rank.value1 * (currentdebuffsmuliply - 1)
+                setdisplayrank({ value1: holder })
+            }
+            if (effect_id && effect_id.multiplyslider == "buffsmuliply") {
+                const holder = rank && rank.value1 * (currentbuffsmuliply - 1)
+                setdisplayrank({ value1: holder })
+            }
+        }
+    },[rank, setdisplayrank,effect_id,currentbuffsmuliply,currentdebuffsmuliply])
 
     const [cond_str, setcond_str] = useStateIfMounted()
     const [eff_str, seteff_str] = useStateIfMounted()
