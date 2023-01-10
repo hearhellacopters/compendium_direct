@@ -164,7 +164,7 @@ const addformatting = (text) => {
             <span key={`94b-${i}-${number}`}><span className={"upstat"}>{"Up"}</span>,</span>
         )
     })
-    replacement = replacement == "" ? "" : reactStringReplace(replacement, /(\d+%)/, (match, i) => {
+    replacement = replacement == "" ? "" : reactStringReplace(replacement, /([0-9]*\.[0-9]+%|[0-9]+%)/, (match, i) => {
         number = number + 1
         return (
             <span key={`96-${i}-${number}`} className="values">{match}</span>

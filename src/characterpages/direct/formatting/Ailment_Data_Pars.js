@@ -3772,6 +3772,66 @@ const ailment_data_pars = (
             defaultrank: defaultrank
         }
     }
+    if (value_trans == "split_by_2_HP") {
+        const rank1value5splithp = tables.rank1.value1 && split_by_2(5, parseInt(tables.rank1.value1));
+        const rank1value4splithp = tables.rank1.value1 && split_by_2(4, parseInt(tables.rank1.value1));
+        const rank1value3splithp = tables.rank1.value1 && split_by_2(3, parseInt(tables.rank1.value1));
+        const rank1value2splithp = tables.rank1.value1 && split_by_2(2, parseInt(tables.rank1.value1));
+        const rank1value1splithp = tables.rank1.value1 && split_by_2(1, parseInt(tables.rank1.value1));
+
+        tables = {
+            rank1: {
+                value1: 100,
+                value2: rank1value5splithp,
+            },
+            rank2: {
+                value1: rank1value5splithp,
+                value2: rank1value4splithp,
+            },
+            rank3: {
+                value1: rank1value4splithp,
+                value2: rank1value3splithp,
+            },
+            rank4: {
+                value1: rank1value3splithp,
+                value2: rank1value2splithp,
+            },
+            rank5: {
+                value1: rank1value2splithp,
+                value2: rank1value1splithp,
+            },
+            rank6: {
+                value1: rank1value2splithp,
+                value2: rank1value1splithp,
+            },
+            rank7: {
+                value1: rank1value2splithp,
+                value2: rank1value1splithp,
+            },
+            rank8: {
+                value1: rank1value2splithp,
+                value2: rank1value1splithp,
+            },
+            rank9: {
+                value1: rank1value2splithp,
+                value2: rank1value1splithp,
+            },
+            rank10: {
+                value1: rank1value2splithp,
+                value2: rank1value1splithp,
+            },
+            effectstr: effectstr,
+            cond_id: condstr,
+            val_typestr: val_typestr,
+            val_edit_typestr: val_edit_typestr,
+            ValEditTypeShow: ValEditTypeShow,
+            ValTypeShow: ValTypeShow,
+            slidertype: "levels",
+            multiply: multiply,
+            multiplyslider: multiplyslider,
+            defaultrank: defaultrank
+        }
+    }
     if (value_trans == "split_by_2_level") {
         const rank1value5split = tables.rank1.value1 && split_by_2(5, parseInt(tables.rank1.value1));
         const rank1value4split = tables.rank1.value1 && split_by_2(4, parseInt(tables.rank1.value1));
@@ -6169,9 +6229,6 @@ const ailment_data_pars = (
 
     if (value_trans == "ailment_id_4") {
         var rank1value1ailment = tables.rank1.value1 && parseInt(tables.rank1.value1.toString().substring(0, 4));
-        var rank1value2ailment = tables.rank1.value1 && parseInt(tables.rank1.value1.toString().substring(4, 6));
-        var rank1value3ailment = tables.rank1.value1 && parseInt(tables.rank1.value1.toString().substring(6, 8));
-        var rank1value4ailment = tables.rank1.value1 && parseInt(tables.rank1.value1.toString().substring(8, 9));
         var rank1ailment = tables.rank1.value1 && AilmentNames[rank1value1ailment]
         var rank1strailment = `[${rank1ailment && rank1ailment.name && rank1ailment.name}] - #${rank1value1ailment}`
         if (rank1strailment == "[undefined] - #0") {
@@ -6180,10 +6237,20 @@ const ailment_data_pars = (
         if (rank1strailment == "[undefined] - #undefined") {
             rank1strailment = undefined
         }
+        var rank1value2ailment = tables.rank1.value1 && parseInt(tables.rank1.value1.toString().substring(4, 6));
+        if(rank1value2ailment > 0){
+            rank1value2ailment = ` by ${rank1value2ailment} level${rank1value2ailment!=1?"s":""}`
+        } else {
+            rank1value2ailment = ""
+        }
+        var rank1value3ailment = tables.rank1.value1 && parseInt(tables.rank1.value1.toString().substring(6, 8));
+        var rank1value4ailment = tables.rank1.value1 && parseInt(tables.rank1.value1.toString().substring(8, 9));
+        if(rank1value4ailment > 0){
+            rank1value4ailment = ` for ${rank1value4ailment} turn${rank1value4ailment!=1?"s":""}`
+        } else {
+            rank1value4ailment = ""
+        }
         var rank2value1ailment = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(0, 4));
-        var rank2value2ailment = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(4, 6));
-        var rank2value3ailment = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(6, 8));
-        var rank2value4ailment = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(8, 9));
         var rank2ailment = tables.rank2.value1 && AilmentNames[rank2value1ailment]
         var rank2strailment = `[${rank2ailment && rank2ailment.name && rank2ailment.name}] - #${rank2value1ailment}`
         if (rank2strailment == "[undefined] - #0") {
@@ -6192,10 +6259,20 @@ const ailment_data_pars = (
         if (rank2strailment == "[undefined] - #undefined") {
             rank2strailment = undefined
         }
+        var rank2value2ailment = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(4, 6));
+        if(rank2value2ailment > 0){
+            rank2value2ailment = ` by ${rank2value2ailment} level${rank2value2ailment!=1?"s":""}`
+        } else {
+            rank2value2ailment = ""
+        }
+        var rank2value3ailment = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(6, 8));
+        var rank2value4ailment = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(8, 9));
+        if(rank2value4ailment > 0){
+            rank2value4ailment = ` for ${rank2value4ailment} turn${rank2value4ailment!=1?"s":""}`
+        } else {
+            rank2value4ailment = ""
+        }
         var rank3value1ailment = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(0, 4));
-        var rank3value2ailment = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(4, 6));
-        var rank3value3ailment = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(6, 8));
-        var rank3value4ailment = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(8, 9));
         var rank3ailment = tables.rank3.value1 && AilmentNames[rank3value1ailment]
         var rank3strailment = `[${rank3ailment && rank3ailment.name && rank3ailment.name}] - #${rank3value1ailment}`
         if (rank3strailment == "[undefined] - #0") {
@@ -6204,10 +6281,20 @@ const ailment_data_pars = (
         if (rank3strailment == "[undefined] - #undefined") {
             rank3strailment = undefined
         }
+        var rank3value2ailment = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(4, 6));
+        if(rank3value2ailment > 0){
+            rank3value2ailment = ` by ${rank3value2ailment} level${rank3value2ailment!=1?"s":""}`
+        } else {
+            rank3value2ailment = ""
+        }
+        var rank3value3ailment = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(6, 8));
+        var rank3value4ailment = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(8, 9));
+        if(rank3value4ailment > 0){
+            rank3value4ailment = ` for ${rank3value4ailment} turn${rank3value4ailment!=1?"s":""}`
+        } else {
+            rank3value4ailment = ""
+        }
         var rank4value1ailment = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(0, 4));
-        var rank4value2ailment = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(4, 6));
-        var rank4value3ailment = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(6, 8));
-        var rank4value4ailment = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(8, 9));
         var rank4ailment = tables.rank4.value1 && AilmentNames[rank4value1ailment]
         var rank4strailment = `[${rank4ailment && rank4ailment.name && rank4ailment.name}] - #${rank4value1ailment}`
         if (rank4strailment == "[undefined] - #0") {
@@ -6216,10 +6303,20 @@ const ailment_data_pars = (
         if (rank4strailment == "[undefined] - #undefined") {
             rank4strailment = undefined
         }
+        var rank4value2ailment = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(4, 6));
+        if(rank4value2ailment > 0){
+            rank4value2ailment = ` by ${rank4value2ailment} level${rank4value2ailment!=1?"s":""}`
+        } else {
+            rank4value2ailment = ""
+        }
+        var rank4value3ailment = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(6, 8));
+        var rank4value4ailment = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(8, 9));
+        if(rank4value4ailment > 0){
+            rank4value4ailment = ` for ${rank4value4ailment} turn${rank4value4ailment!=1?"s":""}`
+        } else {
+            rank4value4ailment = ""
+        }
         var rank5value1ailment = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(0, 4));
-        var rank5value2ailment = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(4, 6));
-        var rank5value3ailment = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(6, 8));
-        var rank5value4ailment = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(8, 9));
         var rank5ailment = tables.rank5.value1 && AilmentNames[rank5value1ailment]
         var rank5strailment = `[${rank5ailment && rank5ailment.name && rank5ailment.name}] - #${rank5value1ailment}`
         if (rank5strailment == "[undefined] - #0") {
@@ -6228,10 +6325,20 @@ const ailment_data_pars = (
         if (rank5strailment == "[undefined] - #undefined") {
             rank5strailment = undefined
         }
+        var rank5value2ailment = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(4, 6));
+        if(rank5value2ailment > 0){
+            rank5value2ailment = ` by ${rank5value2ailment} level${rank5value2ailment!=1?"s":""}`
+        } else {
+            rank5value2ailment = ""
+        }
+        var rank5value3ailment = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(6, 8));
+        var rank5value4ailment = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(8, 9));
+        if(rank5value4ailment > 0){
+            rank5value4ailment = ` for ${rank5value4ailment} turn${rank5value4ailment!=1?"s":""}`
+        } else {
+            rank5value4ailment = ""
+        }
         var rank6value1ailment = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(0, 4));
-        var rank6value2ailment = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(4, 6));
-        var rank6value3ailment = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(6, 8));
-        var rank6value4ailment = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(8, 9));
         var rank6ailment = tables.rank6.value1 && AilmentNames[rank6value1ailment]
         var rank6strailment = `[${rank6ailment && rank6ailment.name && rank6ailment.name}] - #${rank6value1ailment}`
         if (rank6strailment == "[undefined] - #0") {
@@ -6240,10 +6347,20 @@ const ailment_data_pars = (
         if (rank6strailment == "[undefined] - #undefined") {
             rank6strailment = undefined
         }
+        var rank6value2ailment = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(4, 6));
+        if(rank6value2ailment > 0){
+            rank6value2ailment = ` by ${rank6value2ailment} level${rank6value2ailment!=1?"s":""}`
+        } else {
+            rank6value2ailment = ""
+        }
+        var rank6value3ailment = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(6, 8));
+        var rank6value4ailment = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(8, 9));
+        if(rank6value4ailment > 0){
+            rank6value4ailment = ` for ${rank6value4ailment} turn${rank6value4ailment!=1?"s":""}`
+        } else {
+            rank6value4ailment = ""
+        }
         var rank7value1ailment = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(0, 4));
-        var rank7value2ailment = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(4, 6));
-        var rank7value3ailment = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(6, 8));
-        var rank7value4ailment = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(8, 9));
         var rank7ailment = tables.rank7.value1 && AilmentNames[rank7value1ailment]
         var rank7strailment = `[${rank7ailment && rank7ailment.name && rank7ailment.name}] - #${rank7value1ailment}`
         if (rank7strailment == "[undefined] - #0") {
@@ -6252,10 +6369,20 @@ const ailment_data_pars = (
         if (rank7strailment == "[undefined] - #undefined") {
             rank7strailment = undefined
         }
+        var rank7value2ailment = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(4, 6));
+        if(rank7value2ailment > 0){
+            rank7value2ailment = ` by ${rank7value2ailment} level${rank7value2ailment!=1?"s":""}`
+        } else {
+            rank7value2ailment = ""
+        }
+        var rank7value3ailment = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(6, 8));
+        var rank7value4ailment = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(8, 9));
+        if(rank7value4ailment > 0){
+            rank7value4ailment = ` for ${rank7value4ailment} turn${rank7value4ailment!=1?"s":""}`
+        } else {
+            rank7value4ailment = ""
+        }
         var rank8value1ailment = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(0, 4));
-        var rank8value2ailment = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(4, 6));
-        var rank8value3ailment = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(6, 8));
-        var rank8value4ailment = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(8, 9));
         var rank8ailment = tables.rank8.value1 && AilmentNames[rank8value1ailment]
         var rank8strailment = `[${rank8ailment && rank8ailment.name && rank8ailment.name}] - #${rank8value1ailment}`
         if (rank8strailment == "[undefined] - #0") {
@@ -6264,10 +6391,21 @@ const ailment_data_pars = (
         if (rank8strailment == "[undefined] - #undefined") {
             rank8strailment = undefined
         }
+        var rank8value2ailment = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(4, 6));
+        if(rank8value2ailment > 0){
+            rank8value2ailment = ` by ${rank8value2ailment} level${rank8value2ailment!=1?"s":""}`
+        } else {
+            rank8value2ailment = ""
+        }
+        var rank8value3ailment = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(6, 8));
+        var rank8value4ailment = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(8, 9));
+        if(rank8value4ailment > 0){
+            rank8value4ailment = ` for ${rank8value4ailment} turn${rank8value4ailment!=1?"s":""}`
+        } else {
+            rank8value4ailment = ""
+        }
+        
         var rank9value1ailment = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(0, 4));
-        var rank9value2ailment = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(4, 6));
-        var rank9value3ailment = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(6, 8));
-        var rank9value4ailment = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(8, 9));
         var rank9ailment = tables.rank9.value1 && AilmentNames[rank9value1ailment]
         var rank9strailment = `[${rank9ailment && rank9ailment.name && rank9ailment.name}] - #${rank9value1ailment}`
         if (rank9strailment == "[undefined] - #0") {
@@ -6276,10 +6414,20 @@ const ailment_data_pars = (
         if (rank9strailment == "[undefined] - #undefined") {
             rank9strailment = undefined
         }
+        var rank9value2ailment = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(4, 6));
+        if(rank9value2ailment > 0){
+            rank9value2ailment = ` by ${rank9value2ailment} level${rank9value2ailment!=1?"s":""}`
+        } else {
+            rank9value2ailment = ""
+        }
+        var rank9value3ailment = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(6, 8));
+        var rank9value4ailment = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(8, 9));
+        if(rank9value4ailment > 0){
+            rank9value4ailment = ` for ${rank9value4ailment} turn${rank9value4ailment!=1?"s":""}`
+        } else {
+            rank9value4ailment = ""
+        }
         var rank10value1ailment = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(0, 4));
-        var rank10value2ailment = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(4, 6));
-        var rank10value3ailment = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(6, 8));
-        var rank10value4ailment = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(8, 9));
         var rank10ailment = tables.rank10.value1 && AilmentNames[rank10value1ailment]
         var rank10strailment = `[${rank10ailment && rank10ailment.name && rank10ailment.name}] - #${rank10value1ailment}`
         if (rank10strailment == "[undefined] - #0") {
@@ -6287,6 +6435,19 @@ const ailment_data_pars = (
         }
         if (rank10strailment == "[undefined] - #undefined") {
             rank10strailment = undefined
+        }
+        var rank10value2ailment = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(4, 6));
+        if(rank10value2ailment > 0){
+            rank10value2ailment = ` by ${rank10value2ailment} level${rank10value2ailment!=1?"s":""}`
+        } else {
+            rank10value2ailment = ""
+        }
+        var rank10value3ailment = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(6, 8));
+        var rank10value4ailment = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(8, 9));
+        if(rank10value4ailment > 0){
+            rank10value4ailment = ` for ${rank10value4ailment} turn${rank10value4ailment!=1?"s":""}`
+        } else {
+            rank10value4ailment = ""
         }
         tables = {
             rank1: {

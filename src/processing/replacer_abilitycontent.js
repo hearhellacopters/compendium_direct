@@ -72,7 +72,7 @@ const addformatting = (text) => {
             <Capped key={`5-${i}-${number}`} text={match} />
         )
     })
-    replacement = replacement == "" ? "" : reactStringReplace(replacement, /(\d+%)/, (match, i) => {
+    replacement = replacement == "" ? "" : reactStringReplace(replacement, /([0-9]*\.[0-9]+%|[0-9]+%)/, (match, i) => {
         number = number + 1
         return (
             <span key={`6-${i}-${number}`} className="values">{match}</span>
