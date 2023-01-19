@@ -631,7 +631,7 @@ const hit_data_handler = (
 
     if(value_trans == "m_nARG_3_MAX_HP"){
         if (m_nARG_3 > 0) {
-            effect_str = effect_str.replace(/\[m_nARG_3\]/gm, `, up to ${m_nARG_3} % of their Max HP`)
+            effect_str = effect_str.replace(/\[m_nARG_3\]/gm, `, up to ${m_nARG_3}% of their Max HP`)
         } else {
             effect_str = effect_str.replace(/\[m_nARG_3\]/gm, ``)
         }
