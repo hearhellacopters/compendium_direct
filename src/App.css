@@ -2796,6 +2796,14 @@ h3 {
   display: inline-block;
 }
 
+.brvplusbutton {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/brv+.png");
+}
+
+.hpplusbutton {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/hp+.png");
+}
+
 .hpplusattackicon {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/hp+.png");
   width: 54px;

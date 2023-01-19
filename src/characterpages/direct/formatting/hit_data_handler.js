@@ -629,6 +629,17 @@ const hit_data_handler = (
         }
     }
 
+    if(value_trans == "m_nARG_3_MAX_HP"){
+        if (m_nARG_3 > 0) {
+            effect_str = effect_str.replace(/\[m_nARG_3\]/gm, `, up to ${m_nARG_3} % of their Max HP`)
+        } else {
+            effect_str = effect_str.replace(/\[m_nARG_3\]/gm, ``)
+        }
+        effect_str = effect_str
+            .replace(/\[target\]/gm, ability_target_str)
+            .replace("Self ", "")
+    }
+
     effect_str = effect_str
         .replace(/\[effect_value_type\]/gm, effect_value_type_str)
         .replace(/\[target\]/gm, ability_target_str)

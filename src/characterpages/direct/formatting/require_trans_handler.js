@@ -188,17 +188,23 @@ const require_trans_handler = (
     }
 
     if (value_trans == "ailment_id") {
+        if (AilmentNames[require_value1] != undefined) {
+            require_value1 = ` [${AilmentNames[require_value1].name}] #${require_value1}`
+        }
         if (require_value1 == -1) {
             require_value1 = ""
         }
-        if (AilmentNames[require_value1] != undefined) {
-            require_value1 = `[${AilmentNames[require_value1].name}] #${require_value1}`
-        }
         if (AilmentNames[require_value2] != undefined) {
-            require_value2 = `[${AilmentNames[require_value2].name}] #${require_value2}`
+            require_value2 = `, [${AilmentNames[require_value2].name}] #${require_value2}`
+        }
+        if (require_value2 == -1) {
+            require_value2 = ""
         }
         if (AilmentNames[require_value3] != undefined) {
-            require_value3 = `[${AilmentNames[require_value3].name}] #${require_value3}`
+            require_value3 = `, [${AilmentNames[require_value3].name}] #${require_value3}`
+        }
+        if (require_value3 == -1) {
+            require_value3 = ""
         }
     }
 

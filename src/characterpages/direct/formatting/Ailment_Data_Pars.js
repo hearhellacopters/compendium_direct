@@ -4231,6 +4231,180 @@ const ailment_data_pars = (
             defaultrank: defaultrank
         }
     }
+    if(value_trans == "command_id_split_2"){
+        //rank1
+        var len = tables.rank1.value1 && tables.rank1.value1.toString().length
+        var rank1comdid = tables.rank1.value1 && split_by_2(-1,parseInt(tables.rank1.value1))
+        var rank1comdid1 = CommandNames[rank1comdid]
+        var rank1str_1 = `[${rank1comdid1 && rank1comdid1.name}] - #${rank1comdid}`
+        if (rank1str_1 == "[undefined] - #0") {
+            rank1str_1 = undefined
+        }
+        if (rank1str_1 == "[undefined] - #undefined") {
+            rank1str_1 = undefined
+        }
+        var rank1value2_id = tables.rank1.value1 && parseInt(tables.rank1.value1.toString().substring(len, len-1));
+        //rank2
+        len = tables.rank2.value1 && tables.rank2.value1.toString().length
+        var rank2comdid = tables.rank2.value1 && split_by_2(-1,parseInt(tables.rank2.value1))
+        var rank2comdid1 = CommandNames[rank2comdid]
+        var rank2str_1 = `[${rank2comdid1 && rank2comdid1.name}] - #${rank2comdid}`
+        if (rank2str_1 == "[undefined] - #0") {
+            rank2str_1 = undefined
+        }
+        if (rank2str_1 == "[undefined] - #undefined") {
+            rank2str_1 = undefined
+        }
+        var rank2value2_id = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(len, len-1));
+        //rank3
+        len = tables.rank3.value1 && tables.rank3.value1.toString().length
+        var rank3comdid = tables.rank3.value1 && split_by_2(-1,parseInt(tables.rank3.value1))
+        var rank3comdid1 = CommandNames[rank3comdid]
+        var rank3str_1 = `[${rank3comdid1 && rank3comdid1.name}] - #${rank3comdid}`
+        if (rank3str_1 == "[undefined] - #0") {
+            rank3str_1 = undefined
+        }
+        if (rank3str_1 == "[undefined] - #undefined") {
+            rank3str_1 = undefined
+        }
+        var rank3value2_id = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(len, len-1));
+        //rank4
+        len = tables.rank4.value1 && tables.rank4.value1.toString().length
+        var rank4comdid = tables.rank4.value1 && split_by_2(-1,parseInt(tables.rank4.value1))
+        var rank4comdid1 = CommandNames[rank4comdid]
+        var rank4str_1 = `[${rank4comdid1 && rank4comdid1.name}] - #${rank4comdid}`
+        if (rank4str_1 == "[undefined] - #0") {
+            rank4str_1 = undefined
+        }
+        if (rank4str_1 == "[undefined] - #undefined") {
+            rank4str_1 = undefined
+        }
+        var rank4value2_id = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(len, len-1));
+        //rank5
+        len = tables.rank5.value1 && tables.rank5.value1.toString().length
+        var rank5comdid = tables.rank5.value1 && split_by_2(-1,parseInt(tables.rank5.value1))
+        var rank5comdid1 = CommandNames[rank5comdid]
+        var rank5str_1 = `[${rank5comdid1 && rank5comdid1.name}] - #${rank5comdid}`
+        if (rank5str_1 == "[undefined] - #0") {
+            rank5str_1 = undefined
+        }
+        if (rank5str_1 == "[undefined] - #undefined") {
+            rank5str_1 = undefined
+        }
+        var rank5value2_id = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(len, len-1));
+        //rank6
+        len = tables.rank6.value1 && tables.rank6.value1.toString().length
+        var rank6comdid = tables.rank6.value1 && split_by_2(-1,parseInt(tables.rank6.value1))
+        var rank6comdid1 = CommandNames[rank6comdid]
+        var rank6str_1 = `[${rank6comdid1 && rank6comdid1.name}] - #${rank6comdid}`
+        if (rank6str_1 == "[undefined] - #0") {
+            rank6str_1 = undefined
+        }
+        if (rank6str_1 == "[undefined] - #undefined") {
+            rank6str_1 = undefined
+        }
+        var rank6value2_id = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(len, len-1));
+        //rank7
+        len = tables.rank7.value1 && tables.rank7.value1.toString().length
+        var rank7comdid = tables.rank7.value1 && split_by_2(-1,parseInt(tables.rank7.value1))
+        var rank7comdid1 = CommandNames[rank7comdid]
+        var rank7str_1 = `[${rank7comdid1 && rank7comdid1.name}] - #${rank7comdid}`
+        if (rank7str_1 == "[undefined] - #0") {
+            rank7str_1 = undefined
+        }
+        if (rank7str_1 == "[undefined] - #undefined") {
+            rank7str_1 = undefined
+        }
+        var rank7value2_id = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(len, len-1));
+        //rank8
+        len = tables.rank8.value1 && tables.rank8.value1.toString().length
+        var rank8comdid = tables.rank8.value1 && split_by_2(-1,parseInt(tables.rank8.value1))
+        var rank8comdid1 = CommandNames[rank8comdid]
+        var rank8str_1 = `[${rank8comdid1 && rank8comdid1.name}] - #${rank8comdid}`
+        if (rank8str_1 == "[undefined] - #0") {
+            rank8str_1 = undefined
+        }
+        if (rank8str_1 == "[undefined] - #undefined") {
+            rank8str_1 = undefined
+        }
+        var rank8value2_id = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(len, len-1));
+        //rank9
+        len = tables.rank9.value1 && tables.rank9.value1.toString().length
+        var rank9comdid = tables.rank9.value1 && split_by_2(-1,parseInt(tables.rank9.value1))
+        var rank9comdid1 = CommandNames[rank9comdid]
+        var rank9str_1 = `[${rank9comdid1 && rank9comdid1.name}] - #${rank9comdid}`
+        if (rank9str_1 == "[undefined] - #0") {
+            rank9str_1 = undefined
+        }
+        if (rank9str_1 == "[undefined] - #undefined") {
+            rank9str_1 = undefined
+        }
+        var rank9value2_id = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(len, len-1));
+        //rank10
+        len = tables.rank10.value1 && tables.rank10.value1.toString().length
+        var rank10comdid = tables.rank10.value1 && split_by_2(-1,parseInt(tables.rank10.value1))
+        var rank10comdid1 = CommandNames[rank10comdid]
+        var rank10str_1 = `[${rank10comdid1 && rank10comdid1.name}] - #${rank10comdid}`
+        if (rank10str_1 == "[undefined] - #0") {
+            rank10str_1 = undefined
+        }
+        if (rank10str_1 == "[undefined] - #undefined") {
+            rank10str_1 = undefined
+        }
+        var rank10value2_id = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(len, len-1));
+        tables = {
+            rank1: {
+                value1: rank1str_1,
+                value2: rank1value2_id
+            },
+            rank2: {
+                value1: rank2str_1,
+                value2: rank2value2_id
+            },
+            rank3: {
+                value1: rank3str_1,
+                value2: rank3value2_id
+            },
+            rank4: {
+                value1: rank4str_1,
+                value2: rank4value2_id
+            },
+            rank5: {
+                value1: rank5str_1,
+                value2: rank5value2_id
+            },
+            rank6: {
+                value1: rank6str_1,
+                value2: rank6value2_id
+            },
+            rank7: {
+                value1: rank7str_1,
+                value2: rank7value2_id
+            },
+            rank8: {
+                value1: rank8str_1,
+                value2: rank8value2_id
+            },
+            rank9: {
+                value1: rank9str_1,
+                value2: rank9value2_id
+            },
+            rank10: {
+                value1: rank10str_1,
+                value2: rank10value2_id
+            },
+            effectstr: effectstr,
+            cond_id: condstr,
+            val_typestr: val_typestr,
+            val_edit_typestr: val_edit_typestr,
+            ValEditTypeShow: ValEditTypeShow,
+            ValTypeShow: ValTypeShow,
+            slidertype: slidertype,
+            multiply: multiply,
+            multiplyslider: multiplyslider,
+            defaultrank: defaultrank
+        }
+    }
     if (value_trans == "command_id") {
         var rank1comd = CommandNames[tables.rank1.value1]
         var rank1str = `[${rank1comd && rank1comd.name}] - #${tables.rank1.value1}`

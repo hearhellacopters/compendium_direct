@@ -44,12 +44,15 @@ const BuffsDirect = ({
 
     const [aBuff, setABuff] = useState(getQueryStringVal("aa") != null ? true : false);
     const [burstBuff, setBurstBuff] = useState(getQueryStringVal("burst") != null ? true : false);
-    const [calls, setCalls] = useState(getQueryStringVal("call") != null ? true : false);
+    const [call_75, setcall_75] = useState(getQueryStringVal("call_75") != null ? true : false);
+    const [call_ld, setcall_ld] = useState(getQueryStringVal("call_ld") != null ? true : false);
     const [starting, setStarting] = useState(getQueryStringVal("s1") != null ? true : false);
     const [s20, setS20] = useState(getQueryStringVal("s2") != null ? true : false);
     const [ld, setLD] = useState(getQueryStringVal("ld") != null ? true : false);
     const [fr, setFR] = useState(getQueryStringVal("fr") != null ? true : false);
     const [ex, setEX] = useState(getQueryStringVal("ex") != null ? true : false);
+    const [brv, setbrv] = useState(getQueryStringVal("brv") != null ? true : false);
+    const [hp, sethp] = useState(getQueryStringVal("hp") != null ? true : false);
     const [bstate, setbstate] = useState(getQueryStringVal("state") != null ? true : false);
     const [start, setstart] = useState(getQueryStringVal("start") != null ? true : false);
     const [buffs, setBuffs] = useState(getQueryStringVal("buffs") != null ? true : false);
@@ -168,7 +171,8 @@ const BuffsDirect = ({
 
     const [aBuffsearch, setABuffsearch] = useQueryParam("aa", "");
     const [burstBuffsearch, setBurstBuffsearch] = useQueryParam("burst", "");
-    const [callssearch, setCallssearch] = useQueryParam("call", "");
+    const [call_75search, setcall_75search] = useQueryParam("call_75", "");
+    const [call_ldsearch, setcall_ldsearch] = useQueryParam("call_ld", "");
     const [startingsearch, setStartingsearch] = useQueryParam("s1", "");
     const [s20search, setS20search] = useQueryParam("s2", "");
     const [ldsearch, setLDsearch] = useQueryParam("ld", "");
@@ -176,6 +180,8 @@ const BuffsDirect = ({
     const [exsearch, setEXsearch] = useQueryParam("ex", "");
     const [bstatesearch, setbstatesearch] = useQueryParam("state", "");
     const [startsearch, setstartsearch] = useQueryParam("start", "");
+    const [brvsearch, setbrvsearch] = useQueryParam("brv", "");
+    const [hpsearch, sethpsearch] = useQueryParam("hp", "");
     const [buffssearch, setBuffssearch] = useQueryParam("buffs", "");
     const [debuffssearch, setDebuffssearch] = useQueryParam("debuffs", "");
     const [partysearch, setpartysearch] = useQueryParam("party", "");
@@ -331,9 +337,27 @@ const BuffsDirect = ({
                 );
                 filterholder.push(...filteredout);
             }
-            if (calls == true) {
+            if (brv == true) {
                 const filteredout = rawData.filter(
-                    (ef) => ef.Call == true
+                    (ef) => ef.BRV == true
+                );
+                filterholder.push(...filteredout);
+            }
+            if (hp == true) {
+                const filteredout = rawData.filter(
+                    (ef) => ef.HP == true
+                );
+                filterholder.push(...filteredout);
+            }
+            if (call_75 == true) {
+                const filteredout = rawData.filter(
+                    (ef) => ef.Call_75 == true
+                );
+                filterholder.push(...filteredout);
+            }
+            if (call_ld == true) {
+                const filteredout = rawData.filter(
+                    (ef) => ef.Call_LD == true
                 );
                 filterholder.push(...filteredout);
             }
@@ -1472,7 +1496,7 @@ const BuffsDirect = ({
                 );
             }
         }
-    }, [merge, rawData, limits, searchTerm, reverse, condFilter, party, start, Launch_Support, Target_Lock, Blind, BRV_Damage_Resist, HP_Damage_Up, Trap, Trap_After_Trigger, Trap_Before_Turn, Counter, FollowUp, FollowUp_Extension, FollowUp_Action_On_Enemy, FollowUp_Start_Of_Next, FollowUp_Before_Player_Turn, FollowUp_Before_Ability, Self_Harm, Buff_Extension, BRV_Resist_Down, Reviver, aBuff, bstate, buffs, Turn_Interrupter, Continuous_Turns, DMGShield, StackedBuff, StackedBuff5, StackedDebuff, StackedDebuff5, SpecialBuff, burstBuff, calls, debuffs, ex, GoldBuff, fr, ld, s20, starting, Break, BreakCancel, BreakPrevent, BRVCap, BRVFreeze, Gains, Refund, BRVRegen, BRVRetain, StolenBRV, BuffPrevent, CappedBRV, Cleanse, Cover, CriticalUp, CriticalRate, DebuffResist, IgnoreDEF, Delay, Delete, Dispel, ElementalWeak, Fire, Ice, Thunder, Wind, Water, Earth, Holy, Dark, Evade, EXFill, EXRate, FreeUse, FreeTurn, GoldDebuff, AddHP, MAXBRVCap, HPResistUp, HPResistDown, BRVPoison, HPPoison, HPHeal, HPRegen, Disable, FireDown, IceDown, ThunderDown, WindDown, WaterDown, EarthDown, HolyDown, DarkDown, MeleeDown, RangedDown, MagicDown, Instant, LastStand, TurnManip])
+    }, [merge, rawData, limits, searchTerm, reverse, condFilter, party, start, brv, hp, Launch_Support, Target_Lock, Blind, BRV_Damage_Resist, HP_Damage_Up, Trap, Trap_After_Trigger, Trap_Before_Turn, Counter, FollowUp, FollowUp_Extension, FollowUp_Action_On_Enemy, FollowUp_Start_Of_Next, FollowUp_Before_Player_Turn, FollowUp_Before_Ability, Self_Harm, Buff_Extension, BRV_Resist_Down, Reviver, aBuff, bstate, buffs, Turn_Interrupter, Continuous_Turns, DMGShield, StackedBuff, StackedBuff5, StackedDebuff, StackedDebuff5, SpecialBuff, burstBuff, call_ld, call_75, debuffs, ex, GoldBuff, fr, ld, s20, starting, Break, BreakCancel, BreakPrevent, BRVCap, BRVFreeze, Gains, Refund, BRVRegen, BRVRetain, StolenBRV, BuffPrevent, CappedBRV, Cleanse, Cover, CriticalUp, CriticalRate, DebuffResist, IgnoreDEF, Delay, Delete, Dispel, ElementalWeak, Fire, Ice, Thunder, Wind, Water, Earth, Holy, Dark, Evade, EXFill, EXRate, FreeUse, FreeTurn, GoldDebuff, AddHP, MAXBRVCap, HPResistUp, HPResistDown, BRVPoison, HPPoison, HPHeal, HPRegen, Disable, FireDown, IceDown, ThunderDown, WindDown, WaterDown, EarthDown, HolyDown, DarkDown, MeleeDown, RangedDown, MagicDown, Instant, LastStand, TurnManip])
 
     //filter merge
     useEffect(() => {
@@ -1490,14 +1514,17 @@ const BuffsDirect = ({
                 charType = {
                     chara_id: condFilter != "" ? condFilter : undefined,
                     AA: aBuff != true ? undefined : aBuff,
+                    BRV: brv != true ? undefined : brv,
+                    HP: hp != true ? undefined : hp,
                     state: bstate != true ? undefined : bstate,
                     start: start != true ? undefined : start,
                     BT: burstBuff != true ? undefined : burstBuff,
-                    Call: calls != true ? undefined : calls,
+                    Call_LD: call_ld != true ? undefined : call_ld,
+                    Call_75: call_75 != true ? undefined : call_75,
                     is_buff: buff_debuff,
                     EX: ex != true ? undefined : ex,
                     FR: fr != true ? undefined : fr,
-                    LF: ld != true ? undefined : ld,
+                    LD: ld != true ? undefined : ld,
                     S2: s20 != true ? undefined : s20,
                     S1: starting != true ? undefined : starting,
 
@@ -1594,14 +1621,17 @@ const BuffsDirect = ({
                 charType = {
                     chara_id: condFilter != "" ? condFilter : undefined,
                     AA: aBuff != true ? undefined : aBuff,
+                    BRV: brv != true ? undefined : brv,
+                    HP: hp != true ? undefined : hp,
                     state: bstate != true ? undefined : bstate,
                     start: start != true ? undefined : start,
                     BT: burstBuff != true ? undefined : burstBuff,
-                    Call: calls != true ? undefined : calls,
+                    Call_LD: call_ld != true ? undefined : call_ld,
+                    Call_75: call_75 != true ? undefined : call_75,
                     is_buff: buff_debuff,
                     EX: ex != true ? undefined : ex,
                     FR: fr != true ? undefined : fr,
-                    LF: ld != true ? undefined : ld,
+                    LD: ld != true ? undefined : ld,
                     S2: s20 != true ? undefined : s20,
                     S1: starting != true ? undefined : starting,
 
@@ -1733,7 +1763,7 @@ const BuffsDirect = ({
                 );
             }
         }
-    }, [merge, rawData, limits, party, searchTerm, reverse, Blind, condFilter, Target_Lock, start, aBuff, bstate, buffs, Self_Harm, Trap, Trap_After_Trigger, Trap_Before_Turn, Counter, FollowUp, FollowUp_Extension, FollowUp_Action_On_Enemy, FollowUp_Start_Of_Next, FollowUp_Before_Player_Turn, FollowUp_Before_Ability, BRV_Damage_Resist, HP_Damage_Up, Buff_Extension, Reviver, BRV_Resist_Down, Launch_Support, Turn_Interrupter, Continuous_Turns, DMGShield, StackedBuff, StackedBuff5, StackedDebuff, StackedDebuff5, SpecialBuff, burstBuff, calls, debuffs, GoldBuff, ex, fr, ld, s20, starting, Break, BreakCancel, BreakPrevent, BRVCap, BRVFreeze, Gains, Refund, BRVRegen, BRVRetain, StolenBRV, BuffPrevent, CappedBRV, Cleanse, Cover, CriticalUp, CriticalRate, DebuffResist, IgnoreDEF, Delay, Delete, Dispel, ElementalWeak, Fire, Ice, Thunder, Wind, Water, Earth, Holy, Dark, Evade, EXFill, EXRate, FreeUse, FreeTurn, GoldDebuff, AddHP, MAXBRVCap, HPResistUp, HPResistDown, BRVPoison, HPPoison, HPHeal, HPRegen, Disable, FireDown, IceDown, ThunderDown, WindDown, WaterDown, EarthDown, HolyDown, DarkDown, MeleeDown, RangedDown, MagicDown, Instant, LastStand, TurnManip])
+    }, [merge, rawData, limits, party, searchTerm, reverse, Blind, condFilter, Target_Lock, start, aBuff, bstate, buffs, Self_Harm, Trap, Trap_After_Trigger, Trap_Before_Turn, Counter, FollowUp, FollowUp_Extension, FollowUp_Action_On_Enemy, FollowUp_Start_Of_Next, FollowUp_Before_Player_Turn, FollowUp_Before_Ability, BRV_Damage_Resist, HP_Damage_Up, Buff_Extension, Reviver, BRV_Resist_Down, Launch_Support, Turn_Interrupter, Continuous_Turns, DMGShield, StackedBuff, StackedBuff5, StackedDebuff, StackedDebuff5, SpecialBuff, burstBuff, call_ld, call_75, brv, hp, debuffs, GoldBuff, ex, fr, ld, s20, starting, Break, BreakCancel, BreakPrevent, BRVCap, BRVFreeze, Gains, Refund, BRVRegen, BRVRetain, StolenBRV, BuffPrevent, CappedBRV, Cleanse, Cover, CriticalUp, CriticalRate, DebuffResist, IgnoreDEF, Delay, Delete, Dispel, ElementalWeak, Fire, Ice, Thunder, Wind, Water, Earth, Holy, Dark, Evade, EXFill, EXRate, FreeUse, FreeTurn, GoldDebuff, AddHP, MAXBRVCap, HPResistUp, HPResistDown, BRVPoison, HPPoison, HPHeal, HPRegen, Disable, FireDown, IceDown, ThunderDown, WindDown, WaterDown, EarthDown, HolyDown, DarkDown, MeleeDown, RangedDown, MagicDown, Instant, LastStand, TurnManip])
 
     //buttons
     const aBuffbutton = () => {
@@ -1752,13 +1782,21 @@ const BuffsDirect = ({
         }
         setBurstBuff((prevValue) => !prevValue);
     };
-    const callsbutton = () => {
-        if (calls == false) {
-            setCallssearch("true")
+    const call_75button = () => {
+        if (call_75 == false) {
+            setcall_75search("true")
         } else {
-            setCallssearch("")
+            setcall_75search("")
         }
-        setCalls((prevValue) => !prevValue);
+        setcall_75((prevValue) => !prevValue);
+    };
+    const call_ldbutton = () => {
+        if (call_ld == false) {
+            setcall_ldsearch("true")
+        } else {
+            setcall_ldsearch("")
+        }
+        setcall_ld((prevValue) => !prevValue);
     };
     const startingbutton = () => {
         if (starting == false) {
@@ -1767,6 +1805,22 @@ const BuffsDirect = ({
             setStartingsearch("")
         }
         setStarting((prevValue) => !prevValue);
+    };
+    const brvbutton = () => {
+        if (brv == false) {
+            setbrvsearch("true")
+        } else {
+            setbrvsearch("")
+        }
+        setbrv((prevValue) => !prevValue);
+    };
+    const hpbutton = () => {
+        if (hp == false) {
+            sethpsearch("true")
+        } else {
+            sethpsearch("")
+        }
+        sethp((prevValue) => !prevValue);
     };
     const startbutton = () => {
         if (start == false) {
@@ -2643,10 +2697,13 @@ const BuffsDirect = ({
         setCondFilter("")
 
         setABuffsearch("")
+        setbrvsearch("")
+        sethpsearch("")
         setbstatesearch("")
         setBuffssearch("")
         setBurstBuffsearch("")
-        setCallssearch("")
+        setcall_75search("")
+        setcall_ldsearch("")
         setDebuffssearch("")
         setEXsearch("")
         setFRsearch("")
@@ -2745,10 +2802,13 @@ const BuffsDirect = ({
 
         setstart(false)
         setABuff(false)
+        setbrv(false)
+        sethp(false)
         setbstate(false)
         setBuffs(false)
         setBurstBuff(false)
-        setCalls(false)
+        setcall_ld(false)
+        setcall_75(false)
         setDebuffs(false)
         setEX(false)
         setFR(false)
@@ -2956,9 +3016,13 @@ const BuffsDirect = ({
                             <Tippy content="FR Line Casts">
                                 <li className={`${fr ? "filteractive" : "filterinactive"} buffbutton frbutton`} onClick={frbutton}></li>
                             </Tippy>
-                            <Tippy content="Calls Line Casts">
-                                <li className={`${calls ? "filteractive" : "filterinactive"} buffbutton callsButton`} onClick={callsbutton}></li>
+                            <Tippy content="Call LD Line Casts">
+                                <li className={`${call_ld ? "filteractive" : "filterinactive"} buffbutton call2button`} onClick={call_ldbutton}></li>
                             </Tippy>
+                            <Tippy content="Call 75 Line Casts">
+                                <li className={`${call_75 ? "filteractive" : "filterinactive"} buffbutton call1button`} onClick={call_75button}></li>
+                            </Tippy>
+                            <br />
                             <Tippy content="LD Line Casts">
                                 <li className={`${ld ? "filteractive" : "filterinactive"} buffbutton ldButton`} onClick={ldbutton}></li>
                             </Tippy>
@@ -2973,6 +3037,13 @@ const BuffsDirect = ({
                             </Tippy>
                             <Tippy content="Starting Skill Line Casts">
                                 <li className={`${starting ? "filteractive" : "filterinactive"} buffbutton startingButton`} onClick={startingbutton}></li>
+                            </Tippy>
+                            <br />
+                            <Tippy content="BRV Attack Line Casts">
+                                <li className={`${brv ? "filteractive" : "filterinactive"} buffbutton brvplusbutton`} onClick={brvbutton}></li>
+                            </Tippy>
+                            <Tippy content="HP Attack Line Casts">
+                                <li className={`${hp ? "filteractive" : "filterinactive"} buffbutton hpplusbutton`} onClick={hpbutton}></li>
                             </Tippy>
                             <br />
                             <Tippy content="Quest Starting Casts">

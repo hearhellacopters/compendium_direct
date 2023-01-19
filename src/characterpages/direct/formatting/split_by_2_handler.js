@@ -1,6 +1,9 @@
 const split_by_2 = (cutype, value) => {
     const len = value && value.toString().length
     var valuepars = value == undefined ? 0 : value
+    if (cutype < 0) {
+        valuepars = parseInt(value.toString().substring(0, (len+cutype)));
+    }
     if (cutype == 1) {
         if (len < 8) {
             valuepars = 0
