@@ -130,7 +130,7 @@ const Ailment_Data_Pars_Dif = (
 
     full_text = `${cond_str != undefined ? cond_str : ""}${cond_str != undefined ? "\n" : ""}${eff_str != undefined ? eff_str : ""}${eff_str != undefined ? "\n" : ""}${stack_str != undefined ? stack_str : ""}${stack_str != undefined ? "\n" : ""}${val_type_str != undefined ? val_type_str : ""}${val_type_str != undefined ? "\n" : ""}${effect_value_type_str != undefined ? effect_value_type_str : ""}${effect_value_type_str != undefined ? "\n" : ""}${val_edit_type_str != undefined ? val_edit_type_str : ""}${val_edit_type_str != undefined ? "\n" : ""}`
 
-    if (effect_id == undefined) {
+    if (effect_id == undefined || effect_id.hidden == true) {
         return (
             ""
         )

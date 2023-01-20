@@ -50,6 +50,7 @@ const Ailment_Field_Effect_Pars = (
     const require_value_4 = match.require_value_4
     const require_value_5 = match.require_value_5
     const no_stack = match.no_stack
+    var hidden = match.hidden
     var effect_data = undefined
     var effect_target_id = undefined
     var val_edit_type = undefined
@@ -109,6 +110,10 @@ const Ailment_Field_Effect_Pars = (
     }
     const neg_flag = EffectTypeID[effect_type_id] && EffectTypeID[effect_type_id].neg_flag
     const value_trans = EffectTypeID[effect_type_id] && EffectTypeID[effect_type_id].value_trans
+
+    if(EffectTypeID[effect_type_id] && EffectTypeID[effect_type_id].hidden != undefined){
+        hidden = EffectTypeID[effect_type_id].hidden
+    }
 
     //target
 
@@ -594,7 +599,8 @@ const Ailment_Field_Effect_Pars = (
         slidertype: slidertype,
         multiply: multiply,
         multiplyslider: multiplyslider,
-        defaultrank: defaultrank
+        defaultrank: defaultrank,
+        hidden: hidden
     }
 
     if (effect_type_id != 14 && effect_type_id != 15) {
@@ -640,7 +646,8 @@ const Ailment_Field_Effect_Pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         } else {
             rank_table = {
@@ -684,7 +691,8 @@ const Ailment_Field_Effect_Pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         }
     }
@@ -742,7 +750,8 @@ const Ailment_Field_Effect_Pars = (
                     slidertype: slidertype,
                     multiply: multiply,
                     multiplyslider: multiplyslider,
-                    defaultrank: defaultrank
+                    defaultrank: defaultrank,
+                    hidden: hidden
                 }
             } else {
                 rank_table = {
@@ -786,7 +795,8 @@ const Ailment_Field_Effect_Pars = (
                     slidertype: slidertype,
                     multiply: multiply,
                     multiplyslider: multiplyslider,
-                    defaultrank: defaultrank
+                    defaultrank: defaultrank,
+                    hidden: hidden
                 }
             }
         }
@@ -985,7 +995,8 @@ const Ailment_Field_Effect_Pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
 
@@ -1183,7 +1194,8 @@ const Ailment_Field_Effect_Pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
     var geteffect = rank_table
@@ -1313,7 +1325,8 @@ const Ailment_Field_Effect_Pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         } else {
             rank_table = {
@@ -1337,7 +1350,8 @@ const Ailment_Field_Effect_Pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         }
 
@@ -1376,7 +1390,8 @@ const Ailment_Field_Effect_Pars = (
                 EffectValueTypeShow: EffectValueTypeShow,
                 stack_flag: stack_flagstr,
                 defaultrank: defaultrank,
-                effectstr: effectstrpull
+                effectstr: effectstrpull,
+                hidden: geteffect.hidden == undefined ? hidden : geteffect.hidden
             })
     }
 

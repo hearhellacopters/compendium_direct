@@ -64,6 +64,8 @@ const ailment_data_pars = (
 
     var effectstrpull = EffectID[effect_id]
 
+    var hidden = EffectID[effect_id] && EffectID[effect_id].hidden
+
     var condstr = undefined
 
     if (cond_id != -1 && cond_id != undefined) {
@@ -330,7 +332,8 @@ const ailment_data_pars = (
         slidertype: slidertype,
         multiply: multiply,
         multiplyslider: multiplyslider,
-        defaultrank: defaultrank
+        defaultrank: defaultrank,
+        hidden: hidden
     }
 
 
@@ -376,7 +379,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         }
     }
@@ -424,7 +428,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         }
     }
@@ -471,7 +476,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         }
     }
@@ -656,7 +662,8 @@ const ailment_data_pars = (
                     slidertype: slidertype,
                     multiply: multiply,
                     multiplyslider: multiplyslider,
-                    defaultrank: defaultrank
+                    defaultrank: defaultrank,
+                    hidden: hidden
                 }
             } else {
                 tables = {
@@ -699,7 +706,8 @@ const ailment_data_pars = (
                     slidertype: slidertype,
                     multiply: multiply,
                     multiplyslider: multiplyslider,
-                    defaultrank: defaultrank
+                    defaultrank: defaultrank,
+                    hidden: hidden
                 }
             }
         }
@@ -837,7 +845,8 @@ const ailment_data_pars = (
                     slidertype: slidertype,
                     multiply: multiply,
                     multiplyslider: multiplyslider,
-                    defaultrank: defaultrank
+                    defaultrank: defaultrank,
+                    hidden: hidden
                 }
             } else {
                 tables = {
@@ -880,7 +889,8 @@ const ailment_data_pars = (
                     slidertype: slidertype,
                     multiply: multiply,
                     multiplyslider: multiplyslider,
-                    defaultrank: defaultrank
+                    defaultrank: defaultrank,
+                    hidden: hidden
                 }
             }
         } else {
@@ -932,7 +942,8 @@ const ailment_data_pars = (
                     ValTypeShow: ValTypeShow,
                     slidertype: slidertype,
                     multiply: multiply,
-                    defaultrank: defaultrank
+                    defaultrank: defaultrank,
+                    hidden: hidden
                 }
             } else {
                 tables = {
@@ -975,7 +986,8 @@ const ailment_data_pars = (
                     slidertype: slidertype,
                     multiply: multiply,
                     multiplyslider: multiplyslider,
-                    defaultrank: defaultrank
+                    defaultrank: defaultrank,
+                    hidden: hidden
                 }
             }
         }
@@ -1113,7 +1125,8 @@ const ailment_data_pars = (
                     slidertype: slidertype,
                     multiply: multiply,
                     multiplyslider: multiplyslider,
-                    defaultrank: defaultrank
+                    defaultrank: defaultrank,
+                    hidden: hidden
                 }
             } else {
                 tables = {
@@ -1155,7 +1168,8 @@ const ailment_data_pars = (
                     ValTypeShow: ValTypeShow,
                     slidertype: slidertype,
                     multiply: multiply,
-                    defaultrank: defaultrank
+                    defaultrank: defaultrank,
+                    hidden: hidden
                 }
             }
         } else {
@@ -1207,7 +1221,8 @@ const ailment_data_pars = (
                     ValTypeShow: ValTypeShow,
                     slidertype: slidertype,
                     multiply: multiply,
-                    defaultrank: defaultrank
+                    defaultrank: defaultrank,
+                    hidden: hidden
                 }
             } else {
                 tables = {
@@ -1250,7 +1265,8 @@ const ailment_data_pars = (
                     slidertype: slidertype,
                     multiply: multiply,
                     multiplyslider: multiplyslider,
-                    defaultrank: defaultrank
+                    defaultrank: defaultrank,
+                    hidden: hidden
                 }
             }
         }
@@ -1387,7 +1403,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         } else {
             tables = {
@@ -1430,7 +1447,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         }
     }
@@ -1521,7 +1539,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         } else {
             tables = {
@@ -1564,7 +1583,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         }
     }
@@ -1700,7 +1720,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         } else {
             tables = {
@@ -1743,7 +1764,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         }
     }
@@ -1798,7 +1820,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         } else {
             tables = {
@@ -1841,7 +1864,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         }
     }
@@ -1977,7 +2001,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         } else {
             tables = {
@@ -2020,7 +2045,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         }
     }
@@ -2156,7 +2182,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         } else {
             tables = {
@@ -2199,7 +2226,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         }
     }
@@ -2335,7 +2363,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         } else {
             tables = {
@@ -2378,7 +2407,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         }
     }
@@ -2514,7 +2544,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         } else {
             tables = {
@@ -2557,7 +2588,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         }
     }
@@ -2693,7 +2725,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         } else {
             tables = {
@@ -2736,7 +2769,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         }
     }
@@ -2872,7 +2906,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         } else {
             tables = {
@@ -2915,7 +2950,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         }
     }
@@ -3051,7 +3087,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         } else {
             tables = {
@@ -3094,7 +3131,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         }
     }
@@ -3230,7 +3268,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         } else {
             tables = {
@@ -3273,7 +3312,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         }
     }
@@ -3409,7 +3449,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         } else {
             tables = {
@@ -3452,7 +3493,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         }
     }
@@ -3588,7 +3630,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         } else {
             tables = {
@@ -3631,7 +3674,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         }
     }
@@ -3769,7 +3813,8 @@ const ailment_data_pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
     if (value_trans == "split_by_2_HP") {
@@ -3829,7 +3874,8 @@ const ailment_data_pars = (
             slidertype: "levels",
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
     if (value_trans == "split_by_2_level") {
@@ -3878,7 +3924,8 @@ const ailment_data_pars = (
             slidertype: "levels",
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
     if (value_trans == "100_chance") {
@@ -3932,7 +3979,8 @@ const ailment_data_pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
     if (value_trans == "localestring") {
@@ -3986,7 +4034,8 @@ const ailment_data_pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
     if (value_trans == "by_100") {
@@ -4040,7 +4089,8 @@ const ailment_data_pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
     if (value_trans == "shield_1") {
@@ -4124,7 +4174,8 @@ const ailment_data_pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
     if (value_trans == "shield_2") {
@@ -4228,7 +4279,8 @@ const ailment_data_pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
     if(value_trans == "command_id_split_2"){
@@ -4402,7 +4454,8 @@ const ailment_data_pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
     if (value_trans == "command_id") {
@@ -4526,7 +4579,8 @@ const ailment_data_pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
     if (value_trans == "split_3_rev") {
@@ -4629,7 +4683,8 @@ const ailment_data_pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
 
@@ -4724,7 +4779,8 @@ const ailment_data_pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
     if (value_trans == "ailment_id_1_zero_off") {
@@ -4848,7 +4904,8 @@ const ailment_data_pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
     if (value_trans == "ailment_id_1") {
@@ -4972,7 +5029,8 @@ const ailment_data_pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
     if (value_trans == "ailment_id_2") {
@@ -5126,7 +5184,8 @@ const ailment_data_pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
     if (value_trans == "ailment_id_3") {
@@ -5301,7 +5360,8 @@ const ailment_data_pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
     if (value_trans == "ailment_group_id_1") {
@@ -5355,7 +5415,8 @@ const ailment_data_pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
 
@@ -5410,7 +5471,8 @@ const ailment_data_pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
 
@@ -5465,7 +5527,8 @@ const ailment_data_pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
 
@@ -5560,7 +5623,8 @@ const ailment_data_pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
     if (value_trans == "cast_id_1") {
@@ -5804,7 +5868,8 @@ const ailment_data_pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
     if (value_trans == "cast_id_1_levels") {
@@ -5998,7 +6063,8 @@ const ailment_data_pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
     if (value_trans == "cast_id_2") {
@@ -6172,7 +6238,8 @@ const ailment_data_pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
 
@@ -6247,7 +6314,8 @@ const ailment_data_pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
 
@@ -6322,7 +6390,8 @@ const ailment_data_pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
 
@@ -6397,7 +6466,8 @@ const ailment_data_pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
 
@@ -6693,7 +6763,8 @@ const ailment_data_pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
 
@@ -6748,7 +6819,8 @@ const ailment_data_pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
 
@@ -6813,7 +6885,8 @@ const ailment_data_pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
 
@@ -6868,7 +6941,8 @@ const ailment_data_pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
 
@@ -6923,7 +6997,8 @@ const ailment_data_pars = (
             slidertype: slidertype,
             multiply: multiply,
             multiplyslider: multiplyslider,
-            defaultrank: defaultrank
+            defaultrank: defaultrank,
+            hidden: hidden
         }
     }
     if (default_value != undefined) {
@@ -6968,7 +7043,8 @@ const ailment_data_pars = (
                 slidertype: slidertype,
                 multiply: multiply,
                 multiplyslider: multiplyslider,
-                defaultrank: defaultrank
+                defaultrank: defaultrank,
+                hidden: hidden
             }
         }
     }

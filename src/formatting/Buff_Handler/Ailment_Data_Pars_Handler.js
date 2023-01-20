@@ -158,7 +158,7 @@ const Ailment_Data_Pars_Handler = ({
         setrank(value)
     }
 
-    if (effect_id == undefined) {
+    if (effect_id == undefined || effect_id.hidden == true) {
         return (
             ""
         )

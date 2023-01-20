@@ -82,6 +82,8 @@ const AbilitiesDirect = ({
     const [Increase, setIncrease] = useState(getQueryStringVal("Increase") != null ? true : false)
     const [Increase2, setIncrease2] = useState(getQueryStringVal("Increase2") != null ? true : false)
     const [Instant, setInstant] = useState(getQueryStringVal("Instant") != null ? true : false)
+    const [Slower, setSlower] = useState(getQueryStringVal("Slower") != null ? true : false)
+    const [Faster, setFaster] = useState(getQueryStringVal("Faster") != null ? true : false)
     const [Turn_Manipulator, setTurn_Manipulator] = useState(getQueryStringVal("Turn_Manipulator") != null ? true : false)
     const [Battery, setBattery] = useState(getQueryStringVal("Battery") != null ? true : false)
     const [Buff_Extension, setBuff_Extension] = useState(getQueryStringVal("Buff_Extension") != null ? true : false)
@@ -152,6 +154,8 @@ const AbilitiesDirect = ({
     const [Increasesearch, setIncreasesearch] = useQueryParam("Increase", "")
     const [Increase2search, setIncrease2search] = useQueryParam("Increase2", "")
     const [Instantsearch, setInstantsearch] = useQueryParam("Instant", "")
+    const [Slowersearch, setSlowersearch] = useQueryParam("Slower", "")
+    const [Fastersearch, setFastersearch] = useQueryParam("Faster", "")
     const [Turn_Manipulatorsearch, setTurn_Manipulatorsearch] = useQueryParam("Turn_Manipulator", "")
     const [Batterysearch, setBatterysearch] = useQueryParam("Battery", "")
     const [Buff_Extensionsearch, setBuff_Extensionsearch] = useQueryParam("Buff_Extension", "")
@@ -442,6 +446,18 @@ const AbilitiesDirect = ({
                 )
                 filterholder.push(...filteredout)
             }
+            if (Slower == true) {
+                const filteredout = rawData.filter(
+                    ability => ability.Slower == true
+                )
+                filterholder.push(...filteredout)
+            }
+            if (Faster == true) {
+                const filteredout = rawData.filter(
+                    ability => ability.Faster == true
+                )
+                filterholder.push(...filteredout)
+            }
             if (Free == true) {
                 const filteredout = rawData.filter(
                     ability => ability.Free_Ability == true
@@ -507,7 +523,7 @@ const AbilitiesDirect = ({
             }
 
         }
-    }, [rawData, merge, limits, condFilter, reverse, searchTerm, AA, BRV, BT, Delay3, Self_Harm, Break, Buff_Extension, Increase2, BreakCancel, Battery, Call75, CallLD, Cleanse, Turn_Manipulator, Counter, Dark, Delay, Delete, Dispel, EX, Earth, FR, Fire, FollowUp, Free, Group, HP, Heals, Holy, Ice, IgnoreDEF, Increase, Instant, KnockBack, LD, Magic, Melee, Ranged, Revive, S1, S2, Thunder, Trap, Water, Wind])
+    }, [rawData, merge, limits, condFilter, reverse, searchTerm, Faster, Slower, AA, BRV, BT, Delay3, Self_Harm, Break, Buff_Extension, Increase2, BreakCancel, Battery, Call75, CallLD, Cleanse, Turn_Manipulator, Counter, Dark, Delay, Delete, Dispel, EX, Earth, FR, Fire, FollowUp, Free, Group, HP, Heals, Holy, Ice, IgnoreDEF, Increase, Instant, KnockBack, LD, Magic, Melee, Ranged, Revive, S1, S2, Thunder, Trap, Water, Wind])
 
     //filter merge
     useEffect(() => {
@@ -559,7 +575,9 @@ const AbilitiesDirect = ({
                 Free_Ability: Free,
                 Buff_Extension: Buff_Extension,
                 Battery: Battery,
-                Self_Harm: Self_Harm
+                Self_Harm: Self_Harm,
+                Faster: Faster,
+                Slower: Slower
             }
             const filtermerge = rawData.filter((oneChar) => {
                 return Object.entries(charType)
@@ -600,7 +618,7 @@ const AbilitiesDirect = ({
                 );
             }
         }
-    }, [rawData, merge, limits, condFilter, reverse, searchTerm, AA, BRV, BT, Self_Harm, Break, Buff_Extension, Delay3, Battery, BreakCancel, Turn_Manipulator, Increase2, Call75, CallLD, Cleanse, Counter, Dark, Delay, Delete, Dispel, EX, Earth, FR, Fire, FollowUp, Free, Group, HP, Heals, Holy, Ice, IgnoreDEF, Increase, Instant, KnockBack, LD, Magic, Melee, Ranged, Revive, S1, S2, Thunder, Trap, Water, Wind])
+    }, [rawData, merge, limits, condFilter, reverse, searchTerm, Faster, Slower, AA, BRV, BT, Self_Harm, Break, Buff_Extension, Delay3, Battery, BreakCancel, Turn_Manipulator, Increase2, Call75, CallLD, Cleanse, Counter, Dark, Delay, Delete, Dispel, EX, Earth, FR, Fire, FollowUp, Free, Group, HP, Heals, Holy, Ice, IgnoreDEF, Increase, Instant, KnockBack, LD, Magic, Melee, Ranged, Revive, S1, S2, Thunder, Trap, Water, Wind])
 
     //buttons
     const showfilterbutton = () => {
@@ -992,6 +1010,22 @@ const AbilitiesDirect = ({
         }
         setFree((prevValue) => !prevValue);
     }
+    const Fasterbutton = () => {
+        if (Faster == false) {
+            setFastersearch("true")
+        } else {
+            setFastersearch("")
+        }
+        setFaster((prevValue) => !prevValue);
+    }
+    const Slowerbutton = () => {
+        if (Slower == false) {
+            setSlowersearch("true")
+        } else {
+            setSlowersearch("")
+        }
+        setSlower((prevValue) => !prevValue);
+    }
 
     //type selector
     const CondSelect = (e) => {
@@ -1108,6 +1142,8 @@ const AbilitiesDirect = ({
         setBattery(false)
         setBuff_Extension(false)
         setSelf_Harm(false)
+        setSlower(false)
+        setFaster(false)
 
         setBRVsearch("")
         setHPsearch("")
@@ -1154,6 +1190,8 @@ const AbilitiesDirect = ({
         setFreesearch("")
         setBatterysearch("")
         setSelf_Harmsearch("")
+        setSlowersearch("")
+        setFastersearch("")
 
         setTimeout(() => setclearFilter(false), 1000);
     }
@@ -1357,8 +1395,8 @@ const AbilitiesDirect = ({
                             <Tippy content="Knock Back">
                                 <li className={`${KnockBack ? "filteractive" : "filterinactive"} buffbutton knockbackbutton`} onClick={KnockBackbutton} />
                             </Tippy>
-                            <Tippy content="Instant Turn Rate">
-                                <li className={`${Instant ? "filteractive" : "filterinactive"} buffbutton Instantbutton`} onClick={Instantbutton} />
+                            <Tippy content="Revive">
+                                <li className={`${Revive ? "filteractive" : "filterinactive"} buffbutton Revivebutton`} onClick={Revivebutton} />
                             </Tippy>
                             <Tippy content="Force BREAK">
                                 <li className={`${Break ? "filteractive" : "filterinactive"} buffbutton Breakbutton`} onClick={Breakbutton} />
@@ -1387,9 +1425,6 @@ const AbilitiesDirect = ({
                             <Tippy content="Turn Manipulation">
                                 <li className={`${Turn_Manipulator ? "filteractive" : "filterinactive"} buffbutton Turn_Manipulator`} onClick={Turn_Manipulatorbutton} />
                             </Tippy>
-                            <Tippy content="Revive">
-                                <li className={`${Revive ? "filteractive" : "filterinactive"} buffbutton Revivebutton`} onClick={Revivebutton} />
-                            </Tippy>
                             <Tippy content="Ability Recovered">
                                 <li className={`${Increase ? "filteractive" : "filterinactive"} buffbutton Increasebutton`} onClick={Increasebutton} />
                             </Tippy>
@@ -1404,6 +1439,16 @@ const AbilitiesDirect = ({
                             </Tippy>
                             <Tippy content="Self-Harm HP Damage">
                                 <li className={`${Self_Harm ? "filteractive" : "filterinactive"} buffbutton HPHarmbutton`} onClick={Self_Harmbutton} />
+                            </Tippy>
+                            <br/>
+                            <Tippy content="Slower Turn Rate">
+                                <li className={`${Slower ? "filteractive" : "filterinactive"} buffbutton Slowerbutton`} onClick={Slowerbutton} />
+                            </Tippy>
+                            <Tippy content="Faster Turn Rate">
+                                <li className={`${Faster ? "filteractive" : "filterinactive"} buffbutton Fasterbutton`} onClick={Fasterbutton} />
+                            </Tippy>
+                            <Tippy content="Instant Turn Rate">
+                                <li className={`${Instant ? "filteractive" : "filterinactive"} buffbutton Instantbutton`} onClick={Instantbutton} />
                             </Tippy>
                         </ul>
                         <div className="similarbanner">Refine</div>

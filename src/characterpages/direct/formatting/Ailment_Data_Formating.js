@@ -352,16 +352,9 @@ const Ailment_Data_Formatting = ({
                 alt_aug2,
                 undefined,
             )
-        if (index == 4 && !(ailment_data.effect_id_4 == 60 && ailment_data.cond_id_4 == -1)) {
             if (ail_data != undefined) {
                 Object.assign(ailment_pars, { [`effect_id_${index}`]: ail_data })
             }
-        }
-        if (index != 4) {
-            if (ail_data != undefined) {
-                Object.assign(ailment_pars, { [`effect_id_${index}`]: ail_data })
-            }
-        }
     }
 
     if (ailment_data.field != undefined) {

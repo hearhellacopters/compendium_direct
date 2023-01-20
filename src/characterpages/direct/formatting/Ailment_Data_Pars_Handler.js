@@ -295,6 +295,11 @@ const Ailment_Data_Pars_Handler = ({
                 : ""}
         </div>
 
+    if(effect_id.hidden == true){
+        return(
+            ""
+        )
+    }
     if (effect_id != undefined) {
         if (castlocation == true) {
             return (

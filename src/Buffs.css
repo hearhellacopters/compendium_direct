@@ -432,6 +432,16 @@ hr {
     background-size: contain;
 }
 
+.Fasterbutton {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/faster.png");
+    background-size: contain;
+}
+
+.Slowerbutton {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/slower.png");
+    background-size: contain;
+}
+
 .Dispelbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/dispel.png");
     background-size: contain;
