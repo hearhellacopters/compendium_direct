@@ -232,12 +232,12 @@ const ailment_data_pars = (
         }
     }
     if (val_type == 10) {
-        val_typestr = "• Value based on turns remaining"
+        val_typestr = "• Per turns remaining"
         ValTypeShow = true
         slidertype = "turns"
     }
     if (val_type == 11) {
-        val_typestr = "• Value based on debuffs on enemy"
+        val_typestr = "• Per debuffs on enemy"
         ValTypeShow = true
         slidertype = "debuffsrank"
     }
@@ -251,23 +251,23 @@ const ailment_data_pars = (
     }
     if (val_type == 14) {
         const debuffname14 = AilmentNames[val_specify]
-        val_typestr = `• Value based on levels of [${debuffname14 && debuffname14.name}] - #${val_specify} on target`
+        val_typestr = `• Per levels of [${debuffname14 && debuffname14.name}] - #${val_specify} on target`
         ValTypeShow = true
         slidertype = "stacks"
     }
     if (val_type == 16) {
         const debuffname16 = AilmentNames[val_specify]
-        val_typestr = `• Value based on levels of [${debuffname16 && debuffname16.name}] - #${val_specify} on target`
+        val_typestr = `• Per levels of [${debuffname16 && debuffname16.name}] - #${val_specify} on target`
         ValTypeShow = true
         slidertype = "stacks"
     }
     if (val_type == 18) {
-        val_typestr = `• Value based on debuffs on all enemies`
+        val_typestr = `• Per debuffs on all enemies`
         ValTypeShow = true
         slidertype = "debuffsrank"
     }
     if (val_type == 20) {
-        val_typestr = `• Based on number of enemies`
+        val_typestr = `• Per number of enemies`
         ValTypeShow = true
         slidertype = "enemies"
     }

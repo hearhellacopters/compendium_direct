@@ -524,7 +524,7 @@ const Passive_Effects_Handoff = ({
                                     slider={false}
                                     formatting={formatting}
                                     hide_type={true}
-                                    spacer={`${"-"}`}
+                                    spacer={`${buffs.cond_id != undefined ? "└─" : "-"}`}
                                 />
                             ))
                             : ""}
