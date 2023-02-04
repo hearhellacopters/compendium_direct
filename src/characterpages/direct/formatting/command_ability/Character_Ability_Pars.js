@@ -1000,7 +1000,7 @@ const Character_Ability_Pars = ({
                             </div>
                         }
                         {ver == "JP" && desc == true ?
-                            <div className="clicky updatelink" onClick={() => doTrans()} >Translate (Beta)</div>
+                            <div className="clicky updatelink contents" onClick={() => doTrans()} >Translate (Beta)</div>
                             : ""}
                         {showraw == true ?
                             <ReactJson iconStyle={"square"} quotesOnKeys={false} name={"hit map"} displayDataTypes={false} collapsed={true} theme={"threezerotwofour"} src={hit_parers} />

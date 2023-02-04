@@ -93,20 +93,18 @@ const timeser = (
     ) {
         //all hp hits
         var all_hp = true
-        for (let index = 1; index < (count + 1); index++) {
-            if (index != 1) {
-                if (holder[`hit_${index - 1}`].id != holder[`hit_${index}`].id) {
-                    all_hp = false
-                }
-                if (holder[`hit_${index - 1}`].atk_hp_str != holder[`hit_${index}`].atk_hp_str) {
-                    all_hp = false
-                }
-                if (holder[`hit_${index - 1}`].hit_count != holder[`hit_${index}`].hit_count) {
-                    all_hp = false
-                }
-                if (holder[`hit_${index - 1}`].atk_type != holder[`hit_${index}`].atk_type) {
-                    all_hp = false
-                }
+        for (let index = 2; index < (count + 1); index++) {
+            if (holder[`hit_${index - 1}`].id != holder[`hit_${index}`].id) {
+                all_hp = false
+            }
+            if (holder[`hit_${index - 1}`].atk_hp_str != holder[`hit_${index}`].atk_hp_str) {
+                all_hp = false
+            }
+            if (holder[`hit_${index - 1}`].hit_count != holder[`hit_${index}`].hit_count) {
+                all_hp = false
+            }
+            if (holder[`hit_${index - 1}`].atk_type != holder[`hit_${index}`].atk_type) {
+                all_hp = false
             }
         }
         if (all_hp == true) {
@@ -246,13 +244,26 @@ const timeser = (
                         }
                     }
                     if (no_eff_add_str == true) {
+                        var eff_det_str_holder = holder[`hit_${count}`].eff_add_str
+                        var eff_det_str_2_holder = holder[`hit_${count}`].eff_add_str_2
+                        var except_last = true
+                        var except_last_2 = true
+                        //cross check
+                        if(hit_1.eff_add_str_2 == holder[`hit_${count}`].eff_add_str){
+                            eff_det_str_holder = undefined
+                            except_last_2 = undefined
+                        }
+                        if(hit_1.eff_add_str == holder[`hit_${count}`].eff_add_str_2){
+                            eff_det_str_2_holder = undefined
+                            except_last = undefined
+                        }
                         Object.assign(hit_1, {
                             show: true,
                             times_count: ` ${count} times`,
-                            eff_det_str: holder[`hit_${count}`].eff_add_str,
-                            except_last: true,
-                            eff_det_str_2: holder[`hit_${count}`].eff_add_str_2,
-                            except_last_2: true,
+                            eff_det_str: eff_det_str_holder,
+                            except_last: except_last,
+                            eff_det_str_2: eff_det_str_2_holder,
+                            except_last_2: except_last_2,
                             eff_before_hp_str: holder[`hit_${count}`].eff_before_hp_str,
                         })
                         for (let index = 1; index < (count + 1); index++) {

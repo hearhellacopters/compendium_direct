@@ -870,7 +870,7 @@ const Ailment_Data_Formatting = ({
                     </div>
                 }
                 {ver == "JP" && showdesc == true ?
-                    <div className='clicky updatelink' onClick={() => doTrans()}>Translate (Beta)</div>
+                    <div className='clicky updatelink contents' onClick={() => doTrans()}>Translate (Beta)</div>
                     : ""}
 
                 {showraw == true ?

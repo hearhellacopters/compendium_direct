@@ -2804,6 +2804,57 @@ h3 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/hp+.png");
 }
 
+.crypass_abutton {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/crypass_a.png");
+}
+
+
+.crypass_a {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/crypass_a.png");
+  width: 54px;
+  height: 27px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.crypass_dbutton {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/crypass_d.png");
+}
+
+
+.crypass_d {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/crypass_d.png");
+  width: 54px;
+  height: 27px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.crypass_ubutton {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/crypass_u.png");
+}
+
+
+.crypass_u {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/crypass_u.png");
+  width: 54px;
+  height: 27px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
 .hpplusattackicon {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/hp+.png");
   width: 54px;

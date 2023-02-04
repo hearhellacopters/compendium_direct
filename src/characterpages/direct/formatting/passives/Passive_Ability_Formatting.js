@@ -363,7 +363,7 @@ const Passive_Ability_Formatting = ({
                             )
                         }
                         {ver == "JP" ?
-                            <div className="clicky updatelink" onClick={() => doTrans()} >Translate (Beta)</div>
+                            <div className="clicky updatelink contents" onClick={() => doTrans()} >Translate (Beta)</div>
                             : ""}
                         <div className={`${passive_ability.effect_ == undefined && passive_ability.effect__1 == undefined ? "" : `infonameholderenemybuff default_passive ${base_color != undefined ? "Buffbase" : "newbluepassive"}`}`}>
                             <Passive_Effects_Handoff

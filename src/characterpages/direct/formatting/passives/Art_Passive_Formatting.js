@@ -228,7 +228,7 @@ const Art_Passive_Formatting = ({
                             )
                         }
                         {ver == "JP" ?
-                            <div className="clicky updatelink" onClick={() => doTrans()} >Translate (Beta)</div>
+                            <div className="clicky updatelink contents" onClick={() => doTrans()} >Translate (Beta)</div>
                             : ""}
                         <div className="newbluepassive infonameholderenemybuff default_passive">
                             <Art_Passive_Effects_Handoff

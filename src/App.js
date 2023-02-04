@@ -20,6 +20,7 @@ import CharactersFRPage from './callpages/CallFRTime.js';
 import CharactersWardrobePage from './callpages/CallWardrobe.js';
 import CharactersPageDirect from './callpages/CallCharDirect';
 import WeaponSkins from './callpages/CallWeaponSkins';
+import CrystalBrilliance from './callpages/CallCrystalBrilliance';
 import CallSummonHandoff from './callpages/CallSummons';
 import Credits from './Credits';
 import PassivesDirect from './callpages/CallDirectPassives';
@@ -157,6 +158,7 @@ const App = () => {
               <Route path="/search/gear" element={<GearDirect />} />
               <Route path="/search/spheres" element={<SpheresDirect />} />
               <Route path="/search/passives" element={<PassivesDirect />} />
+              <Route path="/search/crystalpassives" element={<CrystalBrilliance />} />
 
               <Route path="/search/stickers" element={<Stickers />} />
               <Route path="/search/music" exact element={<JukeBox />} />

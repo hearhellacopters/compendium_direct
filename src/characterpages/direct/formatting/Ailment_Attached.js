@@ -809,7 +809,7 @@ const Ailment_Attached = ({
                     </div>
                 }
                 {ver == "JP" && showdesc == true ?
-                    <div className='clicky updatelink contents' onClick={() => doTrans()}>Translate (Beta)</div>
+                    <div className='clicky updatelink contents contents' onClick={() => doTrans()}>Translate (Beta)</div>
                     : ""}
                 {showraw == true ?
                     <ReactJson iconStyle={"square"} quotesOnKeys={false} name={"pars"} displayDataTypes={false} collapsed={true} theme={"threezerotwofour"} src={ailment_debug} />

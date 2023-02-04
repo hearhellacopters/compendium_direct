@@ -3406,7 +3406,7 @@ const BuffsDirect = ({
                             </Tippy>
                         </div>
                     </div>
-                    <Link className="whitecolor" to={"/characters/forcetime"}>
+                    <Link className="whitecolor" to={`/characters/forcetime${jptoggledata == false ? "" : "?JP=true"}`}>
                         <span className="subtext">Check out the Force Time page</span>
                     </Link>
                 </div>

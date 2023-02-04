@@ -21,6 +21,8 @@ const Ailment_Data_Pars_Dif = (
     var displayrank = rank
     var brv_cap = 0
     var max_brv_cap = 0
+    var brv_cap_value = 0
+    var max_brv_cap_value = 0
 
     //ranks
     if (effect_id && effect_id.slidertype == "ranks" && effect_id.defaultrank != undefined) {
@@ -92,12 +94,16 @@ const Ailment_Data_Pars_Dif = (
         if (typeof rank.value1 == "number") {
             brv_cap = Math.round(rank.value1 * 100)
             max_brv_cap = Math.round(rank.value1 * 1000)
+            brv_cap_value = Math.round(((rank.value1 / 100) + 1) * 9999)
+            max_brv_cap_value = Math.round(((rank.value1 / 100) + 1) * 99999)
         }
     }
     if (displayrank && displayrank.value1 != undefined) {
         if (typeof displayrank.value1 == "number") {
             brv_cap = Math.round(displayrank.value1 * 100)
             max_brv_cap = Math.round(displayrank.value1 * 1000)
+            brv_cap_value = Math.round(((displayrank.value1 / 100) + 1) * 9999)
+            max_brv_cap_value = Math.round(((displayrank.value1 / 100) + 1) * 99999)
         }
     }
 
@@ -113,7 +119,16 @@ const Ailment_Data_Pars_Dif = (
         cond_str = ` ┬ ${effect_id.cond_id}`
     }
     if (effect_id && effect_id.effectstr) {
-        eff_str = ` ${spacer != undefined ? spacer : effect_id.cond_id != undefined ? "└─" : "-"} ${effect_id.effectstr.replace(/\[value1\]/gm, displayrank && displayrank.value1).replace(/\[value2\]/gm, rank && rank.value2).replace(/\[value3\]/gm, rank && rank.value3).replace(/\[value4\]/gm, rank && rank.value4).replace(/\[value5\]/gm, rank && rank.value5).replace(/\[BRV_CAP\]/gm, brv_cap.toLocaleString("en-US")).replace(/\[MAX_CAP\]/gm, max_brv_cap.toLocaleString("en-US"))}`
+        eff_str = ` ${spacer != undefined ? spacer : effect_id.cond_id != undefined ? "└─" : "-"} ${
+            effect_id.effectstr.replace(/\[value1\]/gm, displayrank && displayrank.value1)
+                               .replace(/\[value2\]/gm, rank && rank.value2)
+                               .replace(/\[value3\]/gm, rank && rank.value3)
+                               .replace(/\[value4\]/gm, rank && rank.value4)
+                               .replace(/\[value5\]/gm, rank && rank.value5)
+                               .replace(/\[BRV_CAP\]/gm, brv_cap.toLocaleString("en-US"))
+                               .replace(/\[BRV_CAP_VAL\]/gm, brv_cap_value.toLocaleString("en-US"))
+                               .replace(/\[MAX_CAP\]/gm, max_brv_cap.toLocaleString("en-US"))
+                               .replace(/\[MAX_CAP_VAL\]/gm, max_brv_cap_value.toLocaleString("en-US"))}`
     }
     if (effect_id && effect_id.stack_flag != undefined) {
         stack_str = effect_id.stack_flag
@@ -122,7 +137,15 @@ const Ailment_Data_Pars_Dif = (
         val_type_str = effect_id.val_typestr
     }
     if (effect_id && effect_id.ValEditTypeShow != false && effect_id.val_edit_typestr != undefined) {
-        val_edit_type_str = effect_id.val_edit_typestr.replace(/\[value1\]/gm, rank && rank.value1).replace(/\[value2\]/gm, rank && rank.value2).replace(/\[value3\]/gm, rank && rank.value3).replace(/\[value4\]/gm, rank && rank.value4).replace(/\[value5\]/gm, rank && rank.value5).replace(/\[BRV_CAP\]/gm, brv_cap.toLocaleString("en-US")).replace(/\[MAX_CAP\]/gm, max_brv_cap.toLocaleString("en-US"))
+        val_edit_type_str = effect_id.val_edit_typestr.replace(/\[value1\]/gm, rank && rank.value1)
+                                                      .replace(/\[value2\]/gm, rank && rank.value2)
+                                                      .replace(/\[value3\]/gm, rank && rank.value3)
+                                                      .replace(/\[value4\]/gm, rank && rank.value4)
+                                                      .replace(/\[value5\]/gm, rank && rank.value5)
+                                                      .replace(/\[BRV_CAP\]/gm, brv_cap.toLocaleString("en-US"))
+                                                      .replace(/\[BRV_CAP_VAL\]/gm, brv_cap_value.toLocaleString("en-US"))
+                                                      .replace(/\[MAX_CAP\]/gm, max_brv_cap.toLocaleString("en-US"))
+                                                      .replace(/\[MAX_CAP_VAL\]/gm, max_brv_cap_value.toLocaleString("en-US"))
     }
     if (effect_id && effect_id.EffectValueTypeShow != false && effect_id.effect_value_typestr != undefined) {
         effect_value_type_str = effect_id.effect_value_typestr

@@ -564,7 +564,7 @@ const Character_Ability_Dif = ({
                         </div>
                     }
                     {ver_new == "JP" && desc == true && ver_old != ver_new ?
-                        <div className="clicky updatelink" onClick={() => doTrans()} >Translate (Beta)</div>
+                        <div className="clicky updatelink contents" onClick={() => doTrans()} >Translate (Beta)</div>
                         : ""}
                     {showraw == true ?
                         <ReactJson iconStyle={"square"} quotesOnKeys={false} name={"Raw"} displayDataTypes={false} collapsed={false} theme={"threezerotwofour"} src={character_ability} />

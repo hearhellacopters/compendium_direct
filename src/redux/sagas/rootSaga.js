@@ -60,6 +60,9 @@ import { GET_ENEMYBUFFS_DIRECT } from "../ducks/enemybuffs_direct.js";
 import { handleGetUltimaWeapon } from "./handlers/ultimaweapon.js";
 import { GET_ULTIMAWEAPON } from "../ducks/ultimaweapon.js";
 
+import { handleGetCrystalPassives} from "./handlers/crystalpassives";
+import { GET_CRYSTALPASSIVES } from "../ducks/crystalpassives.js";
+
 //direct
 
 import { handleGetTransNames } from "./handlers/transnames";
@@ -123,6 +126,7 @@ export function* watcherSaga() {
   yield takeLatest(GET_ENEMYABILITY_DIRECT, handleGetEnemyAbilityDirect);
   yield takeLatest(GET_ENEMYBUFFS_DIRECT, handleGetEnemyBuffsDirect);
   yield takeLatest(GET_ULTIMAWEAPON, handleGetUltimaWeapon);
+  yield takeLatest(GET_CRYSTALPASSIVES, handleGetCrystalPassives);
   //direct
   yield takeLatest(GET_MASTERINDEX, handleGetMasterIndex);
   yield takeLatest(GET_TRANSNAMES, handleGetTransNames);

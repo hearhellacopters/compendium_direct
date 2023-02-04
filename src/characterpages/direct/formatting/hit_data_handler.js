@@ -659,11 +659,11 @@ const hit_data_handler = (
     if (type_id == 9 || 
         type_id == 14) {
             atk_str = atk_str.replace(/ \(Ignores DEF\)/gm, "")
-            effect_str = `Ignores DEF\n${effect_str}`
+            effect_str = `Ignores DEF${effect_str!=""?"\n":""}${effect_str}`
     }
     if (type_id == 21) {
             atk_str = atk_str.replace(/ \(Ignores DEF & Buffs\)/gm, "")
-            effect_str = `Ignores DEF & Buffs\n${effect_str}`
+            effect_str = `Ignores DEF & Buffs${effect_str!=""?"\n":""}${effect_str}`
     }
 
     var hit_return = {

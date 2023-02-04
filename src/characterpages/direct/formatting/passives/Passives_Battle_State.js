@@ -272,13 +272,13 @@ const Passive_Battle_State = ({
         return ("")
     } else {
         return (
-            <div className="" onClick={showmeraw}>
+            <div onClick={showmeraw}>
                 {hide_disp == true || passive_ability.loc_tag == merged ? "" :
                     add_formatting(`From <${passive_ability.loc_tag}>`, "tl")
                 }
-                {passive_ability.passive_cond_type == 1 ?
-                    <div className="">
-                        {add_formatting(`${require__1 == "" && require_ == "" ? "" : "\xa0┬ "}${require_}${require__1 != "" && require_ != "" ? " & " : ""}${require__1 != "" ? `${require__1}` : ""}`, "tl")}{require__1 != "" || require_ != "" ? <br /> : ""}
+                {passive_ability.passive_cond_type == 1 && (effect_ != "" || effect__1 != "" || passive_ability.field != undefined) ?
+                    < >
+                        {add_formatting(`${require__1 == "" && require_ == "" ? "" : "\xa0┬ "}${require_}${require__1 != "" && require_ != "" ? " & " : ""}${require__1 != "" ? `${require__1}` : ""}`, "tl")}
                         {effect_display_pars(effect_, effect__1, require_, require__1, 1)}
                         {effect_ == "Field Effect" && passive_ability.hide_field != true ?
                             passive_ability.field && passive_ability.field.map((buffs, i) => (
@@ -337,12 +337,12 @@ const Passive_Battle_State = ({
                                 />
                             ))
                             : ""}
-                    </div>
+                    </>
 
                     : ""}
-                {passive_ability.passive_cond_type == 3 ?
-                    <div>
-                        {add_formatting(`${require_ != "" ? `\xa0┬ ${require_}` : ""}${require__1 != "" && require_ != "" ? " or " : ""}${require__1 != "" ? `${require__1}` : ""}`, "tl")}{require__1 != "" || require_ != "" ? <br /> : ""}
+                {passive_ability.passive_cond_type == 3 && (effect_ != "" || effect__1 != "" || passive_ability.field != undefined)?
+                    <>
+                        {add_formatting(`${require_ != "" ? `\xa0┬ ${require_}` : ""}${require__1 != "" && require_ != "" ? " or " : ""}${require__1 != "" ? `${require__1}` : ""}`, "tl")}
                         {effect_display_pars(effect_, effect__1, require_, require__1, 1)}
                         {effect_ == "Field Effect" && passive_ability.hide_field != true ?
                             passive_ability.field && passive_ability.field.map((buffs, i) => (
@@ -401,12 +401,12 @@ const Passive_Battle_State = ({
                                 />
                             ))
                             : ""}
-                    </div>
+                    </>
                     : ""}
                 {passive_ability.passive_cond_type == 2 ?
-                    <div>
-                        <div>
-                            {require_ != "" ? add_formatting(`\xa0┬ ${require_}`, "tl") : ""}{require_ != "" ? <br /> : ""}
+                    <>
+
+                            {effect_ == "" && passive_ability.field == undefined ? "" : require_ != "" ? add_formatting(`\xa0┬ ${require_}`, "tl") : ""}
                             {effect_display_pars(effect_, effect__1, require_, require__1, 1)}
                             {effect_ == "Field Effect" && passive_ability.hide_field != true ?
                                 passive_ability.field && passive_ability.field.map((buffs, i) => (
@@ -427,9 +427,8 @@ const Passive_Battle_State = ({
                                 ))
                                 : ""
                             }
-                        </div>
-                        <div>
-                            {require__1 != "" ? add_formatting(`\xa0┬ ${require__1}`, "tl") : ""}{require__1 != "" ? <br /> : ""}
+
+                            {effect__1 == "" && passive_ability.field == undefined ? "" : require__1 != "" ? add_formatting(`\xa0┬ ${require__1}`, "tl") : ""}
                             {effect_display_pars(effect_, effect__1, require_, require__1, 2)}
                             {effect__1 == "Field Effect" && passive_ability.hide_field != true ?
                                 passive_ability.field && passive_ability.field.map((buffs, i) => (
@@ -450,7 +449,7 @@ const Passive_Battle_State = ({
                                 ))
                                 : ""
                             }
-                        </div>
+
                         {effect__1 != "Field Effect" && effect_ != "Field Effect" && passive_ability.hide_field != true && passive_ability.field != undefined ?
                             passive_ability.field && passive_ability.field.map((buffs, i) => (
                                 <Ailment_Field_Attached_State
@@ -469,7 +468,7 @@ const Passive_Battle_State = ({
                                 />
                             ))
                             : ""}
-                    </div>
+                    </>
                     : ""}
                 {showraw == true ?
                     <div>

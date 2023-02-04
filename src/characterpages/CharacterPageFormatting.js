@@ -79,15 +79,26 @@ const CharacterPage = ({
   }
 
   const onclickvoice = (Voice) => {
-    try {
-      const myAudioElement = new Audio(`https://dissidiacompendium.com/images/static/stamps/audio/${Voice}.mp3`)
-      myAudioElement.addEventListener("canplaythrough", (event) => {
-        /* the audio is now playable; play it if permissions allow */
-        myAudioElement.play();
-      });
-      myAudioElement.load();
-    } catch (error) {
-      console.log(error)
+    if(playingaudio != true){
+      try {
+        const myAudioElement = new Audio(`https://dissidiacompendium.com/images/static/stamps/audio/${Voice}.mp3`)
+        myAudioElement.volume = volume
+        myAudioElement.style.display = "none"
+        myAudioElement.load();
+        myAudioElement.addEventListener("canplaythrough", (event) => {
+          /* the audio is now playable; play it if permissions allow */
+          setplayingaudio(true)
+          myAudioElement.play();
+        });
+        myAudioElement.onended = function(){
+          setplayingaudio(false)
+          myAudioElement.remove();
+        }
+        myAudioElement.load();
+      } catch (error) {
+        setplayingaudio(false)
+        console.log(error)
+      }
     }
   }
 

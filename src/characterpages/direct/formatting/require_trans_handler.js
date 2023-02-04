@@ -21,6 +21,7 @@ const require_trans_handler = (
     const elementid_1 = master_index.passive_effects.elementid_1
     const attack_type = master_index.passive_effects.attack_type
     const killer_type = master_index.passive_effects.killer_type
+    const ability_type = master_index.passive_effects.ability_type
     const command_group = master_index.command_group_full[ver]
     const ailment_group = master_index.ailment_group_full[ver]
     const trap_type = master_index.passive_effects.trap_type
@@ -191,19 +192,19 @@ const require_trans_handler = (
         if (AilmentNames[require_value1] != undefined) {
             require_value1 = ` [${AilmentNames[require_value1].name}] #${require_value1}`
         }
-        if (require_value1 == -1) {
+        if (require_value1 < 1) {
             require_value1 = ""
         }
         if (AilmentNames[require_value2] != undefined) {
             require_value2 = `, [${AilmentNames[require_value2].name}] #${require_value2}`
         }
-        if (require_value2 == -1) {
+        if (require_value2 < 1) {
             require_value2 = ""
         }
         if (AilmentNames[require_value3] != undefined) {
             require_value3 = `, [${AilmentNames[require_value3].name}] #${require_value3}`
         }
-        if (require_value3 == -1) {
+        if (require_value3 < 1) {
             require_value3 = ""
         }
     }
@@ -467,10 +468,14 @@ const require_trans_handler = (
         if (require_value1 == 1) {
             require_value1 = " (including from BREAK)"
         } else {
-            require_value1 = ""
+            require_value1 = " (excluding from BREAK)"
         }
     }
-
+    if(value_trans == "ability_type"){
+        if(ability_type[require_value1] && ability_type[require_value1].ability_type != undefined){
+            require_value1 = ability_type[require_value1].ability_type
+        }
+    }
     if (value_trans == "gold_frame_3") {
         if (require_value2 == 3) {
             require_value2 = `Gold Framed `

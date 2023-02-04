@@ -89,6 +89,7 @@ const cleaner = (text) => {
             .replace(/\\bR/g, "")
             .replace(/\\bC1/g, "")
             .replace(/\\bC4/g, "")
+            .replace(/\\bC7/g, "")
             .replace(/\\bY0/g, "")
             .replace(/\\bPa/g, "★")
             .replace(/％/gm, "%")

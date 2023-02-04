@@ -614,7 +614,7 @@ const Ailment_Character_Dif = ({
                             </div>
                         }
                         {ver_new == "JP" && showdesc == true ?
-                            <div className='clicky updatelink' onClick={() => doTrans()}>Translate (Beta)</div>
+                            <div className='clicky updatelink contents' onClick={() => doTrans()}>Translate (Beta)</div>
                             : ""}
 
                         {showraw == true ?

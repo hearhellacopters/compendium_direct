@@ -172,6 +172,18 @@ const counter = (
                 if (holder[`hit_${count}`].eff_str == undefined) {
                     hp_effect2 = false
                 }
+                if (holder[`hit_${count - 1}`] != undefined) {
+                    //not the same effect
+                    if (holder[`hit_${count - 1}`].eff_str == holder[`hit_${count}`].eff_str) {
+                        hp_effect2 = false
+                    }
+                    if(holder[`hit_${count + 1}`] != undefined){
+                         //not the same as the follow effecting
+                        if (holder[`hit_${count + 1}`].eff_str == holder[`hit_${count}`].eff_str) {
+                            hp_effect2 = false
+                        }
+                    }
+                }
             }
             if (hp_effect2 == true) {
                 if (hit_1.show == undefined && holder[`hit_${count - 2}`].atk_str != undefined) {
@@ -251,6 +263,12 @@ const counter = (
                 if (holder[`hit_${count}`].eff_str == undefined) {
                     hp_effect_before_after = false
                 }
+                if(holder[`hit_${count + 1}`] != undefined){
+                    //not the same as the follow effecting
+                   if (holder[`hit_${count + 1}`].eff_str == holder[`hit_${count}`].eff_str) {
+                        hp_effect_before_after = false
+                   }
+               }
             }
             if (hp_effect_before_after == true && count > 3) {
                 if (hit_1.show == undefined && holder[`hit_${count - 1}`].atk_str != undefined) {
@@ -460,7 +478,7 @@ const counter = (
             }
             if (alleffects == true) {
                 if (hit_1.show == undefined) {
-                    Object.assign(hit_1, { show: true, repeat_count: ` x${count}` })
+                    Object.assign(hit_1, { show: true, repeat_count: ` × ${count}` })
                     for (let index = 1; index < (count + 1); index++) {
                         if (index != 1) {
                             Object.assign(holder[`hit_${index}`], { show: false })

@@ -149,16 +149,16 @@ const Art_Passive_Effects_Handoff = ({
         }
     }
 
-    if (require_ == "" && require__1 == "" && effect_ == "" && effect__1 == "") {
+    if (require_ == "" && require__1 == "" && effect_ == "" && effect__1 == "" && passive_ability.attached == undefined) {
         return ("")
     } else {
         return (
-            <div >
-                <div>
-                    {add_formatting(`${require__1 == "" && require_ == "" ? "" : "\xa0┬ "}${require_}${require__1 != "" && require_ != "" ? " & " : ""}${require__1 != "" ? `${require__1}` : ""}`, "tl")}{require__1 != "" || require_ != "" ? <br /> : ""}
+            < >
+                
+                    {add_formatting(`${require__1 == "" && require_ == "" ? "" : "\xa0┬ "}${require_}${require__1 != "" && require_ != "" ? " & " : ""}${require__1 != "" ? `${require__1}` : ""}`, "tl")}
                     {effect_display_pars(effect_, effect__1, require_, require__1, 1)}
                     {effect_display_pars(effect_, effect__1, require_, require__1, 2)}
-                </div>
+                
                 {passive_ability.attached != undefined ?
                     passive_ability.attached.map(self =>
                         <Passive_Effects_Attached
@@ -172,7 +172,7 @@ const Art_Passive_Effects_Handoff = ({
                         />
                     )
                     : ""}
-            </div>
+            </>
         )
     }
 }

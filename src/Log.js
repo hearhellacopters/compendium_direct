@@ -9,6 +9,12 @@ const log = () => {
                 <h1>Update Log</h1>
                 <div className="creditsholder">
                 <div className="filterholderflair" >
+                        V.5.4.0
+                    </div>
+                    <ul className="creditslist">
+                        - Added <Link className="updatelink" to="/search/crystalpassives">Crystal Brilliance Passives</Link> page<br />
+                    </ul>
+                <div className="filterholderflair" >
                         V.5.3.5
                     </div>
                     <ul className="creditslist">

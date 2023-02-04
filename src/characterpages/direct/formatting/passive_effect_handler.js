@@ -22,6 +22,7 @@ const passive_effect_handler = (
     const elementid_1 = master_index.passive_effects.elementid_1
     const attack_type = master_index.passive_effects.attack_type
     const killer_type = master_index.passive_effects.killer_type
+    const ability_type = master_index.passive_effects.ability_type
     const command_group = master_index.command_group_full[ver]
     const ailment_group = master_index.ailment_group_full[ver]
     const trap_type = master_index.passive_effects.trap_type
@@ -46,8 +47,15 @@ const passive_effect_handler = (
         } else {
             effect_str = effect_pull.effect_str
         }
+        if(effect_value1 < 0 && effect_pull.deffect_str != undefined){
+            effect_str = effect_pull.deffect_str
+            effect_value1 = Math.abs(effect_value1)
+        }
+        if(effect_pull && effect_pull.hidden == true){
+            effect_str = ""
+        }
     } else {
-        effect_str = `Unknown effect #${effect_} target: [target] with values [value1], [value2] [value3]`
+        effect_str = `Unknown effect #${effect_} target: [target] with values [value1], [value2], [value3]`
     }
 
     var effect_target_str = ""
@@ -84,7 +92,39 @@ const passive_effect_handler = (
             effect_value2 = `[${CommandNames[effect_value2].name}]: #${effect_value2}`
         }
     }
-
+    if(value_trans == "ability_type_mod"){
+        if (effect_value2 < 0) {
+            effect_str = effect_pull.deffect_str
+            effect_value2 = Math.abs(effect_value2)
+        }
+        if (ability_type[effect_value1] && ability_type[effect_value1].ability_type != undefined) {
+            effect_value1 = ability_type[effect_value1].ability_type
+        }
+    }
+    if (value_trans == "cast_id_1") {
+        if (CastNames[effect_value1] != undefined) {
+            effect_value1 = `[${CastNames[effect_value1].name}] #${CastNames[effect_value1].id}`
+        }
+        if(effect_value2 < 1){
+            effect_value2 = ""
+        } else {
+            effect_value2 = ` for ${effect_value2} turns${effect_value2!=1?"s":""}`
+        }
+    }
+    if (value_trans == "cast_id_2") {
+        if (CastNames[effect_value2] != undefined) {
+            effect_value2 = `[${CastNames[effect_value2].name}] #${CastNames[effect_value2].id}`
+        }
+        const test = effect_value3
+        if (test != 1) {
+            effect_value3 = ` for ${effect_value3} turns`
+        } else {
+            effect_value3 = ` for ${effect_value3} turn`
+        }
+        if (test == -1) {
+            effect_value3 = ""
+        }
+    }
     if (value_trans == "cast_id_2_chance") {
         if (effect_value1 != 100) {
             effect_value1 = `${effect_value1}% chance to `
@@ -369,6 +409,15 @@ const passive_effect_handler = (
         }
     }
 
+    if (value_trans == "no_turns1") {
+        if (effect_value1 != 1) {
+            effect_str += "s"
+        }
+        if (effect_value1 == -1) {
+            effect_str = effect_str
+                .replace(/ by \[value1\] turns/gm, "")
+        }
+    }
 
     //ending
     var final_str = effect_str
@@ -399,6 +448,9 @@ const passive_effect_handler = (
     if (effect_pull && effect_pull.target_trans == "no_self") {
         final_str = final_str.replace(/Self /gm, "")
     }
+
+
+
     if (merge_value == undefined) {
         return final_str
     } else {
