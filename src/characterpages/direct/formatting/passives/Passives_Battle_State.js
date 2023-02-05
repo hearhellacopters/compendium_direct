@@ -274,7 +274,7 @@ const Passive_Battle_State = ({
         return (
             <div onClick={showmeraw}>
                 {hide_disp == true || passive_ability.loc_tag == merged ? "" :
-                    add_formatting(`From <${passive_ability.loc_tag}>`, "tl")
+                    add_formatting(`From <${passive_ability.loc_tag}>\n`, "tl")
                 }
                 {passive_ability.passive_cond_type == 1 && (effect_ != "" || effect__1 != "" || passive_ability.field != undefined) ?
                     < >

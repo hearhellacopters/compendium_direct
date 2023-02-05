@@ -198,7 +198,7 @@ const CharacterPage = ({
         release: newmatch.NinetyRelease,
         temp: newmatch.NinetyReleaseTemp,
         tag: "cl90",
-        loc: "passives",
+        loc: "passives/crystal",
         tip: "Crystal Level 90"
       }
       holder.push(ninety)
@@ -208,7 +208,7 @@ const CharacterPage = ({
         release: newmatch.EightyRelease,
         temp: newmatch.EightyReleaseTemp,
         tag: "cl80",
-        loc: "passives",
+        loc: "passives/crystal",
         tip: "Crystal Level 80"
       }
       holder.push(eighty)
@@ -218,7 +218,7 @@ const CharacterPage = ({
         release: newmatch.BTPlusRelease,
         temp: newmatch.BTPlusReleaseTemp,
         tag: "wpbtplus",
-        loc: "gear",
+        loc: "gear?BTPlus=true",
         tip: "BT+ Weapon"
       }
       holder.push(BTPlus)
@@ -228,7 +228,7 @@ const CharacterPage = ({
         release: newmatch.FRRelease,
         temp: newmatch.FRReleaseTemp,
         tag: "wpfr",
-        loc: "gear",
+        loc: "gear?FR=true",
         tip: "FR Weapon"
       }
       holder.push(FRRelease)
@@ -238,7 +238,7 @@ const CharacterPage = ({
         release: newmatch.Board5Release,
         temp: newmatch.Board5ReleaseTemp,
         tag: "board5",
-        loc: "passives",
+        loc: "passives/boards",
         tip: "FR Board"
       }
       holder.push(Board5Release)
@@ -248,7 +248,7 @@ const CharacterPage = ({
         release: newmatch.FRBoardRelease,
         temp: newmatch.FRBoardReleaseTemp,
         tag: "boardfr",
-        loc: "passives",
+        loc: "passives/force",
         tip: "Force Enhancement"
       }
       holder.push(FRBoardRelease)
@@ -258,7 +258,7 @@ const CharacterPage = ({
         release: newmatch.SevenArmorPlusRelease,
         temp: newmatch.SevenArmorPlusReleaseTemp,
         tag: "arm7aplus",
-        loc: "gear",
+        loc: "gear?7APlus=true",
         tip: "7★+ Armor"
       }
       holder.push(SevenArmorPlusRelease)
@@ -268,7 +268,7 @@ const CharacterPage = ({
         release: newmatch.SevenArmorPlusRelease,
         temp: newmatch.SevenArmorPlusReleaseTemp,
         tag: "arm7aplus",
-        loc: "gear",
+        loc: "gear?7A=true",
         tip: "7★+ Armor"
       }
       holder.push(SevenArmorPlusRelease)
