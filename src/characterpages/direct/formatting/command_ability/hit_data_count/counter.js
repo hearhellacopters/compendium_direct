@@ -174,12 +174,12 @@ const counter = (
                 }
                 if (holder[`hit_${count - 1}`] != undefined) {
                     //not the same effect
-                    if (holder[`hit_${count - 1}`].eff_str == holder[`hit_${count}`].eff_str) {
+                    if (holder[`hit_${count - 1}`].id == holder[`hit_${count}`].id) {
                         hp_effect2 = false
                     }
                     if(holder[`hit_${count + 1}`] != undefined){
-                         //not the same as the follow effecting
-                        if (holder[`hit_${count + 1}`].eff_str == holder[`hit_${count}`].eff_str) {
+                         //not the same as the following effecting
+                        if (holder[`hit_${count + 1}`].id == holder[`hit_${count}`].id) {
                             hp_effect2 = false
                         }
                     }
@@ -265,7 +265,7 @@ const counter = (
                 }
                 if(holder[`hit_${count + 1}`] != undefined){
                     //not the same as the follow effecting
-                   if (holder[`hit_${count + 1}`].eff_str == holder[`hit_${count}`].eff_str) {
+                   if (holder[`hit_${count + 1}`].id == holder[`hit_${count}`].id) {
                         hp_effect_before_after = false
                    }
                }
@@ -332,6 +332,12 @@ const counter = (
                 }
                 if (holder[`hit_${count}`].eff_str == undefined) {
                     hp_and_effect = false
+                }
+                //check ahead
+                if (holder[`hit_${count + 1}`] != undefined){
+                    if(holder[`hit_${count + 1}`].id == holder[`hit_${count }`].id){
+                        hp_and_effect = false
+                    }
                 }
             }
             if (hp_and_effect == true) {

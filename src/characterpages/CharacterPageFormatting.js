@@ -183,7 +183,7 @@ const CharacterPage = ({
       }
       holder.push(rework)
     }
-    if (newmatch.ReworkRelease != undefined || newmatch.ActiveRework == true) {
+    if (newmatch.ReworkRelease != undefined && newmatch.ActiveRework == true) {
       const rework = {
         release: newmatch.ReworkRelease,
         temp: newmatch.ReworkReleaseTemp,
