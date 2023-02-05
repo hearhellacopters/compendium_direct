@@ -49,7 +49,8 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
     const [ForcetimeTabsearch, setForcetimeTabsearch] = useQueryParam("force", "");
 
     const [JPsearch, setJPSearch] = useQueryParam("JP", "");
-
+    const [showmeai, setshowmeai] = useState(getQueryStringVal("force") != null ? true : false);
+    const [showmeaisearch, setshowmeaisearch] = useQueryParam("AI", "");
 
     const jponlybutton = () => {
         if (jptoggledata == false) {
@@ -60,6 +61,15 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
             setJPSearch("")
         }
     };
+
+    const showmeaibutton = () => {
+        if (showmeai == false) {
+            setshowmeaisearch("true")
+        } else {
+            setshowmeaisearch("")
+        }
+        setshowmeai((prevValue) => !prevValue);
+    }
 
     useEffect(() => {
         if (battle_enemy.ForceGauge && battle_enemy.ForceGauge.length > 1) {
@@ -876,7 +886,10 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
                             stats={stats}
                             ai={enemy.ai_}
                             showmeraw={showmeraw}
-                            battle_enemy={battle_enemy} />
+                            showmeaibutton={showmeaibutton}
+                            showmeai={showmeai}
+                            battle_enemy={battle_enemy} 
+                            />
                         : ""}
                     {abilities == "infographic" && enemy.Infographic != undefined ?
                         enemy.Infographic.map(self => (

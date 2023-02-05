@@ -6,13 +6,12 @@ import AI_Target_Handler from './EnemyAbilities_AI_Target_Handler'
 import axios from "axios";
 import ReactJson from '@microlink/react-json-view'
 
-const EnemyAbilities_MasterListDirect = ({ stats, ai, showmeraw, battle_enemy }) => {
+const EnemyAbilities_MasterListDirect = ({ stats, ai, showmeraw, battle_enemy, showmeai, showmeaibutton }) => {
 
     var finished = false
 
     const [enemyabilities, setenemyabilities] = useStateIfMounted([])
     const [enemyai, setenemyai] = useStateIfMounted([])
-    const [showai, setshowai] = useStateIfMounted(false)
 
     const enemy_id = stats && stats.enemyID
 
@@ -540,14 +539,6 @@ const EnemyAbilities_MasterListDirect = ({ stats, ai, showmeraw, battle_enemy })
 
         const target_ai = Object.values(enemyai).filter(self => self.type == 3)
 
-        const aitoggle = () => {
-            if (showai == false) {
-                setshowai(true)
-            } else {
-                setshowai(false)
-            }
-        };
-
         finished = true
 
         return (
@@ -557,11 +548,11 @@ const EnemyAbilities_MasterListDirect = ({ stats, ai, showmeraw, battle_enemy })
                         <div className="margeholder">
                             <div className="Merge">
                                 <label className="MergeText">Display AI?</label>
-                                <div key="mergecheck1" className={`${showai == true ? "nodisplay" : `uncheck`}`} onClick={aitoggle} />
-                                <div key="mergecheck2" className={`${showai == true ? "check" : `nodisplay`}`} onClick={aitoggle} />
+                                <div key="mergecheck1" className={`${showmeai != "" ? "nodisplay" : `uncheck`}`} onClick={showmeaibutton} />
+                                <div key="mergecheck2" className={`${showmeai != "" ? "check" : `nodisplay`}`} onClick={showmeaibutton} />
                             </div>
                         </div>
-                        {(showai == true || showmeraw == true) && target_ai.length != 0 ?
+                        {(showmeai != "" || showmeraw == true) && target_ai.length != 0 ?
                             <div className='bufflistbanner fullnow makeright ai_targets'>
                                 <span className='unique ailmenttext'>Possible Targets:</span>
                                 <AI_Target_Handler
@@ -574,7 +565,7 @@ const EnemyAbilities_MasterListDirect = ({ stats, ai, showmeraw, battle_enemy })
                             :
                             ""}
                     </div>
-                    <EnemyAbilityHandoffDirect showai={showai} match={fullcommands} enemy_id={enemy_id} showmeraw={showmeraw} abilitylist={abilitydebug} />
+                    <EnemyAbilityHandoffDirect showai={showmeai != "" ? true : false} match={fullcommands} enemy_id={enemy_id} showmeraw={showmeraw} abilitylist={abilitydebug} />
                     {showmeraw == true ?
                         <ReactJson iconStyle={"square"} quotesOnKeys={false} name={"All Abilities"} displayDataTypes={false} collapsed={true} theme={"threezerotwofour"} src={abilitydebug} />
                         : ""}
