@@ -556,7 +556,7 @@ hr {
         transform: translateY(-1px);
         color: #f7f91d;
         filter: brightness(1.2);
-        -webkit-filter: brightness(1.2);
+        -webkit-filter: drop-shadow(1px 1px 1px #222) brightness(1.2);
         transition: all ease 0.3s;
     }
 
@@ -578,8 +578,8 @@ hr {
 
     .bufficon:hover {
         transform: translateY(-1px);
-        filter: brightness(1.2);
-        -webkit-filter: brightness(1.2);
+        filter: drop-shadow(2px 2px 2px #222) brightness(1.2);
+        -webkit-filter: drop-shadow(2px 2px 2px #222) brightness(1.2);
         transition: all ease 0.3s;
     }
 

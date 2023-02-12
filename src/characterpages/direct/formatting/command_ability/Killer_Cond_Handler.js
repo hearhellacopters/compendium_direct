@@ -38,6 +38,8 @@ const Killer_Cond_Handler = (
                 .replace(/\[sarg\]/gm, sarg)
         }
 
+    } else {
+        final_str = undefined
     }
 
     return (

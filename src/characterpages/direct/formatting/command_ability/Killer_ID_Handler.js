@@ -18,6 +18,8 @@ const Killer_ID_Handler = (
             final_str = killer_type_pull.replace(/\[sarg\]/gm, sarg)
                 .replace(/\[keff\]/gm, keff)
         }
+    } else {
+        final_str = undefined
     }
 
     return (

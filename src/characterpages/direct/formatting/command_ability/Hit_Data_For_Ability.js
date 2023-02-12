@@ -49,7 +49,11 @@ const Hit_Data_For_Ability = (
 
     faf,
     bdlur,
-    mblur
+    mblur,
+    kcon,
+    kcon_1,
+    kid,
+    kid_1,
 ) => {
 
     const hit_effect_id = master_index.hit_trans_data.hit_effect_id
@@ -137,6 +141,10 @@ const Hit_Data_For_Ability = (
                     ver,
 
                     faf,
+                    kcon,
+                    kcon_1,
+                    kid,
+                    kid_1,
                     bdlur,
                     mblur,
                     hit_counter

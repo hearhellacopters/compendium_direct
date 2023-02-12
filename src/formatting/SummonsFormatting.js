@@ -5,6 +5,7 @@ import addformatting from '../processing/replacer_buffcontent.js';
 import SummonsPassiveFormatting from './SummonPassiveFormatting.js'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
+import StatsMaker from './StatsDisplay';
 
 const SummonsFormatting = ({
   match,
@@ -143,55 +144,14 @@ const SummonsFormatting = ({
         <div className="sumpassiveholder">
           <div className="sumboardheader">Boards</div>
           <div className="sumdescholder">
-            <div className="sumimgholder">
-              <div className="boardstatstitle">Board Mastery Stats</div>
-              <div className="primeenemystats margauto">
-                <div className="stattags">
-                  <div className="stattag">
-                    <div className="lefttagholder"></div>
-                    <div className="statcenter">HP</div>
-                    <div className="righttagholder"></div>
-                  </div>
-                  <div className="stattag">
-                    <div className="lefttagholder"></div>
-                    <div className="statcenter">INT BRV</div>
-                    <div className="righttagholder"></div>
-                  </div>
-                  <div className="stattag">
-                    <div className="lefttagholder"></div>
-                    <div className="statcenter">MAX BRV</div>
-                    <div className="righttagholder"></div>
-                  </div>
-                  <div className="stattag">
-                    <div className="lefttagholder"></div>
-                    <div className="statcenter">ATK</div>
-                    <div className="righttagholder"></div>
-                  </div>
-                  <div className="stattag">
-                    <div className="lefttagholder"></div>
-                    <div className="statcenter">DEF</div>
-                    <div className="righttagholder"></div>
-                  </div>
-                </div>
-                <div className="statvalueholders">
-                  <div className={`enemystatsvalue`}>
-                    {summons.MasteryHP}
-                  </div>
-                  <div className={`enemystatsvalue`}>
-                    {summons.MasteryINTBRV}
-                  </div>
-                  <div className={`enemystatsvalue`}>
-                    {summons.MasteryMAXBRV}
-                  </div>
-                  <div className={`enemystatsvalue`}>
-                    {summons.MasteryATK}
-                  </div>
-                  <div className={`enemystatsvalue`}>
-                    {summons.MasteryDEF}
-                  </div>
-                </div>
-              </div>
-            </div>
+            <StatsMaker
+            title="Board Mastery Stats"
+            HP={summons.MasteryHP}
+            INTBRV={summons.MasteryINTBRV}
+            MAXBRV={summons.MasteryMAXBRV}
+            DEF={summons.MasteryDEF}
+            ATK={summons.MasteryATK}
+            />
             <div className="sumabilholder">
               {passivelist.map(passives => (
                 <SummonsPassiveFormatting key={passives.SummonPassKey} match={passives} />

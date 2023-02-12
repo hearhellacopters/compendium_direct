@@ -49,7 +49,7 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
     const [ForcetimeTabsearch, setForcetimeTabsearch] = useQueryParam("force", "");
 
     const [JPsearch, setJPSearch] = useQueryParam("JP", "");
-    const [showmeai, setshowmeai] = useState(getQueryStringVal("force") != null ? true : false);
+    const [showmeai, setshowmeai] = useState(getQueryStringVal("AI") != null ? true : false);
     const [showmeaisearch, setshowmeaisearch] = useQueryParam("AI", "");
 
     const jponlybutton = () => {

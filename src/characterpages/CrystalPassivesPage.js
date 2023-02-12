@@ -21,6 +21,7 @@ import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
 import Passive_Ability_Formatting from './direct/formatting/passives/Passive_Ability_Formatting.js';
 import { getQuery, getQueryStringVal, useQueryParam } from '../processing/urlparams'
+import StatsMaker from '../formatting/StatsDisplay.js';
 
 const CrystalPassivesPage = ({
   jptoggledata,
@@ -332,17 +333,44 @@ const CrystalPassivesPage = ({
                     </div>
                     : ""
                 }
-          <div className="filterholder noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
+          <div className="filterholder" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
             <div className="filterholderflair">
             <div className="similarbanner"><div className='infoclick' onClick={() => { setshowinfo((preValue) => !preValue) }}>Info{showinfo ? <TiArrowSortedUp className="uparrow" /> : <TiArrowSortedDown className="downarrow" />}</div></div>
             {showinfo == false ? <br></br> : 
             <div>
               <div className="ultimainfo darkerbg">
-              <div className="yellowcolor">{"Coming Soon"}</div>
+              <div className="yellowcolor">{"Acquired using colored "}<span className="cryspark"></span>{" Crystal Sparkles, obtainable from weekly Crystal Quests"}</div><br/>
+              <div className="yellowcolor">Quest is randomly selected from a list of Shinryu level battles.</div><br/>
+              <div className="yellowcolor">Rerolling is possible for free once a week, then at a gem cost.</div><br/>
+              <div className="yellowcolor">The <span className="cryspark"></span> color is dependent on the crystal color of the completing party.</div><br/>
+              <div className="yellowcolor">Party MUST be a team of a single color.</div><br/>
+              <div className="yellowcolor">The difficulty of the quest can be increased for greater <span className="cryspark"></span> gain.</div><br/>
+              <div className="yellowcolor"><span className="cryspark"></span> x80 base at Lv 0, and <span className="cryspark"></span> x400 base plus <span className="cryspark"></span> x300 bonus at max Lv 3.</div><br/>
+              <div className="yellowcolor">The weekly limit is 400 base. Meaning you can do 5 Lv 0 quests or a Lv 1+.</div><br/>
+              <div className="yellowcolor">Greatest weekly grant is <span className="cryspark"></span> x700.</div><br/>
+              <div className="yellowcolor">Difficulty levels increase the enemy's HP (up to x1.5).</div><br/>
+              <div className="yellowcolor">Each board has x90 <span className="crynode"></span> stat nodes and x18 <span className="crypnode"></span> passive nodes.</div><br/>
+              <div className="yellowcolor">Only <span className="yellowcolor">3 of the 18 passives</span> can be active at a time.</div><br/>
+              <div className="center">
+              <StatsMaker 
+              title="Board Mastery Stats"
+              bg_class="similarbanner"
+              HP={"+12,000"}
+              INTBRV={"+1,008"}
+              MAXBRV={"+3,010"}
+              DEF={"+14,000"}
+              ATK={"+2,002"}
+              />
+              </div><br/>
+              <div className="yellowcolor">Passives and stats are automatically applied to color matching characters.</div>
             </div>
               <div className="similarbanner">Needed</div>
               <div className="ultimainfo darkerbg">
-              <div className="yellowcolor">{"Coming Soon"}</div>
+              <div className=""><span className="cryspark"></span> x100 per <span className="crynode"></span><span className="yellowcolor"> stat node</span>. There are <span className="yellowcolor">90 per board.</span></div><br/>
+              <div className=""><span className="cryspark"></span> x600 per <span className="crypnode"></span><span className="yellowcolor"> passive node</span>. There are <span className="yellowcolor">18 per board.</span></div><br/>
+              <div className="">Each <span className="crypnode"></span> requires all 4 surrounding <span className="crynode"></span> to be unlocked.</div><br/>
+              <div className="">Meaning each <span className="yellowcolor">"cluster"</span> requires <span className="cryspark"></span><span className="yellowcolor"> x1000</span> to clear.</div><br/>
+              <div className="">Each color board requires <span className="cryspark"></span><span className="yellowcolor"> x18,000 to complete (around 26 weeks per board).</span></div>
               </div>
               </div>}
               <div className="similarbanner">Passive Filter</div>

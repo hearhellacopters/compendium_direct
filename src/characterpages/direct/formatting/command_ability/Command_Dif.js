@@ -69,7 +69,11 @@ const Command_Dif = (
 
         command_meta && command_meta.faf != undefined ? command_meta.faf : undefined,
         command_meta && command_meta.bdlur != undefined ? command_meta.bdlur : undefined,
-        command_meta && command_meta.mblur != undefined ? command_meta.mblur : undefined
+        command_meta && command_meta.mblur != undefined ? command_meta.mblur : undefined,
+        command_meta && command_meta.kcon != undefined ? command_meta.kcon : undefined,
+        command_meta && command_meta.kcon_1 != undefined ? command_meta.kcon_1 : undefined,
+        command_meta && command_meta.kid != undefined ? command_meta.kid : undefined,
+        command_meta && command_meta.kid_1 != undefined ? command_meta.kid_1 : undefined
     )
 
     const hit_parers = counts_handler(hit_data_pars.hit_pars)
@@ -231,9 +235,9 @@ const Command_Dif = (
         })
     }
 
-    if (command_meta.faf != undefined) {
-        full_str = `${full_str}${command_meta.faf}\n`
-    }
+    //if (command_meta.faf != undefined) {
+    //    full_str = `${full_str}${command_meta.faf}\n`
+    //}
 
     if (command_meta.bdlur != undefined) {
         full_str = `${full_str}${command_meta.bdlur}\n`
@@ -243,13 +247,21 @@ const Command_Dif = (
         full_str = `${full_str}${command_meta.mblur}\n`
     }
 
-    if (command_meta.kcon != undefined) {
-        full_str = `${full_str}${command_meta.kcon}\n`
-    }
+    //if (command_meta.kcon != undefined) {
+    //    full_str = `${full_str}${command_meta.kcon}\n`
+    //}
 
-    if (command_meta.kcon_1 != undefined) {
-        full_str = `${full_str}${command_meta.kcon_1}\n`
-    }
+    //if (command_meta.kcon_1 != undefined) {
+    //    full_str = `${full_str}${command_meta.kcon_1}\n`
+    //}
+
+    //if (command_meta.kid != undefined) {
+    //    full_str = `${full_str}${command_meta.kid}\n`
+    //}
+
+    //if (command_meta.kid_1 != undefined) {
+    //    full_str = `${full_str}${command_meta.kid_1}\n`
+    //}
 
     if (command_meta.cost != undefined && command_meta.cost == "*Instant Turn Rate") {
         full_str = `${full_str}${command_meta.cost}\n`

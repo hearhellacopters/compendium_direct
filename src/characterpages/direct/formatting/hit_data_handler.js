@@ -8,6 +8,10 @@ const hit_data_handler = (
     ver,
 
     faf,
+    kcon,
+    kcon_1,
+    kid,
+    kid_1,
     bdlur,
     mblur,
     hit_num
@@ -101,6 +105,13 @@ const hit_data_handler = (
                 pot_str = ""
             }
         }
+        if(effect_id == 225){
+            if(m_nARG_1 == 1){
+                pot_str = "Deals Full <HP> Damage to all targets"
+            } else {
+                pot_str = "Deals Split <HP> Damage to all targets"
+            }
+        }
     }
 
     var elem = ""
@@ -163,6 +174,21 @@ const hit_data_handler = (
 
     if (count == true) {
         atk_type = "BRV"
+        if(faf != undefined){
+            st_str = faf
+        }
+        if(kcon != undefined){
+            st_str = `${st_str}${st_str!=""?"\n":""}${kcon}`
+        }
+        if(kcon_1 != undefined){
+            st_str = `${st_str}${st_str!=""?"\n":""}${kcon_1}`
+        }
+        if(kid != undefined){
+            st_str = `${st_str}${st_str!=""?"\n":""}${kid}`
+        }
+        if(kid_1 != undefined){
+            st_str = `${st_str}${st_str!=""?"\n":""}${kid_1}`
+        }
     }
 
     if (times == true) {

@@ -297,7 +297,7 @@ const FRPage = ({ match, ProcessedCharacters, ForceCharacters, jptoggledata }) =
           </div>
           : ""
         }
-        <div className="filterholder noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
+        <div className="filterholder" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
           <div className="filterholderflair">
             <div className="similarbanner"><div className='infoclick' onClick={() => { setshowinfo((preValue) => !preValue) }}>Info{showinfo ? <TiArrowSortedUp className="uparrow" /> : <TiArrowSortedDown className="downarrow" />}</div></div>
             {showinfo == false ? <br></br> : <div><div className="ultimainfo darkerbg">

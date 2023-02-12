@@ -132,6 +132,26 @@ const Command_Ability_Pars = (
         }
     }
 
+    //killer check
+    if(kcon_str == kcon_1_str){
+        kcon_1_str = undefined
+    }
+    if(kcon_str == kid_str){
+        kid_str = undefined
+    }
+    if(kcon_str == kid_1_str){
+        kid_1_str = undefined
+    }
+    if(kcon_1_str == kid_str){
+        kid_str = undefined
+    }
+    if(kcon_1_str == kid_1_str){
+        kid_1_str = undefined
+    }
+    if(kid_str == kid_1_str){
+        kid_1_str = undefined
+    }
+
     const return_var = {
         target_range_: target_range_str,
         target_type_: target_type_str,

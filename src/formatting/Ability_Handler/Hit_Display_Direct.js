@@ -152,12 +152,12 @@ const Hit_Handler_Direct = ({
                 ))
                 : ""}
 
-            {Meta && Meta.faf != undefined ?
-                <div>
-                    {replacer(Meta && Meta.faf)}
-                </div>
-                : ""}
-
+            {//Meta && Meta.faf != undefined ?
+            //    <div>
+            //        {replacer(Meta && Meta.faf)}
+            //    </div>
+            //    : ""}
+            }
             {Meta && Meta.bdlur != undefined ?
                 <div>
                     {replacer(Meta && Meta.bdlur)}
@@ -168,17 +168,28 @@ const Hit_Handler_Direct = ({
                     {replacer(Meta && Meta.mblur)}
                 </div>
                 : ""}
-
-            {Meta && Meta.kcon != undefined ?
-                <div>
-                    {replacer(Meta && Meta.kcon)}
-                </div>
-                : ""}
-            {Meta && Meta.kcon_1 != undefined ?
-                <div>
-                    {replacer(Meta && Meta.kcon_1)}
-                </div>
-                : ""}
+            {
+            //{Meta && Meta.kcon != undefined ?
+            //    <div>
+            //        {replacer(Meta && Meta.kcon)}
+            //    </div>
+            //    : ""}
+            //{Meta && Meta.kcon_1 != undefined ?
+            //    <div>
+            //        {replacer(Meta && Meta.kcon_1)}
+            //    </div>
+            //    : ""}
+            //{Meta && Meta.kid != undefined ?
+            //    <div>
+            //        {replacer(Meta && Meta.kcon)}
+            //    </div>
+            //    : ""}
+            //{Meta && Meta.kid_1 != undefined ?
+            //    <div>
+            //        {replacer(Meta && Meta.kcon_1)}
+            //    </div>
+            //    : ""}
+            }
 
             {Meta && Meta.cost != undefined ?
                 Meta.cost == "*Instant Turn Rate" ?

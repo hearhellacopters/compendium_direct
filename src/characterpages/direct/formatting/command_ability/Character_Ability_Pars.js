@@ -480,7 +480,11 @@ const Character_Ability_Pars = ({
 
         command_meta && command_meta.faf != undefined ? command_meta.faf : undefined,
         command_meta && command_meta.bdlur != undefined ? command_meta.bdlur : undefined,
-        command_meta && command_meta.mblur != undefined ? command_meta.mblur : undefined
+        command_meta && command_meta.mblur != undefined ? command_meta.mblur : undefined,
+        command_meta && command_meta.kcon != undefined ? command_meta.kcon : undefined,
+        command_meta && command_meta.kcon_1 != undefined ? command_meta.kcon_1 : undefined,
+        command_meta && command_meta.kid != undefined ? command_meta.kid : undefined,
+        command_meta && command_meta.kid_1 != undefined ? command_meta.kid_1 : undefined
     )
 
     const hit_parers = counts_handler(hit_data_pars.hit_pars)
@@ -860,12 +864,13 @@ const Character_Ability_Pars = ({
 
                         {//meta below
                         }
-                        {command_meta && command_meta.faf != undefined ?
-                            <div>
-                                {addformatting(command_meta && command_meta.faf, "tl")}
-                            </div>
-                            : ""}
-
+                        {
+                        //{command_meta && command_meta.faf != undefined ?
+                        //    <div>
+                        //        {addformatting(command_meta && command_meta.faf, "tl")}
+                        //    </div>
+                        //    : ""}
+                        }
                         {command_meta && command_meta.bdlur != undefined ?
                             <div>
                                 {addformatting(command_meta && command_meta.bdlur, "tl")}
@@ -876,17 +881,28 @@ const Character_Ability_Pars = ({
                                 {addformatting(command_meta && command_meta.mblur, "tl")}
                             </div>
                             : ""}
-
-                        {command_meta && command_meta.kcon != undefined ?
-                            <div>
-                                {addformatting(command_meta && command_meta.kcon, "tl")}
-                            </div>
-                            : ""}
-                        {command_meta && command_meta.kcon_1 != undefined ?
-                            <div>
-                                {addformatting(command_meta && command_meta.kcon_1, "tl")}
-                            </div>
-                            : ""}
+                        {
+                        //{command_meta && command_meta.kcon != undefined ?
+                        //    <div>
+                        //        {addformatting(command_meta && command_meta.kcon, "tl")}
+                        //    </div>
+                        //    : ""}
+                        //{command_meta && command_meta.kcon_1 != undefined ?
+                        //    <div>
+                        //        {addformatting(command_meta && command_meta.kcon_1, "tl")}
+                        //    </div>
+                        //    : ""}
+                        //{command_meta && command_meta.kid != undefined ?
+                        //    <div>
+                        //        {addformatting(command_meta && command_meta.kid, "tl")}
+                        //    </div>
+                        //    : ""}
+                        //{command_meta && command_meta.kid_1 != undefined ?
+                        //    <div>
+                        //        {addformatting(command_meta && command_meta.kid_1, "tl")}
+                        //    </div>
+                        //    : ""}
+                        }
 
                         {command_meta && command_meta.cost != undefined ?
                             command_meta.cost == "*Instant Turn Rate" ?

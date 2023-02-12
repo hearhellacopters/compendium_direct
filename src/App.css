@@ -429,8 +429,8 @@ a:-moz-focusring {
 
 @media (hover: hover) {
   .sharebutton:hover {
-    filter: brightness(1.2);
-    -webkit-filter: brightness(1.2);
+    filter: drop-shadow(0px 0px 2px #222) brightness(1.2);
+    -webkit-filter: drop-shadow(0px 0px 2px #222) brightness(1.2);
     transition: all ease 0.3s;
   }
 
@@ -1145,8 +1145,8 @@ h3 {
   }
 
   .charfilter:hover {
-    filter: brightness(1.2);
-    -webkit-filter: brightness(1.2);
+    filter: drop-shadow(0px 0px 2px #222) brightness(1.2);
+    -webkit-filter: drop-shadow(0px 0px 2px #222) brightness(1.2);
     transition: all ease 0.3s;
   }
 
@@ -1299,8 +1299,8 @@ h3 {
   .CharListHolder li:hover {
     transform: translateY(-1px);
     color: #f7f91d;
-    filter: brightness(1.2);
-    -webkit-filter: brightness(1.2);
+    filter: brightness(1.2) drop-shadow(3px 3px 3px #222);
+    -webkit-filter: brightness(1.2) drop-shadow(3px 3px 3px #222);
     transition: all ease 0.3s;
   }
 }
@@ -2520,6 +2520,50 @@ h3 {
 
 .hiorbm {
   background-image: url("https://dissidiacompendium.com/images/static/icons/misc/HighOrbMini.png");
+  height: 28px;
+  width: 28px;
+  margin-bottom: -3px;
+  margin-top: -3px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.cryspark {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/cry_points/white.png");
+  height: 28px;
+  width: 28px;
+  margin-bottom: -3px;
+  margin-top: -3px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.crynode {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/cry_points/node.png");
+  height: 28px;
+  width: 15px;
+  margin-left: 3px;
+  margin-right: 3px;
+  margin-bottom: -3px;
+  margin-top: -3px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.crypnode {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/cry_points/pnode.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
