@@ -9,10 +9,18 @@ const log = () => {
                 <h1>Update Log</h1>
                 <div className="creditsholder">
                 <div className="filterholderflair" >
+                        V.5.5.0
+                    </div>
+                    <ul className="creditslist">
+                        - Renamed Summons section to Party Bonuses<br />
+                        - Updated Crystal Brilliance info<br />
+                        - Moved Crystal Brilliance page to bonus section<br />
+                    </ul>
+                <div className="filterholderflair" >
                         V.5.4.0
                     </div>
                     <ul className="creditslist">
-                        - Added <Link className="updatelink" to="/search/crystalpassives">Crystal Brilliance Passives</Link> page<br />
+                        - Added <Link className="updatelink" to="/bonuses/crystal">Crystal Brilliance Passives</Link> page<br />
                     </ul>
                 <div className="filterholderflair" >
                         V.5.3.5

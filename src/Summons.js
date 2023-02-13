@@ -33,7 +33,7 @@ const Summons = ({
     return el == capitalize(match.params.id);
   });
 
-  if (filtered.length === 0) {
+  if (filtered.length === 0 && match.params.id != "crystal") {
     return (
       <Navigate replace to="/404" />
     )
@@ -103,55 +103,58 @@ const Summons = ({
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://dissidiacompendium.com" />
           <meta name="description" content={`Summon Info`} />
-          <meta name="twitter:title" content={`${(match.params.id !== undefined ? capitalize(match.params.id) + " " : "") + "Summon"} - Dissidia Compendium`} />
-          <meta name="twitter:description" content={`Summon Info`} />
-          <meta property="og:title" content={`${(match.params.id !== undefined ? capitalize(match.params.id) + " " : "") + "Summon"} - Dissidia Compendium`} />
-          <meta property="og:description" content={`Summon Info`} />
+          <meta name="twitter:title" content={`${(match.params.id !== undefined ? capitalize(match.params.id) + " " : "") + `${match.params.id == "crystal"?"Passives":"Summon"}`} - Dissidia Compendium`} />
+          <meta name="twitter:description" content={`Party Bonuses Info`} />
+          <meta property="og:title" content={`${(match.params.id !== undefined ? capitalize(match.params.id) + " " : "") + `${match.params.id == "crystal"?"Passives":"Summon"}`} - Dissidia Compendium`} />
+          <meta property="og:description" content={`Party Bonuses Info`} />
         </Helmet>
         <div className="content">
-          <h1>Summons</h1>
+          <h1>Party Bonuses</h1>
           <div className="filterholder noselect">
-            <div className="sumsubheader">Select a Summon</div>
+            <div className="sumsubheader">Select a Bonus</div>
             <div className="filterholderflair">
               <ul className="summoniconholder">
-                <Link to={`/summons/ifrit`}>
+                <Link to={`/bonuses/ifrit`}>
                   <li alt="Ifrit" onClick={ifritbutton} className={`${locator == "Ifrit" ? "gemactive" : "geminactive"} IfritIcon summonsgem`} ></li>
                 </Link>
-                <Link to={`/summons/shiva`}>
+                <Link to={`/bonuses/shiva`}>
                   <li alt="Shiva" onClick={shivabutton} className={`${locator == "Shiva" ? "gemactive" : "geminactive"} ShivaIcon summonsgem`} ></li>
                 </Link>
-                <Link to={`/summons/ramuh`}>
+                <Link to={`/bonuses/ramuh`}>
                   <li alt="Ramuh" onClick={ramuhbutton} className={`${locator == "Ramuh" ? "gemactive" : "geminactive"} RamuhIcon summonsgem`} ></li>
                 </Link>
-                <Link to={`/summons/leviathan`}>
+                <Link to={`/bonuses/leviathan`}>
                   <li alt="Leviathan" onClick={leviathanbutton} className={`${locator == "Leviathan" ? "gemactive" : "geminactive"} LeviathanIcon summonsgem`} ></li>
                 </Link>
-                <Link to={`/summons/brothers`}>
+                <Link to={`/bonuses/brothers`}>
                   <li alt="Brothers" onClick={brothersbutton} className={`${locator == "Brothers" ? "gemactive" : "geminactive"} BrothersIcon summonsgem`} ></li>
                 </Link>
-                <Link to={`/summons/pandemonium`}>
+                <Link to={`/bonuses/pandemonium`}>
                   <li alt="Pandemonium" onClick={pandemoniumbutton} className={`${locator == "Pandemonium" ? "gemactive" : "geminactive"} PandemoniumIcon summonsgem`} ></li>
                 </Link>
-                <Link to={`/summons/diabolos`}>
+                <Link to={`/bonuses/diabolos`}>
                   <li alt="Diabolos" onClick={diabolosbutton} className={`${locator == "Diabolos" ? "gemactive" : "geminactive"} DiabolosIcon summonsgem`} ></li>
                 </Link>
-                <Link to={`/summons/alexander`}>
+                <Link to={`/bonuses/alexander`}>
                   <li alt="Alexander" onClick={alexanderbutton} className={`${locator == "Alexander" ? "gemactive" : "geminactive"} AlexanderIcon summonsgem`} ></li>
                 </Link>
-                <Link to={`/summons/odin`}>
+                <Link to={`/bonuses/odin`}>
                   <li alt="Odin" onClick={odinbutton} className={`${locator == "Odin" ? "gemactive" : "geminactive"} OdinIcon summonsgem`} ></li>
                 </Link>
-                <Link to={`/summons/bahamut`}>
+                <Link to={`/bonuses/bahamut`}>
                   <li alt="Bahamut" onClick={bahamutbutton} className={`${locator == "Bahamut" ? "gemactive" : "geminactive"} BahamutIcon summonsgem`} ></li>
                 </Link>
-                <Link to={`/summons/chocobo`}>
+                <Link to={`/bonuses/chocobo`}>
                   <li alt="Chocobo" onClick={chocobobutton} className={`${locator == "Chocobo" ? "gemactive" : "geminactive"} ChocoboIcon summonsgem`} ></li>
                 </Link>
-                <Link to={`/summons/sylph`}>
+                <Link to={`/bonuses/sylph`}>
                   <li alt="Sylph" onClick={sylphbutton} className={`${locator == "Sylph" ? "gemactive" : "geminactive"} SylphIcon summonsgem`} ></li>
                 </Link>
-                <Link to={`/summons/mog`}>
+                <Link to={`/bonuses/mog`}>
                   <li alt="Mog" onClick={mogbutton} className={`${locator == "Mog" ? "gemactive" : "geminactive"} MogIcon summonsgem`} ></li>
+                </Link>
+                <Link to={`/bonuses/crystal`}>
+                  <li alt="Crystal Brilliance" onClick={mogbutton} className={`${locator == "Crystal" ? "gemactive" : "geminactive"} all_nodes summonsgemshadow`} ></li>
                 </Link>
               </ul>
             </div>

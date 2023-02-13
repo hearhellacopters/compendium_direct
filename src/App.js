@@ -158,12 +158,13 @@ const App = () => {
               <Route path="/search/gear" element={<GearDirect />} />
               <Route path="/search/spheres" element={<SpheresDirect />} />
               <Route path="/search/passives" element={<PassivesDirect />} />
-              <Route path="/search/crystalpassives" element={<CrystalBrilliance />} />
+              <Route path="/search/crystalpassives" element={<Navigate replace to="/bonuses/crystal" />} />
 
               <Route path="/search/stickers" element={<Stickers />} />
               <Route path="/search/music" exact element={<JukeBox />} />
-              <Route path="/summons" exact element={<CallSummonHandoff />} />
-              <Route path="/summons/:id" exact element={<CallSummonHandoff />} />
+              <Route path="/bonuses" exact element={<CallSummonHandoff />} />
+              <Route path="/summons" exact element={<Navigate replace to="/bonuses" />}  />
+              <Route path="/bonuses/:id" exact element={<CallSummonHandoff />} />
               <Route path="/bestiary/enemies" element={<BestiaryDirect />} />
               <Route path="/bestiary" exact element={<Navigate replace to="/bestiary/enemies/" />} />
               <Route path="/bestiary/buffs" element={<EnemyBuffsDirect />} />

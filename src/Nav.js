@@ -42,8 +42,8 @@ const Nav = () => {
           <Link to={`/search/buffs${jptoggledata == false ? "" : "?JP=true"}`} onClick={menutoggle} className={`${loc == "search" ? "active" : ""}`}>
             <li>Search</li>
           </Link>
-          <Link to={`/summons${jptoggledata == false ? "" : "?JP=true"}`} onClick={menutoggle} className={`${loc == "summons" ? "active" : ""}`}>
-            <li>Summons</li>
+          <Link to={`/bonuses${jptoggledata == false ? "" : "?JP=true"}`} onClick={menutoggle} className={`${loc == "bonuses" ? "active" : ""}`}>
+            <li>Party Bonuses</li>
           </Link>
           <Link to={`/bestiary/enemies${jptoggledata == false ? "" : "?JP=true"}`} onClick={menutoggle} className={`${loc == "bestiary" ? "active" : ""}`}>
             <li>Bestiary</li>

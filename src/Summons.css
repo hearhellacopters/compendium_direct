@@ -50,6 +50,10 @@
     content: url("https://dissidiacompendium.com/images/static/icons/summons/unlocked/Summon_Mog.png")
 }
 
+.all_nodes {
+    content: url("https://dissidiacompendium.com/images/static/icons/cry_points/all_nodes.png")
+}
+
 .suminfoholder {
     padding: 10px;
     border-radius: 19px;
@@ -125,6 +129,13 @@
     width: 87px;
 }
 
+.summonsgemshadow {
+    height: 103px;
+    width: 87px;
+    filter: drop-shadow(3px 3px 3px #222);
+    -webkit-filter: drop-shadow(3px 3px 3px #222);
+}
+
 .gemactive {
     box-shadow: 0px 0px 8px 8px rgb(255 248 0 / 75%) inset;
     -webkit-box-shadow: 0px 0px 8px 8px rgb(255 248 0 / 75%) inset;
@@ -140,9 +151,14 @@
         -webkit-filter: brightness(1.2);
         cursor: pointer;
     }
+    .summonsgemshadow:hover {
+        transform: translateY(-1px);
+        transition: all .2s;
+        filter: drop-shadow(3px 3px 3px #222) brightness(1.2);
+        -webkit-filter: drop-shadow(3px 3px 3px #222) brightness(1.2);
+        cursor: pointer;
+    }
 }
-
-
 
 .summoniconholder {
     clear: both;
@@ -327,6 +343,10 @@
     }
 
     .summonsgem {
+        width: 80px;
+        height: auto;
+    }
+    .summonsgemshadow {
         width: 80px;
         height: auto;
     }

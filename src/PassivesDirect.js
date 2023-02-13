@@ -986,13 +986,13 @@ const PassiveDirect = ({
               </Tippy>
             </div>
           </div>
-          <Link className="whitecolor" to={`/search/crystalpassives${jptoggledata == false ? "" : "?JP=true"}`}>
+          <Link className="whitecolor" to={`/bonuses/crystal`}>
               <span className="subtext">Check out the Crystal Brilliance page</span>
           </Link>
         </div>
         {showFilter == true ? "" :
             <span>
-                <Link className="whitecolor" to={`/search/crystalpassives${jptoggledata == false ? "" : "?JP=true"}`}>
+                <Link className="whitecolor" to={`/bonuses/crystal`}>
                     <span className="subtext">Crystal Brilliance</span>
                 </Link>
             </span>}

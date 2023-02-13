@@ -72,7 +72,7 @@ const CallCrystalPassives = () => {
 
             />
             :
-            <Loading />
+            <div className=""><h1><img className="loadingbardots" src={"https://dissidiacompendium.com/images/static/site/loading.gif"}></img></h1></div>
     )
 
 }

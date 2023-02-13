@@ -5,6 +5,7 @@ import addformatting from '../processing/replacer_buffcontent.js';
 import SummonsPassiveFormatting from './SummonPassiveFormatting.js'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
+import CrystalBrilliance from '../callpages/CallCrystalBrilliance';
 import StatsMaker from './StatsDisplay';
 
 const SummonsFormatting = ({
@@ -24,7 +25,7 @@ const SummonsFormatting = ({
 
   const summons = summonsinglepull[0];
 
-  const [highestlvl, setHighestlvl] = useState(summons.HighestLevel);
+  const [highestlvl, setHighestlvl] = useState(summons && summons.HighestLevel);
 
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
@@ -32,9 +33,16 @@ const SummonsFormatting = ({
 
   useEffect(() => {
     setShowFilter(window.innerWidth < 815 ? true : false)
-    setHighestlvl(summons.HighestLevel);
+    setHighestlvl(summons && summons.HighestLevel);
     setSearchTerm(highestlvl);
   }, [highestlvl, summons, match]);
+
+  if(match == "Crystal"){
+    return(
+      <CrystalBrilliance/>
+    )
+  }
+
 
   const abilitypull = ProcessedSummonLevels.filter(function (el) {
     const summonsingle = el.SummonID == summonsinglepull[0].SummonID && Number(el["PassiveRank"]) == searchTerm;
@@ -53,7 +61,7 @@ const SummonsFormatting = ({
   const sumlist = ["", "Ifrit", "Shiva", "Ramuh", "Leviathan", "Brothers", "Pandemonium", "Diabolos", "Alexander", "Odin", "Bahamut", "Chocobo", "Sylph", "Mog"]
   const colortitle = ["blackbanner", "Abanner", "Bbanner", "Dbanner", "bluebanner", "Dbanner", "Cbanner", "blackbanner", "Dbanner", "Nocolorbanner", "Bbanner", "Dbanner", "Cbanner", "Nocolorbanner"]
   const colorbase = ["blackbase", "Abase", "Bbase", "Dbase", "bluebase", "Dbase", "Cbase", "blackbase", "Dbase", "Nocolorbase", "Bbase", "Dbase", "Cbase", "Nocolorbase"]
-
+  
   return (
     <div>
       {showFilter == true ?

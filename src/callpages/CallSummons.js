@@ -44,10 +44,13 @@ const CallSummonHandoff = () => {
         }
     }, [dispatch, ProcessedSummons, ProcessedSummonLevels, ProcessedSummonPassives]);
 
-
     return (
         ProcessedSummons != undefined && ProcessedSummonLevels != undefined && ProcessedSummonPassives != undefined ?
-            <Summons match={match} ProcessedSummons={ProcessedSummons} ProcessedSummonLevels={ProcessedSummonLevels} ProcessedSummonPassives={ProcessedSummonPassives} />
+            <Summons 
+            match={match} 
+            ProcessedSummons={ProcessedSummons} 
+            ProcessedSummonLevels={ProcessedSummonLevels} 
+            ProcessedSummonPassives={ProcessedSummonPassives} />
             :
             <Loading />
     )

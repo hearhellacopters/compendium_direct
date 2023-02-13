@@ -50,7 +50,7 @@ const CrystalPassivesPage = ({
     rawData && rawData.slice(0, passivelimit)
   );
   const [searchTerm, setSearchTerm] = useState(getQueryStringVal("search") != null ? getQueryStringVal("search").toLowerCase() : "");
-  const [showFilter, setShowFilter] = useState(getQueryStringVal("filter") != null ? true : false);
+  const [showFilter, setShowFilter] = useState(true);
   const [searchdisplay, setsearchdisplay] = useState(getQueryStringVal("search") != null ? getQueryStringVal("search") : "");
   const [Filtersearch, setFiltersearch] = useQueryParam("filter", "");
   const [filterResults, setFilterResults] = useState(rawData);
@@ -278,12 +278,11 @@ const CrystalPassivesPage = ({
   const reversebutton = () => {
     if (reverse == false) {
       setReversesearch("true")
-      setReverse(false)
     } else {
-      setReverse(true)
       setReversesearch("")
     }
     setLoop(true);
+    setReverse((prevValue) => !prevValue);
     setTimeout(() => setLoop(false), 1000);
   };
 
@@ -291,48 +290,6 @@ const CrystalPassivesPage = ({
 
     return (
       <div>
-        <Helmet>
-          <title>Crystal Brilliance Passives - Dissidia Compendium</title>
-          <meta property="og:site_name" content="Dissidia Compendium" />
-          <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://dissidiacompendium.com" />
-          <meta name="description" content={`Crystal Brilliance Passives Page`} />
-          <meta name="twitter:title" content={`Crystal Brilliance Passives Page`} />
-          <meta name="twitter:description" content={`Crystal Brilliance Passives Page`} />
-          <meta name="twitter:image" content="https://dissidiacompendium.com/images/static/site/logo512.png" />
-          <meta name="twitter:card" content="summary" />
-          <meta name="twitter:image:alt" content={`Dissia Compendium`} />
-          <meta property="og:title" content={`Crystal Brilliance Passives Page`} />
-          <meta property="og:description" content={`Crystal Brilliance Passives`} />
-          <meta property="og:image" content="https://dissidiacompendium.com/images/static/site/logo512.png" />
-          <meta property="og:url" content={`https://dissidiacompendium.com/search/crystalpassives/`} />
-        </Helmet>
-        <div className="content">
-          <h1 >{listLength == 1 ? "Crystal Brilliance Passive" : "Crystal Brilliance Passives"}</h1>
-          <div className="subheader">
-              Use filters to limit returns
-          </div>
-          <div className="charfilterspacer" />
-          <div key="filter1" onClick={showfilterbutton} className="charfilter"><span className="infotext"></span>{showFilter ? <TiArrowSortedUp className="uparrow" /> : <TiArrowSortedDown className="downarrow" />}</div>
-          {showFilter == false ?
-                    <div className="event-search-reverse-holder">
-
-                        <IoSearch className="searchicon" />
-                        <div className="search-holder el">
-                            <input
-                                className="char-search-bar"
-                                type="text"
-                                placeholder="Search"
-                                value={searchdisplay}
-                                onChange={handleChange}
-                                onKeyDown={handleKeyDown}
-                            />
-                            {searchTerm === "" ? "" :
-                                <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
-                        </div>
-                    </div>
-                    : ""
-                }
           <div className="filterholder" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
             <div className="filterholderflair">
             <div className="similarbanner"><div className='infoclick' onClick={() => { setshowinfo((preValue) => !preValue) }}>Info{showinfo ? <TiArrowSortedUp className="uparrow" /> : <TiArrowSortedDown className="downarrow" />}</div></div>
@@ -341,13 +298,12 @@ const CrystalPassivesPage = ({
               <div className="ultimainfo darkerbg">
               <div className="yellowcolor">{"Acquired using colored "}<span className="cryspark"></span>{" Crystal Sparkles, obtainable from weekly Crystal Quests"}</div><br/>
               <div className="yellowcolor">Quest is randomly selected from a list of Shinryu level battles.</div><br/>
-              <div className="yellowcolor">Rerolling is possible for free once a week, then at a gem cost.</div><br/>
+              <div className="yellowcolor">Rerolling is possible at a gem cost.</div><br/>
               <div className="yellowcolor">The <span className="cryspark"></span> color is dependent on the crystal color of the completing party.</div><br/>
               <div className="yellowcolor">Party MUST be a team of a single color.</div><br/>
               <div className="yellowcolor">The difficulty of the quest can be increased for greater <span className="cryspark"></span> gain.</div><br/>
-              <div className="yellowcolor"><span className="cryspark"></span> x80 base at Lv 0, and <span className="cryspark"></span> x400 base plus <span className="cryspark"></span> x300 bonus at max Lv 3.</div><br/>
-              <div className="yellowcolor">The weekly limit is 400 base. Meaning you can do 5 Lv 0 quests or a Lv 1+.</div><br/>
-              <div className="yellowcolor">Greatest weekly grant is <span className="cryspark"></span> x700.</div><br/>
+              <div className="yellowcolor"><span className="cryspark"></span> x80 base at Lv 0 and <span className="cryspark"></span> x400 base plus <span className="cryspark"></span> x300 bonus at max Lv 3.</div><br/>
+              <div className="yellowcolor">The weekly limit is 400 base and 300 bonus of <span className="cryspark"></span> x700.</div><br/>
               <div className="yellowcolor">Difficulty levels increase the enemy's HP (up to x1.5).</div><br/>
               <div className="yellowcolor">Each board has x90 <span className="crynode"></span> stat nodes and x18 <span className="crypnode"></span> passive nodes.</div><br/>
               <div className="yellowcolor">Only <span className="yellowcolor">3 of the 18 passives</span> can be active at a time.</div><br/>
@@ -446,7 +402,6 @@ const CrystalPassivesPage = ({
             {showLoadMore &&
               <div className="loadmore" onClick={loadMoreButton}> Load More </div>}
           </div>
-        </div>
       </div>
     )
 }
