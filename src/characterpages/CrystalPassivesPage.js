@@ -289,9 +289,10 @@ const CrystalPassivesPage = ({
   const listgear = listDisplay;
 
     return (
-      <div>
+      <div><h1 className="">Crystal Brilliance</h1>
           <div className="filterholder" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
             <div className="filterholderflair">
+            
             <div className="similarbanner"><div className='infoclick' onClick={() => { setshowinfo((preValue) => !preValue) }}>Info{showinfo ? <TiArrowSortedUp className="uparrow" /> : <TiArrowSortedDown className="downarrow" />}</div></div>
             {showinfo == false ? <br></br> : 
             <div>
