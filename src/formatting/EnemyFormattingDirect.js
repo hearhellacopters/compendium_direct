@@ -138,9 +138,9 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
                                     Sort: single.Sort,
                                     ShortName: single.ShortName,
                                     CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${single.CharacterURLName}/face.png`,
-                                    CharacterName:
-                                        single.CharacterName,
+                                    CharacterName: single.CharacterName,
                                     CharID: self.CharID,
+                                    CrystalColor: single.CrystalColor,
                                     roles: ["Enemy"]
                                 }
                             })
@@ -172,9 +172,9 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
                                     Sort: self3.Sort,
                                     ShortName: self3.ShortName,
                                     CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${self3.CharacterURLName}/face.png`,
-                                    CharacterName:
-                                        self3.CharacterName,
+                                    CharacterName:self3.CharacterName,
                                     CharID: self3.CharID,
+                                    CrystalColor: self3.CrystalColor,
                                     roles: ["Force_Enemy"]
                                 }
                             })
@@ -206,9 +206,9 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
                                     Sort: self3.Sort,
                                     ShortName: self3.ShortName,
                                     CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${self3.CharacterURLName}/face.png`,
-                                    CharacterName:
-                                        self3.CharacterName,
+                                    CharacterName: self3.CharacterName,
                                     CharID: self3.CharID,
+                                    CrystalColor: self3.CrystalColor,
                                     roles: ["Force_Enemy"]
                                 }
                             })
@@ -239,9 +239,9 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
                                 Sort: self3.Sort,
                                 ShortName: self3.ShortName,
                                 CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${self3.CharacterURLName}/face.png`,
-                                CharacterName:
-                                    self3.CharacterName,
+                                CharacterName:self3.CharacterName,
                                 CharID: self3.CharID,
+                                CrystalColor: self3.CrystalColor,
                                 roles: [self]
                             }
                         })
@@ -264,9 +264,9 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
                             Sort: single.Sort,
                             ShortName: single.ShortName,
                             CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${single.CharacterURLName}/face.png`,
-                            CharacterName:
-                                single.CharacterName,
+                            CharacterName: single.CharacterName,
                             CharID: self.CharID,
+                            CrystalColor: single.CrystalColor,
                             roles: ["Enemy"]
                         }
                     })
@@ -752,7 +752,7 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
                                 {helpers.map((self, i) => (
                                     <li key={i}>
                                         <Link className="linkforce" to={`/characters/${self.ShortName}`}>
-                                            {self.CharacterName}:
+                                            <span className={`${self.CrystalColor}crystalmini`}></span>{self.CharacterName}:
                                         </Link><br />
 
                                         {self.roles.map((self3, i) => (

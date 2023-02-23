@@ -105,18 +105,20 @@ const counter = (
             if (hit_1.show == undefined) {
                 Object.assign(hit_1, {
                     show: true,
-                    hit_count: `${count}-Hit `
+                    hit_count: `${count}-Hit `,
+                    counter: "all_brv"
                 })
                 for (let index = 1; index < (count + 1); index++) {
                     if (index != 1) {
-                        Object.assign(holder[`hit_${index}`], { show: false })
+                        Object.assign(holder[`hit_${index}`], { show: false, counter: "all_brv" })
                     }
                 }
             }
         }
 
+        //start with highest numbers (4+), this is for BRV + HP
         if (count > 3) {
-            //HP and 2 effects
+            //BRV + HP and 2 effects
             var hp_effect2 = true
             for (let index = 1; index < (count + 1); index++) {
                 if (index != 1) {
@@ -160,28 +162,24 @@ const counter = (
                     hp_effect2 = false
                 }
             }
-            if (holder[`hit_${count}`] == undefined) {
+            if (holder[`hit_${count}`].atk_type != undefined) {
                 hp_effect2 = false
-            } else {
-                if (holder[`hit_${count}`].atk_type != undefined) {
+            }
+            if (holder[`hit_${count}`].atk_str != undefined) {
+                hp_effect2 = false
+            }
+            if (holder[`hit_${count}`].eff_str == undefined) {
+                hp_effect2 = false
+            }
+            if (holder[`hit_${count - 1}`] != undefined) {
+                //not the same effect
+                if (holder[`hit_${count - 1}`].id == holder[`hit_${count}`].id) {
                     hp_effect2 = false
                 }
-                if (holder[`hit_${count}`].atk_str != undefined) {
-                    hp_effect2 = false
-                }
-                if (holder[`hit_${count}`].eff_str == undefined) {
-                    hp_effect2 = false
-                }
-                if (holder[`hit_${count - 1}`] != undefined) {
-                    //not the same effect
-                    if (holder[`hit_${count - 1}`].id == holder[`hit_${count}`].id) {
+                if(holder[`hit_${count + 1}`] != undefined){
+                        //not the same as the following effecting
+                    if (holder[`hit_${count + 1}`].id == holder[`hit_${count}`].id) {
                         hp_effect2 = false
-                    }
-                    if(holder[`hit_${count + 1}`] != undefined){
-                         //not the same as the following effecting
-                        if (holder[`hit_${count + 1}`].id == holder[`hit_${count}`].id) {
-                            hp_effect2 = false
-                        }
                     }
                 }
             }
@@ -197,17 +195,17 @@ const counter = (
                         pot_hp_str: holder[`hit_${count - 2}`].pot_str,
                         hp_id: holder[`hit_${count - 2}`].id,
                         eff_add_str: holder[`hit_${count - 1}`].eff_str,
-                        eff_add_str_2: holder[`hit_${count}`].eff_str
+                        eff_add_str_2: holder[`hit_${count}`].eff_str,
+                        counter: "hp_effect2"
                     })
                     for (let index = 1; index < (count + 1); index++) {
                         if (index != 1) {
-                            Object.assign(holder[`hit_${index}`], { show: false })
+                            Object.assign(holder[`hit_${index}`], { show: false, counter: "hp_effect2" })
                         }
                     }
                 }
             }
-
-            //HP effect before and after
+            //BRV + effect before and after HP 
             var hp_effect_before_after = true
             for (let index = 1; index < (count + 1); index++) {
                 if (index != 1) {
@@ -251,24 +249,20 @@ const counter = (
                     hp_effect_before_after = false
                 }
             }
-            if (holder[`hit_${count}`] == undefined) {
+            if (holder[`hit_${count}`].atk_type != undefined) {
                 hp_effect_before_after = false
-            } else {
-                if (holder[`hit_${count}`].atk_type != undefined) {
+            }
+            if (holder[`hit_${count}`].atk_str != undefined) {
+                hp_effect_before_after = false
+            }
+            if (holder[`hit_${count}`].eff_str == undefined) {
+                hp_effect_before_after = false
+            }
+            if(holder[`hit_${count + 1}`] != undefined){
+                //not the same as the follow effecting
+                if (holder[`hit_${count + 1}`].id == holder[`hit_${count}`].id) {
                     hp_effect_before_after = false
                 }
-                if (holder[`hit_${count}`].atk_str != undefined) {
-                    hp_effect_before_after = false
-                }
-                if (holder[`hit_${count}`].eff_str == undefined) {
-                    hp_effect_before_after = false
-                }
-                if(holder[`hit_${count + 1}`] != undefined){
-                    //not the same as the follow effecting
-                   if (holder[`hit_${count + 1}`].id == holder[`hit_${count}`].id) {
-                        hp_effect_before_after = false
-                   }
-               }
             }
             if (hp_effect_before_after == true && count > 3) {
                 if (hit_1.show == undefined && holder[`hit_${count - 1}`].atk_str != undefined) {
@@ -282,11 +276,12 @@ const counter = (
                         pot_hp_str: holder[`hit_${count - 1}`].pot_str,
                         hp_id: holder[`hit_${count - 1}`].id,
                         eff_add_str: holder[`hit_${count}`].eff_str,
-                        eff_before_hp_str: holder[`hit_${count - 2}`].eff_str
+                        eff_before_hp_str: holder[`hit_${count - 2}`].eff_str,
+                        counter: "hp_effect_before_after"
                     })
                     for (let index = 1; index < (count + 1); index++) {
                         if (index != 1) {
-                            Object.assign(holder[`hit_${index}`], { show: false })
+                            Object.assign(holder[`hit_${index}`], { show: false, counter: "hp_effect_before_after" })
                         }
                     }
                 }
@@ -294,7 +289,7 @@ const counter = (
         }
 
         if (count > 2) {
-            //HP and effect
+            //BRV + HP and 1 effect
             var hp_and_effect = true
             for (let index = 1; index < (count + 1); index++) {
                 if (index != 1) {
@@ -321,23 +316,19 @@ const counter = (
                     hp_and_effect = false
                 }
             }
-            if (holder[`hit_${count}`] == undefined) {
+            if (holder[`hit_${count}`].atk_type != undefined) {
                 hp_and_effect = false
-            } else {
-                if (holder[`hit_${count}`].atk_type != undefined) {
+            }
+            if (holder[`hit_${count}`].atk_str != undefined) {
+                hp_and_effect = false
+            }
+            if (holder[`hit_${count}`].eff_str == undefined) {
+                hp_and_effect = false
+            }
+            //check ahead
+            if (holder[`hit_${count + 1}`] != undefined){
+                if(holder[`hit_${count + 1}`].id == holder[`hit_${count }`].id){
                     hp_and_effect = false
-                }
-                if (holder[`hit_${count}`].atk_str != undefined) {
-                    hp_and_effect = false
-                }
-                if (holder[`hit_${count}`].eff_str == undefined) {
-                    hp_and_effect = false
-                }
-                //check ahead
-                if (holder[`hit_${count + 1}`] != undefined){
-                    if(holder[`hit_${count + 1}`].id == holder[`hit_${count }`].id){
-                        hp_and_effect = false
-                    }
                 }
             }
             if (hp_and_effect == true) {
@@ -351,17 +342,18 @@ const counter = (
                         eff_hp_str: holder[`hit_${count - 1}`].eff_str,
                         pot_hp_str: holder[`hit_${count - 1}`].pot_str,
                         hp_id: holder[`hit_${count - 1}`].id,
-                        eff_add_str: holder[`hit_${count}`].eff_str
+                        eff_add_str: holder[`hit_${count}`].eff_str,
+                        counter: "hp_and_effect"
                     })
                     for (let index = 1; index < (count + 1); index++) {
                         if (index != 1) {
-                            Object.assign(holder[`hit_${index}`], { show: false })
+                            Object.assign(holder[`hit_${index}`], { show: false, counter: "hp_and_effect" })
                         }
                     }
                 }
             }
 
-            //HP and effect before
+            //BRV + HP and effect before
             var hp_effect_before = true
             for (let index = 1; index < (count + 1); index++) {
                 if (index != 1) {
@@ -381,12 +373,8 @@ const counter = (
                     }
                 }
             }
-            if (holder[`hit_${count}`] == undefined) {
+            if (holder[`hit_${count}`].atk_type != "HP") {
                 hp_effect_before = false
-            } else {
-                if (holder[`hit_${count}`].atk_type != "HP") {
-                    hp_effect_before = false
-                }
             }
             if (holder[`hit_${count - 1}`] == undefined) {
                 hp_effect_before = false
@@ -412,18 +400,105 @@ const counter = (
                         eff_hp_str: holder[`hit_${count}`].eff_str,
                         pot_hp_str: holder[`hit_${count}`].pot_str,
                         hp_id: holder[`hit_${count}`].id,
-                        eff_before_hp_str: holder[`hit_${count - 1}`].eff_str
+                        eff_before_hp_str: holder[`hit_${count - 1}`].eff_str,
+                        counter: "hp_effect_before"
                     })
                     for (let index = 1; index < (count + 1); index++) {
                         if (index != 1) {
-                            Object.assign(holder[`hit_${index}`], { show: false })
+                            Object.assign(holder[`hit_${index}`], { show: false, counter: "hp_effect_before" })
                         }
                     }
                 }
             }
         }
 
-        if (count > 1) {
+         //only hp and 2 effects
+         if (count == 3) {
+            var single_hp_effect2 = true
+            for (let index = 1; index < (count + 1); index++) {
+                if (index != 1) {
+                    if (index != count) {
+                        if (index != count - 1) {
+                            if (index != count - 2) {
+                                if (holder[`hit_${index}`].id != holder[`hit_${index - 1}`].id) {
+                                    single_hp_effect2 = false
+                                }
+                            }
+                        }
+                    }
+                }
+                if (index != count) {
+                    if (index != count - 1) {
+                        if (index != count - 2) {
+                            if (holder[`hit_${index}`].atk_type != "BRV") {
+                                single_hp_effect2 = false
+                            }
+                        }
+                    }
+                }
+            }
+            if (holder[`hit_${count - 2}`] == undefined) {
+                single_hp_effect2 = false
+            } else {
+                if (holder[`hit_${count - 2}`].atk_type != "HP") {
+                    single_hp_effect2 = false
+                }
+            }
+            if (holder[`hit_${count - 1}`] == undefined) {
+                single_hp_effect2 = false
+            } else {
+                if (holder[`hit_${count - 1}`].atk_type != undefined) {
+                    single_hp_effect2 = false
+                }
+                if (holder[`hit_${count - 1}`].atk_str != undefined) {
+                    single_hp_effect2 = false
+                }
+                if (holder[`hit_${count - 1}`].eff_str == undefined) {
+                    single_hp_effect2 = false
+                }
+            }
+            if (holder[`hit_${count}`].atk_type != undefined) {
+                single_hp_effect2 = false
+            }
+            if (holder[`hit_${count}`].atk_str != undefined) {
+                single_hp_effect2 = false
+            }
+            if (holder[`hit_${count}`].eff_str == undefined) {
+                single_hp_effect2 = false
+            }
+            if (holder[`hit_${count - 1}`] != undefined) {
+                //not the same effect
+                if (holder[`hit_${count - 1}`].id == holder[`hit_${count}`].id) {
+                    single_hp_effect2 = false
+                }
+                if(holder[`hit_${count + 1}`] != undefined){
+                        //not the same as the following effecting
+                    if (holder[`hit_${count + 1}`].id == holder[`hit_${count}`].id) {
+                        single_hp_effect2 = false
+                    }
+                }
+            }
+            if (single_hp_effect2 == true) {
+                if (hit_1.show == undefined && holder[`hit_${count - 2}`].atk_str != undefined) {
+                    Object.assign(hit_1, {
+                        show: true,
+                        hit_count: undefined,
+                        atk_type: "HP",
+                        hp_id: holder[`hit_${count - 2}`].id,
+                        eff_add_str: holder[`hit_${count - 1}`].eff_str,
+                        eff_add_str_2: holder[`hit_${count}`].eff_str,
+                        counter: "single_hp_effect2"
+                    })
+                    for (let index = 1; index < (count + 1); index++) {
+                        if (index != 1) {
+                            Object.assign(holder[`hit_${index}`], { show: false, counter: "single_hp_effect2" })
+                        }
+                    }
+                }
+            }
+        }
+
+        if (count >= 2) {
             //last attack is hp
             var hp_last = true
             for (let index = 1; index < (count + 1); index++) {
@@ -440,12 +515,8 @@ const counter = (
                     }
                 }
             }
-            if (holder[`hit_${count}`] == undefined) {
+            if (holder[`hit_${count}`].atk_type != "HP") {
                 hp_last = false
-            } else {
-                if (holder[`hit_${count}`].atk_type != "HP") {
-                    hp_last = false
-                }
             }
             if (hp_last == true) {
                 if (hit_1.show == undefined && holder[`hit_${count}`].atk_str != undefined) {
@@ -457,11 +528,12 @@ const counter = (
                         atk_hp_str: hp_str,
                         eff_hp_str: holder[`hit_${count}`].eff_str,
                         pot_hp_str: holder[`hit_${count}`].pot_str,
-                        hp_id: holder[`hit_${count}`].id
+                        hp_id: holder[`hit_${count}`].id,
+                        counter: "hp_last"
                     })
                     for (let index = 1; index < (count + 1); index++) {
                         if (index != 1) {
-                            Object.assign(holder[`hit_${index}`], { show: false })
+                            Object.assign(holder[`hit_${index}`], { show: false, counter: "hp_last" })
                         }
                     }
                 }
@@ -475,25 +547,22 @@ const counter = (
                     }
                 }
             }
-            if (holder[`hit_${count}`] == undefined) {
+            if (holder[`hit_${count}`].atk_type != undefined) {
                 alleffects = false
-            } else {
-                if (holder[`hit_${count}`].atk_type != undefined) {
-                    alleffects = false
-                }
             }
             if (alleffects == true) {
                 if (hit_1.show == undefined) {
-                    Object.assign(hit_1, { show: true, repeat_count: ` × ${count}` })
+                    Object.assign(hit_1, { show: true, repeat_count: ` × ${count}`, counter: "alleffects" })
                     for (let index = 1; index < (count + 1); index++) {
                         if (index != 1) {
-                            Object.assign(holder[`hit_${index}`], { show: false })
+                            Object.assign(holder[`hit_${index}`], { show: false, counter: "alleffects" })
                         }
                     }
                 }
             }
         }
 
+        //HP + effect
         if (count == 2) {
             if (hit_1.show == undefined &&
                 hit_2.show == undefined &&
@@ -507,11 +576,16 @@ const counter = (
                 hit_2.atk_str == undefined &&
                 hit_2.eff_str != undefined
             ) {
-                Object.assign(hit_1, {
-                    show: true,
-                    eff_add_str: hit_2.eff_str
-                })
-                Object.assign(hit_2, { show: false })
+                //look ahead
+                if( hit_3 != undefined &&
+                    hit_3.id != hit_2.id){
+                        Object.assign(hit_1, {
+                            show: true,
+                            eff_add_str: hit_2.eff_str,
+                            counter: "2_count_eff_add_str"
+                        })
+                        Object.assign(hit_2, { show: false, counter: "2_count_eff_add_str" })
+                }
             }
         }
     }

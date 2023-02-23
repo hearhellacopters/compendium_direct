@@ -468,7 +468,7 @@ const Passive_Effects_Handoff = ({
                 {passive_ability.passive_cond_type == 2 ?
                     <>
 
-                            {effect_ == "" && passive_ability.field == undefined ? "" : require_ != "" ? add_formatting(`\xa0┬ ${require_}`, "tl") : ""}{require_ != "" ? <br /> : ""}
+                            {effect_ == "" && passive_ability.field == undefined ? "" : require_ != "" ? add_formatting(`\xa0┬ ${require_}`, "tl") : ""}
                             {effect_display_pars(effect_, effect__1, require_, require__1, 1)}
                             {effect_ == "Field Effect" && passive_ability.hide_field != true ?
                                 passive_ability.field && passive_ability.field.map((buffs, i) => (
@@ -489,7 +489,7 @@ const Passive_Effects_Handoff = ({
                                 : ""
                             }
 
-                            {effect__1 == "" && passive_ability.field == undefined ? "" : require__1 != "" ? add_formatting(`\xa0┬ ${require__1}`, "tl") : ""}{require__1 != "" ? <br /> : ""}
+                            {effect__1 == "" && passive_ability.field == undefined ? "" : require__1 != "" ? add_formatting(`\xa0┬ ${require__1}`, "tl") : ""}
                             {effect_display_pars(effect_, effect__1, require_, require__1, 2)}
                             {effect__1 == "Field Effect" && passive_ability.hide_field != true ?
                                 passive_ability.field && passive_ability.field.map((buffs, i) => (

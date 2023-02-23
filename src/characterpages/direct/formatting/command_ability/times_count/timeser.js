@@ -136,10 +136,11 @@ const timeser = (
                         show: true,
                         times_count: ` ${count} times`,
                         eff_before_hp_str: holder[`hit_${count}`].eff_before_hp_str,
+                        timers: "all_effects"
                     })
                     for (let index = 1; index < (count + 1); index++) {
                         if (index != 1) {
-                            Object.assign(holder[`hit_${index}`], { show: false })
+                            Object.assign(holder[`hit_${index}`], { show: false, timers: "all_effects" })
                         }
                     }
                 } else {
@@ -173,10 +174,11 @@ const timeser = (
                             eff_det_str: holder[`hit_${count}`].eff_add_str,
                             except_last: true,
                             eff_before_hp_str: holder[`hit_${count}`].eff_before_hp_str,
+                            timers: "but_eff_add_str"
                         })
                         for (let index = 1; index < (count + 1); index++) {
                             if (index != 1) {
-                                Object.assign(holder[`hit_${index}`], { show: false })
+                                Object.assign(holder[`hit_${index}`], { show: false, timers: "but_eff_add_str" })
                             }
                         }
                     }
@@ -210,10 +212,11 @@ const timeser = (
                             eff_det_str_2: holder[`hit_${count}`].eff_add_str_2,
                             except_last_2: true,
                             eff_before_hp_str: holder[`hit_${count}`].eff_before_hp_str,
+                            timers: "but_eff_add_str_2"
                         })
                         for (let index = 1; index < (count + 1); index++) {
                             if (index != 1) {
-                                Object.assign(holder[`hit_${index}`], { show: false })
+                                Object.assign(holder[`hit_${index}`], { show: false, timers: "but_eff_add_str_2" })
                             }
                         }
                     }
@@ -265,10 +268,11 @@ const timeser = (
                             eff_det_str_2: eff_det_str_2_holder,
                             except_last_2: except_last_2,
                             eff_before_hp_str: holder[`hit_${count}`].eff_before_hp_str,
+                            timers: "no_eff_add_str"
                         })
                         for (let index = 1; index < (count + 1); index++) {
                             if (index != 1) {
-                                Object.assign(holder[`hit_${index}`], { show: false })
+                                Object.assign(holder[`hit_${index}`], { show: false, timers: "no_eff_add_str" })
                             }
                         }
                     }

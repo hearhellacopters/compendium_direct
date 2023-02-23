@@ -67,6 +67,7 @@ const FRCond = ({ match, ProcessedCharacters, jptoggledata }) => {
                                 CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${self3.CharacterURLName}/face.png`,
                                 CharacterName: self3.CharacterName,
                                 CharID: self3.CharID,
+                                CrystalColor: self3.CrystalColor,
                                 roles: [self]
                             }
                         })
@@ -87,6 +88,7 @@ const FRCond = ({ match, ProcessedCharacters, jptoggledata }) => {
                             CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${single.CharacterURLName}/face.png`,
                             CharacterName: single.CharacterName,
                             CharID: self.CharID,
+                            CrystalColor: single.CrystalColor,
                             roles: ["Character"]
                         }
                     })
@@ -152,7 +154,7 @@ const FRCond = ({ match, ProcessedCharacters, jptoggledata }) => {
                                             <li key={i}>
 
                                                 <Link className="linkforce" to={`/characters/${self.ShortName}`}>
-                                                    {self.CharacterName}:
+                                                <span className={`${self.CrystalColor}crystalmini`}></span>{self.CharacterName}:
                                                 </Link><br />
 
                                                 {self.roles.map((self3, i) => (

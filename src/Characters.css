@@ -160,6 +160,72 @@
     background-size: contain;
 }
 
+.Redcrystalmini {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/crystalcolors/buttons/Red.png");
+    background-size: contain;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    position: static;
+}
+
+.Bluecrystalmini {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/crystalcolors/buttons/Blue.png");
+    background-size: contain;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    position: static;
+}
+
+.Greencrystalmini {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/crystalcolors/buttons/Green.png");
+    background-size: contain;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    position: static;
+}
+
+.Yellowcrystalmini {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/crystalcolors/buttons/Yellow.png");
+    background-size: contain;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    position: static;
+}
+
+.Blackcrystalmini {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/crystalcolors/buttons/Black.png");
+    background-size: contain;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    position: static;
+}
+
+.Whitecrystalmini {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/crystalcolors/buttons/White.png");
+    background-size: contain;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    position: static;
+}
+
 .daggerbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/weapon/Dagger.png");
     background-size: contain;

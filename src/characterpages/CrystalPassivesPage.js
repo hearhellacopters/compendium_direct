@@ -41,6 +41,7 @@ const CrystalPassivesPage = ({
   const banerDisplayTerm = "Crystal Passives";
 
   const [showinfo, setshowinfo] = useStateIfMounted(false);
+  const [showmap, setshowmap] = useStateIfMounted(false);
   const [loop, setLoop] = useStateIfMounted(false);
   const [clearFilter, setclearFilter] = useStateIfMounted(false);
   const [reverse, setReverse] = useState(getQueryStringVal("rev") != null ? true : false);
@@ -330,6 +331,18 @@ const CrystalPassivesPage = ({
               <div className="">Each color board requires <span className="cryspark"></span><span className="yellowcolor"> x18,000 to complete (around 26 weeks per board).</span></div>
               </div>
               </div>}
+              <div className="similarbanner"><div className='infoclick' onClick={() => { setshowmap((preValue) => !preValue) }}>Map{showmap ? <TiArrowSortedUp className="uparrow" /> : <TiArrowSortedDown className="downarrow" />}</div></div>
+              {showmap == false ? <br></br> : 
+              <a target="_blank" rel="noreferrer" href={`https://dissidiacompendium.com/images/static/icons/cry_points/map.png`}>
+                <img className="infoimg withshadow clicky" src={`https://dissidiacompendium.com/images/static/icons/cry_points/map.png`} />
+              </a>
+              }
+              <div className="similarbanner">Where to get</div>
+              <div className="ultimainfo darkerbg">
+              <Link className="whitecolor" to={`/events/2352`}>
+                <span className='gemcredits'></span>Weekly Crystal Quests
+              </Link>
+              </div>
               <div className="similarbanner">Passive Filter</div>
             <ul className="bufftypes">
               <Tippy content="Special Ability">

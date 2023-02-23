@@ -95,21 +95,41 @@ const hit_data_handler = (
         pot_str = `BRV potency of ${pot_cent}% per hit`
     }
 
+    var split_full = ""
+
     if (ability_target_id == 5) {
         if (type_id == 19) {
-            pot_str = "Deals Split <HP> Damage to all targets"
+            split_full = "Split "
         }
         if (type_id == 2) {
-            pot_str = "Deals Split <HP> Damage to all targets"
-            if (effect_id == 53 || effect_id == 107 || effect_id == 226) {
-                pot_str = ""
+            split_full = "Split "
+            if (effect_id == 53) {
+                split_full = "Split "
+            }
+            if ( effect_id == 107) {
+                split_full = "Full "
+                effect_str = ""
             }
         }
         if(effect_id == 225){
             if(m_nARG_1 == 1){
-                pot_str = "Deals Full <HP> Damage to all targets"
+                split_full = "Full "
             } else {
-                pot_str = "Deals Split <HP> Damage to all targets"
+                split_full = "Split "
+            }
+        }
+        if(effect_id == 226){
+            if(ability_target_id == 5){
+                split_full = "Split "
+            } else {
+                split_full = ""
+            }
+        }
+        if(effect_id == 227){
+            if(ability_target_id == 5){
+                split_full = "Full "
+            } else {
+                split_full = ""
             }
         }
     }
@@ -213,7 +233,7 @@ const hit_data_handler = (
     }
     if (type_id == 2 || 
         type_id == 19) {
-        atk_str = `${ability_target_id != 1 ? `${ability_target_str} ` : ``}${attack_type_str} ${type_id_str} ${times == true ? "Attack" : "{Attack}"}`
+        atk_str = `${ability_target_id != 1 ? `${ability_target_str} ` : ``}${attack_type_str} ${type_id_str} ${times == true ? `${split_full}Attack` : `${split_full}{Attack}`}`
     }
     if (type_id == 8 || 
         type_id == 15) {
@@ -681,7 +701,6 @@ const hit_data_handler = (
         atk_str = new_atk_str
         effect_str = ""
     }
-
     if (type_id == 9 || 
         type_id == 14) {
             atk_str = atk_str.replace(/ \(Ignores DEF\)/gm, "")
@@ -690,6 +709,10 @@ const hit_data_handler = (
     if (type_id == 21) {
             atk_str = atk_str.replace(/ \(Ignores DEF & Buffs\)/gm, "")
             effect_str = `Ignores DEF & Buffs${effect_str!=""?"\n":""}${effect_str}`
+    }
+    if(effect_id == 137){
+        atk_str = `${atk_str} ${effect_str}`
+        effect_str = `*Doesn't consume ally's BRV`
     }
 
     var hit_return = {
@@ -703,6 +726,7 @@ const hit_data_handler = (
         mcap_str: mcap_str == "" ? undefined : mcap_str,
         brvcap_str: brvcap_str == "" ? undefined : brvcap_str,
         hit_num: hit_num,
+        hitdata_id: hit_data.hitdata_id
     }
 
     return (
