@@ -122,6 +122,7 @@ const Hit_Data_For_Ability = (
             hit_data.hitdata_id != -1 &&
             hit_data.hitdata_id != 518 && //blanks
             (hit_data.effect_id != 37 && hit_data.m_nARG_4 != 2809) && //hide models
+            (hit_data.effect_id != 275 && hit_data.m_nARG != 2771) && //casts hide models
             check_hidden(hit_data.effect_id)
         ) {
             var hit_data_id_pars = ""

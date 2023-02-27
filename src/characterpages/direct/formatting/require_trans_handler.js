@@ -466,9 +466,9 @@ const require_trans_handler = (
     }
     if (value_trans == "delay_break") {
         if (require_value1 == 1) {
-            require_value1 = " (including from BREAK)"
+            require_value1 = " (including from <BREAK>)"
         } else {
-            require_value1 = " (excluding from BREAK)"
+            require_value1 = " (excluding from <BREAK>)"
         }
     }
     if(value_trans == "ability_type"){
@@ -489,10 +489,10 @@ const require_trans_handler = (
             require_value2 = ``
         }
         if (require_value2 == 2) {
-            require_value2 = ` (while afflicted with BREAK)`
+            require_value2 = ` (while afflicted with <BREAK>)`
         }
         if (require_value2 == 3) {
-            require_value2 = ` (while NOT afflicted with BREAK)`
+            require_value2 = ` (while NOT afflicted with <BREAK>)`
         }
     }
 

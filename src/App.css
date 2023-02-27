@@ -3775,6 +3775,18 @@ h3 {
   -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
+.BREAK {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/BREAK.png");
+  width: 58px;
+  height: 21px;
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-size: contain;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
 .Melee {
   background-image: url("https://dissidiacompendium.com/images/static/icons/type/Type_Melee.png");
   width: 36px;
@@ -5128,6 +5140,11 @@ h3 {
 
   .tippy-content {
     font-size: small !important;
+  }
+
+  .BREAK {
+    width: 44px;
+    height: 16px;
   }
 
   .BRV {

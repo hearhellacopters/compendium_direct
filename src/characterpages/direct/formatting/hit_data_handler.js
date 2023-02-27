@@ -50,6 +50,7 @@ const hit_data_handler = (
     const ailment_group = master_index.ailment_group_full[ver]
     const command_group = master_index.command_group_full[ver]
     const enemy_resist = master_index.enemy_resist_full[ver]
+    const CastNames = master_index.cast_names
 
     var effect_str = ""
 
@@ -73,17 +74,17 @@ const hit_data_handler = (
 
     if (over_max_brv_rate_ && over_max_brv_rate_ > 0 && over_max_brv_rate_ != 100 && mblur == undefined && over_max_brv_rate_ <= 998) {
         if (count == true) {
-            ove_str = `Allows for ${over_max_brv_rate_}% Stolen MAX BRV Overflow${over_max_brv_rate_with_break_ && over_max_brv_rate_with_break_ != 0 ? `, on BREAK: ${over_max_brv_rate_ + over_max_brv_rate_with_break_}%` : ""}`
+            ove_str = `Allows for ${over_max_brv_rate_}% Stolen MAX BRV Overflow${over_max_brv_rate_with_break_ && over_max_brv_rate_with_break_ != 0 ? `, on <BREAK>: ${over_max_brv_rate_ + over_max_brv_rate_with_break_}%` : ""}`
         } else {
             ove_str = `Allows for ${over_max_brv_rate_}% Gained MAX BRV Overflow`
         }
     }
 
     if (effect_id == 116) {
-        ove_str = `Allows for ${m_nARG_1}% Stolen MAX BRV Overflow${over_max_brv_rate_with_break_ && over_max_brv_rate_with_break_ != 0 ? `, on BREAK: ${m_nARG_1 + over_max_brv_rate_with_break_}%` : ""}`
+        ove_str = `Allows for ${m_nARG_1}% Stolen MAX BRV Overflow${over_max_brv_rate_with_break_ && over_max_brv_rate_with_break_ != 0 ? `, on <BREAK>: ${m_nARG_1 + over_max_brv_rate_with_break_}%` : ""}`
     }
     if (effect_id == 106) {
-        ove_str = `Allows for ${m_nARG}% Stolen MAX BRV Overflow${over_max_brv_rate_with_break_ && over_max_brv_rate_with_break_ != 0 ? `, on BREAK: ${m_nARG + over_max_brv_rate_with_break_}%` : ""}`
+        ove_str = `Allows for ${m_nARG}% Stolen MAX BRV Overflow${over_max_brv_rate_with_break_ && over_max_brv_rate_with_break_ != 0 ? `, on <BREAK>: ${m_nARG + over_max_brv_rate_with_break_}%` : ""}`
         effect_str = ""
     }
 
@@ -453,7 +454,7 @@ const hit_data_handler = (
             effect_str = effect_str.replace(/\[effect44\]/gm, `${m_nARG}`)
         }
         if (effect_value_type_id == 36) {
-            effect_str = effect_str.replace(/\[effect44\]/gm, `${m_nARG}% of total HP Damage dealt (${m_nARG_1}% on BREAK afflicted targets)`)
+            effect_str = effect_str.replace(/\[effect44\]/gm, `${m_nARG}% of total HP Damage dealt (${m_nARG_1}% on <BREAK> afflicted targets)`)
         }
         if (effect_value_type_id == 58) {
             const ailment_pull = AilmentNames[m_nARG] && AilmentNames[m_nARG].name
@@ -684,6 +685,12 @@ const hit_data_handler = (
         effect_str = effect_str
             .replace(/\[target\]/gm, ability_target_str)
             .replace("Self ", "")
+    }
+
+    if(value_trans == "cast_id0"){
+        if (CastNames[m_nARG] != undefined) {
+            effect_str = effect_str.replace(/\[m_nARG\]/gm, `[${CastNames[m_nARG].name}] #${CastNames[m_nARG].id}`)
+        }
     }
 
     effect_str = effect_str
