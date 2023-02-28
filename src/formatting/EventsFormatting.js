@@ -305,8 +305,8 @@ const EventsFormatting = ({ match, permapage, EventGuideData, master_index }) =>
                             <div className="charholderflair" style={{ minHeight: "40px" }}>
                                 <ul className="CharListHolder">
                                     <LazyLoadComponent>
-                                        {match.CharList.map(char => (
-                                            <FaceMaker key={char.CharID} match={char} BTUnit={match.BTChar} />
+                                        {match.CharList.map((char,i) => (
+                                            <FaceMaker key={i} match={char} BTUnit={match.BTChar} />
                                         ))
                                         }
                                     </LazyLoadComponent>
@@ -330,7 +330,7 @@ const EventsFormatting = ({ match, permapage, EventGuideData, master_index }) =>
                                 <div className="sphereslistholder">
                                     {spheres_holder.map((passive, i) => (
                                         <Sphere_Passive_Ability_Formatting
-                                            key={passive.pa_id}
+                                            key={i}
                                             passive_ability={passive.passive}
                                             ver={ver}
                                             loc={undefined}

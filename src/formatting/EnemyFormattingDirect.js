@@ -514,19 +514,19 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
                             <div className="summonhiderlarge">
                                 <div className="summonedenemysubbanner">Summoned Enemies</div>
                                 <ul className="similarenemyholder">
-                                    <DefaultTippy key={summonedenemy1.Name + summonedenemy1.battle_enemy_id + "1"} content={enemy.SummonEnemy1.split('\n').map((str, loc) => <div key={loc}>{str}</div>)} className="tooltip" >
+                                    <DefaultTippy content={enemy.SummonEnemy1.split('\n').map((str, loc) => <div key={loc}>{str}</div>)} className="tooltip" >
                                         <li>
-                                            <Link key={summonedenemy1.Name + summonedenemy1.battle_enemy_id + "2"} to={`/bestiary/enemies/${summonedenemy1.battle_enemy_id}`}>
-                                                <LazyLoadImage effect="opacity" key={summonedenemy1.Name + summonedenemy1.battle_enemy_id + "3"} className="similarenemycard" alt={summonedenemy1.Name} src={"https://dissidiacompendium.com/images/static/enemy/face/" + summonedenemy1.url} />
+                                            <Link to={`/bestiary/enemies/${summonedenemy1.battle_enemy_id}`}>
+                                                <LazyLoadImage effect="opacity"  className="similarenemycard" alt={summonedenemy1.Name} src={"https://dissidiacompendium.com/images/static/enemy/face/" + summonedenemy1.url} />
                                             </Link>
                                         </li>
                                     </DefaultTippy>
                                     {summonedenemy2 == undefined ?
                                         "" :
-                                        <DefaultTippy key={summonedenemy2.Name + summonedenemy2.battle_enemy_id + "4"} content={enemy.SummonEnemy2.split('\n').map((str, loc) => <div key={loc}>{str}</div>)} className="tooltip" >
+                                        <DefaultTippy content={enemy.SummonEnemy2.split('\n').map((str, loc) => <div key={loc}>{str}</div>)} className="tooltip" >
                                             <li>
-                                                <Link key={summonedenemy2.Name + summonedenemy2.battle_enemy_id + "5"} to={`/bestiary/enemies/${summonedenemy2.battle_enemy_id}`}>
-                                                    <LazyLoadImage effect="opacity" key={summonedenemy2.Name + summonedenemy2.battle_enemy_id + "6"} className="similarenemycard" alt={summonedenemy2.Name} src={"https://dissidiacompendium.com/images/static/enemy/face/" + summonedenemy2.url} />
+                                                <Link to={`/bestiary/enemies/${summonedenemy2.battle_enemy_id}`}>
+                                                    <LazyLoadImage effect="opacity" className="similarenemycard" alt={summonedenemy2.Name} src={"https://dissidiacompendium.com/images/static/enemy/face/" + summonedenemy2.url} />
                                                 </Link>
                                             </li>
                                         </DefaultTippy>}
@@ -552,7 +552,7 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
                 </div>
                 <div className="statsholder">
                     <div className={`enemyholderdesc statsdisplay ${spancheck == false ? "fill" : ""}`}>
-                        <LevelsFormatting key={enemy.battle_enemy_id} setlevel={setlevel} stats={stats} match={match} alllevels={alllevels} battle_enemy_id={enemy.battle_enemy_id} chase={enemy.chase} enemy_id={enemy.enemy_id} ProcessedLevels={ProcessedLevels} levelurl={levelurl} />
+                        <LevelsFormatting setlevel={setlevel} stats={stats} match={match} alllevels={alllevels} battle_enemy_id={enemy.battle_enemy_id} chase={enemy.chase} enemy_id={enemy.enemy_id} ProcessedLevels={ProcessedLevels} levelurl={levelurl} />
                         {showmeraw == true ?
                             <ReactJson iconStyle={"square"} quotesOnKeys={false} name={"Stats Commands"} displayDataTypes={false} collapsed={false} theme={"threezerotwofour"} src={showmestats} />
                             : ""}
@@ -659,8 +659,8 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
                                 <LazyLoadImage effect="opacity" alt="orb" className="orbicon2" src={`https://dissidiacompendium.com/images/static/icons/misc/Shinryu1.png`} />
                             </div>
                             <div className="orbcondtext">
-                                {enemy.ForceTime.map(self => (
-                                    <div key={self.id} className="orbconbholder forcebholder">
+                                {enemy.ForceTime.map((self,i) => (
+                                    <div key={i} className="orbconbholder forcebholder">
                                         <div><span className="unique">
                                             {showjp == false ? self.name : self.jpname == undefined ? self.name : self.jpname}
                                         </span><br />
@@ -777,19 +777,19 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
                     <div className="enemyholderdesc summonhidersmall">
                         <div className="summonedenemysubbanner">Summoned Enemies</div>
                         <ul className="summonedenemyholder">
-                            <DefaultTippy key={summonedenemy1.Name + summonedenemy1.battle_enemy_id + "7"} content={<span>{summonedenemy1.Name}<br />ID: {summonedenemy1.battle_enemy_id}</span>} className="tooltip" >
+                            <DefaultTippy content={<span>{summonedenemy1.Name}<br />ID: {summonedenemy1.battle_enemy_id}</span>} className="tooltip" >
                                 <li>
-                                    <Link key={summonedenemy1.Name + summonedenemy1.battle_enemy_id + "8"} to={`/bestiary/enemies/${summonedenemy1.battle_enemy_id}`}>
-                                        <LazyLoadImage effect="opacity" key={summonedenemy1.Name + summonedenemy1.battle_enemy_id + "9"} className="enemycard" alt={summonedenemy1.Name} src={"https://dissidiacompendium.com/images/static/enemy/face/" + summonedenemy1.url} />
+                                    <Link to={`/bestiary/enemies/${summonedenemy1.battle_enemy_id}`}>
+                                        <LazyLoadImage effect="opacity" className="enemycard" alt={summonedenemy1.Name} src={"https://dissidiacompendium.com/images/static/enemy/face/" + summonedenemy1.url} />
                                     </Link>
                                 </li>
                             </DefaultTippy>
                             {summonedenemy2 == undefined ?
                                 "" :
-                                <DefaultTippy key={summonedenemy2.Name + summonedenemy2.battle_enemy_id + "10"} content={<span>{summonedenemy2.Name}<br />ID: {summonedenemy2.battle_enemy_id}</span>} className="tooltip" >
+                                <DefaultTippy  content={<span>{summonedenemy2.Name}<br />ID: {summonedenemy2.battle_enemy_id}</span>} className="tooltip" >
                                     <li>
-                                        <Link key={summonedenemy2.Name + summonedenemy2.battle_enemy_id + "11"} to={`/bestiary/enemies/${summonedenemy2.battle_enemy_id}`}>
-                                            <LazyLoadImage effect="opacity" key={summonedenemy2.Name + summonedenemy2.battle_enemy_id + "12"} className="enemycard" alt={summonedenemy2.Name} src={"https://dissidiacompendium.com/images/static/enemy/face/" + summonedenemy2.url} />
+                                        <Link to={`/bestiary/enemies/${summonedenemy2.battle_enemy_id}`}>
+                                            <LazyLoadImage effect="opacity" className="enemycard" alt={summonedenemy2.Name} src={"https://dissidiacompendium.com/images/static/enemy/face/" + summonedenemy2.url} />
                                         </Link>
                                     </li>
                                 </DefaultTippy>}
@@ -809,8 +809,8 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
                         <div className={`bufflistbanner noselect fullnow newblue makeright`}>
                             <div className="unique ailmenttext">Starting Buffs:</div>
                             <ul className="abilitybufflist">
-                                {enemy.CastingBuffs.map(buffs => (
-                                    <li className={`abilitybufficonsholder ${selectedbuff.unq_id == buffs.unq_id ? "buffactive" : ""}`} key={buffs.unq_id}>
+                                {enemy.CastingBuffs.map((buffs,i) => (
+                                    <li className={`abilitybufficonsholder ${selectedbuff.unq_id == buffs.unq_id ? "buffactive" : ""}`} key={i}>
                                         <div className="biconspacer" onClick={() => buffselect(buffs)} >
                                             <Tippy content={buffs.name && replace_title(buffs.cast_str + " #" + buffs.id)}>
                                                 <img alt={buffs.name} className={`clicky abilitybufficon `} src={"https://dissidiacompendium.com/images/static/" + buffs.icon} />
@@ -892,8 +892,8 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
                             />
                         : ""}
                     {abilities == "infographic" && enemy.Infographic != undefined ?
-                        enemy.Infographic.map(self => (
-                            <div key={self}>
+                        enemy.Infographic.map((self,i)=> (
+                            <div key={i}>
                                 <a target="_blank" rel="noreferrer" href={`https://dissidiacompendium.com/images/static/info/${self}.png`}>
                                     <img className="infoimg withshadow clicky" src={`https://dissidiacompendium.com/images/static/info/${self}.png`} />
                                 </a>
@@ -904,8 +904,8 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
                 {eventsin.length == 0 ? "" :
                     <ul className="similarholder nolist">
                         <div className="similarbanner addbordertop addborderbottom">Featured Events</div>
-                        {eventsin.map(events => (
-                            <EventListing key={events.eventindex} match={events} permapage={false} />
+                        {eventsin.map((events, i)=> (
+                            <EventListing key={i} match={events} permapage={false} />
                         ))}
                     </ul>
                 }
@@ -913,8 +913,8 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
                     <div className="similarholder">
                         <div className="similarbanner addbordertop addborderbottom">Similar Enemies</div>
                         <ul className="enemyholder similarformating">
-                            {similarids.map(similarids => (
-                                <EnemyListingDirect key={similarids.battle_enemy_id} match={similarids} />
+                            {similarids.map((similarids,i) => (
+                                <EnemyListingDirect key={i} match={similarids} />
                             ))}
                         </ul>
                     </div> :

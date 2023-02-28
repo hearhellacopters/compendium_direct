@@ -3779,6 +3779,7 @@ h3 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/misc/BREAK.png");
   width: 58px;
   height: 21px;
+  margin-bottom: -3px;
   display: inline-block;
   vertical-align: middle;
   background-repeat: no-repeat;
@@ -5145,6 +5146,7 @@ h3 {
   .BREAK {
     width: 44px;
     height: 16px;
+    margin-bottom: -1px;
   }
 
   .BRV {
