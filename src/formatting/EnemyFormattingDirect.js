@@ -343,10 +343,17 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
     })();
 
     const handletypefilter = (array, filtervalue) => {
+        const makenum = (id)=>{
+            if(typeof id != 'number'){
+                return parseInt(id.replace(/\/.*/g,""))
+            } else {
+                return id
+            }
+        }
         if (filtervalue !== "") {
             const filteredout = array
                 .filter(thisarray => thisarray.EnemyList
-                    .some(List => List.battle_enemy_id == filtervalue)
+                    .some(List => makenum(List.battle_enemy_id) == filtervalue)
                 );
             return filteredout;
         } else {
