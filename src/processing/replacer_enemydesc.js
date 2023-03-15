@@ -194,6 +194,12 @@ const addformatting = (text) => {
             <span key={`100-${i}-${number}`} className="Cancel">{match}</span>
         )
     })
+    replacement = replacement == "" ? "" : reactStringReplace(replacement, /■(.*)/, (match, i) => {
+        number = number + 1
+        return (
+            <span key={`101-${i}-${number}`} className="Cancel">{match}</span>
+        )
+    })
     return (
         replacement
     )

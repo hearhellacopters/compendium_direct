@@ -4,7 +4,7 @@ import 'react-lazy-load-image-component/src/effects/opacity.css';
 
 const ohno = ({ name, random, message, message1 }) => {
     return (
-        <div className="zone">
+        <div className="zone2">
             <div className="noresultsflair">
                 <div className="noresults">
                     <LazyLoadImage effect="opacity" key={`ohno${random}`} className={`ohno${random}`} alt="oh no" src={`https://dissidiacompendium.com/images/static/icons/404/${random}.png`} />

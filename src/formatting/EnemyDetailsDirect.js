@@ -21,6 +21,7 @@ import EnemyAbilities_MasterListDirectDetailsHandler from './EnemyAbilities_Mast
 import addformatting from '../processing/replacer_enemydesc';
 import roles from '../characterpages/direct/formatting/command_ability/ailment_tags.json'
 import Tippy from './TippyDefaults.js';
+import EnemyGuide from './EnemyGuide';
 
 const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jptoggledata }) => {
 
@@ -36,6 +37,15 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
         if (ran == true) {
             setForcetimeTab(number)
             setran(false)
+        }
+    }
+
+    const ForceTimeSelect2 = (number) => {
+        if(ForcetimeTab != number){
+            setgetGuide(undefined)
+        }
+        if (number != undefined) {
+            setForcetimeTab(number)
         }
     }
 
@@ -69,6 +79,8 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
         state.levels.levels
     );
 
+    const [showhelpers, setshowhelpers] = useStateIfMounted(false)
+
     const [ShowDesc, setShowDesc] = useStateIfMounted(true);
     const [ShowAbilities, setShowAbilities] = useStateIfMounted(true);
     const [ShowStats, setShowStats] = useStateIfMounted(true);
@@ -77,6 +89,7 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
     const [ShowOrb, setShowOrb] = useStateIfMounted(false);
     const [ShowForce, setShowForce] = useStateIfMounted(false);
     const [ShowGraphic, setShowGraphic] = useStateIfMounted(false);
+    const [ShowGuide, setShowGuide] = useStateIfMounted(false);
 
     const [activeDesc, setactiveDesc] = useStateIfMounted(false);
     const [activeAbilities, setactiveAbilities] = useStateIfMounted(false);
@@ -86,6 +99,7 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
     const [activeOrb, setactiveOrb] = useStateIfMounted(false);
     const [activeForce, setactiveForce] = useStateIfMounted(false);
     const [activeGraphic, setactiveGraphic] = useStateIfMounted(false);
+    const [activeGuide, setactiveGuide] = useStateIfMounted(false);
 
     const [getDesc, setgetDesc] = useStateIfMounted();
     const [getAbilities, setgetAbilities] = useStateIfMounted();
@@ -95,7 +109,7 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
     const [getOrb, setgetOrb] = useStateIfMounted();
     const [getForce, setgetForce] = useStateIfMounted();
     const [getGraphic, setgetGraphic] = useStateIfMounted();
-
+    const [getGuide, setgetGuide] = useStateIfMounted();
 
     useEffect(() => {
         if (ran == true) {
@@ -125,9 +139,9 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
                                         Sort: single.Sort,
                                         ShortName: single.ShortName,
                                         CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${single.CharacterURLName}/face.png`,
-                                        CharacterName:
-                                            single.CharacterName,
+                                        CharacterName: single.CharacterName,
                                         CharID: self.CharID,
+                                        CrystalColor: self.CrystalColor,
                                         roles: ["Enemy"]
                                     }
                                 })
@@ -159,9 +173,9 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
                                         Sort: self3.Sort,
                                         ShortName: self3.ShortName,
                                         CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${self3.CharacterURLName}/face.png`,
-                                        CharacterName:
-                                            self3.CharacterName,
+                                        CharacterName: self3.CharacterName,
                                         CharID: self3.CharID,
+                                        CrystalColor: self3.CrystalColor,
                                         roles: ["Force_Enemy"]
                                     }
                                 })
@@ -193,9 +207,9 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
                                         Sort: self3.Sort,
                                         ShortName: self3.ShortName,
                                         CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${self3.CharacterURLName}/face.png`,
-                                        CharacterName:
-                                            self3.CharacterName,
+                                        CharacterName: self3.CharacterName,
                                         CharID: self3.CharID,
+                                        CrystalColor: self3.CrystalColor,
                                         roles: ["Force_Enemy"]
                                     }
                                 })
@@ -226,9 +240,9 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
                                     Sort: self3.Sort,
                                     ShortName: self3.ShortName,
                                     CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${self3.CharacterURLName}/face.png`,
-                                    CharacterName:
-                                        self3.CharacterName,
+                                    CharacterName: self3.CharacterName,
                                     CharID: self3.CharID,
+                                    CrystalColor: self3.CrystalColor,
                                     roles: [self]
                                 }
                             })
@@ -251,9 +265,9 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
                                 Sort: single.Sort,
                                 ShortName: single.ShortName,
                                 CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${single.CharacterURLName}/face.png`,
-                                CharacterName:
-                                    single.CharacterName,
+                                CharacterName: single.CharacterName,
                                 CharID: self.CharID,
+                                CrystalColor: single.CrystalColor,
                                 roles: ["Enemy"]
                             }
                         })
@@ -304,7 +318,10 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
         if (match.Infographic != undefined) {
             setShowGraphic(true)
         }
-    }, [match, setShowOrb, setShowCast, setShowSummons, setShowForce, setShowGraphic])
+        if (match.QuestIDs != undefined) {
+            setShowGuide(true)
+        }
+    }, [match, setShowOrb, setShowCast, setShowSummons, setShowForce, setShowGraphic, setShowGuide])
 
     useEffect(() => {
         //desc
@@ -435,8 +452,27 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
                 setgetAbilities(filtered)
             }
         }
+        //guide
+        if (DevSwitch == true && activeGuide == true && getGuide == undefined) {
+            axios.get(`http://localhost:3001/data/enemies_guide/${match.QuestIDs[ForcetimeTab]}`, { 'muteHttpExceptions': true }).then((res) => {
+                const response = res.data;
+                setgetGuide(response)
+            }).catch(function (err) {
+                console.log(err)
+                setgetGuide({})
+            })
+        }
+        if (DevSwitch == false && activeGuide == true && getGuide == undefined) {
+            axios.get(`https://www.dissidiacompendium.com/data/enemies_guide/${match.QuestIDs[ForcetimeTab]}.json`, { 'muteHttpExceptions': true }).then((res) => {
+                const response = res.data;
+                setgetGuide(response)
+            }).catch(function (err) {
+                console.log(err)
+                setgetGuide({})
+            })
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [match, activeDesc, activeCast, activeForce, activeOrb, activeGraphic, activeSummons, activeStats, ProcessedLevels, activeAbilities])
+    }, [match, activeDesc, activeCast, activeForce, activeOrb, activeGraphic, activeSummons, activeStats, activeGuide, ProcessedLevels, activeAbilities, ForcetimeTab])
 
     const descbutton = () => {
         if (activeDesc == true) {
@@ -451,6 +487,7 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
         setactiveOrb(false)
         setactiveForce(false)
         setactiveGraphic(false)
+        setactiveGuide(false)
     }
 
     const abilitiesbutton = () => {
@@ -466,6 +503,7 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
         setactiveOrb(false)
         setactiveForce(false)
         setactiveGraphic(false)
+        setactiveGuide(false)
     }
 
     const statsbutton = () => {
@@ -481,6 +519,7 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
         setactiveOrb(false)
         setactiveForce(false)
         setactiveGraphic(false)
+        setactiveGuide(false)
     }
 
     const castbutton = () => {
@@ -496,6 +535,7 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
         setactiveOrb(false)
         setactiveForce(false)
         setactiveGraphic(false)
+        setactiveGuide(false)
     }
 
     const summonsbutton = () => {
@@ -511,6 +551,7 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
         setactiveOrb(false)
         setactiveForce(false)
         setactiveGraphic(false)
+        setactiveGuide(false)
     }
 
     const orbbutton = () => {
@@ -526,6 +567,7 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
         }
         setactiveForce(false)
         setactiveGraphic(false)
+        setactiveGuide(false)
     }
 
     const forcebutton = () => {
@@ -541,6 +583,7 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
             setactiveForce(true)
         }
         setactiveGraphic(false)
+        setactiveGuide(false)
     }
 
     const graphicbutton = () => {
@@ -555,6 +598,23 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
             setactiveGraphic(false)
         } else {
             setactiveGraphic(true)
+        }
+        setactiveGuide(false)
+    }
+
+    const guidebutton = () => {
+        setactiveDesc(false)
+        setactiveAbilities(false)
+        setactiveStats(false)
+        setactiveCast(false)
+        setactiveSummons(false)
+        setactiveOrb(false)
+        setactiveForce(false)
+        setactiveGraphic(false)
+        if (activeGuide == true) {
+            setactiveGuide(false)
+        } else {
+            setactiveGuide(true)
         }
     }
 
@@ -572,11 +632,11 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
 
     return (
         <div className="enemyholderdesc3">
-            <Link className='click linktopage enemyiconholder makeleft enemytitledetails' to={`/bestiary/enemies/${match.battle_enemy_id}`}>
-                <div className="" >
+            <div className='enemyiconholder makeleft enemytitledetails' to={`/bestiary/enemies/${match.battle_enemy_id}`}>
+                <Link className="click linktopage" >
                     {match.Name}{` #${match.battle_enemy_id}`}
-                </div>
-            </Link>
+                </Link>
+            </div>
             <div className="imageelementholder2">
                 <Link to={`/bestiary/enemies/${match.battle_enemy_id}`}>
                     <DefaultTippy content={
@@ -709,6 +769,9 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
                 </div>
                 <ul className="bufftypes2">
                     <li onClick={descbutton} className={`${activeDesc == true ? "filteractive" : "filterinactive"} buffbutton2 descbuttons `} />
+                    {ShowGuide == true ?
+                        <li onClick={guidebutton} className={`${activeGuide == true ? "filteractive" : "filterinactive"} buffbutton2 guidebutton`} />
+                        : ""}
                     <li onClick={abilitiesbutton} className={`${activeAbilities == true ? "filteractive" : "filterinactive"} buffbutton2 abilitiesbutton `} />
                     <li onClick={statsbutton} className={`${activeStats == true ? "filteractive" : "filterinactive"} buffbutton2 statsbutton `} />
                     {ShowGraphic == true ?
@@ -779,8 +842,8 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
                             <LazyLoadImage effect="opacity" alt="orb" className="orbicon2" src={`https://dissidiacompendium.com/images/static/icons/misc/Shinryu1.png`} />
                         </div>
                         <div className="orbcondtext">
-                            {getForce.ForceTime.map(self => (
-                                <div key={self.id} className="orbconbholder forcebholder">
+                            {getForce.ForceTime.map((self,i) => (
+                                <div key={i} className="orbconbholder forcebholder">
                                     <div><span className="unique">{self.name}</span><br />{addformatting(self.desc)}</div>
                                 </div>
                             ))}
@@ -799,7 +862,7 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
                     ))}
                 </ul>
                 : ""}
-            {activeForce == true && getForce != undefined && getForce[`ForceGauge`] && getForce[`ForceGauge`][ForcetimeTab] != undefined ?
+            {activeForce == true && getForce != undefined && getForce[`ForceGauge`] && getForce[`ForceGauge`][ForcetimeTab] && getForce[`ForceGauge`][ForcetimeTab].ForceGauge != undefined ?
                 <div className={`enemyholderdesc${enemy[`ForceGauge`].length > 1 ? "2" : ""}`}>
                     <div className="enemyforcesubbanner">Force Gauge</div>
                     {getForce[`ForceGauge`][ForcetimeTab] && getForce[`ForceGauge`][ForcetimeTab].ForceGauge.sort((a, b) => a.id - b.id).map((self, i) => (
@@ -826,24 +889,46 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
                 <div className="characterhelper">
                     <div className="similarbanner">Potential Special Helpers</div>
                     <div className="filterholderflair">
+                    {helpers.length < 19 ?
                         <ul className="CharNameHolder" style={{ columnCount: columns, MozColumnsCount: columns, WebkitColumnsCount: columns }}>
                             {helpers.map((self, i) => (
                                 <li key={i}>
-
                                     <Link className="linkforce" to={`/characters/${self.ShortName}`}>
-                                        {self.CharacterName}:
+                                    <span className={`${self.CrystalColor}crystalmini`}></span>{self.CharacterName}:
                                     </Link><br />
-
-                                    {self.roles.map((self3, i) => (
+                                    {self.roles.map((self3,i) => (
                                         <Tippy key={i} content={roles[self3] && roles[self3].name}>
                                             <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[self3] && roles[self3].url}.png)` }}>
                                             </span>
                                         </Tippy>
                                     ))}
-
                                 </li>
                             ))}
                         </ul>
+                    :
+                    showhelpers == false ?
+                            <div className={`force_coloring noshowbottomline`}>
+                                <div onClick={() => setshowhelpers((prevstate) => !prevstate)} className='loadbanners'>
+                                    {"Show Helpers"}
+                                </div>
+                            </div>
+                            :
+                            <ul className="CharNameHolder" style={{ columnCount: columns, MozColumnsCount: columns, WebkitColumnsCount: columns }}>
+                            {helpers.map((self, i) => (
+                                <li key={i}>
+                                    <Link className="linkforce" to={`/characters/${self.ShortName}`}>
+                                    <span className={`${self.CrystalColor}crystalmini`}></span>{self.CharacterName}:
+                                    </Link><br />
+                                    {self.roles.map((self3,i) => (
+                                        <Tippy key={i} content={roles[self3] && roles[self3].name}>
+                                            <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[self3] && roles[self3].url}.png)` }}>
+                                            </span>
+                                        </Tippy>
+                                    ))}
+                                </li>
+                            ))}
+                        </ul>
+                    }
                     </div>
                     <div className="subtext">{"*Dependant on selected GL/JP version"}</div>
                 </div>
@@ -895,24 +980,46 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
                         <div className="characterhelper">
                             <div className="similarbanner">Potential Special Helpers</div>
                             <div className="filterholderflair">
+                            {helpers.length < 19 ?
                                 <ul className="CharNameHolder" style={{ columnCount: columns, MozColumnsCount: columns, WebkitColumnsCount: columns }}>
                                     {helpers.map((self, i) => (
                                         <li key={i}>
-
                                             <Link className="linkforce" to={`/characters/${self.ShortName}`}>
-                                                {self.CharacterName}:
+                                                <span className={`${self.CrystalColor}crystalmini`}></span>{self.CharacterName}:
                                             </Link><br />
-
                                             {self.roles.map((self3, i) => (
                                                 <Tippy key={i} content={roles[self3].name}>
                                                     <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[self3].url})` }}>
                                                     </span>
                                                 </Tippy>
                                             ))}
-
                                         </li>
                                     ))}
                                 </ul>
+                            :
+                            showhelpers == false ?
+                                <div className={`force_coloring noshowbottomline`}>
+                                    <div onClick={() => setshowhelpers((prevstate) => !prevstate)} className='loadbanners'>
+                                        {"Show Helpers"}
+                                    </div>
+                                </div>
+                            :
+                            <ul className="CharNameHolder" style={{ columnCount: columns, MozColumnsCount: columns, WebkitColumnsCount: columns }}>
+                                    {helpers.map((self, i) => (
+                                        <li key={i}>
+                                            <Link className="linkforce" to={`/characters/${self.ShortName}`}>
+                                                <span className={`${self.CrystalColor}crystalmini`}></span>{self.CharacterName}:
+                                            </Link><br />
+                                            {self.roles.map((self3, i) => (
+                                                <Tippy key={i} content={roles[self3].name}>
+                                                    <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[self3].url})` }}>
+                                                    </span>
+                                                </Tippy>
+                                            ))}
+                                        </li>
+                                    ))}
+                                </ul>
+                            }
                             </div>
                             <div className="subtext">{"*Dependant on selected GL/JP version"}</div>
                         </div> : ""}
@@ -957,6 +1064,31 @@ const EnemyDetailsDirect = ({ match, ProcessedCharacters, PartnerCharacters, jpt
                         enemy_id={match.enemy_id}
                         Level={match.Level}
                     />
+                : ""}
+            {activeGuide == true ?
+                getGuide == undefined ? "Loading..." :
+                <>
+                {enemy[`ForceGauge`] && enemy[`ForceGauge`].length == 1?
+                "":
+                <ul className="enemybannertabs">
+                    {enemy[`ForceGauge`] && enemy[`ForceGauge`].map((self, i) => (
+                        <li key={i} className={ForcetimeTab == i ? "active" : ""} onClick={() => ForceTimeSelect2(i)}>
+                            {ForcetimeTab == i ? <span className="gemselected" />
+                                : ""}
+                            {`Guide ${i + 1}`}
+                        </li>
+                    ))}
+                </ul>
+                }
+                <div className={`enemyholderdesc${enemy[`ForceGauge`] && enemy[`ForceGauge`].length > 1 ? "2" : ""}`}>
+                    <div className='enemyholderdesc normalfont margtop makeright lighterblue'>
+                        <EnemyGuide
+                            guide={getGuide}
+                        />
+                    </div>
+                    <div className="subtextfg">*guide data not always provided</div>
+                </div>
+                </>
                 : ""}
         </div>
     )

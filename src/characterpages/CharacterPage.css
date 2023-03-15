@@ -661,6 +661,10 @@
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/force.png");
 }
 
+.guidebutton {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/guide.png");
+}
+
 .graphicbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/graphic.png");
 }

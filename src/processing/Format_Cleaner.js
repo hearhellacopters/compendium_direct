@@ -46,6 +46,7 @@ const cleaner = (text) => {
             .replace(/\\bQW/g, "FFCC")
             .replace(/\\bQ4/g, "XV")
             .replace(/\\bQj/g, "WOFF")
+            .replace(/\\bQV/g, "FFT")
             .replace(/\\bUh/g, "O")
             .replace(/\\bP1/g, "【I】")
             .replace(/\\bP2/g, "【II】")

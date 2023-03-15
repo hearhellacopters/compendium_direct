@@ -9,6 +9,14 @@ const log = () => {
                 <h1>Update Log</h1>
                 <div className="creditsholder">
                 <div className="filterholderflair" >
+                        V.5.6.0
+                    </div>
+                    <ul className="creditslist">
+                        - Added enemy guide data to eligible enemy pages<br />
+                        - Limited display of Potential Special Helpers on enemy pages<br />
+                        - Bug fixes<br />
+                    </ul>
+                <div className="filterholderflair" >
                         V.5.5.0
                     </div>
                     <ul className="creditslist">

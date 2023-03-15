@@ -29,6 +29,8 @@ import roles from '../characterpages/direct/formatting/command_ability/ailment_t
 import { getQuery, getQueryStringVal, useQueryParam } from '../processing/urlparams'
 import cleaner from '../processing/Format_Cleaner.js';
 import { setTrue, setFalse } from '../redux/ducks/jptoggle.js';
+import axios from "axios";
+import EnemyGuide from './EnemyGuide';
 
 const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy_id, ProcessedEnemies, ProcessedEvents, ProcessedLevels, levelurl, battle_enemy, PartnerCharacters, ProcessedCharacters, jptoggledata }) => {
 
@@ -44,6 +46,7 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
     const [set_chars, setset_chars] = useStateIfMounted(battle_enemy.CharArray)
     const [helpers, sethelpers] = useStateIfMounted([])
     const [prev, setprev] = useStateIfMounted(battle_enemy.battle_enemy_id)
+    const [showhelpers, setshowhelpers] = useStateIfMounted(false)
 
     const [ForcetimeTab, setForcetimeTab] = useState(getQueryStringVal("force") != null ? getQueryStringVal("force") : 0);
     const [ForcetimeTabsearch, setForcetimeTabsearch] = useQueryParam("force", "");
@@ -415,10 +418,38 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
             setForcetimeTab(number)
             setran(false)
         }
+        if(ForcetimeTab != number){
+            setgetGuide(undefined)
+        }
     }
+
     const toggle_jp = () => {
         setshowjp((prevValue) => !prevValue)
     }
+
+    const [getGuide, setgetGuide] = useStateIfMounted();
+
+    useEffect(() => {
+        if (DevSwitch == true && abilities == "guide" && getGuide == undefined) {
+            axios.get(`http://localhost:3001/data/enemies_guide/${enemy.QuestIDs[ForcetimeTab]}`, { 'muteHttpExceptions': true }).then((res) => {
+                const response = res.data;
+                setgetGuide(response)
+            }).catch(function (err) {
+                console.log(err)
+                setgetGuide({})
+            })
+        }
+        if (DevSwitch == false && abilities == "guide" && getGuide == undefined) {
+            axios.get(`https://www.dissidiacompendium.com/data/enemies_guide/${enemy.QuestIDs[ForcetimeTab]}.json`, { 'muteHttpExceptions': true }).then((res) => {
+                const response = res.data;
+                setgetGuide(response)
+            }).catch(function (err) {
+                console.log(err)
+                setgetGuide({})
+            })
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [abilities,ForcetimeTab])
 
     return (
         <div>
@@ -755,6 +786,7 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
                             </DefaultTippy>
                             {" Potential Special Helpers"}</div>
                         <div className="filterholderflair">
+                            {helpers.length < 19 ?
                             <ul className="CharNameHolder" style={{ columnCount: columns, MozColumnsCount: columns, WebkitColumnsCount: columns }}>
                                 {helpers.map((self, i) => (
                                     <li key={i}>
@@ -772,6 +804,32 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
                                     </li>
                                 ))}
                             </ul>
+                            :
+                            showhelpers == false ?
+                            <div className={`force_coloring noshowbottomline`}>
+                                <div onClick={() => setshowhelpers((prevstate) => !prevstate)} className='loadbanners'>
+                                    {"Show Helpers"}
+                                </div>
+                            </div>
+                            :
+                            <ul className="CharNameHolder" style={{ columnCount: columns, MozColumnsCount: columns, WebkitColumnsCount: columns }}>
+                                {helpers.map((self, i) => (
+                                    <li key={i}>
+                                        <Link className="linkforce" to={`/characters/${self.ShortName}`}>
+                                            <span className={`${self.CrystalColor}crystalmini`}></span>{self.CharacterName}:
+                                        </Link><br />
+
+                                        {self.roles.map((self3, i) => (
+                                            <Tippy key={i} content={roles[self3] && roles[self3].name}>
+                                                <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[self3] && roles[self3].url}.png)` }}>
+                                                </span>
+                                            </Tippy>
+                                        ))}
+
+                                    </li>
+                                ))}
+                            </ul>
+                            }
                         </div>
                         <div className="subtext">{"*Dependant on "}
                             <DefaultTippy content={`${jptoggledata == true ? "Switch to GL" : "Switch to JP"}`} className="tooltip" >
@@ -855,6 +913,16 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
                             Desc
                         </li>
                     </Link>
+                    {enemy.QuestIDs != undefined ?
+                        <Link to={`/bestiary/enemies/${battle_enemy_id}/${stats && stats.data_index}/guide`}>
+                            <li className={abilities == "guide" ? "active" : ""} >
+                                {abilities == "guide" ?
+                                    <span className="gemselected" />
+                                    : ""}
+                                Guides
+                            </li>
+                        </Link>
+                        : ""}
                     {enemy.Infographic != undefined ?
                         <Link to={`/bestiary/enemies/${battle_enemy_id}/${stats && stats.data_index}/infographic`}>
                             <li className={abilities == "infographic" ? "active" : ""} >
@@ -888,6 +956,31 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
                         :
                         ""
                     }
+                    {abilities == "guide"?
+                    <>
+                    <div className="enemysubheader">※ Guides ※</div>
+                    {enemy[`ForceGauge`] && enemy[`ForceGauge`].length == 1?
+                    "":
+                    <ul className="enemyguidelist">
+                        {enemy[`ForceGauge`] && enemy[`ForceGauge`].map((self, i) => (
+                            <li key={i} className={ForcetimeTab == i ? "clicky" : "updatelink clicky"} onClick={() => ForceTimeSelect(i)}>
+                                {ForcetimeTab == i ? <span className="gemselected" />
+                                    : ""}
+                                {`Guide ${i + 1}`}
+                            </li>
+                        ))}
+                    </ul>
+                    }
+                    <div className='enemyholderdesc normalfont margtop makeright lighterblue'>
+                            <EnemyGuide
+                                guide={getGuide}
+                                showjp={showjp}
+                                toggle_jp={toggle_jp}
+                            />
+                    </div>
+                    <div className="subtextfg">*guide data not always provided</div>
+                    </>
+                    :""}
                     {abilities == "abilities" ?
                         <EnemyAbilities_MasterListDirect
                             stats={stats}
