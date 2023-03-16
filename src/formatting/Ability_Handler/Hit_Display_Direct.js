@@ -74,7 +74,7 @@ const Hit_Handler_Direct = ({
             {Meta && Meta.note != undefined ?
                 <div className="subpassiveflair">
                     {command_meta.Meta.note.split(/\n/gm).map((value, i) =>
-                        <div key={i}>{replacer(`(${value})`)}</div>
+                        <div key={i}>{replacer(`${value}`)}</div>
                     )}
                 </div>
                 : ""}

@@ -677,7 +677,7 @@ const Ailment_Data_Formatting = ({
                 {ailment_data.note != undefined ?
                     <div className="subpassiveflair">
                         {ailment_data.note.split(/\n/gm).map((value, i) =>
-                            <div key={i}>{replacer_buff(`(${value})`)}</div>
+                            <div key={i}>{replacer_buff(`${value}`)}</div>
                         )}
                     </div>
                     : ""}

@@ -57,7 +57,7 @@ const CharacterPage = ({
   const onclick = (Voice) => {
     if(playingaudio != true){
       try {
-        const myAudioElement = new Audio(`https://dissidiacompendium.com/images/static/voice/${Voice.CharID}/${Voice.voice}.mp3`)
+        const myAudioElement = new Audio(`https://dissidiacompendium.com/images/static/characters/${Voice.chara}/voice/${Voice.voice}.mp3`)
         myAudioElement.volume = volume
         myAudioElement.style.display = "none"
         myAudioElement.load();

@@ -150,7 +150,7 @@ const Character_Ability_Pars = ({
     const playvoice =()=>{
         if(playingaudio != true && character_ability.voice_index != undefined){
             try {
-                const myAudioElement = new Audio(`https://dissidiacompendium.com/images/static/voice/${character_ability.charaID}/${character_ability.voice_index}.mp3`)
+                const myAudioElement = new Audio(`https://dissidiacompendium.com/images/static/characters/${char_id[character_ability.charaID] && char_id[character_ability.charaID].name && char_id[character_ability.charaID].name.replace(/ /g, "").replace(/,/g, "").replace(/'/g, "").replace(/&/g, "")}/voice/${character_ability.voice_index}.mp3`)
                 myAudioElement.volume = volume
                 myAudioElement.style.display = "none"
                 myAudioElement.addEventListener("canplaythrough", (event) => {
@@ -773,7 +773,7 @@ const Character_Ability_Pars = ({
                         {character_ability.command && character_ability.command.note != undefined ?
                             <div className="subpassiveflair">
                                 {character_ability.command.note.split(/\n/gm).map((value, i) =>
-                                    <div key={i}>{replacer_buff(`(${value})`)}</div>
+                                    <div key={i}>{replacer_buff(`${value}`)}</div>
                                 )}
                             </div>
                             : ""}
