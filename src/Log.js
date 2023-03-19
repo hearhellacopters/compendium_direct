@@ -9,6 +9,12 @@ const log = () => {
                 <h1>Update Log</h1>
                 <div className="creditsholder">
                 <div className="filterholderflair" >
+                        V.5.6.5
+                    </div>
+                    <ul className="creditslist">
+                        - Added quick jump between character pages by clicking name
+                    </ul>
+                <div className="filterholderflair" >
                         V.5.6.0
                     </div>
                     <ul className="creditslist">

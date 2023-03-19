@@ -13,6 +13,9 @@ import 'tippy.js/animations/scale-subtle.css';
 import 'tippy.js/animations/scale-extreme.css';
 import FaceMaker from '../formatting/CharFaceFormatting.js'
 import CharcterHeader from './CharacterHeader.js'
+import { TiArrowSortedDown } from 'react-icons/ti';
+import { TiArrowSortedUp } from 'react-icons/ti';
+import AutosizeInput from './AutosizeInput.js';
 import { useDispatch } from "react-redux";
 import { setFalse, setTrue } from '../redux/ducks/jptoggle'
 import { getQuery, getQueryStringVal, useQueryParam } from '../processing/urlparams'
@@ -54,13 +57,15 @@ const CharacterPageDirect = ({
     const [JPsearch, setJPSearch] = useQueryParam("JP", "");
     const [ver, setver] = useStateIfMounted(jptoggledata == true ? "JP" : "GL")
     const [selectedCharaID, setselectedCharaID] = useStateIfMounted(selected_char.CharID)
-
+    const [showdrop, setshowdrop] = useState(false)
+    const [search, setsearch] = useState(selected_char.CharacterName);
 
     useEffect(() => {
         setselectedCharaID(selected_char.CharID)
         setver(jptoggledata == true ? "JP" : "GL")
+        setsearch(selected_char.CharacterName)
         // eslint-disable-next-line
-    }, [selected_char, jptoggledata])
+    }, [selected_char, jptoggledata, setselectedCharaID])
 
     const jponlybutton = () => {
         if (jptoggledata == false) {
@@ -572,6 +577,28 @@ const CharacterPageDirect = ({
         }
     }, [loc, match, setbanner_loc, selected_char, ver, sethide_page])
 
+    const typeListArray = Object.values(ProcessedCharacters).filter(self => jptoggledata == true ? self.JPOrder != undefined : self.GLOrder != undefined).sort((a, b) => jptoggledata == true ? b.JPOrder - a.JPOrder : b.GLOrder - a.GLOrder).map((typeListUnique) => ({
+        value: typeListUnique.ShortName,
+        label: typeListUnique.CharacterName,
+        id: typeListUnique.CharID,
+    }));
+
+    const [flash, setflash] = useStateIfMounted("");
+    const setFlashandhide = () => {
+        let mounted = true
+        setshowdrop((prevValue) => !prevValue);
+        setflash("flash");
+        if (mounted) {
+            setTimeout(() => setflash(""), 1000);
+        }
+    }
+
+    const char_select=(e)=>{
+        setshowdrop((prevVal) => !prevVal)
+        setsearch(e)
+    }
+    const handleFocus = (event) => event.target.select();
+
     return (
         <div>
             <Helmet>
@@ -605,13 +632,63 @@ const CharacterPageDirect = ({
                     subcat={"none"}
                     headertitle={
                         <h1>
+                                
                             <span>
                                 <DefaultTippy content={`${jptoggledata == true ? "Switch to GL" : "Switch to JP"}`} className="tooltip" >
                                     <span onClick={jponlybutton} className={`${jptoggledata ? "jpflage jpsmallinactive smalleventbutton" : "glflage smalleventbutton"}`} />
                                 </DefaultTippy>
                             </span>{" "}
-                            {selected_char.CharacterName}
-                            <div className='abilityJPname'>{selected_char.JPName}</div>
+                                <span className='char_link' 
+                                onClick={()=>setshowdrop((prevVal) => !prevVal)}>
+                                <AutosizeInput
+                                    inputStyle={{
+                                        background: "none",
+                                        color: "white",
+                                        border: "none",
+                                        textAlign: "center",
+                                        fontSize: "calc( var(--column-width) / 100 )",
+                                        fontWeight: "bold",
+                                        textShadow: "-1px -1px #000, 1px -1px #000, -1px 1px #000, 1px 1px #000",
+                                        outline: "none",
+                                        minWidth: "2em",
+                                        display: "inline-block",
+                                        position: "relative",
+                                        whiteSpace: "pre",
+                                        padding: "0px"
+                                    }}
+                                    autoCapitalize="none"
+                                    autoComplete="off" 
+                                    autoCorrect="off" 
+                                    spellCheck="false"
+                                    tabIndex="0"
+                                    type="text" 
+                                    aria-autocomplete="list"
+                                    aria-expanded="false"
+                                    aria-haspopup="true"
+                                    role="combobox"
+                                    onChange={e => setsearch(e.target.value)}
+                                    value={search}
+                                    onFocus={handleFocus}
+                                    >
+                                    </AutosizeInput>
+                                {showdrop ? <TiArrowSortedUp className="uparrow" /> : <TiArrowSortedDown className="downarrow" />}
+                                </span>
+
+                            {showdrop == true ?
+                                <div className="char-container contrl_text" onClick={()=>setshowdrop((prevVal) => !prevVal)}>
+                                    <div className="leveltext__menu menu_selector-list">
+                                        <div className="typetext__menu-list menu_selector-MenuList">
+                                            {typeListArray && typeListArray.filter((char) => (`${char.label} `).toLowerCase().includes(search != selected_char.CharacterName ? search.toLowerCase() : "")).map((char,i) => (
+                                                <Link className="selectorlinks" onClick={()=>char_select(char.label)} key={i} to={`/characters/${char.value}${loc!="character"?`/${loc}`:""}${match.params.type!=undefined?`/${match.params.type}`:""}${"/?"+getQuery().toString()}`}>
+                                                    <div className={`typetext__option menu_option-MenuList ${char.id == selected_char.CharID ? "leveltext__option--is-selected" : ""}`} onClick={setFlashandhide}>
+                                                        {char.label}
+                                                    </div>
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div> : ""}
+                                <div className='abilityJPname'>{selected_char.JPName}</div>
                         </h1>}
                     match={match}
                     newmatch={selected_char}

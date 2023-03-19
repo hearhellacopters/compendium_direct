@@ -114,6 +114,12 @@
     box-sizing: border-box;
 }
 
+.char-container {
+    max-width: 300px;
+    position: relative;
+    box-sizing: border-box;
+}
+
 @media (hover: hover) {
     .leveltext__control:hover {
         filter: brightness(1.2);

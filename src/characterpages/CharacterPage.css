@@ -11,6 +11,28 @@
     height: auto;
 }
 
+.char_link{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.char_link:hover {
+    transform: translateY(-1px);
+    color: #f7f91d;
+    filter: brightness(1.1);
+    -webkit-filter: brightness(1.1);
+    transition: all ease 0.3s;
+    cursor: pointer;
+}
+.contrl_text{
+    font-size: 18px !important;
+    z-index: 5;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .charpageautotitle {
     margin-top: auto;
     margin-bottom: auto;

@@ -133,7 +133,7 @@ const FRCond = ({ match, ProcessedCharacters, jptoggledata }) => {
                         {addformatting(match.AbilityFR)}
 
                     </div>
-                    <div className="subtext_brev">*info is truncated for brevity, dependant on select GL/JP version</div>
+                    <div className="subtext_brev">*info is truncated, dependant on selected version</div>
                     <div className='zone'>
                         <div className={`featuredbanner force_coloring noshowbottomline`}>
                             <div onClick={() => setrun_helpers((prevstate) => !prevstate)} className='loadmorespheres'>
