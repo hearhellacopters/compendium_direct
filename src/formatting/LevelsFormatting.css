@@ -96,7 +96,9 @@
     max-width: 310px;
 }
 
-
+.no_click{
+    cursor: auto !important;
+}
 
 /** selector fix **/
 

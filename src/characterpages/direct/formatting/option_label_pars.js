@@ -19,6 +19,7 @@ const option_label_pars = (
     const command_group = master_index.command_group_full[ver]
     const passivenames = master_index.passivenames
     const equipmentpassivenames = master_index.equipmentpassivenames
+    const elementid_1 = master_index.passive_effects.elementid_1
     const CondData = master_index.cond
 
     var label1_pull = label && option_labels[label]
@@ -49,6 +50,13 @@ const option_label_pars = (
 
     if (label1_pull != undefined) {
         final_str = label1_pull.label_str
+
+        if (value_trans == "element_id") {
+            if (elementid_1[valueA] != undefined) {
+                valueA_str = elementid_1[valueA].elementid_1
+            }
+        }
+
 
         if (value_trans == "ailment_idA_debuffed") {
             if (valueA == -1) {

@@ -53,6 +53,19 @@
     cursor: pointer;
 }
 
+.EventHolder{
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.space_left{
+    padding-left: 5px;
+}
+
 .bluebutton {
     background-color: #2c5ad8 !important;
     background: linear-gradient(180deg, hsla(0, 0%, 100%, .6392156862745098) 5.73%, rgba(130, 153, 216, .49411764705882355) 29.69%, rgba(39, 241, 207, 0) 47.92%, rgba(39, 241, 207, 0) 52.08%, #224199 81.25%, #2446a5), #2c5ad8 !important;

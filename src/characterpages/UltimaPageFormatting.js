@@ -345,7 +345,7 @@ const UltimaPage = ({
                 <span className="ultimaorb"></span>{" x800 needed for "}<div className="ultimayellowcolor">{"first MLB"}</div><br /><br />
                 <span className="ultimaorb"></span>{" x900 for each "}<div className="ultimayellowcolor">{"additional weapon of the same type"}</div>
               </div>
-              <div className="similarbanner">Where to get</div>
+              <div className="similarbanner">Where to find</div>
               <div className="ultimainfo darkerbg">
                 <span className="ultimaorb"></span>{" x10 when enhancing a character to"}<div className="ultimayellowcolor">{" Crystal Level 90"}</div><br /><br />
                 <span className="ultimaorb"></span>{" x30-60 available per "}<div className="ultimayellowcolor">{"Event"}</div><br /><br />

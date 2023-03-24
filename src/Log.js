@@ -12,7 +12,8 @@ const log = () => {
                         V.5.6.5
                     </div>
                     <ul className="creditslist">
-                        - Added quick jump between character pages by clicking name
+                        - Added quick jump between character pages by clicking name<br />
+                        - Added Event numbers to event and banner pages
                     </ul>
                 <div className="filterholderflair" >
                         V.5.6.0

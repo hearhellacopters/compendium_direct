@@ -15,7 +15,7 @@ const EnemyPassoffDirect = ({ match, ProcessedEnemies, ProcessedEvents, Processe
     const filtered = ProcessedEnemies[match.params.id]
 
     useEffect(() => {
-        if (DevSwitch == true && filtered.battle_enemy_id != undefined) {
+        if (DevSwitch == true && filtered && filtered.battle_enemy_id != undefined) {
             axios.get(`http://localhost:3001/data/enemies_direct/${filtered.battle_enemy_id}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
                 setbattle_enemy(response)
@@ -23,7 +23,7 @@ const EnemyPassoffDirect = ({ match, ProcessedEnemies, ProcessedEvents, Processe
                 console.log(err)
             })
         }
-        if (DevSwitch == false && filtered.battle_enemy_id != undefined) {
+        if (DevSwitch == false && filtered && filtered.battle_enemy_id != undefined) {
             axios.get(`https://www.dissidiacompendium.com/data/enemies_direct/${filtered.battle_enemy_id}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
                 setbattle_enemy(response)
@@ -37,7 +37,7 @@ const EnemyPassoffDirect = ({ match, ProcessedEnemies, ProcessedEvents, Processe
     //console.log(battle_enemy)
 
 
-    if (filtered.enemy_id == undefined) {
+    if (filtered == undefined || filtered.enemy_id == undefined) {
         return (
             <Navigate replace to="/404" />
         )

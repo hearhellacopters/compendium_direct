@@ -337,7 +337,7 @@ const CrystalPassivesPage = ({
                 <img className="infoimg withshadow clicky" src={`https://dissidiacompendium.com/images/static/icons/cry_points/map.png`} />
               </a>
               }
-              <div className="similarbanner">Where to get</div>
+              <div className="similarbanner">Where to find</div>
               <div className="ultimainfo darkerbg">
               <Link className="whitecolor" to={`/events/2352`}>
                 <span className='gemcredits'></span>Weekly Crystal Quests

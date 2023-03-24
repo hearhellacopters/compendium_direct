@@ -45,30 +45,42 @@ const BannersFormatting = ({ match, permapage }) => {
                 }
                 {currenttime >= new Date(match.outdate) ? (
                     <LazyLoadComponent>
-                        <div className="tickholder redcolor">
-                            <div className="glshadow"><span className='emoji'>🌎</span></div>&nbsp;<TickDown value={months[new Date(match.outdate).getMonth()]} /><TickDown value={ordinal(new Date(match.outdate).getDate())} /><TickDown value={new Date(match.outdate).getFullYear()} />
+                        <div className='EventHolder'>
+                            <div className="tickholder redcolor">
+                                <div className="glshadow"><span className='emoji'>🌎</span></div>&nbsp;<TickDown value={months[new Date(match.outdate).getMonth()]} /><TickDown value={ordinal(new Date(match.outdate).getDate())} /><TickDown value={new Date(match.outdate).getFullYear()} />
+                            </div>
+                            <div className='space_left'>{match.number ? match.number : ""}</div>
                         </div>
                     </LazyLoadComponent>
                 ) : match.tempdate == true ?
                     <LazyLoadComponent>
-                        <div className="greencolor">
-                            <div className="tickholder">
-                                <div className="glshadow"><span className='emoji'>🌎</span></div>&nbsp;<TickUp value={months[new Date(match.indate).getMonth()]} /><div className="spacerleft"><TickUp value={new Date(match.indate).getFullYear()} /></div>
+                        <div className='EventHolder'>
+                            <div className="greencolor">
+                                <div className="tickholder">
+                                    <div className="glshadow"><span className='emoji'>🌎</span></div>&nbsp;<TickUp value={months[new Date(match.indate).getMonth()]} /><div className="spacerleft"><TickUp value={new Date(match.indate).getFullYear()} /></div>
+                                </div>
+                                {match.JPindate == undefined ? "" :
+                                    currenttime <= new Date(match.JPindate) ?
+                                        <StartsInTimer expiryTimestamp={new Date(match.JPindate)} JPFlag={true} /> :
+                                        new Date(match.JPoutdate) <= currenttime ? "" :
+                                            <EndsInTimer expiryTimestamp={new Date(match.JPoutdate)} JPFlag={true} />}
                             </div>
-                            {match.JPindate == undefined ? "" :
-                                currenttime <= new Date(match.JPindate) ?
-                                    <StartsInTimer expiryTimestamp={new Date(match.JPindate)} JPFlag={true} /> :
-                                    new Date(match.JPoutdate) <= currenttime ? "" :
-                                        <EndsInTimer expiryTimestamp={new Date(match.JPoutdate)} JPFlag={true} />}
+                            <div className='space_left'>{match.number ? match.number : ""}</div>
                         </div>
                     </LazyLoadComponent>
                     : currenttime <= new Date(match.indate) ? (
                         <LazyLoadComponent>
-                            <StartsInTimer expiryTimestamp={new Date(match.indate)} JPFlag={false} />
+                            <div className='EventHolder'>
+                                <StartsInTimer expiryTimestamp={new Date(match.indate)} JPFlag={false} />
+                                <div className='space_left'>{match.number ? match.number : ""}</div>
+                            </div>
                         </LazyLoadComponent>
                     ) : (
                         <LazyLoadComponent>
-                            <EndsInTimer expiryTimestamp={new Date(match.outdate)} JPFlag={false} />
+                            <div className='EventHolder'>
+                                <EndsInTimer expiryTimestamp={new Date(match.outdate)} JPFlag={false} />
+                                <div className='space_left'>{match.number ? match.number : ""}</div>
+                            </div>
                         </LazyLoadComponent>
                     )
                 }

@@ -316,7 +316,7 @@ const FRPage = ({ match, ProcessedCharacters, ForceCharacters, jptoggledata }) =
                 <span className="orbm"></span>{" x240 needed for "}<div className="ultimayellowcolor">{" MLB "}</div><span className="gorbm"></span>{" x170 "}<div className="ultimayellowcolor">{"Higher Power Orbs "}</div>{"to Max level"}<br /><br />
                 <span className="hiorbm"></span>{" x4 when selling a "}<div className="ultimayellowcolor">{"FR Weapon"}</div>
               </div>
-              <div className="similarbanner">Where to get</div>
+              <div className="similarbanner">Where to find</div>
               <div className="ultimainfo darkerbg">
                 <span className="frstone"></span>{" x2 Force Stones at FR Weapon "}<div className="ultimayellowcolor">{" Master Limit Break"}</div><br /><br />
                 <span className="frstone"></span>{" x3 or "}<span className="frshard"></span>{" x60 and "}<span className="bpointm"></span>{" x15,000 Points for "}<div className="ultimayellowcolor">{"Force Enhancement Lv30"}</div><br /><br />
