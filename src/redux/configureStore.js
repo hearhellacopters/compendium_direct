@@ -26,6 +26,7 @@ import playlistReducer from "./ducks/playlist";
 import playvolumeReducer from "./ducks/playvolume";
 import ultimaweaponReducer from "./ducks/ultimaweapon";
 import crystalpassivesReducer from "./ducks/crystalpassives";
+import crystalabilitiesReducer from "./ducks/crystalabilities";
 //direct
 import transnamesReducer from "./ducks/transnames";
 
@@ -70,6 +71,7 @@ const reducer = combineReducers({
   volume: playvolumeReducer,
   ultimaweapon: ultimaweaponReducer,
   crystalpassives: crystalpassivesReducer,
+  crystalabilities: crystalabilitiesReducer,
   //direct
   master_index: master_indexReducer,
   transnames: transnamesReducer,

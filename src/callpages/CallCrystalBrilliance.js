@@ -2,8 +2,10 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 import { getCrystalPassives } from '../redux/ducks/crystalpassives';
+import { getCrystalAbilities } from '../redux/ducks/crystalabilities';
 import { getJPToggle } from '../redux/ducks/jptoggle';
 import CrystalPassivesPage from '../characterpages/CrystalPassivesPage';
+import CrystalAbilityPage from '../characterpages/CrystalAbilityPage';
 import Loading from './_loading'
 
 import { getMasterIndex } from '../redux/ducks/master_index';
@@ -13,6 +15,10 @@ const CallCrystalPassives = () => {
     const match = {
         params: useParams()
     }
+
+    const jptoggledata = useSelector((state) =>
+        state.toggle.toggle
+    );
 
     const dispatch = useDispatch();
 
@@ -35,14 +41,24 @@ const CallCrystalPassives = () => {
         state.crystalpassives.crystalpassives
     );
 
-    const jptoggledata = useSelector((state) =>
-        state.toggle.toggle
-    );
-
     useEffect(() => {
         let mounted = true
         if (mounted && crystalpassives == undefined) {
             dispatch(getCrystalPassives());
+        }
+        return function cleanup() {
+            mounted = false
+        }
+    }, [dispatch, crystalpassives])
+
+    const crystalabilities = useSelector((state) =>
+        state.crystalabilities.crystalabilities
+    );
+
+    useEffect(() => {
+        let mounted = true
+        if (mounted && crystalabilities == undefined) {
+            dispatch(getCrystalAbilities());
         }
         if (mounted) {
             dispatch(getJPToggle());
@@ -50,7 +66,7 @@ const CallCrystalPassives = () => {
         return function cleanup() {
             mounted = false
         }
-    }, [dispatch, crystalpassives]);
+    }, [dispatch, crystalabilities]);
 
     return (
 
@@ -58,10 +74,12 @@ const CallCrystalPassives = () => {
 
             crystalpassives != undefined &&
 
+            crystalabilities != undefined &&
+
             master_index != undefined
 
             ?
-
+            match.params.type == "passives" ?
             <CrystalPassivesPage
                 jptoggledata={jptoggledata}
 
@@ -69,7 +87,15 @@ const CallCrystalPassives = () => {
                 match={match}
 
                 master_index={master_index}
+            />
+            :
+            <CrystalAbilityPage
+                jptoggledata={jptoggledata}
 
+                crystalabilities={Object.values(crystalabilities)}
+                match={match}
+
+                master_index={master_index}
             />
             :
             <div className=""><h1><img className="loadingbardots" src={"https://dissidiacompendium.com/images/static/site/loading.gif"}></img></h1></div>

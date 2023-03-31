@@ -14,6 +14,8 @@ const hit_data_handler = (
     kid_1,
     bdlur,
     mblur,
+
+    power,
     hit_num
 ) => {
 
@@ -716,6 +718,9 @@ const hit_data_handler = (
     if (type_id == 21) {
             atk_str = atk_str.replace(/ \(Ignores DEF & Buffs\)/gm, "")
             effect_str = `Ignores DEF & Buffs${effect_str!=""?"\n":""}${effect_str}`
+            if(pot_str != "" && power != undefined){
+                pot_str = `BRV potency of ${power.toLocaleString()} fixed damage`
+            }
     }
     if(effect_id == 137){
         atk_str = `${atk_str} ${effect_str}`

@@ -73,7 +73,9 @@ const Command_Dif = (
         command_meta && command_meta.kcon != undefined ? command_meta.kcon : undefined,
         command_meta && command_meta.kcon_1 != undefined ? command_meta.kcon_1 : undefined,
         command_meta && command_meta.kid != undefined ? command_meta.kid : undefined,
-        command_meta && command_meta.kid_1 != undefined ? command_meta.kid_1 : undefined
+        command_meta && command_meta.kid_1 != undefined ? command_meta.kid_1 : undefined,
+
+        character_ability.power
     )
 
     const hit_parers = counts_handler(hit_data_pars.hit_pars)
@@ -331,11 +333,11 @@ const Command_Dif = (
         full_str = `${full_str}${command_meta.showadd}\n`
     }
 
-    if (character_ability.same_ability_id_ != 0) {
+    if (character_ability.same_ability_id_ != 0 && character_ability.same_ability_id_ != undefined) {
         full_str = `${full_str}*Ability Group: ${character_ability.same_ability_id_}\n`
     }
 
-    if (character_ability.ability_rank_ != 0) {
+    if (character_ability.ability_rank_ != 0 && character_ability.ability_rank_ != undefined) {
         full_str = `${full_str}*Ability Rank: ${character_ability.ability_rank_}\n`
     }
 

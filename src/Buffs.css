@@ -526,6 +526,26 @@ hr {
     text-align: center;
 }
 
+.saholder_crystal {
+    display: table;
+    background-image: url(https://dissidiacompendium.com/images/static/icons/misc/saholder_crystal.png);
+    z-index: 2;
+    height: 35px;
+    width: 52px;
+    margin-top: -85px;
+    margin-left: 80px;
+    position: absolute;
+    text-align: center;
+    background-repeat: no-repeat;
+}
+.sanumber_crystal{
+    margin-left: 16px;
+    margin-top: 25px;
+    display: block;
+    margin-bottom: auto;
+    z-index: 3;
+}
+
 .saholderg {
     display: table;
     background-image: url(https://dissidiacompendium.com/images/static/icons/misc/saholderg.png);
@@ -816,6 +836,10 @@ hr {
     }
 
     .saholder {
+        display: none;
+    }
+
+    .saholder_crystal {
         display: none;
     }
 

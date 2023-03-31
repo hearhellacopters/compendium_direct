@@ -40,7 +40,9 @@ const Character_Ability_Pars = ({
     tag_override,
     all_options,
     link,
-    master_index
+    master_index,
+    hide_chara,
+    use_tag
 }) => {
 
     const CommandNames = master_index.commands
@@ -484,7 +486,9 @@ const Character_Ability_Pars = ({
         command_meta && command_meta.kcon != undefined ? command_meta.kcon : undefined,
         command_meta && command_meta.kcon_1 != undefined ? command_meta.kcon_1 : undefined,
         command_meta && command_meta.kid != undefined ? command_meta.kid : undefined,
-        command_meta && command_meta.kid_1 != undefined ? command_meta.kid_1 : undefined
+        command_meta && command_meta.kid_1 != undefined ? command_meta.kid_1 : undefined,
+
+        character_ability.power
     )
 
     const hit_parers = counts_handler(hit_data_pars.hit_pars)
@@ -577,19 +581,22 @@ const Character_Ability_Pars = ({
                 <div className="infotitleholder">
                     <div className="faceandiconholder">
                         <div className="idoffset" id={character_ability.LearningAbility}></div>
+                        {hide_chara == true ?"":
                         <Char_Face_Maker char_id={char_id} id={character_ability.charaID} loc={loc} link={link} />
-                        <div className="abilityiconholder" onClick={showmeraw} >
+                        }
+                        <div className={hide_chara == true ? "enemyabilityiconholder" :"abilityiconholder"} onClick={showmeraw} >
                             <div className="abilityurlholder">
                                 <LazyLoadImage effect="opacity" className="abilityicon" alt={Name} src={`https://dissidiacompendium.com/images/static/${IconURL}.png`} />
                                 <div className={
                                     use_num > 100 ? "abilityblspeed" :
+                                    character_ability.Crystal == true && (use_num < 100 && use_num != 0) ? "saholder_crystal" :
                                         character_ability.FR == true && (use_num < 100 && use_num != 0) ? "saholderg" :
                                             character_ability.CallLD == true && (use_num < 100 && use_num != 0) ? "saholderg" :
                                                 character_ability.BT == true && (use_num < 100 && use_num != 0) ? "saholderg" :
                                                     "saholder"
                                 }>
                                     {use_num < 100 ?
-                                        <div className={`sanumber ${character_ability.Free_Ability == true ? "upstat" : ""}`}>{usemaker(use_num)}</div>
+                                        <div className={`sanumber${character_ability.Crystal == true ? "_crystal": ""} ${character_ability.Free_Ability == true ? "upstat" : ""}`}>{usemaker(use_num)}</div>
                                         :
                                         usemaker(use_num)
                                     }
@@ -728,9 +735,9 @@ const Character_Ability_Pars = ({
                                         <Tippy content={recast_tip}>
                                             <div className={character_ability.UseNum < 100 ? "abilityusesholder" : "abilityusesholder2"}>
                                                 {character_ability.UseNum < 100 ?
-                                                    <span className={tag_override != undefined ? tag_override : character_ability.command && character_ability.command.rank && rank_trans(character_ability.command.rank)}></span>
+                                                    <span className={use_tag != undefined ? use_tag : tag_override != undefined ? tag_override : character_ability.command && character_ability.command.rank && rank_trans(character_ability.command.rank)}></span>
                                                     : ""}
-                                                {usemaker(character_ability.UseNum)}
+                                                {use_tag != undefined ? " x" :""}{usemaker(character_ability.UseNum)}
                                                 {character_ability.increase != undefined && character_ability.UseNum != 0 ?
                                                     character_ability.increase.map((self, i) => (
                                                         self.recast != undefined ?
@@ -748,9 +755,9 @@ const Character_Ability_Pars = ({
                                         :
                                         <div className={character_ability.UseNum < 100 ? "abilityusesholder" : "abilityusesholder2"}>
                                             {character_ability.UseNum < 100 ?
-                                                <span className={tag_override != undefined ? tag_override : character_ability.command && character_ability.command.rank && rank_trans(character_ability.command.rank)}></span>
+                                                <span className={use_tag != undefined ? use_tag :tag_override != undefined ? tag_override : character_ability.command && character_ability.command.rank && rank_trans(character_ability.command.rank)}></span>
                                                 : ""}
-                                            {usemaker(character_ability.UseNum)}
+                                             {use_tag != undefined ? " x" :""}{usemaker(character_ability.UseNum)}
                                             {character_ability.increase != undefined && character_ability.UseNum != 0 ?
                                                 character_ability.increase.map((self, i) => (
                                                     self.recast != undefined ?
@@ -978,12 +985,12 @@ const Character_Ability_Pars = ({
                                 {addformatting(command_meta && command_meta.showadd, "tl")}
                             </div>
                             : ""}
-                        {character_ability.same_ability_id_ != 0 ?
+                        {character_ability.same_ability_id_ != 0 && character_ability.same_ability_id_ != undefined?
                             <div>
                                 {`*Ability Group: ${character_ability.same_ability_id_}`}
                             </div>
                             : ""}
-                        {character_ability.ability_rank_ != 0 ?
+                        {character_ability.ability_rank_ != 0 && character_ability.same_ability_id_ != undefined?
                             <div>
                                 {`*Ability Rank: ${character_ability.ability_rank_}`}
                             </div>

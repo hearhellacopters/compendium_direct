@@ -153,7 +153,7 @@ const Summons = ({
                 <Link to={`/bonuses/mog`}>
                   <li alt="Mog" onClick={mogbutton} className={`${locator == "Mog" ? "gemactive" : "geminactive"} MogIcon summonsgem`} ></li>
                 </Link>
-                <Link to={`/bonuses/crystal`}>
+                <Link to={`/bonuses/crystal/passives`}>
                   <li alt="Crystal Brilliance" onClick={mogbutton} className={`${locator == "Crystal" ? "gemactive" : "geminactive"} all_nodes summonsgemshadow`} ></li>
                 </Link>
               </ul>

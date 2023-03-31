@@ -164,6 +164,8 @@ const App = () => {
               <Route path="/search/music" exact element={<JukeBox />} />
               <Route path="/bonuses" exact element={<CallSummonHandoff />} />
               <Route path="/summons" exact element={<Navigate replace to="/bonuses" />}  />
+              <Route path="/bonuses/crystal" element={<Navigate replace to="/bonuses/crystal/passives" />} />
+              <Route path="/bonuses/:id/:type" exact element={<CallSummonHandoff />} />
               <Route path="/bonuses/:id" exact element={<CallSummonHandoff />} />
               <Route path="/bestiary/enemies" element={<BestiaryDirect />} />
               <Route path="/bestiary" exact element={<Navigate replace to="/bestiary/enemies/" />} />

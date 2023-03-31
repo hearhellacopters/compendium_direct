@@ -51,7 +51,23 @@
 }
 
 .all_nodes {
-    content: url("https://dissidiacompendium.com/images/static/icons/cry_points/all_nodes.png")
+    content: url("https://dissidiacompendium.com/images/static/icons/cry_points/crystal_ability.png")
+}
+
+.crypoints{
+    background-image: url("https://dissidiacompendium.com/images/static/icons/misc/crypoints.png");
+    height: 28px;
+    width: 15px;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-bottom: -3px;
+    margin-top: -3px;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: drop-shadow(1px 1px 1px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
 .suminfoholder {

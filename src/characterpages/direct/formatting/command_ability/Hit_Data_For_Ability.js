@@ -54,6 +54,8 @@ const Hit_Data_For_Ability = (
     kcon_1,
     kid,
     kid_1,
+
+    power
 ) => {
 
     const hit_effect_id = master_index.hit_trans_data.hit_effect_id
@@ -148,6 +150,8 @@ const Hit_Data_For_Ability = (
                     kid_1,
                     bdlur,
                     mblur,
+
+                    power,
                     hit_counter
                 )
             }

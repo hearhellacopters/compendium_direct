@@ -20,25 +20,26 @@ import Tippy from '../formatting/TippyDefaults.js';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
 import Passive_Ability_Formatting from './direct/formatting/passives/Passive_Ability_Formatting.js';
-import { getQuery, getQueryStringVal, useQueryParam } from '../processing/urlparams'
+import Character_Ability_Pars from './direct/formatting/command_ability/Character_Ability_Pars.js';
+import { getQuery, getQueryStringVal, useQueryParam } from '../processing/urlparams.js'
 import StatsMaker from '../formatting/StatsDisplay.js';
 
-const CrystalPassivesPage = ({
+const CrystalAbilityPage = ({
   jptoggledata,
 
-  crystalpassives,
+  crystalabilities,
   match,
   master_index
 
 }) => {
+
   const matchweapon = match.params.id
 
   const passivelimit = 20
 
-  const rawData = crystalpassives;
+  const rawData = crystalabilities
 
   const banerDisplayTerm = "Crystal Passives";
-
   const [showinfo, setshowinfo] = useStateIfMounted(false);
   const [showmap, setshowmap] = useStateIfMounted(false);
   const [loop, setLoop] = useStateIfMounted(false);
@@ -168,7 +169,7 @@ const CrystalPassivesPage = ({
         a.pa_id - b.pa_id :
         b.pa_id - a.pa_id)
       const searchit = makeUnique.filter((e) =>
-        (`${e.name} ${e.glname} ${e.jpname} #${e.pa_id}`).toLowerCase().includes(searchTerm)
+        (`${e.command.name} ${e.command.glname} ${e.command.jpname} #${e.ability}`).toLowerCase().includes(searchTerm)
       );
 
       setFilterResults(makeUnique);
@@ -391,10 +392,10 @@ const CrystalPassivesPage = ({
           </div>
             <ul className="bannertabs">
                   <Link to={`/bonuses/crystal/passives${jptoggledata == false ? "" : "?JP=true"}`}>
-                      <li className={"active"} ><span className={"gemselected"} />Passives</li>
+                      <li className={match.params.type == "passives" ? "active" : ""} ><span className={match.params.type == "passives" ? "gemselected" : ""} />Passives</li>
                   </Link>
                   <Link to={`/bonuses/crystal/abilities${jptoggledata == false ? "" : "?JP=true"}`}>
-                      <li className={""} >Abilities</li>
+                      <li className={match.params.type == "passives" ? "" : "active"} ><span className={match.params.type == "passives" ? "" : "gemselected"} />Abilities</li>
                   </Link>
               </ul>
             <div className="buffsholder">
@@ -403,9 +404,9 @@ const CrystalPassivesPage = ({
             </div>
             {listgear.length > 0 ? (
               listgear.map(passive => (
-                <Passive_Ability_Formatting
-                    key={passive.pa_id}
-                    passive_ability={passive}
+                <Character_Ability_Pars
+                    key={passive.data_id}
+                    character_ability={passive}
                     ver={"JP"}
                     loc={"crystal"}
                     Single={true}
@@ -415,7 +416,9 @@ const CrystalPassivesPage = ({
                     formatting={true}
 
                     span={true}
-                    release={passive.start_date}
+                    tag_override={passive.loc_tag}
+                    hide_chara={true}
+                    use_tag={"crypoints"}
                 />
               ))) : (
               <div>No results</div>
@@ -429,4 +432,4 @@ const CrystalPassivesPage = ({
       </div>
     )
 }
-export default CrystalPassivesPage
+export default CrystalAbilityPage
