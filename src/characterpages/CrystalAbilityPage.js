@@ -169,7 +169,7 @@ const CrystalAbilityPage = ({
         a.pa_id - b.pa_id :
         b.pa_id - a.pa_id)
       const searchit = makeUnique.filter((e) =>
-        (`${e.command.name} ${e.command.glname} ${e.command.jpname} #${e.ability}`).toLowerCase().includes(searchTerm)
+        (`${e.command.name} ${e.command.glname} ${e.command.jpname} #${e.LearningAbility}`).toLowerCase().includes(searchTerm)
       );
 
       setFilterResults(makeUnique);
