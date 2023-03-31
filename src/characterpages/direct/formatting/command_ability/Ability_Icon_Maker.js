@@ -91,6 +91,12 @@ const Ability_Icon_Maker = (
             final_str = final_str.replace(/_ForceExt/gm, "_Green")
         }
     }
+    if (rank == "Crystal") {
+        final_str = `icons/buttons/ability/Ability_${typepull == "Battery" ? "Battery" : typepull == "Debuff" ? "Debuff" : typepull == "Heal" ? "Heal" : typepull == "Tank" ? "Tank" : attpull}${typepull == "HP" ? "_HP" : "_BRV"}_Crystal`
+        if (green_check == true) {
+            final_str = final_str.replace(/_Crystal/gm, "_Green")
+        }
+    }
 
     if (Trap == true) {
         final_str = `icons/buttons/ability/Ability_Trap${typepull == "HP" ? "_HP" : "_BRV"}_Green`

@@ -4094,36 +4094,45 @@ const ailment_data_pars = (
         }
     }
     if (value_trans == "shield_1") {
-        var rank1value1shield1 = parseInt(tables.rank1.value1.toString().substring(0, 3));
+        var rank1value1shield1 = Math.floor((tables.rank1.value1 % 10000) / 10);
         var rank1shield = AilmentNames[rank1value1shield1] && AilmentNames[rank1value1shield1].name
-        var rank1value2shield1 = parseInt(tables.rank1.value1.toString().substring(3, 4));
-        var rank2value1shield1 = parseInt(tables.rank2.value1.toString().substring(0, 3));
+        var rank1value2shield1 = Math.floor(tables.rank1.value1 % 10);
+
+        var rank2value1shield1 = Math.floor((tables.rank2.value1 % 10000) / 10);
         var rank2shield = AilmentNames[rank2value1shield1] && AilmentNames[rank2value1shield1].name
-        var rank2value2shield1 = parseInt(tables.rank2.value1.toString().substring(3, 4));
-        var rank3value1shield1 = parseInt(tables.rank3.value1.toString().substring(0, 3));
+        var rank2value2shield1 = Math.floor(tables.rank2.value1 % 10);
+
+        var rank3value1shield1 = Math.floor((tables.rank3.value1 % 10000) / 10);
         var rank3shield = AilmentNames[rank3value1shield1] && AilmentNames[rank3value1shield1].name
-        var rank3value2shield1 = parseInt(tables.rank3.value1.toString().substring(3, 4));
-        var rank4value1shield1 = parseInt(tables.rank4.value1.toString().substring(0, 3));
+        var rank3value2shield1 = Math.floor(tables.rank3.value1 % 10);
+
+        var rank4value1shield1 = Math.floor((tables.rank4.value1 % 10000) / 10);
         var rank4shield = AilmentNames[rank4value1shield1] && AilmentNames[rank4value1shield1].name
-        var rank4value2shield1 = parseInt(tables.rank4.value1.toString().substring(3, 4));
-        var rank5value1shield1 = parseInt(tables.rank5.value1.toString().substring(0, 3));
+        var rank4value2shield1 = Math.floor(tables.rank4.value1 % 10);
+
+        var rank5value1shield1 = Math.floor((tables.rank5.value1 % 10000) / 10);
         var rank5shield = AilmentNames[rank5value1shield1] && AilmentNames[rank5value1shield1].name
-        var rank5value2shield1 = parseInt(tables.rank5.value1.toString().substring(3, 4));
-        var rank6value1shield1 = parseInt(tables.rank6.value1.toString().substring(0, 3));
+        var rank5value2shield1 = Math.floor(tables.rank5.value1 % 10);
+
+        var rank6value1shield1 = Math.floor((tables.rank6.value1 % 10000) / 10);
         var rank6shield = AilmentNames[rank6value1shield1] && AilmentNames[rank6value1shield1].name
-        var rank6value2shield1 = parseInt(tables.rank6.value1.toString().substring(3, 4));
-        var rank7value1shield1 = parseInt(tables.rank7.value1.toString().substring(0, 3));
+        var rank6value2shield1 = Math.floor(tables.rank6.value1 % 10);
+
+        var rank7value1shield1 = Math.floor((tables.rank7.value1 % 10000) / 10);
         var rank7shield = AilmentNames[rank7value1shield1] && AilmentNames[rank7value1shield1].name
-        var rank7value2shield1 = parseInt(tables.rank7.value1.toString().substring(3, 4));
-        var rank8value1shield1 = parseInt(tables.rank8.value1.toString().substring(0, 3));
+        var rank7value2shield1 = Math.floor(tables.rank7.value1 % 10);
+
+        var rank8value1shield1 = Math.floor((tables.rank8.value1 % 10000) / 10);
         var rank8shield = AilmentNames[rank8value1shield1] && AilmentNames[rank8value1shield1].name
-        var rank8value2shield1 = parseInt(tables.rank8.value1.toString().substring(3, 4));
-        var rank9value1shield1 = parseInt(tables.rank9.value1.toString().substring(0, 3));
+        var rank8value2shield1 = Math.floor(tables.rank8.value1 % 10);
+
+        var rank9value1shield1 = Math.floor((tables.rank9.value1 % 10000) / 10);
         var rank9shield = AilmentNames[rank9value1shield1] && AilmentNames[rank9value1shield1].name
-        var rank9value2shield1 = parseInt(tables.rank9.value1.toString().substring(3, 4));
-        var rank10value1shield1 = parseInt(tables.rank10.value1.toString().substring(0, 3));
+        var rank9value2shield1 = Math.floor(tables.rank9.value1 % 10);
+
+        var rank10value1shield1 = Math.floor((tables.rank10.value1 % 10000) / 10);
         var rank10shield = AilmentNames[rank10value1shield1] && AilmentNames[rank10value1shield1].name
-        var rank10value2shield1 = parseInt(tables.rank10.value1.toString().substring(3, 4));
+        var rank10value2shield1 = Math.floor(tables.rank10.value1 % 10);
         tables = {
             rank1: {
                 value1: `[${rank1shield}]`,
@@ -4179,46 +4188,55 @@ const ailment_data_pars = (
         }
     }
     if (value_trans == "shield_2") {
-        var rank1value1shield2 = parseInt(tables.rank1.value1.toString().substring(0, 3));
+        var rank1value1shield2 = Math.floor((tables.rank1.value1 % 100000000) / 10000);
         var rank1shield2 = AilmentNames[rank1value1shield2] && AilmentNames[rank1value1shield2].name
-        var rank1value2shield2 = parseInt(tables.rank1.value1.toString().substring(3, 4));
-        var rank1value3shield2 = parseInt(tables.rank1.value1.toString().substring(4, 7));
-        var rank2value1shield2 = parseInt(tables.rank2.value1.toString().substring(0, 3));
+        var rank1value2shield2 = Math.floor((tables.rank1.value1 % 10000) / 1000);
+        var rank1value3shield2 = Math.floor(tables.rank1.value1 % 1000);
+
+        var rank2value1shield2 = Math.floor((tables.rank2.value1 % 100000000) / 10000);
         var rank2shield2 = AilmentNames[rank2value1shield2] && AilmentNames[rank2value1shield2].name
-        var rank2value2shield2 = parseInt(tables.rank2.value1.toString().substring(3, 4));
-        var rank2value3shield2 = parseInt(tables.rank2.value1.toString().substring(4, 7));
-        var rank3value1shield2 = parseInt(tables.rank3.value1.toString().substring(0, 3));
+        var rank2value2shield2 = Math.floor((tables.rank2.value1 % 10000) / 1000);
+        var rank2value3shield2 = Math.floor(tables.rank2.value1 % 1000);
+
+        var rank3value1shield2 = Math.floor((tables.rank3.value1 % 100000000) / 10000);
         var rank3shield2 = AilmentNames[rank3value1shield2] && AilmentNames[rank3value1shield2].name
-        var rank3value2shield2 = parseInt(tables.rank3.value1.toString().substring(3, 4));
-        var rank3value3shield2 = parseInt(tables.rank3.value1.toString().substring(4, 7));
-        var rank4value1shield2 = parseInt(tables.rank4.value1.toString().substring(0, 3));
+        var rank3value2shield2 = Math.floor((tables.rank3.value1 % 10000) / 1000);
+        var rank3value3shield2 = Math.floor(tables.rank3.value1 % 1000);
+
+        var rank4value1shield2 = Math.floor((tables.rank4.value1 % 100000000) / 10000);
         var rank4shield2 = AilmentNames[rank4value1shield2] && AilmentNames[rank4value1shield2].name
-        var rank4value2shield2 = parseInt(tables.rank4.value1.toString().substring(3, 4));
-        var rank4value3shield2 = parseInt(tables.rank4.value1.toString().substring(4, 7));
-        var rank5value1shield2 = parseInt(tables.rank5.value1.toString().substring(0, 3));
+        var rank4value2shield2 = Math.floor((tables.rank4.value1 % 10000) / 1000);
+        var rank4value3shield2 = Math.floor(tables.rank4.value1 % 1000);
+
+        var rank5value1shield2 = Math.floor((tables.rank5.value1 % 100000000) / 10000);
         var rank5shield2 = AilmentNames[rank5value1shield2] && AilmentNames[rank5value1shield2].name
-        var rank5value2shield2 = parseInt(tables.rank5.value1.toString().substring(3, 4));
-        var rank5value3shield2 = parseInt(tables.rank5.value1.toString().substring(4, 7));
-        var rank6value1shield2 = parseInt(tables.rank6.value1.toString().substring(0, 3));
+        var rank5value2shield2 = Math.floor((tables.rank5.value1 % 10000) / 1000);
+        var rank5value3shield2 = Math.floor(tables.rank5.value1 % 1000);
+
+        var rank6value1shield2 = Math.floor((tables.rank6.value1 % 100000000) / 10000);
         var rank6shield2 = AilmentNames[rank6value1shield2] && AilmentNames[rank6value1shield2].name
-        var rank6value2shield2 = parseInt(tables.rank6.value1.toString().substring(3, 4));
-        var rank6value3shield2 = parseInt(tables.rank6.value1.toString().substring(4, 7));
-        var rank7value1shield2 = parseInt(tables.rank7.value1.toString().substring(0, 3));
+        var rank6value2shield2 = Math.floor((tables.rank6.value1 % 10000) / 1000);
+        var rank6value3shield2 = Math.floor(tables.rank6.value1 % 1000);
+
+        var rank7value1shield2 = Math.floor((tables.rank7.value1 % 100000000) / 10000);
         var rank7shield2 = AilmentNames[rank7value1shield2] && AilmentNames[rank7value1shield2].name
-        var rank7value2shield2 = parseInt(tables.rank7.value1.toString().substring(3, 4));
-        var rank7value3shield2 = parseInt(tables.rank7.value1.toString().substring(4, 7));
-        var rank8value1shield2 = parseInt(tables.rank8.value1.toString().substring(0, 3));
+        var rank7value2shield2 = Math.floor((tables.rank7.value1 % 10000) / 1000);
+        var rank7value3shield2 = Math.floor(tables.rank7.value1 % 1000);
+
+        var rank8value1shield2 = Math.floor((tables.rank8.value1 % 100000000) / 10000);
         var rank8shield2 = AilmentNames[rank8value1shield2] && AilmentNames[rank8value1shield2].name
-        var rank8value2shield2 = parseInt(tables.rank8.value1.toString().substring(3, 4));
-        var rank8value3shield2 = parseInt(tables.rank8.value1.toString().substring(4, 7));
-        var rank9value1shield2 = parseInt(tables.rank9.value1.toString().substring(0, 3));
+        var rank8value2shield2 = Math.floor((tables.rank8.value1 % 10000) / 1000);
+        var rank8value3shield2 = Math.floor(tables.rank8.value1 % 1000);
+
+        var rank9value1shield2 = Math.floor((tables.rank9.value1 % 100000000) / 10000);
         var rank9shield2 = AilmentNames[rank9value1shield2] && AilmentNames[rank9value1shield2].name
-        var rank9value2shield2 = parseInt(tables.rank9.value1.toString().substring(3, 4));
-        var rank9value3shield2 = parseInt(tables.rank9.value1.toString().substring(4, 7));
-        var rank10value1shield2 = parseInt(tables.rank10.value1.toString().substring(0, 3));
+        var rank9value2shield2 = Math.floor((tables.rank9.value1 % 10000) / 1000);
+        var rank9value3shield2 = Math.floor(tables.rank9.value1 % 1000);
+
+        var rank10value1shield2 = Math.floor((tables.rank10.value1 % 100000000) / 10000);
         var rank10shield2 = AilmentNames[rank10value1shield2] && AilmentNames[rank10value1shield2].name
-        var rank10value2shield2 = parseInt(tables.rank10.value1.toString().substring(3, 4));
-        var rank10value3shield2 = parseInt(tables.rank10.value1.toString().substring(4, 7));
+        var rank10value2shield2 = Math.floor((tables.rank10.value1 % 10000) / 1000);
+        var rank10value3shield2 = Math.floor(tables.rank10.value1 % 1000);
         tables = {
             rank1: {
                 value1: `[${rank1shield2}]`,
@@ -4285,8 +4303,7 @@ const ailment_data_pars = (
     }
     if(value_trans == "command_id_split_2"){
         //rank1
-        var len = tables.rank1.value1 && tables.rank1.value1.toString().length
-        var rank1comdid = tables.rank1.value1 && split_by_2(-1,parseInt(tables.rank1.value1))
+        var rank1comdid = tables.rank1.value1 && Math.floor((tables.rank1.value1 % 1000000) / 10);
         var rank1comdid1 = CommandNames[rank1comdid]
         var rank1str_1 = `[${rank1comdid1 && rank1comdid1.name}] - #${rank1comdid}`
         if (rank1str_1 == "[undefined] - #0") {
@@ -4295,10 +4312,10 @@ const ailment_data_pars = (
         if (rank1str_1 == "[undefined] - #undefined") {
             rank1str_1 = undefined
         }
-        var rank1value2_id = tables.rank1.value1 && parseInt(tables.rank1.value1.toString().substring(len, len-1));
+        var rank1value2_id = tables.rank1.value1 && Math.floor(tables.rank1.value1 % 10);
+
         //rank2
-        len = tables.rank2.value1 && tables.rank2.value1.toString().length
-        var rank2comdid = tables.rank2.value1 && split_by_2(-1,parseInt(tables.rank2.value1))
+        var rank2comdid = tables.rank2.value1 && Math.floor((tables.rank2.value1 % 1000000) / 10);
         var rank2comdid1 = CommandNames[rank2comdid]
         var rank2str_1 = `[${rank2comdid1 && rank2comdid1.name}] - #${rank2comdid}`
         if (rank2str_1 == "[undefined] - #0") {
@@ -4307,10 +4324,10 @@ const ailment_data_pars = (
         if (rank2str_1 == "[undefined] - #undefined") {
             rank2str_1 = undefined
         }
-        var rank2value2_id = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(len, len-1));
+        var rank2value2_id = tables.rank2.value1 && Math.floor(tables.rank2.value1 % 10);
+
         //rank3
-        len = tables.rank3.value1 && tables.rank3.value1.toString().length
-        var rank3comdid = tables.rank3.value1 && split_by_2(-1,parseInt(tables.rank3.value1))
+        var rank3comdid = tables.rank3.value1 && Math.floor((tables.rank3.value1 % 1000000) / 10);
         var rank3comdid1 = CommandNames[rank3comdid]
         var rank3str_1 = `[${rank3comdid1 && rank3comdid1.name}] - #${rank3comdid}`
         if (rank3str_1 == "[undefined] - #0") {
@@ -4319,10 +4336,10 @@ const ailment_data_pars = (
         if (rank3str_1 == "[undefined] - #undefined") {
             rank3str_1 = undefined
         }
-        var rank3value2_id = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(len, len-1));
+        var rank3value2_id = tables.rank3.value1 && Math.floor(tables.rank3.value1 % 10);
+
         //rank4
-        len = tables.rank4.value1 && tables.rank4.value1.toString().length
-        var rank4comdid = tables.rank4.value1 && split_by_2(-1,parseInt(tables.rank4.value1))
+        var rank4comdid = tables.rank4.value1 && Math.floor((tables.rank4.value1 % 1000000) / 10);
         var rank4comdid1 = CommandNames[rank4comdid]
         var rank4str_1 = `[${rank4comdid1 && rank4comdid1.name}] - #${rank4comdid}`
         if (rank4str_1 == "[undefined] - #0") {
@@ -4331,10 +4348,10 @@ const ailment_data_pars = (
         if (rank4str_1 == "[undefined] - #undefined") {
             rank4str_1 = undefined
         }
-        var rank4value2_id = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(len, len-1));
+        var rank4value2_id = tables.rank4.value1 && Math.floor(tables.rank4.value1 % 10)
+
         //rank5
-        len = tables.rank5.value1 && tables.rank5.value1.toString().length
-        var rank5comdid = tables.rank5.value1 && split_by_2(-1,parseInt(tables.rank5.value1))
+        var rank5comdid = tables.rank5.value1 && Math.floor((tables.rank5.value1 % 1000000) / 10);
         var rank5comdid1 = CommandNames[rank5comdid]
         var rank5str_1 = `[${rank5comdid1 && rank5comdid1.name}] - #${rank5comdid}`
         if (rank5str_1 == "[undefined] - #0") {
@@ -4343,10 +4360,10 @@ const ailment_data_pars = (
         if (rank5str_1 == "[undefined] - #undefined") {
             rank5str_1 = undefined
         }
-        var rank5value2_id = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(len, len-1));
+        var rank5value2_id = tables.rank5.value1 && Math.floor(tables.rank5.value1 % 10)
+
         //rank6
-        len = tables.rank6.value1 && tables.rank6.value1.toString().length
-        var rank6comdid = tables.rank6.value1 && split_by_2(-1,parseInt(tables.rank6.value1))
+        var rank6comdid = tables.rank6.value1 && Math.floor((tables.rank6.value1 % 1000000) / 10);
         var rank6comdid1 = CommandNames[rank6comdid]
         var rank6str_1 = `[${rank6comdid1 && rank6comdid1.name}] - #${rank6comdid}`
         if (rank6str_1 == "[undefined] - #0") {
@@ -4355,10 +4372,10 @@ const ailment_data_pars = (
         if (rank6str_1 == "[undefined] - #undefined") {
             rank6str_1 = undefined
         }
-        var rank6value2_id = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(len, len-1));
+        var rank6value2_id = tables.rank6.value1 && Math.floor(tables.rank6.value1 % 10)
+        
         //rank7
-        len = tables.rank7.value1 && tables.rank7.value1.toString().length
-        var rank7comdid = tables.rank7.value1 && split_by_2(-1,parseInt(tables.rank7.value1))
+        var rank7comdid = tables.rank7.value1 && Math.floor((tables.rank7.value1 % 1000000) / 10);
         var rank7comdid1 = CommandNames[rank7comdid]
         var rank7str_1 = `[${rank7comdid1 && rank7comdid1.name}] - #${rank7comdid}`
         if (rank7str_1 == "[undefined] - #0") {
@@ -4367,10 +4384,10 @@ const ailment_data_pars = (
         if (rank7str_1 == "[undefined] - #undefined") {
             rank7str_1 = undefined
         }
-        var rank7value2_id = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(len, len-1));
+        var rank7value2_id = tables.rank7.value1 && Math.floor(tables.rank7.value1 % 10)
+        
         //rank8
-        len = tables.rank8.value1 && tables.rank8.value1.toString().length
-        var rank8comdid = tables.rank8.value1 && split_by_2(-1,parseInt(tables.rank8.value1))
+        var rank8comdid = tables.rank8.value1 && Math.floor((tables.rank8.value1 % 1000000) / 10);
         var rank8comdid1 = CommandNames[rank8comdid]
         var rank8str_1 = `[${rank8comdid1 && rank8comdid1.name}] - #${rank8comdid}`
         if (rank8str_1 == "[undefined] - #0") {
@@ -4379,10 +4396,10 @@ const ailment_data_pars = (
         if (rank8str_1 == "[undefined] - #undefined") {
             rank8str_1 = undefined
         }
-        var rank8value2_id = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(len, len-1));
+        var rank8value2_id = tables.rank8.value1 && Math.floor(tables.rank8.value1 % 10)
+
         //rank9
-        len = tables.rank9.value1 && tables.rank9.value1.toString().length
-        var rank9comdid = tables.rank9.value1 && split_by_2(-1,parseInt(tables.rank9.value1))
+        var rank9comdid = tables.rank9.value1 && Math.floor((tables.rank9.value1 % 1000000) / 10);
         var rank9comdid1 = CommandNames[rank9comdid]
         var rank9str_1 = `[${rank9comdid1 && rank9comdid1.name}] - #${rank9comdid}`
         if (rank9str_1 == "[undefined] - #0") {
@@ -4391,10 +4408,10 @@ const ailment_data_pars = (
         if (rank9str_1 == "[undefined] - #undefined") {
             rank9str_1 = undefined
         }
-        var rank9value2_id = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(len, len-1));
+        var rank9value2_id = tables.rank9.value1 && Math.floor(tables.rank9.value1 % 10)
+
         //rank10
-        len = tables.rank10.value1 && tables.rank10.value1.toString().length
-        var rank10comdid = tables.rank10.value1 && split_by_2(-1,parseInt(tables.rank10.value1))
+        var rank10comdid = tables.rank10.value1 && Math.floor((tables.rank10.value1 % 1000000) / 10);
         var rank10comdid1 = CommandNames[rank10comdid]
         var rank10str_1 = `[${rank10comdid1 && rank10comdid1.name}] - #${rank10comdid}`
         if (rank10str_1 == "[undefined] - #0") {
@@ -4403,7 +4420,8 @@ const ailment_data_pars = (
         if (rank10str_1 == "[undefined] - #undefined") {
             rank10str_1 = undefined
         }
-        var rank10value2_id = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(len, len-1));
+        var rank10value2_id = tables.rank10.value1 && Math.floor(tables.rank10.value1 % 10)
+
         tables = {
             rank1: {
                 value1: rank1str_1,
@@ -5034,8 +5052,8 @@ const ailment_data_pars = (
         }
     }
     if (value_trans == "ailment_id_2") {
-        var rank1value1ailment2 = tables.rank1.value1 && parseInt(tables.rank1.value1.toString().substring(0, 4));
-        var rank1value2ailment2 = tables.rank1.value1 && parseInt(tables.rank1.value1.toString().substring(4, 6));
+        var rank1value1ailment2 = tables.rank1.value1 && Math.floor((tables.rank1.value1 % 1000000) / 100);
+        var rank1value2ailment2 = tables.rank1.value1 && Math.floor(tables.rank1.value1 % 100);
         var rank1ail2 = tables.rank1.value1 && AilmentNames[rank1value1ailment2]
         var rank1strailailment2 = `[${rank1ail2 && rank1ail2.name}] - #${rank1value1ailment2}`
         if (rank1strailailment2 == "[undefined] - #0") {
@@ -5044,8 +5062,8 @@ const ailment_data_pars = (
         if (rank1strailailment2 == "[undefined] - #undefined") {
             rank1strailailment2 = undefined
         }
-        var rank2value1ailment2 = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(0, 4));
-        var rank2value2ailment2 = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(4, 6));
+        var rank2value1ailment2 = tables.rank2.value1 && Math.floor((tables.rank2.value1 % 1000000) / 100);
+        var rank2value2ailment2 = tables.rank2.value1 && Math.floor(tables.rank2.value1 % 100);
         var rank2ail2 = tables.rank2.value1 && AilmentNames[rank2value1ailment2]
         var rank2strailailment2 = `[${rank2ail2 && rank2ail2.name}] - #${rank2value1ailment2}`
         if (rank2strailailment2 == "[undefined] - #0") {
@@ -5054,8 +5072,8 @@ const ailment_data_pars = (
         if (rank2strailailment2 == "[undefined] - #undefined") {
             rank2strailailment2 = undefined
         }
-        var rank3value1ailment2 = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(0, 4));
-        var rank3value2ailment2 = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(4, 6));
+        var rank3value1ailment2 = tables.rank3.value1 && Math.floor((tables.rank3.value1 % 1000000) / 100);
+        var rank3value2ailment2 = tables.rank3.value1 && Math.floor(tables.rank3.value1 % 100);
         var rank3ail2 = tables.rank3.value1 && AilmentNames[rank3value1ailment2]
         var rank3strailailment2 = `[${rank3ail2 && rank3ail2.name}] - #${rank3value1ailment2}`
         if (rank3strailailment2 == "[undefined] - #0") {
@@ -5064,8 +5082,8 @@ const ailment_data_pars = (
         if (rank3strailailment2 == "[undefined] - #undefined") {
             rank3strailailment2 = undefined
         }
-        var rank4value1ailment2 = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(0, 4));
-        var rank4value2ailment2 = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(4, 6));
+        var rank4value1ailment2 = tables.rank4.value1 && Math.floor((tables.rank4.value1 % 1000000) / 100);
+        var rank4value2ailment2 = tables.rank4.value1 && Math.floor(tables.rank4.value1 % 100);
         var rank4ail2 = tables.rank4.value1 && AilmentNames[rank4value1ailment2]
         var rank4strailailment2 = `[${rank4ail2 && rank4ail2.name}] - #${rank4value1ailment2}`
         if (rank4strailailment2 == "[undefined] - #0") {
@@ -5074,8 +5092,8 @@ const ailment_data_pars = (
         if (rank4strailailment2 == "[undefined] - #undefined") {
             rank4strailailment2 = undefined
         }
-        var rank5value1ailment2 = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(0, 4));
-        var rank5value2ailment2 = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(4, 6));
+        var rank5value1ailment2 = tables.rank5.value1 && Math.floor((tables.rank5.value1 % 1000000) / 100);
+        var rank5value2ailment2 = tables.rank5.value1 && Math.floor(tables.rank5.value1 % 100);
         var rank5ail2 = tables.rank5.value1 && AilmentNames[rank5value1ailment2]
         var rank5strailailment2 = `[${rank5ail2 && rank5ail2.name}] - #${rank5value1ailment2}`
         if (rank5strailailment2 == "[undefined] - #0") {
@@ -5084,8 +5102,8 @@ const ailment_data_pars = (
         if (rank5strailailment2 == "[undefined] - #undefined") {
             rank5strailailment2 = undefined
         }
-        var rank6value1ailment2 = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(0, 4));
-        var rank6value2ailment2 = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(4, 6));
+        var rank6value1ailment2 = tables.rank6.value1 && Math.floor((tables.rank6.value1 % 1000000) / 100);
+        var rank6value2ailment2 = tables.rank6.value1 && Math.floor(tables.rank6.value1 % 100);
         var rank6ail2 = tables.rank6.value1 && AilmentNames[rank6value1ailment2]
         var rank6strailailment2 = `[${rank6ail2 && rank6ail2.name}] - #${rank6value1ailment2}`
         if (rank6strailailment2 == "[undefined] - #0") {
@@ -5094,8 +5112,8 @@ const ailment_data_pars = (
         if (rank6strailailment2 == "[undefined] - #undefined") {
             rank6strailailment2 = undefined
         }
-        var rank7value1ailment2 = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(0, 4));
-        var rank7value2ailment2 = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(4, 6));
+        var rank7value1ailment2 = tables.rank7.value1 && Math.floor((tables.rank7.value1 % 1000000) / 100);
+        var rank7value2ailment2 = tables.rank7.value1 && Math.floor(tables.rank7.value1 % 100);
         var rank7ail2 = tables.rank7.value1 && AilmentNames[rank7value1ailment2]
         var rank7strailailment2 = `[${rank7ail2 && rank7ail2.name}] - #${rank7value1ailment2}`
         if (rank7strailailment2 == "[undefined] - #0") {
@@ -5104,8 +5122,8 @@ const ailment_data_pars = (
         if (rank7strailailment2 == "[undefined] - #undefined") {
             rank7strailailment2 = undefined
         }
-        var rank8value1ailment2 = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(0, 4));
-        var rank8value2ailment2 = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(4, 6));
+        var rank8value1ailment2 = tables.rank8.value1 && Math.floor((tables.rank8.value1 % 1000000) / 100);
+        var rank8value2ailment2 = tables.rank8.value1 && Math.floor(tables.rank8.value1 % 100);
         var rank8ail2 = tables.rank8.value1 && AilmentNames[rank8value1ailment2]
         var rank8strailailment2 = `[${rank8ail2 && rank8ail2.name}] - #${rank8value1ailment2}`
         if (rank8strailailment2 == "[undefined] - #0") {
@@ -5114,8 +5132,8 @@ const ailment_data_pars = (
         if (rank8strailailment2 == "[undefined] - #undefined") {
             rank8strailailment2 = undefined
         }
-        var rank9value1ailment2 = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(0, 4));
-        var rank9value2ailment2 = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(4, 6));
+        var rank9value1ailment2 = tables.rank9.value1 && Math.floor((tables.rank9.value1 % 1000000) / 100);
+        var rank9value2ailment2 = tables.rank9.value1 && Math.floor(tables.rank9.value1 % 100);
         var rank9ail2 = tables.rank9.value1 && AilmentNames[rank9value1ailment2]
         var rank9strailailment2 = `[${rank9ail2 && rank9ail2.name}] - #${rank9value1ailment2}`
         if (rank9strailailment2 == "[undefined] - #0") {
@@ -5124,8 +5142,8 @@ const ailment_data_pars = (
         if (rank9strailailment2 == "[undefined] - #undefined") {
             rank9strailailment2 = undefined
         }
-        var rank10value1ailment2 = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(0, 4));
-        var rank10value2ailment2 = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(4, 6));
+        var rank10value1ailment2 = tables.rank10.value1 && Math.floor((tables.rank10.value1 % 1000000) / 100);
+        var rank10value2ailment2 = tables.rank10.value1 && Math.floor(tables.rank10.value1 % 100);
         var rank10ail2 = tables.rank10.value1 && AilmentNames[rank10value1ailment2]
         var rank10strailailment2 = `[${rank10ail2 && rank10ail2.name}] - #${rank10value1ailment2}`
         if (rank10strailailment2 == "[undefined] - #0") {
@@ -5189,9 +5207,9 @@ const ailment_data_pars = (
         }
     }
     if (value_trans == "ailment_id_3") {
-        var rank1value1ailment3 = tables.rank1.value1 && parseInt(tables.rank1.value1.toString().substring(0, 4));
-        var rank1value2ailment3 = tables.rank1.value1 && parseInt(tables.rank1.value1.toString().substring(4, 6));
-        var rank1value3ailment3 = tables.rank1.value1 && parseInt(tables.rank1.value1.toString().substring(6, 8));
+        var rank1value1ailment3 = tables.rank1.value1 && Math.floor((tables.rank1.value1 % 100000000) / 10000);
+        var rank1value2ailment3 = tables.rank1.value1 && Math.floor((tables.rank1.value1 % 10000) / 100)
+        var rank1value3ailment3 = tables.rank1.value1 && Math.floor( tables.rank1.value1 % 100);
         var rank1ail3 = tables.rank1.value1 && AilmentNames[rank1value1ailment3]
         var rank1strailailment3 = `[${rank1ail3 && rank1ail3.name}] - #${rank1value1ailment3}`
         if (rank1strailailment3 == "[undefined] - #0") {
@@ -5200,9 +5218,9 @@ const ailment_data_pars = (
         if (rank1strailailment3 == "[undefined] - #undefined") {
             rank1strailailment3 = undefined
         }
-        var rank2value1ailment3 = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(0, 4));
-        var rank2value2ailment3 = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(4, 6));
-        var rank2value3ailment3 = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(6, 8));
+        var rank2value1ailment3 = tables.rank2.value1 && Math.floor((tables.rank2.value1 % 100000000) / 10000)
+        var rank2value2ailment3 = tables.rank2.value1 && Math.floor((tables.rank2.value1 % 10000) / 100)
+        var rank2value3ailment3 = tables.rank2.value1 && Math.floor( tables.rank2.value1 % 100);
         var rank2ail3 = tables.rank2.value1 && AilmentNames[rank2value1ailment3]
         var rank2strailailment3 = `[${rank2ail3 && rank2ail3.name}] - #${rank2value1ailment3}`
         if (rank2strailailment3 == "[undefined] - #0") {
@@ -5211,9 +5229,9 @@ const ailment_data_pars = (
         if (rank2strailailment3 == "[undefined] - #undefined") {
             rank2strailailment3 = undefined
         }
-        var rank3value1ailment3 = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(0, 4));
-        var rank3value2ailment3 = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(4, 6));
-        var rank3value3ailment3 = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(6, 8));
+        var rank3value1ailment3 = tables.rank3.value1 && Math.floor((tables.rank3.value1 % 100000000) / 10000)
+        var rank3value2ailment3 = tables.rank3.value1 && Math.floor((tables.rank3.value1 % 10000) / 100)
+        var rank3value3ailment3 = tables.rank3.value1 && Math.floor( tables.rank3.value1 % 100);
         var rank3ail3 = tables.rank3.value1 && AilmentNames[rank3value1ailment3]
         var rank3strailailment3 = `[${rank3ail3 && rank3ail3.name}] - #${rank3value1ailment3}`
         if (rank3strailailment3 == "[undefined] - #0") {
@@ -5222,9 +5240,9 @@ const ailment_data_pars = (
         if (rank3strailailment3 == "[undefined] - #undefined") {
             rank3strailailment3 = undefined
         }
-        var rank4value1ailment3 = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(0, 4));
-        var rank4value2ailment3 = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(4, 6));
-        var rank4value3ailment3 = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(6, 8));
+        var rank4value1ailment3 = tables.rank4.value1 && Math.floor((tables.rank4.value1 % 100000000) / 10000)
+        var rank4value2ailment3 = tables.rank4.value1 && Math.floor((tables.rank4.value1 % 10000) / 100)
+        var rank4value3ailment3 = tables.rank4.value1 && Math.floor( tables.rank4.value1 % 100);
         var rank4ail3 = tables.rank4.value1 && AilmentNames[rank4value1ailment3]
         var rank4strailailment3 = `[${rank4ail3 && rank4ail3.name}] - #${rank4value1ailment3}`
         if (rank4strailailment3 == "[undefined] - #0") {
@@ -5233,9 +5251,9 @@ const ailment_data_pars = (
         if (rank4strailailment3 == "[undefined] - #undefined") {
             rank4strailailment3 = undefined
         }
-        var rank5value1ailment3 = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(0, 4));
-        var rank5value2ailment3 = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(4, 6));
-        var rank5value3ailment3 = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(6, 8));
+        var rank5value1ailment3 = tables.rank5.value1 && Math.floor((tables.rank5.value1 % 100000000) / 10000)
+        var rank5value2ailment3 = tables.rank5.value1 && Math.floor((tables.rank5.value1 % 10000) / 100)
+        var rank5value3ailment3 = tables.rank5.value1 && Math.floor( tables.rank5.value1 % 100);
         var rank5ail3 = tables.rank5.value1 && AilmentNames[rank5value1ailment3]
         var rank5strailailment3 = `[${rank5ail3 && rank5ail3.name}] - #${rank5value1ailment3}`
         if (rank5strailailment3 == "[undefined] - #0") {
@@ -5244,9 +5262,9 @@ const ailment_data_pars = (
         if (rank5strailailment3 == "[undefined] - #undefined") {
             rank5strailailment3 = undefined
         }
-        var rank6value1ailment3 = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(0, 4));
-        var rank6value2ailment3 = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(4, 6));
-        var rank6value3ailment3 = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(6, 8));
+        var rank6value1ailment3 = tables.rank6.value1 && Math.floor((tables.rank6.value1 % 100000000) / 10000)
+        var rank6value2ailment3 = tables.rank6.value1 && Math.floor((tables.rank6.value1 % 10000) / 100)
+        var rank6value3ailment3 = tables.rank6.value1 && Math.floor( tables.rank6.value1 % 100);
         var rank6ail3 = tables.rank6.value1 && AilmentNames[rank6value1ailment3]
         var rank6strailailment3 = `[${rank6ail3 && rank6ail3.name}] - #${rank6value1ailment3}`
         if (rank6strailailment3 == "[undefined] - #0") {
@@ -5255,9 +5273,9 @@ const ailment_data_pars = (
         if (rank6strailailment3 == "[undefined] - #undefined") {
             rank6strailailment3 = undefined
         }
-        var rank7value1ailment3 = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(0, 4));
-        var rank7value2ailment3 = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(4, 6));
-        var rank7value3ailment3 = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(6, 8));
+        var rank7value1ailment3 = tables.rank7.value1 && Math.floor((tables.rank7.value1 % 100000000) / 10000)
+        var rank7value2ailment3 = tables.rank7.value1 && Math.floor((tables.rank7.value1 % 10000) / 100)
+        var rank7value3ailment3 = tables.rank7.value1 && Math.floor( tables.rank7.value1 % 100);
         var rank7ail3 = tables.rank7.value1 && AilmentNames[rank7value1ailment3]
         var rank7strailailment3 = `[${rank7ail3 && rank7ail3.name}] - #${rank7value1ailment3}`
         if (rank7strailailment3 == "[undefined] - #0") {
@@ -5266,9 +5284,9 @@ const ailment_data_pars = (
         if (rank7strailailment3 == "[undefined] - #undefined") {
             rank7strailailment3 = undefined
         }
-        var rank8value1ailment3 = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(0, 4));
-        var rank8value2ailment3 = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(4, 6));
-        var rank8value3ailment3 = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(6, 8));
+        var rank8value1ailment3 = tables.rank8.value1 && Math.floor((tables.rank8.value1 % 100000000) / 10000)
+        var rank8value2ailment3 = tables.rank8.value1 && Math.floor((tables.rank8.value1 % 10000) / 100)
+        var rank8value3ailment3 = tables.rank8.value1 && Math.floor( tables.rank8.value1 % 100);
         var rank8ail3 = tables.rank8.value1 && AilmentNames[rank8value1ailment3]
         var rank8strailailment3 = `[${rank8ail3 && rank8ail3.name}] - #${rank8value1ailment3}`
         if (rank8strailailment3 == "[undefined] - #0") {
@@ -5277,9 +5295,9 @@ const ailment_data_pars = (
         if (rank8strailailment3 == "[undefined] - #undefined") {
             rank8strailailment3 = undefined
         }
-        var rank9value1ailment3 = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(0, 4));
-        var rank9value2ailment3 = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(4, 6));
-        var rank9value3ailment3 = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(6, 8));
+        var rank9value1ailment3 = tables.rank9.value1 && Math.floor((tables.rank9.value1 % 100000000) / 10000)
+        var rank9value2ailment3 = tables.rank9.value1 && Math.floor((tables.rank9.value1 % 10000) / 100)
+        var rank9value3ailment3 = tables.rank9.value1 && Math.floor( tables.rank9.value1 % 100);
         var rank9ail3 = tables.rank9.value1 && AilmentNames[rank9value1ailment3]
         var rank9strailailment3 = `[${rank9ail3 && rank9ail3.name}] - #${rank9value1ailment3}`
         if (rank9strailailment3 == "[undefined] - #0") {
@@ -5288,9 +5306,9 @@ const ailment_data_pars = (
         if (rank9strailailment3 == "[undefined] - #undefined") {
             rank9strailailment3 = undefined
         }
-        var rank10value1ailment3 = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(0, 4));
-        var rank10value2ailment3 = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(4, 6));
-        var rank10value3ailment3 = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(6, 8));
+        var rank10value1ailment3 = tables.rank10.value1 && Math.floor((tables.rank10.value1 % 100000000) / 10000)
+        var rank10value2ailment3 = tables.rank10.value1 && Math.floor((tables.rank10.value1 % 10000) / 100)
+        var rank10value3ailment3 = tables.rank10.value1 && Math.floor( tables.rank10.value1 % 100);
         var rank10ail3 = tables.rank10.value1 && AilmentNames[rank10value1ailment3]
         var rank10strailailment3 = `[${rank10ail3 && rank10ail3.name}] - #${rank10value1ailment3}`
         if (rank10strailailment3 == "[undefined] - #0") {
@@ -5533,45 +5551,45 @@ const ailment_data_pars = (
     }
 
     if (value_trans == "ailment_group_id_2") {
-        var lenofnum1 = tables.rank1.value1 && tables.rank1.value1.toString().length
-        var rank1value1group2 = parseInt(tables.rank1.value1.toString().substring(0, lenofnum1 - 2));
-        var rank1value2group2 = parseInt(tables.rank1.value1.toString().substring(lenofnum1 - 2));
+
+        var rank1value1group2 = Math.floor((tables.rank1.value1 % 10000) / 100);
+        var rank1value2group2 = Math.floor(tables.rank1.value1 % 100);
         var rank1value1ailgroup2 = ailment_group[rank1value1group2] && ailment_group[rank1value1group2].unique
-        var lenofnum2 = tables.rank2.value1 && tables.rank2.value1.toString().length
-        var rank2value1group2 = parseInt(tables.rank2.value1.toString().substring(0, lenofnum2 - 2));
-        var rank2value2group2 = parseInt(tables.rank2.value1.toString().substring(lenofnum2 - 2));
+
+        var rank2value1group2 = Math.floor((tables.rank2.value1 % 10000) / 100);
+        var rank2value2group2 = Math.floor(tables.rank2.value1 % 100);
         var rank2value1ailgroup2 = ailment_group[rank2value1group2] && ailment_group[rank2value1group2].unique
-        var lenofnum3 = tables.rank3.value1 && tables.rank3.value1.toString().length
-        var rank3value1group2 = parseInt(tables.rank3.value1.toString().substring(0, lenofnum3 - 2));
-        var rank3value2group2 = parseInt(tables.rank3.value1.toString().substring(lenofnum3 - 2));
+
+        var rank3value1group2 = Math.floor((tables.rank3.value1 % 10000) / 100);
+        var rank3value2group2 = Math.floor(tables.rank3.value1 % 100);
         var rank3value1ailgroup2 = ailment_group[rank3value1group2] && ailment_group[rank3value1group2].unique
-        var lenofnum4 = tables.rank4.value1 && tables.rank4.value1.toString().length
-        var rank4value1group2 = parseInt(tables.rank4.value1.toString().substring(0, lenofnum4 - 2));
-        var rank4value2group2 = parseInt(tables.rank4.value1.toString().substring(lenofnum4 - 2));
+
+        var rank4value1group2 = Math.floor((tables.rank4.value1 % 10000) / 100);
+        var rank4value2group2 = Math.floor(tables.rank4.value1 % 100);
         var rank4value1ailgroup2 = ailment_group[rank4value1group2] && ailment_group[rank4value1group2].unique
-        var lenofnum5 = tables.rank5.value1 && tables.rank5.value1.toString().length
-        var rank5value1group2 = parseInt(tables.rank5.value1.toString().substring(0, lenofnum5 - 2));
-        var rank5value2group2 = parseInt(tables.rank5.value1.toString().substring(lenofnum5 - 2));
+
+        var rank5value1group2 = Math.floor((tables.rank5.value1 % 10000) / 100);
+        var rank5value2group2 = Math.floor(tables.rank5.value1 % 100);
         var rank5value1ailgroup2 = ailment_group[rank5value1group2] && ailment_group[rank5value1group2].unique
-        var lenofnum6 = tables.rank6.value1 && tables.rank6.value1.toString().length
-        var rank6value1group2 = parseInt(tables.rank6.value1.toString().substring(0, lenofnum6 - 2));
-        var rank6value2group2 = parseInt(tables.rank6.value1.toString().substring(lenofnum6 - 2));
+
+        var rank6value1group2 = Math.floor((tables.rank6.value1 % 10000) / 100);
+        var rank6value2group2 = Math.floor(tables.rank6.value1 % 100);
         var rank6value1ailgroup2 = ailment_group[rank6value1group2] && ailment_group[rank6value1group2].unique
-        var lenofnum7 = tables.rank7.value1 && tables.rank7.value1.toString().length
-        var rank7value1group2 = parseInt(tables.rank7.value1.toString().substring(0, lenofnum7 - 2));
-        var rank7value2group2 = parseInt(tables.rank7.value1.toString().substring(lenofnum7 - 2));
+
+        var rank7value1group2 = Math.floor((tables.rank7.value1 % 10000) / 100);
+        var rank7value2group2 = Math.floor(tables.rank7.value1 % 100);
         var rank7value1ailgroup2 = ailment_group[rank7value1group2] && ailment_group[rank7value1group2].unique
-        var lenofnum8 = tables.rank8.value1 && tables.rank8.value1.toString().length
-        var rank8value1group2 = parseInt(tables.rank8.value1.toString().substring(0, lenofnum8 - 2));
-        var rank8value2group2 = parseInt(tables.rank8.value1.toString().substring(lenofnum8 - 2));
+
+        var rank8value1group2 = Math.floor((tables.rank8.value1 % 10000) / 100);
+        var rank8value2group2 = Math.floor(tables.rank8.value1 % 100);
         var rank8value1ailgroup2 = ailment_group[rank8value1group2] && ailment_group[rank8value1group2].unique
-        var lenofnum9 = tables.rank9.value1 && tables.rank9.value1.toString().length
-        var rank9value1group2 = parseInt(tables.rank9.value1.toString().substring(0, lenofnum9 - 2));
-        var rank9value2group2 = parseInt(tables.rank9.value1.toString().substring(lenofnum9 - 2));
+
+        var rank9value1group2 = Math.floor((tables.rank9.value1 % 10000) / 100);
+        var rank9value2group2 = Math.floor(tables.rank9.value1 % 100);
         var rank9value1ailgroup2 = ailment_group[rank9value1group2] && ailment_group[rank9value1group2].unique
-        var lenofnum10 = tables.rank10.value1 && tables.rank10.value1.toString().length
-        var rank10value1group2 = parseInt(tables.rank10.value1.toString().substring(0, lenofnum10 - 2));
-        var rank10value2group2 = parseInt(tables.rank10.value1.toString().substring(lenofnum10 - 2));
+
+        var rank10value1group2 = Math.floor((tables.rank10.value1 % 10000) / 100);
+        var rank10value2group2 = Math.floor(tables.rank10.value1 % 100);
         var rank10value1ailgroup2 = ailment_group[rank10value1group2] && ailment_group[rank10value1group2].unique
         tables = {
             rank1: {
@@ -5628,10 +5646,10 @@ const ailment_data_pars = (
         }
     }
     if (value_trans == "cast_id_1") {
-        var rank1value1cast = tables.rank1.value1 && parseInt(tables.rank1.value1.toString().substring(0, 4));
-        var rank1value2cast = tables.rank1.value1 && parseInt(tables.rank1.value1.toString().substring(4, 6));
-        var rank1value3cast = tables.rank1.value1 && parseInt(tables.rank1.value1.toString().substring(6, 8));
-        var rank1value4cast = tables.rank1.value1 && parseInt(tables.rank1.value1.toString().substring(8, 9));
+        var rank1value1cast = tables.rank1.value1 && Math.floor((tables.rank1.value1 % 1000000000) / 100000)
+        var rank1value2cast = tables.rank1.value1 && Math.floor((tables.rank1.value1 % 100000) / 1000)
+        var rank1value3cast = tables.rank1.value1 && Math.floor((tables.rank1.value1 % 1000) / 10)
+        var rank1value4cast = tables.rank1.value1 && Math.floor(tables.rank1.value1 % 10);
         var rank1cat = tables.rank1.value1 && CastNames[rank1value1cast]
         var rank1strcast = `[${rank1cat && rank1cat.name && rank1cat.name}] - #${rank1cat && rank1cat.id}`
         if (rank1strcast == "[undefined] - #0") {
@@ -5645,10 +5663,10 @@ const ailment_data_pars = (
         } else {
             rank1value2cast = `${rank1value2cast} level${rank1value2cast != 1 ? "s" : ""} of `
         }
-        var rank2value1cast = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(0, 4));
-        var rank2value2cast = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(4, 6));
-        var rank2value3cast = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(6, 8));
-        var rank2value4cast = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(8, 9));
+        var rank2value1cast = tables.rank2.value1 && Math.floor((tables.rank2.value1 % 1000000000) / 100000)
+        var rank2value2cast = tables.rank2.value1 && Math.floor((tables.rank2.value1 % 100000) / 1000)
+        var rank2value3cast = tables.rank2.value1 && Math.floor((tables.rank2.value1 % 1000) / 10)
+        var rank2value4cast = tables.rank2.value1 && Math.floor( tables.rank2.value1 % 10);
         var rank2cat = tables.rank2.value1 && CastNames[rank2value1cast]
         var rank2strcast = `[${rank2cat && rank2cat.name && rank2cat.name}] - #${rank2cat && rank2cat.id}`
         if (rank2strcast == "[undefined] - #0") {
@@ -5662,10 +5680,10 @@ const ailment_data_pars = (
         } else {
             rank2value2cast = `${rank2value2cast} level${rank2value2cast != 1 ? "s" : ""} of `
         }
-        var rank3value1cast = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(0, 4));
-        var rank3value2cast = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(4, 6));
-        var rank3value3cast = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(6, 8));
-        var rank3value4cast = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(8, 9));
+        var rank3value1cast = tables.rank3.value1 && Math.floor((tables.rank3.value1 % 1000000000) / 100000)
+        var rank3value2cast = tables.rank3.value1 && Math.floor((tables.rank3.value1 % 100000) / 1000)
+        var rank3value3cast = tables.rank3.value1 && Math.floor((tables.rank3.value1 % 1000) / 10)
+        var rank3value4cast = tables.rank3.value1 && Math.floor( tables.rank3.value1 % 10);
         var rank3cat = tables.rank3.value1 && CastNames[rank3value1cast]
         var rank3strcast = `[${rank3cat && rank3cat.name && rank3cat.name}] - #${rank3cat && rank3cat.id}`
         if (rank3strcast == "[undefined] - #0") {
@@ -5679,10 +5697,10 @@ const ailment_data_pars = (
         } else {
             rank3value2cast = `${rank3value2cast} level${rank3value2cast != 1 ? "s" : ""} of `
         }
-        var rank4value1cast = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(0, 4));
-        var rank4value2cast = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(4, 6));
-        var rank4value3cast = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(6, 8));
-        var rank4value4cast = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(8, 9));
+        var rank4value1cast = tables.rank4.value1 && Math.floor((tables.rank4.value1 % 1000000000) / 100000)
+        var rank4value2cast = tables.rank4.value1 && Math.floor((tables.rank4.value1 % 100000) / 1000)
+        var rank4value3cast = tables.rank4.value1 && Math.floor((tables.rank4.value1 % 1000) / 10)
+        var rank4value4cast = tables.rank4.value1 && Math.floor( tables.rank4.value1 % 10);
         var rank4cat = tables.rank4.value1 && CastNames[rank4value1cast]
         var rank4strcast = `[${rank4cat && rank4cat.name && rank4cat.name}] - #${rank4cat && rank4cat.id}`
         if (rank4strcast == "[undefined] - #0") {
@@ -5696,10 +5714,10 @@ const ailment_data_pars = (
         } else {
             rank4value2cast = `${rank4value2cast} level${rank4value2cast != 1 ? "s" : ""} of `
         }
-        var rank5value1cast = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(0, 4));
-        var rank5value2cast = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(4, 6));
-        var rank5value3cast = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(6, 8));
-        var rank5value4cast = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(8, 9));
+        var rank5value1cast = tables.rank5.value1 && Math.floor((tables.rank5.value1 % 1000000000) / 100000)
+        var rank5value2cast = tables.rank5.value1 && Math.floor((tables.rank5.value1 % 100000) / 1000)
+        var rank5value3cast = tables.rank5.value1 && Math.floor((tables.rank5.value1 % 1000) / 10)
+        var rank5value4cast = tables.rank5.value1 && Math.floor( tables.rank5.value1 % 10);
         var rank5cat = tables.rank5.value1 && CastNames[rank5value1cast]
         var rank5strcast = `[${rank5cat && rank5cat.name && rank5cat.name}] - #${rank5cat && rank5cat.id}`
         if (rank5strcast == "[undefined] - #0") {
@@ -5713,10 +5731,10 @@ const ailment_data_pars = (
         } else {
             rank5value2cast = `${rank5value2cast} level${rank5value2cast != 1 ? "s" : ""} of `
         }
-        var rank6value1cast = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(0, 4));
-        var rank6value2cast = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(4, 6));
-        var rank6value3cast = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(6, 8));
-        var rank6value4cast = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(8, 9));
+        var rank6value1cast = tables.rank6.value1 && Math.floor((tables.rank6.value1 % 1000000000) / 100000)
+        var rank6value2cast = tables.rank6.value1 && Math.floor((tables.rank6.value1 % 100000) / 1000)
+        var rank6value3cast = tables.rank6.value1 && Math.floor((tables.rank6.value1 % 1000) / 10)
+        var rank6value4cast = tables.rank6.value1 && Math.floor( tables.rank6.value1 % 10);
         var rank6cat = tables.rank6.value1 && CastNames[rank6value1cast]
         var rank6strcast = `[${rank6cat && rank6cat.name && rank6cat.name}] - #${rank6cat && rank6cat.id}`
         if (rank6strcast == "[undefined] - #0") {
@@ -5730,10 +5748,10 @@ const ailment_data_pars = (
         } else {
             rank6value2cast = `${rank6value2cast} level${rank6value2cast != 1 ? "s" : ""} of `
         }
-        var rank7value1cast = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(0, 4));
-        var rank7value2cast = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(4, 6));
-        var rank7value3cast = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(6, 8));
-        var rank7value4cast = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(8, 9));
+        var rank7value1cast = tables.rank7.value1 && Math.floor((tables.rank7.value1 % 1000000000) / 100000)
+        var rank7value2cast = tables.rank7.value1 && Math.floor((tables.rank7.value1 % 100000) / 1000)
+        var rank7value3cast = tables.rank7.value1 && Math.floor((tables.rank7.value1 % 1000) / 10)
+        var rank7value4cast = tables.rank7.value1 && Math.floor( tables.rank7.value1 % 10);
         var rank7cat = tables.rank7.value1 && CastNames[rank7value1cast]
         var rank7strcast = `[${rank7cat && rank7cat.name && rank7cat.name}] - #${rank7cat && rank7cat.id}`
         if (rank7strcast == "[undefined] - #0") {
@@ -5747,10 +5765,10 @@ const ailment_data_pars = (
         } else {
             rank7value2cast = `${rank7value2cast} level${rank7value2cast != 1 ? "s" : ""} of `
         }
-        var rank8value1cast = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(0, 4));
-        var rank8value2cast = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(4, 6));
-        var rank8value3cast = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(6, 8));
-        var rank8value4cast = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(8, 9));
+        var rank8value1cast = tables.rank8.value1 && Math.floor((tables.rank8.value1 % 1000000000) / 100000)
+        var rank8value2cast = tables.rank8.value1 && Math.floor((tables.rank8.value1 % 100000) / 1000)
+        var rank8value3cast = tables.rank8.value1 && Math.floor((tables.rank8.value1 % 1000) / 10)
+        var rank8value4cast = tables.rank8.value1 && Math.floor( tables.rank8.value1 % 10);
         var rank8cat = tables.rank8.value1 && CastNames[rank8value1cast]
         var rank8strcast = `[${rank8cat && rank8cat.name && rank8cat.name}] - #${rank8cat && rank8cat.id}`
         if (rank8strcast == "[undefined] - #0") {
@@ -5764,10 +5782,10 @@ const ailment_data_pars = (
         } else {
             rank8value2cast = `${rank8value2cast} level${rank8value2cast != 1 ? "s" : ""} of `
         }
-        var rank9value1cast = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(0, 4));
-        var rank9value2cast = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(4, 6));
-        var rank9value3cast = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(6, 8));
-        var rank9value4cast = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(8, 9));
+        var rank9value1cast = tables.rank9.value1 && Math.floor((tables.rank9.value1 % 1000000000) / 100000)
+        var rank9value2cast = tables.rank9.value1 && Math.floor((tables.rank9.value1 % 100000) / 1000)
+        var rank9value3cast = tables.rank9.value1 && Math.floor((tables.rank9.value1 % 1000) / 10)
+        var rank9value4cast = tables.rank9.value1 && Math.floor( tables.rank9.value1 % 10);
         var rank9cat = tables.rank9.value1 && CastNames[rank9value1cast]
         var rank9strcast = `[${rank9cat && rank9cat.name && rank9cat.name}] - #${rank9cat && rank9cat.id}`
         if (rank9strcast == "[undefined] - #0") {
@@ -5781,10 +5799,10 @@ const ailment_data_pars = (
         } else {
             rank9value2cast = `${rank9value2cast} level${rank9value2cast != 1 ? "s" : ""} of `
         }
-        var rank10value1cast = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(0, 4));
-        var rank10value2cast = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(4, 6));
-        var rank10value3cast = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(6, 8));
-        var rank10value4cast = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(8, 9));
+        var rank10value1cast = tables.rank10.value1 && Math.floor((tables.rank10.value1 % 1000000000) / 100000)
+        var rank10value2cast = tables.rank10.value1 && Math.floor((tables.rank10.value1 % 100000) / 1000)
+        var rank10value3cast = tables.rank10.value1 && Math.floor((tables.rank10.value1 % 1000) / 10)
+        var rank10value4cast = tables.rank10.value1 && Math.floor( tables.rank10.value1 % 10);
         var rank10cat = tables.rank10.value1 && CastNames[rank10value1cast]
         var rank10strcast = `[${rank10cat && rank10cat.name && rank10cat.name}] - #${rank10cat && rank10cat.id}`
         if (rank10strcast == "[undefined] - #0") {
@@ -5873,10 +5891,10 @@ const ailment_data_pars = (
         }
     }
     if (value_trans == "cast_id_1_levels") {
-        rank1value1cast = tables.rank1.value1 && parseInt(tables.rank1.value1.toString().substring(0, 4));
-        rank1value2cast = tables.rank1.value1 && parseInt(tables.rank1.value1.toString().substring(4, 6));
-        rank1value3cast = tables.rank1.value1 && parseInt(tables.rank1.value1.toString().substring(6, 8));
-        rank1value4cast = tables.rank1.value1 && parseInt(tables.rank1.value1.toString().substring(8, 9));
+        rank1value1cast = tables.rank1.value1 && Math.floor((tables.rank1.value1 % 1000000000) / 100000)
+        rank1value2cast = tables.rank1.value1 && Math.floor((tables.rank1.value1 % 100000) / 1000)
+        rank1value3cast = tables.rank1.value1 && Math.floor((tables.rank1.value1 % 1000) / 10)
+        rank1value4cast = tables.rank1.value1 && Math.floor( tables.rank1.value1 % 10) 
         rank1cat = tables.rank1.value1 && CastNames[rank1value1cast]
         rank1strcast = `[${rank1cat && rank1cat.name && rank1cat.name}] - #${rank1cat && rank1cat.id}`
         if (rank1strcast == "[undefined] - #0") {
@@ -5885,10 +5903,10 @@ const ailment_data_pars = (
         if (rank1strcast == "[undefined] - #undefined") {
             rank1strcast = undefined
         }
-        rank2value1cast = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(0, 4));
-        rank2value2cast = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(4, 6));
-        rank2value3cast = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(6, 8));
-        rank2value4cast = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(8, 9));
+        rank2value1cast = tables.rank2.value1 && Math.floor((tables.rank2.value1 % 1000000000) / 100000)
+        rank2value2cast = tables.rank2.value1 && Math.floor((tables.rank2.value1 % 100000) / 1000)
+        rank2value3cast = tables.rank2.value1 && Math.floor((tables.rank2.value1 % 1000) / 10)
+        rank2value4cast = tables.rank2.value1 && Math.floor( tables.rank2.value1 % 10) 
         rank2cat = tables.rank2.value1 && CastNames[rank2value1cast]
         rank2strcast = `[${rank2cat && rank2cat.name && rank2cat.name}] - #${rank2cat && rank2cat.id}`
         if (rank2strcast == "[undefined] - #0") {
@@ -5897,10 +5915,10 @@ const ailment_data_pars = (
         if (rank2strcast == "[undefined] - #undefined") {
             rank2strcast = undefined
         }
-        rank3value1cast = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(0, 4));
-        rank3value2cast = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(4, 6));
-        rank3value3cast = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(6, 8));
-        rank3value4cast = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(8, 9));
+        rank3value1cast = tables.rank3.value1 && Math.floor((tables.rank3.value1 % 1000000000) / 100000)
+        rank3value2cast = tables.rank3.value1 && Math.floor((tables.rank3.value1 % 100000) / 1000)
+        rank3value3cast = tables.rank3.value1 && Math.floor((tables.rank3.value1 % 1000) / 10)
+        rank3value4cast = tables.rank3.value1 && Math.floor( tables.rank3.value1 % 10) 
         rank3cat = tables.rank3.value1 && CastNames[rank3value1cast]
         rank3strcast = `[${rank3cat && rank3cat.name && rank3cat.name}] - #${rank3cat && rank3cat.id}`
         if (rank3strcast == "[undefined] - #0") {
@@ -5909,10 +5927,10 @@ const ailment_data_pars = (
         if (rank3strcast == "[undefined] - #undefined") {
             rank3strcast = undefined
         }
-        rank4value1cast = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(0, 4));
-        rank4value2cast = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(4, 6));
-        rank4value3cast = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(6, 8));
-        rank4value4cast = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(8, 9));
+        rank4value1cast = tables.rank4.value1 && Math.floor((tables.rank4.value1 % 1000000000) / 100000)
+        rank4value2cast = tables.rank4.value1 && Math.floor((tables.rank4.value1 % 100000) / 1000)
+        rank4value3cast = tables.rank4.value1 && Math.floor((tables.rank4.value1 % 1000) / 10)
+        rank4value4cast = tables.rank4.value1 && Math.floor( tables.rank4.value1 % 10) 
         rank4cat = tables.rank4.value1 && CastNames[rank4value1cast]
         rank4strcast = `[${rank4cat && rank4cat.name && rank4cat.name}] - #${rank4cat && rank4cat.id}`
         if (rank4strcast == "[undefined] - #0") {
@@ -5921,10 +5939,10 @@ const ailment_data_pars = (
         if (rank4strcast == "[undefined] - #undefined") {
             rank4strcast = undefined
         }
-        rank5value1cast = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(0, 4));
-        rank5value2cast = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(4, 6));
-        rank5value3cast = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(6, 8));
-        rank5value4cast = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(8, 9));
+        rank5value1cast = tables.rank5.value1 && Math.floor((tables.rank5.value1 % 1000000000) / 100000)
+        rank5value2cast = tables.rank5.value1 && Math.floor((tables.rank5.value1 % 100000) / 1000)
+        rank5value3cast = tables.rank5.value1 && Math.floor((tables.rank5.value1 % 1000) / 10)
+        rank5value4cast = tables.rank5.value1 && Math.floor( tables.rank5.value1 % 10) 
         rank5cat = tables.rank5.value1 && CastNames[rank5value1cast]
         rank5strcast = `[${rank5cat && rank5cat.name && rank5cat.name}] - #${rank5cat && rank5cat.id}`
         if (rank5strcast == "[undefined] - #0") {
@@ -5933,10 +5951,10 @@ const ailment_data_pars = (
         if (rank5strcast == "[undefined] - #undefined") {
             rank5strcast = undefined
         }
-        rank6value1cast = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(0, 4));
-        rank6value2cast = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(4, 6));
-        rank6value3cast = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(6, 8));
-        rank6value4cast = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(8, 9));
+        rank6value1cast = tables.rank6.value1 && Math.floor((tables.rank6.value1 % 1000000000) / 100000)
+        rank6value2cast = tables.rank6.value1 && Math.floor((tables.rank6.value1 % 100000) / 1000)
+        rank6value3cast = tables.rank6.value1 && Math.floor((tables.rank6.value1 % 1000) / 10)
+        rank6value4cast = tables.rank6.value1 && Math.floor( tables.rank6.value1 % 10) 
         rank6cat = tables.rank6.value1 && CastNames[rank6value1cast]
         rank6strcast = `[${rank6cat && rank6cat.name && rank6cat.name}] - #${rank6cat && rank6cat.id}`
         if (rank6strcast == "[undefined] - #0") {
@@ -5945,10 +5963,10 @@ const ailment_data_pars = (
         if (rank6strcast == "[undefined] - #undefined") {
             rank6strcast = undefined
         }
-        rank7value1cast = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(0, 4));
-        rank7value2cast = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(4, 6));
-        rank7value3cast = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(6, 8));
-        rank7value4cast = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(8, 9));
+        rank7value1cast = tables.rank7.value1 && Math.floor((tables.rank7.value1 % 1000000000) / 100000)
+        rank7value2cast = tables.rank7.value1 && Math.floor((tables.rank7.value1 % 100000) / 1000)
+        rank7value3cast = tables.rank7.value1 && Math.floor((tables.rank7.value1 % 1000) / 10)
+        rank7value4cast = tables.rank7.value1 && Math.floor( tables.rank7.value1 % 10) 
         rank7cat = tables.rank7.value1 && CastNames[rank7value1cast]
         rank7strcast = `[${rank7cat && rank7cat.name && rank7cat.name}] - #${rank7cat && rank7cat.id}`
         if (rank7strcast == "[undefined] - #0") {
@@ -5957,10 +5975,10 @@ const ailment_data_pars = (
         if (rank7strcast == "[undefined] - #undefined") {
             rank7strcast = undefined
         }
-        rank8value1cast = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(0, 4));
-        rank8value2cast = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(4, 6));
-        rank8value3cast = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(6, 8));
-        rank8value4cast = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(8, 9));
+        rank8value1cast = tables.rank8.value1 && Math.floor((tables.rank8.value1 % 1000000000) / 100000)
+        rank8value2cast = tables.rank8.value1 && Math.floor((tables.rank8.value1 % 100000) / 1000)
+        rank8value3cast = tables.rank8.value1 && Math.floor((tables.rank8.value1 % 1000) / 10)
+        rank8value4cast = tables.rank8.value1 && Math.floor( tables.rank8.value1 % 10) 
         rank8cat = tables.rank8.value1 && CastNames[rank8value1cast]
         rank8strcast = `[${rank8cat && rank8cat.name && rank8cat.name}] - #${rank8cat && rank8cat.id}`
         if (rank8strcast == "[undefined] - #0") {
@@ -5969,10 +5987,10 @@ const ailment_data_pars = (
         if (rank8strcast == "[undefined] - #undefined") {
             rank8strcast = undefined
         }
-        rank9value1cast = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(0, 4));
-        rank9value2cast = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(4, 6));
-        rank9value3cast = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(6, 8));
-        rank9value4cast = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(8, 9));
+        rank9value1cast = tables.rank9.value1 && Math.floor((tables.rank9.value1 % 1000000000) / 100000)
+        rank9value2cast = tables.rank9.value1 && Math.floor((tables.rank9.value1 % 100000) / 1000)
+        rank9value3cast = tables.rank9.value1 && Math.floor((tables.rank9.value1 % 1000) / 10)
+        rank9value4cast = tables.rank9.value1 && Math.floor( tables.rank9.value1 % 10) 
         rank9cat = tables.rank9.value1 && CastNames[rank9value1cast]
         rank9strcast = `[${rank9cat && rank9cat.name && rank9cat.name}] - #${rank9cat && rank9cat.id}`
         if (rank9strcast == "[undefined] - #0") {
@@ -5981,10 +5999,10 @@ const ailment_data_pars = (
         if (rank9strcast == "[undefined] - #undefined") {
             rank9strcast = undefined
         }
-        rank10value1cast = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(0, 4));
-        rank10value2cast = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(4, 6));
-        rank10value3cast = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(6, 8));
-        rank10value4cast = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(8, 9));
+        rank10value1cast = tables.rank10.value1 && Math.floor((tables.rank10.value1 % 1000000000) / 100000)
+        rank10value2cast = tables.rank10.value1 && Math.floor((tables.rank10.value1 % 100000) / 1000)
+        rank10value3cast = tables.rank10.value1 && Math.floor((tables.rank10.value1 % 1000) / 10)
+        rank10value4cast = tables.rank10.value1 && Math.floor( tables.rank10.value1 % 10) 
         rank10cat = tables.rank10.value1 && CastNames[rank10value1cast]
         rank10strcast = `[${rank10cat && rank10cat.name && rank10cat.name}] - #${rank10cat && rank10cat.id}`
         if (rank10strcast == "[undefined] - #0") {
@@ -6068,9 +6086,9 @@ const ailment_data_pars = (
         }
     }
     if (value_trans == "cast_id_2") {
-        var rank1value1cast2 = tables.rank1.value1 && parseInt(tables.rank1.value1.toString().substring(0, 2));
-        var rank1value2cast2 = tables.rank1.value1 && parseInt(tables.rank1.value1.toString().substring(3, 7));
-        var rank1value3cast2 = tables.rank1.value1 && parseInt(tables.rank1.value1.toString().substring(7, 9));
+        var rank1value1cast2 = tables.rank1.value1 && Math.floor((tables.rank1.value1 % 1000000000) / 10000000)
+        var rank1value2cast2 = tables.rank1.value1 && Math.floor((tables.rank1.value1 % 1000000) / 100)
+        var rank1value3cast2 = tables.rank1.value1 && Math.floor( tables.rank1.value1 % 100)
         var rank1cat2 = tables.rank1.value1 && CastNames[rank1value2cast2]
         var rank1strcast2 = `[${rank1cat2 && rank1cat2.name && rank1cat2.name}] - #${rank1cat2 && rank1cat2.id}`
         if (rank1strcast2 == "[undefined] - #0") {
@@ -6079,9 +6097,9 @@ const ailment_data_pars = (
         if (rank1strcast2 == "[undefined] - #undefined") {
             rank1strcast2 = undefined
         }
-        var rank2value1cast2 = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(0, 2));
-        var rank2value2cast2 = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(3, 7));
-        var rank2value3cast2 = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(7, 9));
+        var rank2value1cast2 = tables.rank2.value1 && Math.floor((tables.rank2.value1 % 1000000000) / 10000000)
+        var rank2value2cast2 = tables.rank2.value1 && Math.floor((tables.rank2.value1 % 1000000) / 100)
+        var rank2value3cast2 = tables.rank2.value1 && Math.floor( tables.rank2.value1 % 100)
         var rank2cat2 = tables.rank2.value1 && CastNames[rank2value2cast2]
         var rank2strcast2 = `[${rank2cat2 && rank2cat2.name && rank2cat2.name}] - #${rank2cat2 && rank2cat2.id}`
         if (rank2strcast2 == "[undefined] - #0") {
@@ -6090,9 +6108,9 @@ const ailment_data_pars = (
         if (rank2strcast2 == "[undefined] - #undefined") {
             rank2strcast2 = undefined
         }
-        var rank3value1cast2 = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(0, 2));
-        var rank3value2cast2 = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(3, 7));
-        var rank3value3cast2 = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(7, 9));
+        var rank3value1cast2 = tables.rank3.value1 && Math.floor((tables.rank3.value1 % 1000000000) / 10000000)
+        var rank3value2cast2 = tables.rank3.value1 && Math.floor((tables.rank3.value1 % 1000000) / 100)
+        var rank3value3cast2 = tables.rank3.value1 && Math.floor( tables.rank3.value1 % 100)
         var rank3cat2 = tables.rank3.value1 && CastNames[rank3value2cast2]
         var rank3strcast2 = `[${rank3cat2 && rank3cat2.name && rank3cat2.name}] - #${rank3cat2 && rank3cat2.id}`
         if (rank3strcast2 == "[undefined] - #0") {
@@ -6101,9 +6119,9 @@ const ailment_data_pars = (
         if (rank3strcast2 == "[undefined] - #undefined") {
             rank3strcast2 = undefined
         }
-        var rank4value1cast2 = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(0, 2));
-        var rank4value2cast2 = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(3, 7));
-        var rank4value3cast2 = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(7, 9));
+        var rank4value1cast2 = tables.rank4.value1 && Math.floor((tables.rank4.value1 % 1000000000) / 10000000)
+        var rank4value2cast2 = tables.rank4.value1 && Math.floor((tables.rank4.value1 % 1000000) / 100)
+        var rank4value3cast2 = tables.rank4.value1 && Math.floor( tables.rank4.value1 % 100)
         var rank4cat2 = tables.rank4.value1 && CastNames[rank4value2cast2]
         var rank4strcast2 = `[${rank4cat2 && rank4cat2.name && rank4cat2.name}] - #${rank4cat2 && rank4cat2.id}`
         if (rank4strcast2 == "[undefined] - #0") {
@@ -6112,9 +6130,9 @@ const ailment_data_pars = (
         if (rank4strcast2 == "[undefined] - #undefined") {
             rank4strcast2 = undefined
         }
-        var rank5value1cast2 = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(0, 2));
-        var rank5value2cast2 = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(3, 7));
-        var rank5value3cast2 = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(7, 9));
+        var rank5value1cast2 = tables.rank5.value1 && Math.floor((tables.rank5.value1 % 1000000000) / 10000000)
+        var rank5value2cast2 = tables.rank5.value1 && Math.floor((tables.rank5.value1 % 1000000) / 100)
+        var rank5value3cast2 = tables.rank5.value1 && Math.floor( tables.rank5.value1 % 100)
         var rank5cat2 = tables.rank5.value1 && CastNames[rank5value2cast2]
         var rank5strcast2 = `[${rank5cat2 && rank5cat2.name && rank5cat2.name}] - #${rank5cat2 && rank5cat2.id}`
         if (rank5strcast2 == "[undefined] - #0") {
@@ -6123,9 +6141,9 @@ const ailment_data_pars = (
         if (rank5strcast2 == "[undefined] - #undefined") {
             rank5strcast2 = undefined
         }
-        var rank6value1cast2 = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(0, 2));
-        var rank6value2cast2 = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(3, 7));
-        var rank6value3cast2 = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(7, 9));
+        var rank6value1cast2 = tables.rank6.value1 && Math.floor((tables.rank6.value1 % 1000000000) / 10000000)
+        var rank6value2cast2 = tables.rank6.value1 && Math.floor((tables.rank6.value1 % 1000000) / 100)
+        var rank6value3cast2 = tables.rank6.value1 && Math.floor( tables.rank6.value1 % 100)
         var rank6cat2 = tables.rank6.value1 && CastNames[rank6value2cast2]
         var rank6strcast2 = `[${rank6cat2 && rank6cat2.name && rank6cat2.name}] - #${rank6cat2 && rank6cat2.id}`
         if (rank6strcast2 == "[undefined] - #0") {
@@ -6134,9 +6152,9 @@ const ailment_data_pars = (
         if (rank6strcast2 == "[undefined] - #undefined") {
             rank6strcast2 = undefined
         }
-        var rank7value1cast2 = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(0, 2));
-        var rank7value2cast2 = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(3, 7));
-        var rank7value3cast2 = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(7, 9));
+        var rank7value1cast2 = tables.rank7.value1 && Math.floor((tables.rank7.value1 % 1000000000) / 10000000)
+        var rank7value2cast2 = tables.rank7.value1 && Math.floor((tables.rank7.value1 % 1000000) / 100)
+        var rank7value3cast2 = tables.rank7.value1 && Math.floor( tables.rank7.value1 % 100)
         var rank7cat2 = tables.rank7.value1 && CastNames[rank7value2cast2]
         var rank7strcast2 = `[${rank7cat2 && rank7cat2.name && rank7cat2.name}] - #${rank7cat2 && rank7cat2.id}`
         if (rank7strcast2 == "[undefined] - #0") {
@@ -6145,9 +6163,9 @@ const ailment_data_pars = (
         if (rank7strcast2 == "[undefined] - #undefined") {
             rank7strcast2 = undefined
         }
-        var rank8value1cast2 = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(0, 2));
-        var rank8value2cast2 = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(3, 7));
-        var rank8value3cast2 = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(7, 9));
+        var rank8value1cast2 = tables.rank8.value1 && Math.floor((tables.rank8.value1 % 1000000000) / 10000000)
+        var rank8value2cast2 = tables.rank8.value1 && Math.floor((tables.rank8.value1 % 1000000) / 100)
+        var rank8value3cast2 = tables.rank8.value1 && Math.floor( tables.rank8.value1 % 100)
         var rank8cat2 = tables.rank8.value1 && CastNames[rank8value2cast2]
         var rank8strcast2 = `[${rank8cat2 && rank8cat2.name && rank8cat2.name}] - #${rank8cat2 && rank8cat2.id}`
         if (rank8strcast2 == "[undefined] - #0") {
@@ -6156,9 +6174,9 @@ const ailment_data_pars = (
         if (rank8strcast2 == "[undefined] - #undefined") {
             rank8strcast2 = undefined
         }
-        var rank9value1cast2 = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(0, 2));
-        var rank9value2cast2 = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(3, 7));
-        var rank9value3cast2 = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(7, 9));
+        var rank9value1cast2 = tables.rank9.value1 && Math.floor((tables.rank9.value1 % 1000000000) / 10000000)
+        var rank9value2cast2 = tables.rank9.value1 && Math.floor((tables.rank9.value1 % 1000000) / 100)
+        var rank9value3cast2 = tables.rank9.value1 && Math.floor( tables.rank9.value1 % 100)
         var rank9cat2 = tables.rank9.value1 && CastNames[rank9value2cast2]
         var rank9strcast2 = `[${rank9cat2 && rank9cat2.name && rank9cat2.name}] - #${rank9cat2 && rank9cat2.id}`
         if (rank9strcast2 == "[undefined] - #0") {
@@ -6167,9 +6185,9 @@ const ailment_data_pars = (
         if (rank9strcast2 == "[undefined] - #undefined") {
             rank9strcast2 = undefined
         }
-        var rank10value1cast2 = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(0, 2));
-        var rank10value2cast2 = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(3, 7));
-        var rank10value3cast2 = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(7, 9));
+        var rank10value1cast2 = tables.rank10.value1 && Math.floor((tables.rank10.value1 % 1000000000) / 10000000)
+        var rank10value2cast2 = tables.rank10.value1 && Math.floor((tables.rank10.value1 % 1000000) / 100)
+        var rank10value3cast2 = tables.rank10.value1 && Math.floor( tables.rank10.value1 % 100)
         var rank10cat2 = tables.rank10.value1 && CastNames[rank10value2cast2]
         var rank10strcast2 = `[${rank10cat2 && rank10cat2.name && rank10cat2.name}] - #${rank10cat2 && rank10cat2.id}`
         if (rank10strcast2 == "[undefined] - #0") {
@@ -6472,7 +6490,7 @@ const ailment_data_pars = (
     }
 
     if (value_trans == "ailment_id_4") {
-        var rank1value1ailment = tables.rank1.value1 && parseInt(tables.rank1.value1.toString().substring(0, 4));
+        var rank1value1ailment = tables.rank1.value1 && Math.floor((tables.rank1.value1 % 1000000000) / 100000)
         var rank1ailment = tables.rank1.value1 && AilmentNames[rank1value1ailment]
         var rank1strailment = `[${rank1ailment && rank1ailment.name && rank1ailment.name}] - #${rank1value1ailment}`
         if (rank1strailment == "[undefined] - #0") {
@@ -6481,20 +6499,21 @@ const ailment_data_pars = (
         if (rank1strailment == "[undefined] - #undefined") {
             rank1strailment = undefined
         }
-        var rank1value2ailment = tables.rank1.value1 && parseInt(tables.rank1.value1.toString().substring(4, 6));
+        var rank1value2ailment = tables.rank1.value1 && Math.floor((tables.rank1.value1 % 100000) / 1000)
         if(rank1value2ailment > 0){
             rank1value2ailment = ` by ${rank1value2ailment} level${rank1value2ailment!=1?"s":""}`
         } else {
             rank1value2ailment = ""
         }
-        var rank1value3ailment = tables.rank1.value1 && parseInt(tables.rank1.value1.toString().substring(6, 8));
-        var rank1value4ailment = tables.rank1.value1 && parseInt(tables.rank1.value1.toString().substring(8, 9));
+        var rank1value3ailment = tables.rank1.value1 && Math.floor((tables.rank1.value1 % 1000) / 10)
+        var rank1value4ailment = tables.rank1.value1 && Math.floor( tables.rank1.value1 % 10)
         if(rank1value4ailment > 0){
             rank1value4ailment = ` for ${rank1value4ailment} turn${rank1value4ailment!=1?"s":""}`
         } else {
             rank1value4ailment = ""
         }
-        var rank2value1ailment = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(0, 4));
+
+        var rank2value1ailment = tables.rank2.value1 && Math.floor((tables.rank2.value1 % 1000000000) / 100000)
         var rank2ailment = tables.rank2.value1 && AilmentNames[rank2value1ailment]
         var rank2strailment = `[${rank2ailment && rank2ailment.name && rank2ailment.name}] - #${rank2value1ailment}`
         if (rank2strailment == "[undefined] - #0") {
@@ -6503,20 +6522,20 @@ const ailment_data_pars = (
         if (rank2strailment == "[undefined] - #undefined") {
             rank2strailment = undefined
         }
-        var rank2value2ailment = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(4, 6));
+        var rank2value2ailment = tables.rank2.value1 && Math.floor((tables.rank2.value1 % 100000) / 1000)
         if(rank2value2ailment > 0){
             rank2value2ailment = ` by ${rank2value2ailment} level${rank2value2ailment!=1?"s":""}`
         } else {
             rank2value2ailment = ""
         }
-        var rank2value3ailment = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(6, 8));
-        var rank2value4ailment = tables.rank2.value1 && parseInt(tables.rank2.value1.toString().substring(8, 9));
+        var rank2value3ailment = tables.rank2.value1 && Math.floor((tables.rank2.value1 % 1000) / 10)
+        var rank2value4ailment = tables.rank2.value1 && Math.floor( tables.rank2.value1 % 10)
         if(rank2value4ailment > 0){
             rank2value4ailment = ` for ${rank2value4ailment} turn${rank2value4ailment!=1?"s":""}`
         } else {
             rank2value4ailment = ""
         }
-        var rank3value1ailment = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(0, 4));
+        var rank3value1ailment = tables.rank3.value1 && Math.floor((tables.rank3.value1 % 1000000000) / 100000)
         var rank3ailment = tables.rank3.value1 && AilmentNames[rank3value1ailment]
         var rank3strailment = `[${rank3ailment && rank3ailment.name && rank3ailment.name}] - #${rank3value1ailment}`
         if (rank3strailment == "[undefined] - #0") {
@@ -6525,20 +6544,20 @@ const ailment_data_pars = (
         if (rank3strailment == "[undefined] - #undefined") {
             rank3strailment = undefined
         }
-        var rank3value2ailment = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(4, 6));
+        var rank3value2ailment = tables.rank3.value1 && Math.floor((tables.rank3.value1 % 100000) / 1000);
         if(rank3value2ailment > 0){
             rank3value2ailment = ` by ${rank3value2ailment} level${rank3value2ailment!=1?"s":""}`
         } else {
             rank3value2ailment = ""
         }
-        var rank3value3ailment = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(6, 8));
-        var rank3value4ailment = tables.rank3.value1 && parseInt(tables.rank3.value1.toString().substring(8, 9));
+        var rank3value3ailment = tables.rank3.value1 && Math.floor((tables.rank3.value1 % 1000) / 10)
+        var rank3value4ailment = tables.rank3.value1 && Math.floor( tables.rank3.value1 % 10)
         if(rank3value4ailment > 0){
             rank3value4ailment = ` for ${rank3value4ailment} turn${rank3value4ailment!=1?"s":""}`
         } else {
             rank3value4ailment = ""
         }
-        var rank4value1ailment = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(0, 4));
+        var rank4value1ailment = tables.rank4.value1 && Math.floor((tables.rank4.value1 % 1000000000) / 100000)
         var rank4ailment = tables.rank4.value1 && AilmentNames[rank4value1ailment]
         var rank4strailment = `[${rank4ailment && rank4ailment.name && rank4ailment.name}] - #${rank4value1ailment}`
         if (rank4strailment == "[undefined] - #0") {
@@ -6547,20 +6566,20 @@ const ailment_data_pars = (
         if (rank4strailment == "[undefined] - #undefined") {
             rank4strailment = undefined
         }
-        var rank4value2ailment = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(4, 6));
+        var rank4value2ailment = tables.rank4.value1 && Math.floor((tables.rank4.value1 % 100000) / 1000)
         if(rank4value2ailment > 0){
             rank4value2ailment = ` by ${rank4value2ailment} level${rank4value2ailment!=1?"s":""}`
         } else {
             rank4value2ailment = ""
         }
-        var rank4value3ailment = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(6, 8));
-        var rank4value4ailment = tables.rank4.value1 && parseInt(tables.rank4.value1.toString().substring(8, 9));
+        var rank4value3ailment = tables.rank4.value1 && Math.floor((tables.rank4.value1 % 1000) / 10)
+        var rank4value4ailment = tables.rank4.value1 && Math.floor( tables.rank4.value1 % 10)
         if(rank4value4ailment > 0){
             rank4value4ailment = ` for ${rank4value4ailment} turn${rank4value4ailment!=1?"s":""}`
         } else {
             rank4value4ailment = ""
         }
-        var rank5value1ailment = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(0, 4));
+        var rank5value1ailment = tables.rank5.value1 && Math.floor((tables.rank5.value1 % 1000000000) / 100000)
         var rank5ailment = tables.rank5.value1 && AilmentNames[rank5value1ailment]
         var rank5strailment = `[${rank5ailment && rank5ailment.name && rank5ailment.name}] - #${rank5value1ailment}`
         if (rank5strailment == "[undefined] - #0") {
@@ -6569,20 +6588,20 @@ const ailment_data_pars = (
         if (rank5strailment == "[undefined] - #undefined") {
             rank5strailment = undefined
         }
-        var rank5value2ailment = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(4, 6));
+        var rank5value2ailment = tables.rank5.value1 && Math.floor((tables.rank5.value1 % 100000) / 1000)
         if(rank5value2ailment > 0){
             rank5value2ailment = ` by ${rank5value2ailment} level${rank5value2ailment!=1?"s":""}`
         } else {
             rank5value2ailment = ""
         }
-        var rank5value3ailment = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(6, 8));
-        var rank5value4ailment = tables.rank5.value1 && parseInt(tables.rank5.value1.toString().substring(8, 9));
+        var rank5value3ailment = tables.rank5.value1 && Math.floor((tables.rank5.value1 % 1000) / 10)
+        var rank5value4ailment = tables.rank5.value1 && Math.floor( tables.rank5.value1 % 10)
         if(rank5value4ailment > 0){
             rank5value4ailment = ` for ${rank5value4ailment} turn${rank5value4ailment!=1?"s":""}`
         } else {
             rank5value4ailment = ""
         }
-        var rank6value1ailment = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(0, 4));
+        var rank6value1ailment = tables.rank6.value1 && Math.floor((tables.rank6.value1 % 1000000000) / 100000)
         var rank6ailment = tables.rank6.value1 && AilmentNames[rank6value1ailment]
         var rank6strailment = `[${rank6ailment && rank6ailment.name && rank6ailment.name}] - #${rank6value1ailment}`
         if (rank6strailment == "[undefined] - #0") {
@@ -6591,20 +6610,20 @@ const ailment_data_pars = (
         if (rank6strailment == "[undefined] - #undefined") {
             rank6strailment = undefined
         }
-        var rank6value2ailment = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(4, 6));
+        var rank6value2ailment = tables.rank6.value1 && Math.floor((tables.rank6.value1 % 100000) / 1000)
         if(rank6value2ailment > 0){
             rank6value2ailment = ` by ${rank6value2ailment} level${rank6value2ailment!=1?"s":""}`
         } else {
             rank6value2ailment = ""
         }
-        var rank6value3ailment = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(6, 8));
-        var rank6value4ailment = tables.rank6.value1 && parseInt(tables.rank6.value1.toString().substring(8, 9));
+        var rank6value3ailment = tables.rank6.value1 && Math.floor((tables.rank6.value1 % 1000) / 10)
+        var rank6value4ailment = tables.rank6.value1 && Math.floor( tables.rank6.value1 % 10)
         if(rank6value4ailment > 0){
             rank6value4ailment = ` for ${rank6value4ailment} turn${rank6value4ailment!=1?"s":""}`
         } else {
             rank6value4ailment = ""
         }
-        var rank7value1ailment = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(0, 4));
+        var rank7value1ailment = tables.rank7.value1 && Math.floor((tables.rank7.value1 % 1000000000) / 100000)
         var rank7ailment = tables.rank7.value1 && AilmentNames[rank7value1ailment]
         var rank7strailment = `[${rank7ailment && rank7ailment.name && rank7ailment.name}] - #${rank7value1ailment}`
         if (rank7strailment == "[undefined] - #0") {
@@ -6613,20 +6632,20 @@ const ailment_data_pars = (
         if (rank7strailment == "[undefined] - #undefined") {
             rank7strailment = undefined
         }
-        var rank7value2ailment = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(4, 6));
+        var rank7value2ailment = tables.rank7.value1 && Math.floor((tables.rank7.value1 % 100000) / 1000)
         if(rank7value2ailment > 0){
             rank7value2ailment = ` by ${rank7value2ailment} level${rank7value2ailment!=1?"s":""}`
         } else {
             rank7value2ailment = ""
         }
-        var rank7value3ailment = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(6, 8));
-        var rank7value4ailment = tables.rank7.value1 && parseInt(tables.rank7.value1.toString().substring(8, 9));
+        var rank7value3ailment = tables.rank7.value1 && Math.floor((tables.rank7.value1 % 1000) / 10)
+        var rank7value4ailment = tables.rank7.value1 && Math.floor( tables.rank7.value1 % 10)
         if(rank7value4ailment > 0){
             rank7value4ailment = ` for ${rank7value4ailment} turn${rank7value4ailment!=1?"s":""}`
         } else {
             rank7value4ailment = ""
         }
-        var rank8value1ailment = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(0, 4));
+        var rank8value1ailment = tables.rank8.value1 && Math.floor((tables.rank8.value1 % 1000000000) / 100000)
         var rank8ailment = tables.rank8.value1 && AilmentNames[rank8value1ailment]
         var rank8strailment = `[${rank8ailment && rank8ailment.name && rank8ailment.name}] - #${rank8value1ailment}`
         if (rank8strailment == "[undefined] - #0") {
@@ -6635,21 +6654,21 @@ const ailment_data_pars = (
         if (rank8strailment == "[undefined] - #undefined") {
             rank8strailment = undefined
         }
-        var rank8value2ailment = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(4, 6));
+        var rank8value2ailment = tables.rank8.value1 && Math.floor((tables.rank8.value1 % 100000) / 1000)
         if(rank8value2ailment > 0){
             rank8value2ailment = ` by ${rank8value2ailment} level${rank8value2ailment!=1?"s":""}`
         } else {
             rank8value2ailment = ""
         }
-        var rank8value3ailment = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(6, 8));
-        var rank8value4ailment = tables.rank8.value1 && parseInt(tables.rank8.value1.toString().substring(8, 9));
+        var rank8value3ailment = tables.rank8.value1 && Math.floor((tables.rank8.value1 % 1000) / 10)
+        var rank8value4ailment = tables.rank8.value1 && Math.floor( tables.rank8.value1 % 10)
         if(rank8value4ailment > 0){
             rank8value4ailment = ` for ${rank8value4ailment} turn${rank8value4ailment!=1?"s":""}`
         } else {
             rank8value4ailment = ""
         }
         
-        var rank9value1ailment = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(0, 4));
+        var rank9value1ailment = tables.rank9.value1 && Math.floor((tables.rank9.value1 % 1000000000) / 100000)
         var rank9ailment = tables.rank9.value1 && AilmentNames[rank9value1ailment]
         var rank9strailment = `[${rank9ailment && rank9ailment.name && rank9ailment.name}] - #${rank9value1ailment}`
         if (rank9strailment == "[undefined] - #0") {
@@ -6658,20 +6677,20 @@ const ailment_data_pars = (
         if (rank9strailment == "[undefined] - #undefined") {
             rank9strailment = undefined
         }
-        var rank9value2ailment = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(4, 6));
+        var rank9value2ailment = tables.rank9.value1 && Math.floor((tables.rank9.value1 % 100000) / 1000)
         if(rank9value2ailment > 0){
             rank9value2ailment = ` by ${rank9value2ailment} level${rank9value2ailment!=1?"s":""}`
         } else {
             rank9value2ailment = ""
         }
-        var rank9value3ailment = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(6, 8));
-        var rank9value4ailment = tables.rank9.value1 && parseInt(tables.rank9.value1.toString().substring(8, 9));
+        var rank9value3ailment = tables.rank9.value1 && Math.floor((tables.rank9.value1 % 1000) / 10)
+        var rank9value4ailment = tables.rank9.value1 && Math.floor( tables.rank9.value1 % 10)
         if(rank9value4ailment > 0){
             rank9value4ailment = ` for ${rank9value4ailment} turn${rank9value4ailment!=1?"s":""}`
         } else {
             rank9value4ailment = ""
         }
-        var rank10value1ailment = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(0, 4));
+        var rank10value1ailment = tables.rank10.value1 && Math.floor((tables.rank10.value1 % 1000000000) / 100000)
         var rank10ailment = tables.rank10.value1 && AilmentNames[rank10value1ailment]
         var rank10strailment = `[${rank10ailment && rank10ailment.name && rank10ailment.name}] - #${rank10value1ailment}`
         if (rank10strailment == "[undefined] - #0") {
@@ -6680,14 +6699,14 @@ const ailment_data_pars = (
         if (rank10strailment == "[undefined] - #undefined") {
             rank10strailment = undefined
         }
-        var rank10value2ailment = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(4, 6));
+        var rank10value2ailment = tables.rank10.value1 && Math.floor((tables.rank10.value1 % 100000) / 1000)
         if(rank10value2ailment > 0){
             rank10value2ailment = ` by ${rank10value2ailment} level${rank10value2ailment!=1?"s":""}`
         } else {
             rank10value2ailment = ""
         }
-        var rank10value3ailment = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(6, 8));
-        var rank10value4ailment = tables.rank10.value1 && parseInt(tables.rank10.value1.toString().substring(8, 9));
+        var rank10value3ailment = tables.rank10.value1 && Math.floor((tables.rank10.value1 % 1000) / 10)
+        var rank10value4ailment = tables.rank10.value1 && Math.floor( tables.rank10.value1 % 10)
         if(rank10value4ailment > 0){
             rank10value4ailment = ` for ${rank10value4ailment} turn${rank10value4ailment!=1?"s":""}`
         } else {

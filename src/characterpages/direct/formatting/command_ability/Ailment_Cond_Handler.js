@@ -1,4 +1,3 @@
-import cut_1 from "../cut_1_handler"
 import split_by_2 from "../split_by_2_handler"
 import val_edit_type_handler from '../val_edit_type_handler'
 
@@ -56,17 +55,16 @@ const Ailment_Cond_Handler = (
         }
 
         if (value_trans == "ailment_id_4") {
-            const vale_1 = cut_1(1, acarg)
+            const vale_1 = Math.floor((acarg % 100000) / 10) 
             const ailmentname = AilmentNames[vale_1] && AilmentNames[vale_1].name
-            const vale_2 = cut_1(2, acarg)
+            const vale_2 = Math.floor(acarg % 10)
             con_pull = con_pull.replace(/\[value2\]/gm, ailmentname == undefined ? `ailment #${vale_1}` : `[${ailmentname}] #${vale_1}`).replace(/\[value1\]/gm, vale_2)
         }
 
         if (value_trans == "split_by_2") {
             const cut_1 = split_by_2(4, acarg)
             const cut_2 = split_by_2(5, acarg)
-            const testfor100 = parseInt(acarg.toString().substring(2, 4));
-            con_pull = con_pull.replace(/\[value1\]/gm, cut_1).replace(/\[value2\]/gm, testfor100 == "00" ? 100 : cut_2)
+            con_pull = con_pull.replace(/\[value1\]/gm, cut_1 == 0 ? 100 : cut_1).replace(/\[value2\]/gm, cut_2 == 0 ? 100 : cut_2)
         }
 
         if (value_trans == "split_3") {
