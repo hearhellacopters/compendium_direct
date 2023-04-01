@@ -39,7 +39,7 @@ const CrystalAbilityPage = ({
 
   const rawData = crystalabilities
 
-  const banerDisplayTerm = "Crystal Passives";
+  const banerDisplayTerm = "Crystal Abilities";
   const [showinfo, setshowinfo] = useStateIfMounted(false);
   const [showmap, setshowmap] = useStateIfMounted(false);
   const [loop, setLoop] = useStateIfMounted(false);
