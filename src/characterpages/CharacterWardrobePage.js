@@ -65,7 +65,7 @@ const CharacterWardrobe = ({
   useEffect(() => {
     const filterholder = [];
     if (showAll == true) {
-      filterholder.push(...ProcessedCharacters);
+      filterholder.push(...Object.values(ProcessedCharacters));
     }
     if (showAll == false) {
       filterholder.push(...rawData);
