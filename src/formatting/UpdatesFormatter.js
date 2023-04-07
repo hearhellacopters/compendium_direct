@@ -117,7 +117,7 @@ const UpdateFormatting = ({ match, jptoggledata }) => {
                     {match.SummList.map(summons => (
                       <li key={summons.SummonID}>
                         <DefaultTippy content={summons.SummonName}>
-                          <Link to={`/summons/${summons.SummonNameShort}`}>
+                          <Link to={`/bonuses/${summons.SummonNameShort}`}>
                             <LazyLoadImage effect="opacity" alt={summons.SummonName} className="summonimglink" src={`https://dissidiacompendium.com/images/static/icons/summons/face/${summons.SummonFace}`} />
                           </Link>
                         </DefaultTippy>
