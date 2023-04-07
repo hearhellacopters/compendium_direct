@@ -292,7 +292,7 @@ const Home = ({ ProcessedUpdates, jptoggledata }) => {
                       <ul className="summonupdatelist">
                         {lastupdate.SummList.map(summons => (
                           <li key={summons.SummonID}>
-                            <Link to={`/summons/${summons.SummonNameShort}`}>
+                            <Link to={`/bonuses/${summons.SummonNameShort}`}>
                               <DefaultTippy content={summons.SummonName}>
                                 <img alt={summons.SummonName} className="summonimglink" src={`https://dissidiacompendium.com/images/static/icons/summons/face/${summons.SummonFace}`} />
                               </DefaultTippy>
