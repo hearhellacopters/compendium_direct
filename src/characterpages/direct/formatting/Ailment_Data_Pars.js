@@ -6910,16 +6910,16 @@ const ailment_data_pars = (
     }
 
     if (value_trans == "neg_infinite") {
-        var neg1 = tables.rank1.value1 == -1 ? "∞" : use_neg == true && tables.rank1.value1 == 1 ? "∞" : tables.rank1.value1
-        var neg2 = tables.rank2.value1 == -1 ? "∞" : use_neg == true && tables.rank2.value1 == 1 ? "∞" : tables.rank2.value1
-        var neg3 = tables.rank3.value1 == -1 ? "∞" : use_neg == true && tables.rank3.value1 == 1 ? "∞" : tables.rank3.value1
-        var neg4 = tables.rank4.value1 == -1 ? "∞" : use_neg == true && tables.rank4.value1 == 1 ? "∞" : tables.rank4.value1
-        var neg5 = tables.rank5.value1 == -1 ? "∞" : use_neg == true && tables.rank5.value1 == 1 ? "∞" : tables.rank5.value1
-        var neg6 = tables.rank6.value1 == -1 ? "∞" : use_neg == true && tables.rank6.value1 == 1 ? "∞" : tables.rank6.value1
-        var neg7 = tables.rank7.value1 == -1 ? "∞" : use_neg == true && tables.rank7.value1 == 1 ? "∞" : tables.rank7.value1
-        var neg8 = tables.rank8.value1 == -1 ? "∞" : use_neg == true && tables.rank8.value1 == 1 ? "∞" : tables.rank8.value1
-        var neg9 = tables.rank9.value1 == -1 ? "∞" : use_neg == true && tables.rank9.value1 == 1 ? "∞" : tables.rank9.value1
-        var neg10 = tables.rank10.value1 == -1 ? "∞" : use_neg == true && tables.rank10.value1 == 1 ? "∞" : tables.rank10.value1
+        var neg1 = tables.rank1.value1 == -1 ? "∞" : use_neg == undefined && tables.rank1.value1 == 1 ? "∞" : tables.rank1.value1
+        var neg2 = tables.rank2.value1 == -1 ? "∞" : use_neg == undefined && tables.rank2.value1 == 1 ? "∞" : tables.rank2.value1
+        var neg3 = tables.rank3.value1 == -1 ? "∞" : use_neg == undefined && tables.rank3.value1 == 1 ? "∞" : tables.rank3.value1
+        var neg4 = tables.rank4.value1 == -1 ? "∞" : use_neg == undefined && tables.rank4.value1 == 1 ? "∞" : tables.rank4.value1
+        var neg5 = tables.rank5.value1 == -1 ? "∞" : use_neg == undefined && tables.rank5.value1 == 1 ? "∞" : tables.rank5.value1
+        var neg6 = tables.rank6.value1 == -1 ? "∞" : use_neg == undefined && tables.rank6.value1 == 1 ? "∞" : tables.rank6.value1
+        var neg7 = tables.rank7.value1 == -1 ? "∞" : use_neg == undefined && tables.rank7.value1 == 1 ? "∞" : tables.rank7.value1
+        var neg8 = tables.rank8.value1 == -1 ? "∞" : use_neg == undefined && tables.rank8.value1 == 1 ? "∞" : tables.rank8.value1
+        var neg9 = tables.rank9.value1 == -1 ? "∞" : use_neg == undefined && tables.rank9.value1 == 1 ? "∞" : tables.rank9.value1
+        var neg10 = tables.rank10.value1 == -1 ? "∞" : use_neg == undefined && tables.rank10.value1 == 1 ? "∞" : tables.rank10.value1
         tables = {
             rank1: {
                 value1: neg1
