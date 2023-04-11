@@ -105,12 +105,12 @@ const Hit_Data_For_Ability = (
 
     const check_hidden = (id) => {
         if (id == undefined) {
-            return true
+            return false
         }
         if (hit_effect_id[id] && hit_effect_id[id].hidden == true) {
-            return false
-        } else {
             return true
+        } else {
+            return false
         }
     }
 
@@ -120,13 +120,15 @@ const Hit_Data_For_Ability = (
     var hit_counter = 0
     for (let index = 0; index < 40; index++) {
         const hit_data = caller[`hit_data_id${index == 0 ? "" : `_${index}`}`]
-        if (hit_data != undefined &&
-            hit_data.hitdata_id != -1 &&
-            hit_data.hitdata_id != 518 && //blanks
-            (hit_data.effect_id != 37 && hit_data.m_nARG_4 != 2809) && //hide models
-            (hit_data.effect_id != 275 && hit_data.m_nARG != 2771) && //casts hide models
-            check_hidden(hit_data.effect_id)
+        if (hit_data == undefined ||
+            hit_data.hitdata_id == -1 ||
+            hit_data.hitdata_id == 518 || //blanks
+            (hit_data.effect_id == 37 && hit_data.m_nARG_4 == 2809) || //hide models
+            (hit_data.effect_id == 275 && hit_data.m_nARG == 2771)  //casts hide models
+            || check_hidden(hit_data && hit_data.effect_id)
         ) {
+            //do nothing
+        } else {
             var hit_data_id_pars = ""
             if (hit_data == undefined) {
                 hit_counter = hit_counter + 1
