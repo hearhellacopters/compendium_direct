@@ -32,6 +32,8 @@ const Ailment_Data_Pars_Handler = ({
     const [displayrank, setdisplayrank] = useStateIfMounted(rank)
     const [brv_cap, set_brv_cap] = useStateIfMounted(0)
     const [max_brv_cap, set_max_brv_cap] = useStateIfMounted(0)
+    const [brv_cap_value, set_brv_cap_value] = useStateIfMounted(0)
+    const [max_brv_cap_value, set_max_brv_cap_value] = useStateIfMounted(0)
 
     useEffect(() => {
         if (override != true) {
@@ -98,16 +100,20 @@ const Ailment_Data_Pars_Handler = ({
             if (typeof rank.value1 == "number") {
                 set_brv_cap(Math.round(rank.value1 * 100))
                 set_max_brv_cap(Math.round(rank.value1 * 1000))
+                set_brv_cap_value(Math.round(((rank.value1 / 100) + 1) * 9999))
+                set_max_brv_cap_value(Math.round(((rank.value1 / 100) + 1) * 99999))
             }
         }
         if (displayrank && displayrank.value1 != undefined) {
             if (typeof displayrank.value1 == "number") {
                 set_brv_cap(Math.round(displayrank.value1 * 100))
                 set_max_brv_cap(Math.round(displayrank.value1 * 1000))
+                set_brv_cap_value(Math.round(((displayrank.value1 / 100) + 1) * 9999))
+                set_max_brv_cap_value(Math.round(((displayrank.value1 / 100) + 1) * 99999))
             }
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [override, rank, displayrank, set_max_brv_cap, set_brv_cap, currentbuffsmuliply, currentdebuffsmuliply, castlocation, currenthp, charactersleft, currentgroupstacks, currentfieldbuffsranks, currentbuffsranks, currentdebuffsranks, currentenemies, currentstacks, currentturns, slider, currentrank, effect_id, currentlevel, setrank])
+    }, [override, rank, displayrank, set_max_brv_cap, set_brv_cap, set_brv_cap_value, set_max_brv_cap_value, currentbuffsmuliply, currentdebuffsmuliply, castlocation, currenthp, charactersleft, currentgroupstacks, currentfieldbuffsranks, currentbuffsranks, currentdebuffsranks, currentenemies, currentstacks, currentturns, slider, currentrank, effect_id, currentlevel, setrank])
 
     useEffect(()=>{
         if (effect_id && effect_id.multiply == true) {
@@ -135,7 +141,16 @@ const Ailment_Data_Pars_Handler = ({
             setcond_str(` ┬ ${effect_id.cond_id}`)
         }
         if (effect_id && effect_id.effectstr) {
-            seteff_str(` ${spacer != undefined ? spacer : effect_id.cond_id != undefined ? "└─" : "-"} ${effect_id.effectstr.replace(/\[value1\]/gm, displayrank && displayrank.value1).replace(/\[value2\]/gm, rank && rank.value2).replace(/\[value3\]/gm, rank && rank.value3).replace(/\[value4\]/gm, rank && rank.value4).replace(/\[value5\]/gm, rank && rank.value5).replace(/\[BRV_CAP\]/gm, brv_cap.toLocaleString("en-US")).replace(/\[MAX_CAP\]/gm, max_brv_cap.toLocaleString("en-US"))}`)
+            seteff_str(` ${spacer != undefined ? spacer : effect_id.cond_id != undefined ? "└─" : "-"} ${
+                effect_id.effectstr.replace(/\[value1\]/gm, displayrank && displayrank.value1)
+                                   .replace(/\[value2\]/gm, rank && rank.value2)
+                                   .replace(/\[value3\]/gm, rank && rank.value3)
+                                   .replace(/\[value4\]/gm, rank && rank.value4)
+                                   .replace(/\[value5\]/gm, rank && rank.value5)
+                                   .replace(/\[BRV_CAP\]/gm, brv_cap.toLocaleString("en-US"))
+                                   .replace(/\[BRV_CAP_VAL\]/gm, brv_cap_value.toLocaleString("en-US"))
+                                   .replace(/\[MAX_CAP\]/gm, max_brv_cap.toLocaleString("en-US"))
+                                   .replace(/\[MAX_CAP_VAL\]/gm, max_brv_cap_value.toLocaleString("en-US"))}`)
         }
         if (hide_type != true) {
             if (effect_id && effect_id.stack_flag != undefined) {
@@ -145,13 +160,21 @@ const Ailment_Data_Pars_Handler = ({
                 setval_type_str(effect_id.val_typestr)
             }
             if (effect_id && effect_id.ValEditTypeShow != false && effect_id.val_edit_typestr != undefined) {
-                setval_edit_type_str(effect_id.val_edit_typestr.replace(/\[value1\]/gm, rank && rank.value1).replace(/\[value2\]/gm, rank && rank.value2).replace(/\[value3\]/gm, rank && rank.value3).replace(/\[value4\]/gm, rank && rank.value4).replace(/\[value5\]/gm, rank && rank.value5).replace(/\[BRV_CAP\]/gm, brv_cap.toLocaleString("en-US")).replace(/\[MAX_CAP\]/gm, max_brv_cap.toLocaleString("en-US")))
+                setval_edit_type_str(effect_id.val_edit_typestr.replace(/\[value1\]/gm, rank && rank.value1)
+                                                               .replace(/\[value2\]/gm, rank && rank.value2)
+                                                               .replace(/\[value3\]/gm, rank && rank.value3)
+                                                               .replace(/\[value4\]/gm, rank && rank.value4)
+                                                               .replace(/\[value5\]/gm, rank && rank.value5)
+                                                               .replace(/\[BRV_CAP\]/gm, brv_cap.toLocaleString("en-US"))
+                                                               .replace(/\[BRV_CAP_VAL\]/gm, brv_cap_value.toLocaleString("en-US"))
+                                                               .replace(/\[MAX_CAP\]/gm, max_brv_cap.toLocaleString("en-US"))
+                                                               .replace(/\[MAX_CAP_VAL\]/gm, max_brv_cap_value.toLocaleString("en-US")))
             }
             if (effect_id && effect_id.EffectValueTypeShow != false && effect_id.effect_value_typestr != undefined) {
                 seteffect_value_type_str(effect_id.effect_value_typestr)
             }
         }
-    }, [effect_id, setcond_str, cond_str, eff_str, effect_value_type_str, hide_type, spacer, setstack_str, val_type_str, val_edit_type_str, displayrank, rank, brv_cap, max_brv_cap, setval_edit_type_str, setval_type_str, seteff_str, seteffect_value_type_str])
+    }, [effect_id, setcond_str, cond_str, eff_str, effect_value_type_str, hide_type, spacer, setstack_str, val_type_str, brv_cap_value, max_brv_cap_value, val_edit_type_str, displayrank, rank, brv_cap, max_brv_cap, setval_edit_type_str, setval_type_str, seteff_str, seteffect_value_type_str])
 
     const seteffect = (value) => {
         setoverride(true)
