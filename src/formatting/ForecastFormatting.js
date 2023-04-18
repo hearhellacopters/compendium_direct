@@ -66,7 +66,7 @@ const ForecastFormatting = ({
     return (
         <li id={match.type} key={match.bannerindex}>
             <div className={"featuredbannerdark"}>
-                <Link to={`/events/banners/` + match.bannerindex} >
+                <Link to={`/events/banners/` + match.bannerindex} style={{ color: "white" }}>
                     <h3 className={"toevents"}>{match.name}</h3>
                 </Link>
                 {currenttime >= new Date(match.outdate) ? (

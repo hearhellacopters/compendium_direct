@@ -6908,18 +6908,74 @@ const ailment_data_pars = (
             hidden: hidden
         }
     }
+    
+    if (value_trans == "turn_rate") {
+        var turn_rate1 =  tables.rank1.value1  <= 1 ? "∞" : tables.rank1.value1 
+        var turn_rate2 =  tables.rank2.value1  <= 1 ? "∞" : tables.rank2.value1 
+        var turn_rate3 =  tables.rank3.value1  <= 1 ? "∞" : tables.rank3.value1 
+        var turn_rate4 =  tables.rank4.value1  <= 1 ? "∞" : tables.rank4.value1 
+        var turn_rate5 =  tables.rank5.value1  <= 1 ? "∞" : tables.rank5.value1 
+        var turn_rate6 =  tables.rank6.value1  <= 1 ? "∞" : tables.rank6.value1 
+        var turn_rate7 =  tables.rank7.value1  <= 1 ? "∞" : tables.rank7.value1 
+        var turn_rate8 =  tables.rank8.value1  <= 1 ? "∞" : tables.rank8.value1 
+        var turn_rate9 =  tables.rank9.value1  <= 1 ? "∞" : tables.rank9.value1 
+        var turn_rate10 = tables.rank10.value1 <= 1 ? "∞" : tables.rank10.value1
+        tables = {
+            rank1: {
+                value1: turn_rate1
+            },
+            rank2: {
+                value1: turn_rate2
+            },
+            rank3: {
+                value1: turn_rate3
+            },
+            rank4: {
+                value1: turn_rate4
+            },
+            rank5: {
+                value1: turn_rate5
+            },
+            rank6: {
+                value1: turn_rate6
+            },
+            rank7: {
+                value1: turn_rate7
+            },
+            rank8: {
+                value1: turn_rate8
+            },
+            rank9: {
+                value1: turn_rate9
+            },
+            rank10: {
+                value1: turn_rate10
+            },
+            effectstr: effectstr,
+            cond_id: condstr,
+            val_typestr: val_typestr,
+            val_edit_typestr: val_edit_typestr,
+            ValEditTypeShow: ValEditTypeShow,
+            ValTypeShow: ValTypeShow,
+            slidertype: slidertype,
+            multiply: multiply,
+            multiplyslider: multiplyslider,
+            defaultrank: defaultrank,
+            hidden: hidden
+        }
+    }
 
     if (value_trans == "neg_infinite") {
-        var neg1 = tables.rank1.value1 == -1 ? "∞" : use_neg == undefined && tables.rank1.value1 == 1 ? "∞" : tables.rank1.value1
-        var neg2 = tables.rank2.value1 == -1 ? "∞" : use_neg == undefined && tables.rank2.value1 == 1 ? "∞" : tables.rank2.value1
-        var neg3 = tables.rank3.value1 == -1 ? "∞" : use_neg == undefined && tables.rank3.value1 == 1 ? "∞" : tables.rank3.value1
-        var neg4 = tables.rank4.value1 == -1 ? "∞" : use_neg == undefined && tables.rank4.value1 == 1 ? "∞" : tables.rank4.value1
-        var neg5 = tables.rank5.value1 == -1 ? "∞" : use_neg == undefined && tables.rank5.value1 == 1 ? "∞" : tables.rank5.value1
-        var neg6 = tables.rank6.value1 == -1 ? "∞" : use_neg == undefined && tables.rank6.value1 == 1 ? "∞" : tables.rank6.value1
-        var neg7 = tables.rank7.value1 == -1 ? "∞" : use_neg == undefined && tables.rank7.value1 == 1 ? "∞" : tables.rank7.value1
-        var neg8 = tables.rank8.value1 == -1 ? "∞" : use_neg == undefined && tables.rank8.value1 == 1 ? "∞" : tables.rank8.value1
-        var neg9 = tables.rank9.value1 == -1 ? "∞" : use_neg == undefined && tables.rank9.value1 == 1 ? "∞" : tables.rank9.value1
-        var neg10 = tables.rank10.value1 == -1 ? "∞" : use_neg == undefined && tables.rank10.value1 == 1 ? "∞" : tables.rank10.value1
+        var neg1 =  tables.rank1.value1  == -1 ? "∞" : tables.rank1.value1  == 99 ? "∞" : tables.rank1.value1  
+        var neg2 =  tables.rank2.value1  == -1 ? "∞" : tables.rank2.value1  == 99 ? "∞" : tables.rank2.value1  
+        var neg3 =  tables.rank3.value1  == -1 ? "∞" : tables.rank3.value1  == 99 ? "∞" : tables.rank3.value1  
+        var neg4 =  tables.rank4.value1  == -1 ? "∞" : tables.rank4.value1  == 99 ? "∞" : tables.rank4.value1  
+        var neg5 =  tables.rank5.value1  == -1 ? "∞" : tables.rank5.value1  == 99 ? "∞" : tables.rank5.value1  
+        var neg6 =  tables.rank6.value1  == -1 ? "∞" : tables.rank6.value1  == 99 ? "∞" : tables.rank6.value1  
+        var neg7 =  tables.rank7.value1  == -1 ? "∞" : tables.rank7.value1  == 99 ? "∞" : tables.rank7.value1  
+        var neg8 =  tables.rank8.value1  == -1 ? "∞" : tables.rank8.value1  == 99 ? "∞" : tables.rank8.value1  
+        var neg9 =  tables.rank9.value1  == -1 ? "∞" : tables.rank9.value1  == 99 ? "∞" : tables.rank9.value1  
+        var neg10 = tables.rank10.value1 == -1 ? "∞" : tables.rank10.value1 == 99 ? "∞" : tables.rank10.value1 
         tables = {
             rank1: {
                 value1: neg1
