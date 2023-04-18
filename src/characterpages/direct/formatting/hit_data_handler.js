@@ -164,8 +164,9 @@ const hit_data_handler = (
     var effect_value_type_id_value_trans = ""
 
     if (effect_value_type_id && 
-        effect_value_type_id != 1 && 
-        effect_value_type_id != -1 && //set fixed value
+        effect_value_type_id !=  1 && 
+        effect_value_type_id != -1 && 
+        effect_value_type_id != 16 && //set fixed value
         effect_value_type_id != 49 //xdeath fixed ATK stat based on stack
         ) {
         effect_value_type_str = effect_value_type_id_data[effect_value_type_id] && effect_value_type_id_data[effect_value_type_id].effect_value_type_id
@@ -228,6 +229,7 @@ const hit_data_handler = (
     }
 
     if (effect_id == 52 || 
+        effect_id == 53 || 
         effect_id == 107 || 
         effect_id == 137 || 
         effect_id == 225 || 
@@ -737,7 +739,7 @@ const hit_data_handler = (
     }
     if(effect_id == 137){
         atk_str = `${atk_str} ${effect_str}`
-        effect_str = `*Doesn't consume ally's BRV`
+        effect_str = `*Doesn't consume BRV`
     }
 
     var hit_return = {
