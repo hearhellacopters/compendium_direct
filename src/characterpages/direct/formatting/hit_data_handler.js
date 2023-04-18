@@ -163,9 +163,18 @@ const hit_data_handler = (
 
     var effect_value_type_id_value_trans = ""
 
-    if (effect_value_type_id && effect_value_type_id != 1 && effect_value_type_id != -1) {
+    if (effect_value_type_id && 
+        effect_value_type_id != 1 && 
+        effect_value_type_id != -1 && //set fixed value
+        effect_value_type_id != 49 //xdeath fixed ATK stat based on stack
+        ) {
         effect_value_type_str = effect_value_type_id_data[effect_value_type_id] && effect_value_type_id_data[effect_value_type_id].effect_value_type_id
         effect_value_type_id_value_trans = effect_value_type_id_data[effect_value_type_id] && effect_value_type_id_data[effect_value_type_id].value_trans
+    }
+
+    if(effect_value_type_id == 16){
+        effect_str = effect_str.replace(/of \[effect_value_type\]/gm,"[effect_value_type]")
+        m_nARG = m_nARG.toLocaleString("en-US")
     }
 
     var ability_target_str = ""
@@ -435,9 +444,15 @@ const hit_data_handler = (
         if (effect_value_type_id == 46) {
             effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG}% / ${m_nARG_1}% / ${m_nARG_2}% / ${m_nARG_3}%`)
         }
-        effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG}%`)
+        if(effect_value_type_id == 16){
+            effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG}`)
             .replace(/\[target\]/gm, ability_target_str)
             .replace("Self ", "")
+        } else {
+            effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG}%`)
+            .replace(/\[target\]/gm, ability_target_str)
+            .replace("Self ", "")
+        }
     }
 
     if (value_trans == "effect43") {
@@ -651,9 +666,7 @@ const hit_data_handler = (
         } else {
             effect_str = effect_str.replace(/\[m_nARG_3\]/gm, "")
         }
-        if (effect_value_type_id == 16) {
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG} of `)
-        } else {
+        if (effect_value_type_id != 16) {
             effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG}% of `)
         }
         effect_str = effect_str.replace(/\[target\]/gm, ability_target_str)
