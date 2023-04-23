@@ -152,6 +152,15 @@ const Hit_Handler_Direct = ({
                 ))
                 : ""}
 
+            {hit_map[`S1`] != undefined && hit_map[`S1`].show != false ?
+                <Hit_Data_Pars
+                    key={`S1`}
+                    hit_data={hit_map[`S1`]}
+
+
+                />
+                : ""}
+
             {//Meta && Meta.faf != undefined ?
             //    <div>
             //        {replacer(Meta && Meta.faf)}

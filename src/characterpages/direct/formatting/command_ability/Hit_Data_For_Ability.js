@@ -163,6 +163,10 @@ const Hit_Data_For_Ability = (
                 hit_counter = hit_counter - 1
                 Object.assign(hit_data_id_pars, { hit_num: `B${hit_data.m_nARG}` })
                 Object.assign(hitreturn.hit_pars, { [`B${hit_data.m_nARG}`]: hit_data_id_pars == "" ? undefined : hit_data_id_pars })
+            } else if(hit_data && hit_data.effect_id == 110 && hit_data.type_id == 6){
+                hit_counter = hit_counter - 1
+                Object.assign(hit_data_id_pars, { hit_num: `S1` })
+                Object.assign(hitreturn.hit_pars, { [`S1`]: hit_data_id_pars == "" ? undefined : hit_data_id_pars })
             } else {
                 Object.assign(hitreturn.hit_pars, { [`hit_${hit_counter}`]: hit_data_id_pars == "" ? undefined : hit_data_id_pars })
             }

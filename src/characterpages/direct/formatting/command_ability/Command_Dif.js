@@ -88,7 +88,8 @@ const Command_Dif = (
         if (key == "B1" ||
             key == "B2" ||
             key == "B3" ||
-            key == "B4"
+            key == "B4" ||
+            key == "S1"
         ) {
             Object.assign(new_hit_pars, { [key]: hit_parers[key] })
         } else {
@@ -235,6 +236,51 @@ const Command_Dif = (
                 full_str = `${full_str}${self.cast_str}\n`
             }
         })
+    }
+
+    if (hit_map["S1"] != undefined && hit_map["S1"].show != false) {
+        if (hit_map["S1"].atk_str != undefined) {
+            full_str = `${full_str}${hit_map["S1"].hit_count == undefined ? "" : hit_map["S1"].hit_count}${hit_map["S1"].atk_str.replace(/{Attack}/gm, hit_map["S1"].atk_hp_str == undefined ? "Attack" : hit_map["S1"].atk_hp_str)}${hit_map["S1"].times_count == undefined ? "" : hit_map["S1"].times_count}\n`
+        }
+        if (hit_map["S1"].pot_str != undefined) {
+            full_str = `${full_str}${hit_map["S1"].pot_str}\n`
+        }
+        if (hit_map["S1"].st_str != undefined) {
+            full_str = `${full_str}${hit_map["S1"].st_str}\n`
+        }
+        if (hit_map["S1"].eff_str != undefined) {
+            full_str = `${full_str}${hit_map["S1"].eff_str}${hit_map["S1"].repeat_count == undefined ? "" : hit_map["S1"].repeat_count}\n`
+        }
+        if (hit_map["S1"].ove_str != undefined) {
+            full_str = `${full_str}${hit_map["S1"].ove_str}\n`
+        }
+        if (hit_map["S1"].eff_before_hp_str != undefined) {
+            full_str = `${full_str}${hit_map["S1"].eff_before_hp_str} before ${hit_map["S1"].times_count == undefined ? "" : `last `}HP Attack\n`
+        }
+        if (hit_map["S1"].eff_hp_str != undefined) {
+            full_str = `${full_str}${hit_map["S1"].eff_hp_str}${hit_map["S1"].times_count == undefined ? "" : `, on each HP Attack`}\n`
+        }
+        if (hit_map["S1"].pot_hp_str != undefined) {
+            full_str = `${full_str}${hit_map["S1"].pot_hp_str}${hit_map["S1"].times_count == undefined ? "" : `, on each HP Attack`}\n`
+        }
+        if (hit_map["S1"].eff_add_str != undefined) {
+            full_str = `${full_str}${hit_map["S1"].eff_add_str}${hit_map["S1"].times_count == undefined ? "" : ` after each HP Attack${hit_map["S1"].except_last == true ? ", except last" : ""}`}\n`
+        }
+        if (hit_map["S1"].eff_add_str_2 != undefined) {
+            full_str = `${full_str}${hit_map["S1"].eff_add_str_2}${hit_map["S1"].times_count == undefined ? "" : ` after each HP Attack${hit_map["S1"].except_last_2 == true ? ", except last" : ""}`}\n`
+        }
+        if (hit_map["S1"].eff_det_str != undefined) {
+            full_str = `${full_str}${hit_map["S1"].eff_det_str}\n`
+        }
+        if (hit_map["S1"].eff_det_str_2 != undefined) {
+            full_str = `${full_str}${hit_map["S1"].eff_det_str_2}\n`
+        }
+        if (hit_map["S1"].mcap_str != undefined) {
+            full_str = `${full_str}${hit_map["S1"].mcap_str}\n`
+        }
+        if (hit_map["S1"].brvcap_str != undefined) {
+            full_str = `${full_str}${hit_map["S1"].brvcap_str}\n`
+        }
     }
 
     //if (command_meta.faf != undefined) {

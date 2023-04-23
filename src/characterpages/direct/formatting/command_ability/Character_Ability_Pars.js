@@ -501,7 +501,8 @@ const Character_Ability_Pars = ({
         if (key == "B1" ||
             key == "B2" ||
             key == "B3" ||
-            key == "B4"
+            key == "B4" ||
+            key == "S1"
         ) {
             Object.assign(new_hit_pars, { [key]: hit_parers[key] })
         } else {
@@ -867,6 +868,15 @@ const Character_Ability_Pars = ({
                                     {self.cond != undefined ? `└─ ` : ""}{addformatting(self.cast_str, "tl")}
                                 </div>
                             ))
+                            : ""}
+
+                        {hit_map[`S1`] != undefined && hit_map[`S1`].show != false ?
+                            <Hit_Data_Pars
+                                key={`S1`}
+                                hit_data={hit_map[`S1`]}
+                                formatting={formatting}
+                                abilitytext={abilitytext}
+                            />
                             : ""}
 
                         {//meta below
