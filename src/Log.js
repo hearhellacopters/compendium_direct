@@ -9,6 +9,12 @@ const log = () => {
                 <h1>Update Log</h1>
                 <div className="creditsholder">
                 <div className="filterholderflair" >
+                        V.5.7
+                    </div>
+                    <ul className="creditslist">
+                        - Added filters for new Force Empowerment Lv50<br />
+                    </ul>
+                <div className="filterholderflair" >
                         V.5.6.6
                     </div>
                     <ul className="creditslist">

@@ -23,6 +23,7 @@ const ForecastFormatting = ({
     eightychar,
     ninetychar,
     frchar,
+    fe50char,
     board5chr
 }) => {
 
@@ -40,6 +41,7 @@ const ForecastFormatting = ({
             eightychar == true ||
             ninetychar == true ||
             frchar == true ||
+            fe50char == true ||
             frboardchar == true ||
             board5chr == true ||
             CharID != ""
@@ -49,7 +51,7 @@ const ForecastFormatting = ({
             setmakedim(false)
         }
 
-    }, [CharID, board5chr, newchar, btchar, btpluschar, ldchar, ldboardchar, sevenachar, sevenapluschar, reworkchar, eightychar, ninetychar, frchar, frboardchar]);
+    }, [CharID, board5chr, newchar, btchar, btpluschar, ldchar, ldboardchar, sevenachar, sevenapluschar, reworkchar, eightychar, ninetychar, frchar, fe50char, frboardchar]);
 
 
     const currenttime = new Date();
@@ -122,6 +124,7 @@ const ForecastFormatting = ({
                                             ninetychar={ninetychar}
                                             frboardchar={frboardchar}
                                             frchar={frchar}
+                                            fe50char={fe50char}
                                             board5chr={board5chr}
                                         />
                                     ))

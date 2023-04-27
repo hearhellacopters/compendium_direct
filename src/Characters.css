@@ -105,6 +105,11 @@
     background-size: contain;
 }
 
+.fe50charbutton {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard50.png");
+    background-size: contain;
+}
+
 .btcharbutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/bt.png");
     background-size: contain;

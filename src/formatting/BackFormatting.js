@@ -22,6 +22,7 @@ const CharBackFace = ({
     eightychar,
     ninetychar,
     frchar,
+    fe50char,
     board5char
 }) => {
 
@@ -33,6 +34,9 @@ const CharBackFace = ({
         dimmer = false
     }
     if (match.LDBoard == ldboardchar) {
+        dimmer = false
+    }
+    if(match.FE50 == fe50char){
         dimmer = false
     }
     if (match.Board5 == board5char) {
@@ -97,6 +101,11 @@ const CharBackFace = ({
                     {match.Board5 == true ?
                         <Tippy content="FR Board Character">
                             <li className="board5 forecasttag"></li>
+                        </Tippy>
+                        : ""}
+                    {match.FE50 == true ?
+                        <Tippy content="Force Enhancement Lv 50">
+                            <li className="boardfr50 forecasttag"></li>
                         </Tippy>
                         : ""}
                     {match.FRBoard == true ?

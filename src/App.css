@@ -3386,6 +3386,10 @@ h3 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/fr.png");
 }
 
+.fe50button {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard50.png");
+}
+
 .startbutton {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/starting.png");
 }
@@ -3691,6 +3695,101 @@ h3 {
 
 .boardfr30 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard30.png");
+  width: 54px;
+  height: 27px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.boardfr33 {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard33.png");
+  width: 54px;
+  height: 27px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.boardfr35 {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard35.png");
+  width: 54px;
+  height: 27px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.boardfr38 {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard38.png");
+  width: 54px;
+  height: 27px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.boardfr40 {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard40.png");
+  width: 54px;
+  height: 27px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.boardfr43 {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard43.png");
+  width: 54px;
+  height: 27px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+.boardfr45 {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard45.png");
+  width: 54px;
+  height: 27px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.boardfr48 {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard48.png");
+  width: 54px;
+  height: 27px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.boardfr50 {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard50.png");
   width: 54px;
   height: 27px;
   display: inline-block;

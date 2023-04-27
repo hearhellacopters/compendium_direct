@@ -249,9 +249,19 @@ const CharacterPage = ({
         temp: newmatch.FRBoardReleaseTemp,
         tag: "boardfr",
         loc: "passives/force",
-        tip: "Force Enhancement"
+        tip: "Force Empowerment"
       }
       holder.push(FRBoardRelease)
+    }
+    if (newmatch.FE50Release != undefined) {
+      const FE50Release = {
+        release: newmatch.FE50Release,
+        temp: newmatch.FE50ReleaseTemp,
+        tag: "boardfr50",
+        loc: "passives/force",
+        tip: "Force Empowerment Lv50"
+      }
+      holder.push(FE50Release)
     }
     if (newmatch.SevenArmorPlusRelease != undefined) {
       const SevenArmorPlusRelease = {

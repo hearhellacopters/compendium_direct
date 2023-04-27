@@ -98,18 +98,11 @@ const Forecast = ({ ProcessedBanners, ProcessedCharacters, jptoggledata }) => {
   const rawData = prefilterlist;
 
   const [newchar, setNewChar] = useState(getQueryStringVal("newchar") != null ? true : false);
-  const [btchar, setBTChar] = useState(getQueryStringVal("bt") != null ? true : false);
-  const [btpluschar, setBTPlusChar] = useState(getQueryStringVal("btplus") != null ? true : false);
-  const [ldchar, setLDChar] = useState(getQueryStringVal("ld") != null ? true : false);
-  const [frchar, setFRChar] = useState(getQueryStringVal("fr") != null ? true : false);
-  const [ldboardchar, setLDBoardChar] = useState(getQueryStringVal("ldboard") != null ? true : false);
-  const [frboardchar, setFRBoardChar] = useState(getQueryStringVal("frboard") != null ? true : false);
-  const [sevenachar, setSevenAChar] = useState(getQueryStringVal("7a") != null ? true : false);
-  const [sevenapluschar, setSevenAPlusChar] = useState(getQueryStringVal("7aplus") != null ? true : false);
-  const [reworkchar, setReworkChar] = useState(getQueryStringVal("rework") != null ? true : false);
-  const [eightychar, setEightyChar] = useState(getQueryStringVal("eighty") != null ? true : false);
-  const [ninetychar, setNinetyChar] = useState(getQueryStringVal("ninety") != null ? true : false);
+  const [fe50char, setFE50Char] = useState(getQueryStringVal("fe50") != null ? true : false)
   const [board5char, setBoard5Char] = useState(getQueryStringVal("board5") != null ? true : false);
+  const [frchar,setFRChar] = useState(getQueryStringVal("fr") != null ? true : false)
+  const [btpluschar, setBTPlusChar] = useState(getQueryStringVal("btplus") != null ? true : false);
+  const [reworkchar, setReworkChar] = useState(getQueryStringVal("rework") != null ? true : false);
 
   const [loop, setLoop] = useStateIfMounted(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -129,18 +122,11 @@ const Forecast = ({ ProcessedBanners, ProcessedCharacters, jptoggledata }) => {
   );
 
   const [newcharsearch, setNewCharsearch] = useQueryParam("newchar", "");
-  const [btcharsearch, setBTCharsearch] = useQueryParam("bt", "");
-  const [btpluscharsearch, setBTPlusCharsearch] = useQueryParam("btplus", "");
-  const [ldcharsearch, setLDCharsearch] = useQueryParam("ld", "");
-  const [frcharsearch, setFRCharsearch] = useQueryParam("fr", "");
-  const [frboardcharsearch, setFRBoardCharsearch] = useQueryParam("frboard", "");
-  const [ldboardcharsearch, setLDBoardCharsearch] = useQueryParam("ldboard", "");
-  const [sevenacharsearch, setSevenACharsearch] = useQueryParam("7a", "");
-  const [sevenapluscharsearch, setSevenAPlusCharsearch] = useQueryParam("7aplus", "");
-  const [reworkcharsearch, setReworkCharsearch] = useQueryParam("rework", "");
-  const [eightycharsearch, setEightyCharsearch] = useQueryParam("eighty", "");
-  const [ninetycharsearch, setNinetyCharsearch] = useQueryParam("ninety", "");
+  const [fe50charsearch, setFE50Charsearch] = useQueryParam("fe50", "");
   const [board5charsearch, setBoard5Charsearch] = useQueryParam("board5", "");
+  const [frcharsearch,setFRCharsearch] = useQueryParam("fr", "");
+  const [btpluscharsearch, setBTPlusCharsearch] = useQueryParam("btplus", "");
+  const [reworkcharsearch, setReworkCharsearch] = useQueryParam("rework", "");  
 
   const [futureeventssearch, setFutureEventssearch] = useQueryParam("future", "");
   const [TEXTsearch, setTEXTsearch] = useQueryParam("search", "");
@@ -212,62 +198,10 @@ const Forecast = ({ ProcessedBanners, ProcessedCharacters, jptoggledata }) => {
       });
       filterholder.push(...filteredout);
     }
-    if (btchar === true) {
+    if (fe50char === true) {
       const filteredout = rawData.filter(function (ef) {
         const newfilterpull = ef.ForecastChars
-          .some(CharList => CharList.BTChar === true)
-          ;
-        if (newfilterpull !== null) {
-          return newfilterpull;
-        } else {
-          return ef
-        }
-      });
-      filterholder.push(...filteredout);
-    }
-    if (btpluschar === true) {
-      const filteredout = rawData.filter(function (ef) {
-        const newfilterpull = ef.ForecastChars
-          .some(CharList => CharList.BTPlus === true)
-          ;
-        if (newfilterpull !== null) {
-          return newfilterpull;
-        } else {
-          return ef
-        }
-      });
-      filterholder.push(...filteredout);
-    }
-    if (ldchar === true) {
-      const filteredout = rawData.filter(function (ef) {
-        const newfilterpull = ef.ForecastChars
-          .some(CharList => CharList.LD === true)
-          ;
-        if (newfilterpull !== null) {
-          return newfilterpull;
-        } else {
-          return ef
-        }
-      });
-      filterholder.push(...filteredout);
-    }
-    if (ldboardchar === true) {
-      const filteredout = rawData.filter(function (ef) {
-        const newfilterpull = ef.ForecastChars
-          .some(CharList => CharList.LDBoard === true)
-          ;
-        if (newfilterpull !== null) {
-          return newfilterpull;
-        } else {
-          return ef
-        }
-      });
-      filterholder.push(...filteredout);
-    }
-    if (frboardchar === true) {
-      const filteredout = rawData.filter(function (ef) {
-        const newfilterpull = ef.ForecastChars
-          .some(CharList => CharList.FRBoard === true)
+          .some(CharList => CharList.FE50 === true)
           ;
         if (newfilterpull !== null) {
           return newfilterpull;
@@ -290,23 +224,10 @@ const Forecast = ({ ProcessedBanners, ProcessedCharacters, jptoggledata }) => {
       });
       filterholder.push(...filteredout);
     }
-    if (sevenachar === true) {
+    if (btpluschar === true) {
       const filteredout = rawData.filter(function (ef) {
         const newfilterpull = ef.ForecastChars
-          .some(CharList => CharList.SevenArmor === true)
-          ;
-        if (newfilterpull !== null) {
-          return newfilterpull;
-        } else {
-          return ef
-        }
-      });
-      filterholder.push(...filteredout);
-    }
-    if (sevenapluschar === true) {
-      const filteredout = rawData.filter(function (ef) {
-        const newfilterpull = ef.ForecastChars
-          .some(CharList => CharList.SevenArmorPlus === true)
+          .some(CharList => CharList.BTPlus === true)
           ;
         if (newfilterpull !== null) {
           return newfilterpull;
@@ -329,32 +250,6 @@ const Forecast = ({ ProcessedBanners, ProcessedCharacters, jptoggledata }) => {
       });
       filterholder.push(...filteredout);
     }
-    if (eightychar === true) {
-      const filteredout = rawData.filter(function (ef) {
-        const newfilterpull = ef.ForecastChars
-          .some(CharList => CharList.CystalEighty === true)
-          ;
-        if (newfilterpull !== null) {
-          return newfilterpull;
-        } else {
-          return ef
-        }
-      });
-      filterholder.push(...filteredout);
-    }
-    if (ninetychar === true) {
-      const filteredout = rawData.filter(function (ef) {
-        const newfilterpull = ef.ForecastChars
-          .some(CharList => CharList.CystalNinety === true)
-          ;
-        if (newfilterpull !== null) {
-          return newfilterpull;
-        } else {
-          return ef
-        }
-      });
-      filterholder.push(...filteredout);
-    }
     if (frchar === true) {
       const filteredout = rawData.filter(function (ef) {
         const newfilterpull = ef.ForecastChars
@@ -368,7 +263,7 @@ const Forecast = ({ ProcessedBanners, ProcessedCharacters, jptoggledata }) => {
       });
       filterholder.push(...filteredout);
     }
-    if (![newchar, btchar, btpluschar, ldchar, board5char, ldboardchar, sevenachar, sevenapluschar, reworkchar, eightychar, ninetychar, frchar, frboardchar].includes(true)) {
+    if (![newchar, btpluschar, board5char, reworkchar, fe50char, frchar].includes(true)) {
       filterholder.push(...rawData);
     }
 
@@ -400,7 +295,7 @@ const Forecast = ({ ProcessedBanners, ProcessedCharacters, jptoggledata }) => {
     setDisplayBanner(
       <>Displaying <span className="subtextgold">{newlistdisplay.length}</span> of <span className="subtextgold"> {gettypefilter.length}</span> {banerDisplayTerm}</>
     );
-  }, [board5char, limits, rawData, searchTerm, clearFilter, newchar, btchar, btpluschar, ldchar, ldboardchar, sevenachar, sevenapluschar, reworkchar, frchar, frboardchar, eightychar, ninetychar, jponly, condFilter, reverse, prefilterlist]);
+  }, [board5char, limits, rawData, searchTerm, clearFilter, newchar, fe50char, btpluschar, frchar, reworkchar, jponly, condFilter, reverse, prefilterlist]);
 
   const newcharbutton = () => {
     if (newchar == false) {
@@ -410,13 +305,29 @@ const Forecast = ({ ProcessedBanners, ProcessedCharacters, jptoggledata }) => {
     }
     setNewChar((prevValue) => !prevValue);
   };
-  const btcharbutton = () => {
-    if (btchar == false) {
-      setBTCharsearch("true")
+  const frbutton = () => {
+    if (frchar == false) {
+      setFRCharsearch("true")
     } else {
-      setBTCharsearch("")
+      setFRCharsearch("")
     }
-    setBTChar((prevValue) => !prevValue);
+    setFRChar((prevValue) => !prevValue);
+  };
+  const fe50button = () => {
+    if (fe50char == false) {
+      setFE50Charsearch("true")
+    } else {
+      setFE50Charsearch("")
+    }
+    setFE50Char((prevValue) => !prevValue);
+  };
+  const board5charbutton = () => {
+    if (board5char == false) {
+      setBoard5Charsearch("true")
+    } else {
+      setBoard5Charsearch("")
+    }
+    setBoard5Char((prevValue) => !prevValue);
   };
   const btpluscharbutton = () => {
     if (btpluschar == false) {
@@ -426,55 +337,6 @@ const Forecast = ({ ProcessedBanners, ProcessedCharacters, jptoggledata }) => {
     }
     setBTPlusChar((prevValue) => !prevValue);
   };
-
-  const ldcharbutton = () => {
-    if (ldchar == false) {
-      setLDCharsearch("true")
-    } else {
-      setLDCharsearch("")
-    }
-    setLDChar((prevValue) => !prevValue);
-  };
-  const ldboardcharbutton = () => {
-    if (ldboardchar == false) {
-      setLDBoardCharsearch("true")
-    } else {
-      setLDBoardCharsearch("")
-    }
-    setLDBoardChar((prevValue) => !prevValue);
-  };
-  const frboardcharbutton = () => {
-    if (frboardchar == false) {
-      setFRBoardCharsearch("true")
-    } else {
-      setFRBoardCharsearch("")
-    }
-    setFRBoardChar((prevValue) => !prevValue);
-  };
-  const board5charbutton = () => {
-    if (frboardchar == false) {
-      setBoard5Charsearch("true")
-    } else {
-      setBoard5Charsearch("")
-    }
-    setBoard5Char((prevValue) => !prevValue);
-  };
-  const sevenacharbutton = () => {
-    if (sevenachar == false) {
-      setSevenACharsearch("true")
-    } else {
-      setSevenACharsearch("")
-    }
-    setSevenAChar((prevValue) => !prevValue);
-  };
-  const sevenapluscharbutton = () => {
-    if (sevenapluschar == false) {
-      setSevenAPlusCharsearch("true")
-    } else {
-      setSevenAPlusCharsearch("")
-    }
-    setSevenAPlusChar((prevValue) => !prevValue);
-  };
   const reworkcharbutton = () => {
     if (reworkchar == false) {
       setReworkCharsearch("true")
@@ -483,22 +345,6 @@ const Forecast = ({ ProcessedBanners, ProcessedCharacters, jptoggledata }) => {
     }
     setReworkChar((prevValue) => !prevValue);
   };
-  const eightycharbutton = () => {
-    if (eightychar == false) {
-      setEightyCharsearch("true")
-    } else {
-      setEightyCharsearch("")
-    }
-    setEightyChar((prevValue) => !prevValue);
-  };
-  const ninetycharbutton = () => {
-    if (ninetychar == false) {
-      setNinetyCharsearch("true")
-    } else {
-      setNinetyCharsearch("")
-    }
-    setNinetyChar((prevValue) => !prevValue);
-  };
   const futurebutton = () => {
     if (futureevents == false) {
       setFutureEventssearch("true")
@@ -506,14 +352,6 @@ const Forecast = ({ ProcessedBanners, ProcessedCharacters, jptoggledata }) => {
       setFutureEventssearch("")
     }
     setFutureEvents((prevValue) => !prevValue);
-  };
-  const frbutton = () => {
-    if (frchar == false) {
-      setFRCharsearch("true")
-    } else {
-      setFRCharsearch("")
-    }
-    setFRChar((prevValue) => !prevValue);
   };
   const jponlybutton = () => {
     if (jponly == false) {
@@ -621,32 +459,18 @@ const Forecast = ({ ProcessedBanners, ProcessedCharacters, jptoggledata }) => {
     setReverse(false)
     setFutureEvents(false);
     setNewChar(false)
-    setBTChar(false)
-    setBTPlusChar(false)
-    setLDChar(false)
-    setLDBoardChar(false)
-    setFRBoardChar(false)
-    setSevenAChar(false)
-    setSevenAPlusChar(false)
-    setReworkChar(false)
-    setEightyChar(false)
-    setNinetyChar(false)
-    setFRChar(false)
+    setFE50Char(false)
     setBoard5Char(false)
+    setBTPlusChar(false)
+    setFRChar(false)
+    setReworkChar(false)
 
     setNewCharsearch("")
-    setBTCharsearch("")
-    setBTPlusCharsearch("")
-    setLDCharsearch("")
-    setLDBoardCharsearch("")
-    setFRBoardCharsearch("")
-    setSevenACharsearch("")
-    setSevenAPlusCharsearch("")
-    setReworkCharsearch("")
-    setEightyCharsearch("")
-    setNinetyCharsearch("")
-    setFRCharsearch("")
+    setFE50Charsearch("")
     setBoard5Charsearch("")
+    setBTPlusCharsearch("")
+    setFRCharsearch("")
+    setReworkCharsearch("")
 
     setFutureEventssearch("")
     setReversesearch("")
@@ -714,31 +538,21 @@ const Forecast = ({ ProcessedBanners, ProcessedCharacters, jptoggledata }) => {
               <Tippy content="New Character" className="tooltip" >
                 <li alt="New Character" onClick={newcharbutton} className={`${newchar ? "filteractive" : "filterinactive"} NewChar buffbutton`}></li>
               </Tippy>
-              <Tippy content="FR Characters" className="tooltip" >
-                <li alt="FR Characters" onClick={frbutton} className={`${frchar ? "filteractive" : "filterinactive"} frbutton buffbutton`}></li>
+              <Tippy content="FE 50 Characters" className="tooltip" >
+                <li alt="FE 50 Characters" onClick={fe50button} className={`${fe50char ? "filteractive" : "filterinactive"} fe50button buffbutton`}></li>
               </Tippy>
               <Tippy content="FR Boards Characters" className="tooltip" >
                 <li alt="FR Boards" onClick={board5charbutton} className={`${board5char ? "filteractive" : "filterinactive"} board5button buffbutton`}></li>
               </Tippy>
-              <Tippy content="Force Enhancement" className="tooltip" >
-                <li alt="Force Enhancement" onClick={frboardcharbutton} className={`${frboardchar ? "filteractive" : "filterinactive"} frboardbutton buffbutton`}></li>
+              <Tippy content="FR Characters" className="tooltip" >
+                <li alt="FR Characters" onClick={frbutton} className={`${frchar ? "filteractive" : "filterinactive"} frbutton buffbutton`}></li>
               </Tippy>
               <Tippy content="BT+ Characters" className="tooltip" >
                 <li alt="BT+ Characters" onClick={btpluscharbutton} className={`${btpluschar ? "filteractive" : "filterinactive"} wpbtplusbutton buffbutton`}></li>
               </Tippy>
-              <Tippy content="LD Characters" className="tooltip" >
-                <li alt="LD Characters" onClick={ldcharbutton} className={`${ldchar ? "filteractive" : "filterinactive"} wpldbutton buffbutton`}></li>
-              </Tippy>
               <Tippy content="Rework Characters" className="tooltip" >
                 <li alt="Rework Characters" onClick={reworkcharbutton} className={`${reworkchar ? "filteractive" : "filterinactive"} reworkicon buffbutton`}></li>
               </Tippy>
-              <Tippy content="7★+ Armor Characters" className="tooltip" >
-                <li alt="7★+ Armor" onClick={sevenapluscharbutton} className={`${sevenapluschar ? "filteractive" : "filterinactive"} arm7aplusbutton buffbutton`}></li>
-              </Tippy>
-              <Tippy content="Level 90 Characters" className="tooltip" >
-                <li alt="Level 90 Characters" onClick={ninetycharbutton} className={`${ninetychar ? "filteractive" : "filterinactive"} cl90button buffbutton`}></li>
-              </Tippy>
-
             </ul>
             <div className="similarbanner">Additional Releases</div>
             <ul className="eventtypes">
@@ -822,18 +636,11 @@ const Forecast = ({ ProcessedBanners, ProcessedCharacters, jptoggledata }) => {
                 key={events.bannerindex}
                 match={events}
                 newchar={newchar}
-                btchar={btchar}
-                btpluschar={btpluschar}
-                ldchar={ldchar}
-                ldboardchar={ldboardchar}
-                frboardchar={frboardchar}
-                sevenachar={sevenachar}
-                sevenapluschar={sevenapluschar}
-                reworkchar={reworkchar}
-                eightychar={eightychar}
-                ninetychar={ninetychar}
+                fe50char={fe50char}
                 frchar={frchar}
                 board5char={board5char}
+                btpluschar={btpluschar}
+                reworkchar={reworkchar}
                 CharID={condFilter}
               />
             )) :
