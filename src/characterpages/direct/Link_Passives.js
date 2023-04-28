@@ -256,6 +256,7 @@ const Link_Passives = ({
                 <Link_Parm
                   key={passive.lc_id}
                   passive={passive}
+                  ver={ver}
                   master_index={master_index}
                   tag_overide={passive.cp != 0 ? "smallpassive automarg" : "newstatus"}
                 />

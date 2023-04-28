@@ -21,7 +21,7 @@ const Link_Parm = ({
             rData = date_check
         }
     } else {
-        const date_check2 = passive.start_date && new Date(passive.start_date.toString().replace(/ /, "T"));
+        const date_check2 = passive.start_date && new Date(`${passive.start_date.toString().replace(/ /, "T")}Z`);
         if (date_check2 && date_check2.getTime() > ct) {
             rData = date_check2
         }
