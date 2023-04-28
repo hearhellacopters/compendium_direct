@@ -249,7 +249,7 @@ const CharacterPage = ({
         temp: newmatch.FRBoardReleaseTemp,
         tag: "boardfr",
         loc: "passives/force",
-        tip: "Force Empowerment"
+        tip: "Force Enhancement"
       }
       holder.push(FRBoardRelease)
     }
@@ -259,7 +259,7 @@ const CharacterPage = ({
         temp: newmatch.FE50ReleaseTemp,
         tag: "boardfr50",
         loc: "passives/force",
-        tip: "Force Empowerment Lv50"
+        tip: "Force Enhancement Lv50"
       }
       holder.push(FE50Release)
     }

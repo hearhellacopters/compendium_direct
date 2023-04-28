@@ -568,7 +568,7 @@ const CharacterPageDirect = ({
             }
         }
         if (loc == "passives" && match.params.type == "force") {
-            setbanner_loc("Force Empowerment")
+            setbanner_loc("Force Enhancement")
             if (selected_char[`${ver}basic`] == true &&
                 selected_char[`${ver}link`] == true) {
                 sethide_page(false)

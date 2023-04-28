@@ -12,7 +12,7 @@ const log = () => {
                         V.5.7
                     </div>
                     <ul className="creditslist">
-                        - Added filters for new Force Empowerment Lv50<br />
+                        - Added filters for new Force Enhancement Lv50<br />
                     </ul>
                 <div className="filterholderflair" >
                         V.5.6.6
