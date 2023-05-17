@@ -74,25 +74,25 @@ const Hit_Data_Pars = ({
     if ((hit_data.show == true || hit_data.show == undefined) && eff_str_display && eff_str_display.includes("text line")) {
         const rain_check = eff_str_display.includes("Limit")
         if (eff_str_display.includes("text line 1") && abilitytext != undefined) {
-            const getfirst = abilitytext.split(/\n/gm)
+            const getfirst = abilitytext.split(/\\n/gm)
             if (getfirst.length != 0) {
                 eff_str_display = eff_str_display.replace(/text line 1/, `banner ${rain_check == true ? "--" : "["}"${Format_cleaner(getfirst[0])}"${rain_check == true ? "--" : "]"}`)
             }
         }
         if (eff_str_display.includes("text line 2") && abilitytext != undefined) {
-            const getsecond = abilitytext.split(/\n/gm)
+            const getsecond = abilitytext.split(/\\n/gm)
             if (getsecond.length != 0) {
                 eff_str_display = eff_str_display.replace(/text line 2/, `banner ${rain_check == true ? "--" : "["}"${Format_cleaner(getsecond[1])}"${rain_check == true ? "--" : "]"}`)
             }
         }
         if (eff_str_display.includes("text line 3") && abilitytext != undefined) {
-            const getthird = abilitytext.split(/\n/gm)
+            const getthird = abilitytext.split(/\\n/gm)
             if (getthird.length != 0) {
                 eff_str_display = eff_str_display.replace(/text line 3/, `banner ${rain_check == true ? "--" : "["}"${Format_cleaner(getthird[2])}"${rain_check == true ? "--" : "]"}`)
             }
         }
         if (eff_str_display.includes("text line 4") && abilitytext != undefined) {
-            const getforth = abilitytext.split(/\n/gm)
+            const getforth = abilitytext.split(/\\n/gm)
             if (getforth.length != 0) {
                 eff_str_display = eff_str_display.replace(/text line 4/, `banner ${rain_check == true ? "--" : "["}"${Format_cleaner(getforth[3])}"${rain_check == true ? "--" : "]"}`)
             }

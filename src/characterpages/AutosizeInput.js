@@ -36,24 +36,16 @@ const copyStyles = (styles, node) => {
 	node.style.textTransform = styles.textTransform;
 };
 
-const isIE = (typeof window !== 'undefined' && window.navigator) ? /MSIE |Trident\/|Edge\//.test(window.navigator.userAgent) : false;
-
-const generateId = () => {
-	// we only need an auto-generated ID for stylesheet injection, which is only
-	// used for IE. so if the browser is not IE, this should return undefined.
-	return isIE ? '_' + Math.random().toString(36).substr(2, 12) : undefined;
-};
-
 class AutosizeInput extends Component {
 	static getDerivedStateFromProps (props, state) {
 		const { id } = props;
-		return id !== state.prevId ? { inputId: id || generateId(), prevId: id } : null;
+		return id !== state.prevId ? { inputId: id , prevId: id } : null;
 	}
 	constructor (props) {
 		super(props);
 		this.state = {
 			inputWidth: props.minWidth,
-			inputId: props.id || generateId(),
+			inputId: props.id ,
 			prevId: props.id,
 		};
 	}
@@ -133,17 +125,6 @@ class AutosizeInput extends Component {
 	select () {
 		this.input.select();
 	}
-	renderStyles () {
-		// this method injects styles to hide IE's clear indicator, which messes
-		// with input size detection. the stylesheet is only injected when the
-		// browser is IE, and can also be disabled by the `injectStyles` prop.
-		const { injectStyles } = this.props;
-		return isIE && injectStyles ? (
-			<style dangerouslySetInnerHTML={{
-				__html: `input#${this.state.inputId}::-ms-clear {display: none;}`,
-			}} />
-		) : null;
-	}
 	render () {
 		const sizerValue = [this.props.defaultValue, this.props.value, ''].reduce((previousValue, currentValue) => {
 			if (previousValue !== null && previousValue !== undefined) {
@@ -169,7 +150,6 @@ class AutosizeInput extends Component {
 
 		return (
 			<div className={this.props.className} style={wrapperStyle}>
-				{this.renderStyles()}
 				<input {...inputProps} ref={this.inputRef} />
 				<div ref={this.sizerRef} style={sizerStyle}>{sizerValue}</div>
 				{this.props.placeholder

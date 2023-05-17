@@ -9,6 +9,12 @@ const log = () => {
                 <h1>Update Log</h1>
                 <div className="creditsholder">
                 <div className="filterholderflair" >
+                        V.5.8
+                    </div>
+                    <ul className="creditslist">
+                        - Updated rework pages to default to direct data diffing<br />
+                    </ul>
+                <div className="filterholderflair" >
                         V.5.7
                     </div>
                     <ul className="creditslist">

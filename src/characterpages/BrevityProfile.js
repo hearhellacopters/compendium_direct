@@ -136,7 +136,7 @@ const BrevityProfile = ({ match }) => {
                         : ""}
                 </div>
                 {showforce == true ?
-                    <div className="buffglreworkbanner">
+                    <div className="similarbanner">
                         <Link className="updatelink" to={`/characters/forcetime?Char=${replacer(match.CharacterName)}`}>
                             View Force Time
                         </Link>

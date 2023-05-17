@@ -838,7 +838,7 @@ const Equipment_Passives = ({
                 </Tippy>
                 : ""}
               {showWOI == true ?
-                <Tippy content="World of Illsions Weapon">
+                <Tippy content="World of Illusions Weapon">
                   <li onClick={WOIbutton} className={`${activeWOI == true ? "filteractive" : "filterinactive"} buffbutton wpwoibutton`}>
                   </li>
                 </Tippy>

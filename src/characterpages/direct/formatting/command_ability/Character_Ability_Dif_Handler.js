@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Character_Ability_Dif from './Character_Ability_Dif.js';
 import Character_Ability_Pars from './Character_Ability_Pars.js';
 
@@ -8,42 +8,25 @@ const Character_Ability_Dif_Handler = ({
     ProcessedCharacters
 }) => {
 
-    const [show, setshow] = useState(false);
-
     return (
-        <>
-            <div className='force_coloring noshowbottomline'>
-                <div className='loadmorespheres' onClick={() => setshow((prevValue) => !prevValue)}>
-                    {show ? "Hide Abilities" : "Show Abilities"}
-                </div>
-            </div>
-            {show == true ?
-                ability_data && ability_data.map((self, i) => (
-                    self.new_only == true ?
-                        <div
-                            key={i}
-                        >
-                            <div className='infonameholderenemybuff newblue unique center'>New Ability! (doesn't compare)</div>
-                            <Character_Ability_Pars
-                                character_ability={self.command_new}
-                                ver={self.ver_new}
-                                ProcessedCharacters={ProcessedCharacters}
-                                master_index={master_index}
-                                formatting={true}
-                            />
-                        </div>
-                        :
-                        <Character_Ability_Dif
-                            key={i}
-                            command_old={self.command_old}
-                            ver_old={self.ver_old}
-                            command_new={self.command_new}
-                            ver_new={self.ver_new}
-                            master_index={master_index}
-                        />
-                ))
-                : ""}
-        </>
+        ability_data.new_only == true ?         
+            <Character_Ability_Pars
+                character_ability={ability_data.command_new}
+                ver={ability_data.ver_new}
+                ProcessedCharacters={ProcessedCharacters}
+                master_index={master_index}
+                formatting={true}
+                info={ability_data.info?ability_data.info+"\nNew Ability! (doesn't compare)":"New Ability! (doesn't compare)"}
+            />    
+            :
+            <Character_Ability_Dif
+                command_old={ability_data.command_old}
+                ver_old={ability_data.ver_old}
+                command_new={ability_data.command_new}
+                ver_new={ability_data.ver_new}
+                master_index={master_index}
+                info={ability_data.info}
+            />
     )
 }
 

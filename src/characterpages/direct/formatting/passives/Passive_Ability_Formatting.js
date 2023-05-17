@@ -215,8 +215,8 @@ const Passive_Ability_Formatting = ({
                             </div>
                         : ""}
                     {ver == "JP" ?
-                        <div className={`${passive_ability.CharID != undefined && gear == undefined ? `iconbuffer infonameholder nobuffpadding ` : chara_id_passoff == undefined ? `infonameholderenemybuff ` : `iconbuffer infonameholder nobuffpadding `}${banner_color == undefined ? "Buffbanner" : banner_color}`}>
-                            <div className="spacearound" onClick={showmeraw}>
+                        <div className={`${passive_ability.CharID != undefined && gear == undefined ? `iconbuffer infonameholder nobuffpadding ` : chara_id_passoff == undefined ? `infonameholderenemybuff ` : `iconbuffer infonameholder nobuffpadding `}${banner_color == undefined ? "Buffbanner" : banner_color}`} onClick={showmeraw}>
+                            <div className="spacearound">
                                 <DefaultTippy content={"Scroll to top"}>
                                     <div onClick={() => window.scrollTo(0, 0)} className="displayfex clicky">
                                         {sphere == undefined ?

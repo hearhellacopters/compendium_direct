@@ -80,6 +80,7 @@ const Ailment_Field_Attached_State = ({
                     currentgroupstacks={currentrank}
                     currenthp={currentrank}
                     charactersleft={currentrank}
+                    characterskb={currentrank}
                     formatting={formatting}
                     castlocation={castlocation == undefined ? false : castlocation}
                     hide_type={hide_type}

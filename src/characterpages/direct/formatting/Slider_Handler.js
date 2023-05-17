@@ -34,6 +34,7 @@ const Silder_Handler = (val_type,
     var groupstacks = false
     var currenthp = false
     var charactersleft = false
+    var characterskb = false
     if (val_edit_type_field != undefined) {
         val_edit_type_field.map(self => {
             if (self == 16) {
@@ -63,6 +64,9 @@ const Silder_Handler = (val_type,
             }
             if (self == 11) {
                 charactersleft = true
+            }
+            if(self == 15){
+                characterskb = true
             }
         })
     }
@@ -124,7 +128,8 @@ const Silder_Handler = (val_type,
         stacks: stacks,
         groupstacks: groupstacks,
         currenthp: currenthp,
-        charactersleft: charactersleft
+        charactersleft: charactersleft,
+        characterskb: characterskb
     }
     return silders
 }

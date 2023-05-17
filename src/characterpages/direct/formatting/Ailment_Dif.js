@@ -26,6 +26,7 @@ const Ailment_Dif = ({
     currentgroupstacks_passoff,
     currenthp_passoff,
     charactersleft_passoff,
+    characterskb_passoff,
 }) => {
 
     const loc = "ailmment"
@@ -228,6 +229,7 @@ const Ailment_Dif = ({
             currentgroupstacks_passoff,
             currenthp_passoff,
             charactersleft_passoff,
+            characterskb_passoff
         )
         if (text == " - Activates Field Effects\n") {
             new_text = `${new_text}<fieldeffects>\n`
@@ -252,6 +254,7 @@ const Ailment_Dif = ({
                 currentgroupstacks_passoff,
                 currenthp_passoff,
                 charactersleft_passoff,
+                characterskb_passoff
             )
             new_text = `${new_text}${text}`
         })
@@ -274,6 +277,7 @@ const Ailment_Dif = ({
             currentgroupstacks_passoff,
             currenthp_passoff,
             charactersleft_passoff,
+            characterskb_passoff
         )
         if (text == " - Activates Field Effects\n") {
             old_text = `${old_text}<fieldeffects>\n`
@@ -298,6 +302,7 @@ const Ailment_Dif = ({
                 currentgroupstacks_passoff,
                 currenthp_passoff,
                 charactersleft_passoff,
+                characterskb_passoff
             )
             old_text = `${old_text}${text}`
         })

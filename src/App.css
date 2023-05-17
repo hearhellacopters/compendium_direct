@@ -2546,6 +2546,326 @@ h3 {
   -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
+.MythrilChest {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/MythrilChest.png");
+  height: 28px;
+  width: 28px;
+  margin-bottom: -3px;
+  margin-top: -3px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.AdamantChest {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/AdamantChest.png");
+  height: 28px;
+  width: 28px;
+  margin-bottom: -3px;
+  margin-top: -3px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.BronzeChest {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/BronzeChest.png");
+  height: 28px;
+  width: 28px;
+  margin-bottom: -3px;
+  margin-top: -3px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.SilverChest {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/SilverChest.png");
+  height: 28px;
+  width: 28px;
+  margin-bottom: -3px;
+  margin-top: -3px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.PlatinumChest {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/PlatinumChest.png");
+  height: 28px;
+  width: 28px;
+  margin-bottom: -3px;
+  margin-top: -3px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.GoldChest {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/GoldChest.png");
+  height: 28px;
+  width: 28px;
+  margin-bottom: -3px;
+  margin-top: -3px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.RuinUltimaIgnot {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/RuinUltimaIgnot.png");
+  height: 28px;
+  width: 28px;
+  margin-bottom: -3px;
+  margin-top: -3px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.GuardToken {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/GuardToken.png");
+  height: 28px;
+  width: 28px;
+  margin-bottom: -3px;
+  margin-top: -3px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.RuinUltimaNugget {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/RuinUltimaNugget.png");
+  height: 28px;
+  width: 28px;
+  margin-bottom: -3px;
+  margin-top: -3px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.RuinAdamantineIgnot {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/RuinAdamantineIgnot.png");
+  height: 28px;
+  width: 28px;
+  margin-bottom: -3px;
+  margin-top: -3px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.RuinAdamantineBook{
+  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/RuinAdamantineBook.png");
+  height: 28px;
+  width: 28px;
+  margin-bottom: -3px;
+  margin-top: -3px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.HighGuardToken {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/7StarArmor.png");
+  height: 28px;
+  width: 28px;
+  margin-bottom: -3px;
+  margin-top: -3px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.RefugeAdamantineBook {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/RefugeAdamantineBook.png");
+  height: 28px;
+  width: 28px;
+  margin-bottom: -3px;
+  margin-top: -3px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.RefugeAdamantineIgnot {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/RefugeAdamantineIgnot.png");
+  height: 28px;
+  width: 28px;
+  margin-bottom: -3px;
+  margin-top: -3px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.RefugeUltimaBook {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/RefugeUltimaBook.png");
+  height: 28px;
+  width: 28px;
+  margin-bottom: -3px;
+  margin-top: -3px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.RefugeUltimaIgnot {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/RefugeUltimaIgnot.png");
+  height: 28px;
+  width: 28px;
+  margin-bottom: -3px;
+  margin-top: -3px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.RuinUltimaBook{
+  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/RuinUltimaBook.png");
+  height: 28px;
+  width: 28px;
+  margin-bottom: -3px;
+  margin-top: -3px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.SilverChocoboToken{
+  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/SilverChocoboToken.png");
+  height: 28px;
+  width: 28px;
+  margin-bottom: -3px;
+  margin-top: -3px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.GoldChocoboToken{
+  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/GoldChocoboToken.png");
+  height: 28px;
+  width: 28px;
+  margin-bottom: -3px;
+  margin-top: -3px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.KupocardsMini1{
+  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/KupocardsMini1.png");
+  height: 28px;
+  width: 28px;
+  margin-bottom: -3px;
+  margin-top: -3px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.KupocardsMini2{
+  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/KupocardsMini2.png");
+  height: 28px;
+  width: 28px;
+  margin-bottom: -3px;
+  margin-top: -3px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.KupocardsMini3{
+  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/KupocardsMini3.png");
+  height: 28px;
+  width: 28px;
+  margin-bottom: -3px;
+  margin-top: -3px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(1px 1px 1px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.Gem {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/Gem.png");
+  height: 28px;
+  width: 28px;
+  margin-bottom: -3px;
+  margin-top: -3px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .crynode {
   background-image: url("https://dissidiacompendium.com/images/static/icons/cry_points/node.png");
   height: 28px;

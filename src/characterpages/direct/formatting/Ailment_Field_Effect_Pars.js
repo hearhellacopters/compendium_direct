@@ -430,6 +430,9 @@ const Ailment_Field_Effect_Pars = (
     if (effect_value_type == 11) {
         slidertype = "charactersleft"
     }
+    if (effect_value_type == 15) {
+        slidertype = "characterskb"
+    }
     if (base_buff && base_buff.effect_id_4 == 60 && base_buff && base_buff.val_type_4 != 0) {
         if (base_buff.val_type_4 == 3) {
             slidertype = "levels"

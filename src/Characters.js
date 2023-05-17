@@ -167,6 +167,7 @@ const Characters = ({ ProcessedCharacters, jptoggledata }) => {
   const [Buff_Extension, setBuff_Extension] = useState(getQueryStringVal("Buff_Extension") != null ? true : false);
   const [Break_Reset, setBreak_Reset] = useState(getQueryStringVal("Break_Reset") != null ? true : false);
   const [Self_Harm, setSelf_Harm] = useState(getQueryStringVal("Self_Harm") != null ? true : false);
+  const [BRVHP_Upgrade, setBRVHP_Upgrade] = useState(getQueryStringVal("BRVHP_Upgrade") != null ? true : false);
   const [Ally_Turn_Manipulator, setAlly_Turn_Manipulator] = useState(getQueryStringVal("Ally_Turn_Manipulator") != null ? true : false);
   const [FollowUp, setFollowUp] = useState(getQueryStringVal("FollowUp") != null ? true : false);
   const [Cannot_Break, setCannot_Break] = useState(getQueryStringVal("Cannot_Break") != null ? true : false);
@@ -300,6 +301,7 @@ const Characters = ({ ProcessedCharacters, jptoggledata }) => {
   const [Buff_Extensionsearch, setBuff_Extensionsearch] = useQueryParam("Buff_Extension", "");
   const [Break_Resetsearch, setBreak_Resetsearch] = useQueryParam("Break_Reset", "");
   const [Self_Harmsearch, setSelf_Harmsearch] = useQueryParam("Self_Harm", "");
+  const [BRVHP_Upgradesearch, setBRVHP_Upgradesearch] = useQueryParam("BRVHP_Upgrade", "");
   const [Ally_Turn_Manipulatorsearch, setAlly_Turn_Manipulatorsearch] = useQueryParam("Ally_Turn_Manipulator", "");
   const [FollowUpsearch, setFollowUpsearch] = useQueryParam("FollowUp", "");
   const [Cannot_Breaksearch, setCannot_Breaksearch] = useQueryParam("Cannot_Break", "");
@@ -1079,6 +1081,12 @@ const Characters = ({ ProcessedCharacters, jptoggledata }) => {
         );
         filterholder.push(...filteredout);
       }
+      if (BRVHP_Upgrade == true) {
+        const filteredout = rawData.filter(
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["BRVHP_Upgrade"] === true
+        );
+        filterholder.push(...filteredout);
+      }
       if (Ally_Turn_Manipulator == true) {
         const filteredout = rawData.filter(
           (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Ally_Turn_Manipulator"] === true
@@ -1275,7 +1283,7 @@ const Characters = ({ ProcessedCharacters, jptoggledata }) => {
       setSearchResults(getcharacterfilter);
       setListDisplay(getcharacterfilter);
     }
-  }, [ver, jptoggledata, BRV_Damage_Cap, Board5Flag, Special_Buff, FE50BoardFlag, Target_Lock, Free_Ability, Stacked_Buff_Five, BuffPrevent, FollowUp_Action_On_Enemy, FollowUp_Start_Of_Next, FollowUp_Extension, FollowUp_Before_Ability, FollowUp_Before_Player_Turn, Trap_After_Trigger, Trap_Before_Turn, Stacked_Buff, EX_MAX_Party, BRV_Absorb, BRV_Ratio, Turn_Interrupter, Continuous_Turns, Launch_Support, FollowUp_By_Other, BRV_Wont_Below, Debuff_Gold, Debuff_Evade, Blind, FRFlag, FRBoardFlag, Cannot_Break, FollowUp, Ally_Turn_Manipulator, Self_Harm, Break_Reset, RealmSort, JPSort, HPSort, INTBRVSort, MAXBRVSort, ATKSort, DEFSort, SPDSort, NameSort, Buff_Extension, rawData, searchTerm, HP_Damage_Up, Non_Elemental, Stacked_Debuff, KO_Prevent, Reviver, SevenStarArmor, Debuff_Break, Ignore_DEF, Evade, CritRateUp, clearFilter, TwoAbilitiesRecover, merge, BRVRegen, BRVDamageResist, Dagger, Sword, Greatsword, Staff, Gun, Fist, Throwing, Spear, Bow, Whip, Other, RedCrystal, BlueCrystal, YellowCrystal, GreenCrystal, BlackCrystal, WhiteCrystal, SevenStarPlusArmor, BTPlusFlag, LDBoardFlag, BTFlag, LDFlag, MaxLevel, ActiveRework, Magic, Ranged, Melee, ASlot, BSlot, CSlot, DSlot, ESlot, Fire, Ice, Thunder, Water, Earth, Wind, Dark, Holy, Tank, Debuffer, BRVResistDown, MagicImperil, RangedImperil, MeleeImperil, WindImperil, FireImperil, ThunderImperil, HolyImperil, IceImperil, WaterImperil, EarthImperil, DarkImperil, ThreeDelay, FourDebuff, FiftyHPHealAbility, SixBuffs, Battery, BRVControl, BRVPoison, BRVShield, Cleanse, Counter, DarkEnchant, Delay, Disable, Dispel, EarthEnchant, FireEnchant, ForceBreak, HolyEnchant, HPDamageResist, HPHealAbility, HPPoison, HPRegen, IceEnchant, Launcher, ThunderEnchant, Trap, WaterEnchant, WindEnchant, DeleteTurns, HPResistDown, condFilter, reverse]);
+  }, [ver, jptoggledata, BRV_Damage_Cap, Board5Flag, Special_Buff, BRVHP_Upgrade, FE50BoardFlag, Target_Lock, Free_Ability, Stacked_Buff_Five, BuffPrevent, FollowUp_Action_On_Enemy, FollowUp_Start_Of_Next, FollowUp_Extension, FollowUp_Before_Ability, FollowUp_Before_Player_Turn, Trap_After_Trigger, Trap_Before_Turn, Stacked_Buff, EX_MAX_Party, BRV_Absorb, BRV_Ratio, Turn_Interrupter, Continuous_Turns, Launch_Support, FollowUp_By_Other, BRV_Wont_Below, Debuff_Gold, Debuff_Evade, Blind, FRFlag, FRBoardFlag, Cannot_Break, FollowUp, Ally_Turn_Manipulator, Self_Harm, Break_Reset, RealmSort, JPSort, HPSort, INTBRVSort, MAXBRVSort, ATKSort, DEFSort, SPDSort, NameSort, Buff_Extension, rawData, searchTerm, HP_Damage_Up, Non_Elemental, Stacked_Debuff, KO_Prevent, Reviver, SevenStarArmor, Debuff_Break, Ignore_DEF, Evade, CritRateUp, clearFilter, TwoAbilitiesRecover, merge, BRVRegen, BRVDamageResist, Dagger, Sword, Greatsword, Staff, Gun, Fist, Throwing, Spear, Bow, Whip, Other, RedCrystal, BlueCrystal, YellowCrystal, GreenCrystal, BlackCrystal, WhiteCrystal, SevenStarPlusArmor, BTPlusFlag, LDBoardFlag, BTFlag, LDFlag, MaxLevel, ActiveRework, Magic, Ranged, Melee, ASlot, BSlot, CSlot, DSlot, ESlot, Fire, Ice, Thunder, Water, Earth, Wind, Dark, Holy, Tank, Debuffer, BRVResistDown, MagicImperil, RangedImperil, MeleeImperil, WindImperil, FireImperil, ThunderImperil, HolyImperil, IceImperil, WaterImperil, EarthImperil, DarkImperil, ThreeDelay, FourDebuff, FiftyHPHealAbility, SixBuffs, Battery, BRVControl, BRVPoison, BRVShield, Cleanse, Counter, DarkEnchant, Delay, Disable, Dispel, EarthEnchant, FireEnchant, ForceBreak, HolyEnchant, HPDamageResist, HPHealAbility, HPPoison, HPRegen, IceEnchant, Launcher, ThunderEnchant, Trap, WaterEnchant, WindEnchant, DeleteTurns, HPResistDown, condFilter, reverse]);
 
   //Merge filter
   useEffect(() => {
@@ -1385,6 +1393,7 @@ const Characters = ({ ProcessedCharacters, jptoggledata }) => {
         Break_Reset: Break_Reset,
         HP_Regen: HPRegen,
         Self_Harm: Self_Harm,
+        BRVHP_Upgrade: BRVHP_Upgrade,
         Ally_Turn_Manipulator: Ally_Turn_Manipulator,
         FollowUp: FollowUp,
         Cannot_Break: Cannot_Break,
@@ -1437,7 +1446,7 @@ const Characters = ({ ProcessedCharacters, jptoggledata }) => {
       setSearchResults(getcharacterfilter);
       setListDisplay(getcharacterfilter);
     }
-  }, [jptoggledata, ver, BRV_Damage_Cap, Board5Flag, Target_Lock, FE50BoardFlag, Special_Buff, Free_Ability, Stacked_Buff_Five, BuffPrevent, FollowUp_Action_On_Enemy, FollowUp_Start_Of_Next, FollowUp_Extension, FollowUp_Before_Ability, FollowUp_Before_Player_Turn, Trap_After_Trigger, Trap_Before_Turn, Stacked_Buff, EX_MAX_Party, BRV_Absorb, BRV_Ratio, Turn_Interrupter, Continuous_Turns, Launch_Support, FollowUp_By_Other, BRV_Wont_Below, Debuff_Gold, Debuff_Evade, Blind, Cannot_Break, FRBoardFlag, FRFlag, FollowUp, Ally_Turn_Manipulator, Self_Harm, Break_Reset, RealmSort, JPSort, HPSort, INTBRVSort, MAXBRVSort, ATKSort, DEFSort, SPDSort, Buff_Extension, rawData, searchTerm, HP_Damage_Up, Non_Elemental, Stacked_Debuff, KO_Prevent, Reviver, SevenStarArmor, Debuff_Break, Ignore_DEF, Evade, CritRateUp, clearFilter, TwoAbilitiesRecover, merge, BRVRegen, BRVDamageResist, Dagger, Sword, Greatsword, Staff, Gun, Fist, Throwing, Spear, Bow, Whip, Other, RedCrystal, BlueCrystal, YellowCrystal, GreenCrystal, BlackCrystal, WhiteCrystal, SevenStarPlusArmor, BTPlusFlag, LDBoardFlag, BTFlag, LDFlag, MaxLevel, Magic, Ranged, Melee, ASlot, BSlot, CSlot, DSlot, ESlot, Fire, Ice, Thunder, Water, Earth, Wind, Dark, Holy, Tank, Debuffer, BRVResistDown, MagicImperil, RangedImperil, MeleeImperil, WindImperil, FireImperil, ThunderImperil, HolyImperil, IceImperil, WaterImperil, EarthImperil, DarkImperil, ThreeDelay, FourDebuff, FiftyHPHealAbility, SixBuffs, Battery, BRVControl, BRVPoison, BRVShield, Cleanse, Counter, DarkEnchant, Delay, Disable, Dispel, EarthEnchant, FireEnchant, ForceBreak, HolyEnchant, HPDamageResist, HPHealAbility, HPPoison, HPRegen, IceEnchant, Launcher, ThunderEnchant, Trap, WaterEnchant, WindEnchant, DeleteTurns, HPResistDown, condFilter, reverse]);
+  }, [jptoggledata, ver, BRV_Damage_Cap, Board5Flag, Target_Lock, BRVHP_Upgrade, FE50BoardFlag, Special_Buff, Free_Ability, Stacked_Buff_Five, BuffPrevent, FollowUp_Action_On_Enemy, FollowUp_Start_Of_Next, FollowUp_Extension, FollowUp_Before_Ability, FollowUp_Before_Player_Turn, Trap_After_Trigger, Trap_Before_Turn, Stacked_Buff, EX_MAX_Party, BRV_Absorb, BRV_Ratio, Turn_Interrupter, Continuous_Turns, Launch_Support, FollowUp_By_Other, BRV_Wont_Below, Debuff_Gold, Debuff_Evade, Blind, Cannot_Break, FRBoardFlag, FRFlag, FollowUp, Ally_Turn_Manipulator, Self_Harm, Break_Reset, RealmSort, JPSort, HPSort, INTBRVSort, MAXBRVSort, ATKSort, DEFSort, SPDSort, Buff_Extension, rawData, searchTerm, HP_Damage_Up, Non_Elemental, Stacked_Debuff, KO_Prevent, Reviver, SevenStarArmor, Debuff_Break, Ignore_DEF, Evade, CritRateUp, clearFilter, TwoAbilitiesRecover, merge, BRVRegen, BRVDamageResist, Dagger, Sword, Greatsword, Staff, Gun, Fist, Throwing, Spear, Bow, Whip, Other, RedCrystal, BlueCrystal, YellowCrystal, GreenCrystal, BlackCrystal, WhiteCrystal, SevenStarPlusArmor, BTPlusFlag, LDBoardFlag, BTFlag, LDFlag, MaxLevel, Magic, Ranged, Melee, ASlot, BSlot, CSlot, DSlot, ESlot, Fire, Ice, Thunder, Water, Earth, Wind, Dark, Holy, Tank, Debuffer, BRVResistDown, MagicImperil, RangedImperil, MeleeImperil, WindImperil, FireImperil, ThunderImperil, HolyImperil, IceImperil, WaterImperil, EarthImperil, DarkImperil, ThreeDelay, FourDebuff, FiftyHPHealAbility, SixBuffs, Battery, BRVControl, BRVPoison, BRVShield, Cleanse, Counter, DarkEnchant, Delay, Disable, Dispel, EarthEnchant, FireEnchant, ForceBreak, HolyEnchant, HPDamageResist, HPHealAbility, HPPoison, HPRegen, IceEnchant, Launcher, ThunderEnchant, Trap, WaterEnchant, WindEnchant, DeleteTurns, HPResistDown, condFilter, reverse]);
 
 
 
@@ -2196,7 +2205,14 @@ const Characters = ({ ProcessedCharacters, jptoggledata }) => {
     }
     setSelf_Harm((prevValue) => !prevValue);
   }
-
+  const BRVHP_Upgradebutton = () => {
+    if (BRVHP_Upgrade == false) {
+      setBRVHP_Upgradesearch("true")
+    } else {
+      setBRVHP_Upgradesearch("")
+    }
+    setBRVHP_Upgrade((prevValue) => !prevValue);
+  }
   const Ally_Turn_Manipulatorbutton = () => {
     if (Ally_Turn_Manipulator == false) {
       setAlly_Turn_Manipulatorsearch("true")
@@ -2859,6 +2875,7 @@ const Characters = ({ ProcessedCharacters, jptoggledata }) => {
     setBuff_Extension(false)
     setBreak_Reset(false)
     setSelf_Harm(false)
+    setBRVHP_Upgrade(false)
     setAlly_Turn_Manipulator(false)
     setFollowUp(false)
     setCannot_Break(false)
@@ -2989,6 +3006,7 @@ const Characters = ({ ProcessedCharacters, jptoggledata }) => {
     setBuff_Extensionsearch("")
     setBreak_Resetsearch("")
     setSelf_Harmsearch("")
+    setBRVHP_Upgradesearch("")
     setAlly_Turn_Manipulatorsearch("")
     setFollowUpsearch("")
     setCannot_Breaksearch("")
@@ -3491,6 +3509,9 @@ const Characters = ({ ProcessedCharacters, jptoggledata }) => {
               </Tippy>
               <Tippy content={roles[`Self_Harm`].name}>
                 <li className={`${Self_Harm ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Self_Harmbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Self_Harm`].url}.png)` }}></li>
+              </Tippy>
+              <Tippy content={roles[`BRVHP_Upgrade`].name}>
+                <li className={`${BRVHP_Upgrade ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BRVHP_Upgradebutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRVHP_Upgrade`].url}.png)` }}></li>
               </Tippy>
             </ul>
             <div className="similarbanner">Gear Level</div>

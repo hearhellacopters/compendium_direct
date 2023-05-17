@@ -95,6 +95,7 @@ const Ailment_Attached = ({
     const [currentgroupstacks, setcurrentgroupstacks] = useStateIfMounted(5)
     const [currenthp, setcurrenthp] = useState(100)
     const [charactersleft, setcharactersleft] = useStateIfMounted(2)
+    const [characterskb, setcharacterskb] = useStateIfMounted(3)
 
     const handleChangeLevel = (e) => {
         setcurrentlevel(parseInt(e.x));
@@ -143,6 +144,10 @@ const Ailment_Attached = ({
 
     const handleChangeCharactersLeft = (e) => {
         setcharactersleft(parseInt(e.x));
+    };
+
+    const handleChangeCharactersKB = (e) => {
+        setcharacterskb(parseInt(e.x));
     };
 
     const sliders = ailment_data.sliders
@@ -214,7 +219,8 @@ const Ailment_Attached = ({
                 sliders.enemies == false &&
                 sliders.stacks == false &&
                 sliders.currenthp == false &&
-                sliders.charactersleft == false
+                sliders.charactersleft == false &&
+                sliders.characterskb == false
                 ?
                 "" :
                 <div className={`sliderbase infonameholderenemybuff `}>
@@ -386,6 +392,20 @@ const Ailment_Attached = ({
                             />
                         </div>
                         : ""}
+                    {sliders.characterskb == true ?
+                        <div className="sliderspacer">
+                            <div className="rankspacer">{`Characters in Knock Back: ${characterskb} of ${3}`}</div>
+                            <Slider
+                                key={ailment_data}
+                                axis="x"
+                                styles={SilderStyleBuff}
+                                onChange={handleChangeCharactersKB}
+                                x={characterskb}
+                                xmin={0}
+                                xmax={3}
+                            />
+                        </div>
+                        : ""}
                 </div>}
             <div className={ailment_data.is_buff == 1 ? "Buffsubbase2" : "Debuffsubbase2"}>
                 {ailment_data.note != undefined ?
@@ -425,6 +445,7 @@ const Ailment_Attached = ({
                         currentgroupstacks={currentgroupstacks}
                         currenthp={currenthp}
                         charactersleft={charactersleft}
+                        characterskb={characterskb}
                         formatting={formatting}
                     />
                 )}
@@ -454,6 +475,7 @@ const Ailment_Attached = ({
                                 currentgroupstacks={currentgroupstacks}
                                 currenthp={currenthp}
                                 charactersleft={charactersleft}
+                                characterskb={characterskb}
                             />
                         )}
                     </div>

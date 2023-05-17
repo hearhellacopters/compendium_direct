@@ -88,6 +88,7 @@ const Ailment_Data_Formatting = ({
     const [currentgroupstacks, setcurrentgroupstacks] = useStateIfMounted(5)
     const [currenthp, setcurrenthp] = useState(100)
     const [charactersleft, setcharactersleft] = useStateIfMounted(2)
+    const [characterskb, setcharacterskb] = useStateIfMounted(3)
 
     const handleChangeLevel = (e) => {
         setcurrentlevel(parseInt(e.x));
@@ -136,6 +137,10 @@ const Ailment_Data_Formatting = ({
 
     const handleChangeCharactersLeft = (e) => {
         setcharactersleft(parseInt(e.x));
+    };
+
+    const handleChangeCharactersKB = (e) => {
+        setcharacterskb(parseInt(e.x));
     };
 
     const sliders = ailment_data.sliders
@@ -197,7 +202,8 @@ const Ailment_Data_Formatting = ({
                 sliders.enemies == undefined &&
                 sliders.stacks == undefined &&
                 sliders.currenthp == undefined &&
-                sliders.charactersleft == undefined
+                sliders.charactersleft == undefined &&
+                sliders.characterskb == undefined
                 ?
                 "" :
                 <div className={`sliderbase infonameholderenemybuff `}>
@@ -369,6 +375,20 @@ const Ailment_Data_Formatting = ({
                             />
                         </div>
                         : ""}
+                    {sliders.characterskb == true ?
+                        <div className="sliderspacer">
+                            <div className="rankspacer">{`Characters in Knock Back: ${characterskb} of ${3}`}</div>
+                            <Slider
+                                key={ailment_data}
+                                axis="x"
+                                styles={SilderStyleBuff}
+                                onChange={handleChangeCharactersKB}
+                                x={characterskb}
+                                xmin={0}
+                                xmax={3}
+                            />
+                        </div>
+                        : ""}
                 </div>}
             <div >
                 {ailment_data.note != undefined ?
@@ -407,6 +427,7 @@ const Ailment_Data_Formatting = ({
                         currentgroupstacks={currentgroupstacks}
                         currenthp={currenthp}
                         charactersleft={charactersleft}
+                        characterskb={characterskb}
                     />
                 )}
                 {ailment_pars.field != undefined ?
@@ -435,6 +456,7 @@ const Ailment_Data_Formatting = ({
                                 currentgroupstacks={currentgroupstacks}
                                 currenthp={currenthp}
                                 charactersleft={charactersleft}
+                                characterskb={characterskb}
                             />
                         )}
                     </div>

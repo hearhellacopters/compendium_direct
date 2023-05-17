@@ -22,6 +22,7 @@ const Ailment_Data_Pars_Handler = ({
     currentgroupstacks,
     currenthp,
     charactersleft,
+    characterskb,
     castlocation,
     formatting,
     setonion_passoff,
@@ -103,6 +104,14 @@ const Ailment_Data_Pars_Handler = ({
                     }
                 }
             }
+            //characterskb
+            if (effect_id && effect_id.slidertype == "characterskb" && characterskb != undefined) {
+                for (let index = 0; index < 4; index++) {
+                    if (characterskb == index) {
+                        setrank(effect_id && effect_id[`rank${index + 1}`])
+                    }
+                }
+            }
         }
         if (effect_id && effect_id.multiply == false) {
             setdisplayrank(rank)
@@ -123,7 +132,7 @@ const Ailment_Data_Pars_Handler = ({
                 set_max_brv_cap_value(Math.round(((displayrank.value1 / 100) + 1) * 99999))
             }
         }
-    }, [override, rank, set_max_brv_cap, set_brv_cap,displayrank,setdisplayrank, set_brv_cap_value, set_max_brv_cap_value, currentbuffsmuliply, currentdebuffsmuliply, castlocation, currenthp, charactersleft, currentgroupstacks, currentfieldbuffsranks, currentbuffsranks, currentdebuffsranks, currentenemies, currentstacks, currentturns, slider, currentrank, effect_id, currentlevel, setrank])
+    }, [override, rank, set_max_brv_cap, set_brv_cap,displayrank,setdisplayrank, set_brv_cap_value, set_max_brv_cap_value, currentbuffsmuliply, characterskb, currentdebuffsmuliply, castlocation, currenthp, charactersleft, currentgroupstacks, currentfieldbuffsranks, currentbuffsranks, currentdebuffsranks, currentenemies, currentstacks, currentturns, slider, currentrank, effect_id, currentlevel, setrank])
 
     useEffect(()=>{
         if (effect_id && effect_id.multiply == true) {

@@ -14,6 +14,7 @@ const Ailment_Data_Pars_Dif = (
     currentgroupstacks,
     currenthp,
     charactersleft,
+    characterskb,
     spacer,
 ) => {
 
@@ -72,6 +73,14 @@ const Ailment_Data_Pars_Dif = (
     if (effect_id && effect_id.slidertype == "charactersleft" && charactersleft != undefined) {
         for (let index = 0; index < 3; index++) {
             if (charactersleft == index) {
+                rank = effect_id && effect_id[`rank${index + 1}`]
+            }
+        }
+    }
+    //characterskb
+    if (effect_id && effect_id.slidertype == "characterskb" && characterskb != undefined) {
+        for (let index = 0; index < 4; index++) {
+            if (characterskb == index) {
                 rank = effect_id && effect_id[`rank${index + 1}`]
             }
         }

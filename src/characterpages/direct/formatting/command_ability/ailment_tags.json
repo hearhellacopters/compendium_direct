@@ -154,6 +154,10 @@
         "url": "roles/Role_ST_Target",
         "hidden": true
     },
+    "BRVHP_Upgrade":{
+        "name": "BRV / HP Attack Upgrades",
+        "url": "roles/Role_BRVHP_Attack_Upgrade"
+    },
     "Group": {
         "name": "Group Target Damage",
         "url": "roles/Role_Group",

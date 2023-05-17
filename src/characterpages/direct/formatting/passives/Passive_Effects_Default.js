@@ -376,7 +376,7 @@ const Passive_Effects_Default = ({
         return ("")
     } else {
         return (
-            <div className={`${list == true ? "sliderbase infonameholder wpadding" : "defaultlistholder"} ${base_color == undefined ? "defaultcondbase" : "Buffbase"}`}>
+            <div className={`${list == true ? "sliderbase enemyabilityinfobase wpadding" : "defaultlistholder"} ${base_color == undefined ? "defaultcondbase" : "Buffbase"}`}>
                 {passive_ability.passive_cond_type == 1  && (effect_ != "" || effect__1 != "" || passive_ability.field != undefined) ?
                     <div onClick={showmeraw}>
                         {add_formatting(`${require__1 == "" && require_ == "" ? "" : "\xa0┬ "}${require_}${require__1 != "" && require_ != "" ? " & " : ""}${require__1 != "" ? `${require__1}` : ""}`, "tl")}

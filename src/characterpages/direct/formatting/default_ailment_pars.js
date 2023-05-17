@@ -280,7 +280,7 @@ const Default_Ailment_Pars = ({
     }
 
     return (
-        <div className={`${gear == true || span == true ? "gearinfobanner" : list == true ? "sliderbase infonameholder wpadding" : "defaultlistholder"} defaultcondbase`}>
+        <div className={`${gear == true || span == true ? "gearinfobanner" : list == true ? "sliderbase enemyabilityinfobase wpadding" : "defaultlistholder"} defaultcondbase`}>
             {cond_str != "" ?
                 <div onClick={showmeraw}> {addformatting(cond_str, "tl")}</div>
                 : ""}

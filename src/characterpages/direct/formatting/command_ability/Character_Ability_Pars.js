@@ -42,7 +42,8 @@ const Character_Ability_Pars = ({
     link,
     master_index,
     hide_chara,
-    use_tag
+    use_tag,
+    info
 }) => {
 
     const CommandNames = master_index.commands
@@ -773,8 +774,11 @@ const Character_Ability_Pars = ({
                                                 : ""}
                                         </div>}
                                 </div>
-                                : ""}
+                            : ""}
                         </div>
+                        {info != undefined?
+                            <div className='buffglreworkbanner'>{info}</div>
+                        :""}
                     </div>
                     <div className={`bluebase abilityinfobase`}>
 

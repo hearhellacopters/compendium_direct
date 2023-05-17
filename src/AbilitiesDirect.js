@@ -81,6 +81,7 @@ const AbilitiesDirect = ({
     const [Revive, setRevive] = useState(getQueryStringVal("Revive") != null ? true : false)
     const [Increase, setIncrease] = useState(getQueryStringVal("Increase") != null ? true : false)
     const [Increase2, setIncrease2] = useState(getQueryStringVal("Increase2") != null ? true : false)
+    const [BRVHPUpgrade, setBRVHPUpgrade] = useState(getQueryStringVal("BRVHPUpgrade") != null ? true : false)
     const [Instant, setInstant] = useState(getQueryStringVal("Instant") != null ? true : false)
     const [Slower, setSlower] = useState(getQueryStringVal("Slower") != null ? true : false)
     const [Faster, setFaster] = useState(getQueryStringVal("Faster") != null ? true : false)
@@ -153,6 +154,7 @@ const AbilitiesDirect = ({
     const [Revivesearch, setRevivesearch] = useQueryParam("Revive", "")
     const [Increasesearch, setIncreasesearch] = useQueryParam("Increase", "")
     const [Increase2search, setIncrease2search] = useQueryParam("Increase2", "")
+    const [BRVHPUpgradesearch, setBRVHPUpgradesearch] = useQueryParam("BRVHPUpgrade", "")
     const [Instantsearch, setInstantsearch] = useQueryParam("Instant", "")
     const [Slowersearch, setSlowersearch] = useQueryParam("Slower", "")
     const [Fastersearch, setFastersearch] = useQueryParam("Faster", "")
@@ -434,6 +436,12 @@ const AbilitiesDirect = ({
                 )
                 filterholder.push(...filteredout)
             }
+            if (BRVHPUpgrade == true) {
+                const filteredout = rawData.filter(
+                    ability => ability.BRVHP_Upgrade == true
+                )
+                filterholder.push(...filteredout)
+            }
             if (Turn_Manipulator == true) {
                 const filteredout = rawData.filter(
                     ability => ability.Turn_Manipulator == true
@@ -523,7 +531,7 @@ const AbilitiesDirect = ({
             }
 
         }
-    }, [rawData, merge, limits, condFilter, reverse, searchTerm, Faster, Slower, AA, BRV, BT, Delay3, Self_Harm, Break, Buff_Extension, Increase2, BreakCancel, Battery, Call75, CallLD, Cleanse, Turn_Manipulator, Counter, Dark, Delay, Delete, Dispel, EX, Earth, FR, Fire, FollowUp, Free, Group, HP, Heals, Holy, Ice, IgnoreDEF, Increase, Instant, KnockBack, LD, Magic, Melee, Ranged, Revive, S1, S2, Thunder, Trap, Water, Wind])
+    }, [rawData, merge, limits, condFilter, reverse, searchTerm, BRVHPUpgrade, Faster, Slower, AA, BRV, BT, Delay3, Self_Harm, Break, Buff_Extension, Increase2, BreakCancel, Battery, Call75, CallLD, Cleanse, Turn_Manipulator, Counter, Dark, Delay, Delete, Dispel, EX, Earth, FR, Fire, FollowUp, Free, Group, HP, Heals, Holy, Ice, IgnoreDEF, Increase, Instant, KnockBack, LD, Magic, Melee, Ranged, Revive, S1, S2, Thunder, Trap, Water, Wind])
 
     //filter merge
     useEffect(() => {
@@ -570,6 +578,7 @@ const AbilitiesDirect = ({
                 Reviver: Revive,
                 Increase: Increase,
                 Two_Abilities_Recover: Increase2,
+                BRVHP_Upgrade: BRVHPUpgrade,
                 Turn_Manipulator: Turn_Manipulator,
                 Instant: Instant,
                 Free_Ability: Free,
@@ -618,7 +627,7 @@ const AbilitiesDirect = ({
                 );
             }
         }
-    }, [rawData, merge, limits, condFilter, reverse, searchTerm, Faster, Slower, AA, BRV, BT, Self_Harm, Break, Buff_Extension, Delay3, Battery, BreakCancel, Turn_Manipulator, Increase2, Call75, CallLD, Cleanse, Counter, Dark, Delay, Delete, Dispel, EX, Earth, FR, Fire, FollowUp, Free, Group, HP, Heals, Holy, Ice, IgnoreDEF, Increase, Instant, KnockBack, LD, Magic, Melee, Ranged, Revive, S1, S2, Thunder, Trap, Water, Wind])
+    }, [rawData, merge, limits, condFilter, reverse, searchTerm, BRVHPUpgrade, Faster, Slower, AA, BRV, BT, Self_Harm, Break, Buff_Extension, Delay3, Battery, BreakCancel, Turn_Manipulator, Increase2, Call75, CallLD, Cleanse, Counter, Dark, Delay, Delete, Dispel, EX, Earth, FR, Fire, FollowUp, Free, Group, HP, Heals, Holy, Ice, IgnoreDEF, Increase, Instant, KnockBack, LD, Magic, Melee, Ranged, Revive, S1, S2, Thunder, Trap, Water, Wind])
 
     //buttons
     const showfilterbutton = () => {
@@ -1026,6 +1035,14 @@ const AbilitiesDirect = ({
         }
         setSlower((prevValue) => !prevValue);
     }
+    const BRVHPUpgradebutton = () => {
+        if (BRVHPUpgrade == false) {
+            setBRVHPUpgradesearch("true")
+        } else {
+            setBRVHPUpgradesearch("")
+        }
+        setBRVHPUpgrade((prevValue) => !prevValue);
+    }
 
     //type selector
     const CondSelect = (e) => {
@@ -1144,6 +1161,7 @@ const AbilitiesDirect = ({
         setSelf_Harm(false)
         setSlower(false)
         setFaster(false)
+        setBRVHPUpgrade(false)
 
         setBRVsearch("")
         setHPsearch("")
@@ -1192,6 +1210,7 @@ const AbilitiesDirect = ({
         setSelf_Harmsearch("")
         setSlowersearch("")
         setFastersearch("")
+        setBRVHPUpgradesearch("")
 
         setTimeout(() => setclearFilter(false), 1000);
     }
@@ -1430,6 +1449,9 @@ const AbilitiesDirect = ({
                             </Tippy>
                             <Tippy content="Two Abilities Recovered">
                                 <li className={`${Increase2 ? "filteractive" : "filterinactive"} buffbutton Increase2button`} onClick={Increase2button} />
+                            </Tippy>
+                            <Tippy content="BRV / HP Attack Upgrade">
+                                <li className={`${BRVHPUpgrade ? "filteractive" : "filterinactive"} buffbutton brvhpupgradebutton`} onClick={BRVHPUpgradebutton} />
                             </Tippy>
                             <Tippy content="Buff Extension">
                                 <li className={`${Buff_Extension ? "filteractive" : "filterinactive"} buffbutton Buff_ExtensionGearbutton`} onClick={Buff_Extensionbutton} />

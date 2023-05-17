@@ -6,6 +6,10 @@ const Passive_Total_Display = ({
 }) => {
     return (
         <>
+            {match.HPRETAIN != 0 ?
+                <div>&nbsp;{replacer_buff(`- Party Retains ${match.HPRETAIN}% of HP Bonus after Force Time ends`)}</div>
+                : ""}
+
             {match.BONUSSTART != 0 ?
                 <div>&nbsp;{replacer_buff(`+${match.BONUSSTART}% HP Damage Bonus at start of Force Time`)}</div>
                 : ""}
@@ -97,6 +101,7 @@ const Passive_Total_Display = ({
             {match.RATE != 0 ?
                 <div>&nbsp;{replacer_buff(`- Increases Turn Rate by ${match.RATE}`)}</div>
                 : ""}
+
         </>
     )
 }

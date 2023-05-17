@@ -86,6 +86,7 @@ const Ailment_Field_Attached = ({
                     currentgroupstacks={currentrank}
                     currenthp={currentrank}
                     charactersleft={currentrank}
+                    characterskb={currentrank}
                     formatting={formatting}
                     spacer={spacer}
                     castlocation={castlocation == undefined ? false : castlocation}

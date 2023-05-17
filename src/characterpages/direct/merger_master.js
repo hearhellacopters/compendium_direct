@@ -51,7 +51,8 @@ const merger_master = (
         BONUSSTART: 0,
         BONUSEND: 0,
         GAUGE: 0,
-        RATE: 0
+        RATE: 0,
+        HPRETAIN: 0,
     }
 
     const checker = (

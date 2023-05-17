@@ -57,7 +57,8 @@ const Ailment_Data_Formatting = ({
     gear,
     span,
     cur_char,
-    turns
+    turns,
+    info
 }) => {
 
     const char_id = master_index.charid
@@ -241,6 +242,7 @@ const Ailment_Data_Formatting = ({
     const [currentgroupstacks, setcurrentgroupstacks] = useStateIfMounted(5)
     const [currenthp, setcurrenthp] = useStateIfMounted(100)
     const [charactersleft, setcharactersleft] = useStateIfMounted(2)
+    const [characterskb, setcharacterskb] = useStateIfMounted(3)
 
     const handleChangeLevel = (e) => {
         setcurrentlevel(parseInt(e.x));
@@ -289,6 +291,10 @@ const Ailment_Data_Formatting = ({
 
     const handleChangeCharactersLeft = (e) => {
         setcharactersleft(parseInt(e.x));
+    };
+
+    const handleChangeCharactersKB = (e) => {
+        setcharacterskb(parseInt(e.x));
     };
 
     const effect_value_type_field = ailment_data.field && ailment_data.field.map(self => {
@@ -481,9 +487,12 @@ const Ailment_Data_Formatting = ({
                     : <div className="abilityJPname">
                         {add_formatting(ailment_data.jpname && ailment_data.jpname, "tl")}
                     </div>}
+                    {info != undefined?
+                    <div className='buffglreworkbanner passiveinfobase'>{info}</div>
+                    :""}
             </div>
             {ailment_data.sp_disp_type == 133 ?
-                <div className="buffglreworkbanner">
+                <div className="similarbanner">
                     <Link className="updatelink" to={`/characters/forcetime?Char=${char_id[cur_char] && replacer(char_id[cur_char].name)}`}>
                         View Force Time
                     </Link>
@@ -500,7 +509,8 @@ const Ailment_Data_Formatting = ({
                 sliders.enemies == false &&
                 sliders.stacks == false &&
                 sliders.currenthp == false &&
-                sliders.charactersleft == false
+                sliders.charactersleft == false &&
+                sliders.characterskb == false
                 ?
                 "" :
                 <div className={`sliderbase infonameholderenemybuff `}>
@@ -672,6 +682,20 @@ const Ailment_Data_Formatting = ({
                             />
                         </div>
                         : ""}
+                    {sliders.characterskb == true ?
+                        <div className="sliderspacer">
+                            <div className="rankspacer">{`Characters in Knock Back: ${characterskb} of ${3}`}</div>
+                            <Slider
+                                key={ailment_data}
+                                axis="x"
+                                styles={SilderStyleBuff}
+                                onChange={handleChangeCharactersKB}
+                                x={characterskb}
+                                xmin={0}
+                                xmax={3}
+                            />
+                        </div>
+                        : ""}
                 </div>}
             <div >
                 {ailment_data.note != undefined ?
@@ -716,6 +740,7 @@ const Ailment_Data_Formatting = ({
                         currentgroupstacks={currentgroupstacks}
                         currenthp={currenthp}
                         charactersleft={charactersleft}
+                        characterskb={characterskb}
                         formatting={formatting}
                         setonion_passoff={setonion_passoff}
                         setshowdesc={setshowdesc}
@@ -746,6 +771,7 @@ const Ailment_Data_Formatting = ({
                                 currentgroupstacks={currentgroupstacks}
                                 currenthp={currenthp}
                                 charactersleft={charactersleft}
+                                characterskb={characterskb}
                                 castlocation={castlocation}
                                 formatting={formatting}
                             />

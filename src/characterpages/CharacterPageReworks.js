@@ -14,6 +14,9 @@ import { EndsInTimer, StartsInTimer } from '../formatting/Timers'
 import addformatting from '../processing/replacer_abilitycontent';
 import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
 import Character_Ability_Dif_Handler from './direct/formatting/command_ability/Character_Ability_Dif_Handler.js';
+import Ailment_Character_Dif_Handler from './direct/formatting/Ailment_Character_Dif_Handler.js';
+import Passive_Ability_Dif_Handler from './direct/formatting/passives/Passive_Ability_Dif_Handler.js';
+import Equipment_Passive_Dif_Handler from './direct/formatting/passives/Equipment_Passive_Dif_Handler.js';
 import '../Passives.css';
 
 const ReworksPageFormatting = ({
@@ -24,7 +27,7 @@ const ReworksPageFormatting = ({
   ProcessedCharacters,
   jptoggledata
 }) => {
-
+console.log(ProcessedReworks)
   const [reworks, setreworks] = useState(ProcessedReworks);
   const [show2, setshow2] = useState(false);
   const [show3, setshow3] = useState(false);
@@ -62,8 +65,6 @@ const ReworksPageFormatting = ({
     )
   }
 
-
-
   return (
     <div className="singlepageholder">
       {reworks.length == 0 ?
@@ -73,189 +74,12 @@ const ReworksPageFormatting = ({
           message={"for active reworks"}
         /> :
         reworks.map((passives, i) => {
-          const number_of_reworks = passives.bannerindex3 != undefined ? 3 : passives.bannerindex2 != undefined ? 2 : passives.bannerindex1 != undefined ? 1 : 1
           return (
             <div key={i}>
               <div className="abilitygreysinglebutton margtop">
                 <span className={`${passives.PassiveRank} undertaga`}></span> Passives
               </div>
               <LazyLoadComponent>
-                {passives.bannerindex3 != undefined ?
-                  <div className="buffunit">
-                    <div className="infoholder" style={{ minHeight: "160px" }}>
-                      <div className="infotitleholder">
-                        <div className="faceandiconholder">
-                          <div className='faceholderpassives'>
-                            <LazyLoadImage effect="opacity" alt={selected_chara.CharacterName} className={`faceicon`} src={selected_chara.CharacterName == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_face.png" : `https://dissidiacompendium.com/images/static/characters/${selected_chara.CharacterName.replace(/ /g, "").replace(/,/g, "").replace(/'/g, "").replace(/&/g, "")}/face.png`} />
-                            <div className="facetext">
-                              {selected_chara.CharacterName == "Cloud of Darkness" ? "CoD" : selected_chara.CharacterName == "Warrior of Light" ? "WoL" : selected_chara.CharacterName}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className={`Buffbanner  iconbuffer infonameholder nobuffpadding `}>
-                        <div className="displayfex">
-                          <div className="spacearound">
-                            <span className='smallpassive' />{passives.PassiveName1}
-                          </div>
-                        </div>
-                        <span className={passives.PassiveRank} />
-                        {passives.bannerindex3 == undefined ? "" :
-                          <div className="similarbanner">
-                            {passives.bannerindex3.tempdate == true ?
-                              <div>
-                                <Link className="linktopage" to={`/events/banners/${passives.bannerindex3.bannerindex}`}>
-                                  {passives.bannerindex3.name}<br />
-                                </Link>
-                                {handledate(passives.bannerindex3.indate)}
-                              </div>
-                              :
-                              <div>
-                                <Link className="linktopage" to={`/events/banners/${passives.bannerindex3.bannerindex}`}>
-                                  {passives.bannerindex3.name}<br />
-                                </Link>
-                                <StartsInTimer expiryTimestamp={new Date(passives.bannerindex3.indate)} />
-                              </div>
-                            }
-                          </div>
-                        }
-                      </div>
-                      {number_of_reworks == 3 ? //correct
-                        <>
-                          <div className={`bluebase  infobase nobuffpadding`}>
-                            {addformatting(makediff(passives.PassiveDesc1GL, passives.PassiveDesc1_3))}
-                          </div>
-                          {passives.PassiveCount == 4 ?
-                            <div className={`bluebase  infobase nobuffpadding`}>
-                              <div className='subpassiveflair spacearound'><span className='smallpassive' /><div className='lb1 lsmallerinline' />{passives.PassiveName2}</div>
-                              {addformatting(makediff(passives.PassiveDesc2GL, passives.PassiveDesc2_3))}
-                            </div>
-                            : ""}
-                          {passives.PassiveCount == 4 ?
-                            <div className={`bluebase  infobase nobuffpadding`}>
-                              <div className='subpassiveflair spacearound'><span className='smallpassive' /><div className='lb2 lsmallerinline' />{passives.PassiveName2}</div>
-                              {addformatting(makediff(passives.PassiveDesc3GL, passives.PassiveDesc3_3))}
-                            </div>
-                            : ""}
-                          {passives.PassiveCount == 4 ?
-                            <div className={`bluebase  infobase nobuffpadding`}>
-                              <div className='subpassiveflair spacearound'><span className='smallpassive' /><div className='lb3 lsmallerinline' />{passives.PassiveName2}</div>
-                              {addformatting(makediff(passives.PassiveDesc4GL, passives.PassiveDesc4_3))}
-                            </div>
-                            : ""}
-                        </>
-                        : ""}
-                      {passives.Abilities3 != undefined ?
-                        <Character_Ability_Dif_Handler
-                          ability_data={passives.Abilities3}
-                          master_index={master_index}
-                          ProcessedCharacters={ProcessedCharacters}
-                        />
-                        : ""}
-                    </div>
-                  </div>
-                  : ""}
-                {passives.bannerindex2 != undefined ?
-                  <div className="buffunit">
-                    <div className="infoholder" style={{ minHeight: "160px" }}>
-                      <div className="infotitleholder">
-                        <div className="faceandiconholder">
-                          <div className='faceholderpassives'>
-                            <LazyLoadImage effect="opacity" alt={selected_chara.CharacterName} className={`faceicon`} src={selected_chara.CharacterName == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_face.png" : `https://dissidiacompendium.com/images/static/characters/${selected_chara.CharacterName.replace(/ /g, "").replace(/,/g, "").replace(/'/g, "").replace(/&/g, "")}/face.png`} />
-                            <div className="facetext">
-                              {selected_chara.CharacterName == "Cloud of Darkness" ? "CoD" : selected_chara.CharacterName == "Warrior of Light" ? "WoL" : selected_chara.CharacterName}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className={`Buffbanner  iconbuffer infonameholder nobuffpadding `}>
-                        <div className="displayfex">
-                          <div className="spacearound">
-                            <span className='smallpassive' />{passives.PassiveName1}
-                          </div>
-                        </div>
-                        <span className={passives.PassiveRank} />
-                        {passives.bannerindex2 == undefined ? "" :
-                          <div className="similarbanner">
-                            {passives.bannerindex2.tempdate == true ?
-                              <div>
-                                <Link className="linktopage" to={`/events/banners/${passives.bannerindex2.bannerindex}`}>
-                                  {passives.bannerindex2.name}<br />
-                                </Link>
-                                {handledate(passives.bannerindex2.indate)}
-                              </div>
-                              :
-                              <div>
-                                <Link className="linktopage" to={`/events/banners/${passives.bannerindex2.bannerindex}`}>
-                                  {passives.bannerindex2.name}<br />
-                                </Link>
-                                <StartsInTimer expiryTimestamp={new Date(passives.bannerindex2.indate)} />
-                              </div>
-                            }
-                          </div>
-                        }
-                      </div>
-                      {number_of_reworks == 2 ? //correct
-                        <>
-                          <div className={`bluebase  infobase nobuffpadding`}>
-                            {addformatting(makediff(passives.PassiveDesc1GL, passives.PassiveDesc1_2))}
-                          </div>
-                          {passives.PassiveCount == 4 ?
-                            <div className={`bluebase  infobase nobuffpadding`}>
-                              <div className='subpassiveflair spacearound'><span className='smallpassive' /><div className='lb1 lsmallerinline' />{passives.PassiveName3}</div>
-                              {addformatting(makediff(passives.PassiveDesc2GL, passives.PassiveDesc2_2))}
-                            </div>
-                            : ""}
-                          {passives.PassiveCount == 4 ?
-                            <div className={`bluebase  infobase nobuffpadding`}>
-                              <div className='subpassiveflair spacearound'><span className='smallpassive' /><div className='lb2 lsmallerinline' />{passives.PassiveName3}</div>
-                              {addformatting(makediff(passives.PassiveDesc3GL, passives.PassiveDesc3_2))}
-                            </div>
-                            : ""}
-                          {passives.PassiveCount == 4 ?
-                            <div className={`bluebase  infobase nobuffpadding`}>
-                              <div className='subpassiveflair spacearound'><span className='smallpassive' /><div className='lb3 lsmallerinline' />{passives.PassiveName4}</div>
-                              {addformatting(makediff(passives.PassiveDesc4GL, passives.PassiveDesc4_2))}
-                            </div>
-                            : ""}
-                        </>
-                        : ""}
-
-                      {number_of_reworks == 3 ? //correct
-                        <>
-                          <div className={`bluebase  infobase nobuffpadding`}>
-                            {addformatting(makediff(passives.PassiveDesc1_3, passives.PassiveDesc1_2))}
-                          </div>
-                          {passives.PassiveCount == 4 ?
-                            <div className={`bluebase  infobase nobuffpadding`}>
-                              <div className='subpassiveflair spacearound'><span className='smallpassive' /><div className='lb1 lsmallerinline' />{passives.PassiveName3}</div>
-                              {addformatting(makediff(passives.PassiveDesc2_3, passives.PassiveDesc2_2))}
-                            </div>
-                            : ""}
-                          {passives.PassiveCount == 4 ?
-                            <div className={`bluebase  infobase nobuffpadding`}>
-                              <div className='subpassiveflair spacearound'><span className='smallpassive' /><div className='lb2 lsmallerinline' />{passives.PassiveName3}</div>
-                              {addformatting(makediff(passives.PassiveDesc3_3, passives.PassiveDesc3_2))}
-                            </div>
-                            : ""}
-                          {passives.PassiveCount == 4 ?
-                            <div className={`bluebase  infobase nobuffpadding`}>
-                              <div className='subpassiveflair spacearound'><span className='smallpassive' /><div className='lb3 lsmallerinline' />{passives.PassiveName4}</div>
-                              {addformatting(makediff(passives.PassiveDesc4_3, passives.PassiveDesc4_2))}
-                            </div>
-                            : ""}
-                        </>
-                        : ""}
-                      {passives.Abilities2 != undefined ?
-                        <Character_Ability_Dif_Handler
-                          ability_data={passives.Abilities2}
-                          master_index={master_index}
-                          ProcessedCharacters={ProcessedCharacters}
-                        />
-                        : ""}
-                    </div>
-                  </div>
-                  : ""}
                 <div className="buffunit">
                   <div className="infoholder" style={{ minHeight: "160px" }}>
                     <div className="infotitleholder">
@@ -268,117 +92,79 @@ const ReworksPageFormatting = ({
                         </div>
                       </div>
                     </div>
-                    <div className={`Buffbanner  iconbuffer infonameholder nobuffpadding `}>
-                      <div className="displayfex">
-                        <div className="spacearound">
-                          <span className='smallpassive' />{passives.PassiveName1}
+                    {passives && passives.reworks.map((rework, i)=>(
+                      <div key={i}>
+                      <div className={`Buffbanner  iconbuffer infonameholder nobuffpadding `}>
+                        <div className="displayfex">
+                          <div className="spacearound">
+                          <span className={passives.PassiveRank} />{" "}{rework.title}
+                          </div>
                         </div>
+                        {rework.bannerindex == undefined ? "" :
+                          <div className="similarbanner">
+                            {rework.bannerindex.tempdate == true ?
+                              <div>
+                                <Link className="linktopage" to={`/events/banners/${rework.bannerindex.bannerindex}`}>
+                                  {rework.bannerindex.name}<br />
+                                </Link>
+                                {handledate(rework.bannerindex.indate)}
+                              </div>
+                              :
+                              <div>
+                                <Link className="linktopage" to={`/events/banners/${rework.bannerindex.bannerindex}`}>
+                                  {rework.bannerindex.name}<br />
+                                </Link>
+                                <StartsInTimer expiryTimestamp={new Date(rework.bannerindex.indate)} />
+                              </div>
+                            }
+                          </div>
+                        }
                       </div>
-                      <span className={passives.PassiveRank} />
-                      {passives.bannerindex1 == undefined ? "" :
-                        <div className="similarbanner">
-                          {passives.bannerindex1.tempdate == true ?
-                            <div>
-                              <Link className="linktopage" to={`/events/banners/${passives.bannerindex1.bannerindex}`}>
-                                {passives.bannerindex1.name}<br />
-                              </Link>
-                              {handledate(passives.bannerindex1.indate)}
-                            </div>
-                            :
-                            <div>
-                              <Link className="linktopage" to={`/events/banners/${passives.bannerindex1.bannerindex}`}>
-                                {passives.bannerindex1.name}<br />
-                              </Link>
-                              <StartsInTimer expiryTimestamp={new Date(passives.bannerindex1.indate)} />
-                            </div>
+                      {rework && rework.reworks.map((reworker, i)=>{
+                        if(reworker.equ_pass == true){
+                          return(
+                            <Equipment_Passive_Dif_Handler
+                              key={i}
+                              passive_data={reworker}
+                              master_index={master_index}
+                              ProcessedCharacters={ProcessedCharacters}
+                            />
+                          )
+                        }
+                        if(reworker.pass == true){
+                          return(
+                            <Passive_Ability_Dif_Handler
+                              key={i}
+                              passive_data={reworker}
+                              master_index={master_index}
+                              ProcessedCharacters={ProcessedCharacters}
+                            />
+                          )
+                        }
+                          if(reworker.cmd == true){
+                            return(
+                              <Character_Ability_Dif_Handler
+                                key={i}
+                                ability_data={reworker}
+                                master_index={master_index}
+                                ProcessedCharacters={ProcessedCharacters}
+                              />
+                            )
                           }
-                        </div>
-                      }
-                    </div>
-                    {number_of_reworks == 1 ? //correct
-                      <>
-                        <div className={`bluebase  infobase nobuffpadding`}>
-                          {addformatting(makediff(passives.PassiveDesc1GL, passives.PassiveDesc1))}
-                        </div>
-                        {passives.PassiveCount == 4 ?
-                          <div className={`bluebase  infobase nobuffpadding`}>
-                            <div className='subpassiveflair spacearound'><span className='smallpassive' /><div className='lb1 lsmallerinline' />{passives.PassiveName2}</div>
-                            {addformatting(makediff(passives.PassiveDesc2GL, passives.PassiveDesc2))}
-                          </div>
-                          : ""}
-                        {passives.PassiveCount == 4 ?
-                          <div className={`bluebase  infobase nobuffpadding`}>
-                            <div className='subpassiveflair spacearound'><span className='smallpassive' /><div className='lb2 lsmallerinline' />{passives.PassiveName3}</div>
-                            {addformatting(makediff(passives.PassiveDesc3GL, passives.PassiveDesc3))}
-                          </div>
-                          : ""}
-                        {passives.PassiveCount == 4 ?
-                          <div className={`bluebase  infobase nobuffpadding`}>
-                            <div className='subpassiveflair spacearound'><span className='smallpassive' /><div className='lb3 lsmallerinline' />{passives.PassiveName4}</div>
-                            {addformatting(makediff(passives.PassiveDesc4GL, passives.PassiveDesc4))}
-                          </div>
-                          : ""}
-                      </>
-                      : ""}
-
-                    {number_of_reworks == 2 ? //correct
-                      <>
-                        <div className={`bluebase  infobase nobuffpadding`}>
-                          {addformatting(makediff(passives.PassiveDesc1_2, passives.PassiveDesc1))}
-                        </div>
-                        {passives.PassiveCount == 4 ?
-                          <div className={`bluebase  infobase nobuffpadding`}>
-                            <div className='subpassiveflair spacearound'><span className='smallpassive' /><div className='lb1 lsmallerinline' />{passives.PassiveName3}</div>
-                            {addformatting(makediff(passives.PassiveDesc2_2, passives.PassiveDesc2))}
-                          </div>
-                          : ""}
-                        {passives.PassiveCount == 4 ?
-                          <div className={`bluebase  infobase nobuffpadding`}>
-                            <div className='subpassiveflair spacearound'><span className='smallpassive' /><div className='lb2 lsmallerinline' />{passives.PassiveName3}</div>
-                            {addformatting(makediff(passives.PassiveDesc3_2, passives.PassiveDesc3))}
-                          </div>
-                          : ""}
-                        {passives.PassiveCount == 4 ?
-                          <div className={`bluebase  infobase nobuffpadding`}>
-                            <div className='subpassiveflair spacearound'><span className='smallpassive' /><div className='lb3 lsmallerinline' />{passives.PassiveName4}</div>
-                            {addformatting(makediff(passives.PassiveDesc4_2, passives.PassiveDesc4))}
-                          </div>
-                          : ""}
-                      </>
-                      : ""}
-
-                    {number_of_reworks == 3 ? //correct
-                      <>
-                        <div className={`bluebase  infobase nobuffpadding`}>
-                          {addformatting(makediff(passives.PassiveDesc1_2, passives.PassiveDesc1))}
-                        </div>
-                        {passives.PassiveCount == 4 ?
-                          <div className={`bluebase  infobase nobuffpadding`}>
-                            <div className='subpassiveflair spacearound'><span className='smallpassive' /><div className='lb1 lsmallerinline' />{passives.PassiveName2}</div>
-                            {addformatting(makediff(passives.PassiveDesc2_2, passives.PassiveDesc2))}
-                          </div>
-                          : ""}
-                        {passives.PassiveCount == 4 ?
-                          <div className={`bluebase  infobase nobuffpadding`}>
-                            <div className='subpassiveflair spacearound'><span className='smallpassive' /><div className='lb2 lsmallerinline' />{passives.PassiveName2}</div>
-                            {addformatting(makediff(passives.PassiveDesc3_2, passives.PassiveDesc3))}
-                          </div>
-                          : ""}
-                        {passives.PassiveCount == 4 ?
-                          <div className={`bluebase  infobase nobuffpadding`}>
-                            <div className='subpassiveflair spacearound'><span className='smallpassive' /><div className='lb3 lsmallerinline' />{passives.PassiveName2}</div>
-                            {addformatting(makediff(passives.PassiveDesc4_2, passives.PassiveDesc4))}
-                          </div>
-                          : ""}
-                      </>
-                      : ""}
-                    {passives.Abilities1 != undefined ?
-                      <Character_Ability_Dif_Handler
-                        ability_data={passives.Abilities1}
-                        master_index={master_index}
-                        ProcessedCharacters={ProcessedCharacters}
-                      />
-                      : ""}
+                          if(reworker.ailment == true){
+                            return(
+                              <Ailment_Character_Dif_Handler
+                              key={i}
+                              buff_data={reworker}
+                              master_index={master_index}
+                              ProcessedCharacters={ProcessedCharacters}
+                              />
+                            )
+                          }
+                      })}
+                      </div>
+                    ))
+                    }
                   </div>
                 </div>
               </LazyLoadComponent>

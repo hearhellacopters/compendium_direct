@@ -62,7 +62,8 @@ const Ailment_Data_Formatting_bycharacter = ({
     turns,
 
     link,
-    master_index
+    master_index,
+    info
 }) => {
 
     const cast_targets = master_index.command_data_trans.cast_target
@@ -228,6 +229,7 @@ const Ailment_Data_Formatting_bycharacter = ({
     const [currentgroupstacks, setcurrentgroupstacks] = useStateIfMounted(5)
     const [currenthp, setcurrenthp] = useStateIfMounted(100)
     const [charactersleft, setcharactersleft] = useStateIfMounted(2)
+    const [characterskb, setcharacterskb] = useStateIfMounted(3)
 
     const [showraw, setshowraw] = useStateIfMounted(false)
     const [ailment_tag, setailment_tag] = useStateIfMounted([]);
@@ -304,6 +306,10 @@ const Ailment_Data_Formatting_bycharacter = ({
 
     const handleChangeCharactersLeft = (e) => {
         setcharactersleft(parseInt(e.x));
+    };
+
+    const handleChangeCharactersKB = (e) => {
+        setcharacterskb(parseInt(e.x));
     };
 
     const effect_value_type_field = ailment_data.field && ailment_data.field.map(self => {
@@ -500,13 +506,13 @@ const Ailment_Data_Formatting_bycharacter = ({
                     <div className="infotitleholder">
                         <div className="faceandiconholder">
                             <Char_Face_Maker char_id={char_id} id={ailment_data.chara_id} link={link} />
-                            <div onClick={showmeraw} className="infoiconholder">
+                            <div onClick={showmeraw} className="infoiconholder2">
                                 <LazyLoadImage effect="opacity" className="bufficon" alt={ailment_data.name && ailment_data.name} src={"https://dissidiacompendium.com/images/static/" + ailment_data.icon} />
                             </div>
                         </div>
                     </div>
-                    <div className={ailment_data.is_buff == 0 ? "Debuffbanner infonameholder wpadding" : "Buffbanner infonameholder wpadding"}>
-                        <div className="infotitle">
+                    <div className={ailment_data.is_buff == 0 ? "Debuffbanner iconbuffer infonameholder nobuffpadding" : "Buffbanner iconbuffer infonameholder nobuffpadding"}>
+                        <div className="infotitle2">
                             {add_formatting(`${ailmentname == "" ? `Unknown ${ailment_data.is_buff == 1 ? "buff" : "debuff"}` : ailmentname}${ailment_data.is_state == true ? "" : ` - #${ailment_data.id}`}`, "tl")}
                             {ailmentjpname == "" || ailmentjpname == undefined ?
                                 <div className="abilityJPname">
@@ -515,19 +521,22 @@ const Ailment_Data_Formatting_bycharacter = ({
                                 : <div className="abilityJPname">
                                     {add_formatting(ailmentjpname, "tl")}
                                 </div>}
-                        </div>
-                        {ailment_data.hide_title == true ? "" :
+                            {ailment_data.hide_title == true ? "" :
                             <div className="infolocation">
                                 {add_formatting(`Granted from ${rank_tag != undefined ? `<${rank_trans(rank_tag)}>` : ""} [${ailment_data.ability_namegl == undefined ? ailment_data.ability_name : ailment_data.ability_namegl}] #${ailment_data.command_id}${cast_target == undefined ? "" : ` to ${cast_target}`}${ailment_data.alife != -1 ? ` for ${ailment_data.alife} turn${ailment_data.alife != 1 ? "s" : ""}` : ""}`, "tl")}
                             </div>
-                        }
+                            }
+                        </div>
                         {ailment_data.sp_disp_type == 133 ?
-                            <div className="buffglreworkbanner">
+                            <div className="similarbanner">
                                 <Link className="updatelink" to={`/characters/forcetime?Char=${char_id[ailment_data.chara_id] && replacer(char_id[ailment_data.chara_id].name)}`}>
                                     View Force Time
                                 </Link>
                             </div>
                             : ""}
+                        {info != undefined?
+                        <div className='buffglreworkbanner passiveinfobase'>{info}</div>
+                        :""}
                     </div>
                     {ailment_data.defaults != undefined && ailment_data.is_passive != true ?
                         <Default_Ailment_Pars
@@ -564,10 +573,11 @@ const Ailment_Data_Formatting_bycharacter = ({
                         sliders.enemies == false &&
                         sliders.stacks == false &&
                         sliders.currenthp == false &&
-                        sliders.charactersleft == false
+                        sliders.charactersleft == false &&
+                        sliders.characterskb == false
                         ?
                         "" : ailment_data && ailment_data.is_state == true ? "" :
-                            <div className={`sliderbase infonameholder wpadding `}>
+                            <div className={`sliderbase infonameholder nobuffpadding `}>
                                 {sliders.levels == true ?
                                     <div className="sliderspacer">
                                         <div className="rankspacer">{`Level: ${currentlevel} / ${highestlvl}`}</div>
@@ -736,8 +746,22 @@ const Ailment_Data_Formatting_bycharacter = ({
                                         />
                                     </div>
                                     : ""}
+                                {sliders.characterskb == true ?
+                                    <div className="sliderspacer">
+                                        <div className="rankspacer">{`Characters in Knock Back: ${characterskb} of ${3}`}</div>
+                                        <Slider
+                                            key={ailment_data}
+                                            axis="x"
+                                            styles={SilderStyleBuff}
+                                            onChange={handleChangeCharactersKB}
+                                            x={characterskb}
+                                            xmin={0}
+                                            xmax={3}
+                                        />
+                                    </div>
+                                    : ""}
                             </div>}
-                    <div className={ailment_data.is_buff == 0 ? "Debuffbase infobase wpadding" : "Buffbase infobase wpadding"}>
+                    <div className={ailment_data.is_buff == 0 ? "Debuffbase enemyabilityinfobase wpadding" : "Buffbase enemyabilityinfobase wpadding"}>
                         {ailment_data.note != undefined ?
                             <div className="subpassiveflair">
                                 {ailment_data.note.split(/\n/gm).map((value, i) =>
@@ -778,6 +802,7 @@ const Ailment_Data_Formatting_bycharacter = ({
                                 currentgroupstacks={currentgroupstacks}
                                 currenthp={currenthp}
                                 charactersleft={charactersleft}
+                                characterskb={characterskb}
                                 formatting={formatting}
                                 setonion_passoff={setonion_passoff}
                                 setshowdesc={setshowdesc}
@@ -808,6 +833,7 @@ const Ailment_Data_Formatting_bycharacter = ({
                                         currentgroupstacks={currentgroupstacks}
                                         currenthp={currenthp}
                                         charactersleft={charactersleft}
+                                        characterskb={characterskb}
                                         castlocation={castlocation}
                                         formatting={formatting}
                                     />

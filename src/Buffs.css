@@ -62,7 +62,7 @@
     padding-right: 10px;
     text-align: center;
     font-weight: bold;
-    background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, rgba(30, 55, 88, 0.940205) 3.67%, rgba(30, 55, 88, 0.85) 96.44%, rgba(30, 55, 88, 0) 100%);
+    background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, rgba(36, 43, 53, 1) 3.67%, rgba(36, 43, 53, 1) 96.44%, rgba(30, 55, 88, 0) 100%);
 }
 
 /*Filter buttons formating*/
@@ -160,6 +160,15 @@ hr {
     cursor: pointer;
 }
 
+.infoiconholder2 {
+    width: 58px;
+    height: 50px;
+    margin: 0px;
+    margin-left: 30px;
+    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+}
 
 .infoiconholder {
     width: 58px;
@@ -196,6 +205,10 @@ hr {
 
 .infotitle {
     font-size: 19px;
+}
+.infotitle2 {
+    font-size: 19px;
+    margin-left: 70px
 }
 
 .infolocation {
@@ -474,6 +487,11 @@ hr {
 
 .Increase2button {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/increaseuse2.png");
+    background-size: contain;
+}
+
+.brvhpupgradebutton {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/BRVHPUpgrade.png");
     background-size: contain;
 }
 
@@ -807,6 +825,10 @@ hr {
 }
 
 @media screen and (max-width: 700px) {
+    .infotitle2 {
+        font-size: 15px;
+        margin-left: 5px;
+    }
     .fieldeffects {
         height: 24px;
         width: 37px;
@@ -888,6 +910,10 @@ hr {
     }
 
     .infoiconholder {
+        margin-right: 0px;
+    }
+
+    .infoiconholder2 {
         margin-right: 0px;
     }
 

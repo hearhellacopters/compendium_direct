@@ -566,6 +566,9 @@ const passive_effect_handler = (
         if (effect_pull.RATE == "value2") {
             merge_value.RATE = merge_value.RATE + effect_value2
         }
+        if (effect_pull.HPRETAIN == "value1") {
+            merge_value.HPRETAIN = merge_value.HPRETAIN + effect_value1
+        }
         return merge_value
     }
 }

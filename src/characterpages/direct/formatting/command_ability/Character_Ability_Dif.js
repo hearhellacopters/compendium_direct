@@ -12,6 +12,7 @@ import ReactJson from '@microlink/react-json-view'
 import Tippy from '../../../../formatting/TippyDefaults'
 import Format_Cleaner from '../../../../processing/Format_Cleaner'
 import replacer_titles from '../../../../processing/replacer_titles'
+import { MdRecordVoiceOver }from 'react-icons/md';
 import rank_trans from './rank_trans'
 import Ailment_Data_Formatting from '../Ailment_Data_Formating'
 import Ailment_Character_Dif from '../Ailment_Character_Dif';
@@ -22,7 +23,8 @@ const Character_Ability_Dif = ({
     ver_old,
     command_new,
     ver_new,
-    master_index
+    master_index,
+    info
 }) => {
 
     const CommandNames = master_index.commands
@@ -30,6 +32,7 @@ const Character_Ability_Dif = ({
 
     const [trans, settrans] = useStateIfMounted()
     const [showtrans, setshowtrans] = useStateIfMounted(false)
+    const [playingaudio, setplayingaudio] = useStateIfMounted(false)
 
     const dispatch = useDispatch();
 
@@ -72,7 +75,7 @@ const Character_Ability_Dif = ({
 
     const [showraw, setshowraw] = useStateIfMounted(false)
     const [desc, setdesc] = useStateIfMounted(false)
-    const [error, seterror] = useStateIfMounted()
+    const [displayinfo, setdisplayinfo] = useStateIfMounted()
 
     const showmeraw = (e) => {
         if (e.shiftKey) {
@@ -292,23 +295,23 @@ const Character_Ability_Dif = ({
 
     const buffselect = (buffs) => {
         if (selectedbuff.unq_id == buffs.unq_id) {
-            seterror()
+            setdisplayinfo()
             setselectedbuff([])
             setselectedbuff_old([])
         } else {
             if (command_old && command_old.command && command_old.command.casts != undefined) {
                 const find_old = command_old.command.casts.filter(self => self.id == buffs.id)
                 if (find_old.length != 0) {
-                    seterror()
+                    setdisplayinfo()
                     setselectedbuff_old(find_old[0])
                     setselectedbuff(buffs)
                 } else {
-                    seterror("New cast! (doesn't compare)")
+                    setdisplayinfo("New cast! (doesn't compare)")
                     setselectedbuff_old([])
                     setselectedbuff(buffs)
                 }
             } else {
-                seterror("New cast! (doesn't compare)")
+                setdisplayinfo("New cast! (doesn't compare)")
                 setselectedbuff_old([])
                 setselectedbuff(buffs)
             }
@@ -334,12 +337,51 @@ const Character_Ability_Dif = ({
                 master_index
             )
         }
-        if (options_old_tex != "" && options_new_tex != "") {
-            setoptioncompare(makediff(options_old_tex.replace(/\s+$/g, ""), options_new_tex.replace(/\s+$/g, "")))
+        if (options_old_tex != "" || options_new_tex != "") {
+            if(options_old_tex != ""){
+                setoptioncompare(makediff(options_old_tex.replace(/\s+$/g, ""), options_new_tex.replace(/\s+$/g, "")))
+            } else {
+                setoptioncompare("~~" + options_new_tex + "~.~")
+            }
         }
     }, [command_old, command_new, ver_new, ver_old, master_index])
 
     const character_ability = command_new
+
+    const [show_upgrades, setshow_upgrades] = useStateIfMounted(character_ability && character_ability.options && character_ability.options.length > 5 ? false : true)
+
+    const volume = useSelector((state) =>
+        state.volume.volume
+    );
+
+    const doshow_upgrades = () => {
+        if (character_ability && character_ability.options && character_ability.options.length > 5) {
+            setshow_upgrades(!show_upgrades)
+        }
+    }
+
+    const playvoice =()=>{
+        if(playingaudio != true && character_ability.voice_index != undefined){
+            try {
+                const myAudioElement = new Audio(`https://dissidiacompendium.com/images/static/characters/${char_id[character_ability.charaID] && char_id[character_ability.charaID].name && char_id[character_ability.charaID].name.replace(/ /g, "").replace(/,/g, "").replace(/'/g, "").replace(/&/g, "")}/voice/${character_ability.voice_index}.mp3`)
+                myAudioElement.volume = volume
+                myAudioElement.style.display = "none"
+                myAudioElement.addEventListener("canplaythrough", (event) => {
+                    /* the audio is now playable; play it if permissions allow */
+                    setplayingaudio(true)
+                    myAudioElement.play();
+                });
+                myAudioElement.onended = function(){
+                    setplayingaudio(false)
+                    myAudioElement.remove();
+                }
+                myAudioElement.load();
+            } catch (error) {
+                console.log(error)
+                setplayingaudio(false)
+            }
+        }
+    }
 
     return (
         <div className="buffunit" loading="lazy">
@@ -477,6 +519,11 @@ const Character_Ability_Dif = ({
                             <Tippy content="Scroll to top" className="tooltip" >
                                 <span onClick={() => window.scrollTo(0, 0)} className={character_ability.command && character_ability.command.rank && `${rank_trans(character_ability.command.rank)} clicky`}></span>
                             </Tippy>
+                            {character_ability.voice_index != undefined ?
+                                    <Tippy content="Play voice line" className="tooltip" >
+                                        <span>{" "}<MdRecordVoiceOver onClick={playvoice} className='soundicon click' style={{color:`${playingaudio == true ? "yellow":""}`}}/></span>
+                                    </Tippy>
+                                :""}
                         </div>
                         {use_num != 0 ?
                             <div className="usesmaker">
@@ -530,6 +577,9 @@ const Character_Ability_Dif = ({
                             </div>
                             : ""}
                     </div>
+                    {info != undefined ?
+                        <div className='buffglreworkbanner passiveinfobase'>{info}</div>
+                    :""}
                 </div>
                 <div className={`bluebase abilityinfobase`}>
 
@@ -573,11 +623,13 @@ const Character_Ability_Dif = ({
                     {character_ability.options != undefined ?
                         <div className='p_grade'>
                             <div className='fieldbar'>
-                                <div >
-                                    Conditions:
+                                <div className={character_ability.options.length <= 5 ? "" : 'updatelink clicky'} onClick={doshow_upgrades}>
+                                    {character_ability.options.length <= 5 ? "Conditions:" : show_upgrades ? "Hide All Conditions" : "Show All Conditions"}
                                 </div>
                             </div>
-                            {addformatting(optioncompare)}
+                            {show_upgrades == true ?
+                            addformatting(optioncompare)
+                            :""}
                         </div>
                         : ""}
 
@@ -606,7 +658,6 @@ const Character_Ability_Dif = ({
 
                     </div>
                     : ""}
-                {error != undefined ? <div className='bufflistbanner noselect newblue unique'>{error}</div> : ""}
                 {selectedbuff.length != 0 && selectedbuff.is_passive != true && selectedbuff.is_state != true ?
 
                     selectedbuff_old.length == 0 ?
@@ -629,6 +680,7 @@ const Character_Ability_Dif = ({
                             formatting={true}
                             char_id={char_id}
                             turns={selectedbuff.default == true ? selectedbuff.turn : selectedbuff.alife}
+                            info={displayinfo}
                         />
                         :
 
@@ -638,6 +690,8 @@ const Character_Ability_Dif = ({
                             buff_old={selectedbuff_old}
                             ver_old={ver_old}
                             master_index={master_index}
+                            info={displayinfo}
+                            castlocation={true}
                         />
 
                     : ""}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useStateIfMounted } from "use-state-if-mounted";
 import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
+import Char_Face_Maker from "./Char_Face_Maker";
 import DefaultTippy from '../../../formatting/TippyDefaults';
 import Format_Cleaner from '../../../processing/Format_Cleaner'
 import { useDispatch, useSelector } from "react-redux";
@@ -28,9 +29,17 @@ const Ailment_Character_Dif = ({
     buff_old,
     ver_old,
     master_index,
+    info,
+    castlocation
 }) => {
 
-    const castlocation = true
+    const cast_targets = master_index.command_data_trans.cast_target
+    const char_id = master_index.charid
+
+    var cast_target = undefined
+    if (buff_new.atarg != undefined && buff_new.atarg != 2) {
+        cast_target = cast_targets[buff_new.atarg] && cast_targets[buff_new.atarg].target_id
+    }
 
     const makediff = (oldText, newText) => {
         const JPDESCREPLACE = Diff.diffTrimmedLines(oldText + "\n", newText + "\n", { newlineIsToken: false })
@@ -209,6 +218,7 @@ const Ailment_Character_Dif = ({
     const [currentgroupstacks, setcurrentgroupstacks] = useStateIfMounted(5)
     const [currenthp, setcurrenthp] = useStateIfMounted(100)
     const [charactersleft, setcharactersleft] = useStateIfMounted(2)
+    const [characterskb, setcharacterskb] = useStateIfMounted(3)
 
     const handleChangeLevel = (e) => {
         setcurrentlevel(parseInt(e.x));
@@ -252,6 +262,10 @@ const Ailment_Character_Dif = ({
 
     const handleChangeCharactersLeft = (e) => {
         setcharactersleft(parseInt(e.x));
+    };
+
+    const handleChangeCharactersKB = (e) => {
+        setcharacterskb(parseInt(e.x));
     };
 
     const metadata = Ailment_Meta_Handler(
@@ -346,20 +360,23 @@ const Ailment_Character_Dif = ({
         }
     }, [buff_new, buff_old, setoptions_tex, setoptions_tex_old])
 
-
-
     return (
-        <div className={`${castlocation == false ? "buffunit" : ""}`}>
-            <div className={`${"bufflistbanner "}${buff_new.is_buff == 0 ? "Debuffbase" : "Buffbase"}`}
+        <div className={castlocation == true ? "" : `buffunit`}>
+            <div className={castlocation == false ? `infoholder` :`${"bufflistbanner "}${buff_new.is_buff == 0 ? "Debuffbase" : "Buffbase"}`}
             >
                 <LazyLoadComponent>
                     {castlocation == false ?
                         <>
-                            <div className="infotitleholderenemybuff">
-                                <img onClick={showmeraw} className="bufficonenemy" alt={buff_new.name && buff_new.name} src={"https://dissidiacompendium.com/images/static/" + buff_new.icon} />
+                            <div className="infotitleholder">
+                                <div className="faceandiconholder">
+                                    <Char_Face_Maker char_id={char_id} id={buff_new.chara_id}/>
+                                    <div onClick={showmeraw} className="infoiconholder2">
+                                        <LazyLoadImage effect="opacity" className="bufficon" alt={buff_new && buff_new.name} src={"https://dissidiacompendium.com/images/static/" + buff_new.icon} />
+                                    </div>
+                                </div>
                             </div>
-                            <div className={buff_new.is_buff == 0 ? "Debuffbanner infonameholderenemybuff" : "Buffbanner infonameholderenemybuff"}>
-                                <div className="infotitle">
+                            <div className={buff_new.is_buff == 0 ? "Debuffbanner iconbuffer infonameholder nobuffpadding" : "Buffbanner iconbuffer infonameholder nobuffpadding"}>
+                                <div className="infotitle2">
                                     {replacer_titles(`${ailmentname == "" ? `Unknown ${buff_new.is_buff == 1 ? "buff" : "debuff"}` : ailmentname}` + " - #" + buff_new.id)}
                                     {ailmentjpname == "" || ailmentjpname == undefined ?
                                         <div className="abilityJPname">
@@ -368,7 +385,15 @@ const Ailment_Character_Dif = ({
                                         : <div className="abilityJPname">
                                             {replacer_titles(ailmentjpname)}
                                         </div>}
+                                    {buff_new.hide_title == true ? "" :
+                                        <div className="infolocation">
+                                            {replacer_titles(`Granted from [${buff_new.ability_namegl == undefined ? buff_new.ability_name : buff_new.ability_namegl}] #${buff_new.command_id}${cast_target == undefined ? "" : ` to ${cast_target}`}${buff_new.alife != -1 ? ` for ${buff_new.alife} turn${buff_new.alife != 1 ? "s" : ""}` : ""}`, "tl")}
+                                        </div>
+                                    }
                                 </div>
+                                {info != undefined?
+                                    <div className='buffglreworkbanner passiveinfobase'>{info}</div>
+                                :""}
                             </div>
                         </>
                         :
@@ -381,7 +406,11 @@ const Ailment_Character_Dif = ({
                                 : <div className="abilityJPname">
                                     {replacer_titles(ailmentjpname)}
                                 </div>}
+                            {info != undefined?
+                            <div className='buffglreworkbanner passiveinfobase'>{info}</div>
+                            :""}
                         </div>
+                        
                     }
                     {sliders.levels == false &&
                         sliders.turns == false &&
@@ -394,10 +423,11 @@ const Ailment_Character_Dif = ({
                         sliders.enemies == false &&
                         sliders.stacks == false &&
                         sliders.currenthp == false &&
-                        sliders.charactersleft == false
+                        sliders.charactersleft == false &&
+                        sliders.characterskb == false
                         ?
                         "" :
-                        <div className={`sliderbase infonameholderenemybuff `}>
+                        <div className={castlocation ? `sliderbase infonameholderenemybuff `: "sliderbase infonameholder nobuffpadding" }>
                             {sliders.levels == true ?
                                 <div className="sliderspacer">
                                     <div className="rankspacer">{`Level: ${currentlevel} / ${highestlvl}`}</div>
@@ -563,8 +593,22 @@ const Ailment_Character_Dif = ({
                                     />
                                 </div>
                                 : ""}
+                            {sliders.characterskb == true ?
+                                <div className="sliderspacer">
+                                    <div className="rankspacer">{`Characters in Knock Back: ${characterskb} of ${3}`}</div>
+                                    <Slider
+                                        key={buff_new}
+                                        axis="x"
+                                        styles={SilderStyleBuff}
+                                        onChange={handleChangeCharactersKB}
+                                        x={characterskb}
+                                        xmin={0}
+                                        xmax={3}
+                                    />
+                                </div>
+                                : ""}
                         </div>}
-                    <div>
+                    <div className={castlocation == true ? "" : `${buff_new.is_buff == 0 ? "Debuffbase" : "Buffbase"} enemyabilityinfobase wpadding`}>
                         <Ailment_Dif
                             master_index={master_index}
                             ver_old={ver_old}
@@ -582,6 +626,7 @@ const Ailment_Character_Dif = ({
                             currentgroupstacks_passoff={currentgroupstacks}
                             currenthp_passoff={currenthp}
                             charactersleft_passoff={charactersleft}
+                            characterskb={characterskb}
                             currentlevel_passoff={currentlevel}
                         />
                         {buff_new.options != undefined ?
