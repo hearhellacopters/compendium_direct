@@ -27,7 +27,7 @@ const ReworksPageFormatting = ({
   ProcessedCharacters,
   jptoggledata
 }) => {
-console.log(ProcessedReworks)
+
   const [reworks, setreworks] = useState(ProcessedReworks);
   const [show2, setshow2] = useState(false);
   const [show3, setshow3] = useState(false);
