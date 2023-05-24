@@ -282,7 +282,7 @@ const Passive_Effects_Dif = (
                 return (
                     `${key != last1 ? add_char_1 : last_char_1}${text}`
                 )
-            })
+            }).join("\n")
 
         } else {
             effect_display = `${last_char_1}${effect_}`
@@ -308,7 +308,7 @@ const Passive_Effects_Dif = (
                 return (
                     `${key != last2 ? add_char_2 : last_char_2}${text}`
                 )
-            })
+            }).join("\n")
         } else {
             effect__1_display = `${last_char_2}${effect__1}`
         }

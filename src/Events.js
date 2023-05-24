@@ -743,8 +743,8 @@ const Events = ({ ProcessedEvents, ProcessedCharacters, EventGuideData, jptoggle
               <Tippy content="Boss Rush" className="tooltip" >
                 <li alt="Boss Rush" onClick={rushbutton} className={`${bossrush ? "filteractive" : "filterinactive"} BossRush eventbutton`} ></li>
               </Tippy>
-              <Tippy content="Six Warrior" className="tooltip" >
-                <li alt="Six Warrior" onClick={sixmanbutton} className={`${sixman ? "filteractive" : "filterinactive"} SixMan eventbutton`} ></li>
+              <Tippy content="Six-Warrior Quests" className="tooltip" >
+                <li alt="Six-Warrior Quests" onClick={sixmanbutton} className={`${sixman ? "filteractive" : "filterinactive"} SixMan eventbutton`} ></li>
               </Tippy>
               <Tippy content="Intersecting Wills" className="tooltip" >
                 <li alt="Intersecting Wills" onClick={willsbutton} className={`${wills ? "filteractive" : "filterinactive"} EntangledWills eventbutton`} ></li>

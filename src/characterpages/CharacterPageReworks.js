@@ -29,8 +29,6 @@ const ReworksPageFormatting = ({
 }) => {
 
   const [reworks, setreworks] = useState(ProcessedReworks);
-  const [show2, setshow2] = useState(false);
-  const [show3, setshow3] = useState(false);
 
   const [random] = useState(Random(7));
 
@@ -49,20 +47,6 @@ const ReworksPageFormatting = ({
         <TickUp value={new Date(date).getFullYear()} />
       </div>
     </div>
-  }
-
-  const makediff = (oldText, newText) => {
-    if (oldText == undefined) {
-      oldText = ""
-    }
-    if (newText == undefined) {
-      newText = ""
-    }
-    const JPDESCREPLACE = Diff.diffTrimmedLines(oldText + "\n", newText + "\n", { newlineIsToken: false })
-    const output = JPDESCREPLACE.map(text => `${text.added == true ? '~~' + text.value + '~.~' : ""}${text.removed == true ? '^^' + text.value + '^.^' : ""}${text.removed == undefined && text.added == undefined ? text.value : ""}`).join("")
-    return (
-      output
-    )
   }
 
   return (
