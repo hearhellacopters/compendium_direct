@@ -554,7 +554,7 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
                                 <ul className="similarenemyholder">
                                     <DefaultTippy content={enemy.SummonEnemy1.split('\n').map((str, loc) => <div key={loc}>{str}</div>)} className="tooltip" >
                                         <li>
-                                            <Link to={`/bestiary/enemies/${summonedenemy1.battle_enemy_id}`}>
+                                            <Link to={`/bestiary/enemies/${summonedenemy1.battle_enemy_id}${typeof summonedenemy1.battle_enemy_id == "string"?"":`/${stats && stats.data_index}`}`}>
                                                 <LazyLoadImage effect="opacity"  className="similarenemycard" alt={summonedenemy1.Name} src={"https://dissidiacompendium.com/images/static/enemy/face/" + summonedenemy1.url} />
                                             </Link>
                                         </li>
@@ -563,7 +563,7 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
                                         "" :
                                         <DefaultTippy content={enemy.SummonEnemy2.split('\n').map((str, loc) => <div key={loc}>{str}</div>)} className="tooltip" >
                                             <li>
-                                                <Link to={`/bestiary/enemies/${summonedenemy2.battle_enemy_id}`}>
+                                                <Link to={`/bestiary/enemies/${summonedenemy2.battle_enemy_id}${typeof summonedenemy2.battle_enemy_id == "string"?"":`/${stats && stats.data_index}`}`}>
                                                     <LazyLoadImage effect="opacity" className="similarenemycard" alt={summonedenemy2.Name} src={"https://dissidiacompendium.com/images/static/enemy/face/" + summonedenemy2.url} />
                                                 </Link>
                                             </li>
@@ -590,7 +590,16 @@ const EnemyFormattingDirect = ({ match, stats, alllevels, setlevel, battle_enemy
                 </div>
                 <div className="statsholder">
                     <div className={`enemyholderdesc statsdisplay ${spancheck == false ? "fill" : ""}`}>
-                        <LevelsFormatting setlevel={setlevel} stats={stats} match={match} alllevels={alllevels} battle_enemy_id={enemy.battle_enemy_id} chase={enemy.chase} enemy_id={enemy.enemy_id} ProcessedLevels={ProcessedLevels} levelurl={levelurl} />
+                        <LevelsFormatting 
+                        setlevel={setlevel} 
+                        stats={stats} 
+                        match={match} 
+                        alllevels={alllevels} 
+                        battle_enemy_id={enemy.battle_enemy_id} 
+                        chase={enemy.chase} 
+                        enemy_id={enemy.enemy_id} 
+                        ProcessedLevels={ProcessedLevels} 
+                        levelurl={levelurl} />
                         {showmeraw == true ?
                             <ReactJson iconStyle={"square"} quotesOnKeys={false} name={"Stats Commands"} displayDataTypes={false} collapsed={false} theme={"threezerotwofour"} src={showmestats} />
                             : ""}

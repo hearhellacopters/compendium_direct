@@ -71,8 +71,10 @@ const LevelsFormatting = ({ match, setlevel, stats, alllevels, battle_enemy_id, 
                                     </div>
                                 </div>
                             }
-                        </div> :
-                        <div className="enemystatsvalue">{stats && stats.data_index}</div>}
+                        </div> 
+                        :
+                        <div className="enemystatsvalue">{stats && stats.data_index}</div>
+                    }
                 </div>
             }
 

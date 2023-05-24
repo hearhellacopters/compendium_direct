@@ -54,6 +54,7 @@ const Events = ({ ProcessedEvents, ProcessedCharacters, EventGuideData, jptoggle
   const [dungeon, setDungeon] = useState(getQueryStringVal("dungeon") != null ? true : false);
   const [bossrush, setBossRush] = useState(getQueryStringVal("bossrush") != null ? true : false);
   const [sixman, setSixman] = useState(getQueryStringVal("sixman") != null ? true : false);
+  const [memorial, setMemorial] = useState(getQueryStringVal("memorial") != null ? true : false);
   const [wills, setWills] = useState(getQueryStringVal("wills") != null ? true : false);
 
   const [loop, setLoop] = useStateIfMounted(false);
@@ -89,6 +90,7 @@ const Events = ({ ProcessedEvents, ProcessedCharacters, EventGuideData, jptoggle
   const [bossrushsearch, setBossRushsearch] = useQueryParam("bossrush", "");
   const [sixmansearch, setSixmansearch] = useQueryParam("sixman", "");
   const [willssearch, setWillssearch] = useQueryParam("wills", "");
+  const [memorialsearch, setMemorialsearch] = useQueryParam("memorial", "");
   const [pasteventssearch, setPastEventssearch] = useQueryParam("past", "");
   const [TEXTsearch, setTEXTsearch] = useQueryParam("search", "");
   const [Reversesearch, setReversesearch] = useQueryParam("rev", "");
@@ -302,8 +304,14 @@ const Events = ({ ProcessedEvents, ProcessedCharacters, EventGuideData, jptoggle
       );
       filterholder.push(...filteredout);
     }
+    if (memorial === true) {
+      const filteredout = rawData.filter(
+        (event) => event["type"] == "Memorial"
+      );
+      filterholder.push(...filteredout);
+    }
 
-    if (![actfour, actone, acttwo, actthree, event, lostchapter, woi, feod, abyss, abyss, hunt, heretic, raid, dungeon, sixman, bossrush, wills].includes(true)) {
+    if (![actfour, actone, acttwo, actthree, event, memorial, lostchapter, woi, feod, abyss, abyss, hunt, heretic, raid, dungeon, sixman, bossrush, wills].includes(true)) {
       filterholder.push(...rawData);
     }
 
@@ -341,7 +349,7 @@ const Events = ({ ProcessedEvents, ProcessedCharacters, EventGuideData, jptoggle
     setDisplayBanner(
       <>Displaying <span className="subtextgold">{newlistdisplay.length}</span> of <span className="subtextgold"> {gettypefilter.length}</span> {banerDisplayTerm}</>
     );
-  }, [searchTerm, rawData, limits, clearFilter, actone, acttwo, actthree, actfour, event, lostchapter, woi, feod, abyss, hunt, heretic, raid, dungeon, sixman, bossrush, jponly, pastevents, wills, condFilter, reverse, prefilterlist]);
+  }, [searchTerm, rawData, limits, clearFilter, memorial, actone, acttwo, actthree, actfour, event, lostchapter, woi, feod, abyss, hunt, heretic, raid, dungeon, sixman, bossrush, jponly, pastevents, wills, condFilter, reverse, prefilterlist]);
 
 
   //buttons
@@ -491,6 +499,14 @@ const Events = ({ ProcessedEvents, ProcessedCharacters, EventGuideData, jptoggle
     }
     setWills((prevValue) => !prevValue);
   };
+  const memorialbutton = () => {
+    if (memorial == false) {
+      setMemorialsearch("true")
+    } else {
+      setMemorialsearch("")
+    }
+    setMemorial((prevValue) => !prevValue);
+  };
   const reversebutton = () => {
     if (reverse == false) {
       setReversesearch("true")
@@ -604,6 +620,7 @@ const Events = ({ ProcessedEvents, ProcessedCharacters, EventGuideData, jptoggle
     setSixman(false)
     setPastEvents(false)
     setWills(false)
+    setMemorial(false)
 
     setActOnesearch("")
     setActTwosearch("")
@@ -622,6 +639,7 @@ const Events = ({ ProcessedEvents, ProcessedCharacters, EventGuideData, jptoggle
     setSixmansearch("")
     setPastEventssearch("")
     setWillssearch("")
+    setMemorialsearch("")
     setReversesearch("")
     setTEXTsearch("")
     setTypesearch("")
@@ -730,6 +748,9 @@ const Events = ({ ProcessedEvents, ProcessedCharacters, EventGuideData, jptoggle
               </Tippy>
               <Tippy content="Intersecting Wills" className="tooltip" >
                 <li alt="Intersecting Wills" onClick={willsbutton} className={`${wills ? "filteractive" : "filterinactive"} EntangledWills eventbutton`} ></li>
+              </Tippy>
+              <Tippy content="Memorial Quests" className="tooltip" >
+                <li alt="Memorial Quests" onClick={memorialbutton} className={`${memorial ? "filteractive" : "filterinactive"} Memorial eventbutton`} ></li>
               </Tippy>
             </ul>
             <div className="similarbanner">Additional Events</div>
