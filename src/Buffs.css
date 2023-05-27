@@ -48,7 +48,9 @@
     background-image: url(https://dissidiacompendium.com/images/static/icons/geartype/bstate.png);
 }
 
-
+.hidepad{
+    padding-top: 11px;
+}
 .nodisplay {
     display: none;
 }
@@ -168,6 +170,8 @@ hr {
     margin-right: 5px;
     display: flex;
     justify-content: center;
+    align-content: center;
+    flex-wrap: nowrap;
 }
 
 .infoiconholder {
@@ -182,7 +186,6 @@ hr {
 .bufficon {
     display: flex;
     margin: auto;
-    padding-top: 10px;
     filter: drop-shadow(2px 2px 2px #222);
     -webkit-filter: drop-shadow(2px 2px 2px #222);
 }
@@ -208,6 +211,7 @@ hr {
 }
 .infotitle2 {
     font-size: 19px;
+    min-height: 40px;
     margin-left: 70px
 }
 
@@ -313,10 +317,6 @@ hr {
     border-radius: 19px;
 }
 
-
-.iconbuffer {
-    min-height: 52px;
-}
 
 .subicon {
     display: flex;
@@ -825,7 +825,15 @@ hr {
 }
 
 @media screen and (max-width: 700px) {
+    .bufficon{
+        padding-top: 10px;
+    }
+    .hidepad{
+        padding-top: 0px;
+        margin-left: 5px;
+    }
     .infotitle2 {
+        min-height: 0px;
         font-size: 15px;
         margin-left: 5px;
     }

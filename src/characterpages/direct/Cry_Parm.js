@@ -13,9 +13,6 @@ const Cry_Parm = ({
 
     const char_id = master_index.charid
 
-    const minH = window.innerWidth <= 800 ? 210 : 140;
-
-
     const ct = new Date().getTime();
 
     var rData = undefined
@@ -33,7 +30,7 @@ const Cry_Parm = ({
 
     return (
         <div key={passive.lc_id} className='buffunit'>
-            <div className='infoholder' style={{ minHeight: `${minH}px` }}>
+            <div className='infoholder' style={{ minHeight: `50px` }}>
                 <LazyLoadComponent>
                     <div className="infotitleholder">
                         <div className='faceandiconholder'>

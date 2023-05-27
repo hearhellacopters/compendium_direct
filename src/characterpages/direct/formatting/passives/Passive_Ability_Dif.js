@@ -90,11 +90,10 @@ const Passive_Ability_Dif = ({
         }
     }, [passive_old, passive_new, force_new, force_old, ver_new,  master_index, passive_ability_new, passive_ability_old])
 
-    const minH = window.innerWidth <= 800 ? (gear == true ? 140 : 210) : 140;
 
     return (
         <div className={gear == true ? "margtop" : header == false ? "" : `buffunit`}>
-            <div className={"infoholder"} style={{ minHeight: header == false ? "" :`${minH}px` }}>
+            <div className={"infoholder"} style={{ minHeight: header == false ? "" :`50px` }}>
                 <LazyLoadComponent>
                     {header == false ? "" : passive_ability_new.CharID != undefined || chara_id_passoff != undefined ?
                         passive_ability_new.gear == true ? "" :

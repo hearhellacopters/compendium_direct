@@ -507,7 +507,7 @@ const Ailment_Data_Formatting_bycharacter = ({
                         <div className="faceandiconholder">
                             <Char_Face_Maker char_id={char_id} id={ailment_data.chara_id} link={link} />
                             <div onClick={showmeraw} className="infoiconholder2">
-                                <LazyLoadImage effect="opacity" className="bufficon" alt={ailment_data.name && ailment_data.name} src={"https://dissidiacompendium.com/images/static/" + ailment_data.icon} />
+                                <img className="bufficon" alt={ailment_data.name && ailment_data.name} src={"https://dissidiacompendium.com/images/static/" + ailment_data.icon} />
                             </div>
                         </div>
                     </div>
@@ -521,11 +521,6 @@ const Ailment_Data_Formatting_bycharacter = ({
                                 : <div className="abilityJPname">
                                     {add_formatting(ailmentjpname, "tl")}
                                 </div>}
-                            {ailment_data.hide_title == true ? "" :
-                            <div className="infolocation">
-                                {add_formatting(`Granted from ${rank_tag != undefined ? `<${rank_trans(rank_tag)}>` : ""} [${ailment_data.ability_namegl == undefined ? ailment_data.ability_name : ailment_data.ability_namegl}] #${ailment_data.command_id}${cast_target == undefined ? "" : ` to ${cast_target}`}${ailment_data.alife != -1 ? ` for ${ailment_data.alife} turn${ailment_data.alife != 1 ? "s" : ""}` : ""}`, "tl")}
-                            </div>
-                            }
                         </div>
                         {ailment_data.sp_disp_type == 133 ?
                             <div className="similarbanner">
@@ -538,6 +533,11 @@ const Ailment_Data_Formatting_bycharacter = ({
                         <div className='buffglreworkbanner passiveinfobase'>{info}</div>
                         :""}
                     </div>
+                    {ailment_data.hide_title == true ? "" :
+                        <div className={"newblue abilityJPname enemyabilityinfobase"}>
+                            {add_formatting(`Granted from ${rank_tag != undefined ? `<${rank_trans(rank_tag)}>` : ""} [${ailment_data.ability_namegl == undefined ? ailment_data.ability_name : ailment_data.ability_namegl}] #${ailment_data.command_id}${cast_target == undefined ? "" : ` to ${cast_target}`}${ailment_data.alife != -1 ? ` for ${ailment_data.alife} turn${ailment_data.alife != 1 ? "s" : ""}` : ""}`, "tl")}
+                        </div>
+                    }
                     {ailment_data.defaults != undefined && ailment_data.is_passive != true ?
                         <Default_Ailment_Pars
                             default_data={ailment_data.defaults}

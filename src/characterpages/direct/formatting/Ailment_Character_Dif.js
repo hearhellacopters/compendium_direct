@@ -7,6 +7,7 @@ import DefaultTippy from '../../../formatting/TippyDefaults';
 import Format_Cleaner from '../../../processing/Format_Cleaner'
 import { useDispatch, useSelector } from "react-redux";
 import ReactJson from '@microlink/react-json-view'
+import rank_trans from "./command_ability/rank_trans";
 import { getTransNames } from '../../../redux/ducks/transnames';
 import translater from '../../../processing/translater_characters';
 import Slider_Handler from './Slider_Handler';
@@ -371,7 +372,7 @@ const Ailment_Character_Dif = ({
                                 <div className="faceandiconholder">
                                     <Char_Face_Maker char_id={char_id} id={buff_new.chara_id}/>
                                     <div onClick={showmeraw} className="infoiconholder2">
-                                        <LazyLoadImage effect="opacity" className="bufficon" alt={buff_new && buff_new.name} src={"https://dissidiacompendium.com/images/static/" + buff_new.icon} />
+                                        <img className="bufficon" alt={buff_new && buff_new.name} src={"https://dissidiacompendium.com/images/static/" + buff_new.icon} />
                                     </div>
                                 </div>
                             </div>
@@ -385,11 +386,6 @@ const Ailment_Character_Dif = ({
                                         : <div className="abilityJPname">
                                             {replacer_titles(ailmentjpname)}
                                         </div>}
-                                    {buff_new.hide_title == true ? "" :
-                                        <div className="infolocation">
-                                            {replacer_titles(`Granted from [${buff_new.ability_namegl == undefined ? buff_new.ability_name : buff_new.ability_namegl}] #${buff_new.command_id}${cast_target == undefined ? "" : ` to ${cast_target}`}${buff_new.alife != -1 ? ` for ${buff_new.alife} turn${buff_new.alife != 1 ? "s" : ""}` : ""}`, "tl")}
-                                        </div>
-                                    }
                                 </div>
                                 {info != undefined?
                                     <div className='buffglreworkbanner passiveinfobase'>{info}</div>
@@ -410,7 +406,11 @@ const Ailment_Character_Dif = ({
                             <div className='buffglreworkbanner passiveinfobase'>{info}</div>
                             :""}
                         </div>
-                        
+                    }
+                    {buff_new.hide_title == true || castlocation == true? "" :
+                        <div className={"newblue abilityJPname enemyabilityinfobase"}>
+                            {replacer_titles(`Granted from ${buff_new.rank_tag != undefined ? `<${rank_trans(buff_new.rank_tag)}>` : ""} [${buff_new.ability_namegl == undefined ? buff_new.ability_name : buff_new.ability_namegl}] #${buff_new.command_id}${cast_target == undefined ? "" : ` to ${cast_target}`}${buff_new.alife != -1 ? ` for ${buff_new.alife} turn${buff_new.alife != 1 ? "s" : ""}` : ""}`, "tl")}
+                        </div>
                     }
                     {sliders.levels == false &&
                         sliders.turns == false &&

@@ -200,11 +200,9 @@ const Passive_Ability_Formatting = ({
         }
     }
 
-    const minH = window.innerWidth <= 800 ? (gear == true ? 140 : 210) : 140;
-
     return (
         <div className={gear == true ? "margtop" : `buffunit`}>
-            <div className="infoholder" style={{ minHeight: `${minH}px` }}>
+            <div className="infoholder" style={{ minHeight: `50px` }}>
                 <LazyLoadComponent>
                     {passive_ability.CharID != undefined || chara_id_passoff != undefined ?
                         gear == true ? "" :
