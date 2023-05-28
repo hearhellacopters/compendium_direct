@@ -170,7 +170,7 @@ const CharacterPageDirect = ({
             setProcessedReworks(undefined)
             axios.get(`http://localhost:3001/data/reworks/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setProcessedReworks(response)
+                setProcessedReworks(selected_char.ActiveRework == true ? response : [])
                 setpreviousIDrework(selectedCharaID + ver)
             }).catch(function (err) {
                 console.log(err)
@@ -180,7 +180,7 @@ const CharacterPageDirect = ({
             setProcessedReworks(undefined)
             axios.get(`https://www.dissidiacompendium.com/data/reworks/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setProcessedReworks(response)
+                setProcessedReworks(selected_char.ActiveRework == true ? response : [])
                 setpreviousIDrework(selectedCharaID + ver)
             }).catch(function (err) {
                 console.log(err)

@@ -19,7 +19,7 @@ import Passive_Ability_Dif_Handler from './direct/formatting/passives/Passive_Ab
 import Equipment_Passive_Dif_Handler from './direct/formatting/passives/Equipment_Passive_Dif_Handler.js';
 import '../Passives.css';
 
-const ReworksPageFormatting = ({
+const CharacterPageReworks = ({
   match,
   ProcessedReworks,
   selected_chara,
@@ -159,4 +159,4 @@ const ReworksPageFormatting = ({
   )
 
 }
-export default ReworksPageFormatting
+export default CharacterPageReworks
