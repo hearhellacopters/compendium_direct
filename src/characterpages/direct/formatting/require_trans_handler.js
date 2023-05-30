@@ -271,6 +271,36 @@ const require_trans_handler = (
         }
     }
 
+    if (value_trans == "ailment_id_1_debuff_between_nozero") {
+        if (AilmentNames[require_value1] != undefined) {
+            require_value1 = `[${AilmentNames[require_value1].name}] #${require_value1}`
+        } else {
+            require_value1 = `debuff`
+        }
+        if ((require_value3 - 1) < 1) {
+            require_value2 = `of at least ${require_value2}`
+            require_value3 = ""
+        } else {
+            require_value2 = `between ${require_value2} - ${require_value3 - 1}`
+            require_value3 = ""
+        }
+    }
+
+    if (value_trans == "ailment_id_1_buff_between_nozero") {
+        if (AilmentNames[require_value1] != undefined) {
+            require_value1 = `[${AilmentNames[require_value1].name}] #${require_value1}`
+        } else {
+            require_value1 = `buff`
+        }
+        if ((require_value3 - 1) < 1) {
+            require_value2 = `of at least ${require_value2}`
+            require_value3 = ""
+        } else {
+            require_value2 = `between ${require_value2} - ${require_value3 - 1}`
+            require_value3 = ""
+        }
+    }
+
     if (value_trans == "own_party") {
         if (require_target == 2) {
             require_str = require_str.replace(/\[target\]/gm, " own")

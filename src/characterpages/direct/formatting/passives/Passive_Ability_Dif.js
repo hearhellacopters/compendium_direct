@@ -51,13 +51,13 @@ const Passive_Ability_Dif = ({
 
     const [passive_new, setpassive_new] = useState(
         Passive_Effects_Dif(
-        passive_ability_new.passive,
+        passive_ability_new,
         master_index,
         ver_new))
 
     const [passive_old, setpassive_old] = useState(
         Passive_Effects_Dif(
-            passive_ability_old.passive,
+            passive_ability_old,
             master_index,
             ver_old))
 
@@ -104,25 +104,25 @@ const Passive_Ability_Dif = ({
                             </div>
                         : ""}
                     {header == false ? "" : ver_new == "JP" ?
-                        <div className={`${passive_ability_new.CharID != undefined && passive_ability_new.passive.gear == undefined ? `iconbuffer infonameholder nobuffpadding ` : chara_id_passoff == undefined ? `infonameholderenemybuff ` : `Buffbanner iconbuffer infonameholder nobuffpadding `}`} onClick={showmeraw}>
+                        <div className={`${passive_ability_new.CharID != undefined && passive_ability_new.gear == undefined ? `iconbuffer infonameholder nobuffpadding ` : chara_id_passoff == undefined ? `infonameholderenemybuff ` : `Buffbanner iconbuffer infonameholder nobuffpadding `}`} onClick={showmeraw}>
                             <div className="spacearound" onClick={showmeraw}>
                                 <DefaultTippy content={"Scroll to top"}>
                                     <div onClick={() => window.scrollTo(0, 0)} className="displayfex clicky">
-                                        <span className={tag != undefined ? tag : passive_ability_new.passive.loc_tag != undefined ? passive_ability_new.passive.loc_tag : "smallpassive automarg"}></span>
+                                        <span className={tag != undefined ? tag : passive_ability_new.loc_tag != undefined ? passive_ability_new.loc_tag : "smallpassive automarg"}></span>
                                         {"\xa0"}
                                     </div>
                                 </DefaultTippy>
                                 <div className="infotitle displayfex">
-                                    {passive_ability_new.passive.glname != undefined ?
-                                        replacer_titles(`${passive_ability_new.passive.glname} - #${passive_ability_new.passive.pa_id}`, "tl") :
-                                        replacer_titles(`Unknown - #${passive_ability_new.passive.pa_id}`, "tl")}
+                                    {passive_ability_new.glname != undefined ?
+                                        replacer_titles(`${passive_ability_new.glname} - #${passive_ability_new.pa_id}`, "tl") :
+                                        replacer_titles(`Unknown - #${passive_ability_new.pa_id}`, "tl")}
                                 </div>
                             </div>
                             <div className="displayfex ">
                                 <div className="abilityJPname">
-                                    {passive_ability_new.passive.name != undefined ?
-                                        replacer_titles(`${Format_Cleaner(passive_ability_new.passive.name)} - #${passive_ability_new.passive.pa_id}`, "tl") :
-                                        replacer_titles(`Unknown - #${passive_ability_new.passive.pa_id}`, "tl")}
+                                    {passive_ability_new.name != undefined ?
+                                        replacer_titles(`${Format_Cleaner(passive_ability_new.name)} - #${passive_ability_new.pa_id}`, "tl") :
+                                        replacer_titles(`Unknown - #${passive_ability_new.pa_id}`, "tl")}
                                 </div>
                             </div>
                             {info != undefined?
@@ -130,26 +130,26 @@ const Passive_Ability_Dif = ({
                             :""}
                         </div>
                         :
-                        <div className={`${passive_ability_new.CharID != undefined && passive_ability_new.passive.gear == undefined ? `iconbuffer infonameholder nobuffpadding ` : chara_id_passoff == undefined ? `infonameholderenemybuff ` : `iconbuffer infonameholder nobuffpadding `}`} onClick={showmeraw}>
+                        <div className={`${passive_ability_new.CharID != undefined && passive_ability_new.gear == undefined ? `iconbuffer infonameholder nobuffpadding ` : chara_id_passoff == undefined ? `infonameholderenemybuff ` : `iconbuffer infonameholder nobuffpadding `}`} onClick={showmeraw}>
                             <div className="spacearound">
                                 <DefaultTippy content={"Scroll to top"}>
                                     <div onClick={() => window.scrollTo(0, 0)} className="displayfex clicky">
-                                        <span className={tag != undefined ? tag : passive_ability_new.passive.loc_tag != undefined ? passive_ability_new.passive.loc_tag : "smallpassive automarg"}></span>
+                                        <span className={tag != undefined ? tag : passive_ability_new.loc_tag != undefined ? passive_ability_new.loc_tag : "smallpassive automarg"}></span>
                                         {"\xa0"}
                                     </div>
                                 </DefaultTippy>
                                 <div className="infotitle displayfex">
-                                    {passive_ability_new.passive.name != undefined ?
-                                        replacer_titles(`${Format_Cleaner(passive_ability_new.passive.name)} - #${passive_ability_new.passive.pa_id}`, "tl")
+                                    {passive_ability_new.name != undefined ?
+                                        replacer_titles(`${Format_Cleaner(passive_ability_new.name)} - #${passive_ability_new.pa_id}`, "tl")
                                         :
                                         "Unknown"}
                                 </div>
                             </div>
                             <div className="displayfex ">
                                 <div className="abilityJPname ">
-                                    {passive_ability_new.passive.jpname != undefined ?
-                                        replacer_titles(`${Format_Cleaner(passive_ability_new.passive.jpname)} - #${passive_ability_new.passive.pa_id}`, "tl") :
-                                        `Unknown - #${passive_ability_new.passive.pa_id}`}
+                                    {passive_ability_new.jpname != undefined ?
+                                        replacer_titles(`${Format_Cleaner(passive_ability_new.jpname)} - #${passive_ability_new.pa_id}`, "tl") :
+                                        `Unknown - #${passive_ability_new.pa_id}`}
                                 </div>
                             </div>
                             {info != undefined?
