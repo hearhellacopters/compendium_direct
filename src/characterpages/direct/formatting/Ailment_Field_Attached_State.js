@@ -73,6 +73,7 @@ const Ailment_Field_Attached_State = ({
                     currentenemies={currentrank}
                     currentstacks={currentrank}
                     currentdebuffsranks={currentrank}
+                    currentdebuffsranks2={currentrank}
                     currentdebuffsmuliply={currentrank}
                     currentbuffsranks={currentrank}
                     currentfieldbuffsranks={currentrank}

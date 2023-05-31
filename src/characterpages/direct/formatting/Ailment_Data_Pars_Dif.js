@@ -7,6 +7,7 @@ const Ailment_Data_Pars_Dif = (
     currentenemies,
     currentstacks,
     currentdebuffsranks,
+    currentdebuffsranks2,
     currentdebuffsmuliply,
     currentbuffsranks,
     currentfieldbuffsranks,
@@ -52,6 +53,10 @@ const Ailment_Data_Pars_Dif = (
     //debuffsrank
     if (effect_id && effect_id.slidertype == "debuffsrank" && currentdebuffsranks != undefined) {
         rank = effect_id && effect_id[`rank${between_10(currentdebuffsranks)}`]
+    }
+    //debuffsrank2
+    if (effect_id && effect_id.slidertype == "debuffsrank2" && currentdebuffsranks2 != undefined) {
+        rank = effect_id && effect_id[`rank${between_10(currentdebuffsranks2)}`]
     }
     //buffsrank
     if (effect_id && effect_id.slidertype == "buffsrank" && currentbuffsranks != undefined) {

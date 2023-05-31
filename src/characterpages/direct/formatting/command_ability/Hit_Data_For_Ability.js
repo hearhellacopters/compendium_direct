@@ -114,15 +114,29 @@ const Hit_Data_For_Ability = (
         }
     }
 
+    var after_each_except_last;
+
     const hitreturn = {
         hit_pars: {}
     }
     var hit_counter = 0
     for (let index = 0; index < 40; index++) {
         const hit_data = caller[`hit_data_id${index == 0 ? "" : `_${index}`}`]
+        if(hit_data != undefined && hit_data.effect_id == 279
+            ){
+            after_each_except_last = {
+                a_target: hit_data.a_target,
+                m_nARG: hit_data.m_nARG,
+                overflow: hit_data.overflow
+            }
+        }
+        if(hit_data != undefined && after_each_except_last != undefined){
+            Object.assign(hit_data,{after_each_except_last: after_each_except_last})
+        }
         if (hit_data == undefined ||
             hit_data.hitdata_id == -1 ||
             hit_data.hitdata_id == 518 || //blanks
+            hit_data.effect_id == 279 || // after_each_except_last
             (hit_data.effect_id == 37 && hit_data.m_nARG_4 == 2809) || //hide models
             (hit_data.effect_id == 275 && hit_data.m_nARG == 2771)  //casts hide models
             || check_hidden(hit_data && hit_data.effect_id)
@@ -157,8 +171,8 @@ const Hit_Data_For_Ability = (
                     hit_counter
                 )
             }
-            if (hit_data && hit_data.effect_id == 159 ||
-                hit_data && hit_data.effect_id == 258
+            if (hit_data && hit_data.effect_id == 159 || //159_ABILITY_TEXT_LINE
+                hit_data && hit_data.effect_id == 258 //258_RAINBOW_TEXT_LINE
             ) {
                 hit_counter = hit_counter - 1
                 Object.assign(hit_data_id_pars, { hit_num: `B${hit_data.m_nARG}` })

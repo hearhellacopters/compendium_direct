@@ -66,9 +66,14 @@ const Passive_Ability_Dif = ({
     const [force_old, setforce_old] = useState("")
 
     useEffect(() => {
-        if (passive_old != undefined && passive_new != undefined) {
-            setpassivecompare(makediff(passive_old.replace(/\s+$/g, ""), passive_new.replace(/\s+$/g, "")))
+        if (passive_new != undefined) {
+            if(passive_old != undefined){
+                setpassivecompare(makediff(passive_old.replace(/\s+$/g, ""), passive_new.replace(/\s+$/g, "")))
+            } else {
+                setpassivecompare('~~' + passive_new+ '~.~')
+            }
         }
+
         if(passive_ability_new.force != undefined){
             const old_text = passive_ability_old.force.map(self=>{
                 Passive_Link_Dif(

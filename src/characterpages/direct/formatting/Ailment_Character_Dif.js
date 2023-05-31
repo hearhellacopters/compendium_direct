@@ -210,6 +210,7 @@ const Ailment_Character_Dif = ({
 
     const [currentturns, setcurrentturns] = useStateIfMounted(turns_set == undefined ? 1 : turns_set < 1 ? 1 : turns_set)
     const [currentdebuffsranks, setcurrentdebuffsranks] = useStateIfMounted(9)
+    const [currentdebuffsranks2, setcurrentdebuffsranks2] = useStateIfMounted(8)
     const [currentdebuffsmuliply, setcurrentdebuffsmuliply] = useStateIfMounted(9)
     const [currentbuffsranks, setcurrentbuffsranks] = useStateIfMounted(19)
     const [currentfieldbuffsranks, setcurrentfieldbuffsranks] = useStateIfMounted(7)
@@ -227,6 +228,9 @@ const Ailment_Character_Dif = ({
 
     const handleChangeDebuffRank = (e) => {
         setcurrentdebuffsranks(parseInt(e.x));
+    };
+    const handleChangeDebuffRank2 = (e) => {
+        setcurrentdebuffsranks2(parseInt(e.x));
     };
     const handleChangeDebuffMuliply = (e) => {
         setcurrentdebuffsmuliply(parseInt(e.x));
@@ -415,6 +419,7 @@ const Ailment_Character_Dif = ({
                     {sliders.levels == false &&
                         sliders.turns == false &&
                         sliders.debuffsrank == false &&
+                        sliders.debuffsrank2 == false &&
                         sliders.debuffsmuliply == false &&
                         sliders.fieldbuffsrank == false &&
                         sliders.buffsrank == false &&
@@ -469,6 +474,21 @@ const Ailment_Character_Dif = ({
                                         x={currentdebuffsranks}
                                         xmin={1}
                                         xmax={9}
+                                    />
+                                </div>
+                                : ""}
+                            {sliders.debuffsrank2 == true ?
+                                <div
+                                    className="sliderspacer">
+                                    <div className="rankspacer">{`Debuffs: ${currentdebuffsranks2} / ${8}`}</div>
+                                    <Slider
+                                        key={buff_new}
+                                        axis="x"
+                                        styles={SilderStyleDebuff}
+                                        onChange={handleChangeDebuffRank2}
+                                        x={currentdebuffsranks2}
+                                        xmin={0}
+                                        xmax={8}
                                     />
                                 </div>
                                 : ""}
@@ -617,6 +637,7 @@ const Ailment_Character_Dif = ({
                             buff_new={buff_new}
                             currentturns_passoff={currentturns}
                             currentdebuffsranks_passoff={currentdebuffsranks}
+                            currentdebuffsranks2_passoff={currentdebuffsranks2}
                             currentdebuffsmuliply_passoff={currentdebuffsmuliply}
                             currentbuffsranks_passoff={currentbuffsranks}
                             currentfieldbuffsranks_passoff={currentfieldbuffsranks}

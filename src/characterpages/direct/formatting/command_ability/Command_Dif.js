@@ -206,6 +206,9 @@ const Command_Dif = (
                 if (hit_map[number].pot_hp_str != undefined) {
                     full_str = `${full_str}${hit_map[number].pot_hp_str}${hit_map[number].times_count == undefined ? "" : `, on each HP Attack`}\n`
                 }
+                if (hit_map[number].after_each_except_last != undefined) {
+                    full_str = `${full_str}${hit_map[number].after_each_except_last}\n`
+                }
                 if (hit_map[number].eff_add_str != undefined) {
                     full_str = `${full_str}${hit_map[number].eff_add_str}${hit_map[number].times_count == undefined ? "" : ` after each HP Attack${hit_map[number].except_last == true ? ", except last" : ""}`}\n`
                 }
@@ -262,6 +265,9 @@ const Command_Dif = (
         }
         if (hit_map["S1"].pot_hp_str != undefined) {
             full_str = `${full_str}${hit_map["S1"].pot_hp_str}${hit_map["S1"].times_count == undefined ? "" : `, on each HP Attack`}\n`
+        }
+        if (hit_map[`S1`].after_each_except_last != undefined) {
+            full_str = `${full_str}${hit_map[`S1`].after_each_except_last}\n`
         }
         if (hit_map["S1"].eff_add_str != undefined) {
             full_str = `${full_str}${hit_map["S1"].eff_add_str}${hit_map["S1"].times_count == undefined ? "" : ` after each HP Attack${hit_map["S1"].except_last == true ? ", except last" : ""}`}\n`

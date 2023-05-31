@@ -142,6 +142,11 @@ const Hit_Data_Pars = ({
                         {addformatting(`${hit_data.pot_hp_str}${hit_data.times_count == undefined ? "" : `, on each HP Attack`}`, "tl")}
                     </div>
                     : ""}
+                {hit_data.after_each_except_last != undefined ?
+                    <div>
+                        {addformatting(hit_data.after_each_except_last, "tl")}
+                    </div>
+                    : ""}
                 {hit_data.eff_add_str != undefined ?
                     <div>
                         {addformatting(`${hit_data.eff_add_str}${hit_data.times_count == undefined ? "" : ` after each HP Attack${hit_data.except_last == true ? ", except last" : ""}`}`, "tl")}

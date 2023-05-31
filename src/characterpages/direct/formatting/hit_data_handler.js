@@ -742,6 +742,16 @@ const hit_data_handler = (
         effect_str = `*Doesn't consume BRV`
     }
 
+    var after_each_except_last = ""
+    //increase after each
+    if(atk_type == "HP" && hit_data.after_each_except_last != undefined){
+        const str = `Increases ${hit_data.after_each_except_last && hit_data.after_each_except_last.a_target != 2 ? ability_target_id_data[hit_data.after_each_except_last.a_target] && ability_target_id_data[hit_data.after_each_except_last.a_target].ability_target_id+" " :""}BRV by ${hit_data.after_each_except_last.m_nARG}% of HP Damage dealt after each HP Attack, except last`
+        after_each_except_last = str
+        if(hit_data.after_each_except_last.overflow != undefined && ove_str == ""){
+            after_each_except_last = `${str}\nAllows for ${hit_data.after_each_except_last.overflow}% Gained MAX BRV Overflow`
+        } 
+    }
+
     var hit_return = {
         id: `${atk_str}${effect_str}${pot_str}${st_str}${ove_str}${mcap_str}${brvcap_str}`,
         atk_str: atk_str == "" ? undefined : atk_str,
@@ -752,6 +762,7 @@ const hit_data_handler = (
         ove_str: ove_str == "" ? undefined : ove_str,
         mcap_str: mcap_str == "" ? undefined : mcap_str,
         brvcap_str: brvcap_str == "" ? undefined : brvcap_str,
+        after_each_except_last: after_each_except_last == "" ? undefined : after_each_except_last,
         hit_num: hit_num,
         hitdata_id: hit_data.hitdata_id
     }

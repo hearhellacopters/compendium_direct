@@ -388,6 +388,7 @@ const Passive_Effects_Dif = (
                         1, //currentenemies
                         1, //currentstacks
                         1, //currentdebuffsranks,
+                        1, //currentdebuffsranks2,
                         1, //currentdebuffsmuliply,
                         1, //currentbuffsranks,
                         1, //currentfieldbuffsranks,
@@ -416,6 +417,7 @@ const Passive_Effects_Dif = (
                         1, //currentenemies
                         1, //currentstacks
                         1, //currentdebuffsranks,
+                        1, //currentdebuffsranks2,
                         1, //currentdebuffsmuliply,
                         1, //currentbuffsranks,
                         1, //currentfieldbuffsranks,
@@ -460,6 +462,7 @@ const Passive_Effects_Dif = (
                         1, //currentenemies
                         1, //currentstacks
                         1, //currentdebuffsranks,
+                        1, //currentdebuffsranks2,
                         1, //currentdebuffsmuliply,
                         1, //currentbuffsranks,
                         1, //currentfieldbuffsranks,
@@ -488,6 +491,7 @@ const Passive_Effects_Dif = (
                         1, //currentenemies
                         1, //currentstacks
                         1, //currentdebuffsranks,
+                        1, //currentdebuffsranks2,
                         1, //currentdebuffsmuliply,
                         1, //currentbuffsranks,
                         1, //currentfieldbuffsranks,
@@ -512,6 +516,7 @@ const Passive_Effects_Dif = (
                         1, //currentenemies
                         1, //currentstacks
                         1, //currentdebuffsranks,
+                        1, //currentdebuffsranks2,
                         1, //currentdebuffsmuliply,
                         1, //currentbuffsranks,
                         1, //currentfieldbuffsranks,
@@ -556,6 +561,7 @@ const Passive_Effects_Dif = (
                         1, //currentenemies
                         1, //currentstacks
                         1, //currentdebuffsranks,
+                        1, //currentdebuffsranks2,
                         1, //currentdebuffsmuliply,
                         1, //currentbuffsranks,
                         1, //currentfieldbuffsranks,
@@ -588,6 +594,7 @@ const Passive_Effects_Dif = (
                         1, //currentenemies
                         1, //currentstacks
                         1, //currentdebuffsranks,
+                        1, //currentdebuffsranks2,
                         1, //currentdebuffsmuliply,
                         1, //currentbuffsranks,
                         1, //currentfieldbuffsranks,
@@ -612,6 +619,7 @@ const Passive_Effects_Dif = (
                         1, //currentenemies
                         1, //currentstacks
                         1, //currentdebuffsranks,
+                        1, //currentdebuffsranks2,
                         1, //currentdebuffsmuliply,
                         1, //currentbuffsranks,
                         1, //currentfieldbuffsranks,

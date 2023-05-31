@@ -196,6 +196,7 @@ const counter = (
                         hp_id: holder[`hit_${count - 2}`].id,
                         eff_add_str: holder[`hit_${count - 1}`].eff_str,
                         eff_add_str_2: holder[`hit_${count}`].eff_str,
+                        after_each_except_last: holder[`hit_${count - 2}`].after_each_except_last,
                         counter: "hp_effect2"
                     })
                     for (let index = 1; index < (count + 1); index++) {
@@ -277,6 +278,7 @@ const counter = (
                         hp_id: holder[`hit_${count - 1}`].id,
                         eff_add_str: holder[`hit_${count}`].eff_str,
                         eff_before_hp_str: holder[`hit_${count - 2}`].eff_str,
+                        after_each_except_last: holder[`hit_${count - 1}`].after_each_except_last,
                         counter: "hp_effect_before_after"
                     })
                     for (let index = 1; index < (count + 1); index++) {
@@ -343,6 +345,7 @@ const counter = (
                         pot_hp_str: holder[`hit_${count - 1}`].pot_str,
                         hp_id: holder[`hit_${count - 1}`].id,
                         eff_add_str: holder[`hit_${count}`].eff_str,
+                        after_each_except_last: holder[`hit_${count - 1}`].after_each_except_last,
                         counter: "hp_and_effect"
                     })
                     for (let index = 1; index < (count + 1); index++) {
@@ -401,6 +404,7 @@ const counter = (
                         pot_hp_str: holder[`hit_${count}`].pot_str,
                         hp_id: holder[`hit_${count}`].id,
                         eff_before_hp_str: holder[`hit_${count - 1}`].eff_str,
+                        after_each_except_last: holder[`hit_${count}`].after_each_except_last,
                         counter: "hp_effect_before"
                     })
                     for (let index = 1; index < (count + 1); index++) {
@@ -487,6 +491,7 @@ const counter = (
                         hp_id: holder[`hit_${count - 2}`].id,
                         eff_add_str: holder[`hit_${count - 1}`].eff_str,
                         eff_add_str_2: holder[`hit_${count}`].eff_str,
+                        after_each_except_last: holder[`hit_${count - 2}`].after_each_except_last,
                         counter: "single_hp_effect2"
                     })
                     for (let index = 1; index < (count + 1); index++) {
@@ -529,6 +534,7 @@ const counter = (
                         eff_hp_str: holder[`hit_${count}`].eff_str,
                         pot_hp_str: holder[`hit_${count}`].pot_str,
                         hp_id: holder[`hit_${count}`].id,
+                        after_each_except_last: holder[`hit_${count}`].after_each_except_last,
                         counter: "hp_last"
                     })
                     for (let index = 1; index < (count + 1); index++) {

@@ -15,6 +15,7 @@ const Ailment_Data_Pars_Handler = ({
     currentenemies,
     currentstacks,
     currentdebuffsranks,
+    currentdebuffsranks2,
     currentdebuffsmuliply,
     currentbuffsranks,
     currentfieldbuffsranks,
@@ -80,6 +81,10 @@ const Ailment_Data_Pars_Handler = ({
             if (effect_id && effect_id.slidertype == "debuffsrank" && currentdebuffsranks != undefined) {
                 setrank(effect_id && effect_id[`rank${between_10(currentdebuffsranks)}`])
             }
+            //debuffsrank2
+            if (effect_id && effect_id.slidertype == "debuffsrank2" && currentdebuffsranks2 != undefined) {
+                setrank(effect_id && effect_id[`rank${between_10(currentdebuffsranks2)}`])
+            }
             //buffsrank
             if (effect_id && effect_id.slidertype == "buffsrank" && currentbuffsranks != undefined) {
                 setrank(effect_id && effect_id[`rank${between_10(currentbuffsranks)}`])
@@ -132,7 +137,7 @@ const Ailment_Data_Pars_Handler = ({
                 set_max_brv_cap_value(Math.round(((displayrank.value1 / 100) + 1) * 99999))
             }
         }
-    }, [override, rank, set_max_brv_cap, set_brv_cap,displayrank,setdisplayrank, set_brv_cap_value, set_max_brv_cap_value, currentbuffsmuliply, characterskb, currentdebuffsmuliply, castlocation, currenthp, charactersleft, currentgroupstacks, currentfieldbuffsranks, currentbuffsranks, currentdebuffsranks, currentenemies, currentstacks, currentturns, slider, currentrank, effect_id, currentlevel, setrank])
+    }, [override, rank, set_max_brv_cap, set_brv_cap,displayrank,setdisplayrank, set_brv_cap_value, set_max_brv_cap_value, currentbuffsmuliply, currentdebuffsranks2, characterskb, currentdebuffsmuliply, castlocation, currenthp, charactersleft, currentgroupstacks, currentfieldbuffsranks, currentbuffsranks, currentdebuffsranks, currentenemies, currentstacks, currentturns, slider, currentrank, effect_id, currentlevel, setrank])
 
     useEffect(()=>{
         if (effect_id && effect_id.multiply == true) {

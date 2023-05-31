@@ -21,10 +21,12 @@ const Silder_Handler = (val_type,
     max_level,
     effect_value_type_field,
     val_edit_type_field) => {
+
     var levels = false
     var ranks = true
     var turns = false
     var debuffsrank = false
+    var debuffsrank2 = false
     var debuffsmuliply = false
     var buffsrank = false
     var buffsmuliply = false
@@ -68,49 +70,35 @@ const Silder_Handler = (val_type,
             if(self == 15){
                 characterskb = true
             }
+            if(self == 17){
+                debuffsrank2 = true
+            }
         })
     }
-    if (val_type == 3 || val_type_1 == 3 || val_type_2 == 3 || val_type_3 == 3 || val_type_4 == 3 || val_type_5 == 3 || val_type_6 == 3 || val_type_7 == 3 || val_type_8 == 3 || val_type_9 == 3) {
-        levels = true
-    }
-    if (val_type == 4 || val_type_1 == 4 || val_type_2 == 4 || val_type_3 == 4 || val_type_4 == 4 || val_type_5 == 4 || val_type_6 == 4 || val_type_7 == 4 || val_type_8 == 4 || val_type_9 == 4) {
-        levels = true
-    }
-    if (val_type == 7 || val_type_1 == 7 || val_type_2 == 7 || val_type_3 == 7 || val_type_4 == 7 || val_type_5 == 7 || val_type_6 == 7 || val_type_7 == 7 || val_type_8 == 7 || val_type_9 == 7) {
-        debuffsrank = true
-    }
-    if (val_type == 9 || val_type_1 == 9 || val_type_2 == 9 || val_type_3 == 9 || val_type_4 == 9 || val_type_5 == 9 || val_type_6 == 9 || val_type_7 == 9 || val_type_8 == 9 || val_type_9 == 9) {
-        enemies = true
-    }
-    if (val_type == 10 || val_type_1 == 10 || val_type_2 == 10 || val_type_3 == 10 || val_type_4 == 10 || val_type_5 == 10 || val_type_6 == 10 || val_type_7 == 10 || val_type_8 == 10 || val_type_9 == 10) {
-        turns = true
-    }
-    if (val_type == 11 || val_type_1 == 11 || val_type_2 == 11 || val_type_3 == 11 || val_type_4 == 11 || val_type_5 == 11 || val_type_6 == 11 || val_type_7 == 11 || val_type_8 == 11 || val_type_9 == 11) {
-        debuffsrank = true
-    }
-    if (val_type == 14 || val_type_1 == 14 || val_type_2 == 14 || val_type_3 == 14 || val_type_4 == 14 || val_type_5 == 14 || val_type_6 == 14 || val_type_7 == 14 || val_type_8 == 14 || val_type_9 == 14) {
-        stacks = true
-    }
-    if (val_type == 16 || val_type_1 == 16 || val_type_2 == 16 || val_type_3 == 16 || val_type_4 == 16 || val_type_5 == 16 || val_type_6 == 16 || val_type_7 == 16 || val_type_8 == 16 || val_type_9 == 16) {
-        stacks = true
-    }
-    if (val_type == 18 || val_type_1 == 18 || val_type_2 == 18 || val_type_3 == 18 || val_type_4 == 18 || val_type_5 == 18 || val_type_6 == 18 || val_type_7 == 18 || val_type_8 == 18 || val_type_9 == 18) {
-        debuffsrank = true
-    }
-    if (val_type == 20 || val_type_1 == 20 || val_type_2 == 20 || val_type_3 == 20 || val_type_4 == 20 || val_type_5 == 20 || val_type_6 == 20 || val_type_7 == 20 || val_type_8 == 20 || val_type_9 == 20) {
-        enemies = true
-    }
-    if (val_edit_type == 16 || val_edit_type_1 == 16 || val_edit_type_2 == 16 || val_edit_type_3 == 16 || val_edit_type_4 == 16 || val_edit_type_5 == 16 || val_edit_type_6 == 16 || val_edit_type_7 == 16 || val_edit_type_8 == 16 || val_edit_type_9 == 16) {
-        debuffsmuliply = true
-    }
-    if (val_edit_type == 19 || val_edit_type_1 == 19 || val_edit_type_2 == 19 || val_edit_type_3 == 19 || val_edit_type_4 == 19 || val_edit_type_5 == 19 || val_edit_type_6 == 19 || val_edit_type_7 == 19 || val_edit_type_8 == 19 || val_edit_type_9 == 19) {
-        buffsmuliply = true
-    }
-    if (val_edit_type == 25 || val_edit_type_1 == 25 || val_edit_type_2 == 25 || val_edit_type_3 == 25 || val_edit_type_4 == 25 || val_edit_type_5 == 25 || val_edit_type_6 == 25 || val_edit_type_7 == 25 || val_edit_type_8 == 25 || val_edit_type_9 == 25) {
-        debuffsmuliply = true
-    }
-    if (val_edit_type == 27 || val_edit_type_1 == 27 || val_edit_type_2 == 27 || val_edit_type_3 == 27 || val_edit_type_4 == 27 || val_edit_type_5 == 27 || val_edit_type_6 == 27 || val_edit_type_7 == 27 || val_edit_type_8 == 27 || val_edit_type_9 == 27) {
-        debuffsmuliply = true
+    for (let i = 0; i < 10; i++) {
+        const end = i == 0 ? "":`_${i}`
+        if(eval(`val_type${end}`) == 3 || eval(`val_type${end}`) == 4){
+            levels = true
+        }
+        if(eval(`val_type${end}`) == 7 || eval(`val_type${end}`) == 11 || eval(`val_type${end}`) == 18){
+            debuffsrank = true
+        }
+        if(eval(`val_type${end}`) == 9 || eval(`val_type${end}`) == 20){
+            enemies = true
+        }
+        if(eval(`val_type${end}`) == 10){
+            turns = true
+        }
+        if(eval(`val_type${end}`) == 14 || eval(`val_type${end}`) == 16){
+            stacks = true
+        }
+
+        if(eval(`val_edit_type${end}`) == 16 || eval(`val_edit_type${end}`) == 25 || eval(`val_edit_type${end}`) == 27){
+            stacks = true
+        }
+        if(eval(`val_edit_type${end}`) == 19){
+            turns = true
+        }
     }
     if (max_level != 0) {
         levels = true
@@ -120,6 +108,7 @@ const Silder_Handler = (val_type,
         ranks: ranks,
         turns: turns,
         debuffsrank: debuffsrank,
+        debuffsrank2: debuffsrank2,
         debuffsmuliply: debuffsmuliply,
         buffsrank: buffsrank,
         fieldbuffsrank: fieldbuffsrank,
