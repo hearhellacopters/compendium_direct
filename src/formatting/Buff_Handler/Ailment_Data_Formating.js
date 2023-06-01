@@ -152,7 +152,7 @@ const Ailment_Data_Formatting = ({
     const ailment_pars = {}
 
     for (let index = 0; index < 10; index++) {
-        if (index == 4 && ailment_data.effect_id_4 && ailment_data.effect_id_4.effectstr != "Activates Field Effects" && ailment_data.effect_id_4.cond_id == undefined) {
+        if (index == 4 && ailment_data.effect_id_4 && ailment_data.effect_id_4.effectstr != "Activates Field Effects" && ailment_data.effect_id_4.cond_id != undefined) {
             Object.assign(ailment_pars, { [`effect_id_${index}`]: ailment_data[`effect_id_${index}`] })
         }
         if (index != 4) {
