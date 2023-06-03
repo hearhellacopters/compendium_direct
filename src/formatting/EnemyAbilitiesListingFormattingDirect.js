@@ -12,7 +12,7 @@ import axios from "axios";
 import Enemy_Option_Pars from './Ability_Handler/Enemy_Option_Pars';
 import Hit_Handler_Direct from './Ability_Handler/Hit_Display_Direct';
 
-const AbilityFormatting = ({ match }) => {
+const EnemyAbilitiesListingFormattingDirect = ({ match }) => {
 
     const [selectedbuff, setselectedbuff] = useStateIfMounted([]);
     const [abilitiespull, setabilitiespull] = useStateIfMounted();
@@ -106,24 +106,17 @@ const AbilityFormatting = ({ match }) => {
                                     <div className="abilityJPname">
                                         {match.JPName && replace_title(match.Name)}
                                     </div>}
-                                {match.EnemyName != null ?
-                                    <Link className="clicky linktopage" to={`/bestiary/enemies/${match.battle_enemy_id}`}>
-                                        <span >{`${match.EnemyName} or similar enemies`}</span>
-                                    </Link>
-                                    : ""}
+                                
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className={`bluebase enemyabilityinfobase `}>
-                    {getdesc == false ?
-                        <div className="clicky thecoloryellow" onClick={() => setgetdesc((prevValue) => !prevValue)}>- Click to Load - </div>
-                        : ""}
-                    {getdesc == true ?
-                        <Hit_Handler_Direct
-                            command_meta={abilitiespull}
-                        />
-                        : ""}
+                    {match.EnemyName != null ?
+                        <Link className="clicky linktopage" to={`/bestiary/enemies/${match.battle_enemy_id}`}>
+                            <span >{`${match.EnemyName} or similar enemies`}</span>
+                        </Link>
+                    : ""}
                 </div>
                 {getdesc == true && abilitiespull && abilitiespull.Options &&
                     abilitiespull.Options.map(options => (
@@ -153,4 +146,4 @@ const AbilityFormatting = ({ match }) => {
     )
 }
 
-export default AbilityFormatting;
+export default EnemyAbilitiesListingFormattingDirect;

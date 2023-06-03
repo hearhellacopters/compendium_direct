@@ -17,7 +17,7 @@ import AI_Handler from './EnemyAbilities_AI_Handler';
 const EnemyAbilitiesFormattingDirect = ({ match, pull, command_id, enemy_id, nolink, showmeraw, abilitylist, showai }) => {
 
     const [selectedbuff, setselectedbuff] = useStateIfMounted([]);
-    const [abilitiespull, setabilitiespull] = useStateIfMounted();
+    const [abilitiespull, setabilitiespull] = useStateIfMounted(match);
 
     const buffselect = (buffs) => {
         if (selectedbuff.unq_id == buffs.unq_id) {
@@ -26,31 +26,6 @@ const EnemyAbilitiesFormattingDirect = ({ match, pull, command_id, enemy_id, nol
             setselectedbuff(buffs)
         }
     }
-
-    useEffect(() => {
-        if (pull == false) {
-            setabilitiespull(match)
-        }
-        if (DevSwitch == true && command_id != null && enemy_id != null && pull == true) {
-            axios.get(`http://localhost:3001/data/enemies/abilities_direct/${enemy_id}/${command_id}`, { 'muteHttpExceptions': true }).then((res) => {
-                const response = res.data;
-                setabilitiespull(response)
-            }).catch(function (err) {
-                console.log(err)
-            })
-        }
-        if (DevSwitch == false && command_id != null && enemy_id != null && pull == true) {
-            axios.get(`https://www.dissidiacompendium.com/data/enemies/abilities_direct/${enemy_id}-${command_id}.json`, { 'muteHttpExceptions': true }).then((res) => {
-                const response = res.data;
-                setabilitiespull(response)
-            }).catch(function (err) {
-                console.log(err)
-            })
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [enemy_id, command_id, pull, match])
-
-    //console.log(abilitiespull)
 
     const [showmedebug, setshowmedebug] = useStateIfMounted(false)
 
