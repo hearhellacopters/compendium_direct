@@ -47,7 +47,7 @@ const Link_Parm = ({
                             </div>
                         </Tippy>
                         <div className="displayfex  ">
-                            {passive.param}{` Lv${passive.link_level} - #${passive.link_id}`}
+                            {passive.name}{` Lv${passive.link_level} - #${passive.link_id}`}
                         </div>
                         <div className="CPReqHolder">
                             <span className="unique">Cost </span>
@@ -59,7 +59,7 @@ const Link_Parm = ({
                     </div>
                     <div className="displayfex ">
                         <div className="abilityJPname ">
-                            {passive.param}{` Lv${passive.link_level} - #${passive.link_id}`}
+                            {passive.jpname}{` Lv${passive.link_level} - #${passive.link_id}`}
                         </div>
                         {passive.cp != 0 ?
                             <div className="CPReqHolder">
@@ -77,7 +77,7 @@ const Link_Parm = ({
                         : ""}
                 </div>
                 <div className='Dbase infobase nobuffpadding'>
-                    {passive.param}
+                    {passive.name}
                 </div>
             </div>
         </div>

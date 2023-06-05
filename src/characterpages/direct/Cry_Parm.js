@@ -49,12 +49,12 @@ const Cry_Parm = ({
                                 </div>
                             </Tippy>
                             <div className="infotitle displayfex  ">
-                                {passive.param}{` Lv${passive.level} - #${passive.cac_id}`}
+                                {passive.name}{` Lv${passive.level} - #${passive.cac_id}`}
                             </div>
                         </div>
                         <div className="displayfex ">
                             <div className="abilityJPname ">
-                                {passive.param}{` Lv${passive.level} - #${passive.cac_id}`}
+                                {passive.jpname}{` Lv${passive.level} - #${passive.cac_id}`}
                             </div>
                             {passive.cp != 0 ?
                                 <div className="CPReqHolder">
@@ -72,7 +72,7 @@ const Cry_Parm = ({
                             : ""}
                     </div>
                     <div className='Dbase infobase nobuffpadding'>
-                        {passive.param}
+                        {passive.name}
                     </div>
                 </LazyLoadComponent>
             </div>
