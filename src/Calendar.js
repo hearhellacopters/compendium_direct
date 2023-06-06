@@ -271,6 +271,9 @@ const Calendar = ({ JPCalendarData, EventData, BannerData, jptoggledata }) => {
           <Link to={"../events/banners"}>
             <li className={""} >Banners</li>
           </Link>
+          <Link to={"../events/notices"}>
+            <li className={""} >Notices</li>
+          </Link>
           <Link to={"../events/forecast"}>
             <li className={""} >Forecast</li>
           </Link>

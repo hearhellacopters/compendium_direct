@@ -548,6 +548,9 @@ const Events = ({ ProcessedBanners, ProcessedCharacters, jptoggledata }) => {
           <Link to={"../events/banners"}>
             <li className={"active"} ><span className="gemselected" />Banners</li>
           </Link>
+          <Link to={"../events/notices"}>
+            <li className={""} >Notices</li>
+          </Link>
           <Link to={"/events/forecast"}>
             <li className={""} >Forecast</li>
           </Link>

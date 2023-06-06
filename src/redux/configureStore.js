@@ -29,6 +29,7 @@ import crystalpassivesReducer from "./ducks/crystalpassives";
 import crystalabilitiesReducer from "./ducks/crystalabilities";
 //direct
 import transnamesReducer from "./ducks/transnames";
+import noticesReducer from "./ducks/notices";
 
 import weaponskinsReducer from "./ducks/weapon_skins";
 import accessReducer from "./ducks/access";
@@ -77,6 +78,7 @@ const reducer = combineReducers({
   transnames: transnamesReducer,
   weapon_skins: weaponskinsReducer,
   access: accessReducer,
+  notices: noticesReducer,
   //gamelist
   jp_gamelist_ailment: jp_gamelist_ailment_Reducer,
   gl_gamelist_ailment: gl_gamelist_ailment_Reducer,

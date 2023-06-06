@@ -109,6 +109,9 @@ import { GET_GLGAMELISTPASSIVE } from "../ducks/GL/gamelist_passive";
 import { handleGetJPGameListPassive } from "./handlers/JP/gamelist_passive";
 import { GET_JPGAMELISTPASSIVE } from "../ducks/JP/gamelist_passive";
 
+import { handleGetNotices } from "./handlers/notices";
+import { GET_NOTICES } from "../ducks/notices";
+
 export function* watcherSaga() {
   yield takeLatest(GET_CHARACTERS, handleGetCharacters);
   yield takeLatest(GET_EVENTGUIDE, handleGetEventGuide);
@@ -147,4 +150,6 @@ export function* watcherSaga() {
   yield takeLatest(GET_JPGAMELISTSPHERE, handleGetJPGameListSphere);
   yield takeLatest(GET_GLGAMELISTPASSIVE, handleGetGLGameListPassive);
   yield takeLatest(GET_JPGAMELISTPASSIVE, handleGetJPGameListPassive);
+
+  yield takeLatest(GET_NOTICES, handleGetNotices);
 }

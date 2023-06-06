@@ -37,6 +37,7 @@ import EnemyBuffsDirect from './callpages/CallEnemyBuffsDirect.js';
 import EnemyAbilitiesDirect from './callpages/CallEnemyAbilitiesDirect.js';
 import JukeBoxMini from './callpages/CallJukeBoxMini';
 import Forecast from './callpages/CallForecast.js'
+import Notices from './callpages/CallNotices'
 import DevSwitch from './redux/DevSwitch'
 import Tippy from './formatting/TippyDefaults.js';
 import { useDispatch, useSelector } from "react-redux";
@@ -131,6 +132,7 @@ const App = () => {
               <Route path="/events/banners" exact element={<Banners />} />
               <Route path="/events/calendar" exact element={<Calendar />} />
               <Route path="/events/panels" exact element={<Panels />} />
+              <Route path="/events/notices" exact element={<Notices />} />
               <Route path="/events/forecast" exact element={<Forecast />} />
               <Route path="/events/banners/:id" exact element={<BannerPassOff />} />
               <Route path="/events/:id" exact element={<EventPassOff />} />

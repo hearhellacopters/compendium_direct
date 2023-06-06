@@ -71,6 +71,26 @@ a:-moz-focusring {
   background: #232324 !important;
 }
 
+@media only screen and (max-width: 700px) {
+  .notice_icon{
+    width: 150px !important;
+    height: 36px !important;
+    font-size: 12px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: auto !important;
+    display: flex !important;
+  }
+  .notice_banner{
+    margin-left: auto !important;
+    width: 100% !important;
+    font-size: 14px !important;
+  }
+  .notice_text{
+    text-align: left !important;
+  }
+}
+
 @media screen and (max-width: 800px) {
   .loadingbardots {
     height: 24px;
@@ -4742,6 +4762,43 @@ h3 {
   -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
+.notice_holder {
+  background-color: #273153;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.notice_name{
+  display: table;
+  margin: auto;
+}
+
+.notice_icon{
+  width: 200px;
+  height: 48px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 0px;
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  line-height: normal;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none !important;
+}
+
+.notice_text{
+  width: auto;
+}
+
+.notice_banner{
+  text-align: left;
+  display: table;
+  margin-right: auto;
+  text-decoration: none;
+}
 
 @media screen and (max-width: 800px) {
   .buffpersonupframed {

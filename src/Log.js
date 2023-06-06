@@ -9,6 +9,12 @@ const log = () => {
                 <h1>Update Log</h1>
                 <div className="creditsholder">
                 <div className="filterholderflair" >
+                        V.5.9
+                    </div>
+                    <ul className="creditslist">
+                        - Added <Link className="updatelink" to="/events/notices">In Game Notices</Link> page (both JP and GL!)<br />
+                    </ul>
+                <div className="filterholderflair" >
                         V.5.8
                     </div>
                     <ul className="creditslist">
