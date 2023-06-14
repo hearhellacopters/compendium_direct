@@ -39,6 +39,9 @@ const Notices =({
 
     var ampm = "AM"
     const set_hours = (time)=>{
+        if(time == 0){
+            return 12
+        }
         if(time >12){
             ampm = "PM"
             time = time - 12
