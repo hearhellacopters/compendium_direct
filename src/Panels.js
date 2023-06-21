@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from "react-redux";
-import PanelsFormatting from './formatting/PanelsFormatting'
+import PanelsFormatting from './components/PanelsFormatting'
 import { setFalse, setTrue } from './redux/ducks/jptoggle'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import Random from './processing/Random.js'
-import Tippy from './formatting/TippyDefaults.js';
-import { getQuery, getQueryStringVal, useQueryParam } from './processing/urlparams'
+import Random from './processing/random.js'
+import Tippy from './components/TippyDefaults.js';
+import { getQueryStringVal, useQueryParam } from './components/URLParams'
 
-const Calendar = ({ ProcessedPanels, jptoggledata }) => {
+export default function Panels({ 
+  ProcessedPanels, 
+  jptoggledata 
+}){
 
   const [random, setrandom] = useState(0)
 
@@ -134,7 +137,3 @@ const Calendar = ({ ProcessedPanels, jptoggledata }) => {
     </div>
   );
 }
-
-
-
-export default Calendar;

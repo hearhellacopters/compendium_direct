@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getPanels } from '../redux/ducks/panels';
 import { getJPToggle } from '../redux/ducks/jptoggle';
 import Panels from '../Panels';
-import Loading from './_loading'
+import Loading from '../components/Loading'
 
-const CallBannersPage = () => {
+export default function CallPanels(){
 
     const dispatch = useDispatch();
 
@@ -38,5 +38,3 @@ const CallBannersPage = () => {
     )
 
 }
-
-export default CallBannersPage;

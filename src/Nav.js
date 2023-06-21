@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, Link, Navigate } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import './Nav.css'
 import { GiHamburgerMenu } from 'react-icons/gi';
-import DevSwitch from './redux/DevSwitch'
-import { getQuery, getQueryStringVal, useQueryParam } from './processing/urlparams'
-import { setFalse, setTrue } from './redux/ducks/jptoggle'
+import { useQueryParam } from './components/URLParams'
 
-const Nav = () => {
+export default function Nav(){
 
   const location = useLocation()
 
@@ -53,5 +51,3 @@ const Nav = () => {
     </nav>
   );
 }
-
-export default Nav;

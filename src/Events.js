@@ -3,13 +3,13 @@ import { useStateIfMounted } from "use-state-if-mounted";
 import { useDispatch } from "react-redux";
 import { setFalse, setTrue } from './redux/ducks/jptoggle'
 import './Events.css';
-import Tippy from './formatting/TippyDefaults.js';
+import Tippy from './components/TippyDefaults.js';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
 import { Helmet } from 'react-helmet-async';
 import Select from 'react-select';
 import { Link } from 'react-router-dom'
-import EventListing from './formatting/EventsFormatting.js'
+import EventListing from './components/Events/EventsFormatting.js'
 import { ImSortAmountAsc } from 'react-icons/im';
 import { ImSortAmountDesc } from 'react-icons/im';
 import { TiArrowSortedDown } from 'react-icons/ti';
@@ -17,11 +17,17 @@ import { TiArrowSortedUp } from 'react-icons/ti';
 import { IoMdCloseCircleOutline } from 'react-icons/io';
 import { IoSearch } from 'react-icons/io5';
 import { FaUndoAlt } from 'react-icons/fa';
-import { getQuery, getQueryStringVal, useQueryParam } from './processing/urlparams'
+import { getQuery, getQueryStringVal, useQueryParam } from './components/URLParams'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { FaShareSquare } from 'react-icons/fa';
 
-const Events = ({ ProcessedEvents, ProcessedCharacters, EventGuideData, jptoggledata, master_index }) => {
+export default function Events({ 
+  ProcessedEvents, 
+  ProcessedCharacters, 
+  EventGuideData, 
+  jptoggledata, 
+  master_index 
+}){
 
   const dispatch = useDispatch();
 
@@ -681,6 +687,7 @@ const Events = ({ ProcessedEvents, ProcessedCharacters, EventGuideData, jptoggle
               <input
                 className="char-search-bar"
                 type="text"
+                id="search"
                 placeholder="Event Name"
                 value={searchdisplay}
                 onChange={handleChange}
@@ -782,6 +789,7 @@ const Events = ({ ProcessedEvents, ProcessedCharacters, EventGuideData, jptoggle
                 <input
                   className="search-bar"
                   type="text"
+                  id="search2"
                   placeholder="Event Name"
                   value={searchdisplay}
                   onChange={handleChange}
@@ -863,5 +871,3 @@ const Events = ({ ProcessedEvents, ProcessedCharacters, EventGuideData, jptoggle
     </div>
   );
 }
-
-export default Events;

@@ -25,7 +25,18 @@ import Select from 'react-select';
 
 import './JukeBoxStyle.css'
 
-const JukeBox = ({ ProcessedMusic, playing, volume, playlist, list1, list2, list3, musickey, getupdate, add_track }) => {
+export default function JukeBoxMini({ 
+  ProcessedMusic, 
+  playing, 
+  volume, 
+  playlist, 
+  list1, 
+  list2, 
+  list3, 
+  musickey, 
+  getupdate, 
+  add_track 
+}){
 
   function isTouchDevice() {
     return (('ontouchstart' in window) ||
@@ -257,4 +268,3 @@ const JukeBox = ({ ProcessedMusic, playing, volume, playlist, list1, list2, list
     </div>
   )
 }
-export default JukeBox

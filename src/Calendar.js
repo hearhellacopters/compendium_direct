@@ -3,11 +3,16 @@ import { useDispatch } from "react-redux";
 import { setFalse, setTrue } from './redux/ducks/jptoggle'
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import CalendarMonthView from './month_view/CalendarMonthView';
-import Tippy from './formatting/TippyDefaults.js';
-import { getQuery, getQueryStringVal, useQueryParam } from './processing/urlparams'
+import CalendarMonthView from './components/Events/month_view/CalendarMonthView';
+import Tippy from './components/TippyDefaults.js';
+import { getQueryStringVal, useQueryParam } from './components/URLParams'
 
-const Calendar = ({ JPCalendarData, EventData, BannerData, jptoggledata }) => {
+export default function Calendar({ 
+  JPCalendarData, 
+  EventData, 
+  BannerData, 
+  jptoggledata 
+}){
 
   const dispatch = useDispatch();
 
@@ -299,7 +304,3 @@ const Calendar = ({ JPCalendarData, EventData, BannerData, jptoggledata }) => {
     </div>
   );
 }
-
-
-
-export default Calendar;

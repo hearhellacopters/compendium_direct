@@ -11,10 +11,10 @@ import { getMasterIndex } from '../redux/ducks/master_index.js';
 import { getJPGameListSphere } from '../redux/ducks/JP/gamelist_sphere';
 import { getGLGameListSphere } from '../redux/ducks/GL/gamelist_sphere';
 
-import EventPermaLinks from '../passoff/EventPermaLinks';
-import Loading from './_loading'
+import EventHandoff from '../handoff/EventHandoff';
+import Loading from '../components/Loading'
 
-const CallEventhandoff = () => {
+export default function CallEventHandoff(){
 
     const match = {
         params: useParams()
@@ -127,7 +127,7 @@ const CallEventhandoff = () => {
             jptoggledata != undefined &&
             master_index != undefined
             ?
-            <EventPermaLinks
+            <EventHandoff
                 ProcessedEvents={ProcessedEvents}
                 match={match}
                 ProcessedCharacters={ProcessedCharacters}
@@ -140,5 +140,3 @@ const CallEventhandoff = () => {
     )
 
 }
-
-export default CallEventhandoff;

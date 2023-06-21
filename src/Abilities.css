@@ -117,9 +117,13 @@
 }
 
 .undertaga {
-    width: 54px;
-    height: 27px;
+    width: 3em;
+    max-width: 72px;
+    max-height: 36px;
+    margin: -0.2em;
+    height: 1.8em;
     vertical-align: middle;
+    background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
     filter: drop-shadow(1px 1px 1px #222);
@@ -383,11 +387,6 @@
     .bufflistbannerbattle {
         margin-left: 0px;
         width: auto;
-    }
-
-    .undertaga {
-        height: 24px;
-        width: 48px
     }
 
     .ver_gl {

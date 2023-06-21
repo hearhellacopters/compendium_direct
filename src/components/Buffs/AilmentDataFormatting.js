@@ -1,0 +1,895 @@
+import React, { useEffect } from 'react';
+import { useStateIfMounted } from "use-state-if-mounted";
+import { Link } from 'react-router-dom'
+import 'react-lazy-load-image-component/src/effects/opacity.css';
+import ailment_data_pars from '../../processing/ailment/ailment_data_pars'
+import AilmentDataEffectHandler from './AilmentDataEffectHandler';
+import Ailment_Field_Effect_Pars from '../../processing/ailment/ailment_field_effect_pars';
+import ailment_meta_handler from '../../processing/ailment/ailment_meta_handler.js'
+import CharacterFaceFormatting from '../Characters/CharacterFaceFormatting'
+import ailment_slider_handler from '../../processing/ailment/ailment_slider_handler';
+import ailment_combination_pars from '../../processing/ailment/ailment_combination_pars'
+import ailment_modify_pars from '../../processing/ailment/ailment_modify_pars';
+import ReplacerCharacter from '../ReplacerCharacter'
+import passive_link_effect_pars from '../../processing/passives/passive_link_effect_pars';
+import ability_rank_trans from '../../processing/abilities/ability_rank_trans'
+import { LazyLoadComponent } from 'react-lazy-load-image-component';
+import axios from "axios";
+import DevSwitch from '../../redux/DevSwitch';
+import { useDispatch, useSelector } from "react-redux";
+import { getTransNames } from '../../redux/ducks/transnames';
+import format_cleaner from '../../processing/format_cleaner';
+import translater_characters from '../../processing/translater_characters';
+import passive_stats_merger from '../../processing/passives/passive_stats_merger';
+import PassiveTotalDisplay from '../Passives/PassiveTotalDisplay';
+import DefaultTippy from '../TippyDefaults';
+import ailment_tags from '../../processing/ailment/ailment_tags.json'
+import AilmentDefaultParsFormatting from './AilmentDefaultParsFormatting';
+import PassiveEffectsHandoff from '../Passives/PassiveEffectsHandoff';
+import { ObjectView } from 'react-object-view'
+import ailment_level_icon from '../../processing/ailment/ailment_level_icon';
+import AilmentSliderFormatting from './AilmentSliderFormatting';
+import AilmentLevelSettings from './AilmentLevelSettings';
+
+export default function AilmentDataFormatting({
+    file,
+    loc,
+    ver,
+    ailment_data,
+    master_index,
+    slider,
+    rank,
+    arg1,
+    arg2,
+    castlocation,
+    alt_rank,
+    alt_aug1,
+    alt_aug2,
+    formatting,
+    rank_tag,
+    cur_char,
+    turns,
+    link,
+    info,
+    character_face, //only on for list
+    frameless, // for attached
+    default_passoff, //default passoff
+    passed_passive, // for passive defaults
+    hide_title
+}){
+
+    const form = {formatting:formatting}
+    const forma = {formatting:formatting,updown:true}
+
+    const cast_targets = master_index.command_data_trans.cast_target
+    const char_id = master_index.charid
+
+    var cast_target = undefined
+    if (ailment_data.atarg != undefined && ailment_data.atarg != 2) {
+        cast_target = cast_targets[ailment_data.atarg] && cast_targets[ailment_data.atarg].target_id
+    }
+
+    const [onion_passoff, setonion_passoff] = useStateIfMounted();
+    const [showdesc, setshowdesc] = useStateIfMounted(false);
+    const [setdesc, setsetdesc] = useStateIfMounted();
+    const [showtrans, setshowtrans] = useStateIfMounted(false)
+    const [trans, settrans] = useStateIfMounted()
+
+    const dispatch = useDispatch();
+
+    const transnames = useSelector((state) =>
+        state.transnames.transnames
+    );
+
+    async function doTrans(text) {
+        setshowtrans((prevValue) => !prevValue)
+    }
+
+    useEffect(() => {
+        let mounted = true
+        if (mounted && transnames == undefined && showtrans == true) {
+            dispatch(getTransNames());
+        }
+        return function cleanup() {
+            mounted = false
+        }
+    }, [dispatch, transnames, showtrans]);
+
+    useEffect(() => {
+        const text = format_cleaner(setdesc).replace(/\\n/gm, "\x0A")
+        if (transnames != undefined && showtrans == true) {
+            const translate = translater_characters(text, transnames)
+            settrans(translate)
+        }
+    }, [settrans, transnames, showtrans, setdesc]);
+
+    const showmedesc = (current) => {
+        if (current == false) {
+            setshowdesc(true)
+        } else {
+            setshowdesc(false)
+            setonion_passoff()
+        }
+    }
+
+    useEffect(() => {
+        if (ailment_data && ailment_data.id && showdesc == true) {
+            if (onion_passoff != undefined) {
+                if (DevSwitch == true) {
+                    axios.get(`http://localhost:3005/data/_dir/ailmenttextonion/${onion_passoff}`, { 'muteHttpExceptions': true }).then((res) => {
+                        const response = res.data;
+                        setsetdesc(response[ver])
+                    }).catch(function (err) {
+                        console.log(err)
+                        setsetdesc("")
+                    })
+                } else {
+                    axios.get(`https://www.dissidiacompendium.com/data/_dir/ailmenttextonion/${onion_passoff}.json`, { 'muteHttpExceptions': true }).then((res) => {
+                        const response = res.data;
+                        setsetdesc(response[ver])
+                    }).catch(function (err) {
+                        console.log(err)
+                        setsetdesc("")
+                    })
+                }
+            } else {
+                if (ailment_data.onion == undefined) {
+                    if (DevSwitch == true) {
+                        axios.get(`http://localhost:3005/data/_dir/ailmenttext/${ailment_data.id}`, { 'muteHttpExceptions': true }).then((res) => {
+                            const response = res.data;
+                            setsetdesc(response[ver])
+                        }).catch(function (err) {
+                            console.log(err)
+                            setsetdesc("")
+                        })
+                    } else {
+                        axios.get(`https://www.dissidiacompendium.com/data/_dir/ailmenttext/${ailment_data.id}.json`, { 'muteHttpExceptions': true }).then((res) => {
+                            const response = res.data;
+                            setsetdesc(response[ver])
+                        }).catch(function (err) {
+                            console.log(err)
+                            setsetdesc("")
+                        })
+                    }
+                }
+            }
+        }
+        // eslint-disable-next-line 
+    }, [showdesc, onion_passoff, ailment_data, ver])
+
+    const [showattached, setshowattached] = useStateIfMounted(false);
+
+    const showmeattached = (current) => {
+        if (current == false) {
+            setshowattached(true)
+        } else {
+            setshowattached(false)
+            setonion_passoff()
+        }
+    }
+
+    const [highestlvl, setHighestlvl] = useStateIfMounted();
+
+    useEffect(() => {
+        if (ailment_data.max_level >= 10) {
+            setHighestlvl(10)
+        }
+        if (ailment_data.max_level <= 10 && ailment_data.max_level != 0) {
+            setHighestlvl(ailment_data.max_level)
+        }
+        if (ailment_data.max_level == 0) {
+            setHighestlvl(0)
+        }
+        if (ailment_data.max_level_overide != undefined) {
+            setHighestlvl(ailment_data.max_level_overide)
+        }
+        if (ailment_data.max_level == -1 && arg2 != undefined) {
+            setHighestlvl(arg2)
+            Object.assign(ailment_data, {max_level:arg2})
+        }
+        if (ailment_data.max_level == -1 && arg2 == undefined) {
+            setHighestlvl(10)
+            Object.assign(ailment_data, {max_level:10})
+        }
+        // eslint-disable-next-line
+    }, [ailment_data, arg2])
+
+    const [currentrank, setcurrentrank] = useStateIfMounted(castlocation == false ? 1 : rank)
+    const [currentlevel, setcurrentlevel] = useStateIfMounted(castlocation == false ? 1 : arg1)
+
+    useEffect(() => {
+        if (arg1 != undefined && highestlvl != 0) {
+            if (castlocation == true) {
+                setcurrentlevel(arg1)
+            }
+        }
+        // eslint-disable-next-line
+    }, [highestlvl, ailment_data, arg1, castlocation])
+
+    useEffect(() => {
+        if (ailment_data && ailment_data.onion != undefined && ailment_data.onion != -1 && showdesc == true) {
+            setonion_passoff(ailment_data.onion + (currentlevel < 1 ? 0 : currentlevel - 1))
+        }
+    }, [currentlevel, setonion_passoff, ailment_data, showdesc])
+
+    var turns_set = ailment_data && ailment_data.alife != undefined ? ailment_data.alife : turns
+
+    const [currentturns, setcurrentturns] = useStateIfMounted(turns_set == undefined ? 1 : turns_set < 1 ? 1 : turns_set)
+    const [currentdebuffsranks, setcurrentdebuffsranks] = useStateIfMounted(9)
+    const [currentdebuffsranks2, setcurrentdebuffsranks2] = useStateIfMounted(8)
+    const [currentdebuffsmuliply, setcurrentdebuffsmuliply] = useStateIfMounted(9)
+    const [currentbuffsranks, setcurrentbuffsranks] = useStateIfMounted(19)
+    const [currentfieldbuffsranks, setcurrentfieldbuffsranks] = useStateIfMounted(7)
+    const [currentbuffsmuliply, setcurrentbuffsmuliply] = useStateIfMounted(19)
+    const [currentstacks, setcurrentstacks] = useStateIfMounted(5)
+    const [currentenemies, setcurrentenemies] = useStateIfMounted(3)
+    const [currentgroupstacks, setcurrentgroupstacks] = useStateIfMounted(5)
+    const [currenthp, setcurrenthp] = useStateIfMounted(100)
+    const [charactersleft, setcharactersleft] = useStateIfMounted(2)
+    const [characterskb, setcharacterskb] = useStateIfMounted(3)
+
+    const [showraw, setshowraw] = useStateIfMounted(false)
+    const [ailment_tag, setailment_tag] = useStateIfMounted([]);
+    const [ailment_tag_aura, setailment_tag_aura] = useStateIfMounted([]);
+
+    const showmeraw = (e) => {
+        if (e.shiftKey) {
+            if (showraw == false) {
+                const holder = []
+                Object.keys(ailment_tags).forEach(key => {
+                    if (ailment_data[`${key}`] != undefined) {
+                        holder.push(ailment_tags[`${key}`])
+                    }
+                })
+                setailment_tag(holder)
+                const holder2 = []
+                Object.keys(ailment_tags).forEach(key => {
+                    if (ailment_data[`${key}_Party`] != undefined) {
+                        holder2.push(ailment_tags[`${key}`])
+                    }
+                })
+                setailment_tag_aura(holder2)
+                setshowraw(true)
+            } else {
+                setshowraw(false)
+            }
+        }
+    }
+
+    const handleChangeLevel = (e) => {
+        setcurrentlevel(parseInt(e.x));
+    };
+
+    const handleChangeDebuffRank = (e) => {
+        setcurrentdebuffsranks(parseInt(e.x));
+    };
+    const handleChangeDebuffRank2 = (e) => {
+        setcurrentdebuffsranks2(parseInt(e.x));
+    };
+    const handleChangeDebuffMuliply = (e) => {
+        setcurrentdebuffsmuliply(parseInt(e.x));
+    };
+
+    const handleChangeBuffRank = (e) => {
+        setcurrentbuffsranks(parseInt(e.x));
+    };
+    const handleChangeFieldBuffRank = (e) => {
+        setcurrentfieldbuffsranks(parseInt(e.x));
+    };
+    const handleChangeBuffMuliply = (e) => {
+        setcurrentbuffsmuliply(parseInt(e.x));
+    };
+
+    const handleChangeGroupStacks = (e) => {
+        setcurrentgroupstacks(parseInt(e.x));
+    };
+
+
+    const handleChangeStacks = (e) => {
+        setcurrentstacks(parseInt(e.x));
+    };
+
+    const handleChangeEnemies = (e) => {
+        setcurrentenemies(parseInt(e.x));
+    };
+    const handleChangeTurns = (e) => {
+        setcurrentturns(parseInt(e.x));
+    };
+
+    const handleChangeRank = (e) => {
+        setcurrentrank(parseInt(e.x));
+    };
+
+    const handleChangeHP = (e) => {
+        setcurrenthp(parseInt(e.x));
+    };
+
+    const handleChangeCharactersLeft = (e) => {
+        setcharactersleft(parseInt(e.x));
+    };
+
+    const handleChangeCharactersKB = (e) => {
+        setcharacterskb(parseInt(e.x));
+    };
+
+    const effect_value_type_field = ailment_data.field && ailment_data.field.map(self => {
+        return self.effect_id && self.effect_id.effect_value_type
+    })
+
+    const val_edit_type_field = ailment_data.field && ailment_data.field.map(self => {
+        return self.effect_id && self.effect_id.val_edit_type
+    })
+
+    const sliders = ailment_slider_handler(
+        ailment_data,
+        effect_value_type_field,
+        val_edit_type_field);
+
+    const ailment_pars = {}
+
+    const ailment_num = [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ]
+
+    for (var index = 0; index <10; index++) {
+        const ending = index == 0 ? "" : `_${index}`
+        const ail_data = ailment_data[`effect_id${ending}`] &&
+            ailment_data_pars(
+                ailment_data.id,
+                ailment_data[`effect_id${ending}`],
+                ailment_data[`val_type${ending}`],
+                ailment_data[`val_specify${ending}`],
+                ailment_data[`val_edit_type${ending}`],
+                ailment_data[`cond_id${ending}`],
+                ailment_data[`rank_table${ending}`],
+                ailment_data.is_buff,
+                //effect#
+                index,
+                master_index,
+                ver,
+                //aug1&2
+                arg1,
+                arg2,
+                highestlvl,
+                rank,
+                alt_rank,
+                alt_aug1,
+                alt_aug2,
+                undefined,
+            )
+        if (index == 4 && !(ailment_data.effect_id_4 == 60 && ailment_data.cond_id_4 == -1)) {
+            if (ail_data != undefined) {
+                Object.assign(ailment_pars, { [`effect_id_${index}`]: ail_data })
+            }
+        }
+        if (index != 4) {
+            if (ail_data != undefined) {
+                Object.assign(ailment_pars, { [`effect_id_${index}`]: ail_data })
+            }
+        }
+    }
+
+    if (ailment_data.field != undefined) {
+        Object.assign(ailment_pars, { field: [] })
+        ailment_data.field.forEach(self => {
+            const field_data = Ailment_Field_Effect_Pars(
+                self,
+                false, //Single
+
+                ailment_data.is_buff,
+                arg1,
+                arg2,
+                highestlvl,
+                rank,
+                alt_rank,
+                alt_aug1,
+                alt_aug2,
+                ver,
+                ailment_data,
+                master_index
+            )
+            ailment_pars.field.push(field_data)
+        })
+    }
+
+    const metadata = ailment_meta_handler(
+        ailment_data,
+        master_index,
+        highestlvl
+    )
+
+    const [merge_pas, setmerge_pas] = useStateIfMounted(ailment_data && ailment_data.passives && ailment_data.passives.length > 1 ? true : false)
+
+    const togglemerge = () => {
+        setmerge_pas((prevValue) => !prevValue);
+    }
+
+    const [show_upgrades, setshow_upgrades] = useStateIfMounted(ailment_data && ailment_data.options && ailment_data.options.length > 5 ? false : true)
+
+    const doshow_upgrades = () => {
+        if (ailment_data && ailment_data.options && ailment_data.options.length > 5) {
+            setshow_upgrades(!show_upgrades)
+        }
+    }
+
+    const [attachedbuff, setattachedbuff] = useStateIfMounted([])
+
+    useEffect(() => {
+        setmerge_pas(ailment_data && ailment_data.passives && ailment_data.passives.length > 1 ? true : false)
+        setshow_upgrades(ailment_data && ailment_data.options && ailment_data.options.length > 5 ? false : true)
+        setattachedbuff([])
+        // eslint-disable-next-line
+    }, [ailment_data])
+
+    const buffattachedselect = (e) => {
+        if (attachedbuff && attachedbuff.id == e.id) {
+            setattachedbuff([])
+        } else {
+            setattachedbuff(e)
+        }
+    }
+
+    const replacer = (e) => {
+        var newtext = e && e.replace(/&/gm, "%26")
+        return newtext
+    }
+
+    const minH = window.innerWidth <= 800 ? 210 : 150;
+
+    const ailment_debug = {
+        ailment_pars: ailment_pars,
+        sliders: sliders,
+        metadata: metadata
+    }
+
+    const CaliCon =
+    <svg className="calforchar inline" width="20px" height="20px" viewBox="5 5 80 85">
+      <path id="path3026" d="M71.4,58.3c0-9.5,0-46.4,0-46.4h-2.6H16.8l-5.6,3.3v66.9h57.7v-6h8.3C77.2,76.2,71.4,71.6,71.4,58.3z   M67.6,48.3h-9.9V37.7h9.9V48.3z M43.5,25.5v10.6h-11V25.5H43.5z M45.1,25.5h11v10.6h-11V25.5z M20.6,25.5h10.2v10.6H20.6V25.5z   M20.6,37.7h10.2v10.6H20.6V37.7z M20.6,49.9h10.2v8.4c0,0.8,0,1.5,0,2.2H20.6V49.9z M32.4,58.3v-8.4h11v8.4c0,0.8,0,1.5,0,2.2h-11  C32.4,59.8,32.4,59.1,32.4,58.3z M32.4,48.3V37.7h11v10.6H32.4z M45.1,37.7h11v10.6h-11V37.7z M67.6,36.1h-9.9V25.5h9.9V36.1z   M30.9,62.1c0.4,5.4,1.8,8.5,3.1,10.3H23.4c-0.3-0.2-0.7-0.7-1.1-1.7c-0.7-1.4-1.5-4-1.6-8.6H30.9z M36.2,72.4  c-1.3-1.2-3.1-3.9-3.6-10.3h11c0.4,5.4,1.8,8.5,3.1,10.3H36.2z M48.8,72.4c-1.3-1.2-3.1-3.9-3.6-10.3h11c0.4,5.4,1.8,8.5,3.1,10.3  H48.8z M45.1,60.5c0-0.7,0-1.4,0-2.2v-8.4h11v8.4c0,0.8,0,1.5,0,2.2H45.1z M57.8,58.3v-8.4h9.9v8.4v1.6c0,0.2,0,0.4,0,0.5h-9.8  C57.8,59.8,57.8,59.1,57.8,58.3z M65.1,78.3H15v-61l1.8-1.1c0,10.2,0,35.4,0,44.2c0,14.6,5.7,15.7,5.7,15.7h42.5L65.1,78.3  L65.1,78.3z M68.9,72.4h-3.8h-3.5c-1.3-1.2-3.1-3.9-3.6-10.3h9.8c0.2,4,0.8,7.4,2,10.3H68.9z">
+      </path>
+    </svg>
+
+    return (
+        <div className={frameless != true ? character_face == true ? "buffunit" : "" : ""}>
+            <div className={frameless != true ? "infoholder" : ""} style={{ minHeight: `${frameless == true || character_face != true ? 0 : minH}px` }}>
+                <LazyLoadComponent>
+                    {character_face == true?
+                        <div className="infotitleholder">
+                            <div className="faceandiconholder">
+                                <CharacterFaceFormatting char_id={char_id} id={ailment_data.chara_id} link={link} />
+                                <div onClick={showmeraw} className="infoiconholder2">
+                                    <img className="bufficon" alt={ailment_data.name && ailment_data.name} src={`https://dissidiacompendium.com/images/static/icons/buff/${ailment_level_icon(ailment_data,currentlevel)}.png`} />
+                                </div>
+                            </div>
+                        </div>
+                    :""}
+                    <div style={{ marginTop: `${character_face != true ? "5px" : ""}` }} 
+                         className={
+                            frameless == true ? (ailment_data.is_buff == 1 ? "Buffsubbanner2" : "Debuffsubbanner2") : 
+                            ailment_data.is_buff == 0 ? "Debuffbanner iconbuffer infonameholder nobuffpadding" : "Buffbanner iconbuffer infonameholder nobuffpadding"
+                         }>
+                        <div className={character_face != true ? "flexdisplay" :"infotitle2"}>
+                            {character_face != true?
+                                <div onClick={showmeraw} className="solo_buff_icon">
+                                    <img className="bufficon2" alt={ailment_data.name && ailment_data.name} src={`https://dissidiacompendium.com/images/static/icons/buff/${ailment_level_icon(ailment_data,currentlevel)}.png`} />
+                                </div>
+                            :
+                            ""
+                            }
+                            <span className={character_face != true ? "splitrow" : ""}>
+                            {ReplacerCharacter(`${ailment_data && ailment_data.name == "" ? `Unknown ${ailment_data.is_buff == 1 ? "buff" : "debuff"}` : ailment_data.name}${ailment_data.is_state == true ? "" : ` - #${ailment_data.id}`}`,form)}
+                            {ailment_data && ailment_data.jpname == "" || ailment_data && ailment_data.jpname  == undefined ?
+                                <div className="abilityJPname">
+                                    {"None テキストなし"}
+                                </div>
+                                : <div className="abilityJPname">
+                                    {ReplacerCharacter(ailment_data.jpname,form)}
+                                </div>}
+                            </span>
+                        </div>
+                        {ailment_data.sp_disp_type == 133 ?
+                            <div className="similarbanner">
+                                <Link className="updatelink" to={`/characters/forcetime?Char=${char_id[ailment_data.chara_id||cur_char] && replacer(char_id[ailment_data.chara_id||cur_char].CharacterName)}`}>
+                                    View Force Time
+                                </Link>
+                            </div>
+                            : ""}
+                        {info != undefined?
+                        <div className='buffglreworkbanner passiveinfobase'>{info}</div>
+                        :""}
+                    </div>
+                    <AilmentSliderFormatting
+                        ailment_data={ailment_data}
+                        sliders={sliders}
+                        highestlvl={highestlvl}
+                        nobuffpadding={frameless == true ? false : true}
+
+                        currentlevel={currentlevel}
+                        handleChangeLevel={handleChangeLevel}
+
+                        currentturns={currentturns}
+                        handleChangeTurns={handleChangeTurns}
+
+                        currentdebuffsranks={currentdebuffsranks}
+                        handleChangeDebuffRank={handleChangeDebuffRank}
+
+                        currentdebuffsranks2={currentdebuffsranks2}
+                        handleChangeDebuffRank2={handleChangeDebuffRank2}
+
+                        currentdebuffsmuliply={currentdebuffsmuliply}
+                        handleChangeDebuffMuliply={handleChangeDebuffMuliply}
+
+                        currentfieldbuffsranks={currentfieldbuffsranks}
+                        handleChangeFieldBuffRank={handleChangeFieldBuffRank}
+
+                        currentbuffsranks={currentbuffsranks}
+                        handleChangeBuffRank={handleChangeBuffRank}
+
+                        currentbuffsmuliply={currentbuffsmuliply}
+                        handleChangeBuffMuliply={handleChangeBuffMuliply}
+
+                        currentenemies={currentenemies}
+                        handleChangeEnemies={handleChangeEnemies}
+
+                        currentstacks={currentstacks}
+                        handleChangeStacks={handleChangeStacks}
+
+                        currentgroupstacks={currentgroupstacks}
+                        handleChangeGroupStacks={handleChangeGroupStacks}
+
+                        currenthp={currenthp}
+                        handleChangeHP={handleChangeHP}
+
+                        charactersleft={charactersleft}
+                        handleChangeCharactersLeft={handleChangeCharactersLeft}
+
+                        characterskb={characterskb}
+                        handleChangeCharactersKB={handleChangeCharactersKB}
+                    />
+                    <div className={
+                        frameless == true ? (ailment_data.is_buff == 1 ? "Buffsubbase2" : "Debuffsubbase2") :
+                        ailment_data.is_buff == 0 ? "Debuffbase enemyabilityinfobase wpadding" : "Buffbase enemyabilityinfobase wpadding"
+                        }>
+                        {ailment_data.hide_title == true || default_passoff != undefined || frameless == true || passed_passive != undefined || hide_title == true? "" :
+                        <div className={"subpassiveflair cast_str"}>
+                            {ailment_data.alife != -1 ? `For ` : "From "}<span className='values'>{`${ailment_data.alife != -1 ? `${ailment_data.alife} turn${ailment_data.alife != 1 ? "s " : " "}` : ""}`}</span>{ailment_data.alife != -1 ? `from ` : ""}{ReplacerCharacter(`${rank_tag != undefined ? `<${ability_rank_trans(rank_tag)}>` : ""} [${ailment_data.ability_namegl == undefined ? ailment_data.ability_name : ailment_data.ability_namegl}] #${ailment_data.command_id}${cast_target == undefined ? "" : ` to ${cast_target}`}`,form)}
+                        </div>
+                        }
+                        {passed_passive != undefined ?
+                            <PassiveEffectsHandoff
+                                passive_ability={passed_passive}
+                                master_index={master_index}
+                                formatting={formatting}
+                                ver={ver}
+                                list={true}
+                                pass_default={true}
+                            />
+                        : ""}
+                        {ailment_data.defaults != undefined ?
+                        <AilmentDefaultParsFormatting
+                            default_data={ailment_data.defaults}
+                            ver={ver}
+                            master_index={master_index}
+                            formatting={formatting}
+                            passed_ailment={ailment_data}
+                        />
+                        : 
+                        default_passoff != undefined && passed_passive == undefined ?
+                        <AilmentDefaultParsFormatting
+                            default_data={default_passoff}
+                            ver={ver}
+                            master_index={master_index}
+                            formatting={formatting}
+                            passed_ailment={ailment_data}
+                        />
+                        :""}
+                        {ailment_data.note != undefined ?
+                            <div className="p_note">
+                                <div className='greybar values'>{CaliCon}Note:</div>
+                                {ReplacerCharacter(`${ailment_data.note}\n`,form)}
+                            </div>
+                        : ""}
+                        {ailment_data.levelsettings != undefined ?
+                                ""
+                                //<AilmentLevelSettings
+                                //levelsettings={ailment_data.levelsettings}
+                                ///>
+                        :""}
+                        {ailment_data.components != undefined ?
+                            <div className="subpassiveflair2">
+                                {ailment_data.components.map((component, i) =>
+                                    ReplacerCharacter(ailment_combination_pars(
+                                        component,
+                                        master_index,
+                                        ver,
+                                        ailment_data.id
+                                    ),form)
+                                )}
+                            </div>
+                        : ""}
+                        
+                        {ailment_num.map(num => (
+                            ailment_pars[`effect_id_${num}`] && 
+                            ailment_pars[`effect_id_${num}`].hidden != true && 
+                            <AilmentDataEffectHandler
+                                key={num}
+                                effect_id={ailment_pars[`effect_id_${num}`]}
+                                slider={slider}
+                                castlocation={castlocation}
+                                currentrank={currentrank}
+                                currentlevel={currentlevel}
+                                currentturns={currentturns}
+                                currentenemies={currentenemies}
+                                currentstacks={currentstacks}
+                                currentdebuffsranks={currentdebuffsranks}
+                                currentdebuffsranks2={currentdebuffsranks2}
+                                currentdebuffsmuliply={currentdebuffsmuliply}
+                                currentbuffsranks={currentbuffsranks}
+                                currentfieldbuffsranks={currentfieldbuffsranks}
+                                currentbuffsmuliply={currentbuffsmuliply}
+                                currentgroupstacks={currentgroupstacks}
+                                currenthp={currenthp}
+                                charactersleft={charactersleft}
+                                characterskb={characterskb}
+                                formatting={formatting}
+                                setonion_passoff={setonion_passoff}
+                                setshowdesc={setshowdesc}
+                            />
+                        ))}
+                        {ailment_pars.field != undefined ?
+                            <>
+                                <div className='spacearound'>
+                                    <DefaultTippy content="Field Effects">
+                                        <span className='fieldeffects'></span>
+                                    </DefaultTippy>
+                                </div>
+                                {ailment_pars.field.map((item, i) =>
+                                    item && item.hidden != true && 
+                                    <AilmentDataEffectHandler
+                                        key={i}
+                                        effect_id={item}
+                                        slider={slider}
+                                        currentrank={currentrank}
+                                        currentlevel={currentlevel}
+                                        currentturns={currentturns}
+                                        currentenemies={currentenemies}
+                                        currentstacks={currentstacks}
+                                        currentdebuffsranks={currentdebuffsranks}
+                                        currentdebuffsranks2={currentdebuffsranks2}
+                                        currentdebuffsmuliply={currentdebuffsmuliply}
+                                        currentbuffsranks={currentbuffsranks}
+                                        currentbuffsmuliply={currentbuffsmuliply}
+                                        currentfieldbuffsranks={currentfieldbuffsranks}
+                                        currentgroupstacks={currentgroupstacks}
+                                        currenthp={currenthp}
+                                        charactersleft={charactersleft}
+                                        characterskb={characterskb}
+                                        castlocation={castlocation}
+                                        formatting={formatting}
+                                    />
+                                )}
+                            </>
+                        : ""}
+                        {ailment_data.force != undefined ?
+                            <div className="l_grade">
+                                <div className='linkbar'><div className='BonusHPDamage'/></div>
+                                {ailment_data.force.map(link_effect => (
+                                    ReplacerCharacter(passive_link_effect_pars(
+                                        link_effect,
+                                        master_index,
+                                        ver
+                                    ),form)
+                                ))}
+                                <div className='abilityJPname'>*Totaled values</div>
+                            </div>
+                            : ""}
+                        {ailment_data.modify != undefined ?
+                            <div className="p_note">
+                                <div className='yellowbar'><div className='inline mod_icon'/>Modify:</div>
+                                {ailment_data.modify.map((item, i) =>
+                                    ReplacerCharacter(ailment_modify_pars(
+                                        item,
+                                        master_index,
+                                        ver
+                                    ),form)
+                                )}
+                            </div>
+                        : ""}
+                        {ailment_data.passives != undefined ?
+                            <div className='p_grade'>
+                                <div className='fieldbar'><span className='smallpassive'></span>{"\xa0"}Effects:</div>
+                                <div className='spanleft'>
+                                    {ailment_data.passives.length != 1 ?
+                                        <div className='subpassiveflair spacearound'>
+                                            <div key="mergecheck1" className={`${merge_pas == true ? "nodisplay" : `uncheck`}`} onClick={togglemerge} />
+                                            <div key="mergecheck2" className={`${merge_pas == true ? "check" : `nodisplay`}`} onClick={togglemerge} />
+                                            <div className='noselect'>&nbsp;&nbsp;Total Values</div>
+                                        </div>
+                                        : ""}
+                                    {passive_stats_merger(
+                                        ailment_data.passives,
+
+                                        master_index,
+                                        ver,
+
+                                        merge_pas,
+                                        "ailment",
+                                        true,
+                                    ).sort((a, b) => a.rank - b.rank).map((ailment_passive, i, whole) => (
+                                        ailment_passive.is_total != true ? <PassiveEffectsHandoff
+                                            key={`${ailment_passive.pa_id}-${i}`}
+                                            passive_ability={ailment_passive}
+
+                                            master_index={master_index}
+                                            ver={ver}
+
+                                            formatting={formatting}
+                                            skip_space={i}
+                                            use_ailment={true}
+                                            merged={whole[i - 1] && whole[i - 1].loc_tag}
+                                            hide_disp={merge_pas}
+                                            battle_state={true}
+                                        />
+                                            :
+                                            <PassiveTotalDisplay
+                                                key={i}
+                                                match={ailment_passive}
+                                            />
+                                    ))}
+                                    <div className='abilityJPname'>*depending on origin ability</div>
+                                </div>
+                            </div>
+                            : ""}
+
+                        {ailment_data.options != undefined ?
+                            <div className='p_grade'>
+                                <div className='fieldbar'>
+                                    <div className={ailment_data.options.length <= 5 ? "" : 'updatelink clicky'} onClick={doshow_upgrades}>
+                                        {ailment_data.options.length <= 5 ? <><span className='mini_ability'></span>Upgrades:</> : show_upgrades ? <><span className='mini_ability'></span>Hide Upgrades:</> : <><span className='mini_ability'></span>Show Upgrades:</>}
+                                    </div>
+                                </div>
+                                {show_upgrades ?
+                                    ailment_data.options.map((self, i) => (
+                                        ReplacerCharacter("\xa0- "+self+"\n",form)
+                                    ))
+                                    : ""}
+                                <div className='abilityJPname'>*conditions may apply</div>
+                            </div>
+                            : ""}
+
+                        {ReplacerCharacter(metadata, form)}
+
+                        <div onClick={() => showmedesc(showdesc)} className='clicky updatelink contents'>{showdesc == false ? "\xa0- Show Desc -" : "\xa0- Hide Desc -"}</div>
+                        {showdesc == true ?
+                            <hr></hr>
+                            : ""}
+                        {showdesc == true && trans != undefined && showtrans == true ?
+                            ReplacerCharacter(trans+"\n",form)
+                            :
+                            showdesc == true && setdesc != undefined && showtrans != true ? 
+                                <div>
+                                {ReplacerCharacter(format_cleaner(setdesc == undefined || setdesc == "" ? "Not available" : setdesc),form)}
+                                </div>
+                            : ""
+                        }
+                        {ver == "JP" && showdesc == true ?
+                            <div className='clicky updatelink contents' onClick={() => doTrans()}>Translate (Beta)</div>
+                            : ""}
+
+                        {ailment_data.attached != undefined ?
+                            <div className='infonameholder newblue'>
+                                <div className="unique ailmenttext">
+                                    Associated Casts:
+                                </div>
+                                <ul className="abilitybufflist">
+                                    {ailment_data.attached.map(function (buff) {
+                                        return <li className={`abilitybufficonsholder ${buff.id == attachedbuff.id ? "buffactive" : ""}`} key={buff.id}>
+                                            <div className="biconspacer" onClick={() => buffattachedselect(buff)} >
+                                                <DefaultTippy content={ReplacerCharacter(buff.name,form)}>
+                                                    <img alt={buff.name} className="clicky abilitybufficon" src={`https://dissidiacompendium.com/images/static/icons/buff/${buff.icon}.png`} />
+                                                </DefaultTippy>
+                                            </div>
+                                        </li>
+                                    })}
+                                </ul>
+                            </div>
+                            : ""}
+                        {attachedbuff.length != 0 ?
+                            <AilmentDataFormatting
+                                key={attachedbuff.id}
+                                file={file}
+                                loc={loc}
+                                ver={ver}
+                                ailment_data={attachedbuff}
+
+                                master_index={master_index}
+
+                                slider={true}
+                                castlocation={true}
+                                formatting={true}
+                                rank={attachedbuff.arank}
+                                arg1={attachedbuff.aarg1}
+                                arg2={attachedbuff.aarg2}
+                                alt_rank={attachedbuff.aranka}
+                                alt_aug1={attachedbuff.aarg1a}
+                                alt_aug2={attachedbuff.aarg2a}
+                                turns={attachedbuff.alife}
+                                character_face={false}
+                                frameless={true}
+                                hide_cast_str={true}
+                            />
+                            : ""}
+                        {showraw == true ?
+                            <div className="newblue">
+                                <div className="unique ailmenttext">
+                                    Ailment Tags:
+                                </div>
+                                <ul className="abilitybufflist">
+                                    {ailment_tag.map(function (buff) {
+                                        return <li className={`abilitybufficonsholder`} key={`${buff.name}-1`}>
+                                            <div className="biconspacer" >
+                                                <DefaultTippy content={buff.name}>
+                                                    <img alt={buff.name} className="abilitybufficon" src={`https://dissidiacompendium.com/images/static/icons/${buff.url}.png`} />
+                                                </DefaultTippy>
+                                            </div>
+                                        </li>
+                                    })}
+                                </ul>
+                                <div className="unique ailmenttext">
+                                    Aura Tags:
+                                </div>
+                                <ul className="abilitybufflist">
+                                    {ailment_tag_aura.map(function (buff) {
+                                        return <li className={`abilitybufficonsholder`} key={`${buff.name}-2`}>
+                                            <div className="biconspacer" >
+                                                <DefaultTippy content={buff.name}>
+                                                    <img alt={buff.name} className="abilitybufficon" src={`https://dissidiacompendium.com/images/static/icons/${buff.url}.png`} />
+                                                </DefaultTippy>
+                                            </div>
+                                        </li>
+                                    })}
+                                </ul>
+                            </div>
+                            :
+                            ""}
+                        {showraw == true ?
+                            <span className='react-json-view'>
+                                <ObjectView 
+                                options={
+                                    {
+                                      hideDataTypes: true,
+                                      expandLevel: 1,
+                                      displayEntriesMaxCount: 1,
+                                    }
+                                  }
+                                data={ailment_debug} 
+                                />
+                            </span>
+                        : ""}
+                        {showraw == true ?
+                            <span className='react-json-view'>
+                                <ObjectView 
+                                options={
+                                    {
+                                      hideDataTypes: true,
+                                      expandLevel: 1
+                                    }
+                                  }
+                                data={ailment_data} 
+                                />
+                            </span>
+                        : ""}
+                    </div>
+                </LazyLoadComponent>
+            </div>
+        </div>
+    )
+}

@@ -145,6 +145,7 @@ a:-moz-focusring {
 
 .react-json-view {
   text-align: left;
+  text-shadow: none;
 }
 
 .ultimaicons {
@@ -1740,24 +1741,6 @@ h3 {
   -webkit-filter: drop-shadow(1px 0 0 #000000) drop-shadow(0 1px 0 #000000) drop-shadow(0 -1px 0 #000000) drop-shadow(-1px 0 0 #000000);
 }
 
-/*.eventclearsearch{
-  height: 32px;
-  width: 32px;
-  margin-left: -66px;
-  position: absolute;
-  text-align: center;
-}
-
-.eventclearsearch::before{
-  text-align: center;
-  z-index: 2;
-  color: rgb(230, 18, 18);
-  cursor: pointer;
-  position:absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  left: 50%;
-}*/
 .clicker {
   cursor: pointer;
 }
@@ -1932,8 +1915,13 @@ h3 {
 
 .cl85 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv85.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -1955,8 +1943,13 @@ h3 {
 
 .cl88 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv88.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -1971,8 +1964,13 @@ h3 {
 
 .wpbtplus {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/bt+m.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -1987,8 +1985,13 @@ h3 {
 
 .ldcall1 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ldcall1.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2007,8 +2010,13 @@ h3 {
 
 .ench4c {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ench4c.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2023,8 +2031,13 @@ h3 {
 
 .board4c {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ench4c.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2036,8 +2049,13 @@ h3 {
 
 .board4cext {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ench4cext.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2048,8 +2066,13 @@ h3 {
 
 .board4ext {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ench4ext.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2067,8 +2090,13 @@ h3 {
 
 .ench4ext {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ench4ext.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2090,8 +2118,13 @@ h3 {
 
 .ench4cext {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ench4cext.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2102,8 +2135,13 @@ h3 {
 
 .ldcall2 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ldcall2.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2118,8 +2156,13 @@ h3 {
 
 .call1 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/call1.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2134,8 +2177,13 @@ h3 {
 
 .call2 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/call2.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2146,8 +2194,13 @@ h3 {
 
 .abuff {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/abuff.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2166,8 +2219,13 @@ h3 {
 
 .artpass {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/art.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2182,8 +2240,13 @@ h3 {
 
 .skin {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/skin.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2194,8 +2257,13 @@ h3 {
 
 .startingability {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/cl1.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2210,8 +2278,13 @@ h3 {
 
 .cl1 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/cl1.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2226,8 +2299,13 @@ h3 {
 
 .cl5 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv5.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2242,8 +2320,13 @@ h3 {
 
 .cl10 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv10.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2258,8 +2341,13 @@ h3 {
 
 .cl15 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv15.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2274,8 +2362,13 @@ h3 {
 
 .cl20 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv20.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2290,8 +2383,13 @@ h3 {
 
 .cl25 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv25.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2306,8 +2404,13 @@ h3 {
 
 .cl30 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv30.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2322,8 +2425,13 @@ h3 {
 
 .cl35 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv35.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2338,8 +2446,13 @@ h3 {
 
 .cl40 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv40.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2354,8 +2467,13 @@ h3 {
 
 .cl45 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv45.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2370,8 +2488,13 @@ h3 {
 
 .cl50 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv50.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2386,8 +2509,13 @@ h3 {
 
 .cl54 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv54.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2402,8 +2530,13 @@ h3 {
 
 .cl55 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv55.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2418,8 +2551,13 @@ h3 {
 
 .cl58 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv58.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2434,8 +2572,13 @@ h3 {
 
 .cl60 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv60.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2450,8 +2593,13 @@ h3 {
 
 .cl65 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv65.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2466,8 +2614,13 @@ h3 {
 
 .cl68 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv68.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2482,8 +2635,13 @@ h3 {
 
 .cl70 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv70.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2973,8 +3131,13 @@ h3 {
 
 .cl75 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv75.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2989,8 +3152,13 @@ h3 {
 
 .cl78 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv78.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3005,8 +3173,13 @@ h3 {
 
 .cl80 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv80.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3021,8 +3194,13 @@ h3 {
 
 .armbloom {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/bloom2.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3037,8 +3215,13 @@ h3 {
 
 .arm4a {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/4a.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3053,8 +3236,13 @@ h3 {
 
 .arm7a {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/7a.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3069,8 +3257,13 @@ h3 {
 
 .arm7aplus {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/7a+.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3111,8 +3304,13 @@ h3 {
 
 .arm35a {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/35a.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3127,8 +3325,13 @@ h3 {
 
 .armhgplus {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/hg+.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3143,8 +3346,13 @@ h3 {
 
 .armhg {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/hg.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3160,14 +3368,12 @@ h3 {
 
 .hpattackicon {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/hp.png");
-  width: 54px;
-  height: 27px;
-  display: inline-block;
-  vertical-align: middle;
-  background-size: contain;
-  background-repeat: no-repeat;
-  filter: drop-shadow(1px 1px 1px #222);
-  -webkit-filter: drop-shadow(1px 1px 1px #222);
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-top: -0.4em;
+  height: 1.8em;
 }
 
 .hpplusattackiconbutton {
@@ -3192,11 +3398,15 @@ h3 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/crypass_a.png");
 }
 
-
 .crypass_a {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/crypass_a.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3209,11 +3419,15 @@ h3 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/crypass_d.png");
 }
 
-
 .crypass_d {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/crypass_d.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3226,11 +3440,15 @@ h3 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/crypass_u.png");
 }
 
-
 .crypass_u {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/crypass_u.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3241,8 +3459,13 @@ h3 {
 
 .hpplusattackicon {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/hp+.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3253,20 +3476,23 @@ h3 {
 
 .brvattackicon {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/brv.png");
-  width: 54px;
-  height: 27px;
-  display: inline-block;
-  vertical-align: middle;
-  background-size: contain;
-  background-repeat: no-repeat;
-  filter: drop-shadow(1px 1px 1px #222);
-  -webkit-filter: drop-shadow(1px 1px 1px #222);
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-top: -0.4em;
+  height: 1.8em;
 }
 
 .wpbt {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/bt.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3277,8 +3503,13 @@ h3 {
 
 .wpbtplus0 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/bt+0.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3289,8 +3520,13 @@ h3 {
 
 .wpbtplus1 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/bt+1.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3301,8 +3537,13 @@ h3 {
 
 .wpbtplus2 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/bt+2.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3313,8 +3554,13 @@ h3 {
 
 .wpbtplus3 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/bt+3.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3329,8 +3575,13 @@ h3 {
 
 .wpwoi {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/woi.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3345,8 +3596,13 @@ h3 {
 
 .wpnt {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/nt.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3361,8 +3617,13 @@ h3 {
 
 .wpdark {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/dark.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3377,8 +3638,13 @@ h3 {
 
 .wp35 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/35w.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3405,8 +3671,13 @@ h3 {
 
 .wp15 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/15.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3421,8 +3692,13 @@ h3 {
 
 .wp4w {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/4w.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3437,8 +3713,13 @@ h3 {
 
 .board1 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ench1.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3453,8 +3734,13 @@ h3 {
 
 .board2 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ench2.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3469,8 +3755,13 @@ h3 {
 
 .board3 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ench3.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3489,8 +3780,13 @@ h3 {
 
 .board4 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ench4.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3509,8 +3805,13 @@ h3 {
 
 .board5echo {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ench5echo.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3521,8 +3822,13 @@ h3 {
 
 .FRExt {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frext.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3537,8 +3843,13 @@ h3 {
 
 .board5ext {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ench5ext.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3556,8 +3867,13 @@ h3 {
 
 .board5 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ench5.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3568,8 +3884,13 @@ h3 {
 
 .ench5 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ench5.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3584,8 +3905,13 @@ h3 {
 
 .wpex {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ex.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3596,8 +3922,13 @@ h3 {
 
 .wpex0 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ex0.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3608,8 +3939,13 @@ h3 {
 
 .wpex1 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ex1.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3620,8 +3956,13 @@ h3 {
 
 .wpex2 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ex2.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3632,8 +3973,13 @@ h3 {
 
 .wpex3 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ex3.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3648,8 +3994,13 @@ h3 {
 
 .wpexplus {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ex+.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3660,8 +4011,13 @@ h3 {
 
 .wpexplus0 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ex+0.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3672,8 +4028,13 @@ h3 {
 
 .wpexplus1 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ex+1.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3684,8 +4045,13 @@ h3 {
 
 .wpexplus2 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ex+2.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3696,8 +4062,13 @@ h3 {
 
 .wpexplus3 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ex+3.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3786,8 +4157,13 @@ h3 {
 
 .NewChar2 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/new2.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3806,8 +4182,13 @@ h3 {
 
 .wpld {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ld.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3818,8 +4199,13 @@ h3 {
 
 .wpfr {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/fr.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3830,8 +4216,13 @@ h3 {
 
 .wpfr0 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/fr0.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3842,8 +4233,13 @@ h3 {
 
 .wpfr1 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/fr1.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3854,8 +4250,13 @@ h3 {
 
 .wpfr2 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/fr2.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3866,8 +4267,13 @@ h3 {
 
 .wpfr3 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/fr3.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3878,8 +4284,13 @@ h3 {
 
 .boardfr {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard_edit.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3890,8 +4301,13 @@ h3 {
 
 .boardfrh {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard_edit.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3903,8 +4319,13 @@ h3 {
 
 .boardfr5 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard5.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3915,8 +4336,13 @@ h3 {
 
 .boardfr3 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard3.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3927,8 +4353,13 @@ h3 {
 
 .boardfr8 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard8.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3939,8 +4370,13 @@ h3 {
 
 .boardfr10 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard10.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3951,8 +4387,13 @@ h3 {
 
 .boardfr13 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard13.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3963,8 +4404,13 @@ h3 {
 
 .boardfr15 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard15.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3975,8 +4421,13 @@ h3 {
 
 .boardfr18 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard18.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3987,8 +4438,13 @@ h3 {
 
 .boardfr20 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard20.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -3999,8 +4455,13 @@ h3 {
 
 .boardfr23 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard23.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -4011,8 +4472,13 @@ h3 {
 
 .boardfr25 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard25.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -4023,8 +4489,13 @@ h3 {
 
 .boardfr28 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard28.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -4035,8 +4506,13 @@ h3 {
 
 .boardfr30 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard30.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -4047,8 +4523,13 @@ h3 {
 
 .boardfr33 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard33.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -4059,8 +4540,13 @@ h3 {
 
 .boardfr35 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard35.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -4071,8 +4557,13 @@ h3 {
 
 .boardfr38 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard38.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -4083,8 +4574,13 @@ h3 {
 
 .boardfr40 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard40.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -4095,8 +4591,13 @@ h3 {
 
 .boardfr43 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard43.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -4106,8 +4607,13 @@ h3 {
 }
 .boardfr45 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard45.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -4118,8 +4624,13 @@ h3 {
 
 .boardfr48 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard48.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -4130,8 +4641,13 @@ h3 {
 
 .boardfr50 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard50.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -4142,8 +4658,13 @@ h3 {
 
 .wpld0 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ld0.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -4154,8 +4675,13 @@ h3 {
 
 .wpld1 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ld1.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -4166,8 +4692,13 @@ h3 {
 
 .wpld2 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ld2.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -4178,8 +4709,13 @@ h3 {
 
 .wpld3 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ld3.png");
-  width: 54px;
-  height: 27px;
+  width: 3em;
+  max-width: 72px;
+  max-height: 36px;
+  margin: -0.2em;
+  margin-bottom: -0.4em;
+  margin-top: -0.4em;
+  height: 1.8em;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -4192,208 +4728,122 @@ h3 {
 
 .HP {
   background-image: url("https://dissidiacompendium.com/images/static/icons/misc/HP.png");
-  width: 48px;
-  height: 21px;
-  display: inline-block;
-  vertical-align: middle;
-  background-repeat: no-repeat;
-  background-size: contain;
-  filter: drop-shadow(1px 1px 1px #222);
-  -webkit-filter: drop-shadow(1px 1px 1px #222);
+  width: 2.5em;
+  height: 1.1em;
+}
+
+.Capped {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/Capped.png");
+  background-position: center;
+  width: 60px;
+  height: 32px;
 }
 
 .BRV {
   background-image: url("https://dissidiacompendium.com/images/static/icons/misc/BRV.png");
-  width: 48px;
-  height: 21px;
-  display: inline-block;
-  vertical-align: middle;
-  background-repeat: no-repeat;
-  background-size: contain;
-  filter: drop-shadow(1px 1px 1px #222);
-  -webkit-filter: drop-shadow(1px 1px 1px #222);
+  width: 2.5em;
+  height: 1.1em;
 }
 
 .BREAK {
   background-image: url("https://dissidiacompendium.com/images/static/icons/misc/BREAK.png");
-  width: 58px;
-  height: 21px;
-  margin-bottom: -3px;
-  display: inline-block;
-  vertical-align: middle;
-  background-repeat: no-repeat;
-  background-size: contain;
-  filter: drop-shadow(1px 1px 1px #222);
-  -webkit-filter: drop-shadow(1px 1px 1px #222);
+  width: 3.5em;
+  height: 1em;
+  margin-bottom: 0.13em;
 }
 
 .Melee {
   background-image: url("https://dissidiacompendium.com/images/static/icons/type/Type_Melee.png");
-  width: 36px;
-  height: 20px;
-  display: inline-block;
-  vertical-align: middle;
-  background-repeat: no-repeat;
-  background-size: contain;
-  filter: drop-shadow(3px 3px 2px #222);
-  -webkit-filter: drop-shadow(1px 1px 1px #222);
+  height: 1.5em;
+  width: 2.5em;
+  margin: -0.2em;
+  max-height: 24px;
+  max-width: 36px;
 }
 
 .Instant {
   background-image: url("https://dissidiacompendium.com/images/static/icons/type/Type_Instant.png");
   width: 24px;
   height: 24px;
-  display: inline-block;
-  vertical-align: middle;
-  background-repeat: no-repeat;
-  background-size: contain;
-  filter: drop-shadow(3px 3px 2px #222);
-  -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
 .NoEX {
   background-image: url("https://dissidiacompendium.com/images/static/icons/misc/noexcharge.png");
   width: 24px;
   height: 24px;
-  display: inline-block;
-  vertical-align: middle;
-  background-repeat: no-repeat;
-  background-size: contain;
-  filter: drop-shadow(3px 3px 2px #222);
-  -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
 .NoSummon {
   background-image: url("https://dissidiacompendium.com/images/static/icons/misc/nosummon.png");
   width: 24px;
   height: 24px;
-  display: inline-block;
-  vertical-align: middle;
-  background-repeat: no-repeat;
-  background-size: contain;
-  filter: drop-shadow(3px 3px 2px #222);
-  -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
 .Free {
   background-image: url("https://dissidiacompendium.com/images/static/icons/misc/free.png");
   width: 24px;
   height: 24px;
-  display: inline-block;
-  vertical-align: middle;
-  background-repeat: no-repeat;
-  background-size: contain;
-  filter: drop-shadow(3px 3px 2px #222);
-  -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
 .NoFree {
   background-image: url("https://dissidiacompendium.com/images/static/icons/misc/nofree.png");
   width: 24px;
   height: 24px;
-  display: inline-block;
-  vertical-align: middle;
-  background-repeat: no-repeat;
-  background-size: contain;
-  filter: drop-shadow(3px 3px 2px #222);
-  -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
 .Group {
   background-image: url("https://dissidiacompendium.com/images/static/icons/type/Type_Group.png");
   width: 24px;
   height: 24px;
-  display: inline-block;
-  vertical-align: middle;
-  background-repeat: no-repeat;
-  background-size: contain;
-  filter: drop-shadow(3px 3px 2px #222);
-  -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
 .Heals {
   background-image: url("https://dissidiacompendium.com/images/static/icons/type/Type_Heals.png");
   width: 24px;
   height: 24px;
-  display: inline-block;
-  vertical-align: middle;
-  background-repeat: no-repeat;
-  background-size: contain;
-  filter: drop-shadow(3px 3px 2px #222);
-  -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
 .IgnoreDEF {
   background-image: url("https://dissidiacompendium.com/images/static/icons/misc/IgnoreDEF.png");
   width: 24px;
   height: 24px;
-  display: inline-block;
-  vertical-align: middle;
-  background-repeat: no-repeat;
-  background-size: contain;
-  filter: drop-shadow(3px 3px 2px #222);
-  -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
 .Traps {
   background-image: url("https://dissidiacompendium.com/images/static/icons/type/Type_Trap.png");
   width: 24px;
   height: 24px;
-  display: inline-block;
-  vertical-align: middle;
-  background-repeat: no-repeat;
-  background-size: contain;
-  filter: drop-shadow(3px 3px 2px #222);
-  -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
 .Counters {
   background-image: url("https://dissidiacompendium.com/images/static/icons/type/Type_FollowUp.png");
   width: 24px;
   height: 24px;
-  display: inline-block;
-  vertical-align: middle;
-  background-repeat: no-repeat;
-  background-size: contain;
-  filter: drop-shadow(3px 3px 2px #222);
-  -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
 .FollowUp {
   background-image: url("https://dissidiacompendium.com/images/static/icons/type/Type_Fist.png");
   width: 24px;
   height: 24px;
-  display: inline-block;
-  vertical-align: middle;
-  background-repeat: no-repeat;
-  background-size: contain;
-  filter: drop-shadow(3px 3px 2px #222);
-  -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
 .Magic {
   background-image: url("https://dissidiacompendium.com/images/static/icons/type/Type_Magic.png");
-  width: 25px;
-  height: 20px;
-  display: inline-block;
-  vertical-align: middle;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  filter: drop-shadow(1px 1px 1px #222);
-  -webkit-filter: drop-shadow(1px 1px 1px #222);
+  height: 1.5em;
+  width: 1.5em;
+  margin-top: -0.2em;
+  margin-bottom: -0.2em;
+  max-height: 24px;
+  max-width: 24px;
 }
 
 .Ranged {
   background-image: url("https://dissidiacompendium.com/images/static/icons/type/Type_Ranged.png");
-  width: 36px;
-  height: 20px;
-  background-repeat: no-repeat;
-  display: inline-block;
-  vertical-align: middle;
-  background-size: contain;
-  filter: drop-shadow(2px 2px 2px #222);
-  -webkit-filter: drop-shadow(1px 1px 1px #222);
+  height: 1.5em;
+  width: 2.5em;
+  margin: -0.2em;
+  max-height: 24px;
+  max-width: 36px;
 }
 
 /*elements*/
@@ -4402,100 +4852,52 @@ h3 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Fire.png");
   width: 24px;
   height: 24px;
-  background-repeat: no-repeat;
-  display: inline-block;
-  vertical-align: middle;
-  background-size: contain;
-  filter: drop-shadow(1px 1px 1px #222);
-  -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
 .Dark {
   background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Dark.png");
   width: 24px;
   height: 24px;
-  background-repeat: no-repeat;
-  display: inline-block;
-  vertical-align: middle;
-  background-size: contain;
-  filter: drop-shadow(1px 1px 1px #222);
-  -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
 .Earth {
   background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Earth.png");
   width: 24px;
   height: 24px;
-  background-repeat: no-repeat;
-  display: inline-block;
-  vertical-align: middle;
-  background-size: contain;
-  filter: drop-shadow(1px 1px 1px #222);
-  -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
 .Holy {
   background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Holy.png");
   width: 24px;
   height: 24px;
-  background-repeat: no-repeat;
-  display: inline-block;
-  vertical-align: middle;
-  background-size: contain;
-  filter: drop-shadow(1px 1px 1px #222);
-  -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
 .Ice {
   background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Ice.png");
   width: 24px;
   height: 24px;
-  background-repeat: no-repeat;
-  display: inline-block;
-  vertical-align: middle;
-  background-size: contain;
-  filter: drop-shadow(1px 1px 1px #222);
-  -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
 .Thunder {
   background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Thunder.png");
   width: 24px;
   height: 24px;
-  background-repeat: no-repeat;
-  display: inline-block;
-  vertical-align: middle;
-  background-size: contain;
-  filter: drop-shadow(1px 1px 1px #222);
-  -webkit-filter: drop-shadow(1px 1px 1px #222);
-}
-
-.EX {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/exgaugem.png");
-  width: 24px;
-  height: 24px;
-  background-repeat: no-repeat;
-  display: inline-block;
-  vertical-align: middle;
-  background-size: contain;
-  filter: drop-shadow(1px 1px 1px #222);
-  -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
 .Water {
   background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Water.png");
   width: 24px;
   height: 24px;
-  background-repeat: no-repeat;
-  display: inline-block;
-  vertical-align: middle;
-  background-size: contain;
-  filter: drop-shadow(1px 1px 1px #222);
-  -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
 .Wind {
   background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Wind.png");
+  width: 24px;
+  height: 24px;
+}
+
+.EX {
+  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/exgaugem.png");
   width: 24px;
   height: 24px;
   background-repeat: no-repeat;
@@ -4857,12 +5259,6 @@ h3 {
   background-image: url(https://dissidiacompendium.com/images/static/icons/misc/Launch.png);
   width: 36px;
   height: 20px;
-  display: inline-block;
-  vertical-align: middle;
-  background-repeat: no-repeat;
-  background-size: contain;
-  filter: drop-shadow(3px 3px 2px #222);
-  -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
 .smallpassive {
@@ -4973,71 +5369,6 @@ h3 {
 
 .displayfex {
   display: flex;
-}
-
-.AOE::before {
-  content: "Group";
-  font-size: inherit;
-}
-
-.Follow::before {
-  content: "Follow Up";
-  color: rgb(41, 209, 41);
-  font-size: inherit;
-}
-
-.Follows_Up::before {
-  content: "Follows Up";
-  color: rgb(41, 209, 41);
-  font-size: inherit;
-}
-
-.Trap::before {
-  content: "Trap";
-  color: rgb(41, 209, 41);
-  font-size: inherit;
-}
-
-.Counter::before {
-  content: "Counter";
-  color: rgb(41, 209, 41);
-  font-size: inherit;
-}
-
-.Knock::before {
-  content: "Knock Back";
-  font-size: 1rem;
-  font-size: inherit;
-}
-
-.Heal::before {
-  content: "Heal";
-  font-size: inherit;
-}
-
-.Steal::before {
-  content: "Steal";
-  font-size: inherit;
-}
-
-.Inflicts::before {
-  content: "Inflicts";
-  font-size: inherit;
-}
-
-.Dispels::before {
-  content: "Dispels";
-  font-size: inherit;
-}
-
-.Debuff::before {
-  content: "Debuff";
-  font-size: inherit;
-}
-
-.Reduces::before {
-  content: "Reduces";
-  font-size: inherit;
 }
 
 .upstat {
@@ -5411,6 +5742,15 @@ h3 {
   background-color: #155384;
 }
 
+.p_note {
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg,#1e1e1e,transparent);
+  border-radius: 8px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  box-shadow: inset 5px 0px 4px rgba(0, 0, 0, 0.5), inset -5px 5px 4px rgba(0, 0, 0, 0.5), inset 0px -5px 4px rgba(0, 0, 0, 0.5);
+}
+
 .p_grade {
   border-left: solid 1px black;
   background: linear-gradient(180deg, #1e1e1e 0%, rgba(0, 0, 0, 0) 100%);
@@ -5425,7 +5765,58 @@ h3 {
   margin-bottom: 3px;
   margin-top: 3px;
   padding: 5px;
-  background: linear-gradient(180deg, rgba(8, 8, 8, 1) 0%, rgba(97, 96, 96, 0.8267682072829132) 6%, rgba(140, 140, 140, 0.76234243697479) 36%, rgba(73, 73, 73, 0.8267682072829132) 96%, rgba(0, 0, 0, 1) 100%);
+  background: linear-gradient(180deg, #080808 0%, #616060d3 6%, #8c8c8c 36%, #494949d3 96%, #000000 100%);
+}
+
+.cast_str{
+  font-size: .8em;
+  color: rgb(180, 180, 180);
+}
+
+.solo_buff_icon{
+  width: 58px;
+  height: 50px;
+  margin-right: 5px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: nowrap;
+}
+
+.orangebar {
+  margin-bottom: 3px;
+  margin-top: 3px;
+  padding: 5px;
+  background: linear-gradient(180deg, rgba(8, 8, 8, 1) 0%, #735925 6%, #dd9138 36%, #735925 96%, rgba(0, 0, 0, 1) 100%);
+}
+
+.mod_icon{
+  background-image: url(https://dissidiacompendium.com/images/static/icons/misc/modify_ailment.png);
+  width: 3em;
+  height: 2em;
+  display: inline-block;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.linkbar {
+  margin-bottom: 3px;
+  margin-top: 3px;
+  padding: 5px;
+  background: linear-gradient(180deg, rgba(8, 8, 8, 1) 0%, #3b2573  6%, #6442ed 36%, #3b2573  96%, rgba(0, 0, 0, 1) 100%);
+}
+
+.l_grade {
+  border-left: solid 1px black;
+  background: linear-gradient(180deg, #290134 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.yellowbar {
+  margin-bottom: 3px;
+  margin-top: 3px;
+  padding: 5px;
+  background: linear-gradient(180deg, rgba(8, 8, 8, 1) 0%, #637325 6%, #9ba829  36%, #3b4111 96%, rgba(0, 0, 0, 1) 100%);
 }
 
 .fieldbar {
@@ -5636,20 +6027,8 @@ h3 {
     font-size: small !important;
   }
 
-  .BREAK {
-    width: 44px;
-    height: 16px;
-    margin-bottom: -1px;
-  }
-
-  .BRV {
-    width: 36px;
-    height: 16px;
-  }
-
-  .HP {
-    width: 36px;
-    height: 16px;
+  .Capped {
+    height: 22px;
   }
 
   .Magic {
@@ -5658,11 +6037,6 @@ h3 {
   }
 
   .Ranged {
-    width: 29px;
-    height: 16px;
-  }
-
-  .Melee {
     width: 29px;
     height: 16px;
   }

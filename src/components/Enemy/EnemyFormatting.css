@@ -1,0 +1,1502 @@
+.enemyholderdesc {
+    padding: 8px;
+    background: #263252;
+    box-shadow: inset 5px 0px 4px rgba(0, 0, 0, 0.5), inset -5px 5px 4px rgba(0, 0, 0, 0.5), inset 0px -5px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 19px;
+    clear: both;
+    margin-bottom: 5px;
+    min-width: 250px;
+    font-size: larger;
+    white-space: pre-wrap;
+}
+
+.enemyholderdesc3 {
+    padding: 8px;
+    background: #263252;
+    box-shadow: inset 5px 0px 4px rgba(0, 0, 0, 0.5), inset -5px 5px 4px rgba(0, 0, 0, 0.5), inset 0px -5px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 19px;
+    clear: both;
+    margin-bottom: 5px;
+    min-width: 250px;
+    white-space: pre-wrap;
+}
+
+.lighterblue {
+    background: #43517a !important;
+}
+
+.largefont {
+    font-size: medium;
+}
+
+.detailsview {
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+    height: 30px;
+    cursor: pointer;
+}
+
+.enemyiconholder {
+    margin-left: 5px;
+    display: block;
+}
+
+.detailsbackground {
+    height: 30px;
+    width: 30px;
+    display: inline-table;
+    margin-left: 5px;
+    filter: drop-shadow(1px 1px 2px #222);
+    -webkit-filter: drop-shadow(1px 1px 2px #222);
+}
+
+.detailsview::before {
+    content: "D";
+    font-size: 30px;
+}
+
+@media (hover: hover) {
+    .detailsview:hover {
+        transform: translateY(-1px);
+        transition: all ease 0.3s;
+    }
+}
+
+.enemyholderdesc2 {
+    padding: 8px;
+    background: #263252;
+    box-shadow: inset 5px 0px 4px rgba(0, 0, 0, 0.5), inset -5px 5px 4px rgba(0, 0, 0, 0.5), inset 0px -5px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 19px;
+    clear: both;
+    margin-bottom: 5px;
+    min-width: 250px;
+    font-size: larger;
+    white-space: pre-wrap;
+}
+
+.enemyholderdescresist {
+    margin-left: 5px;
+    padding: 8px;
+    background: #263252;
+    box-shadow: inset 5px 0px 4px rgba(0, 0, 0, 0.5), inset -5px 5px 4px rgba(0, 0, 0, 0.5), inset 0px -5px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 19px;
+    clear: both;
+    min-width: 250px;
+    font-size: larger;
+    display: grid;
+    align-content: center;
+    margin-top: 5px;
+}
+
+.normalfont {
+    font-size: medium !important;
+}
+
+.enemyholderdescattack {
+    margin-left: 5px;
+    padding: 8px;
+    background: #263252;
+    box-shadow: inset 5px 0px 4px rgba(0, 0, 0, 0.5), inset -5px 5px 4px rgba(0, 0, 0, 0.5), inset 0px -5px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 19px;
+    clear: both;
+    min-width: 250px;
+    font-size: larger;
+    display: grid;
+    align-content: center;
+}
+
+.nospace:before {
+    margin-bottom: -5px;
+    padding-top: 0px;
+}
+
+.similarholder {
+    padding: 8px;
+    background: #d3d3d3;
+    box-shadow: inset 5px 0px 4px rgba(0, 0, 0, 0.5), inset -5px 5px 4px rgba(0, 0, 0, 0.5), inset 0px -5px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 19px;
+    clear: both;
+    margin-bottom: 5px;
+    min-width: 250px;
+    font-size: larger;
+}
+
+.enemytopcard {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-top: 2px black solid;
+    border-bottom: 2px black solid;
+    text-align: center;
+    font-weight: bold;
+    background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #3f5b92 3.67%, #3f5b92 96.44%, rgba(30, 55, 88, 0) 100%);
+}
+
+.enemytitledetails {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-top: 2px black solid;
+    border-bottom: 2px black solid;
+    font-weight: bold;
+    background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #3f5b92 3.67%, #3f5b92 96.44%, rgba(30, 55, 88, 0) 100%);
+}
+
+.centeralign {
+    text-align: center !important;
+}
+
+.nodisplayenemy {
+    opacity: 0;
+}
+
+.statsholder {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.statsdisplay {
+    width: 450px;
+    margin-bottom: 0px;
+}
+
+.fill {
+    width: 100%;
+    display: grid;
+}
+
+.height-fill {
+    margin-top: 0px;
+    min-height: calc(100% - 17px);
+    display: grid;
+    align-content: center;
+    margin-left: 5px;
+}
+
+.nofill {
+    width: 0px;
+}
+
+.blockdisplay {
+    display: block;
+}
+
+
+.summonedenemyholder {
+    transition: all .2s;
+    transform-origin: 50% 0;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    font-weight: bold;
+    background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #8e8f8f 3.67%, #8e8f8f 96.44%, rgba(30, 55, 88, 0) 100%);
+    clear: both;
+}
+
+.EFGaugeHolder {
+    height: 38px;
+    width: 199px;
+    margin-right: auto;
+    margin-left: auto;
+    align-content: right;
+    filter: drop-shadow(2px 2px 2px#222);
+    -webkit-filter: drop-shadow(2px 2px 2px#222);
+}
+
+.efgbanner {
+    background-color: #18213c;
+}
+
+.efgbase {
+    background-color: #18213c;
+}
+
+.fontnormal {
+    font-size: medium;
+}
+
+.FGaugeTop {
+    position: absolute;
+    z-index: 10;
+}
+
+.FGaugeMiddle {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/buttons/frgauge/EnemyBarMiddle2.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 14px;
+    height: 38px;
+    width: 168px;
+    position: absolute;
+}
+
+.FGaugeMiddleFade {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/buttons/frgauge/EnemyBarMiddleFade2.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 14px;
+    height: 38px;
+    width: 168px;
+    position: absolute;
+    opacity: .5;
+}
+
+.FGaugeBottom {
+    z-index: 1;
+
+}
+
+.summonedenemyholder li {
+    width: 128px;
+    height: 128px;
+    padding: 4px;
+    display: inline-block;
+    vertical-align: top;
+    transition: all .2s;
+}
+
+.resisttypeholder {
+    margin: 2px;
+    box-shadow: inset 5px 0px 4px rgba(0, 0, 0, 0.5), inset -5px 5px 4px rgba(0, 0, 0, 0.5), inset 0px -5px 4px rgba(0, 0, 0, 0.5);
+    background-color: #18213c;
+    border-radius: 10px;
+    display: flex;
+    align-items: baseline;
+    justify-content: left;
+    text-align: left;
+    min-height: 30px;
+    height: auto;
+    padding-left: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    align-items: center;
+}
+
+.orbcondunit {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.orbcondtext {
+    justify-content: space-around;
+    align-items: center;
+    width: 1000px;
+}
+
+.orbconbholder {
+    margin: 2px;
+    box-shadow: inset 5px 0px 4px rgba(0, 0, 0, 0.5), inset -5px 5px 4px rgba(0, 0, 0, 0.5), inset 0px -5px 4px rgba(0, 0, 0, 0.5);
+    background-color: #18213c;
+    border-radius: 10px;
+    display: flex;
+    align-items: baseline;
+    justify-content: left;
+    text-align: left;
+    min-height: 30px;
+    height: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    align-items: center;
+}
+
+.orbicon2 {
+    filter: drop-shadow(2px 2px 2px#222);
+    -webkit-filter: drop-shadow(2px 2px 2px#222);
+}
+
+.forcebholder {
+    font-size: initial;
+}
+
+.orbholder {
+    width: 220px;
+    display: block;
+}
+
+.textsafe {
+    width: 220px;
+    overflow: auto;
+    display: inline-block;
+}
+
+
+.resistlow {
+    color: aqua;
+    text-align: left;
+    text-justify: inter-word;
+    padding-left: 5px;
+}
+
+.resistimmune {
+    color: rgb(255, 95, 95);
+    text-align: left;
+    overflow: auto;
+    display: inline-block;
+    padding-right: 10px;
+    padding-left: 5px;
+}
+
+.resisthigh {
+    color: rgb(255, 95, 95);
+    text-align: left;
+    text-justify: inter-word;
+    padding-left: 5px;
+}
+
+.resistancetextspacer {
+    width: 90px;
+    min-width: 90px;
+}
+
+.blockresists {
+    display: block;
+    width: 100%;
+}
+
+.blockresists2 {
+    display: block;
+    width: 100%;
+}
+
+.resistsholder {
+    display: flex;
+    justify-content: left;
+}
+
+.TestDropdown {
+    color: white;
+}
+
+.resiststext {
+    color: #a3a35c;
+    font-size: large;
+    text-align: center;
+    display: flex;
+    padding-right: 20px;
+    align-content: center;
+    align-items: center;
+}
+
+.enemysubheader {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    font-weight: bold;
+    background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #3f5b92 3.67%, #3f5b92 96.44%, rgba(30, 55, 88, 0) 100%);
+}
+
+.descsubheader {
+    background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #81a0c9 3.67%, #81a0c9 96.44%, rgba(30, 55, 88, 0) 100%);
+    width: 100%;
+}
+
+.Increase {
+    color: rgb(47, 255, 47);
+}
+
+.Resume {
+    color: #ebeb60;
+}
+
+.Cancel {
+    color: aqua;
+}
+
+.Tick {
+    color: rgb(255, 95, 95);
+}
+
+.elements1 {
+    width: fit-content;
+}
+
+.imageelementholder {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.imageelementholder2 {
+    display: flex;
+    align-items: center;
+}
+
+.makeleft {
+    text-align: left;
+}
+
+.enemytoptext {
+    padding-top: 5px;
+    width: fit-content;
+}
+
+.enemydescholder {
+    text-align: left;
+    white-space: pre-wrap;
+}
+
+.elementsholder {
+    display: flex;
+    justify-content: center;
+}
+
+.elementsholder2 {
+    display: flex;
+    justify-content: center;
+    margin-left: 25px;
+    flex-wrap: wrap;
+}
+
+.hr {
+    background: white;
+    height: 2px;
+    border: 2px solid black;
+}
+
+.elementtext {
+    color: #a3a35c;
+    font-size: large;
+    display: block;
+    margin-right: 20px;
+    padding-top: 60px;
+}
+
+.elementholder {
+    margin: 2px;
+    box-shadow: inset 5px 0px 4px rgba(0, 0, 0, 0.5), inset -5px 5px 4px rgba(0, 0, 0, 0.5), inset 0px -5px 4px rgba(0, 0, 0, 0.5);
+    background-color: #18213c;
+    width: 42px;
+    height: 85px;
+    border-radius: 20px;
+    vertical-align: text-bottom;
+}
+
+.elementholder2 {
+    margin: 2px;
+    box-shadow: inset 5px 0px 4px rgba(0, 0, 0, 0.5), inset -5px 5px 4px rgba(0, 0, 0, 0.5), inset 0px -5px 4px rgba(0, 0, 0, 0.5);
+    background-color: #18213c;
+    border-radius: 20px;
+    vertical-align: text-bottom;
+    height: 60px;
+    width: 24px;
+}
+
+._opacity0 {
+    opacity: 0 !important;
+    visibility: hidden;
+    transition: height .1s;
+    height: 0px !important;
+    padding: 0px;
+    margin: 0px;
+}
+
+.elementholder3 {
+    margin: 2px;
+    box-shadow: inset 5px 0px 4px rgba(0, 0, 0, 0.5), inset -5px 5px 4px rgba(0, 0, 0, 0.5), inset 0px -5px 4px rgba(0, 0, 0, 0.5);
+    background-color: #18213c;
+    width: 42px;
+    height: 85px;
+    border-radius: 20px;
+    vertical-align: text-bottom;
+}
+
+.elementholder99 {
+    margin-top: 10px;
+    box-shadow: inset 5px 0px 4px rgba(0, 0, 0, 0.5), inset -5px 5px 4px rgba(0, 0, 0, 0.5), inset 0px -5px 4px rgba(0, 0, 0, 0.5);
+    background-color: #18213c;
+    width: 42px;
+    border-radius: 20px;
+    vertical-align: text-bottom;
+    z-index: 99;
+    position: absolute;
+    transition: opacity .2s linear, height .1s;
+    opacity: 1;
+    filter: drop-shadow(3px 3px 3px #222);
+    -webkit-filter: drop-shadow(3px 3px 3px #222);
+}
+
+
+.attacktypeholder {
+    margin: 2px;
+    box-shadow: inset 5px 0px 4px rgba(0, 0, 0, 0.5), inset -5px 5px 4px rgba(0, 0, 0, 0.5), inset 0px -5px 4px rgba(0, 0, 0, 0.5);
+    background-color: #18213c;
+    border-radius: 10px;
+    height: 84px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.damagetypeimage {
+    display: flex;
+    margin-top: 2px;
+    margin-right: 20px;
+}
+
+.enemybuff {
+    background-image: url(https://dissidiacompendium.com/images/static/icons/buff/buff_personup_unframed.png);
+    width: 32px;
+    height: 32px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+    filter: drop-shadow(1px 1px 1px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.enemydebuff {
+    background-image: url(https://dissidiacompendium.com/images/static/icons/buff/debuff_persondown_unframed.png);
+    width: 32px;
+    height: 32px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+    filter: drop-shadow(1px 1px 1px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.enemygear {
+    background-image: url(https://dissidiacompendium.com/images/static/icons/roles/Role_EnemyGear.png);
+    width: 32px;
+    height: 32px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+    filter: drop-shadow(1px 1px 1px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.enemyimage {
+    height: 128px;
+    width: 128px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    position: relative;
+    -webkit-filter: drop-shadow(2px 2px 2px #222);
+    filter: drop-shadow(2px 2px 2px #222);
+}
+
+.marg10 {
+    margin-top: 10px;
+}
+
+.FireElement {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Fire.png");
+    width: 42px;
+    height: 42px;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+    filter: drop-shadow(1px 1px 1px #222);
+}
+
+.DarkElement {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Dark.png");
+    width: 42px;
+    height: 42px;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+    filter: drop-shadow(1px 1px 1px #222);
+}
+
+.EarthElement {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Earth.png");
+    width: 42px;
+    height: 42px;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+    filter: drop-shadow(1px 1px 1px #222);
+}
+
+.HolyElement {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Holy.png");
+    width: 42px;
+    height: 42px;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+    filter: drop-shadow(1px 1px 1px #222);
+}
+
+.IceElement {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Ice.png");
+    width: 42px;
+    height: 42px;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+    filter: drop-shadow(1px 1px 1px #222);
+}
+
+.ThunderElement {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Thunder.png");
+    width: 42px;
+    height: 42px;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+    filter: drop-shadow(1px 1px 1px #222);
+}
+
+.WaterElement {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Water.png");
+    width: 42px;
+    height: 42px;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+    filter: drop-shadow(1px 1px 1px #222);
+}
+
+.WindElement {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Wind.png");
+    width: 42px;
+    height: 42px;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+
+}
+
+.resist1holder {
+    height: 42px;
+    width: 42px;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.attackresist1holder {
+    width: 52px;
+}
+
+.resistund {
+    padding-top: 1em;
+}
+
+.attackresist1 {
+    text-align: left;
+    padding-left: 12px;
+}
+
+.attackresist2 {
+    padding-top: 5px;
+    content: url(https://dissidiacompendium.com/images/static/icons/resist/2.png);
+    margin-right: 20px;
+}
+
+.attackresist3 {
+    padding-top: 5px;
+    content: url(https://dissidiacompendium.com/images/static/icons/resist/3.png);
+    margin-right: 20px;
+}
+
+.attackresist4 {
+    padding-top: 5px;
+    content: url(https://dissidiacompendium.com/images/static/icons/resist/4.png);
+    margin-right: 20px;
+}
+
+.attackresist5 {
+    padding-top: 5px;
+    content: url(https://dissidiacompendium.com/images/static/icons/resist/5.png);
+    margin-right: 20px;
+}
+
+.attackresist6 {
+    padding-top: 5px;
+    content: url(https://dissidiacompendium.com/images/static/icons/resist/6.png);
+    margin-right: 20px;
+}
+
+.resist2 {
+    padding-top: 5px;
+    content: url(https://dissidiacompendium.com/images/static/icons/resist/2.png);
+}
+
+.resist3 {
+    padding-top: 5px;
+    content: url(https://dissidiacompendium.com/images/static/icons/resist/3.png);
+}
+
+.resist4 {
+    padding-top: 5px;
+    content: url(https://dissidiacompendium.com/images/static/icons/resist/4.png);
+}
+
+.resist5 {
+    padding-top: 5px;
+    content: url(https://dissidiacompendium.com/images/static/icons/resist/5.png);
+}
+
+.resist6 {
+    padding-top: 5px;
+    content: url(https://dissidiacompendium.com/images/static/icons/resist/6.png);
+}
+
+.resist2s {
+    content: url(https://dissidiacompendium.com/images/static/icons/resist/2.png);
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+}
+
+.resist3s {
+    content: url(https://dissidiacompendium.com/images/static/icons/resist/3.png);
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+}
+
+.resist4s {
+    content: url(https://dissidiacompendium.com/images/static/icons/resist/4.png);
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+}
+
+.resist5s {
+    content: url(https://dissidiacompendium.com/images/static/icons/resist/5.png);
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+}
+
+.resist6s {
+    content: url(https://dissidiacompendium.com/images/static/icons/resist/6.png);
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+}
+
+.elements2 {
+    display: none;
+}
+
+.similarenemyholder {
+    transition: all .2s;
+    transform-origin: 50% 0;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    font-weight: bold;
+    background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #8e8f8f 3.67%, #8e8f8f 96.44%, rgba(30, 55, 88, 0) 100%);
+    clear: both;
+}
+
+.similarenemyholder a {
+    height: 96px;
+    width: 96px;
+}
+
+.subtextsmaller {
+    font-size: smaller;
+}
+
+
+.addbordertop {
+    border-top: 2px black solid;
+}
+
+.addborderbottom {
+    border-bottom: 2px black solid;
+}
+
+
+.summonedenemysubbanner {
+    margin-bottom: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    font-size: smaller;
+    text-align: center;
+    background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #3f5b92 3.67%, #3f5b92 96.44%, rgba(30, 55, 88, 0) 100%);
+}
+
+.enemyforcesubbanner {
+    margin-bottom: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    font-size: smaller;
+    text-align: center;
+    background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #5d38f1 3.67%, #5d38f1 96.44%, rgba(30, 55, 88, 0) 100%);
+}
+
+.similarenemycard {
+    height: 96px;
+    width: 96px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: block;
+    position: relative;
+    filter: drop-shadow(2px 2px 2px #222);
+}
+
+@media (hover: hover) {
+    .similarenemycard:hover {
+        transform: translateY(-1px);
+        filter: brightness(1.2);
+        transition: all ease 0.3s;
+        -webkit-filter: brightness(1.2);
+    }
+
+
+}
+
+.infotitleholderenemybuff {
+    float: left;
+    display: flex;
+    margin-top: 3px;
+    padding-left: 5px;
+    padding-right: 0px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    /* max-width: 185px; */
+    width: 58px;
+    height: 45px;
+    position: relative;
+}
+
+.infotitleholderenemybuff span {
+    width: 58px;
+    height: 45px;
+}
+
+.largerfont {
+    font-size: larger;
+}
+
+.bufficonenemy {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(2px 2px 2px #222);
+    -webkit-filter: drop-shadow(2px 2px 2px #222);
+}
+
+.subtextfg {
+    margin-top: 5px;
+    text-align: right !important;
+    font-size: 12px;
+}
+
+.infonameholderenemybuff {
+    padding: 5px;
+    padding-left: 8px;
+    border: solid 3px #d9dade;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 10px #000000;
+}
+
+@media (max-width: 815px) {
+    .fontnormal {
+        font-size: small;
+    }
+
+    .infotitleholderenemybuff {
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .largerfont {
+        font-size: smaller;
+    }
+
+    .infonameholderenemybuff {
+        margin-top: 5px;
+        margin-left: 0px;
+        width: calc(100% - 19px);
+    }
+}
+
+.all_enemies {
+    background-image: url(https://dissidiacompendium.com/images/static/icons/misc/All_Enemies.png);
+    width: 30px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-size: contain;
+    filter: drop-shadow(1px 1px 1px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.all_party {
+    background-image: url(https://dissidiacompendium.com/images/static/icons/misc/All_Party.png);
+    width: 30px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-size: contain;
+    filter: drop-shadow(1px 1px 1px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.recastgold {
+    background: linear-gradient(90deg, #949413 0%, #949413 16%, rgba(77, 86, 97, 0) 100%);
+    display: block;
+    filter: drop-shadow(1px 1px 1px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+    padding-left: 2px;
+    margin-top: 5px;
+}
+
+.forceblue {
+    background: linear-gradient(90deg, #0b11c7 0%, #0b11c7 16%, rgba(77, 86, 97, 0) 100%);
+    display: block;
+    filter: drop-shadow(1px 1px 1px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+    padding-left: 2px;
+    margin-top: 5px;
+}
+
+.orbpink {
+    background: linear-gradient(90deg, #e50ae9 0%, #e50ae9 16%, rgba(77, 86, 97, 0) 100%);
+    display: block;
+    filter: drop-shadow(1px 1px 1px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+    padding-left: 2px;
+    margin-top: 5px;
+}
+
+
+.norecast {
+    background: linear-gradient(90deg, #263252 0%, #263252 16%, rgba(77, 86, 97, 0) 100%);
+    display: block;
+    filter: drop-shadow(1px 1px 1px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+    padding-left: 2px;
+    margin-top: 5px;
+}
+
+.ai_targets {
+    background: #1e3758f0;
+}
+
+.Material {
+    content: "<Material>";
+    font-size: inherit;
+}
+
+.Spiritual {
+    content: "<Spiritual>";
+    font-size: inherit;
+}
+
+.Dragonstar::before {
+    content: "<Dragonstar>";
+    font-size: inherit;
+}
+
+
+
+.similarenemyholder li {
+    width: 96px;
+    height: 96px;
+    padding: 4px;
+    display: inline-block;
+    vertical-align: top;
+    transition: all .2s;
+}
+
+.summonhidersmall {
+    display: none;
+}
+
+.summonhiderlarge {
+    display: block;
+}
+
+.spansummon {
+    margin-left: 70px;
+}
+
+.returnbutton {
+    display: none;
+}
+
+.Pause {
+    color: #8e8f8f;
+}
+
+.textcenter {
+    margin-top: 5px;
+    text-align: center;
+}
+
+.characterhelper {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    transition: all .2s;
+    transform-origin: 50% 0;
+    padding: 8px;
+    background: #43517a;
+    box-shadow: inset 5px 0px 4px rgba(0, 0, 0, 0.5), inset -5px 5px 4px rgba(0, 0, 0, 0.5), inset 0px -5px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 19px;
+    clear: both;
+}
+
+@media (max-width: 960px) {
+    .summonhidersmall {
+        display: block;
+    }
+
+    .summonhiderlarge {
+        display: none;
+    }
+
+    .spansummon {
+        margin-left: 0px;
+    }
+
+    .height-fill {
+        margin-top: 5px;
+        margin-left: 0px;
+    }
+}
+
+@media (max-width: 1115px) {
+    .height-fill {
+        min-height: 0px;
+        margin-top: 5px;
+    }
+
+    .enemyholderdescresist {
+        margin-left: 0px;
+    }
+
+    .enemyholderdescattack {
+        margin-left: 0px;
+        margin-top: 5px;
+    }
+
+    .statsdisplay {
+        width: auto;
+    }
+
+    .statsholder {
+        display: block;
+    }
+}
+
+@media (hover: hover) {
+    .returnbutton:hover {
+        filter: brightness(1.2);
+        -webkit-filter: brightness(1.2);
+        transition: all ease 0.3s;
+    }
+}
+
+.returnbutton:active {
+    filter: drop-shadow(0px 0px 2px #222) brightness(.8);
+    -webkit-filter: drop-shadow(0px 0px 2px #222) brightness(.8);
+    transition: all 0s;
+}
+
+@media (max-width: 800px) {
+    .returnbutton {
+        display: block;
+        position: fixed;
+        right: 10px;
+        top: 0px;
+        z-index: 500;
+        color: white;
+        text-decoration: none;
+        background-image: url(https://dissidiacompendium.com/images/static/icons/misc/back.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        border: none;
+        cursor: pointer;
+        filter: drop-shadow(0px 0px 2px #222);
+        height: 38px;
+        width: 38px;
+        float: right;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        margin-top: 5px;
+    }
+
+    .returnicon {
+        margin-left: 3px;
+        margin-top: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        vertical-align: middle;
+        height: 30px;
+        filter: invert(1) drop-shadow(1px 1px 0px black) drop-shadow(-1px 1px 0px black) drop-shadow(1px -1px 0px black) drop-shadow(-1px -1px 0px black);
+    }
+}
+
+@media (max-width: 815px) {
+    .largefont {
+        font-size: .9em;
+    }
+
+    .elementsholder2 {
+        margin-left: 10px;
+    }
+
+    .forcebholder {
+        font-size: small;
+    }
+
+    .resistancetextspacer {
+        width: 70px;
+        min-width: 70px;
+    }
+
+    .enemybuff {
+        height: 24px;
+        width: 24px;
+    }
+
+    .enemydebuff {
+        height: 24px;
+        width: 24px;
+    }
+
+    .enemygear {
+        height: 24px;
+        width: 24px;
+    }
+
+    .leveltext__control {
+        min-width: 0px !important;
+    }
+
+    .returnlink {
+        color: white;
+        text-decoration: none;
+    }
+
+    .enemytopcard {
+        display: inline-block;
+        width: 100%;
+        padding: 0px;
+    }
+
+    .enemytoptext {
+        width: 100%;
+    }
+
+    .attackresist1holder {
+        width: 33px;
+    }
+
+
+    .similarenemyholder li {
+        height: 96px;
+        width: 96px;
+    }
+
+    .summonedenemyholder li {
+        height: 96px;
+        width: 96px;
+    }
+
+    .orbcondunit {
+        display: block;
+    }
+
+    .orbcondtext {
+        width: auto;
+        font-size: small;
+    }
+
+    .orbholder {
+        margin-right: auto;
+        margin-left: auto;
+        font-size: small;
+    }
+
+    .orbicon {
+        width: 64px;
+        height: 64px;
+    }
+
+    .orbicon2 {
+        width: 64px;
+        height: 64px;
+    }
+
+    .resistlow {
+        width: calc(100% - 100px);
+    }
+
+    .resisthigh {
+        width: calc(100% - 100px);
+    }
+
+    .resistimmune {
+        width: calc(100% - 100px);
+    }
+
+    .resistsholder {
+        display: flex;
+        justify-content: center;
+        width: auto;
+        padding-right: 0px;
+    }
+
+    .resiststext {
+        position: absolute;
+        min-height: 0px;
+        justify-content: center;
+        width: auto;
+        padding-right: 0px;
+        align-self: auto;
+    }
+
+    .resiststext span {
+        padding-right: 0px;
+    }
+
+    .blockresists {
+        margin-top: 25px;
+    }
+
+    .resisttypeholder {
+        font-size: small;
+        width: auto;
+    }
+
+    .enemydescholder {
+        font-size: small;
+    }
+
+    .attacktypeholder {
+        height: 36px;
+        margin-top: 25px;
+        width: 90px;
+    }
+
+    .damagetypeimage {
+        height: 32px;
+        width: 45px;
+        margin-right: 0px;
+    }
+
+    .attackresist1 {
+        margin-top: 2px;
+        margin-right: 5px;
+    }
+
+    .attackresist2 {
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 24px;
+        height: 24px;
+    }
+
+    .attackresist3 {
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 24px;
+        height: 24px;
+    }
+
+    .attackresist4 {
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 24px;
+        height: 24px;
+    }
+
+    .attackresist5 {
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 24px;
+        height: 24px;
+    }
+
+    .attackresist6 {
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 24px;
+        height: 24px;
+    }
+
+    .elements1 {
+        display: none;
+    }
+
+    .elements2 {
+        display: block;
+        margin-top: 5px;
+    }
+
+    .nomargenemy {
+        margin-bottom: 0px !important;
+    }
+
+    .enemyholderdesc {
+        font-size: medium;
+    }
+
+    .enemyholderdesc2 {
+        font-size: medium;
+        border-radius: 0 0 19px 19px;
+        box-shadow: none;
+        border-left: solid 3px #7a7a7a;
+        border-right: solid 3px #7a7a7a;
+        border-bottom: solid 3px #7a7a7a;
+    }
+
+    .elementtext {
+        padding-top: 0px;
+        justify-content: center;
+        position: absolute;
+        margin-right: 0px;
+    }
+
+    .elementholder {
+        margin-top: 25px;
+        height: 60px;
+        width: 24px;
+    }
+
+    .elementholder3 {
+        height: 60px;
+        width: 24px;
+    }
+
+    .elementholder99 {
+        margin-top: 5px;
+        width: 24px;
+    }
+
+    .enemyimage {
+        height: 96px;
+        width: 96px;
+    }
+
+    .resist1holder {
+        margin-top: 5px;
+        width: 24px;
+        height: 24px;
+    }
+
+    .resist2 {
+        width: 24px;
+        height: 24px;
+    }
+
+    .resist3 {
+        width: 24px;
+        height: 24px;
+    }
+
+    .resist4 {
+        width: 24px;
+        height: 24px;
+    }
+
+    .resist5 {
+        width: 24px;
+        height: 24px;
+    }
+
+    .resist6 {
+        width: 24px;
+        height: 24px;
+    }
+
+    .FireElement {
+        width: 24px;
+        height: 24px;
+    }
+
+    .IceElement {
+        width: 24px;
+        height: 24px;
+    }
+
+    .ThunderElement {
+        width: 24px;
+        height: 24px;
+    }
+
+    .WaterElement {
+        width: 24px;
+        height: 24px;
+    }
+
+    .EarthElement {
+        width: 24px;
+        height: 24px;
+    }
+
+    .WindElement {
+        width: 24px;
+        height: 24px;
+    }
+
+    .HolyElement {
+        width: 24px;
+        height: 24px;
+    }
+
+    .DarkElement {
+        width: 24px;
+        height: 24px;
+    }
+}

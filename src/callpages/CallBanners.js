@@ -4,9 +4,9 @@ import { getBanners } from '../redux/ducks/banners';
 import { getCharacters } from '../redux/ducks/characters';
 import { getJPToggle } from '../redux/ducks/jptoggle';
 import Banners from '../Banners';
-import Loading from './_loading'
+import Loading from '../components/Loading'
 
-const CallBannersPage = () => {
+export default function CallBanners(){
 
     const dispatch = useDispatch();
 
@@ -46,5 +46,3 @@ const CallBannersPage = () => {
     )
 
 }
-
-export default CallBannersPage;

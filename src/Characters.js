@@ -3,10 +3,10 @@ import { useStateIfMounted } from "use-state-if-mounted";
 import { useDispatch } from "react-redux";
 import { setFalse, setTrue } from './redux/ducks/jptoggle'
 import './Characters.css';
-import Tippy from './formatting/TippyDefaults.js';
+import Tippy from './components/TippyDefaults.js';
 import { Helmet } from 'react-helmet-async';
 import Select from 'react-select';
-import CharacterFiltering from './formatting/CharacterFilterReturns.js'
+import CharacterFilterReturns from './components/Characters/CharacterFilterReturns.js'
 import { ImSortAmountAsc } from 'react-icons/im';
 import { ImSortAmountDesc } from 'react-icons/im';
 import { TiArrowSortedDown } from 'react-icons/ti';
@@ -15,13 +15,16 @@ import { IoMdCloseCircleOutline } from 'react-icons/io';
 import { ImWarning } from 'react-icons/im';
 import { IoSearch } from 'react-icons/io5';
 import { FaUndoAlt } from 'react-icons/fa';
-import { getQuery, getQueryStringVal, useQueryParam } from './processing/urlparams'
+import { getQuery, getQueryStringVal, useQueryParam } from './components/URLParams'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { FaShareSquare } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
-import roles from './characterpages/direct/formatting/command_ability/ailment_tags.json'
+import roles from './processing/ailment/ailment_tags.json'
 
-const Characters = ({ ProcessedCharacters, jptoggledata }) => {
+export default function Characters({ 
+  ProcessedCharacters, 
+  jptoggledata 
+}){
 
   const [rawData, setrawData] = useStateIfMounted(Object.values(ProcessedCharacters))
   const [ver, setver] = useStateIfMounted(jptoggledata == true ? "JP" : "GL")
@@ -3104,6 +3107,7 @@ const Characters = ({ ProcessedCharacters, jptoggledata }) => {
               <input
                 className="char-search-bar"
                 type="text"
+                id="search"
                 placeholder="Search Name"
                 value={searchdisplay}
                 onChange={handleChange}
@@ -3547,14 +3551,14 @@ const Characters = ({ ProcessedCharacters, jptoggledata }) => {
             <div className="similarbanner">Refine</div>
             <div className="margeholder">
               <div className="Merge">
-                <label className="MergeText">Merge Filters?</label>
+                <label htmlFor="search" className="MergeText">Merge Filters?</label>
                 <div key="mergecheck1" className={`${merge == true ? "nodisplay" : `uncheck`}`} onClick={togglemerge} />
                 <div key="mergecheck2" className={`${merge == true ? "check" : `nodisplay`}`} onClick={togglemerge} />
               </div>
             </div>
             <div className="margeholder">
               <div className="Merge">
-                <label className="MergeText">Spoilers?</label>
+                <label htmlFor="search" className="MergeText">Spoilers?</label>
                 <div key="mergecheck1" className={`${spoilers == true ? "nodisplay" : `uncheck`}`} onClick={spoilersbutton} />
                 <div key="mergecheck2" className={`${spoilers == true ? "check" : `nodisplay`}`} onClick={spoilersbutton} />
               </div>
@@ -3578,6 +3582,7 @@ const Characters = ({ ProcessedCharacters, jptoggledata }) => {
                 <input
                   className="search-bar"
                   type="text"
+                  id="search2"
                   placeholder="Search Name"
                   value={searchdisplay}
                   onChange={handleChange}
@@ -3638,7 +3643,7 @@ const Characters = ({ ProcessedCharacters, jptoggledata }) => {
               {bannermatch}
             </div>
           }
-          <CharacterFiltering
+          <CharacterFilterReturns
             match={chars}
             reverse={reverse}
             Sortsearch={Sortsearch}
@@ -3651,5 +3656,3 @@ const Characters = ({ ProcessedCharacters, jptoggledata }) => {
     </div>
   );
 }
-
-export default Characters;

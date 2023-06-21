@@ -7,9 +7,9 @@ import { getPlayIndex } from '../redux/ducks/playindex';
 import { getMusicKey } from '../redux/ducks/playindex';
 import { getPlayList } from '../redux/ducks/playlist'
 import JukeBox from '../JukeBox'
-import Loading from './_loading'
+import Loading from '../components/Loading'
 
-const CallJukeBoxPage = () => {
+export default function CallJukeBoxPage(){
 
     const dispatch = useDispatch();
 
@@ -84,5 +84,3 @@ const CallJukeBoxPage = () => {
     )
 
 }
-
-export default CallJukeBoxPage;

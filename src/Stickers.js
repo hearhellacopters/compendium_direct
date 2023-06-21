@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useStateIfMounted } from "use-state-if-mounted";
 import { Link } from 'react-router-dom'
 import './Spheres.css';
-import Tippy from './formatting/TippyDefaults.js';
+import Tippy from './components/TippyDefaults.js';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
 import { Helmet } from 'react-helmet-async';
@@ -15,12 +15,16 @@ import { TiArrowSortedUp } from 'react-icons/ti';
 import { IoMdCloseCircleOutline } from 'react-icons/io';
 import { IoSearch } from 'react-icons/io5';
 import { FaUndoAlt } from 'react-icons/fa';
-import { getQuery, getQueryStringVal, useQueryParam } from './processing/urlparams'
+import { getQuery, getQueryStringVal, useQueryParam } from './components/URLParams'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { FaShareSquare } from 'react-icons/fa';
 import { setFalse, setTrue } from './redux/ducks/jptoggle'
 
-const Stickers = ({ ProcessedStickers, ProcessedCharacters, jptoggledata }) => {
+export default function Stickers({ 
+  ProcessedStickers, 
+  ProcessedCharacters, 
+  jptoggledata 
+}){
 
   const StickerLimit = 25;
 
@@ -377,6 +381,7 @@ const Stickers = ({ ProcessedStickers, ProcessedCharacters, jptoggledata }) => {
               <input
                 className="char-search-bar"
                 type="text"
+                id="search"
                 placeholder="Name Search"
                 value={searchdisplay}
                 onChange={handleChange}
@@ -422,6 +427,7 @@ const Stickers = ({ ProcessedStickers, ProcessedCharacters, jptoggledata }) => {
                 <input
                   className="search-bar"
                   type="text"
+                  id="search2"
                   placeholder="Name Search"
                   value={searchdisplay}
                   onChange={handleChange}
@@ -505,4 +511,3 @@ const Stickers = ({ ProcessedStickers, ProcessedCharacters, jptoggledata }) => {
     </div>
   );
 }
-export default Stickers;

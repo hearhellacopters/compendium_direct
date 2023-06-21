@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from "react-redux";
-import { useLocation, Link, Navigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import './Summons.css'
 import { Helmet } from 'react-helmet-async';
-import SummonsFormatting from './formatting/SummonsFormatting';
+import SummonsFormatting from './components/Summons/SummonsFormatting';
 
-const Summons = ({
+export default function Summons({
   match,
   ProcessedSummons,
   ProcessedSummonLevels,
   ProcessedSummonPassives
-}) => {
+}){
 
   const [locator, setLocator] = useState(capitalize(match.params.id));
 
@@ -173,5 +172,3 @@ const Summons = ({
     );
   }
 }
-
-export default Summons;

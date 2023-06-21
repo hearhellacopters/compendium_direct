@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 import { getCharacters } from '../redux/ducks/characters';
-import CharacterWardrobePage from '../characterpages/CharacterWardrobePage';
-import Loading from './_loading'
+import Wardrobe from '../Wardrobe';
+import Loading from '../components/Loading'
 
-const CallWardrobe = () => {
+export default function CallWardrobe(){
 
     const match = {
         params: useParams()
@@ -29,7 +29,7 @@ const CallWardrobe = () => {
 
     return (
         ProcessedCharacters != undefined ?
-            <CharacterWardrobePage
+            <Wardrobe
                 ProcessedCharacters={ProcessedCharacters}
                 match={match} />
             :
@@ -37,5 +37,3 @@ const CallWardrobe = () => {
     )
 
 }
-
-export default CallWardrobe;

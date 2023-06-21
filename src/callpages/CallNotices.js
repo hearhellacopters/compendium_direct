@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getNotices } from '../redux/ducks/notices';
 import { getJPToggle } from '../redux/ducks/jptoggle';
 import Notices from '../Notices';
-import Loading from './_loading'
+import Loading from '../components/Loading'
 
-const CallNoticePage = () => {
+export default function CallNotices(){
 
     const dispatch = useDispatch();
 
@@ -38,5 +38,3 @@ const CallNoticePage = () => {
     )
 
 }
-
-export default CallNoticePage;

@@ -1,4 +1,4 @@
-const cleaner = (text) => {
+export default function format_cleaner(text){
    if (text == undefined) {
       return (
          ""
@@ -127,4 +127,3 @@ const cleaner = (text) => {
       )
    }
 }
-export default cleaner

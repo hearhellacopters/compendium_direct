@@ -1,4 +1,4 @@
-const translater_character = (text, trans) => {
+export default function translater_character(text, trans){
    if (text == undefined) {
       return (
          ""
@@ -695,4 +695,3 @@ const translater_character = (text, trans) => {
       )
    }
 }
-export default translater_character

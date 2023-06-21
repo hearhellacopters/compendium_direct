@@ -1,0 +1,126 @@
+{
+    "AnyBreak": {
+        "name": "After any party member inflicts a BREAK",
+        "url": "AnyBreak"
+    },
+    "GroupCritical": {
+        "name": "When dealing a critical hit with a Group BRV Attack",
+        "url": "GroupCritical"
+    },
+    "InflictBreak": {
+        "name": "When inflicting a BREAK",
+        "url": "InflictBreak"
+    },
+    "InflictBreakAttackBreak": {
+        "name": "When inflicting BREAK or attacking a target afflicted with BREAK",
+        "url": "BreakorBroken"
+    },
+    "AttackBreak": {
+        "name": "When attacking a target afflicted with BREAK",
+        "url": "BrokenTarget"
+    },
+    "Critical": {
+        "name": "When dealing a critical hit",
+        "url": "Critical"
+    },
+    "DebuffedEnemy": {
+        "name": "While an enemy is debuffed",
+        "url": "DebuffedEnemy"
+    },
+    "Evade": {
+        "name": "After evading an attack",
+        "url": "Evade"
+    },
+    "HPOver100": {
+        "name": "While HP is Max",
+        "url": "HPOver100"
+    },
+    "HealedHP": {
+        "name": "When own HP is healed",
+        "url": "HealedHP"
+    },
+    "HPOver80": {
+        "name": "While HP is ≥ 80% of Max HP",
+        "url": "HPOver80"
+    },
+    "FinalWaveHPOver50": {
+        "name": "While HP is ≥ 50% of Max HP at start of final wave",
+        "url": "FinalWaveHPOver50"
+    },
+    "KnockBack": {
+        "name": "When attacking during a Knock Back",
+        "url": "KnockBack"
+    },
+    "HPUnder80": {
+        "name": "While HP is ≤ 80% of Max HP",
+        "url": "HPUnder80"
+    },
+    "Group": {
+        "name": "When attacking with a Group BRV Attack",
+        "url": "Group"
+    },
+    "NotTargetingYou": {
+        "name": "When attacking an enemy not targeting self",
+        "url": "NotTargetingYou"
+    },
+    "Target1Critical": {
+        "name": "When dealing a critical hit to a single target",
+        "url": "Target1Critical"
+    },
+    "Target1": {
+        "name": "When attacking a single target",
+        "url": "Target1"
+    },
+    "Weak": {
+        "name": "When dealing weakness BRV damage",
+        "url": "Weak"
+    },
+    "Ability": {
+        "name": "After using an ability",
+        "url": "Ability"
+    },
+    "HPDamage": {
+        "name": "When taking HP damage",
+        "url": "HPDamage"
+    },
+    "TargetingYou": {
+        "name": "When attacking an enemy targeting self",
+        "url": "TargetingYou"
+    },
+    "GrantBuff": {
+        "name": "When granting a buff",
+        "url": "GrantBuff"
+    },
+    "InflictDebuff": {
+        "name": "When inflicting a debuff",
+        "url": "InflictDebuff"
+    },
+    "InflictBreakAttackBreakHPOver100": {
+        "name": "While HP is Max and inflicting BREAK or attacking a target afflicted with BREAK",
+        "url": "InflictBreakAttackBreakHPOver100"
+    },
+    "HPUnder50HPDamage": {
+        "name": "When taking HP damage and while HP is ≤ 50%",
+        "url": "HPUnder50HPDamage"
+    },
+    "WhileBuffed5": {
+        "name": "While 5 or more buffs are active",
+        "url": "WhileBuffed5"
+    },
+    "WhileBuffed3": {
+        "name": "While 3 or more buffs are active",
+        "url": "WhileBuffed3"
+    },
+    "BattleStart": {
+        "name": "At start of quest",
+        "url": "BattleStart"
+    },
+    "HPOver100Critical": {
+        "name": "While HP is Max and dealing a critical hit",
+        "url": "HPOver100Critical"
+    },
+    "MAXBRVOver50":{
+        "name": "While current BRV is ≥ 50% of MAX BRV",
+        "url": "MAXBRVOver50"
+    }
+}

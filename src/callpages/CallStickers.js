@@ -4,9 +4,9 @@ import { getStickers } from '../redux/ducks/stickers';
 import { getCharacters } from '../redux/ducks/characters';
 import { getJPToggle } from '../redux/ducks/jptoggle';
 import Stickers from '../Stickers';
-import Loading from './_loading'
+import Loading from '../components/Loading'
 
-const CallStickers = () => {
+export default function CallStickers(){
 
     const dispatch = useDispatch();
 
@@ -50,5 +50,3 @@ const CallStickers = () => {
     )
 
 }
-
-export default CallStickers;

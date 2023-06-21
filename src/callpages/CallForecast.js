@@ -4,9 +4,9 @@ import { getBanners } from '../redux/ducks/banners';
 import { getCharacters } from '../redux/ducks/characters';
 import { getJPToggle } from '../redux/ducks/jptoggle';
 import Forecast from '../Forecast.js';
-import Loading from './_loading'
+import Loading from '../components/Loading'
 
-const CallForcastPage = () => {
+export default function CallForecast(){
 
     const dispatch = useDispatch();
 
@@ -46,5 +46,3 @@ const CallForcastPage = () => {
     )
 
 }
-
-export default CallForcastPage;

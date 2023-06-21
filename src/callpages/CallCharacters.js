@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCharacters } from '../redux/ducks/characters';
 import { getJPToggle } from '../redux/ducks/jptoggle';
 import Character from '../Characters';
-import Loading from './_loading'
+import Loading from '../components/Loading'
 
-const CallCharacters = () => {
+export default function CallCharacters(){
 
     const dispatch = useDispatch();
 
@@ -39,5 +39,3 @@ const CallCharacters = () => {
     )
 
 }
-
-export default CallCharacters;

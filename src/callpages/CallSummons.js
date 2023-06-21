@@ -6,9 +6,9 @@ import { getSummonLevels } from '../redux/ducks/summonlevels';
 import { getSummonPassives } from '../redux/ducks/summonpassives';
 import Summons from '../Summons';
 
-import Loading from './_loading'
+import Loading from '../components/Loading'
 
-const CallSummonHandoff = () => {
+export default function CallSummons(){
 
     const match = {
         params: useParams()
@@ -56,5 +56,3 @@ const CallSummonHandoff = () => {
     )
 
 }
-
-export default CallSummonHandoff;

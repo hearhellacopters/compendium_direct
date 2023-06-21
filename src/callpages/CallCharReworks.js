@@ -4,11 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCharacters } from '../redux/ducks/characters';
 import { getJPToggle } from '../redux/ducks/jptoggle';
 import { getMasterIndex } from '../redux/ducks/master_index';
-import CallReworksHandoff from './CallCharReworksHandOff';
-import Loading from './_loading'
+import CallCharReworksHandOff from '../handoff/CharReworksHandoff';
+import Loading from '../processing/Loading'
 import { Navigate } from 'react-router-dom';
 
-const CallCharReworks = () => {
+export default function CallCharReworks(){
 
     const match = {
         params: useParams()
@@ -63,7 +63,7 @@ const CallCharReworks = () => {
             filtered == undefined ?
                 <Navigate replace to="/404" />
                 :
-                <CallReworksHandoff
+                <CallCharReworksHandOff
                     match={match}
                     master_index={master_index}
                     ProcessedCharacters={ProcessedCharacters}
@@ -74,5 +74,3 @@ const CallCharReworks = () => {
     )
 
 }
-
-export default CallCharReworks;

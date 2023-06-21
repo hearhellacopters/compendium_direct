@@ -3,14 +3,12 @@ import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 import { getUltimaWeapon } from '../redux/ducks/ultimaweapon';
 import { getJPToggle } from '../redux/ducks/jptoggle';
-import UltimaWeaponFormatting from '../characterpages/UltimaPageFormatting';
-import Loading from './_loading'
-
+import UltimaWeaponPageFormatting from '../UltimaWeapons';
+import Loading from '../components/Loading'
 
 import { getMasterIndex } from '../redux/ducks/master_index';
 
-
-const CallUltimaWeapon = () => {
+export default function CallUltimaWeapon(){
 
     const match = {
         params: useParams()
@@ -64,7 +62,7 @@ const CallUltimaWeapon = () => {
 
             ?
 
-            <UltimaWeaponFormatting
+            <UltimaWeaponPageFormatting
                 jptoggledata={jptoggledata}
 
                 ProcessedGear={UltimaWeapon}
@@ -78,5 +76,3 @@ const CallUltimaWeapon = () => {
     )
 
 }
-
-export default CallUltimaWeapon;

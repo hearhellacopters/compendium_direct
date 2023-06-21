@@ -3,10 +3,10 @@ import { useStateIfMounted } from "use-state-if-mounted";
 import { useDispatch, useSelector } from "react-redux";
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom'
-import { getQuery, getQueryStringVal, useQueryParam } from './processing/urlparams'
+import { getQuery, getQueryStringVal, useQueryParam } from './components/URLParams'
 import './JukeBoxStyle.css'
 import Select from 'react-select';
-import Tippy from './formatting/TippyDefaults.js';
+import Tippy from './components/TippyDefaults.js';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
 import { IoMdCloseCircleOutline } from 'react-icons/io';
@@ -27,7 +27,14 @@ import { setMusicKey } from './redux/ducks/playindex'
 import { getPlayList } from './redux/ducks/playlist'
 import { setFalse, setTrue } from './redux/ducks/jptoggle'
 
-const JukeBox = ({ ProcessedMusic, playing, volume, playindex, playlist, musickey }) => {
+export default function JukeBox({ 
+  ProcessedMusic, 
+  playing, 
+  volume, 
+  playindex, 
+  playlist, 
+  musickey 
+}){
 
   const dispatch = useDispatch();
 
@@ -521,6 +528,7 @@ const JukeBox = ({ ProcessedMusic, playing, volume, playindex, playlist, musicke
               <input
                 className="char-search-bar"
                 type="text"
+                id="search"
                 placeholder="Song Name"
                 value={searchdisplay}
                 onChange={handleChange}
@@ -590,6 +598,7 @@ const JukeBox = ({ ProcessedMusic, playing, volume, playindex, playlist, musicke
                 <input
                   className="search-bar"
                   type="text"
+                  id="search2"
                   placeholder="Song Name"
                   value={searchdisplay}
                   onChange={handleChange}
@@ -679,4 +688,3 @@ const JukeBox = ({ ProcessedMusic, playing, volume, playindex, playlist, musicke
     </div>
   )
 }
-export default JukeBox

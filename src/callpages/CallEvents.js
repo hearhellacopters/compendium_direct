@@ -11,9 +11,9 @@ import { getJPGameListSphere } from '../redux/ducks/JP/gamelist_sphere';
 import { getGLGameListSphere } from '../redux/ducks/GL/gamelist_sphere';
 
 import Events from '../Events';
-import Loading from './_loading'
+import Loading from '../components/Loading'
 
-const CallEventsPage = () => {
+export default function CallEvents(){
 
     const dispatch = useDispatch();
 
@@ -112,5 +112,3 @@ const CallEventsPage = () => {
     )
 
 }
-
-export default CallEventsPage;

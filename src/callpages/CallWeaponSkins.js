@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 import { getWeaponSkins } from '../redux/ducks/weapon_skins';
-import CharacterWeaponSkinsPage from '../characterpages/CharacterWeaponSkinsPage';
-import Loading from './_loading'
+import CharacterWeaponSkinsPage from '../WeaponGloss';
+import Loading from '../components/Loading'
 
-const CallWeaponSkins = () => {
+export default function CallWeaponSkins(){
 
     const match = {
         params: useParams()
@@ -35,5 +35,3 @@ const CallWeaponSkins = () => {
     )
 
 }
-
-export default CallWeaponSkins;

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom'
-import Random from './processing/Random.js'
+import Random from './processing/random.js'
 
-const NotFound = () => {
+export default function NotFound(){
 
     const randomimage = Random(7);
 
@@ -27,5 +27,3 @@ const NotFound = () => {
         </div>
     )
 }
-
-export default NotFound;

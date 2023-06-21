@@ -1,26 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from "react-redux";
-import Tippy from './formatting/TippyDefaults'
+import Tippy from './components/TippyDefaults'
 import { setFalse, setTrue } from './redux/ducks/jptoggle'
 import './Home.css';
 import './Bestiary.css'
 import './Events.css'
 import './Summons.css'
-import './formatting/EnemyFormatting.css'
-import addformatting from './processing/replacer_abilitycontent';
+import './components/Enemy/EnemyFormatting.css'
+import ReplacerCharacter from './components/ReplacerCharacter';
 import { Helmet } from 'react-helmet-async';
-import DefaultTippy from './formatting/TippyDefaults.js'
-import EventListing from './formatting/SingleEventsFormatting.js'
-import FaceMaker from './formatting/CharFaceFormatting.js'
-import EnemyListingsDirect from './formatting/EnemyListingDirect'
-import BannersFormatting from './formatting/SingleBannersFormatting.js'
-import UpdatesFormmating from './formatting/UpdatesFormatter.js'
+import DefaultTippy from './components/TippyDefaults.js'
+import EventListing from './components/Events/SingleEventsFormatting.js'
+import CharacterFaceFormatting from './components/Characters/CharacterFaceFormatting';
+import EnemyListingsDirect from './components/Enemy/EnemyListing'
+import BannersFormatting from './components/Events/SingleBannersFormatting.js'
+import UpdatesFormmating from './components/UpdatesFormatting.js'
 import { ImWarning } from 'react-icons/im';
 import { Link } from 'react-router-dom'
 import 'react-lazy-load-image-component/src/effects/opacity.css';
-import { getQuery, getQueryStringVal, useQueryParam } from './processing/urlparams'
+import { getQueryStringVal, useQueryParam } from './components/URLParams'
 
-const Home = ({ ProcessedUpdates, jptoggledata }) => {
+export default function Home({ 
+  ProcessedUpdates, 
+  jptoggledata 
+}){
 
   const dispatch = useDispatch();
 
@@ -185,7 +188,7 @@ const Home = ({ ProcessedUpdates, jptoggledata }) => {
         <meta property="og:url" content="https://dissidiacompendium.com" />
       </Helmet>
       <div className="content">
-        <h1 className="maintitle" >Welcome to Dissidia Compendium <Link className="updatelink" to="/log">v5.9!</Link><span className="squallsmile"></span></h1>
+        <h1 className="maintitle" >Welcome to Dissidia Compendium <Link className="updatelink" to="/log">v6.0!</Link><span className="squallsmile"></span></h1>
         <div className="enemyholderdesc" style={{ whiteSpace: "normal" }}>
           <div className="subheader">
             <div className="homewelcomeholder noselect">
@@ -237,7 +240,7 @@ const Home = ({ ProcessedUpdates, jptoggledata }) => {
                     {lastupdate.Summary}
                   </div>
                   <div className="updatemain">
-                    {lastupdate.Main != undefined ? addformatting(lastupdate.Main) : ""}
+                    {lastupdate.Main != undefined ? ReplacerCharacter(lastupdate.Main) : ""}
                   </div>
                 </div>
               </div>
@@ -247,8 +250,8 @@ const Home = ({ ProcessedUpdates, jptoggledata }) => {
                   <div className="charalistflarholder">
                     <div className="titlemainupdateholder">
                       <ul className="CharListHolder">
-                        {lastupdate.CharList.map(char => (
-                          <FaceMaker key={char.CharID} match={char} location={char.charurl} />
+                        {lastupdate.CharList.map((char,i) => (
+                          <CharacterFaceFormatting key={i} match={char} location={char.charurl} />
                         ))
                         }
                       </ul>
@@ -327,7 +330,4 @@ const Home = ({ ProcessedUpdates, jptoggledata }) => {
       </div>
     </div>
   )
-};
-export default Home;
-
-
+}

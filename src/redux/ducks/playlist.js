@@ -1,6 +1,6 @@
-import playlist_addhandler from "../../processing/playlist_addhandler";
-import playlist_updatehandler from "../../processing/playlist_updatehandler";
-import playlist_removehandler from "../../processing/playlist_removehandler";
+import playlist_addhandler from "../../processing/playlist/playlist_addhandler";
+import playlist_updatehandler from "../../processing/playlist/playlist_updatehandler";
+import playlist_removehandler from "../../processing/playlist/playlist_removehandler";
 
 export const GET_PLAYLIST = "GET_PLAYLIST";
 export const SET_PLAYLIST = "SET_PLAYLIST";

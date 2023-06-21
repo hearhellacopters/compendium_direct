@@ -81,23 +81,24 @@
     background-image: url(https://dissidiacompendium.com/images/static/icons/misc/HPDamageBonus.png);
     background-repeat: no-repeat;
     background-size: contain;
-    display: block;
+    display: block !important;
     height: 30px;
     width: 96px;
     filter: drop-shadow(1px 1px 1px #222);
     -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
-.Upgrades::before {
-    content: "Upgrades";
-    color: #e98013;
-    font-size: inherit;
-}
-
-.Upgraded::before {
-    content: "Upgraded";
-    color: #e98013;
-    font-size: inherit;
+.BonusHPDamage2{
+    background-image: url(https://dissidiacompendium.com/images/static/icons/misc/HPDamageBonus.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+    height: 30px;
+    width: 96px;
+    filter: drop-shadow(1px 1px 1px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
 .bufftypes_max {
@@ -181,6 +182,13 @@ hr {
     margin-right: 5px;
     display: flex;
     justify-content: center;
+}
+
+.bufficon2 {
+    display: flex;
+    margin: auto;
+    filter: drop-shadow(2px 2px 2px #222);
+    -webkit-filter: drop-shadow(2px 2px 2px #222);
 }
 
 .bufficon {
@@ -532,6 +540,27 @@ hr {
     margin: 0px;
 }
 
+.inline{
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    filter: drop-shadow(3px 3px 2px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.inline-buff{
+    max-height: 32px;
+    height: 1.5em;
+    margin-top: -0.15em;
+    margin-bottom: -0.15em;
+    display: inline-block;
+    vertical-align: middle;
+    filter: drop-shadow(1px 1px 1px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
 .saholder {
     display: table;
     background-image: url(https://dissidiacompendium.com/images/static/icons/misc/saholder.png);
@@ -611,6 +640,13 @@ hr {
         color: #f7f91d;
         filter: brightness(1.2);
         -webkit-filter: brightness(1.2);
+        transition: all ease 0.3s;
+    }
+
+    .bufficon2:hover {
+        transform: translateY(-1px);
+        filter: drop-shadow(2px 2px 2px #222) brightness(1.2);
+        -webkit-filter: drop-shadow(2px 2px 2px #222) brightness(1.2);
         transition: all ease 0.3s;
     }
 
@@ -825,6 +861,10 @@ hr {
 }
 
 @media screen and (max-width: 700px) {
+    .inline-buff{
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
     .bufficon{
         padding-top: 10px;
     }
@@ -974,6 +1014,10 @@ hr {
     .infoholder {
         font-size: 13px;
     }
+}
+
+.small_tags{
+    display: flow-root;
 }
 
 @media screen and (max-width: 800px) {

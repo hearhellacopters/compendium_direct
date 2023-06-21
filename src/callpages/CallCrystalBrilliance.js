@@ -4,13 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCrystalPassives } from '../redux/ducks/crystalpassives';
 import { getCrystalAbilities } from '../redux/ducks/crystalabilities';
 import { getJPToggle } from '../redux/ducks/jptoggle';
-import CrystalPassivesPage from '../characterpages/CrystalPassivesPage';
-import CrystalAbilityPage from '../characterpages/CrystalAbilityPage';
-import Loading from './_loading'
+import CrystalPassivesPage from '../CrystalPassives';
+import CrystalAbilityPage from '../CrystalAbility';
 
 import { getMasterIndex } from '../redux/ducks/master_index';
 
-const CallCrystalPassives = () => {
+export default function CallCrystalBrilliance(){
 
     const match = {
         params: useParams()
@@ -102,5 +101,3 @@ const CallCrystalPassives = () => {
     )
 
 }
-
-export default CallCrystalPassives;

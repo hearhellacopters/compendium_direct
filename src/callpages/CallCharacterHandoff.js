@@ -4,10 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCharacters } from '../redux/ducks/characters';
 import { getCharGuide } from '../redux/ducks/CharGuide';
 import { getJPToggle } from '../redux/ducks/jptoggle';
-import CharacterHandoff from '../passoff/CharacterHandoff.js';
-import Loading from './_loading'
+import CharacterHandoff from '../handoff/CharacterHandoff.js';
+import Loading from '../processing/Loading'
 
-const CallCharHandoff = () => {
+export default function CallCharacterHandoff(){
 
     const match = {
         params: useParams()
@@ -61,5 +61,3 @@ const CallCharHandoff = () => {
     )
 
 }
-
-export default CallCharHandoff;

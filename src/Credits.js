@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom'
 
-const Credits = () => {
+export default function Credits(){
 
     return (
         <div className="">
@@ -112,5 +112,3 @@ const Credits = () => {
         </div>
     )
 }
-
-export default Credits;

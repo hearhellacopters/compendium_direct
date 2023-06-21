@@ -4,14 +4,14 @@ import { setFalse, setTrue } from './redux/ducks/jptoggle'
 import { useStateIfMounted } from "use-state-if-mounted";
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async';
-import Tippy from './formatting/TippyDefaults'
-import NoticeFormatting from './formatting/NoticeFormatting';
-import { getQuery, getQueryStringVal, useQueryParam } from './processing/urlparams'
+import Tippy from './components/TippyDefaults'
+import NoticeFormatting from './components/Events/NoticeFormatting';
+import { useQueryParam } from './components/URLParams'
 
-const Notices =({
+export default function Notices({
     ProcessedNotices,
     jptoggledata
-})=>{
+}){
 
     const dispatch = useDispatch();
     const [jponly, setJPonly] = useState(jptoggledata);
@@ -121,5 +121,4 @@ const Notices =({
             </div>
         </div>
     )
-} 
-export default Notices
+}

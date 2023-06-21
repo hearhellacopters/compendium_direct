@@ -11,41 +11,40 @@ import Home from './callpages/CallHome';
 import Events from './callpages/CallEvents.js';
 import Banners from './callpages/CallBanners.js';
 import Panels from './callpages/CallPanels.js';
-import EventPassOff from './callpages/CallEventHandoff';
-import BannerPassOff from './callpages/CallBannersPassoff.js';
+import EventHandoff from './callpages/CallEventHandoff';
+import CallBannerHandoff from './callpages/CallBannerHandoff.js';
 import Characters from './callpages/CallCharacters';
-import EnemyHandoffDirect from './callpages/CallEnemyHandoffDirect';
+import EnemyHandoff from './callpages/CallEnemyHandoff';
 import CharactersUltimaPage from './callpages/CallUltimaWeapon.js';
-import CharactersFRPage from './callpages/CallFRTime.js';
+import CharactersForceTimePage from './callpages/CallForceTime.js';
 import CharactersWardrobePage from './callpages/CallWardrobe.js';
-import CharactersPageDirect from './callpages/CallCharDirect';
+import Character from './callpages/CallCharacter';
 import WeaponSkins from './callpages/CallWeaponSkins';
-import CrystalBrilliance from './callpages/CallCrystalBrilliance';
 import CallSummonHandoff from './callpages/CallSummons';
 import Credits from './Credits';
-import PassivesDirect from './callpages/CallDirectPassives';
-import GearDirect from './callpages/CallDirectGear';
-import AbilitiesDirect from './callpages/CallDirectAbilties';
+import Passives from './callpages/CallPassives';
+import Gear from './callpages/CallGear';
+import Abilities from './callpages/CallAbilties';
 import Calendar from "./callpages/CallCalendar";
-import BuffsDirect from './callpages/CallDirectBuffs';
-import SpheresDirect from './callpages/CallDirectSpheres';
-import BestiaryDirect from './callpages/CallBestiaryDirect';
+import Buffs from './callpages/CallBuffs';
+import Spheres from './callpages/CallSpheres';
+import Bestiary from './callpages/CallBestiary';
 import Log from './Log';
 import Stickers from './callpages/CallStickers.js';
 import JukeBox from './callpages/CallJukeBox.js';
-import EnemyBuffsDirect from './callpages/CallEnemyBuffsDirect.js';
-import EnemyAbilitiesDirect from './callpages/CallEnemyAbilitiesDirect.js';
+import EnemyBuffs from './callpages/CallEnemyBuffs.js';
+import EnemyAbilities from './callpages/CallEnemyAbilities.js';
 import JukeBoxMini from './callpages/CallJukeBoxMini';
 import Forecast from './callpages/CallForecast.js'
 import Notices from './callpages/CallNotices'
 import DevSwitch from './redux/DevSwitch'
-import Tippy from './formatting/TippyDefaults.js';
+import Tippy from './components/TippyDefaults.js';
 import { useDispatch, useSelector } from "react-redux";
 import { getJPToggle } from './redux/ducks/jptoggle';
-import { getQuery, getQueryStringVal, useQueryParam } from './processing/urlparams'
+import { getQueryStringVal, useQueryParam } from './components/URLParams'
 import { setFalse, setTrue } from './redux/ducks/jptoggle'
 
-const App = () => {
+export default function App(){
 
   const dispatch = useDispatch();
 
@@ -134,32 +133,32 @@ const App = () => {
               <Route path="/events/panels" exact element={<Panels />} />
               <Route path="/events/notices" exact element={<Notices />} />
               <Route path="/events/forecast" exact element={<Forecast />} />
-              <Route path="/events/banners/:id" exact element={<BannerPassOff />} />
-              <Route path="/events/:id" exact element={<EventPassOff />} />
+              <Route path="/events/banners/:id" exact element={<CallBannerHandoff />} />
+              <Route path="/events/:id" exact element={<EventHandoff />} />
               <Route path="/characters" exact element={<Characters />} />
               <Route path="/characters/ultimaweapon/:id" element={<CharactersUltimaPage />} />
               <Route path="/characters/ultimaweapon/" element={<CharactersUltimaPage />} />
-              <Route path="/characters/forcetime/" element={<CharactersFRPage />} />
+              <Route path="/characters/forcetime/" element={<CharactersForceTimePage />} />
               <Route path="/characters/skins/wardrobe/" exact element={<CharactersWardrobePage />} />
               <Route path="/characters/skins/weapons/" exact element={<WeaponSkins />} />
               <Route path="/characters/wardrobe" element={<Navigate replace to="/characters/skins/wardrobe/" />} />
               <Route path="/characters/skins" element={<Navigate replace to="/characters/skins/wardrobe/" />} />
-              <Route path="/characters/:id" exact element={<CharactersPageDirect loc="character" />} />
-              <Route path="/characters/:id/buffs/" exact element={<CharactersPageDirect loc="buffs" />} />
-              <Route path="/characters/:id/spheres" exact element={<CharactersPageDirect loc="spheres" />} />
-              <Route path="/characters/:id/abilities" exact element={<CharactersPageDirect loc="abilities" />} />
-              <Route path="/characters/:id/gear" exact element={<CharactersPageDirect loc="gear" />} />
-              <Route path="/characters/:id/passives/" exact element={<CharactersPageDirect loc="passives" />} />
-              <Route path="/characters/:id/passives/:type" exact element={<CharactersPageDirect loc="passives" />} />
-              <Route path="/characters/:id/reworks" exact element={<CharactersPageDirect loc="reworks" />} />
-              <Route path="/characters/:id/community" exact element={<CharactersPageDirect loc="community" />} />
-              <Route path="/characters/:id/events" exact element={<CharactersPageDirect loc="events" />} />
-              <Route path="/search/buffs" element={<BuffsDirect />} />
+              <Route path="/characters/:id" exact element={<Character loc="character" />} />
+              <Route path="/characters/:id/buffs/" exact element={<Character loc="buffs" />} />
+              <Route path="/characters/:id/spheres" exact element={<Character loc="spheres" />} />
+              <Route path="/characters/:id/abilities" exact element={<Character loc="abilities" />} />
+              <Route path="/characters/:id/gear" exact element={<Character loc="gear" />} />
+              <Route path="/characters/:id/passives/" exact element={<Character loc="passives" />} />
+              <Route path="/characters/:id/passives/:type" exact element={<Character loc="passives" />} />
+              <Route path="/characters/:id/reworks" exact element={<Character loc="reworks" />} />
+              <Route path="/characters/:id/community" exact element={<Character loc="community" />} />
+              <Route path="/characters/:id/events" exact element={<Character loc="events" />} />
+              <Route path="/search/buffs" element={<Buffs />} />
               <Route path="/search/" element={<Navigate replace to={`/search/buffs${jptoggledata == false ? "" : "?JP=true"}`} />} />
-              <Route path="/search/abilities" element={<AbilitiesDirect />} />
-              <Route path="/search/gear" element={<GearDirect />} />
-              <Route path="/search/spheres" element={<SpheresDirect />} />
-              <Route path="/search/passives" element={<PassivesDirect />} />
+              <Route path="/search/abilities" element={<Abilities />} />
+              <Route path="/search/gear" element={<Gear />} />
+              <Route path="/search/spheres" element={<Spheres />} />
+              <Route path="/search/passives" element={<Passives />} />
               <Route path="/search/crystalpassives" element={<Navigate replace to="/bonuses/crystal" />} />
 
               <Route path="/search/stickers" element={<Stickers />} />
@@ -169,13 +168,13 @@ const App = () => {
               <Route path="/bonuses/crystal" element={<Navigate replace to="/bonuses/crystal/passives" />} />
               <Route path="/bonuses/:id/:type" exact element={<CallSummonHandoff />} />
               <Route path="/bonuses/:id" exact element={<CallSummonHandoff />} />
-              <Route path="/bestiary/enemies" element={<BestiaryDirect />} />
+              <Route path="/bestiary/enemies" element={<Bestiary />} />
               <Route path="/bestiary" exact element={<Navigate replace to="/bestiary/enemies/" />} />
-              <Route path="/bestiary/buffs" element={<EnemyBuffsDirect />} />
-              <Route path="/bestiary/abilities" element={<EnemyAbilitiesDirect />} />
-              <Route path="/bestiary/enemies/:id" element={<EnemyHandoffDirect />} />
-              <Route path="/bestiary/enemies/:id/:level" element={<EnemyHandoffDirect />} />
-              <Route path="/bestiary/enemies/:id/:level/:abilities" element={<EnemyHandoffDirect />} />
+              <Route path="/bestiary/buffs" element={<EnemyBuffs />} />
+              <Route path="/bestiary/abilities" element={<EnemyAbilities />} />
+              <Route path="/bestiary/enemies/:id" element={<EnemyHandoff />} />
+              <Route path="/bestiary/enemies/:id/:level" element={<EnemyHandoff />} />
+              <Route path="/bestiary/enemies/:id/:level/:abilities" element={<EnemyHandoff />} />
               <Route path="/404" element={<NotFoundPage />} />
               <Route path="/credits" element={<Credits />} />
               <Route path="/log" element={<Log />} />
@@ -191,7 +190,6 @@ const App = () => {
   );
 
 }
-export default App;
 
 class ErrorBoundary extends React.Component {
   constructor(props) {

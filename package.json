@@ -1,10 +1,9 @@
 {
   "name": "dissidiacompendium",
-  "version": "5.9.0",
+  "version": "6.0.0",
   "homepage": "https://dissidiacompendium.com/",
   "private": true,
   "dependencies": {
-    "@microlink/react-json-view": "^1.22.2",
     "@pqina/flip": "^1.7.7",
     "@reduxjs/toolkit": "^1.8.6",
     "@testing-library/jest-dom": "^5.16.5",
@@ -25,6 +24,7 @@
     "react-input-slider": "^6.0.1",
     "react-jinke-music-player": "^4.24.2",
     "react-lazy-load-image-component": "^1.5.5",
+    "react-object-view": "^0.3.4",
     "react-redux": "^8.0.4",
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
@@ -79,5 +79,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^8.0.1"
+  },
+  "overrides": {
+    "@svgr/webpack": "$@svgr/webpack"
   }
 }

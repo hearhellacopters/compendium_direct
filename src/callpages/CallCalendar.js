@@ -5,9 +5,9 @@ import { getEvents } from '../redux/ducks/events';
 import { getBanners } from '../redux/ducks/banners';
 import { getJPToggle } from '../redux/ducks/jptoggle';
 import Calendar from '../Calendar';
-import Loading from './_loading'
+import Loading from '../components/Loading'
 
-const CallCalendarPage = () => {
+export default function CallCalendar(){
 
     const dispatch = useDispatch();
 
@@ -54,5 +54,3 @@ const CallCalendarPage = () => {
     )
 
 }
-
-export default CallCalendarPage;

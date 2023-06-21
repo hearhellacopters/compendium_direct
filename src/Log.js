@@ -2,12 +2,20 @@ import React from 'react'
 import { MdRecordVoiceOver }from 'react-icons/md';
 import { Link } from 'react-router-dom'
 
-const log = () => {
+export default function log () {
     return (
         <div className="">
             <div className="content fullheight">
                 <h1>Update Log</h1>
                 <div className="creditsholder">
+                <div className="filterholderflair" >
+                        V.6.0
+                    </div>
+                    <ul className="creditslist">
+                    - Upgraded Buffs display and dynamic level icon<br />
+                    - Inline buffs and debuffs now display icon<br />
+                    - Performance improvements for upcoming features
+                    </ul>
                 <div className="filterholderflair" >
                         V.5.9
                     </div>
@@ -646,5 +654,3 @@ const log = () => {
         </div>
     )
 }
-
-export default log;

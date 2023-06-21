@@ -19,8 +19,7 @@ import { getRemove } from '../redux/ducks/playlist';
 import { setPlayVolume } from '../redux/ducks/playvolume'
 import { getMusicKey } from '../redux/ducks/playindex'
 
-
-const CallJukeBoxPage = () => {
+export default function CallJukeBoxMini(){
 
   const dispatch = useDispatch();
 
@@ -188,5 +187,3 @@ const CallJukeBoxPage = () => {
   )
 
 }
-
-export default CallJukeBoxPage;

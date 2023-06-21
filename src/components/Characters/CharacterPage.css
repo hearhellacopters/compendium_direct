@@ -1,0 +1,1103 @@
+.characterpageholder {
+    display: block;
+    transform-origin: 50% 0;
+    padding: 8px;
+    background: #43517a;
+    box-shadow: inset 5px 0px 4px rgb(0 0 0 / 50%), inset -5px 5px 4px rgb(0 0 0 / 50%), inset 0px -5px 4px rgb(0 0 0 / 50%);
+    border-radius: 19px;
+    clear: both;
+    margin-top: 5px;
+    overflow: hidden;
+    height: auto;
+}
+
+.char_link{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.char_link:hover {
+    transform: translateY(-1px);
+    color: #f7f91d;
+    filter: brightness(1.1);
+    -webkit-filter: brightness(1.1);
+    transition: all ease 0.3s;
+    cursor: pointer;
+}
+.contrl_text{
+    font-size: 18px !important;
+    z-index: 5;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.charpageautotitle {
+    margin-top: auto;
+    margin-left: 0.5em;
+    margin-bottom: auto;
+}
+
+.autoleft {
+    margin-left: auto;
+}
+
+.spheresbuttontag {
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: drop-shadow(1px 1px 1px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+    cursor: pointer;
+}
+
+.EventHolder{
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.space_left{
+    padding-left: 5px;
+}
+
+.bluebutton {
+    background-color: #2c5ad8 !important;
+    background: linear-gradient(180deg, hsla(0, 0%, 100%, .6392156862745098) 5.73%, rgba(130, 153, 216, .49411764705882355) 29.69%, rgba(39, 241, 207, 0) 47.92%, rgba(39, 241, 207, 0) 52.08%, #224199 81.25%, #2446a5), #2c5ad8 !important;
+    box-shadow: inset -2px -2px 4px #000, inset 2px 0 4px #939cb3;
+    height: 30px;
+    width: 150px;
+    text-align: center;
+    padding-top: 2px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    display: flex;
+    border-radius: 7px 7px 7px 7px;
+    float: left;
+    border: 1px solid black;
+    filter: drop-shadow(0px 0px 2px #222);
+    -webkit-filter: drop-shadow(0px 0px 2px #222);
+    transition: all ease 0.3s;
+}
+
+.blink_me {
+    animation: blinker 2s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+.inactiveeffect {
+    color: #7a7a7a !important;
+    text-decoration: line-through !important;
+}
+
+.filelistclass {
+    text-align: left;
+    margin-top: 5px;
+}
+
+.upcomingbutton {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/upcoming.png")
+}
+
+.artpassivedirect {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/artpass_direct.png")
+}
+
+.eventsdirect {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/events_direct.png")
+}
+
+.enemiesforcharbutton {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/enemies.png")
+}
+
+.chartopimageholder {
+    -webkit-box-shadow: inset 0px 0px 30px 11px #000000;
+    box-shadow: inset 0px 0px 30px 11px #000000;
+    border-radius: 20px;
+    width: 512px;
+    height: 512px;
+    position: absolute;
+}
+
+.charCystal {
+    display: table;
+    position: absolute;
+    text-align: center;
+    height: 64px;
+    width: 64px;
+    top: 0;
+    left: 64px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.charstats {
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+    position: absolute;
+    text-align: center;
+    top: 5px;
+    right: 5px;
+    height: 90px;
+    width: 134px;
+    z-index: 1;
+}
+
+.spherestop {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    position: absolute;
+    text-align: center;
+    height: 42px;
+    bottom: 0;
+    left: 0;
+}
+
+.charalts {
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+    position: absolute;
+    text-align: center;
+    height: 82px;
+    width: 97px;
+    bottom: 0;
+    right: 0;
+    opacity: .75;
+}
+
+.charweapon {
+    background: radial-gradient(circle, rgb(45, 48, 53) 25%, rgba(0, 0, 0, 0.9612219887955182) 50%, rgba(77, 86, 97, 0) 65%);
+    display: table;
+    position: absolute;
+    text-align: center;
+    height: 64px;
+    width: 64px;
+    top: 0;
+    left: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    filter: drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
+    -webkit-filter: drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
+}
+
+.charimagetoptopholder {
+    display: inline-table;
+    height: 512px;
+    width: 512px;
+    flex: 0 0 auto;
+}
+
+.introclassflex {
+    display: flex;
+    justify-content: center;
+}
+
+.introflex {
+    padding-left: 8px;
+    padding-right: 5px;
+    margin-top: 5px;
+    list-style: none;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    clear: both;
+    border: solid 3px #d9dade;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 10px #000000;
+    transition: .4s;
+    min-height: 45px;
+    text-align: left;
+}
+
+.introflex2 {
+    padding-left: 8px;
+    padding-right: 5px;
+    margin-top: 5px;
+    list-style: none;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    clear: both;
+    border: solid 3px #d9dade;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 10px #000000;
+    transition: .4s;
+    min-height: 45px;
+    text-align: left;
+}
+
+.newblack {
+    background-color: #393f48;
+}
+
+.exbrvcolor {
+    background: #90580c;
+}
+
+.alignright {
+    display: block;
+}
+
+.brvattacks {
+    background: #52430cf0;
+}
+
+.hpattackes {
+    background: #0e520cf0;
+}
+
+.brevityholder {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    max-width: 1324px;
+    height: auto;
+}
+
+.nolistevents {
+    display: block;
+    list-style: none;
+}
+
+.makeitfull {
+    width: 100%;
+}
+
+.brevityrow {
+    /*display: flex;*/
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.JPReworkbutton {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_RW.png");
+    background-size: contain;
+}
+
+.glinfobanner {
+    margin-top: 5px;
+    padding: 5px;
+    padding-left: 8px;
+    border: solid 3px #d9dade;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 10px #000000;
+    transition: .4s;
+}
+
+.charglupdates {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.calforchar {
+    filter: invert(1) drop-shadow(1px 0 0 rgb(0, 0, 0)) drop-shadow(0 1px 0 rgb(0, 0, 0)) drop-shadow(0 -1px 0 rgb(0, 0, 0)) drop-shadow(-1px 0 0 rgb(0, 0, 0));
+    -webkit-filter: invert(1) drop-shadow(1px 0 0 #000000) drop-shadow(0 1px 0 #000000) drop-shadow(0 -1px 0 #000000) drop-shadow(-1px 0 0 #000000);
+}
+
+.glupdategreen {
+    color: rgb(47, 255, 47);
+}
+
+.orangecolor{
+    color: #e98013;
+}
+
+.yellowcolor {
+    color: #f7f91d;
+}
+
+.bluecolor {
+    color: #6b9fff;
+}
+
+.pinkcolor {
+    color: #ff7bf0;
+}
+
+.redcolortext {
+    color: #ff4b85;
+}
+
+.reworkicon {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/rework.png");
+    display: inline-block;
+}
+
+.reworktab {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/rework2.png");
+    display: inline-block;
+}
+
+.reworktabred {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/rework2red.png");
+    display: inline-block;
+}
+
+.reworktab_direct {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/rework2_direct.png");
+    display: inline-block;
+}
+
+.reworktabred_direct {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/rework2red_direct.png");
+    display: inline-block;
+}
+
+.gemicon {
+    content: url(https://dissidiacompendium.com/images/static/icons/misc/LimitBreakSmall.png);
+    vertical-align: middle;
+    background-size: contain;
+    height: 20px;
+    margin-right: 2px;
+    margin-bottom: 2px;
+}
+
+.glinfobase {
+    margin-top: 5px;
+    padding-left: 8px;
+    padding-right: 5px;
+    list-style: none;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    clear: both;
+    border: solid 3px #d9dade;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 10px #000000;
+    transition: .4s;
+}
+
+.charbackgroundBlack {
+    background-color: #333355;
+}
+
+.charbackgroundGreen {
+    background-color: #336136;
+}
+
+.charbackgroundRed {
+    background-color: rgba(119, 48, 64, .9411764705882353);
+}
+
+.charbackgroundWhite {
+    background-color: #cccccc
+}
+
+.charbackgroundYellow {
+    background-color: #626d27
+}
+
+.charbackgroundBlue {
+    background-color: #254173
+}
+
+.ldblue {
+    background-color: #2967b9;
+}
+
+.arm7aicon {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/7a.png");
+    display: inline-block;
+}
+
+.brevcell {
+    padding-left: 8px;
+    padding-right: 5px;
+    margin-top: 0px;
+    margin-left: 5px;
+    list-style: none;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    clear: both;
+    border: solid 3px #d9dade;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 10px #000000;
+    transition: .4s;
+    min-height: calc(100% - 22px);
+    /*width: 255px;
+    min-width: 255px;*/
+    text-align: left;
+    vertical-align: top;
+}
+
+.charmanimage {
+    height: 512px;
+    width: 512px;
+}
+
+.facetop {
+    margin-bottom: 5px;
+    margin-top: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, rgba(30, 55, 88, 0.940205) 3.67%, rgba(30, 55, 88, 0.85) 96.44%, rgba(30, 55, 88, 0) 100%);
+}
+
+.sphereletter {
+    display: flex;
+    width: 40px;
+    height: 40px;
+}
+
+.sphereletter span {
+    width: 32px;
+    display: block;
+    height: 32px;
+    margin: auto;
+}
+
+.sphereletterholder {
+    display: flex;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.lockedslot {
+    background: #7f7676;
+    border-radius: 50px;
+    border: 1px black solid;
+    -webkit-box-shadow: inset 0px 0px 11px -1px #000000;
+    box-shadow: inset 0px 0px 11px -1px #000000;
+    filter: drop-shadow(2px 2px 2px #222);
+    -webkit-filter: drop-shadow(2px 2px 2px #222);
+}
+
+.unlockedslot {
+    background: #2e303a;
+    border-radius: 50px;
+    border: 1px black solid;
+    -webkit-box-shadow: inset 0px 0px 11px -1px #000000;
+    box-shadow: inset 0px 0px 11px -1px #000000;
+    filter: drop-shadow(2px 2px 2px #222);
+    -webkit-filter: drop-shadow(2px 2px 2px #222);
+}
+
+.backtopage a {
+    color: white;
+    transition: ease color .3s;
+}
+
+.singlesubbanner {
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+    background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, rgba(30, 55, 88, 0.940205) 3.67%, rgba(30, 55, 88, 0.85) 96.44%, rgba(30, 55, 88, 0) 100%);
+}
+
+.classdisplay {
+    height: 32px;
+    width: 32px;
+    margin-right: 2px;
+    margin-left: 2px;
+    display: inline-block;
+    position: static;
+}
+
+.sideclass {
+    float: right;
+    text-align: right;
+    list-style-position: inside;
+    display: flex !important;
+    flex-direction: column;
+    flex-wrap: wrap-reverse;
+    position: absolute;
+    top: 95px;
+    right: 0;
+    width: 72px;
+    height: 330px;
+    padding: 0px;
+}
+
+.sidemain {
+    display: flex !important;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 64px;
+    width: 72px;
+    height: 400px;
+    padding: 0px;
+}
+
+.smallclass {
+    font-size: small;
+    display: none;
+    padding-left: 0px;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.largertext {
+    font-size: larger;
+}
+
+.abilitygreensinglebutton {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-top: 5px;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+    background: linear-gradient(180deg, #FFFFFF 5.73%, rgba(142, 248, 230, 0.476923) 29.69%, rgba(39, 241, 207, 0) 47.92%, rgba(39, 241, 207, 0) 52.08%, #27F1CF 81.25%, #27F1CF 100%), #03a971;
+    box-shadow: inset -2px -2px 4px #000000, inset 2px 0px 4px #93b3a8;
+    filter: drop-shadow(1px 1px 1px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+    border: 1px solid black;
+    border-radius: 7px 7px 7px 7px;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.minibuff {
+    height: 32px;
+    width: 32px;
+    vertical-align: middle;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.inlineblock {
+    display: inline-block;
+}
+
+.noshowsyn {
+    display: none;
+}
+
+.abilitybluesinglebutton {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+    background: linear-gradient(180deg, #FFFFFF 5.73%, #8bb8f382 29.69%, #2d81f100 47.92%, #2980f300 52.08%, #2a81f5 81.25%, #2781f7 100%), #4086e2;
+    box-shadow: inset -2px -2px 4px #000000, inset 2px 0px 4px #93a0b3;
+    filter: drop-shadow(1px 1px 1px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+    border: 1px solid black;
+    border-radius: 7px 7px 7px 7px;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.abilitygreysinglebutton {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+    background: linear-gradient(180deg, #FFFFFF 5.73%, #b7d4f982 29.69%, #2d81f100 47.92%, #2980f300 52.08%, #c3d9f7 81.25%, #bfdafd 100%), #b2b2b4;
+    box-shadow: inset -2px -2px 4px #000000, inset 2px 0px 4px #93a0b3;
+    filter: drop-shadow(1px 1px 1px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+    border: 1px solid black;
+    border-radius: 7px 7px 7px 7px;
+}
+
+.limit {
+    background: #e95091;
+}
+
+.margtop {
+    margin-top: 10px;
+}
+
+.profilebutton {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/profile.png");
+}
+
+.buffsdebuffsbutton {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/buffsdebuffs.png");
+}
+
+.descbuttons {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/desc.png");
+}
+
+.abilitiesbutton {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/abilities.png");
+}
+
+.directabilitiesbutton {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/abilities_direct.png");
+}
+
+.directcrystalpassives {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/cpassives_direct.png")
+}
+
+.directexppassives {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/exp_direct.png")
+}
+
+.directprofile {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/profile_direct.png")
+}
+
+.directpassives {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/passives_direct.png")
+}
+
+.communityprofile {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/community_direct.png")
+}
+
+.bpassivesbutton {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/bpassives_direct.png")
+}
+
+.linkbutton {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard_direct.png");
+}
+
+.summonsbutton {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/summons.png");
+}
+
+.statsbutton {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/stats.png");
+}
+
+.orbsbutton {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/orb.png");
+}
+
+.forcesbutton {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/force.png");
+}
+
+.guidebutton {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/guide.png");
+}
+
+.graphicbutton {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/graphic.png");
+}
+
+.passivesbutton {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/passives.png");
+}
+
+.gearbutton {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/gear.png");
+}
+
+.eventspagebutton {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/events.png");
+}
+
+.directspherespagebutton {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/spheres_direct.png");
+}
+
+.spherespagebutton {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/spheres.png");
+}
+
+.characterpageshare {
+    display: inline-block;
+}
+
+.noresultsflair {
+    transition: all .2s;
+    transform-origin: 50% 0;
+    margin-top: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    font-weight: bold;
+    clear: both;
+}
+
+.noresults {
+    position: relative;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: flex;
+    align-self: flex-end;
+}
+
+.singlenolinkstext {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    align-self: flex-end;
+    text-align: center;
+    display: flex;
+    vertical-align: baseline;
+    height: 100px;
+    box-shadow: inset 0px -50px 34px -28px #43517a;
+}
+
+.sharefilter {
+    background: linear-gradient(180deg, #FFFFFF 5.73%, rgba(142, 248, 230, 0.476923) 29.69%, rgba(39, 241, 207, 0) 47.92%, rgba(39, 241, 207, 0) 52.08%, #27F1CF 81.25%, #27F1CF 100%), #03a971;
+    box-shadow: inset -2px -2px 4px #000000, inset 2px 0px 4px #93b3a8;
+    height: 30px;
+    width: 150px;
+    text-align: center;
+    padding-top: 2px;
+    margin-top: 5px;
+    display: flex;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border-radius: 7px 7px 7px 7px;
+    transition: all ease 0.3s;
+    float: right;
+    border: 1px solid black;
+    filter: drop-shadow(0px 0px 2px #222);
+    -webkit-filter: drop-shadow(0px 0px 2px #222);
+}
+
+@media (hover: hover) {
+    .abilitybluesinglebutton:hover {
+        filter: brightness(1.2);
+        -webkit-filter: brightness(1.2);
+        transition: all ease 0.3s;
+    }
+
+    .abilitygreensinglebutton:hover {
+        filter: brightness(1.2);
+        -webkit-filter: brightness(1.2);
+        transition: all ease 0.3s;
+    }
+
+    .sharefilter:hover {
+        filter: drop-shadow(0px 0px 2px #222) brightness(1.2);
+        -webkit-filter: drop-shadow(0px 0px 2px #222) brightness(1.2);
+        transition: all ease 0.3s;
+    }
+
+    .filterinfopad:hover {
+        filter: brightness(1.2);
+        -webkit-filter: brightness(1.2);
+        transition: all ease 0.3s;
+    }
+}
+
+.abilitygreensinglebutton:active {
+    filter: drop-shadow(0px 0px 2px #222) brightness(.8);
+    -webkit-filter: drop-shadow(0px 0px 2px #222) brightness(.8);
+    transition: all 0s;
+}
+
+.abilitybluesinglebutton:active {
+    filter: drop-shadow(0px 0px 2px #222) brightness(.8);
+    -webkit-filter: drop-shadow(0px 0px 2px #222) brightness(.8);
+    transition: all 0s;
+}
+
+.sharefilter:active {
+    filter: drop-shadow(0px 0px 2px #222) brightness(.8);
+    -webkit-filter: drop-shadow(0px 0px 2px #222) brightness(.8);
+    transition: all 0s;
+}
+
+.filterinfopad:active {
+    filter: drop-shadow(0px 0px 2px #222) brightness(.8);
+    -webkit-filter: drop-shadow(0px 0px 2px #222) brightness(.8);
+    transition: all 0s;
+}
+
+.crystalpage {
+    width: 32px;
+    height: 32px;
+}
+
+.pagecrystalholder {
+    display: flex;
+    width: fit-content;
+    margin: auto;
+}
+
+.pagecrystalholder span {
+    margin: auto;
+}
+
+.sharefilter span {
+    margin-top: 5px;
+    margin-left: auto;
+}
+
+.filterinfopad span {
+    margin-top: 5px;
+    margin-left: auto;
+}
+
+.filterpadding {
+    height: 30px;
+    width: 150px;
+    text-align: center;
+    padding-top: 2px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 7px 7px 7px 7px;
+    float: left;
+    opacity: 0%;
+}
+
+.filterinfopad {
+    background: linear-gradient(180deg, #FFFFFF 5.73%, rgba(142, 248, 230, 0.476923) 29.69%, rgba(39, 241, 207, 0) 47.92%, rgba(39, 241, 207, 0) 52.08%, #27F1CF 81.25%, #27F1CF 100%), #03a971;
+    box-shadow: inset -2px -2px 4px #000000, inset 2px 0px 4px #93b3a8;
+    height: 30px;
+    width: 150px;
+    text-align: center;
+    padding-top: 2px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    display: flex;
+    border-radius: 7px 7px 7px 7px;
+    float: left;
+    border: 1px solid black;
+    filter: drop-shadow(0px 0px 2px #222);
+    -webkit-filter: drop-shadow(0px 0px 2px #222);
+    transition: all ease 0.3s;
+
+}
+
+.classcolor {
+    background: #1e3758f0;
+}
+
+.introcolor {
+    background: #3f5b92;
+}
+
+.startingattack {
+    background: #626d27
+}
+
+.syngholder {
+    display: none;
+}
+
+.syngholder2 {
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+    position: absolute;
+    text-align: center;
+    top: 5px;
+    left: 128px;
+    width: 250px;
+    background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #3030307a 10%, #3030307a 90%, rgba(30, 55, 88, 0) 100%);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.smallsubtext {
+    text-align: right;
+    margin-bottom: 5px;
+    font-size: small;
+    display: block;
+    color: rgb(167, 167, 167);
+}
+
+.singleventholder {
+    padding: 8px;
+    border: 1px black solid;
+    background: #8e8f8f;
+    box-shadow: inset 5px 0px 4px rgb(0 0 0 / 50%), inset -5px 5px 4px rgb(0 0 0 / 50%), inset 0px -5px 4px rgb(0 0 0 / 50%);
+    border-radius: 19px;
+    clear: both;
+    margin-bottom: 5px;
+    min-width: 250px;
+    font-size: larger;
+}
+
+@media screen and (max-width: 580px) {
+    .spherestop {
+        display: none;
+    }
+
+    .sideclass {
+        display: none !important;
+    }
+
+    .sidemain {
+        display: none !important;
+    }
+
+    .smallclass {
+        text-align: left;
+        display: block;
+        padding: 5px;
+        padding-left: 8px;
+        border: solid 3px #d9dade;
+        border-radius: 5px;
+        box-shadow: inset 0px 0px 10px #000000;
+    }
+
+    .charstats {
+        height: 45px;
+        width: 67px;
+    }
+
+    .charalts {
+        height: 41px;
+        width: 48px;
+    }
+
+    .charweapon {
+        height: 32px;
+        width: 32px;
+    }
+
+    .charCystal {
+        height: 32px;
+        width: 32px;
+        left: 32px;
+    }
+
+    .charimagetoptopholder {
+        height: 256px;
+        width: 256px;
+    }
+
+    .charmanimage {
+        height: 256px;
+        width: 256px;
+    }
+
+    .chartopimageholder {
+        height: 256px;
+        width: 256px;
+    }
+}
+
+@media (hover: hover) {
+    .bluebutton:hover {
+        filter: brightness(1.2);
+        -webkit-filter: brightness(1.2);
+        transition: all ease 0.3s;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .bluebutton {
+        width: 50px;
+        margin-left: auto;
+    }
+
+    .glinfobanner {
+        font-size: small;
+    }
+
+    .glinfobase {
+        font-size: small;
+    }
+
+    .sharefilter {
+        width: 50px;
+        margin-left: auto;
+    }
+
+    .filterpadding {
+        width: 50px;
+        margin-left: auto;
+    }
+
+    .filterinfopad {
+        width: 50px;
+        margin-left: auto;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .charimagetoptopholder {
+        display: block;
+    }
+
+    .brevcell {
+        margin-top: 5px;
+        margin-left: 0px;
+    }
+
+    .syngholder2 {
+        display: none;
+    }
+
+    .syngholder {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5px;
+        padding: 5px;
+        padding-left: 8px;
+        background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, rgba(30, 55, 88, 0.940205) 3.67%, rgba(30, 55, 88, 0.85) 96.44%, rgba(30, 55, 88, 0) 100%);
+    }
+
+    .noshowsyn {
+        display: block;
+    }
+
+    .introclassflex {
+        display: block;
+    }
+
+    .brevityholder {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-size: small;
+    }
+
+    .charimagetoptopholder {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .introflex {
+        font-size: small;
+        max-width: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .introflex2 {
+        max-width: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
