@@ -51,43 +51,37 @@ export default function CharacterAbilityPageFormatting({
 
     useEffect(() => {
         const filtered_ability = Object.values(ability_data).filter(self => self.full == true)
-        if (filtered_ability.some(self => self.BRV == true)) {
+        if (filtered_ability.some(self => self.rank == "BRV")) {
             setshowBRV(true)
         }
-        if (filtered_ability.some(self => self.HP == true)) {
+        if (filtered_ability.some(self => self.rank == "HP")) {
             setshowHP(true)
         }
-        if (filtered_ability.some(self => self.S1 == true)) {
+        if (filtered_ability.some(self => self.rank == "S1")) {
             setshowS1(true)
         }
-        if (filtered_ability.some(self => self.S2 == true)) {
+        if (filtered_ability.some(self => self.rank == "S2")) {
             setshowS2(true)
         }
-        if (filtered_ability.some(self => self.AA == true)) {
+        if (filtered_ability.some(self => self.rank == "AA")) {
             setshowAA(true)
         }
-        if (filtered_ability.some(self => self.EX == true)) {
+        if (filtered_ability.some(self => self.rank == "EX")) {
             setshowEX(true)
         }
-        if (filtered_ability.some(self => self.LD == true)) {
+        if (filtered_ability.some(self => self.rank == "LD")) {
             setshowLD(true)
         }
-        if (filtered_ability.some(self => self.BT == true)) {
+        if (filtered_ability.some(self => self.rank == "BT")) {
             setshowBT(true)
         }
-        if (filtered_ability.some(self => self.BTplus == true)) {
-            setshowBT(true)
-        }
-        if (filtered_ability.some(self => self.FR == true)) {
+        if (filtered_ability.some(self => self.rank == "FR")) {
             setshowFR(true)
         }
-        if (filtered_ability.some(self => self.FRExt == true)) {
-            setshowFR(true)
-        }
-        if (filtered_ability.some(self => self.Call75 == true)) {
+        if (filtered_ability.some(self => self.rank == "Call75")) {
             setshowCALL75(true)
         }
-        if (filtered_ability.some(self => self.CallLD == true)) {
+        if (filtered_ability.some(self => self.rank == "CallLD")) {
             setshowCALLLD(true)
         }
         // eslint-disable-next-line
@@ -246,16 +240,11 @@ export default function CharacterAbilityPageFormatting({
         }
     }, [setvaluedisplay3])
 
-
-
-
     const reversebutton = () => {
         setLoop(true);
         setReverse((prevValue) => !prevValue);
         setTimeout(() => setLoop(false), 1000);
     };
-
-
 
     useEffect(() => {
         //search params
@@ -266,28 +255,6 @@ export default function CharacterAbilityPageFormatting({
         }
     }, [setTEXTsearch, setFiltersearch])
 
-
-    //load more
-    const loadMoreButton = () => {
-        const newlimits = limits + startinglimit;
-        const newLoadMore = searchResults.length > newlimits;
-        const newlistdisplay = listDisplay.concat(
-            searchResults.slice(limits, newlimits)
-        );
-        setLimits(newlimits);
-        if (newlimits <= newlistdisplay.length) {
-            setDisplayBanner(
-                `Displaying ${newlimits} of ${searchResults.length} ${banerDisplayTerm} `
-            );
-        } else {
-            setDisplayBanner(
-                `Displaying ${searchResults.length} of ${searchResults.length} ${banerDisplayTerm} `
-            );
-        }
-        setShowLoadMore(newLoadMore);
-        setListDisplay(newlistdisplay);
-        setListLength(newlistdisplay.length);
-    };
 
     //unique
     function onlyUnique(value, index, self) {
@@ -329,70 +296,70 @@ export default function CharacterAbilityPageFormatting({
         if (activeBRV == true) {
             const filteredout = rawData2.filter(
                 (ef) =>
-                    ef && ef.BRV == true
+                    ef && ef.rank == "BRV"
             );
             filterholder.push(...filteredout);
         }
         if (activeHP == true) {
             const filteredout = rawData2.filter(
                 (ef) =>
-                    ef && ef.HP == true
+                    ef && ef.rank == "HP"
             );
             filterholder.push(...filteredout);
         }
         if (activeCALL75 == true) {
             const filteredout = rawData2.filter(
                 (ef) =>
-                    ef && ef.Call75 == true
+                    ef && ef.rank == "Call75"
             );
             filterholder.push(...filteredout);
         }
         if (activeCALLLD == true) {
             const filteredout = rawData2.filter(
                 (ef) =>
-                    ef && ef.CallLD == true
+                    ef && ef.rank == "CallLD"
             );
             filterholder.push(...filteredout);
         }
         if (activeAA == true) {
             const filteredout = rawData2.filter(
                 (ef) =>
-                    ef && ef.AA == true
+                    ef && ef.rank == "AA"
             );
             filterholder.push(...filteredout);
         }
         if (activeS1 == true) {
             const filteredout = rawData2.filter(
                 (ef) =>
-                    ef && ef.S1 == true
+                    ef && ef.rank == "S1"
             );
             filterholder.push(...filteredout);
         }
         if (activeS2 == true) {
             const filteredout = rawData2.filter(
                 (ef) =>
-                    ef && ef.S2 == true
+                    ef && ef.rank == "S2"
             );
             filterholder.push(...filteredout);
         }
         if (activeEX == true) {
             const filteredout = rawData2.filter(
                 (ef) =>
-                    ef && ef.EX == true
+                    ef && ef.rank == "EX"
             );
             filterholder.push(...filteredout);
         }
         if (activeLD == true) {
             const filteredout = rawData2.filter(
                 (ef) =>
-                    ef && ef.LD == true
+                    ef && ef.rank == "LD"
             );
             filterholder.push(...filteredout);
         }
         if (activeFR == true) {
             const filteredout = rawData2.filter(
                 (ef) =>
-                    ef && ef.FR == true || ef && ef.FRExt == true
+                    ef && ef.rank == "FR"
             );
             filterholder.push(...filteredout);
         }
@@ -400,7 +367,7 @@ export default function CharacterAbilityPageFormatting({
         if (activeBT == true) {
             const filteredout = rawData2.filter(
                 (ef) =>
-                    ef && ef.BT == true || ef && ef.BTplus == true
+                    ef && ef.rank == "BT"
             );
             filterholder.push(...filteredout);
         }
@@ -439,20 +406,20 @@ export default function CharacterAbilityPageFormatting({
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [activeBRV, activeHP, activeCALL75, activeCALLLD, activeAA, activeS1, activeS2, activeEX, activeLD, activeFR, activeBT, searchTerm, upgraded, clearFilter, AdvanceValuesearch, AdvanceValuesearch3, reverse]);
 
-
-
     //search bar
     const handleChange = (e) => {
         setsearchdisplay(e.target.value)
         setSearchTerm(e.target.value.toLowerCase());
         setTEXTsearch(e.target.value)
     };
+
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
             setSearchTerm(searchdisplay.toLowerCase());
             setTEXTsearch(searchdisplay)
         }
     }
+
     const clearSearch = () => {
         setsearchdisplay("")
         setSearchTerm("");
@@ -471,8 +438,8 @@ export default function CharacterAbilityPageFormatting({
     const changeend = (event) => {
         setvaluedisplay(event.target.value)
         setAdvanceValuesearch(event.target.value)
-
     }
+
     const handleKeyPressValue = (event) => {
         if (event.key === 'Enter') {
             setAdvanceValuesearch(valuedisplay);
@@ -487,8 +454,8 @@ export default function CharacterAbilityPageFormatting({
     const changeend3 = (event) => {
         setvaluedisplay3(event.target.value)
         setAdvanceValuesearch3(event.target.value)
-
     }
+
     const handleKeyPressValue3 = (event) => {
         if (event.key === 'Enter') {
             setAdvanceValuesearch3(valuedisplay3);
@@ -801,7 +768,7 @@ export default function CharacterAbilityPageFormatting({
                 <div className="characterpageholder">
                     <CharacterAbilitySubListFormatting
                         tag_display={"brvattackicon"}
-                        character_ability={commandList.filter(self => self.BRV == true)}
+                        character_ability={commandList.filter(self => self.rank == "BRV")}
                         ver={ver}
                         loc={loc}
                         file={file}
@@ -815,7 +782,7 @@ export default function CharacterAbilityPageFormatting({
                     />
                     <CharacterAbilitySubListFormatting
                         tag_display={"hpattackicon"}
-                        character_ability={commandList.filter(self => self.HP == true)}
+                        character_ability={commandList.filter(self => self.rank == "HP")}
                         ver={ver}
                         loc={loc}
                         file={file}
@@ -829,7 +796,7 @@ export default function CharacterAbilityPageFormatting({
                     />
                     <CharacterAbilitySubListFormatting
                         tag_display={"cl1"}
-                        character_ability={commandList.filter(self => self.S1 == true)}
+                        character_ability={commandList.filter(self => self.rank == "S1")}
                         ver={ver}
                         loc={loc}
                         file={file}
@@ -843,7 +810,7 @@ export default function CharacterAbilityPageFormatting({
                     />
                     <CharacterAbilitySubListFormatting
                         tag_display={"cl20"}
-                        character_ability={commandList.filter(self => self.S2 == true)}
+                        character_ability={commandList.filter(self => self.rank == "S2")}
                         ver={ver}
                         loc={loc}
                         file={file}
@@ -857,7 +824,7 @@ export default function CharacterAbilityPageFormatting({
                     />
                     <CharacterAbilitySubListFormatting
                         tag_display={"aaabilityButton"}
-                        character_ability={commandList.filter(self => self.AA == true)}
+                        character_ability={commandList.filter(self => self.rank == "AA")}
                         ver={ver}
                         loc={loc}
                         file={file}
@@ -871,7 +838,7 @@ export default function CharacterAbilityPageFormatting({
                     />
                     <CharacterAbilitySubListFormatting
                         tag_display={"wpex"}
-                        character_ability={commandList.filter(self => self.EX == true)}
+                        character_ability={commandList.filter(self => self.rank == "EX")}
                         ver={ver}
                         loc={loc}
                         file={file}
@@ -885,7 +852,7 @@ export default function CharacterAbilityPageFormatting({
                     />
                     <CharacterAbilitySubListFormatting
                         tag_display={"wpld"}
-                        character_ability={commandList.filter(self => self.LD == true)}
+                        character_ability={commandList.filter(self => self.rank == "LD")}
                         ver={ver}
                         loc={loc}
                         file={file}
@@ -899,7 +866,7 @@ export default function CharacterAbilityPageFormatting({
                     />
                     <CharacterAbilitySubListFormatting
                         tag_display={"wpbt"}
-                        character_ability={commandList.filter(self => self.BT == true || self.BTplus == true)}
+                        character_ability={commandList.filter(self => self.rank == "BT")}
                         ver={ver}
                         loc={loc}
                         file={file}
@@ -913,7 +880,7 @@ export default function CharacterAbilityPageFormatting({
                     />
                     <CharacterAbilitySubListFormatting
                         tag_display={"wpfr"}
-                        character_ability={commandList.filter(self => self.FR == true || self.FRExt == true)}
+                        character_ability={commandList.filter(self => self.rank == "FR")}
                         ver={ver}
                         loc={loc}
                         file={file}
@@ -927,7 +894,7 @@ export default function CharacterAbilityPageFormatting({
                     />
                     <CharacterAbilitySubListFormatting
                         tag_display={"call1"}
-                        character_ability={commandList.filter(self => self.Call75 == true)}
+                        character_ability={commandList.filter(self => self.rank == "Call75")}
                         ver={ver}
                         loc={loc}
                         file={file}
@@ -941,7 +908,7 @@ export default function CharacterAbilityPageFormatting({
                     />
                     <CharacterAbilitySubListFormatting
                         tag_display={"call2"}
-                        character_ability={commandList.filter(self => self.CallLD == true)}
+                        character_ability={commandList.filter(self => self.rank == "CallLD")}
                         ver={ver}
                         loc={loc}
                         file={file}
