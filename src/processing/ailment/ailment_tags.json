@@ -297,7 +297,7 @@
         "url": "roles/Role_HPDmgUp"
     },
     "StolenBRV": {
-        "name": "Stolen BRV Damage Up",
+        "name": "Stolen BRV Up",
         "url": "roles/Role_BRVUp"
     },
     "BRV_Damage_Cap": {
