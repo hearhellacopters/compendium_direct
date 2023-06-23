@@ -219,9 +219,9 @@ export default function ailment_default_trans(
 
     icon_display = icon_display && max_level && max_level != 0 ? ailment_level_icon(ail_data,default_data.arg1) : icon_display
 
-    var cast_str = `${default_data.cast_rate_ < 100 ? `(A ${default_data.cast_rate_}% chance) ` : ``}${is_buff == 0 ? "Inflicted " : "Granted "}${cond_str}`
+    var cast_str = `${default_data.cast_rate_ < 100 ? `(A ${default_data.cast_rate_}% chance) ` : ``}${is_buff == 0 ? "Inflicted " : "Granted "}${cond_str}${default_data.turn != -1 ? ` for` : ""}`
 
-    var turns_str = `${default_data.turn != -1 ? ` for ${default_data.turn} turn${default_data.turn > 1 ? "s" : ""}` : ""}${max_level && max_level != 0 ? ` at level ${default_data.arg1}` : ""}`
+    var turns_str = `${default_data.turn != -1 ? ` ${default_data.turn} turn${default_data.turn > 1 ? "s" : ""}` : ""}${max_level && max_level != 0 ? ` at level ${default_data.arg1}` : ""}`
 
     var target_str = `${default_data.cast_target_ != 2 ? ` to ${cast_targets[default_data.cast_target_] && cast_targets[default_data.cast_target_].target_id}` : ""}`
 
