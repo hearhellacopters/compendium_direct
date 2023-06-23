@@ -1,6 +1,6 @@
 import ailment_val_edit_type_handler from "../ailment/ailment_val_edit_type_handler.js"
 
-export default function passive_effect_handler(
+export default function passive_effect_trans(
     effect_,
     effect_target,
     effect_value1,

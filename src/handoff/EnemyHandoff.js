@@ -73,6 +73,7 @@ export default function EnemyHandoff({
         return (
             <div>
                 <EnemyFormattingDirect
+                    key={match.params.id}
                     setlevel={filtered.Level != undefined ? true : false}
                     alllevels={alllevels}
                     stats={levelparams == undefined ? firstlevel : stats}

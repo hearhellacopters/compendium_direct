@@ -1,6 +1,6 @@
-import require_trans_handler from './require_trans_handler'
+import require_trans_handler from './require_trans'
 
-export default function passive_link_effect_pars(
+export default function passive_link_trans(
     link_effect,
     master_index,
     ver

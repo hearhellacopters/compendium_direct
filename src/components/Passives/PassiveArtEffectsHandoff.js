@@ -1,6 +1,6 @@
 import React from "react";
-import require_trans_handler from '../../processing/passives/require_trans_handler'
-import passive_effect_handler from "../../processing/passives/passive_effect_handler";
+import require_trans from '../../processing/passives/require_trans'
+import passive_effect_trans from "../../processing/passives/passive_effect_trans";
 import PassiveEffectsHandoff from "./PassiveEffectsHandoff";
 import ReplacerCharacter from '../ReplacerCharacter'
 
@@ -17,7 +17,7 @@ export default function PassiveArtEffectsHandoff({
     var require__1 = ""
 
     if (passive_ability.require_type != undefined) {
-        require_ = require_trans_handler(
+        require_ = require_trans(
             passive_ability.require_type,
             passive_ability.require_target,
             passive_ability.require_arg_01,
@@ -30,7 +30,7 @@ export default function PassiveArtEffectsHandoff({
     }
 
     if (passive_ability.require_type_1 != undefined) {
-        require__1 = require_trans_handler(
+        require__1 = require_trans(
             passive_ability.require_type_1,
             passive_ability.require_target_1,
             passive_ability.require_arg_01_1,
@@ -46,7 +46,7 @@ export default function PassiveArtEffectsHandoff({
     var effect__1 = ""
 
     if (passive_ability.effect_type != undefined) {
-        effect_ = passive_effect_handler(
+        effect_ = passive_effect_trans(
             passive_ability.effect_type,
             passive_ability.passive_target == 2 ? passive_ability.effect_target : passive_ability.passive_target,
             passive_ability.effect_arg_01,
@@ -60,7 +60,7 @@ export default function PassiveArtEffectsHandoff({
     }
 
     if (passive_ability.effect_type_1 != undefined) {
-        effect__1 = passive_effect_handler(
+        effect__1 = passive_effect_trans(
             passive_ability.effect_type_1,
             passive_ability.passive_target == 2 ? passive_ability.effect_target_1 : passive_ability.passive_target,
             passive_ability.effect_arg_01_1,

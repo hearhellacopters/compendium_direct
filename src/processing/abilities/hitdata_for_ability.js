@@ -1,4 +1,4 @@
-import hitdata_handler from "./hitdata_handler.js"
+import hitdata_trans from "./hitdata_trans.js"
 
 export default function hitdata_for_ability(
     ability,
@@ -112,7 +112,7 @@ export default function hitdata_for_ability(
                 }
             } else {
                 hit_counter = hit_counter + 1
-                hit_data_id_pars = hitdata_handler(
+                hit_data_id_pars = hitdata_trans(
                     hit_data,
 
                     master_index,

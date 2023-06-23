@@ -1,4 +1,4 @@
-export default function killer_cond_handler(
+export default function killer_cond_trans(
     kcon,
     karg,
     keff,

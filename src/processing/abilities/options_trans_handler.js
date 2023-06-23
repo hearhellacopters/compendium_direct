@@ -1,4 +1,4 @@
-import options_label_pars from './options_label_pars.js'
+import options_label_trans from './options_label_trans.js'
 
 export default function options_trans_handler(
     enemy_or_char,
@@ -80,7 +80,7 @@ export default function options_trans_handler(
     var effect_str2 = ""
 
     if (label1_pull != undefined) {
-        effect_str1 = options_label_pars(
+        effect_str1 = options_label_trans(
             option_data.require_label_,
             option_data.require_valueA_,
             option_data.require_valueB_,
@@ -95,7 +95,7 @@ export default function options_trans_handler(
     }
 
     if (label2_pull != undefined) {
-        effect_str2 = options_label_pars(
+        effect_str2 = options_label_trans(
             option_data.require_label2_,
             option_data.require_value2A_,
             option_data.require_value2B_,

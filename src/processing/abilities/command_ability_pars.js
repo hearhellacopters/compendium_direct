@@ -1,6 +1,6 @@
-import killer_cond_handler from './killer_cond_handler.js'
-import killer_id_handler from './killer_id_handler.js'
-import ailment_cond_handler from './ailment_cond_handler.js'
+import killer_cond_trans from './killer_cond_trans.js'
+import killer_id_trans from './killer_id_trans.js'
+import ailment_cond_trans from './ailment_cond_trans.js'
 
 export default function command_ability_pars(
     command_ability,
@@ -28,7 +28,7 @@ export default function command_ability_pars(
     }
     var stun_str = command_ability.stun == 50 ? "Initiates a <Knock_Back>" : command_ability.blow == 0 ? undefined : command_ability.command_type == 7 ? undefined : `Chase +${command_ability.stun}`
     if (command_ability.kcon != undefined) {
-        var kcon_str = killer_cond_handler(
+        var kcon_str = killer_cond_trans(
             command_ability.kcon,
             command_ability.karg,
             command_ability.keff,
@@ -39,7 +39,7 @@ export default function command_ability_pars(
         )
     }
     if (command_ability.kcon_1 != undefined && command_ability.kcon_1 != -1) {
-        var kcon_1_str = killer_cond_handler(
+        var kcon_1_str = killer_cond_trans(
             command_ability.kcon_1,
             command_ability.karg_1,
             command_ability.keff_1,
@@ -62,7 +62,7 @@ export default function command_ability_pars(
         var nabi_str = "*Does not consume ability use"
     }
     if (command_ability.kid != undefined) {
-        var kid_str = killer_id_handler(
+        var kid_str = killer_id_trans(
             command_ability.kid,
             command_ability.sarg,
             command_ability.keff,
@@ -72,7 +72,7 @@ export default function command_ability_pars(
         )
     }
     if (command_ability.kid_1 != undefined) {
-        var kid_1_str = killer_id_handler(
+        var kid_1_str = killer_id_trans(
             command_ability.kid_1,
             command_ability.sarg_1,
             command_ability.keff_1,
@@ -115,7 +115,7 @@ export default function command_ability_pars(
         var ahit = command_ability[`ahit${index == 0 ? "" : `_${index}`}`]
         if (atype_str != undefined) {
             if (acond != undefined) {
-                var cond = ailment_cond_handler(
+                var cond = ailment_cond_trans(
                     acond,
                     acarg,
 

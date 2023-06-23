@@ -2,7 +2,7 @@ import ailment_split_by_2 from "../ailment/ailment_split_by_2.js"
 import ailment_val_edit_type_handler from '../ailment/ailment_val_edit_type_handler.js'
 import ailment_level_icon from "../ailment/ailment_level_icon.js"
 
-export default function ailment_cond_handler(
+export default function ailment_cond_trans(
     acond,
     acarg,
     master_index,

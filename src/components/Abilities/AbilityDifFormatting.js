@@ -14,7 +14,7 @@ import ReplacerCharacter from '../ReplacerCharacter'
 import { MdRecordVoiceOver }from 'react-icons/md';
 import ability_rank_trans from '../../processing/abilities/ability_rank_trans'
 import AilmentDataFormatting from '../Buffs/AilmentDataFormatting'
-import AilmentCharacterDifFormatting from '../Buffs/AilmentDifFormatting';
+import AilmentDifFormatting from '../Buffs/AilmentDifFormatting';
 import makediff from '../../processing/makediff';
 import ability_use_maker from '../../processing/abilities/ability_use_maker';
 import ailment_level_icon from '../../processing/ailment/ailment_level_icon';
@@ -558,9 +558,7 @@ export default function CharacterAbilityDifFormatting({
                             loc={undefined}
                             ver={ver_new}
                             ailment_data={selectedbuff.default == true ? selectedbuff.cast : selectedbuff}
-
                             master_index={master_index}
-
                             slider={false}
                             rank={selectedbuff.default == true ? selectedbuff.rank_id : selectedbuff.arank}
                             arg1={selectedbuff.default == true ? selectedbuff.arg1 : selectedbuff.aarg1}
@@ -578,8 +576,7 @@ export default function CharacterAbilityDifFormatting({
                             passed_passive={selectedbuff.passive}
                         />
                         :
-
-                        <AilmentCharacterDifFormatting
+                        <AilmentDifFormatting
                             buff_new={selectedbuff}
                             ver_new={ver_new}
                             buff_old={selectedbuff_old}
@@ -587,9 +584,12 @@ export default function CharacterAbilityDifFormatting({
                             master_index={master_index}
                             info={displayinfo}
                             castlocation={true}
+                            character_face={false}
+                            frameless={false}
+                            hide_title={true}
                         />
-
-                    : ""}
+                        
+                : ""}
             </div>
         </div>
     )

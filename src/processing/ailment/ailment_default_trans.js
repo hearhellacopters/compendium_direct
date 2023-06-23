@@ -1,6 +1,6 @@
 import ailment_level_icon from "./ailment_level_icon.js"
 
-export default function ailment_default_pars(
+export default function ailment_default_trans(
     default_data,
     passed_ailment,
     master_index,
@@ -22,16 +22,16 @@ export default function ailment_default_pars(
     var cond_str = ""
 
     if (default_data.is_cast_only_wave_start_ == 1) {
-        cond_str = "At start of wave"
+        cond_str = "at start of wave"
     }
     if (default_data.is_cast_only_start_ == 1) {
-        cond_str = "At start of quest"
+        cond_str = "at start of quest"
     }
     if (default_data.is_cast_only_start_ == 1 && default_data.is_cast_only_wave_start_ == 1) {
-        cond_str = "At start of quest & at start of wave"
+        cond_str = "at start of quest & at start of wave"
     }
     if(cond_str == ""){
-        cond_str = "At start of quest"
+        cond_str = "at start of quest"
     }
 
     var cond_id_str = ""
@@ -219,9 +219,9 @@ export default function ailment_default_pars(
 
     icon_display = icon_display && max_level && max_level != 0 ? ailment_level_icon(ail_data,default_data.arg1) : icon_display
 
-    var cast_str = `${default_data.cast_rate_ < 100 ? `${default_data.cast_rate_}% chance to cast ` : ``}${cond_str}${max_level && max_level != 0 ? `${is_buff === 0 ? ", inflicts" : ", grants"} ${default_data.arg1} level${default_data.arg1 != 1 ? "s" : ""}` : ""}`
+    var cast_str = `${default_data.cast_rate_ < 100 ? `(A ${default_data.cast_rate_}% chance) ` : ``}${is_buff == 0 ? "Inflicted " : "Granted "}${cond_str}`
 
-    var turns_str = `${default_data.turn != -1 ? ` for ${default_data.turn} turn${default_data.turn > 1 ? "s" : ""}` : ""}`
+    var turns_str = `${default_data.turn != -1 ? ` for ${default_data.turn} turn${default_data.turn > 1 ? "s" : ""}` : ""}${max_level && max_level != 0 ? ` at level ${default_data.arg1}` : ""}`
 
     var target_str = `${default_data.cast_target_ != 2 ? ` to ${cast_targets[default_data.cast_target_] && cast_targets[default_data.cast_target_].target_id}` : ""}`
 

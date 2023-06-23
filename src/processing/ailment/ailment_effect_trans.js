@@ -2,7 +2,7 @@ import ailment_val_edit_type_handler from "./ailment_val_edit_type_handler.js"
 import ailment_split_by_2 from "./ailment_split_by_2.js"
 import ailment_level_icon from "./ailment_level_icon.js"
 
-export default function ailment_data_pars(
+export default function ailment_effect_trans(
     ailment_id,
     effect_id,
     val_type,

@@ -927,6 +927,7 @@ export default function EnemyFormatting({
                         </div>
                         {selectedbuff.length == 0 ? "" :
                             <AilmentDataFormattingEnemy
+                                key={selectedbuff.id}
                                 ailment_data={selectedbuff}
                                 enemy_space={false}
                                 

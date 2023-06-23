@@ -124,6 +124,7 @@ export default function CallCharacter ({
                                 <Navigate replace to={`/characters/${match.params.id}/passives/crystal${jptoggledata == true ? "?JP=true" : ""}`} />
                                 :
                                 <CharacterPageSingleFormatting
+                                    key={match.params.id}
                                     loc={loc}
 
                                     filtered={filtered}

@@ -1,4 +1,4 @@
-export default function ailment_modify_pars(
+export default function ailment_modify_trans(
     modify,
     master_index,
     ver

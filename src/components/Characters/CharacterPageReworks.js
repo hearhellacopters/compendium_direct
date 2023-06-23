@@ -10,9 +10,9 @@ import TickUp from '../../components/tickUp.js'
 import { StartsInTimer } from '../../components/Timers.js'
 import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
 import CharacterAbilityDifHandler from '../Abilities/AbilityDifHandler.js';
-import Ailment_Character_Dif_Handler from '../../components/Buffs/AilmentCharacterDifHandler.js';
-import Passive_Ability_Dif_Handler from '../Passives/PassiveAbilityDifHandler.js';
-import Equipment_Passive_Dif_Handler from '../Gear/EquipmentPassiveDifHandler.js';
+import AilmentDifHandler from '../Buffs/AilmentDifHandler.js';
+import PassiveAbilityDifHandler from '../Passives/PassiveAbilityDifHandler.js';
+import EquipmentPassiveDifHandler from '../Gear/EquipmentPassiveDifHandler.js';
 import '../../Passives.css';
 
 export default function CharacterPageReworks({
@@ -103,7 +103,7 @@ export default function CharacterPageReworks({
                       {rework && rework.reworks.map((reworker, i)=>{
                         if(reworker.equ_pass == true){
                           return(
-                            <Equipment_Passive_Dif_Handler
+                            <EquipmentPassiveDifHandler
                               key={i}
                               passive_data={reworker}
                               master_index={master_index}
@@ -113,7 +113,7 @@ export default function CharacterPageReworks({
                         }
                         if(reworker.pass == true){
                           return(
-                            <Passive_Ability_Dif_Handler
+                            <PassiveAbilityDifHandler
                               key={i}
                               passive_data={reworker}
                               master_index={master_index}
@@ -133,7 +133,7 @@ export default function CharacterPageReworks({
                           }
                           if(reworker.ailment == true){
                             return(
-                              <Ailment_Character_Dif_Handler
+                              <AilmentDifHandler
                               key={i}
                               buff_data={reworker}
                               master_index={master_index}

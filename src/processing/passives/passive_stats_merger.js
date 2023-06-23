@@ -1,4 +1,4 @@
-import passive_effect_handler from "./passive_effect_handler"
+import passive_effect_trans from "./passive_effect_trans"
 
 export default function passive_stats_merger(
     char_passives,
@@ -320,7 +320,7 @@ export default function passive_stats_merger(
                     var eff_holder2 = self.effect_value2_disp
                     var eff_holder3 = self.effect_value3_disp
 
-                    passive_effect_handler(
+                    passive_effect_trans(
                         self.effect_,
                         self.passive_target == 2 ? self.effect_target : self.passive_target,
                         eff_holder1,
@@ -341,7 +341,7 @@ export default function passive_stats_merger(
                     var eff_holder2_1 = self.effect_value2_1_disp
                     var eff_holder3_1 = self.effect_value3_1_disp
 
-                    passive_effect_handler(
+                    passive_effect_trans(
                         self.effect__1,
                         self.passive_target == 2 ? self.effect_target_1 : self.passive_target,
                         eff_holder1_1,

@@ -1,7 +1,7 @@
-import require_trans_handler from './require_trans_handler.js'
-import passive_effect_handler from "./passive_effect_handler.js"
-import Ailment_Field_Effect_Pars from '../ailment/ailment_field_effect_pars.js'
-import Ailment_Data_Pars_Dif from '../ailment/ailment_data_pars_dif.js'
+import require_trans from './require_trans.js'
+import passive_effect_trans from "./passive_effect_trans.js"
+import ailment_field_effect_trans from '../ailment/ailment_field_effect_trans.js'
+import ailment_data_pars_dif from '../ailment/ailment_data_pars_dif.js'
 
 export default function passive_effects_dif(
     passive_ability,
@@ -201,7 +201,7 @@ export default function passive_effects_dif(
     if (passive_ability.require_ != undefined &&
         require_show == true
     ) {
-        require_ = require_trans_handler(
+        require_ = require_trans(
             passive_ability.require_,
             passive_ability.require_target,
             require_value1,
@@ -216,7 +216,7 @@ export default function passive_effects_dif(
     if (passive_ability.require__1 != undefined &&
         require__1_show == true
     ) {
-        require__1 = require_trans_handler(
+        require__1 = require_trans(
             passive_ability.require__1,
             passive_ability.require_target_1,
             require_value1_1,
@@ -232,7 +232,7 @@ export default function passive_effects_dif(
     var effect__1 = undefined
 
     if (passive_ability.effect_ != undefined) {
-        effect_ = passive_effect_handler(
+        effect_ = passive_effect_trans(
             passive_ability.effect_,
             passive_ability.passive_target == 2 ? passive_ability.effect_target : passive_ability.passive_target,
             effect_value1,
@@ -246,7 +246,7 @@ export default function passive_effects_dif(
     }
 
     if (passive_ability.effect__1 != undefined) {
-        effect__1 = passive_effect_handler(
+        effect__1 = passive_effect_trans(
             passive_ability.effect__1,
             passive_ability.passive_target == 2 ? passive_ability.effect_target_1 : passive_ability.passive_target,
             effect_value1_1,
@@ -320,7 +320,7 @@ export default function passive_effects_dif(
     }
 
     const field_data = (ailment_field)=>{
-       return Ailment_Field_Effect_Pars(
+       return ailment_field_effect_trans(
             ailment_field,
             false, //Single
     
@@ -381,7 +381,7 @@ export default function passive_effects_dif(
             }
             if(effect_ == "Field Effect" && passive_ability.hide_field != true){
                 const field_1_disp = passive_ability.field && passive_ability.field.map((buffs, i) => (
-                    Ailment_Data_Pars_Dif(
+                    ailment_data_pars_dif(
                         field_data(buffs),
                         1, //currentlevel
                         1, //currentturns
@@ -410,7 +410,7 @@ export default function passive_effects_dif(
             }
             if(effect__1 == "Field Effect" && passive_ability.hide_field != true){
                 const field_2_disp = passive_ability.field && passive_ability.field.map((buffs, i) => (
-                    Ailment_Data_Pars_Dif(
+                    ailment_data_pars_dif(
                         field_data(buffs),
                         1, //currentlevel
                         1, //currentturns
@@ -455,7 +455,7 @@ export default function passive_effects_dif(
             }
             if(effect_ == "Field Effect" && passive_ability.hide_field != true){
                 const field_1_disp = passive_ability.field && passive_ability.field.map((buffs, i) => (
-                    Ailment_Data_Pars_Dif(
+                    ailment_data_pars_dif(
                         field_data(buffs),
                         1, //currentlevel
                         1, //currentturns
@@ -484,7 +484,7 @@ export default function passive_effects_dif(
             }
             if(effect__1 == "Field Effect" && passive_ability.hide_field != true){
                 const field_2_disp = passive_ability.field && passive_ability.field.map((buffs, i) => (
-                    Ailment_Data_Pars_Dif(
+                    ailment_data_pars_dif(
                         field_data(buffs),
                         1, //currentlevel
                         1, //currentturns
@@ -509,7 +509,7 @@ export default function passive_effects_dif(
             }
             if(effect__1 != "Field Effect" && effect_ != "Field Effect" && passive_ability.hide_field != true && passive_ability.field != undefined){
                 const defun_field = passive_ability.field && passive_ability.field.map((buffs, i) => (
-                    Ailment_Data_Pars_Dif(
+                    ailment_data_pars_dif(
                         field_data(buffs),
                         1, //currentlevel
                         1, //currentturns
@@ -554,7 +554,7 @@ export default function passive_effects_dif(
             }
             if(effect_ == "Field Effect" && passive_ability.hide_field != true){
                 const field_1_disp = passive_ability.field && passive_ability.field.map((buffs, i) => (
-                    Ailment_Data_Pars_Dif(
+                    ailment_data_pars_dif(
                         field_data(buffs),
                         1, //currentlevel
                         1, //currentturns
@@ -587,7 +587,7 @@ export default function passive_effects_dif(
             }
             if(effect__1 == "Field Effect" && passive_ability.hide_field != true){
                 const field_1_disp = passive_ability.field && passive_ability.field.map((buffs, i) => (
-                    Ailment_Data_Pars_Dif(
+                    ailment_data_pars_dif(
                         field_data(buffs),
                         1, //currentlevel
                         1, //currentturns
@@ -612,7 +612,7 @@ export default function passive_effects_dif(
             }
             if(effect__1 != "Field Effect" && effect_ != "Field Effect" && passive_ability.hide_field != true && passive_ability.field != undefined){
                 const defun_field = passive_ability.field && passive_ability.field.map((buffs, i) => (
-                    Ailment_Data_Pars_Dif(
+                    ailment_data_pars_dif(
                         field_data(buffs),
                         1, //currentlevel
                         1, //currentturns

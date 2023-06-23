@@ -3,7 +3,7 @@ import element_other from "./require_element_other.js"
 import additional_attack from "./require_additional_attack.js"
 import ailment_level_icon from "../ailment/ailment_level_icon.js"
 
-export default function require_trans_handler(
+export default function require_trans(
     require_,
     require_target,
     require_value1,

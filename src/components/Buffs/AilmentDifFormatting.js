@@ -5,17 +5,16 @@ import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import CharacterFaceFormatting from "../Characters/CharacterFaceFormatting";
 import format_cleaner from '../../processing/format_cleaner'
 import { useDispatch, useSelector } from "react-redux";
-import ability_rank_trans from "../../processing/abilities/ability_rank_trans";
 import { getTransNames } from '../../redux/ducks/transnames';
 import translater from '../../processing/translater_characters';
-import ailment_slider_handler from '../../processing/ailment/ailment_slider_handler';
-import ailment_meta_handler from '../../processing/ailment/ailment_meta_handler.js'
 import ReplacerCharacter from  "../ReplacerCharacter";
 import DevSwitch from '../../redux/DevSwitch';
-import Ailment_Dif from './AilmentDif';
+import AilmentEffectDif from './AilmentEffectDif';
 import { ObjectView } from 'react-object-view'
 import makediff from "../../processing/makediff";
 import AilmentSliderFormatting from "./AilmentSliderFormatting";
+import ailment_data_handler from "../../processing/ailment/ailment_data_handler";
+import ailment_level_icon from "../../processing/ailment/ailment_level_icon";
 
 export default function AilmentDifFormatting({
     buff_new,
@@ -24,19 +23,60 @@ export default function AilmentDifFormatting({
     ver_old,
     master_index,
     info,
-    castlocation
+    castlocation,
+    character_face, //only on for list
+    frameless, // for attached
+    default_passoff, //default passoff
+    passed_passive, // for passive defaults
+    hide_title
 }){
 
     const form = {diffing:true}
     const forma = {diffing:true,updown:true}
 
-    const cast_targets = master_index.command_data_trans.cast_target
-    const char_id = master_index.charid
+    const ailment_data_trans_new = ailment_data_handler(
+        buff_new,
+        buff_new.arank,
+        buff_new.aarg1,
+        buff_new.aarg2,
+        buff_new.aranka,
+        buff_new.aaug1a,
+        buff_new.aaug2a,
+        ver_new,
+        master_index,
+        castlocation,
+        buff_new.life,
+    )
 
-    var cast_target = undefined
-    if (buff_new.atarg != undefined && buff_new.atarg != 2) {
-        cast_target = cast_targets[buff_new.atarg] && cast_targets[buff_new.atarg].target_id
-    }
+    const { highestlvl, 
+            turns_set,
+            sliders,
+            metadata,
+            cast_title_str,
+            cast_turns_str,
+            cast_target_str
+        } = ailment_data_trans_new
+
+    const ailment_data_trans_old = ailment_data_handler(
+            buff_old,
+            buff_old.arank,
+            buff_old.aarg1,
+            buff_old.aarg2,
+            buff_old.aranka,
+            buff_old.aaug1a,
+            buff_old.aaug2a,
+            ver_old,
+            master_index,
+            castlocation,
+            buff_old.life,
+    )
+
+    const metadata_old = ailment_data_trans_old.metadata
+    const cast_title_str_old = ailment_data_trans_old.cast_title_str
+    const cast_turns_str_old = ailment_data_trans_old.cast_turns_str
+    const cast_target_str_old = ailment_data_trans_old.cast_target_str
+
+    const char_id = master_index.charid
 
     const [onion_passoff, setonion_passoff] = useStateIfMounted();
     const [showdesc, setshowdesc] = useStateIfMounted(false);
@@ -143,50 +183,7 @@ export default function AilmentDifFormatting({
         // eslint-disable-next-line 
     }, [showdesc, onion_passoff, buff_new, ver_new])
 
-    const [highestlvl, setHighestlvl] = useStateIfMounted();
-    const [highestlvl_old, setHighestlvl_old] = useStateIfMounted();
-
-    useEffect(() => {
-        if (buff_new.max_level >= 10) {
-            setHighestlvl(10)
-        }
-        if (buff_new.max_level <= 10 && buff_new.max_level != 0) {
-            setHighestlvl(buff_new.max_level)
-        }
-        if (buff_new.max_level == 0) {
-            setHighestlvl(0)
-        }
-        if (buff_new.max_level_overide != undefined) {
-            setHighestlvl(buff_new.max_level_overide)
-        }
-
-        if (buff_new.max_level == -1 && buff_new.aarg1 != undefined) {
-            setHighestlvl(buff_new.aarg1)
-        }
-        // eslint-disable-next-line
-    }, [buff_new])
-
-    useEffect(() => {
-        if (buff_old.max_level >= 10) {
-            setHighestlvl_old(10)
-        }
-        if (buff_old.max_level <= 10 && buff_old.max_level != 0) {
-            setHighestlvl_old(buff_old.max_level)
-        }
-        if (buff_old.max_level == 0) {
-            setHighestlvl_old(0)
-        }
-        if (buff_old.max_level_overide != undefined) {
-            setHighestlvl_old(buff_old.max_level_overide)
-        }
-
-        if (buff_old.max_level == -1 && buff_old.aarg1 != undefined) {
-            setHighestlvl_old(buff_old.aarg1)
-        }
-        // eslint-disable-next-line
-    }, [buff_old])
-
-    const [currentlevel, setcurrentlevel] = useStateIfMounted(buff_new.aarg1)
+    const [currentlevel, setcurrentlevel] = useStateIfMounted(highestlvl != 0 ? buff_new.aarg1 : 1)
 
     useEffect(() => {
         if (buff_new && buff_new.onion != undefined && buff_new.onion != -1 && showdesc == true) {
@@ -194,9 +191,7 @@ export default function AilmentDifFormatting({
         }
     }, [currentlevel, setonion_passoff, buff_new, showdesc])
 
-    var turns_set = buff_new.alife
-
-    const [currentturns, setcurrentturns] = useStateIfMounted(turns_set == undefined ? 1 : turns_set < 1 ? 1 : turns_set)
+    const [currentturns, setcurrentturns] = useStateIfMounted(turns_set)
     const [currentdebuffsranks, setcurrentdebuffsranks] = useStateIfMounted(9)
     const [currentdebuffsranks2, setcurrentdebuffsranks2] = useStateIfMounted(8)
     const [currentdebuffsmuliply, setcurrentdebuffsmuliply] = useStateIfMounted(9)
@@ -261,35 +256,6 @@ export default function AilmentDifFormatting({
         setcharacterskb(parseInt(e.x));
     };
 
-    const metadata = ailment_meta_handler(
-        buff_new,
-        master_index,
-        highestlvl
-    )
-
-    const metadata_old = ailment_meta_handler(
-        buff_old,
-        master_index,
-        highestlvl_old
-    )
-
-    const effect_value_type_field = buff_new.field && buff_new.field.map(self => {
-        return self.effect_id && self.effect_id.effect_value_type
-    })
-
-    const val_edit_type_field = buff_new.field && buff_new.field.map(self => {
-        return self.effect_id && self.effect_id.val_edit_type
-    })
-
-    const sliders = ailment_slider_handler(
-        buff_new,
-        effect_value_type_field,
-        val_edit_type_field);
-
-    const ailmentname = buff_new.name && buff_new.name
-
-    const ailmentjpname = buff_new.jpname && buff_new.jpname
-
     const [options_tex, setoptions_tex] = useStateIfMounted("");
     const [options_tex_old, setoptions_tex_old] = useStateIfMounted("");
 
@@ -310,57 +276,62 @@ export default function AilmentDifFormatting({
         }
     }, [buff_new, buff_old, setoptions_tex, setoptions_tex_old])
 
+    const minH = window.innerWidth <= 800 ? 210 : 150;
+
+    const ailment_debug = {
+        buff_new: buff_new,
+        buff_old: buff_old,
+        ailment_data_trans_new: ailment_data_trans_new,
+        ailment_data_trans_old: ailment_data_trans_old
+    }
+
     return (
-        <div className={castlocation == true ? "" : `buffunit`}>
-            <div className={castlocation == false ? `infoholder` :`${"bufflistbanner "}${buff_new.is_buff == 0 ? "Debuffbase" : "Buffbase"}`}
-            >
+        <div className={frameless != true ? character_face == true ? "buffunit" : "" : ""}>
+            <div className={frameless != true ? "infoholder" : ""} style={{ minHeight: `${frameless == true || character_face != true ? 0 : minH}px` }}>
                 <LazyLoadComponent>
-                    {castlocation == false ?
-                        <>
-                            <div className="infotitleholder">
-                                <div className="faceandiconholder">
-                                    <CharacterFaceFormatting char_id={char_id} id={buff_new.chara_id}/>
-                                    <div onClick={showmeraw} className="infoiconholder2">
-                                        <img className="bufficon" alt={buff_new && buff_new.name} src={`https://dissidiacompendium.com/images/static/icons/buff/${buff_new.icon}.png`} />
-                                    </div>
+                    {character_face == true?
+                        <div className="infotitleholder">
+                            <div className="faceandiconholder">
+                                <CharacterFaceFormatting char_id={char_id} id={buff_new.chara_id}/>
+                                <div onClick={showmeraw} className="infoiconholder2">
+                                    <img className="bufficon" alt={buff_new.name && buff_new.name} src={`https://dissidiacompendium.com/images/static/icons/buff/${ailment_level_icon(buff_new,currentlevel)}.png`} />
                                 </div>
                             </div>
-                            <div className={buff_new.is_buff == 0 ? "Debuffbanner iconbuffer infonameholder nobuffpadding" : "Buffbanner iconbuffer infonameholder nobuffpadding"}>
-                                <div className="infotitle2">
-                                    {ReplacerCharacter(`${ailmentname == "" ? `Unknown ${buff_new.is_buff == 1 ? "buff" : "debuff"}` : ailmentname}` + ` - #${buff_new.id}`,form)}
-                                    {ailmentjpname == "" || ailmentjpname == undefined ?
-                                        <div className="abilityJPname">
-                                            {"None テキストなし"}
-                                        </div>
-                                        : <div className="abilityJPname">
-                                            {ReplacerCharacter(ailmentjpname,form)}
-                                        </div>}
+                        </div>
+                    :""}
+                    <div style={{ marginTop: `${character_face != true ? "5px" : ""}` }} 
+                         className={
+                            frameless == true ? (buff_new.is_buff == 1 ? "Buffsubbanner2" : "Debuffsubbanner2") : 
+                            buff_new.is_buff == 0 ? "Debuffbanner iconbuffer infonameholder nobuffpadding" : "Buffbanner iconbuffer infonameholder nobuffpadding"
+                         }>
+                        <div className={character_face != true ? "flexdisplay" :"infotitle2"}>
+                            {character_face != true?
+                                <div onClick={showmeraw} className="solo_buff_icon">
+                                    <img className="bufficon2" alt={buff_new.name && buff_new.name} src={`https://dissidiacompendium.com/images/static/icons/buff/${ailment_level_icon(buff_new,currentlevel)}.png`} />
                                 </div>
-                                {info != undefined?
-                                    <div className='buffglreworkbanner passiveinfobase'>{info}</div>
-                                :""}
-                            </div>
-                        </>
-                        :
-                        <div onClick={showmeraw} className={buff_new.is_buff == 1 ? "Buffsubbanner" : "Debuffsubbanner"}>
-                            {ReplacerCharacter(ailmentname + ` - #${buff_new.id}`,form)}
-                            {ailmentjpname == "" || ailmentjpname == undefined ?
+                            :
+                            ""
+                            }
+                            <span className={character_face != true ? "splitrow" : ""}>
+                            {ReplacerCharacter(`${buff_new && buff_new.name == "" ? `Unknown ${buff_new.is_buff == 1 ? "buff" : "debuff"}` : buff_new.name}${buff_new.is_state == true ? "" : ` - #${buff_new.id}`}`,form)}
+                            {buff_new && buff_new.jpname == "" || buff_new && buff_new.jpname  == undefined ?
                                 <div className="abilityJPname">
                                     {"None テキストなし"}
                                 </div>
                                 : <div className="abilityJPname">
-                                    {ReplacerCharacter(ailmentjpname,form)}
+                                    {ReplacerCharacter(buff_new.jpname,form)}
                                 </div>}
-                            {info != undefined?
-                            <div className='buffglreworkbanner passiveinfobase'>{info}</div>
-                            :""}
+                            </span>
                         </div>
-                    }
+                        {info != undefined?
+                        <div className='buffglreworkbanner passiveinfobase'>{info}</div>
+                        :""}
+                    </div>
                     <AilmentSliderFormatting
                         ailment_data={buff_new}
                         sliders={sliders}
                         highestlvl={highestlvl}
-                        nobuffpadding={!castlocation}
+                        nobuffpadding={frameless == true ? false : true}
 
                         currentlevel={currentlevel}
                         handleChangeLevel={handleChangeLevel}
@@ -404,22 +375,21 @@ export default function AilmentDifFormatting({
                         characterskb={characterskb}
                         handleChangeCharactersKB={handleChangeCharactersKB}
                     />
-                    <div className={castlocation == true ? "" : `${buff_new.is_buff == 0 ? "Debuffbase" : "Buffbase"} enemyabilityinfobase wpadding`}>
-                        {buff_new.hide_title == true || castlocation == true? "" :
+                    <div className={
+                        frameless == true ? (buff_new.is_buff == 1 ? "Buffsubbase2" : "Debuffsubbase2") :
+                        buff_new.is_buff == 0 ? "Debuffbase enemyabilityinfobase wpadding" : "Buffbase enemyabilityinfobase wpadding"
+                        }>
+                        {buff_new.hide_title == true || default_passoff != undefined || frameless == true || passed_passive != undefined || hide_title == true? "" :
                             <div className={"subpassiveflair cast_str"}>
                                 {ReplacerCharacter(makediff(
-                                `${buff_old.alife != -1 ? `For ` : "From "}${buff_old.alife != -1 ? `${buff_old.alife} turn${buff_old.alife != 1 ? "s " : " "}` : ""}${buff_old.alife != -1 ? `from ` : ""}${buff_old.rank_tag != undefined ? `<${ability_rank_trans(buff_old.rank_tag)}>` : ""} [${buff_old.ability_namegl == undefined ? buff_old.ability_name : buff_old.ability_namegl}] #${buff_old.command_id}${cast_target == undefined ? "" : ` to ${cast_target}`}`,
-                                `${buff_new.alife != -1 ? `For ` : "From "}${buff_new.alife != -1 ? `${buff_new.alife} turn${buff_new.alife != 1 ? "s " : " "}` : ""}${buff_new.alife != -1 ? `from ` : ""}${buff_new.rank_tag != undefined ? `<${ability_rank_trans(buff_new.rank_tag)}>` : ""} [${buff_new.ability_namegl == undefined ? buff_new.ability_name : buff_new.ability_namegl}] #${buff_new.command_id}${cast_target == undefined ? "" : ` to ${cast_target}`}`
+                                `${cast_title_str_old}${cast_turns_str_old}${cast_target_str_old}`,
+                                `${cast_title_str}${cast_turns_str}${cast_target_str}`
                                 ),forma)}
                             </div>
                         }
-                        <Ailment_Dif
-                            master_index={master_index}
-                            ver_old={ver_old}
-                            buff_old={buff_old}
-                            ver_new={ver_new}
-                            buff_new={buff_new}
-                            nobuffpadding={true}
+                        <AilmentEffectDif
+                            ailment_data_trans_new={ailment_data_trans_new}
+                            ailment_data_trans_old={ailment_data_trans_old}
                             currentturns_passoff={currentturns}
                             currentdebuffsranks_passoff={currentdebuffsranks}
                             currentdebuffsranks2_passoff={currentdebuffsranks2}

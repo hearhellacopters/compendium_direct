@@ -2,17 +2,12 @@ import React, { useEffect } from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
 import { Link } from 'react-router-dom'
 import 'react-lazy-load-image-component/src/effects/opacity.css';
-import ailment_data_pars from '../../processing/ailment/ailment_data_pars'
 import AilmentDataEffectHandler from './AilmentDataEffectHandler';
-import Ailment_Field_Effect_Pars from '../../processing/ailment/ailment_field_effect_pars';
-import ailment_meta_handler from '../../processing/ailment/ailment_meta_handler.js'
 import CharacterFaceFormatting from '../Characters/CharacterFaceFormatting'
-import ailment_slider_handler from '../../processing/ailment/ailment_slider_handler';
-import ailment_combination_pars from '../../processing/ailment/ailment_combination_pars'
-import ailment_modify_pars from '../../processing/ailment/ailment_modify_pars';
+import ailment_combination_trans from '../../processing/ailment/ailment_combination_trans'
+import ailment_modify_trans from '../../processing/ailment/ailment_modify_trans';
 import ReplacerCharacter from '../ReplacerCharacter'
-import passive_link_effect_pars from '../../processing/passives/passive_link_effect_pars';
-import ability_rank_trans from '../../processing/abilities/ability_rank_trans'
+import passive_link_trans from '../../processing/passives/passive_link_trans';
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import axios from "axios";
 import DevSwitch from '../../redux/DevSwitch';
@@ -29,15 +24,13 @@ import PassiveEffectsHandoff from '../Passives/PassiveEffectsHandoff';
 import { ObjectView } from 'react-object-view'
 import ailment_level_icon from '../../processing/ailment/ailment_level_icon';
 import AilmentSliderFormatting from './AilmentSliderFormatting';
+import ailment_data_handler from '../../processing/ailment/ailment_data_handler';
 import AilmentLevelSettings from './AilmentLevelSettings';
 
 export default function AilmentDataFormatting({
-    file,
-    loc,
     ver,
     ailment_data,
     master_index,
-    slider,
     rank,
     arg1,
     arg2,
@@ -61,13 +54,33 @@ export default function AilmentDataFormatting({
     const form = {formatting:formatting}
     const forma = {formatting:formatting,updown:true}
 
-    const cast_targets = master_index.command_data_trans.cast_target
-    const char_id = master_index.charid
+    const ailment_data_trans = ailment_data_handler(
+        ailment_data,
+        rank,
+        arg1,
+        arg2,
+        alt_rank,
+        alt_aug1,
+        alt_aug2,
+        ver,
+        master_index,
+        castlocation,
+        turns,
+        rank_tag
+    )
 
-    var cast_target = undefined
-    if (ailment_data.atarg != undefined && ailment_data.atarg != 2) {
-        cast_target = cast_targets[ailment_data.atarg] && cast_targets[ailment_data.atarg].target_id
-    }
+    const { highestlvl, 
+            defaultrank,
+            turns_set,
+            sliders,
+            ailment_pars,
+            metadata,
+            cast_title_str,
+            cast_turns_str,
+            cast_target_str
+        } = ailment_data_trans
+
+    const char_id = master_index.charid
 
     const [onion_passoff, setonion_passoff] = useStateIfMounted();
     const [showdesc, setshowdesc] = useStateIfMounted(false);
@@ -157,54 +170,7 @@ export default function AilmentDataFormatting({
         // eslint-disable-next-line 
     }, [showdesc, onion_passoff, ailment_data, ver])
 
-    const [showattached, setshowattached] = useStateIfMounted(false);
-
-    const showmeattached = (current) => {
-        if (current == false) {
-            setshowattached(true)
-        } else {
-            setshowattached(false)
-            setonion_passoff()
-        }
-    }
-
-    const [highestlvl, setHighestlvl] = useStateIfMounted();
-
-    useEffect(() => {
-        if (ailment_data.max_level >= 10) {
-            setHighestlvl(10)
-        }
-        if (ailment_data.max_level <= 10 && ailment_data.max_level != 0) {
-            setHighestlvl(ailment_data.max_level)
-        }
-        if (ailment_data.max_level == 0) {
-            setHighestlvl(0)
-        }
-        if (ailment_data.max_level_overide != undefined) {
-            setHighestlvl(ailment_data.max_level_overide)
-        }
-        if (ailment_data.max_level == -1 && arg2 != undefined) {
-            setHighestlvl(arg2)
-            Object.assign(ailment_data, {max_level:arg2})
-        }
-        if (ailment_data.max_level == -1 && arg2 == undefined) {
-            setHighestlvl(10)
-            Object.assign(ailment_data, {max_level:10})
-        }
-        // eslint-disable-next-line
-    }, [ailment_data, arg2])
-
-    const [currentrank, setcurrentrank] = useStateIfMounted(castlocation == false ? 1 : rank)
-    const [currentlevel, setcurrentlevel] = useStateIfMounted(castlocation == false ? 1 : arg1)
-
-    useEffect(() => {
-        if (arg1 != undefined && highestlvl != 0) {
-            if (castlocation == true) {
-                setcurrentlevel(arg1)
-            }
-        }
-        // eslint-disable-next-line
-    }, [highestlvl, ailment_data, arg1, castlocation])
+    const [currentlevel, setcurrentlevel] = useStateIfMounted(castlocation == false ? 1 : highestlvl != 0 ? arg1 : 1)
 
     useEffect(() => {
         if (ailment_data && ailment_data.onion != undefined && ailment_data.onion != -1 && showdesc == true) {
@@ -212,9 +178,7 @@ export default function AilmentDataFormatting({
         }
     }, [currentlevel, setonion_passoff, ailment_data, showdesc])
 
-    var turns_set = ailment_data && ailment_data.alife != undefined ? ailment_data.alife : turns
-
-    const [currentturns, setcurrentturns] = useStateIfMounted(turns_set == undefined ? 1 : turns_set < 1 ? 1 : turns_set)
+    const [currentturns, setcurrentturns] = useStateIfMounted(turns_set)
     const [currentdebuffsranks, setcurrentdebuffsranks] = useStateIfMounted(9)
     const [currentdebuffsranks2, setcurrentdebuffsranks2] = useStateIfMounted(8)
     const [currentdebuffsmuliply, setcurrentdebuffsmuliply] = useStateIfMounted(9)
@@ -284,7 +248,6 @@ export default function AilmentDataFormatting({
         setcurrentgroupstacks(parseInt(e.x));
     };
 
-
     const handleChangeStacks = (e) => {
         setcurrentstacks(parseInt(e.x));
     };
@@ -294,10 +257,6 @@ export default function AilmentDataFormatting({
     };
     const handleChangeTurns = (e) => {
         setcurrentturns(parseInt(e.x));
-    };
-
-    const handleChangeRank = (e) => {
-        setcurrentrank(parseInt(e.x));
     };
 
     const handleChangeHP = (e) => {
@@ -312,21 +271,6 @@ export default function AilmentDataFormatting({
         setcharacterskb(parseInt(e.x));
     };
 
-    const effect_value_type_field = ailment_data.field && ailment_data.field.map(self => {
-        return self.effect_id && self.effect_id.effect_value_type
-    })
-
-    const val_edit_type_field = ailment_data.field && ailment_data.field.map(self => {
-        return self.effect_id && self.effect_id.val_edit_type
-    })
-
-    const sliders = ailment_slider_handler(
-        ailment_data,
-        effect_value_type_field,
-        val_edit_type_field);
-
-    const ailment_pars = {}
-
     const ailment_num = [
         0,
         1,
@@ -339,73 +283,6 @@ export default function AilmentDataFormatting({
         8,
         9
     ]
-
-    for (var index = 0; index <10; index++) {
-        const ending = index == 0 ? "" : `_${index}`
-        const ail_data = ailment_data[`effect_id${ending}`] &&
-            ailment_data_pars(
-                ailment_data.id,
-                ailment_data[`effect_id${ending}`],
-                ailment_data[`val_type${ending}`],
-                ailment_data[`val_specify${ending}`],
-                ailment_data[`val_edit_type${ending}`],
-                ailment_data[`cond_id${ending}`],
-                ailment_data[`rank_table${ending}`],
-                ailment_data.is_buff,
-                //effect#
-                index,
-                master_index,
-                ver,
-                //aug1&2
-                arg1,
-                arg2,
-                highestlvl,
-                rank,
-                alt_rank,
-                alt_aug1,
-                alt_aug2,
-                undefined,
-            )
-        if (index == 4 && !(ailment_data.effect_id_4 == 60 && ailment_data.cond_id_4 == -1)) {
-            if (ail_data != undefined) {
-                Object.assign(ailment_pars, { [`effect_id_${index}`]: ail_data })
-            }
-        }
-        if (index != 4) {
-            if (ail_data != undefined) {
-                Object.assign(ailment_pars, { [`effect_id_${index}`]: ail_data })
-            }
-        }
-    }
-
-    if (ailment_data.field != undefined) {
-        Object.assign(ailment_pars, { field: [] })
-        ailment_data.field.forEach(self => {
-            const field_data = Ailment_Field_Effect_Pars(
-                self,
-                false, //Single
-
-                ailment_data.is_buff,
-                arg1,
-                arg2,
-                highestlvl,
-                rank,
-                alt_rank,
-                alt_aug1,
-                alt_aug2,
-                ver,
-                ailment_data,
-                master_index
-            )
-            ailment_pars.field.push(field_data)
-        })
-    }
-
-    const metadata = ailment_meta_handler(
-        ailment_data,
-        master_index,
-        highestlvl
-    )
 
     const [merge_pas, setmerge_pas] = useStateIfMounted(ailment_data && ailment_data.passives && ailment_data.passives.length > 1 ? true : false)
 
@@ -560,11 +437,12 @@ export default function AilmentDataFormatting({
                         }>
                         {ailment_data.hide_title == true || default_passoff != undefined || frameless == true || passed_passive != undefined || hide_title == true? "" :
                         <div className={"subpassiveflair cast_str"}>
-                            {ailment_data.alife != -1 ? `For ` : "From "}<span className='values'>{`${ailment_data.alife != -1 ? `${ailment_data.alife} turn${ailment_data.alife != 1 ? "s " : " "}` : ""}`}</span>{ailment_data.alife != -1 ? `from ` : ""}{ReplacerCharacter(`${rank_tag != undefined ? `<${ability_rank_trans(rank_tag)}>` : ""} [${ailment_data.ability_namegl == undefined ? ailment_data.ability_name : ailment_data.ability_namegl}] #${ailment_data.command_id}${cast_target == undefined ? "" : ` to ${cast_target}`}`,form)}
+                            {cast_title_str}<span className='values'>{cast_turns_str}</span>{ReplacerCharacter(cast_target_str,forma)}
                         </div>
                         }
                         {passed_passive != undefined ?
                             <PassiveEffectsHandoff
+                                key={ailment_data.id}
                                 passive_ability={passed_passive}
                                 master_index={master_index}
                                 formatting={formatting}
@@ -575,6 +453,7 @@ export default function AilmentDataFormatting({
                         : ""}
                         {ailment_data.defaults != undefined ?
                         <AilmentDefaultParsFormatting
+                            key={ailment_data.id}
                             default_data={ailment_data.defaults}
                             ver={ver}
                             master_index={master_index}
@@ -584,6 +463,7 @@ export default function AilmentDataFormatting({
                         : 
                         default_passoff != undefined && passed_passive == undefined ?
                         <AilmentDefaultParsFormatting
+                            key={ailment_data.id}
                             default_data={default_passoff}
                             ver={ver}
                             master_index={master_index}
@@ -606,7 +486,7 @@ export default function AilmentDataFormatting({
                         {ailment_data.components != undefined ?
                             <div className="subpassiveflair2">
                                 {ailment_data.components.map((component, i) =>
-                                    ReplacerCharacter(ailment_combination_pars(
+                                    ReplacerCharacter(ailment_combination_trans(
                                         component,
                                         master_index,
                                         ver,
@@ -620,11 +500,11 @@ export default function AilmentDataFormatting({
                             ailment_pars[`effect_id_${num}`] && 
                             ailment_pars[`effect_id_${num}`].hidden != true && 
                             <AilmentDataEffectHandler
-                                key={num}
+                                key={`${ailment_data.id}-${num}`}
                                 effect_id={ailment_pars[`effect_id_${num}`]}
-                                slider={slider}
+                                slider={true}
                                 castlocation={castlocation}
-                                currentrank={currentrank}
+                                currentrank={defaultrank}
                                 currentlevel={currentlevel}
                                 currentturns={currentturns}
                                 currentenemies={currentenemies}
@@ -654,10 +534,10 @@ export default function AilmentDataFormatting({
                                 {ailment_pars.field.map((item, i) =>
                                     item && item.hidden != true && 
                                     <AilmentDataEffectHandler
-                                        key={i}
+                                        key={`${ailment_data.id}-${i}f`}
                                         effect_id={item}
-                                        slider={slider}
-                                        currentrank={currentrank}
+                                        slider={true}
+                                        currentrank={defaultrank}
                                         currentlevel={currentlevel}
                                         currentturns={currentturns}
                                         currentenemies={currentenemies}
@@ -682,7 +562,7 @@ export default function AilmentDataFormatting({
                             <div className="l_grade">
                                 <div className='linkbar'><div className='BonusHPDamage'/></div>
                                 {ailment_data.force.map(link_effect => (
-                                    ReplacerCharacter(passive_link_effect_pars(
+                                    ReplacerCharacter(passive_link_trans(
                                         link_effect,
                                         master_index,
                                         ver
@@ -695,7 +575,7 @@ export default function AilmentDataFormatting({
                             <div className="p_note">
                                 <div className='yellowbar'><div className='inline mod_icon'/>Modify:</div>
                                 {ailment_data.modify.map((item, i) =>
-                                    ReplacerCharacter(ailment_modify_pars(
+                                    ReplacerCharacter(ailment_modify_trans(
                                         item,
                                         master_index,
                                         ver
@@ -805,15 +685,13 @@ export default function AilmentDataFormatting({
                         {attachedbuff.length != 0 ?
                             <AilmentDataFormatting
                                 key={attachedbuff.id}
-                                file={file}
-                                loc={loc}
                                 ver={ver}
                                 ailment_data={attachedbuff}
 
                                 master_index={master_index}
 
                                 slider={true}
-                                castlocation={true}
+                                castlocation={castlocation}
                                 formatting={true}
                                 rank={attachedbuff.arank}
                                 arg1={attachedbuff.aarg1}

@@ -2,7 +2,7 @@ import ailment_val_edit_type_handler from "../ailment/ailment_val_edit_type_hand
 import hitdata_element_bit from "./hitdata_element_bit.js"
 import ailment_level_icon from "../ailment/ailment_level_icon.js"
 
-export default function hitdata_handler(
+export default function hitdata_trans(
     hit_data,
 
     master_index,

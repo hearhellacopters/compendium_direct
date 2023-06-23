@@ -1,7 +1,7 @@
-import ailment_data_pars from './ailment_data_pars.js'
+import ailment_data_pars from './ailment_effect_trans.js'
 import ailment_val_edit_type_handler from "./ailment_val_edit_type_handler.js"
 
-export default function ailment_field_effect_pars(
+export default function ailment_field_effect_trans(
     match,
     Single,
 

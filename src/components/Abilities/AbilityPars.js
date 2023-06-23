@@ -905,6 +905,7 @@ export default function CharacterAbilityPars({
                         : ""}
                     {selectedbuff.length != 0 && selectedbuff.is_state != true ?
                         <AilmentDataFormatting
+                            key={selectedbuff.id}
                             file={file}
                             loc={loc}
                             ver={ver}

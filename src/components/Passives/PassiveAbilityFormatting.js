@@ -10,7 +10,7 @@ import Ailment_Default_Passoff from "../Buffs/AilmentDefaultPassoff";
 import AilmentDataFormatting from "../Buffs/AilmentDataFormatting";
 import Passive_Effects_Handoff from "./PassiveEffectsHandoff";
 import { StartsInTimer } from '../../components/Timers'
-import passive_link_effect_pars from "../../processing/passives/passive_link_effect_pars";
+import passive_link_trans from "../../processing/passives/passive_link_trans";
 import ReplacerCharacter from '../ReplacerCharacter'
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import { ObjectView } from 'react-object-view'
@@ -357,7 +357,7 @@ export default function PassiveAbilityFormatting({
                             <div className="forceaddtach infonameholderenemybuff default_passive">
                                 <div className='BonusHPDamage' />
                                 {passive_ability.force.map(link_effect => (
-                                    ReplacerCharacter(passive_link_effect_pars(
+                                    ReplacerCharacter(passive_link_trans(
                                         link_effect,
                                         master_index,
                                         ver

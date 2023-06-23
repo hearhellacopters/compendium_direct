@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ailment_field_effect_pars from '../../processing/ailment/ailment_field_effect_pars';
+import ailment_field_effect_trans from '../../processing/ailment/ailment_field_effect_trans';
 import AilmentDataEffectHandler from './AilmentDataEffectHandler';
 import { ObjectView } from 'react-object-view'
 
@@ -42,7 +42,7 @@ export default function AilmentFieldAttached({
         )
     }
 
-    const field_data = ailment_field_effect_pars(
+    const field_data = ailment_field_effect_trans(
         ailment_field,
         false, //Single
 

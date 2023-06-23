@@ -2,7 +2,7 @@ import React from "react"
 import { useStateIfMounted } from "use-state-if-mounted";
 import ReplacerCharacter from '../ReplacerCharacter'
 import { ObjectView } from 'react-object-view'
-import ailment_default_pars from "../../processing/ailment/ailment_default_pars";
+import ailment_default_trans from "../../processing/ailment/ailment_default_trans";
 
 export default function AilmentDefaultParsFormatting({
     default_data,
@@ -26,7 +26,7 @@ export default function AilmentDefaultParsFormatting({
         }
     }
 
-    const default_pars = ailment_default_pars(
+    const default_pars = ailment_default_trans(
         default_data,
         passed_ailment,
         master_index,

@@ -1,4 +1,4 @@
-import require_trans_handler from './require_trans_handler.js'
+import require_trans from './require_trans.js'
 
 export default function passive_link_dif(
     link_effect,
@@ -26,7 +26,7 @@ export default function passive_link_dif(
     var require__1 = undefined
 
     if (link_effect.require_id != undefined) {
-        require_ = require_trans_handler(
+        require_ = require_trans(
             link_effect.require_id,
             link_effect.require_target,
             require_value1,
@@ -49,7 +49,7 @@ export default function passive_link_dif(
     }
 
     if (link_effect.require_id_1 != undefined) {
-        require__1 = require_trans_handler(
+        require__1 = require_trans(
             link_effect.require_id_1,
             link_effect.require_target_1,
             require_value1_1,

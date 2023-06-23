@@ -1,4 +1,4 @@
-export default function ailment_combination_pars(
+export default function ailment_combination_trans(
     components,
     master_index,
     ver,

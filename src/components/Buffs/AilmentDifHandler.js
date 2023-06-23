@@ -1,8 +1,8 @@
 import React from "react";
-import AilmentCharacterDifFormatting from "./AilmentDifFormatting";
+import AilmentDifFormatting from "./AilmentDifFormatting";
 import AilmentDataFormatting from "./AilmentDataFormatting";
 
-export default function AilmentCharacterDifHandler({
+export default function AilmentDifHandler({
     buff_data,
     master_index,
     ProcessedCharacters,
@@ -32,7 +32,7 @@ export default function AilmentCharacterDifHandler({
             master_index={master_index}
         />
         :
-        <AilmentCharacterDifFormatting
+        <AilmentDifFormatting
             buff_new={buff_data.ailment_new}
             ver_new={buff_data.ver_new}
             buff_old={buff_data.ailment_old}
@@ -41,6 +41,9 @@ export default function AilmentCharacterDifHandler({
             info={buff_data.info}
             ProcessedCharacters={ProcessedCharacters}
             castlocation={false}
+            character_face={false}
+            frameless={false}
+            hide_title={true}
         />
     )
 }

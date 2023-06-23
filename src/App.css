@@ -4749,7 +4749,7 @@ h3 {
   background-image: url("https://dissidiacompendium.com/images/static/icons/misc/BREAK.png");
   width: 3.5em;
   height: 1em;
-  margin-bottom: 0.13em;
+  margin-top: -0.28em;
 }
 
 .Melee {
@@ -6025,35 +6025,6 @@ h3 {
 
   .tippy-content {
     font-size: small !important;
-  }
-
-  .Capped {
-    height: 22px;
-  }
-
-  .Magic {
-    width: 20px;
-    height: 16px;
-  }
-
-  .Ranged {
-    width: 29px;
-    height: 16px;
-  }
-
-  .Counters {
-    height: 16px;
-    width: 16px;
-  }
-
-  .FollowUp {
-    height: 16px;
-    width: 16px;
-  }
-
-  .Traps {
-    height: 16px;
-    width: 16px;
   }
 
   .Instant {

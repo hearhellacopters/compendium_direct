@@ -11,7 +11,7 @@ import AilmentDataFormatting from "../Buffs/AilmentDataFormatting";
 import Ailment_Default_Passoff from "../Buffs/AilmentDefaultPassoff";
 import PassiveEffectsHandoff from "./PassiveEffectsHandoff";
 import { StartsInTimer } from '../Timers'
-import passive_link_effect_pars from "../../processing/passives/passive_link_effect_pars";
+import passive_link_trans from "../../processing/passives/passive_link_trans";
 import ReplacerCharacter from '../ReplacerCharacter'
 import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
 import sphere_tags from '../../processing/passives/sphere_tags.json'
@@ -282,7 +282,7 @@ export default function PassiveSphereFormatting({
                             <div className="forceaddtach infonameholderenemybuff default_passive">
                                 <div className='BonusHPDamage' />
                                 {passive_ability.force.map(link_effect => (
-                                    ReplacerCharacter(passive_link_effect_pars(
+                                    ReplacerCharacter(passive_link_trans(
                                         link_effect,
                                         master_index,
                                         ver

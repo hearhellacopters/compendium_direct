@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import require_trans_handler  from '../../processing/passives/require_trans_handler'
-import passive_effect_handler from "../../processing/passives/passive_effect_handler";
+import require_trans  from '../../processing/passives/require_trans'
+import passive_effect_trans from "../../processing/passives/passive_effect_trans";
 import ReplacerCharacter from '../ReplacerCharacter'
 import AilmentFieldAttached from '../Buffs/AilmentFieldAttached'
 import { ObjectView } from 'react-object-view'
@@ -229,7 +229,7 @@ export default function PassiveEffectsHandoff({
     if (passive_ability.require_ != undefined &&
         require_show == true
     ) {
-        require_ = require_trans_handler(
+        require_ = require_trans(
             passive_ability.require_,
             passive_ability.require_target,
             require_value1,
@@ -248,7 +248,7 @@ export default function PassiveEffectsHandoff({
     if (passive_ability.require__1 != undefined &&
         require__1_show == true
     ) {
-        require__1 = require_trans_handler(
+        require__1 = require_trans(
             passive_ability.require__1,
             passive_ability.require_target_1,
             require_value1_1,
@@ -272,7 +272,7 @@ export default function PassiveEffectsHandoff({
     var effect__1 = ""
 
     if (battle_state == true ? (passive_ability.effect_ != undefined && passive_ability.effect_disp == true) : passive_ability.effect_ != undefined) {
-        effect_ = passive_effect_handler(
+        effect_ = passive_effect_trans(
             passive_ability.effect_,
             passive_ability.passive_target == 2 ? passive_ability.effect_target : passive_ability.passive_target,
             effect_value1,
@@ -289,7 +289,7 @@ export default function PassiveEffectsHandoff({
     }
 
     if (battle_state == true ?  (passive_ability.effect__1 != undefined && passive_ability.effect__1disp == true) : passive_ability.effect__1 != undefined ) {
-        effect__1 = passive_effect_handler(
+        effect__1 = passive_effect_trans(
             passive_ability.effect__1,
             passive_ability.passive_target == 2 ? passive_ability.effect_target_1 : passive_ability.passive_target,
             effect_value1_1,
