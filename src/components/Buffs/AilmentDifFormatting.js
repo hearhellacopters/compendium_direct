@@ -28,7 +28,8 @@ export default function AilmentDifFormatting({
     frameless, // for attached
     default_passoff, //default passoff
     passed_passive, // for passive defaults
-    hide_title
+    hide_title,
+    debugging
 }){
 
     const form = {diffing:true}
@@ -404,6 +405,7 @@ export default function AilmentDifFormatting({
                             charactersleft_passoff={charactersleft}
                             characterskb={characterskb}
                             currentlevel_passoff={currentlevel}
+                            debugging={debugging}
                         />
                         {buff_new.options != undefined ?
                             <div className='p_grade'>

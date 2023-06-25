@@ -6,9 +6,9 @@ import DefaultTippy from '../TippyDefaults';
 import { useDispatch, useSelector } from "react-redux";
 import { getTransNames } from '../../redux/ducks/transnames';
 import CharacterFaceFormatting from '../Characters/CharacterFaceFormatting'
-import Ailment_Default_Passoff from "../Buffs/AilmentDefaultPassoff";
+import AilmentDefaultPassoff from "../Buffs/AilmentDefaultPassoff";
 import AilmentDataFormatting from "../Buffs/AilmentDataFormatting";
-import Art_Passive_Effects_Handoff from "./PassiveArtEffectsHandoff";
+import PassiveArtEffectsHandoff from "./PassiveArtEffectsHandoff";
 import ReplacerCharacter from '../ReplacerCharacter'
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import { ObjectView } from 'react-object-view'
@@ -20,13 +20,10 @@ export default function PassiveArtFormatting({
     ver,
     file,
     Single,
-
     formatting,
-
     banner_color,
     base_color,
     span,
-
     link,
     master_index
 }){
@@ -211,31 +208,28 @@ export default function PassiveArtFormatting({
                             <div className="clicky updatelink contents" onClick={() => doTrans()} >Translate (Beta)</div>
                             : ""}
                         <div className="newbluepassive infonameholderenemybuff default_passive">
-                            <Art_Passive_Effects_Handoff
+                            <PassiveArtEffectsHandoff
                                 passive_ability={art_passive}
-
                                 master_index={master_index}
                                 ver={ver}
                                 file={file}
-
                                 formatting={formatting}
                             />
                         </div>
                         {art_passive.defaults != undefined ?
                             Object.values(listByChar).map(buffs => (
-                                <Ailment_Default_Passoff
+                                <AilmentDefaultPassoff
                                     file={"passive_ability"}
                                     key={buffs.char_id}
                                     ver={ver}
                                     ailment_default={buffs}
-
                                     master_index={master_index}
-
                                     loc={loc}
-                                    slider={false}
+                                    framless={true}
+                                    full={false}
                                     formatting={formatting}
+                                    character_face={false}
                                     base_color={"classcolor"}
-                                    span={span}
                                 />
                             ))
                             : ""}

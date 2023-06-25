@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
-import Passive_Ability_Formatting from '../Passives/PassiveAbilityFormatting.js'
+import PassiveAbilityFormatting from '../Passives/PassiveAbilityFormatting.js'
 import Link_Parm from '../Passives/PassiveLinkParmFormatting.js';
 import { getQuery, getQueryStringVal, useQueryParam } from '../URLParams.js'
 import Tippy from '../TippyDefaults.js'
@@ -262,23 +262,19 @@ export default function CharacterPassiveLinkPageFormatting({
                   tag_overide={passive.cp != 0 ? "smallpassive automarg" : "newstatus"}
                 />
                 : passive.link_type == 2 && passive.passive != undefined ?
-                  <Passive_Ability_Formatting
+                  <PassiveAbilityFormatting
                     key={passive.lc_id}
                     passive_ability={passive.passive}
                     ver={ver}
                     loc={loc}
                     file={""}
-                    Single={true}
-
                     master_index={master_index}
-
                     formatting={formatting}
                     chara_id_passoff={passive.chara_id}
                     cost_overide={passive.need_point}
                     cp_overide={passive.cp}
                     tag_overide={passive.rank_tag}
                     release={passive.start_date}
-
                     banner_color={"newblue"}
                     base_color={"bluebase"}
                   />

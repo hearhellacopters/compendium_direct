@@ -19,6 +19,7 @@ export default function options_trans_handler(
         replacement = data == undefined ? "" : data.replace(/EX/, "EXrank")
         replacement = replacement == "" ? "" : replacement.replace(/BRV/, "brvattackicon")
         replacement = replacement == "" ? "" : replacement.replace(/HP/, "hpattackicon")
+        replacement = replacement == "" ? "" : replacement.replace(/BT\+/, "wpbtplus")
         replacement = replacement == "" ? "" : replacement.replace(/ /, "_")
         return replacement
     }

@@ -3,7 +3,6 @@ import { useStateIfMounted } from "use-state-if-mounted";
 import Tippy from '../TippyDefaults';
 import CharacterFaceFormatting from './CharacterFaceFormatting'
 import AilmentDataFormatting from '../Buffs/AilmentDataFormatting';
-import DefaultTippy from '../TippyDefaults';
 import ReplacerCharacter from '../ReplacerCharacter'
 import ability_rank_ranked from '../../processing/abilities/ability_rank_ranked';
 import { getQuery, getQueryStringVal, useQueryParam } from '../URLParams'
@@ -13,8 +12,8 @@ import { IoMdCloseCircleOutline } from 'react-icons/io';
 import { IoSearch } from 'react-icons/io5';
 import { FaUndoAlt } from 'react-icons/fa'
 import PassiveEffectsHandoff from '../Passives/PassiveEffectsHandoff';
-import Passive_Total_Display from '../Passives/PassiveTotalDisplay';
-import merger_master from '../../processing/passives/passive_stats_merger';
+import PassiveTotalDisplay from '../Passives/PassiveTotalDisplay';
+import passive_stats_merger from '../../processing/passives/passive_stats_merger';
 import { ObjectView } from 'react-object-view'
 import ailment_level_icon from '../../processing/ailment/ailment_level_icon';
 
@@ -709,11 +708,11 @@ export default function CharacterBuffPage({
                                             const cast = buffs.cast
                                             return buffs.active == false ? "" : <li className={`abilitybufficonsholder ${selectedbuff.ailment_id == buffs.ailment_id && selectedbuff.data_id == buffs.data_id ? "buffactive" : ""}`} key={`${buffs.ailment_id}-${buffs.data_id}`}>
                                                 <div className="biconspacer" onClick={() => buffselect(buffs)} >
-                                                    <DefaultTippy content={
+                                                    <Tippy content={
                                                         cast.name === "" ? ReplacerCharacter(`Unknown ${cast.id}`,form) : ReplacerCharacter(cast.name,form)
                                                     }>
                                                         <img alt={cast.name} className="clicky abilitybufficon" src={`https://dissidiacompendium.com/images/static/icons/buff/${ailment_level_icon(cast,buffs.arg1)}.png`} />
-                                                    </DefaultTippy>
+                                                    </Tippy>
                                                 </div>
                                             </li>
                                         })}
@@ -730,11 +729,11 @@ export default function CharacterBuffPage({
                                                 const cast = buffs.cast
                                                 return <li className={`abilitybufficonsholder ${selectedbuff.ailment_id == buffs.ailment_id && selectedbuff.data_id == buffs.data_id ? "buffactive" : ""}`} key={`${buffs.ailment_id}-${buffs.data_id}`}>
                                                     <div className="biconspacer" onClick={() => buffselect(buffs)} >
-                                                        <DefaultTippy content={
+                                                        <Tippy content={
                                                             cast.name === "" ? ReplacerCharacter(`Unknown ${cast.id}`,form) : ReplacerCharacter(cast.name,form)
                                                         }>
                                                             <img alt={cast.name} className="clicky abilitybufficon" src={`https://dissidiacompendium.com/images/static/icons/buff/${cast.icon}.png`} />
-                                                        </DefaultTippy>
+                                                        </Tippy>
                                                     </div>
                                                 </li>
                                             })}
@@ -763,6 +762,7 @@ export default function CharacterBuffPage({
                                     cur_char={selectedbuff.chara_id}
                                     turns={selectedbuff.turn}
                                     character_face={false}
+                                    frameless={false}
                                     default_passoff={selectedbuff}
                                     passed_passive={selectedbuff.passive}
                                 />
@@ -782,7 +782,7 @@ export default function CharacterBuffPage({
                                             <div className='noselect'>&nbsp;&nbsp;Total Values</div>
                                         </div>
                                         : ""}
-                                    {merger_master(
+                                    {passive_stats_merger(
                                         selectedbuff.passives,
 
                                         master_index,
@@ -807,7 +807,7 @@ export default function CharacterBuffPage({
                                             battle_state={true}
                                         />
                                             :
-                                            <Passive_Total_Display
+                                            <PassiveTotalDisplay
                                                 key={i}
                                                 match={battle_passive}
                                             />

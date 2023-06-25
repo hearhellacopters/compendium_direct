@@ -15,7 +15,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { FaShareSquare } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
 import { getQuery, getQueryStringVal, useQueryParam } from './components/URLParams'
-import Sphere_Passive_Ability_Formatting from './components/Passives/PassiveSphereFormatting';
+import PassiveSphereFormatting from './components/Passives/PassiveSphereFormatting';
 import sphere_tags from './processing/passives/sphere_tags.json'
 
 import { setFalse, setTrue } from './redux/ducks/jptoggle'
@@ -1281,27 +1281,21 @@ export default function Spheres({
           {listSphere.length > 0 ? (
             listSphere.map(passive => (
               passive.passive &&
-              <Sphere_Passive_Ability_Formatting
+              <PassiveSphereFormatting
                 key={passive.pa_id}
                 passive_ability={passive.passive}
                 ver={ver}
                 loc={loc}
                 file={"exskill"}
                 Single={true}
-
                 master_index={master_index}
-
-
                 sphere_type={passive.sphere_type}
                 sphere_letter={passive.ex_category_id}
                 release={passive.start_date}
-
                 formatting={true}
-
                 banner_color={"newblue"}
                 base_color={"bluebase"}
                 raw={passive}
-
                 link={"spheres"}
               />
             ))) : (

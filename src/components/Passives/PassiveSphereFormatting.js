@@ -8,7 +8,7 @@ import { getTransNames } from '../../redux/ducks/transnames';
 import AilmentFieldAttached from '../Buffs/AilmentFieldAttached'
 import CharacterFaceFormatting from '../Characters/CharacterFaceFormatting'
 import AilmentDataFormatting from "../Buffs/AilmentDataFormatting";
-import Ailment_Default_Passoff from "../Buffs/AilmentDefaultPassoff";
+import AilmentDefaultPassoff from "../Buffs/AilmentDefaultPassoff";
 import PassiveEffectsHandoff from "./PassiveEffectsHandoff";
 import { StartsInTimer } from '../Timers'
 import passive_link_trans from "../../processing/passives/passive_link_trans";
@@ -23,8 +23,6 @@ export default function PassiveSphereFormatting({
     loc,
     ver,
     file,
-    Single,
-
     cp_cost,
     board_cost,
     chara_id_passoff,
@@ -36,12 +34,10 @@ export default function PassiveSphereFormatting({
     cost_overide,
     cp_overide,
     tag_overide,
-
     banner_color,
     base_color,
     span,
     raw,
-
     link,
     master_index
 }){
@@ -308,7 +304,7 @@ export default function PassiveSphereFormatting({
                             : ""}
                         {passive_ability.defaults != undefined ?
                             Object.values(listByChar).map((buffs,i) => (
-                                <Ailment_Default_Passoff
+                                <AilmentDefaultPassoff
                                     file={"passive_ability"}
                                     ver={ver}
                                     key={i}
@@ -319,7 +315,10 @@ export default function PassiveSphereFormatting({
                                     loc={loc}
                                     slider={false}
                                     formatting={formatting}
+                                    character_face={false}
                                     gear={gear}
+                                    framless={true}
+                                    full={false}
                                     base_color={"classcolor"}
                                     span={span}
                                 />

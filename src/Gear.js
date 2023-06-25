@@ -1321,13 +1321,8 @@ export default function Gear({
                                 ver={ver}
                                 loc={loc}
                                 file={"equipment"}
-                                Single={true}
-
                                 master_index={master_index}
-
-
                                 formatting={true}
-
                                 link={"gear"}
                             />
                         ))) : (

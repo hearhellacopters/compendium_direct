@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
-import Passive_Ability_Formatting from '../Passives/PassiveAbilityFormatting';
+import PassiveAbilityFormatting from '../Passives/PassiveAbilityFormatting';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
 import { getQuery, getQueryStringVal, useQueryParam } from '../URLParams'
@@ -316,30 +316,23 @@ export default function CharacterPassiveExpPageFormatting({
             passive.ability_type == 1 && passive.command != undefined ?
               <CharacterAbilityPars
                 key={passive.cla_id}
-
                 character_ability={passive.command}
                 ProcessedCharacters={ProcessedCharacters}
                 ver={ver}
                 loc={loc}
                 file={"character_ability"}
-
                 master_index={master_index}
-
-
                 formatting={formatting}
                 tag_override={`cl${passive.level}`}
               />
               : passive.passive &&
-              <Passive_Ability_Formatting
+              <PassiveAbilityFormatting
                 key={passive.cla_id}
                 passive_ability={passive.passive}
                 ver={ver}
                 loc={loc}
                 file={"passive_ability"}
-                Single={true}
-
                 master_index={master_index}
-
                 cp_cost={passive.cp}
                 board_cost={passive.board_point}
                 chara_id_passoff={passive.chara_id}

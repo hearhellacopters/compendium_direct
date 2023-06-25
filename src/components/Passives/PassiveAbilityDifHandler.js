@@ -1,20 +1,18 @@
 import React from "react";
 import Passive_Ability_Dif from "./PassiveAbilityDif";
-import Passive_Ability_Formatting from "./PassiveAbilityFormatting";
+import PassiveAbilityFormatting from "./PassiveAbilityFormatting";
 
 export default function PassiveAbilityDifHandler({
     passive_data,
     master_index,
-    ProcessedCharacters,
 }){
     return(
         passive_data.new_only == true ? 
-        <Passive_Ability_Formatting
+        <PassiveAbilityFormatting
         passive_ability={passive_data.pass_new}
         loc={"crystal"}
         ver={passive_data.ver_new}
         file={"crystal"}
-        Single={true}
         master_index={master_index}
         chara_id_passoff={passive_data.pass_new.chara_id}
         formatting={true}

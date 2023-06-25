@@ -7,7 +7,8 @@ export default function OptionParsFormatting({
     ver,
     formatting,
     all_options,
-    master_index
+    master_index,
+    enemy
 }){
 
     const form = {formatting:formatting}
@@ -17,7 +18,7 @@ export default function OptionParsFormatting({
     }
 
     const transdata = options_trans_handler(
-        "character", //character or enemy
+        enemy ? "enemy" : "character", //character or enemy
         character_option, //option data
         "attached", //solo or attached
         true, //show command ids

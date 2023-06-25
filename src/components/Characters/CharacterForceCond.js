@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useStateIfMounted } from "use-state-if-mounted";
 import { Link } from 'react-router-dom'
 import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
-import replacer_enemy from "../../components/ReplacerEnemyDesc";
+import ReplacerEnemyDesc from "../../components/ReplacerEnemyDesc";
 import roles from '../../processing/ailment/ailment_tags.json'
 import Tippy from "../../components/TippyDefaults";
 
@@ -130,7 +130,7 @@ export default function CharacterForceCond({ match, ProcessedCharacters, jptoggl
                         </div>
                     </div>
                     <div className="infonameholder wpadding blackbase">
-                        {replacer_enemy(match.AbilityFR)}
+                        {ReplacerEnemyDesc(match.AbilityFR)}
 
                     </div>
                     <div className="subtext_brev">*info is truncated, dependant on selected version</div>

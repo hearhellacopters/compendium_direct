@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Tippy from '../../components/TippyDefaults'
+import Tippy from '../TippyDefaults'
 import { useStateIfMounted } from "use-state-if-mounted";
 import { ImSortAmountAsc } from 'react-icons/im';
 import { ImSortAmountDesc } from 'react-icons/im';
@@ -8,8 +8,8 @@ import { IoSearch } from 'react-icons/io5';
 import { FaUndoAlt } from 'react-icons/fa'
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
-import { getQuery, getQueryStringVal, useQueryParam } from '../../components/URLParams'
-import Equipment_Passive_Handler from './EquipmentPassivesFormatting';
+import { getQuery, getQueryStringVal, useQueryParam } from '../URLParams'
+import EquipmentPassivesFormatting from '../Gear/EquipmentPassivesFormatting';
 
 export default function CharacterGearPage({
   equipment_passive_ability,
@@ -930,7 +930,7 @@ export default function CharacterGearPage({
           {
             listPassives.length > 0 ? (
               listPassives.map(gear => (
-                <Equipment_Passive_Handler
+                <EquipmentPassivesFormatting
                   key={gear.equip_id}
                   gear={gear}
                   ver={ver}

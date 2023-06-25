@@ -19,7 +19,7 @@ import { IoMdCloseCircleOutline } from 'react-icons/io';
 import Tippy from './components/TippyDefaults.js';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
-import Passive_Ability_Formatting from './components/Passives/PassiveAbilityFormatting.js';
+import PassiveAbilityFormatting from './components/Passives/PassiveAbilityFormatting.js';
 import { getQuery, getQueryStringVal, useQueryParam } from './components/URLParams.js'
 import StatsMaker from './components/StatsDisplay.js';
 
@@ -404,18 +404,13 @@ export default function CrystalPassives({
             </div>
             {listgear.length > 0 ? (
               listgear.map(passive => (
-                <Passive_Ability_Formatting
+                <PassiveAbilityFormatting
                     key={passive.pa_id}
                     passive_ability={passive}
                     ver={"JP"}
                     loc={"crystal"}
-                    Single={true}
-
                     master_index={master_index}
-
                     formatting={true}
-
-                    span={true}
                     release={passive.start_date}
                 />
               ))) : (

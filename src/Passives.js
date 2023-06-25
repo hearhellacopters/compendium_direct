@@ -15,8 +15,8 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { FaShareSquare } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
 import { getQuery, getQueryStringVal, useQueryParam } from './components/URLParams'
-import Passive_Ability_Formatting from './components/Passives/PassiveAbilityFormatting';
-import Art_Passive_Formatting from './components/Passives/PassiveArtFormatting';
+import PassiveAbilityFormatting from './components/Passives/PassiveAbilityFormatting';
+import PassiveArtFormatting from './components/Passives/PassiveArtFormatting';
 
 import { setFalse, setTrue } from './redux/ducks/jptoggle'
 
@@ -1028,47 +1028,36 @@ export default function Passives ({
           {listPasives.length > 0 ? (
             listPasives.map(passive => (
               passive.art == true ?
-                <Art_Passive_Formatting
+                <PassiveArtFormatting
                   key={passive.order}
                   art_passive={passive}
                   ver={ver}
                   loc={loc}
                   file={"exskill"}
                   Single={true}
-
                   master_index={master_index}
-
                   formatting={true}
-
                   span={true}
                   banner_color={"ArtRedbanner"}
                   base_color={"ArtRedbase"}
-
                   link={"passives"}
                 />
                 :
-                <Passive_Ability_Formatting
+                <PassiveAbilityFormatting
                   key={passive.order}
-
                   passive_ability={passive.passive}
                   ver={ver}
                   loc={loc}
                   file={"exskill"}
-                  Single={true}
-
                   master_index={master_index}
-
                   formatting={true}
                   chara_id_passoff={passive.chara_id}
                   cost_overide={passive.need_point}
                   cp_overide={passive.cp}
                   tag_overide={passive.rank_tag}
                   release={passive.start_date}
-
                   banner_color={"newblue"}
                   base_color={"bluebase"}
-                  span={true}
-
                   link={"passives"}
                 />
             ))) : (

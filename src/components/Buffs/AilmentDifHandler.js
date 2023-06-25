@@ -6,6 +6,7 @@ export default function AilmentDifHandler({
     buff_data,
     master_index,
     ProcessedCharacters,
+    debugging
 }){
     
     return(
@@ -30,6 +31,7 @@ export default function AilmentDifHandler({
             info={buff_data.info}
             character_face={true}
             master_index={master_index}
+            debugging={debugging}
         />
         :
         <AilmentDifFormatting
@@ -44,6 +46,7 @@ export default function AilmentDifHandler({
             character_face={false}
             frameless={false}
             hide_title={true}
+            debugging={debugging}
         />
     )
 }

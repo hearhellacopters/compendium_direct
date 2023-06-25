@@ -1,5 +1,5 @@
 import command_ability_pars from './command_ability_pars.js'
-import hitdata_for_ability from './hitdata_for_ability.js'
+import hitdata_handler from './hitdata_handler.js'
 import hitdata_counts_handler from './hitdata_counts_handler.js'
 import hitdata_times_handler from './hitdata_times_handler.js'
 
@@ -7,6 +7,7 @@ export default function command_dif(
     character_ability,
     master_index,
     ver,
+    debugging
 ){
 
     var full_str = ""
@@ -18,11 +19,12 @@ export default function command_dif(
             master_index,
         )
 
-    const hit_data_pars = character_ability && hitdata_for_ability(
+    const hit_data_pars = character_ability && hitdata_handler(
         character_ability,
         master_index,
         ver,
         command_meta,
+        debugging
     )
 
     const hit_parers = hitdata_counts_handler(hit_data_pars.hit_pars)
@@ -164,9 +166,9 @@ export default function command_dif(
         }
     }
 
-    //if (command_meta.faf != undefined) {
-    //    full_str = `${full_str}${command_meta.faf}\n`
-    //}
+        if (command_meta.faf != undefined && debugging == true) {
+            full_str = `${full_str}${command_meta.faf}\n`
+        }
 
     if (command_meta.bdlur != undefined) {
         full_str = `${full_str}${command_meta.bdlur}\n`
@@ -176,21 +178,21 @@ export default function command_dif(
         full_str = `${full_str}${command_meta.mblur}\n`
     }
 
-    //if (command_meta.kcon != undefined) {
-    //    full_str = `${full_str}${command_meta.kcon}\n`
-    //}
+        if (command_meta.kcon != undefined && debugging == true) {
+            full_str = `${full_str}${command_meta.kcon}\n`
+        }
 
-    //if (command_meta.kcon_1 != undefined) {
-    //    full_str = `${full_str}${command_meta.kcon_1}\n`
-    //}
+        if (command_meta.kcon_1 != undefined && debugging == true) {
+            full_str = `${full_str}${command_meta.kcon_1}\n`
+        }
 
-    //if (command_meta.kid != undefined) {
-    //    full_str = `${full_str}${command_meta.kid}\n`
-    //}
+        if (command_meta.kid != undefined && debugging == true) {
+            full_str = `${full_str}${command_meta.kid}\n`
+        }
 
-    //if (command_meta.kid_1 != undefined) {
-    //    full_str = `${full_str}${command_meta.kid_1}\n`
-    //}
+        if (command_meta.kid_1 != undefined && debugging == true) {
+            full_str = `${full_str}${command_meta.kid_1}\n`
+        }
 
     if (command_meta.cost != undefined && command_meta.cost == "*Instant Turn Rate") {
         full_str = `${full_str}${command_meta.cost}\n`
@@ -212,21 +214,21 @@ export default function command_dif(
         full_str = `${full_str}${command_meta.cost}\n`
     }
 
-    //if(command_meta.nasp != undefined){
-    //    full_str = `${full_str}${command_meta.nasp}\n`
-    //}
+        if(command_meta.nasp != undefined && debugging == true){
+            full_str = `${full_str}${command_meta.nasp}\n`
+        }
 
-    //if(command_meta.nex != undefined){
-    //    full_str = `${full_str}${command_meta.nex}\n`
-    //}
+        if(command_meta.nex != undefined && debugging == true){
+            full_str = `${full_str}${command_meta.nex}\n`
+        }
 
-    //if(command_meta.nsum != undefined){
-    //    full_str = `${full_str}${command_meta.nsum}\n`
-    //}
+        if(command_meta.nsum != undefined && debugging == true){
+            full_str = `${full_str}${command_meta.nsum}\n`
+        }
 
-    //if(command_meta.nabi != undefined){
-    //    full_str = `${full_str}${command_meta.nabi}\n`
-    //}
+        if(command_meta.nabi != undefined && debugging == true){
+            full_str = `${full_str}${command_meta.nabi}\n`
+        }
 
     if (command_meta.exshow != undefined) {
         full_str = `${full_str}${command_meta.exshow}\n`
@@ -236,21 +238,21 @@ export default function command_dif(
         full_str = `${full_str}${command_meta.ncharge}\n`
     }
 
-    //if(command_meta.type_ != undefined){
-    //    full_str = `${full_str}${command_meta.type_}\n`
-    //}
+        if(command_meta.type_ != undefined && debugging == true){
+            full_str = `${full_str}${command_meta.type_}\n`
+        }
 
-    //if(command_meta.target_range_ != undefined){
-    //    full_str = `${full_str}${command_meta.target_range_}\n`
-    //}
+        if(command_meta.target_range_ != undefined && debugging == true){
+            full_str = `${full_str}${command_meta.target_range_}\n`
+        }
 
-    //if(command_meta.target_type_ != undefined){
-    //    full_str = `${full_str}${command_meta.target_type_}\n`
-    //}
+        if(command_meta.target_type_ != undefined && debugging == true){
+            full_str = `${full_str}${command_meta.target_type_}\n`
+        }
 
-    //if(command_meta.auto_target_type_ != undefined){
-    //    full_str = `${full_str}${command_meta.auto_target_type_}\n`
-    //}
+        if(command_meta.auto_target_type_ != undefined && debugging == true){
+            full_str = `${full_str}${command_meta.auto_target_type_}\n`
+    }
 
     if (command_meta.show != undefined) {
         full_str = `${full_str}${command_meta.show}\n`

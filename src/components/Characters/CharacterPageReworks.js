@@ -117,7 +117,6 @@ export default function CharacterPageReworks({
                               key={i}
                               passive_data={reworker}
                               master_index={master_index}
-                              ProcessedCharacters={ProcessedCharacters}
                             />
                           )
                         }

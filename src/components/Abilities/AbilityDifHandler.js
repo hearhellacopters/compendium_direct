@@ -5,7 +5,8 @@ import CharacterAbilityPars from './AbilityPars.js';
 export default function CharacterAbilityDifHandler({
     ability_data,
     master_index,
-    ProcessedCharacters
+    ProcessedCharacters,
+    debugging
 }){
 
     return (
@@ -17,6 +18,7 @@ export default function CharacterAbilityDifHandler({
                 master_index={master_index}
                 formatting={true}
                 info={ability_data.info?ability_data.info+"\nNew Ability! (doesn't compare)":"New Ability! (doesn't compare)"}
+                debugging={debugging}
             />    
             :
             <CharacterAbilityDifFormatting
@@ -26,6 +28,7 @@ export default function CharacterAbilityDifHandler({
                 ver_new={ability_data.ver_new}
                 master_index={master_index}
                 info={ability_data.info}
+                debugging={debugging}
             />
     )
 }

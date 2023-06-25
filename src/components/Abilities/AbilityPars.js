@@ -10,7 +10,7 @@ import AilmentDataFormatting from '../Buffs/AilmentDataFormatting';
 import CharacterFaceFormatting from '../Characters/CharacterFaceFormatting'
 import OptionParsFormatting from './OptionParsFormatting';
 import Command_Ability_Pars from '../../processing/abilities/command_ability_pars';
-import hitdata_for_ability from '../../processing/abilities/hitdata_for_ability'
+import hitdata_handler from '../../processing/abilities/hitdata_handler'
 import HitDataParsFormatting from './HitDataParsFormatting';
 import counts_handler from '../../processing/abilities/hitdata_counts_handler.js'
 import times_handler from '../../processing/abilities/hitdata_times_handler.js'
@@ -27,7 +27,7 @@ import PassiveEffectsHandoff from '../Passives/PassiveEffectsHandoff';
 import ability_use_maker from '../../processing/abilities/ability_use_maker';
 import ailment_level_icon from '../../processing/ailment/ailment_level_icon';
    
-export default function CharacterAbilityPars({
+export default function AbilityPars({
     character_ability,
     loc,
     ver,
@@ -40,7 +40,10 @@ export default function CharacterAbilityPars({
     master_index,
     hide_chara,
     use_tag,
-    info
+    info,
+    enemy,
+    enemy_names,
+    debugging
 }){
 
     const form = {formatting:formatting}
@@ -107,9 +110,7 @@ export default function CharacterAbilityPars({
 
     const [playingaudio, setplayingaudio] = useStateIfMounted(false)
     const [showraw, setshowraw] = useStateIfMounted(false)
-    const [showoptions, setshowoptions] = useStateIfMounted(false)
     const [desc, setdesc] = useStateIfMounted(false)
-    const [showhitdata, setshowhitdata] = useStateIfMounted(false)
     const [trans, settrans] = useStateIfMounted()
     const [showtrans, setshowtrans] = useStateIfMounted(false)
 
@@ -172,27 +173,11 @@ export default function CharacterAbilityPars({
         }
     }
 
-    const showmeoptions = (current) => {
-        if (current == false) {
-            setshowoptions(true)
-        } else {
-            setshowoptions(false)
-        }
-    }
-
     const showmedesc = (current) => {
         if (current == false) {
             setdesc(true)
         } else {
             setdesc(false)
-        }
-    }
-
-    const showmehitdata = (current) => {
-        if (current == false) {
-            setshowhitdata(true)
-        } else {
-            setshowhitdata(false)
         }
     }
 
@@ -284,11 +269,12 @@ export default function CharacterAbilityPars({
             master_index,
         )
 
-    const hit_data_pars = character_ability && hitdata_for_ability(
+    const hit_data_pars = character_ability && hitdata_handler(
         character_ability,
         master_index,
         ver,
-        command_meta 
+        command_meta,
+        debugging
     )
 
     const hit_parers = counts_handler(hit_data_pars.hit_pars)
@@ -356,13 +342,20 @@ export default function CharacterAbilityPars({
                 <div className="infotitleholder">
                     <div className="faceandiconholder">
                         <div className="idoffset" id={character_ability.LearningAbility}></div>
-                        {hide_chara == true ?"":
-                        <CharacterFaceFormatting char_id={char_id} id={character_ability.charaID} loc={loc} link={link} />
+                        {hide_chara == true ? "" :
+                            character_ability.charaID == undefined  ? "" :
+                            <CharacterFaceFormatting char_id={char_id} id={character_ability.charaID} loc={loc} link={link} />
+                        }
+                        {hide_chara == true ? "" :
+                            character_ability.enemyID == undefined ?"":
+                            <div className='faceholder'>
+                                <img alt={character_ability.enemyID} className={`enemy_make_face`} src={`https://dissidiacompendium.com/images/static/enemy/face/stl_mon_face_${(character_ability.enemyID-1).toString().padStart(4, '0')}out.png`} />
+                            </div>
                         }
                         <div className={hide_chara == true ? "enemyabilityiconholder" :"abilityiconholder"} onClick={showmeraw} >
                             <div className="abilityurlholder">
                                 <LazyLoadImage effect="opacity" className="abilityicon" alt={Name} src={`https://dissidiacompendium.com/images/static/${IconURL}.png`} />
-                                <div className={
+                                {use_num == "∞" || enemy == true ? "" : <div className={
                                     typeof use_num == "string" ? "abilityblspeed" :
                                     character_ability.Crystal == true && use_num != 0 ? "saholder_crystal" :
                                         character_ability.FR == true && use_num != 0 ? "saholderg" :
@@ -375,7 +368,7 @@ export default function CharacterAbilityPars({
                                         :
                                         (use_num || "∞")
                                     }
-                                </div>
+                                </div>}
                             </div>
                         </div>
 
@@ -386,7 +379,7 @@ export default function CharacterAbilityPars({
                         <div className="displayfex">
                             <div className="splitrow">
                                 <div className={`infotitle abilitydisplayfex `}>
-                                    {Name && ReplacerCharacter(Format_Cleaner(Name),form)}{` - #${character_ability.LearningAbility}`}
+                                    {Name && ReplacerCharacter(Format_Cleaner(Name),form)}{` - #${character_ability.LearningAbility | character_ability.abilityid_}`}
                                     {character_ability.Group == true ?
                                         <span className='inline Group'></span>
                                         : ""}
@@ -488,16 +481,22 @@ export default function CharacterAbilityPars({
                                         </div>
                                         : ""}
                                 </div>
+                                {enemy ? 
+                                enemy_names[character_ability.enemyID] && enemy_names[character_ability.enemyID].name ?
+                                `${enemy_names[character_ability.enemyID].name} - #${character_ability.enemyID} / ID:${character_ability.data_id}`
+                                :""
+                                :
                                 <Tippy content="Scroll to top" className="tooltip" >
                                     <span onClick={() => window.scrollTo(0, 0)} className={tag_override != undefined ? `${tag_override} undertag clicky` : character_ability.command && character_ability.command.rank && `${ability_rank_trans(character_ability.command.rank)} clicky`}></span>
                                 </Tippy>
+                                }
                                 {character_ability.voice_index != undefined ?
                                     <Tippy content="Play voice line" className="tooltip" >
                                         <span>{" "}<MdRecordVoiceOver onClick={playvoice} className='soundicon click' style={{color:`${playingaudio == true ? "yellow":""}`}}/></span>
                                     </Tippy>
                                 :""}
                             </div>
-                            {use_num != 0 ?
+                            {enemy ? "": use_num != 0 ?
                                 <div className="usesmaker">
                                     <div className="sidewaystextholder">
                                         <div className="sidewaystext unique">
@@ -511,7 +510,7 @@ export default function CharacterAbilityPars({
                                             <div className={"abilityusesholder2"}>
                                                 <span className={use_tag != undefined ? use_tag : tag_override != undefined ? tag_override : character_ability.command && character_ability.command.rank && ability_rank_trans(character_ability.command.rank)}></span>
                                                 {use_num || "∞"}
-                                                {character_ability.increase.map((self, i) => (
+                                                {character_ability.increase && character_ability.increase.map((self, i) => (
                                                         self.recast != undefined ?
                                                             <div key={i} style={{ whiteSpace: "nowrap" }}>
                                                                 <span className={`undertaga ${self.loc_tag}`}></span>{`+${self.recast}%`}
@@ -555,13 +554,13 @@ export default function CharacterAbilityPars({
                             </div>
                             : ""}
 
-                        {character_ability.FR == true ?
+                        {character_ability.FR == true && ProcessedCharacters != undefined?
                             ProcessedCharacters[character_ability.charaID] &&
                                 ProcessedCharacters[character_ability.charaID].FR_Partner != undefined &&
                                 char_id[ProcessedCharacters[character_ability.charaID].FR_Partner] != undefined ?
                                 ReplacerCharacter(`Summons ${char_id[ProcessedCharacters[character_ability.charaID].FR_Partner].CharacterName}\n`,form)
                                 : ""
-                            : ""}
+                        : ""}
 
                         {hit_map[`B1`] != undefined && hit_map[`B1`].show != false ?
                             <HitDataParsFormatting
@@ -634,86 +633,72 @@ export default function CharacterAbilityPars({
 
                         {//meta below
                         }
-                        {
-                        //{command_meta && command_meta.faf != undefined ?
-                        //    ReplacerCharacter(command_meta.faf+"\n",form)
-                        //    : ""}
-                        }
+                                                
                         {command_meta && command_meta.bdlur != undefined ?
                             ReplacerCharacter(command_meta.bdlur+"\n",form)
-                            : ""}
+                        : ""}
                         {command_meta && command_meta.mblur != undefined ?
                             ReplacerCharacter(command_meta.mblur+"\n",form)
-                            : ""}
-                        {
-                        //{command_meta && command_meta.kcon != undefined ?
-                        //    ReplacerCharacter(command_meta.kcon+"\n",form)
-                        //    : ""}
-                        //{command_meta && command_meta.kcon_1 != undefined ?
-                        //    ReplacerCharacter(command_meta.kcon_1+"\n",form)
-                        //    : ""}
-                        //{command_meta && command_meta.kid != undefined ?
-                        //    ReplacerCharacter(command_meta.kid+"\n",form)
-                        //    : ""}
-                        //{command_meta && command_meta.kid_1 != undefined ?
-                        //    ReplacerCharacter(command_meta.kid_1+"\n",form)
-                        //    : ""}
-                        }
-
+                        : ""}
                         {command_meta && command_meta.cost != undefined ?
                             command_meta.cost == "*Instant Turn Rate" ?
                                 ReplacerCharacter(command_meta.cost+"\n",form)
                                 : ""
-                            : ""}
-
+                        : ""}
                         {command_meta && command_meta.blow != undefined ?
                             ReplacerCharacter(command_meta.blow+"\n",form)
-                            : ""}
+                        : ""}
                         {command_meta && command_meta.stun != undefined ?
                             ReplacerCharacter(command_meta.stun+"\n",form)
-                            : ""}
+                        : ""}
                         {command_meta && command_meta.stunadd != undefined ?
                             ReplacerCharacter(command_meta.stunadd+"\n",form)
-                            : ""}
-
+                        : ""}
                         {command_meta && command_meta.cost != undefined ?
                             command_meta.cost != "*Instant Turn Rate" ?
                                 ReplacerCharacter(command_meta.cost+"\n",form)
-                                : ""
-                            : ""}
-
-                        {//{command_meta && command_meta.nasp!= undefined ?
-                            //ReplacerCharacter(command_meta.nasp+"\n",form)
-                            //:""}
-                            //{command_meta && command_meta.nex!= undefined ?
-                            //ReplacerCharacter(command_meta.nex+"\n",form)
-                            //:""}
-                            //{command_meta && command_meta.nsum!= undefined ?
-                            //ReplacerCharacter(command_meta.nsum+"\n",form)
-                            //:""}
-                            //{command_meta && command_meta.nabi!= undefined ?
-                            //ReplacerCharacter(command_meta.nabi+"\n",form)
-                            //:""}
-                        }
+                            : ""
+                        : ""}
                         {command_meta && command_meta.exshow != undefined ?
                             ReplacerCharacter(command_meta.exshow+"\n",form)
-                            : ""}
+                        : ""}
                         {command_meta && command_meta.ncharge != undefined ?
                             ReplacerCharacter(command_meta.ncharge+"\n",form)
-                            : ""}
-
+                        : ""}
                         {command_meta && command_meta.show != undefined ?
                             ReplacerCharacter(command_meta.show+"\n",form)
-                            : ""}
+                        : ""}
                         {command_meta && command_meta.showadd != undefined ?
                             ReplacerCharacter(command_meta.showadd+"\n",form)
-                            : ""}
+                        : ""}
                         {character_ability.same_ability_id_ != 0 && character_ability.same_ability_id_ != undefined?
                             ReplacerCharacter(`*Ability Group: ${character_ability.same_ability_id_}\n`,form)
-                            : ""}
+                        : ""}
                         {character_ability.ability_rank_ != 0 && character_ability.same_ability_id_ != undefined?
                             ReplacerCharacter(`*Ability Rank: ${character_ability.ability_rank_}\n`,form)
+                        : ""}
+
+                            {command_meta && command_meta.type_ != undefined && debugging == true?
+                                <div>
+                                    {ReplacerCharacter(command_meta.type_+"\n",form)}
+                                </div>
                             : ""}
+                            {command_meta && command_meta.target_range_ != undefined && debugging == true ?
+                                <div>
+                                    {ReplacerCharacter(command_meta.target_range_+"\n",form)}
+                                </div>
+                            : ""}
+                            {command_meta && command_meta.target_type_ != undefined  && debugging == true?
+                                <div>
+                                    {ReplacerCharacter(command_meta.target_type_+"\n",form)}
+                                </div>
+                            : ""}
+                            {command_meta && command_meta.auto_target_type_ != undefined  && debugging == true?
+                                <div>
+                                    {ReplacerCharacter(command_meta.auto_target_type_+"\n",form)}
+                                </div>
+                            : ""}
+
                         {character_ability.command != undefined && character_ability.command.desc != undefined ?
                             desc == false ?
                                 <div className="clicky updatelink contents" onClick={() => showmedesc(desc)}>
@@ -826,6 +811,8 @@ export default function CharacterAbilityPars({
                                         ver={ver}
                                         master_index={master_index}
                                         all_options={all_options}
+                                        formatting={formatting}
+                                        enemy={enemy}
                                     />
                                 ))}
                             </div>
@@ -927,6 +914,7 @@ export default function CharacterAbilityPars({
                             character_face={false}
                             hide_title={true}
                             passed_passive={selectedbuff.passive}
+                            debugging={debugging}
                         />
                         : ""}
                     {selectedbuff.length != 0 && selectedbuff.is_state == true ?

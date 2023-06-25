@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStateIfMounted } from 'use-state-if-mounted';
 import DefaultTippy from '../../components/TippyDefaults.js';
-import replacer_enemy from '../../components/ReplacerEnemyDesc.js';
+import ReplacerEnemyDesc from '../../components/ReplacerEnemyDesc.js';
 import OhNo from '../../components/OhNo.js'
 import Random from '../../processing/random.js'
 
@@ -30,7 +30,7 @@ export default function EnemyGuide ({
             :
                 <>
                 {showjp != undefined && showjp == true && guide.jp != undefined?
-                replacer_enemy(guide.jp)
+                ReplacerEnemyDesc(guide.jp)
                 :
                     showjp == false || showjp == undefined?
                     ""
@@ -41,7 +41,7 @@ export default function EnemyGuide ({
                     />
                 }
                 {(showjp == undefined || showjp == false) && guide.trans != undefined?
-                replacer_enemy(guide.trans)
+                ReplacerEnemyDesc(guide.trans)
                 :
                     showjp == true || showjp == undefined?
                     ""

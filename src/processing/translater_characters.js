@@ -5,7 +5,7 @@ export default function translater_character(text, trans){
       )
    } else {
       //prefilter
-      const firstplace = text
+      var replacement = text
          .replace(/自身に1ACTION[\s]*(「[^」]*」)付与/gm, "Grants $1 for 1 turn")
          .replace(/自身に(\d+)ACTION[\s]*(「[^」]*」)付与/gm, "Grants $2 for $1 turns")
          .replace(/パッシブ(「[^」]*」)装備時[\s]*(「[^」]*」)使用時/gm, "When using $2:")
@@ -155,20 +155,20 @@ export default function translater_character(text, trans){
          .replace(/「<HP>攻撃＋＋」/gm, "[HP Attack++]")
          .replace(/「<HP>攻撃＋＋＋」/gm, "[HP Attack+++]")
 
-      const text2replace = firstplace.toString().replace(/「/gm, "|[").replace(/」/gm, "]|").split("|")
-      text2replace.map((self, i) => {
+      replacement = replacement.toString().replace(/「/gm, "|[").replace(/」/gm, "]|").split("|")
+      replacement.map((self, i) => {
          var replace = trans[self.replace(/<BRV>/gm, "BRV").replace(/<HP>/gm, "HP").replace(/\]/gm, "").replace(/\[/gm, "")]
          if (replace == undefined) {
             replace = trans[self.replace(/<BRV>/gm, "ブレイブ").replace(/\]/gm, "").replace(/\[/gm, "")]
          }
          if (replace != undefined) {
-            text2replace[i] = `[${replace}]`
+            replacement[i] = `[${replace}]`
          }
       })
-      const replaced = text2replace.join("")
+      replacement = replacement.join("")
       /*eslint no-irregular-whitespace: ["error", { "skipRegExps": true }]*/
-      const replacement =
-         replaced.toString()
+      replacement =
+         replacement.toString()
             .replace(/与えるBRVダメージ上限が9999を(\d+)%分突破可能/gm, "BRV damage upper limit dealt can exceed 9999 by $1%")
             .replace(/与えるBRVダメージ上限が9999を＋(\d+)%分突破可能/gm, "BRV damage upper limit dealt can exceed 9999 by +$1%")
             .replace(/与えるHPダメージ上限が99999を＋(\d+)分突破可能/gm, "The maximum HP damage dealt can exceed 99999 by +$1%")

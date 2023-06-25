@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
-import Passive_Ability_Formatting from '../Passives/PassiveAbilityFormatting.js'
+import PassiveAbilityFormatting from '../Passives/PassiveAbilityFormatting.js'
 import PassiveCrystalParm from '../Passives/PassiveCrystalParm.js';
 import Tippy from '../TippyDefaults.js'
 import { ImSortAmountAsc } from 'react-icons/im';
@@ -526,23 +526,18 @@ export default function CharacterPassiveCrystalPageFormatting({
                     ver={ver}
                   />
                   : passive.awakening_type == 2 || passive.awakening_type == 5 ?
-                    <Passive_Ability_Formatting
+                    <PassiveAbilityFormatting
                       key={passive.cac_id}
                       passive_ability={passive.passive}
                       ver={ver}
                       loc={loc}
                       file={"exskill"}
-                      Single={true}
-
                       master_index={master_index}
-
                       formatting={formatting}
                       chara_id_passoff={passive.chara_id}
                       cp_overide={passive.cp}
                       tag_overide={`cl${passive.level}`}
-                      span={true}
                       release={passive.start_date}
-
                       banner_color={"bluebanner"}
                       base_color={"bluebase"}
                     />

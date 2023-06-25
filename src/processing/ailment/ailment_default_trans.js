@@ -16,6 +16,7 @@ export default function ailment_default_trans(
     const EX_rename = (data) => {
         let replacement = data
         replacement = data == undefined ? "" : data.replace(/EX/, "EXrank")
+        replacement = replacement == "" ? "" : replacement.replace(/BT\+/, "wpbtplus")
         return replacement
     }
 

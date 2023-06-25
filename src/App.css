@@ -15,6 +15,16 @@ a:-moz-focusring {
   margin-bottom: -6px;
 }
 
+.enemy_make_face{
+  margin-top: 10px;
+  margin-left: 8px;
+	object-fit: cover;
+	height: 45px;
+  width: 128px;
+	-webkit-mask-image: linear-gradient(transparent, black, black, transparent);
+	mask-image: linear-gradient(transparent, black, black, transparent);
+}
+
 .padd5 {
   padding-left: 5px;
   padding-right: 5px;
@@ -5203,6 +5213,9 @@ h3 {
 }
 
 @media screen and (max-width: 800px) {
+  .enemy_make_face{
+    margin-left:-5px;
+  }
   .buffpersonupframed {
     width: 24px;
     height: 24px;

@@ -27,6 +27,7 @@ export default function AilmentDataEffectHandler({
     setshowdesc,
     hide_type,
     spacer,
+    debugging
 }){
 
     const form = {formatting:formatting}
@@ -249,7 +250,25 @@ export default function AilmentDataEffectHandler({
                         </div>
                         : ""}
                 </>
-                : ""}
+            : ""}
+            {debugging !=true ? "":
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(num => (
+                effect_id && effect_id[`rank${num}`] && effect_id[`rank${num}`].value1 == undefined ? "" :
+                    <span key={num} className="padleft values">
+                        {`${num}) `}
+                        <span className='unique'>
+                        {effect_id[`rank${num}`].value1}
+                        {effect_id && effect_id[`rank${num}`].value2 && effect_id[`rank${num}`].value2 != undefined ? " " + effect_id[`rank${num}`].value2 : ""}
+                        {effect_id && effect_id[`rank${num}`].value3 && effect_id[`rank${num}`].value3 != undefined ? " " + effect_id[`rank${num}`].value3 : ""}
+                        {effect_id && effect_id[`rank${num}`].value4 && effect_id[`rank${num}`].value4 != undefined ? " " + effect_id[`rank${num}`].value4 : ""}
+                        {effect_id && effect_id[`rank${num}`].value5 && effect_id[`rank${num}`].value5 != undefined ? " " + effect_id[`rank${num}`].value5 : ""}
+                        </span>                    
+                    </span>
+            ))
+            }
+            {debugging ==true && effect_id && effect_id[`rank1`] && effect_id[`rank1`].value1 != undefined ?
+            <br/>
+            :""}
         </>
     )
 }

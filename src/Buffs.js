@@ -22,8 +22,6 @@ import { setFalse, setTrue } from './redux/ducks/jptoggle'
 
 export default function Buffs({
     ver,
-    loc,
-    file,
     match,
 
     ProcessedBuffs,
@@ -3449,14 +3447,9 @@ export default function Buffs({
                         listBuff.map(self => (
                             <AilmentDataFormatting
                                 key={`${self.id}_${self.chara_id}`}
-                                file={file}
-                                loc={loc}
                                 ver={ver}
                                 ailment_data={self}
-
                                 master_index={master_index}
-
-                                slider={true}
                                 rank={self.arank}
                                 arg1={self.aarg1}
                                 arg2={self.aarg2}
@@ -3465,7 +3458,6 @@ export default function Buffs({
                                 alt_aug2={self.aarg2a}
                                 castlocation={true}
                                 formatting={true}
-                                gear={false}
                                 rank_tag={self.rank_tag}
                                 turns={self.alife}
                                 character_face={true}

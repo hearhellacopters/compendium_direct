@@ -25,7 +25,8 @@ export default function CharacterAbilityDifFormatting({
     command_new,
     ver_new,
     master_index,
-    info
+    info,
+    debugging
 }){
 
     const from = {diffing:true}
@@ -161,27 +162,20 @@ export default function CharacterAbilityDifFormatting({
         }
     }
 
-    const [commandcompare, setcommandcompare] = useState("");
-
-    const [command_old_tex, setcommand_old_tex] = useState(
-        command_dif(
+    const command_old_tex = command_dif(
             command_old,
             master_index,
-            ver_old)
-    );
+            ver_old,
+            debugging)
+    
 
-    const [command_new_tex, setcommand_new_tex] = useState(
-        command_dif(
+    const command_new_tex = command_dif(
             command_new,
             master_index,
-            ver_new)
-    );
-
-    useEffect(() => {
-        if (command_old_tex != undefined && command_new_tex != undefined) {
-            setcommandcompare(makediff(command_old_tex.replace(/\s+$/g, ""), command_new_tex.replace(/\s+$/g, "")))
-        }
-    }, [command_old_tex, command_new_tex])
+            ver_new,
+            debugging)
+    
+    const commandcompare = makediff(command_old_tex.replace(/\s+$/g, ""), command_new_tex.replace(/\s+$/g, ""))
 
     const [selectedbuff, setselectedbuff] = useStateIfMounted([]);
     const [selectedbuff_old, setselectedbuff_old] = useStateIfMounted([]);
@@ -211,33 +205,31 @@ export default function CharacterAbilityDifFormatting({
         }
     }
 
-    const [optioncompare, setoptioncompare] = useState("");
+    var optioncompare = ""
 
-    useEffect(() => {
-        var options_old_tex = ""
-        if (command_old.options != undefined) {
-            options_old_tex = options_dif(
-                command_old,
-                ver_old,
-                master_index
-            )
+    var options_old_tex = ""
+    if (command_old.options != undefined) {
+        options_old_tex = options_dif(
+            command_old,
+            ver_old,
+            master_index
+        )
+    }
+    var options_new_tex = ""
+    if (command_new.options != undefined) {
+        options_new_tex = options_dif(
+            command_new,
+            ver_new,
+            master_index
+        )
+    }
+    if (options_old_tex != "" || options_new_tex != "") {
+        if(options_old_tex != ""){
+            optioncompare = makediff(options_old_tex.replace(/\s+$/g, ""), options_new_tex.replace(/\s+$/g, ""))
+        } else {
+            optioncompare = "~~" + options_new_tex + "~.~"
         }
-        var options_new_tex = ""
-        if (command_new.options != undefined) {
-            options_new_tex = options_dif(
-                command_new,
-                ver_new,
-                master_index
-            )
-        }
-        if (options_old_tex != "" || options_new_tex != "") {
-            if(options_old_tex != ""){
-                setoptioncompare(makediff(options_old_tex.replace(/\s+$/g, ""), options_new_tex.replace(/\s+$/g, "")))
-            } else {
-                setoptioncompare("~~" + options_new_tex + "~.~")
-            }
-        }
-    }, [command_old, command_new, ver_new, ver_old, master_index])
+    }
 
     const character_ability = command_new
 
@@ -574,6 +566,7 @@ export default function CharacterAbilityDifFormatting({
                             character_face={false}
                             hide_title={true}
                             passed_passive={selectedbuff.passive}
+                            debugging={debugging}
                         />
                         :
                         <AilmentDifFormatting

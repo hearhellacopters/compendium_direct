@@ -44,11 +44,13 @@ export default function AilmentDataFormatting({
     turns,
     link,
     info,
+    full,
     character_face, //only on for list
     frameless, // for attached
     default_passoff, //default passoff
     passed_passive, // for passive defaults
-    hide_title
+    hide_title,
+    debugging
 }){
 
     const form = {formatting:formatting}
@@ -351,7 +353,7 @@ export default function AilmentDataFormatting({
                     <div style={{ marginTop: `${character_face != true ? "5px" : ""}` }} 
                          className={
                             frameless == true ? (ailment_data.is_buff == 1 ? "Buffsubbanner2" : "Debuffsubbanner2") : 
-                            ailment_data.is_buff == 0 ? "Debuffbanner iconbuffer infonameholder nobuffpadding" : "Buffbanner iconbuffer infonameholder nobuffpadding"
+                            ailment_data.is_buff == 0 ? `Debuffbanner iconbuffer infonameholder ${full == true ? "" : "nobuffpadding"}` : `Buffbanner iconbuffer infonameholder ${full == true ? "" : "nobuffpadding"}`
                          }>
                         <div className={character_face != true ? "flexdisplay" :"infotitle2"}>
                             {character_face != true?
@@ -372,7 +374,7 @@ export default function AilmentDataFormatting({
                                 </div>}
                             </span>
                         </div>
-                        {ailment_data.sp_disp_type == 133 ?
+                        {ailment_data.sp_disp_type == 133 && debugging == undefined?
                             <div className="similarbanner">
                                 <Link className="updatelink" to={`/characters/forcetime?Char=${char_id[ailment_data.chara_id||cur_char] && replacer(char_id[ailment_data.chara_id||cur_char].CharacterName)}`}>
                                     View Force Time
@@ -387,7 +389,7 @@ export default function AilmentDataFormatting({
                         ailment_data={ailment_data}
                         sliders={sliders}
                         highestlvl={highestlvl}
-                        nobuffpadding={frameless == true ? false : true}
+                        nobuffpadding={frameless == true || full == true ? false : true}
 
                         currentlevel={currentlevel}
                         handleChangeLevel={handleChangeLevel}
@@ -433,7 +435,7 @@ export default function AilmentDataFormatting({
                     />
                     <div className={
                         frameless == true ? (ailment_data.is_buff == 1 ? "Buffsubbase2" : "Debuffsubbase2") :
-                        ailment_data.is_buff == 0 ? "Debuffbase enemyabilityinfobase wpadding" : "Buffbase enemyabilityinfobase wpadding"
+                        ailment_data.is_buff == 0 ?  `Debuffbase infobase ${full == true ? "" : "nobuffpadding"}` : `Buffbase infobase ${full == true ? "" : "nobuffpadding"}`
                         }>
                         {ailment_data.hide_title == true || default_passoff != undefined || frameless == true || passed_passive != undefined || hide_title == true? "" :
                         <div className={"subpassiveflair cast_str"}>
@@ -478,10 +480,10 @@ export default function AilmentDataFormatting({
                             </div>
                         : ""}
                         {ailment_data.levelsettings != undefined ?
-                                ""
-                                //<AilmentLevelSettings
-                                //levelsettings={ailment_data.levelsettings}
-                                ///>
+                              debugging != true ? "" :
+                              <AilmentLevelSettings
+                              levelsettings={ailment_data.levelsettings}
+                              />
                         :""}
                         {ailment_data.components != undefined ?
                             <div className="subpassiveflair2">
@@ -495,10 +497,21 @@ export default function AilmentDataFormatting({
                                 )}
                             </div>
                         : ""}
-                        
+                         {ailment_data.modify != undefined ?
+                            <div className="p_note">
+                                <div className='yellowbar'><div className='inline mod_icon'/>Modify:</div>
+                                {ailment_data.modify.map((item, i) =>
+                                    ReplacerCharacter(ailment_modify_trans(
+                                        item,
+                                        master_index,
+                                        ver
+                                    ),form)
+                                )}
+                            </div>
+                        : ""}
                         {ailment_num.map(num => (
                             ailment_pars[`effect_id_${num}`] && 
-                            ailment_pars[`effect_id_${num}`].hidden != true && 
+                            (ailment_pars[`effect_id_${num}`].hidden != true || debugging )&& 
                             <AilmentDataEffectHandler
                                 key={`${ailment_data.id}-${num}`}
                                 effect_id={ailment_pars[`effect_id_${num}`]}
@@ -522,6 +535,7 @@ export default function AilmentDataFormatting({
                                 formatting={formatting}
                                 setonion_passoff={setonion_passoff}
                                 setshowdesc={setshowdesc}
+                                debugging={castlocation == true ? false : debugging}
                             />
                         ))}
                         {ailment_pars.field != undefined ?
@@ -532,7 +546,8 @@ export default function AilmentDataFormatting({
                                     </DefaultTippy>
                                 </div>
                                 {ailment_pars.field.map((item, i) =>
-                                    item && item.hidden != true && 
+                                    item && 
+                                    (item.hidden != true || debugging) && 
                                     <AilmentDataEffectHandler
                                         key={`${ailment_data.id}-${i}f`}
                                         effect_id={item}
@@ -554,6 +569,7 @@ export default function AilmentDataFormatting({
                                         characterskb={characterskb}
                                         castlocation={castlocation}
                                         formatting={formatting}
+                                        debugging={castlocation == true ? false : debugging}
                                     />
                                 )}
                             </>
@@ -569,18 +585,6 @@ export default function AilmentDataFormatting({
                                     ),form)
                                 ))}
                                 <div className='abilityJPname'>*Totaled values</div>
-                            </div>
-                            : ""}
-                        {ailment_data.modify != undefined ?
-                            <div className="p_note">
-                                <div className='yellowbar'><div className='inline mod_icon'/>Modify:</div>
-                                {ailment_data.modify.map((item, i) =>
-                                    ReplacerCharacter(ailment_modify_trans(
-                                        item,
-                                        master_index,
-                                        ver
-                                    ),form)
-                                )}
                             </div>
                         : ""}
                         {ailment_data.passives != undefined ?
@@ -604,7 +608,8 @@ export default function AilmentDataFormatting({
                                         "ailment",
                                         true,
                                     ).sort((a, b) => a.rank - b.rank).map((ailment_passive, i, whole) => (
-                                        ailment_passive.is_total != true ? <PassiveEffectsHandoff
+                                        ailment_passive.is_total != true ? 
+                                        <PassiveEffectsHandoff
                                             key={`${ailment_passive.pa_id}-${i}`}
                                             passive_ability={ailment_passive}
 
@@ -618,11 +623,11 @@ export default function AilmentDataFormatting({
                                             hide_disp={merge_pas}
                                             battle_state={true}
                                         />
-                                            :
-                                            <PassiveTotalDisplay
-                                                key={i}
-                                                match={ailment_passive}
-                                            />
+                                        :
+                                        <PassiveTotalDisplay
+                                            key={i}
+                                            match={ailment_passive}
+                                        />
                                     ))}
                                     <div className='abilityJPname'>*depending on origin ability</div>
                                 </div>
@@ -703,6 +708,7 @@ export default function AilmentDataFormatting({
                                 character_face={false}
                                 frameless={true}
                                 hide_cast_str={true}
+                                debugging={debugging}
                             />
                             : ""}
                         {showraw == true ?

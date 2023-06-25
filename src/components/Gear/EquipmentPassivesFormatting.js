@@ -1,23 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { useStateIfMounted } from "use-state-if-mounted";
-import Passive_Ability_Formatting from '../Passives/PassiveAbilityFormatting.js'
+import PassiveAbilityFormatting from '../Passives/PassiveAbilityFormatting.js'
 import { StartsInTimer } from '../../components/Timers.js';
 import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
 import { ObjectView } from 'react-object-view'
 
 export default function EquipmentPassivesFormatting ({
     gear,
-
     ver,
     loc,
     file,
-    Single,
-
     master_index,
-
     formatting,
-
     link
 }){
 
@@ -253,16 +248,13 @@ export default function EquipmentPassivesFormatting ({
                         </span>
                         : ""}
                     {gear && gear.passives && gear.passives.map(passive2 => (
-                        <Passive_Ability_Formatting
+                        <PassiveAbilityFormatting
                             key={passive2.pa_id}
                             passive_ability={passive2}
                             ver={ver}
                             loc={loc}
                             file={"exskill"}
-                            Single={true}
-
                             master_index={master_index}
-
                             formatting={formatting}
                             gear={true}
                             banner_color={"newblue"}

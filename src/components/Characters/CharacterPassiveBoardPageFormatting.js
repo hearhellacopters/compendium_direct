@@ -6,7 +6,7 @@ import { ImSortAmountDesc } from 'react-icons/im';
 import { IoMdCloseCircleOutline } from 'react-icons/io';
 import { IoSearch } from 'react-icons/io5';
 import { FaUndoAlt } from 'react-icons/fa'
-import Passive_Ability_Formatting from '../Passives/PassiveAbilityFormatting';
+import PassiveAbilityFormatting from '../Passives/PassiveAbilityFormatting';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
 import { getQuery, getQueryStringVal, useQueryParam } from '../URLParams'
@@ -419,23 +419,18 @@ export default function CharacterPassiveBoardPageFormatting({
                 tag_override={passive.passive_num == 27 ? "board4cext" : "board4c"}
               />
               : passive.passive &&
-              <Passive_Ability_Formatting
+              <PassiveAbilityFormatting
                 key={passive.sfp_id}
                 passive_ability={passive.passive}
                 ver={ver}
                 loc={loc}
                 file={"exskill"}
-                Single={true}
-
                 master_index={master_index}
-
                 cp_cost={passive.cp}
                 board_cost={passive.board_point}
                 chara_id_passoff={passive.chara_id}
                 formatting={formatting}
                 release={passive.start_date}
-
-                span={true}
                 banner_color={"board4banner"}
                 base_color={"bluebase"}
               />

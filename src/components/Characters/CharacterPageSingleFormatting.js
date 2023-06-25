@@ -26,7 +26,7 @@ import CharacterAbilityPageFormatting from './CharacterAbilityPageFormatting.js'
 import Crystal_Passives from './CharacterPassiveCrystalPageFormatting.js';
 import Sum_Fix_Passive from './CharacterPassiveBoardPageFormatting.js';
 import Link_Passives from './CharacterPassiveLinkPageFormatting.js';
-import Equipment_Passives from '../Gear/CharacterGearPage.js';
+import Equipment_Passives from './CharacterGearPage.js';
 import SpheresPage from './CharacterPassiveSpheresPageFormatting.js';
 import Art_bycharacter from './CharacterPassiveArtPageFormatting.js';
 import CharacterPageFormatting from './CharacterPageFormatting.js';

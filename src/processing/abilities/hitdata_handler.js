@@ -1,10 +1,11 @@
 import hitdata_trans from "./hitdata_trans.js"
 
-export default function hitdata_for_ability(
+export default function hitdata_handler(
     ability,
     master_index,
     ver,
-    meta
+    meta,
+    debugging
 ){
 
     const hit_effect_id = master_index.hit_trans_data.hit_effect_id
@@ -62,8 +63,11 @@ export default function hitdata_for_ability(
 
     const power = ability.power
 
-    const check_hidden = (id) => {
+    const check_hidden = (id, debugging) => {
         if (id == undefined) {
+            return false
+        }
+        if(debugging == true){
             return false
         }
         if (hit_effect_id[id] && hit_effect_id[id].hidden == true) {
@@ -98,7 +102,7 @@ export default function hitdata_for_ability(
             hit_data.effect_id == 279 || // after_each_except_last
             (hit_data.effect_id == 37 && hit_data.m_nARG_4 == 2809) || //hide models
             (hit_data.effect_id == 275 && hit_data.m_nARG == 2771)  //casts hide models
-            || check_hidden(hit_data && hit_data.effect_id)
+            || check_hidden(hit_data && hit_data.effect_id, debugging)
         ) {
             //do nothing
         } else {

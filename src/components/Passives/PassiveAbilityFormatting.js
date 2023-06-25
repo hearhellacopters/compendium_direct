@@ -6,9 +6,9 @@ import DefaultTippy from '../../components/TippyDefaults';
 import { useDispatch, useSelector } from "react-redux";
 import { getTransNames } from '../../redux/ducks/transnames';
 import CharacterFaceFormatting from '../Characters/CharacterFaceFormatting'
-import Ailment_Default_Passoff from "../Buffs/AilmentDefaultPassoff";
+import AilmentDefaultPassoff from "../Buffs/AilmentDefaultPassoff";
 import AilmentDataFormatting from "../Buffs/AilmentDataFormatting";
-import Passive_Effects_Handoff from "./PassiveEffectsHandoff";
+import PassiveEffectsHandoff from "./PassiveEffectsHandoff";
 import { StartsInTimer } from '../../components/Timers'
 import passive_link_trans from "../../processing/passives/passive_link_trans";
 import ReplacerCharacter from '../ReplacerCharacter'
@@ -21,10 +21,7 @@ export default function PassiveAbilityFormatting({
     loc,
     ver,
     file,
-    Single,
-
     master_index,
-
     cp_cost,
     board_cost,
     chara_id_passoff,
@@ -36,11 +33,8 @@ export default function PassiveAbilityFormatting({
     cost_overide,
     cp_overide,
     tag_overide,
-
     banner_color,
     base_color,
-    span,
-
     link
 }){
     const form = {formatting:formatting}
@@ -342,13 +336,10 @@ export default function PassiveAbilityFormatting({
                             <div className="clicky updatelink contents" onClick={() => doTrans()} >Translate (Beta)</div>
                             : ""}
                         <div className={`${passive_ability.effect_ == undefined && passive_ability.effect__1 == undefined ? "" : `infonameholderenemybuff default_passive ${base_color != undefined ? "Buffbase" : "newbluepassive"}`}`}>
-                            <Passive_Effects_Handoff
+                            <PassiveEffectsHandoff
                                 passive_ability={passive_ability}
-
                                 master_index={master_index}
                                 ver={ver}
-                                file={file}
-
                                 formatting={formatting}
                                 base_color={base_color != undefined ? "Buffbase" : undefined}
                             />
@@ -381,20 +372,20 @@ export default function PassiveAbilityFormatting({
                             : ""}
                         {passive_ability.defaults != undefined ?
                             Object.values(listByChar).map(buffs => (
-                                <Ailment_Default_Passoff
+                                <AilmentDefaultPassoff
                                     file={"passive_ability"}
                                     ver={ver}
                                     key={buffs.char_id}
                                     ailment_default={buffs}
-
                                     master_index={master_index}
-
                                     loc={loc}
                                     slider={false}
+                                    framless={true}
                                     formatting={formatting}
+                                    full={true}
+                                    character_face={false}
                                     gear={gear}
                                     base_color={"classcolor"}
-                                    span={span}
                                 />
                             ))
                             : ""}
@@ -422,14 +413,9 @@ export default function PassiveAbilityFormatting({
                             : ""}
                         {selectedbuff.length != 0 ?
                             <AilmentDataFormatting
-                                file={"passive_ability"}
-                                loc={loc}
-                                ver={ver}
                                 ailment_data={selectedbuff}
-
+                                ver={ver}
                                 master_index={master_index}
-
-                                slider={false}
                                 rank={selectedbuff.rank_id}
                                 arg1={selectedbuff.arg1}
                                 arg2={selectedbuff.arg2}
@@ -438,7 +424,7 @@ export default function PassiveAbilityFormatting({
                                 formatting={formatting}
                                 turns={selectedbuff.turn}
                                 character_face={false}
-                                frameless={true}
+                                full={false}
                                 passed_passive={selectedbuff.passive}
                             />
                             : ""}
