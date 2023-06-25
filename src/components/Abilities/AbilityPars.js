@@ -26,7 +26,7 @@ import Passive_Total_Display from '../Passives/PassiveTotalDisplay';
 import PassiveEffectsHandoff from '../Passives/PassiveEffectsHandoff';
 import ability_use_maker from '../../processing/abilities/ability_use_maker';
 import ailment_level_icon from '../../processing/ailment/ailment_level_icon';
-   
+
 export default function AbilityPars({
     character_ability,
     loc,
@@ -43,6 +43,7 @@ export default function AbilityPars({
     info,
     enemy,
     enemy_names,
+    summon,
     debugging
 }){
 
@@ -352,10 +353,15 @@ export default function AbilityPars({
                                 <img alt={character_ability.enemyID} className={`enemy_make_face`} src={`https://dissidiacompendium.com/images/static/enemy/face/stl_mon_face_${(character_ability.enemyID-1).toString().padStart(4, '0')}out.png`} />
                             </div>
                         }
+                        {summon && character_ability.Name != undefined ? 
+                            <div className='faceholder'>
+                                <img alt={character_ability.Name} className={`enemy_make_face`} src={`https://dissidiacompendium.com/images/static/icons/summons/face/${character_ability.Name}_Face.png`} />
+                            </div>
+                        : ""}
                         <div className={hide_chara == true ? "enemyabilityiconholder" :"abilityiconholder"} onClick={showmeraw} >
                             <div className="abilityurlholder">
                                 <LazyLoadImage effect="opacity" className="abilityicon" alt={Name} src={`https://dissidiacompendium.com/images/static/${IconURL}.png`} />
-                                {use_num == "∞" || enemy == true ? "" : <div className={
+                                {use_num == "∞" || enemy || summon ? "" : <div className={
                                     typeof use_num == "string" ? "abilityblspeed" :
                                     character_ability.Crystal == true && use_num != 0 ? "saholder_crystal" :
                                         character_ability.FR == true && use_num != 0 ? "saholderg" :
@@ -481,22 +487,22 @@ export default function AbilityPars({
                                         </div>
                                         : ""}
                                 </div>
-                                {enemy ? 
-                                enemy_names[character_ability.enemyID] && enemy_names[character_ability.enemyID].name ?
-                                `${enemy_names[character_ability.enemyID].name} - #${character_ability.enemyID} / ID:${character_ability.data_id}`
-                                :""
-                                :
+                                {enemy != true ? 
                                 <Tippy content="Scroll to top" className="tooltip" >
                                     <span onClick={() => window.scrollTo(0, 0)} className={tag_override != undefined ? `${tag_override} undertag clicky` : character_ability.command && character_ability.command.rank && `${ability_rank_trans(character_ability.command.rank)} clicky`}></span>
                                 </Tippy>
-                                }
+                                : 
+                                enemy && enemy_names ?
+                                enemy_names[character_ability.enemyID] && enemy_names[character_ability.enemyID].name ?
+                                `${enemy_names[character_ability.enemyID].name} - #${character_ability.enemyID} / ID:${character_ability.data_id}`
+                                :"":""}
                                 {character_ability.voice_index != undefined ?
                                     <Tippy content="Play voice line" className="tooltip" >
                                         <span>{" "}<MdRecordVoiceOver onClick={playvoice} className='soundicon click' style={{color:`${playingaudio == true ? "yellow":""}`}}/></span>
                                     </Tippy>
                                 :""}
                             </div>
-                            {enemy ? "": use_num != 0 ?
+                            {enemy || summon ? "": use_num != 0 ?
                                 <div className="usesmaker">
                                     <div className="sidewaystextholder">
                                         <div className="sidewaystext unique">
@@ -897,9 +903,7 @@ export default function AbilityPars({
                             loc={loc}
                             ver={ver}
                             ailment_data={selectedbuff.default == true ? selectedbuff.cast : selectedbuff}
-
                             master_index={master_index}
-
                             slider={true}
                             rank={selectedbuff.default == true ? selectedbuff.rank_id : selectedbuff.arank}
                             arg1={selectedbuff.default == true ? selectedbuff.arg1 : selectedbuff.aarg1}

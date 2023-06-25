@@ -17,7 +17,7 @@ import { IoMdCloseCircleOutline } from 'react-icons/io';
 import Tippy from './components/TippyDefaults.js';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
-import CharacterAbilityPars from './components/Abilities/AbilityPars.js';
+import AbilityPars from './components/Abilities/AbilityPars.js';
 import { getQuery, getQueryStringVal, useQueryParam } from './components/URLParams.js'
 import StatsMaker from './components/StatsDisplay.js';
 
@@ -400,17 +400,14 @@ export default function CrystalAbility({
             </div>
             {listgear.length > 0 ? (
               listgear.map(passive => (
-                <CharacterAbilityPars
+                <AbilityPars
                     key={passive.data_id}
                     character_ability={passive}
                     ver={"JP"}
                     loc={"crystal"}
                     Single={true}
-
                     master_index={master_index}
-
                     formatting={true}
-
                     span={true}
                     tag_override={passive.loc_tag}
                     hide_chara={true}

@@ -424,7 +424,8 @@ export default function PassiveAbilityFormatting({
                                 formatting={formatting}
                                 turns={selectedbuff.turn}
                                 character_face={false}
-                                full={false}
+                                hide_title={true}
+                                full={passive_ability.CharID == undefined && chara_id_passoff == undefined ? true : false}
                                 passed_passive={selectedbuff.passive}
                             />
                             : ""}

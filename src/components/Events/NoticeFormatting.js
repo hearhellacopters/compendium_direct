@@ -10,6 +10,7 @@ export default function NoticeFormatting({
     const notice_text ={
         "1": "Important",
         "2": "Update",
+        "4": "Maintenance",
         "6": "Campaigns",
         "8": "Events",
         "9": "Notices",

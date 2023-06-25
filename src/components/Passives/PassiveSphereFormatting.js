@@ -351,10 +351,8 @@ export default function PassiveSphereFormatting({
                                 file={"passive_ability"}
                                 loc={loc}
                                 ver={ver}
-
                                 ailment_data={selectedbuff}
                                 master_index={master_index}
-
                                 slider={false}
                                 rank={selectedbuff.rank_id}
                                 arg1={selectedbuff.arg1}
@@ -362,10 +360,9 @@ export default function PassiveSphereFormatting({
                                 castlocation={true}
                                 fullspan={passive_ability.CharID == undefined || file == "exskill" ? true : false}
                                 formatting={formatting}
-
                                 turns={selectedbuff.turn}
                                 character_face={false}
-                                frameless={true}
+                                full={true}
                                 passed_passive={selectedbuff.passive}
                                 hide_title={true}
                             />
