@@ -341,7 +341,7 @@ export default function CrystalPassives({
               }
               <div className="similarbanner">Where to find</div>
               <div className="ultimainfo darkerbg">
-              <Link className="whitecolor" to={`/events/2352`}>
+              <Link className="whitecolor" to={`/events/2262`}>
                 <span className='gemcredits'></span>Weekly Crystal Quests
               </Link>
               </div>

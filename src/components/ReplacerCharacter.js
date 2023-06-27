@@ -8,7 +8,7 @@ export default function ReplacerCharacter(text, options){
     // Yes up down on Buffs or Passives
     // Diffing for diffing
     // formatting switch
-    const {formatting, updown, diffing} = options || {}
+    const {formatting, updown, force_page, diffing} = options || {}
 
     if(formatting == false){
         return text
@@ -23,6 +23,14 @@ export default function ReplacerCharacter(text, options){
     replacement = replacement && replacement.replace(/<Material>/gm, "＜Material＞")
 
     replacement = replacement && replacement.replace(/<Spiritual>/gm, "＜Spiritual＞")
+
+    if(force_page){
+        
+        replacement = replacement && replacement.replace(/(HP Damage Bonus:\n)/gm, "<BonusHPDamage>")
+
+        replacement = replacement && replacement.replace(/(\[.*\(F\)\])/gm, "<wpfr_buff>")
+
+    }
 
     //diff formatting
     if(diffing){

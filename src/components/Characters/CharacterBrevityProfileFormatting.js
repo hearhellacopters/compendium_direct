@@ -146,7 +146,7 @@ export default function CharacterBrevityProfileFormatting({ match }){
                     <div>
                         {showBrevity == artifacts ?
                             artifacts :
-                            ReplacerCharacter(showBrevity,{updown:true})
+                            ReplacerCharacter(showBrevity,{updown:true,force_page:true})
                         }
                     </div>
                 }
