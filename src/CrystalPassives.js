@@ -407,7 +407,7 @@ export default function CrystalPassives({
                 <PassiveAbilityFormatting
                     key={passive.pa_id}
                     passive_ability={passive}
-                    ver={"JP"}
+                    ver={"GL"}
                     loc={"crystal"}
                     master_index={master_index}
                     formatting={true}
