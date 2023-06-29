@@ -433,7 +433,7 @@ export default function CharacterPageFormatting({
               </div>}
             {newmatch.JPSynergyStart == undefined ? "" :
               <div className={` ${new Date(newmatch.JPSynergyStart) >= ct ? "upstat " : "downstat "}`}>
-                <span className="jpflagupdate" />{new Date(newmatch.JPSynergyStart) >= ct ? " Synergy on" : " Synergy ends"}{`${new Date(newmatch.JPSynergyStart) >= ct ? `${months[new Date(newmatch.JPSynergyStart).getMonth()] + "/" + ordinal(new Date(newmatch.JPSynergyStart).getDate())}` : `${months[new Date(newmatch.JPSynergyEnd).getMonth()] + "/" + ordinal(new Date(newmatch.JPSynergyEnd).getDate())}`}`}
+                <span className="jpflagupdate" />{new Date(newmatch.JPSynergyStart) >= ct ? " Synergy on" : " Synergy ends"} {`${new Date(newmatch.JPSynergyStart) >= ct ? `${months[new Date(newmatch.JPSynergyStart).getMonth()] + "/" + ordinal(new Date(newmatch.JPSynergyStart).getDate())}` : `${months[new Date(newmatch.JPSynergyEnd).getMonth()] + "/" + ordinal(new Date(newmatch.JPSynergyEnd).getDate())}`}`}
               </div>
             }
           </div>}
