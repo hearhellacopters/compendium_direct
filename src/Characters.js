@@ -3129,8 +3129,7 @@ export default function Characters({
                 <IoMdCloseCircleOutline onClick={clearSearch} className="eventclearsearch"></IoMdCloseCircleOutline>}
             </div>
           </div>
-          : ""
-        }
+          : 
         <div className="filterholder noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
           <div className="similarbanner">Basic Traits</div>
           <div className="filterholderflair">
@@ -3620,8 +3619,9 @@ export default function Characters({
             <span className="subtext">Skins page</span>
           </Link>
         </div>
+        }
         {showFilter == true ? "" :
-          <span>
+          <div>
             <Link className="whitecolor" to={"/characters/ultimaweapon"}>
               <span className="subtext">Ultima</span>
             </Link>
@@ -3633,7 +3633,7 @@ export default function Characters({
             <Link className="whitecolor" to={"/characters/wardrobe"}>
               <span className="subtext">Wardrobe page</span>
             </Link>
-          </span>}
+          </div>}
         <ul className="characterholder">
           {chars.length == rawData.length ?
             <div className="subtext">

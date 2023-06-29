@@ -301,8 +301,7 @@ export default function ForceTime({
                 <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
             </div>
           </div>
-          : ""
-        }
+          : 
         <div className="filterholder" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
           <div className="filterholderflair">
             <div className="similarbanner"><div className='infoclick' onClick={() => { setshowinfo((preValue) => !preValue) }}>Info{showinfo ? <TiArrowSortedUp className="uparrow" /> : <TiArrowSortedDown className="downarrow" />}</div></div>
@@ -376,6 +375,7 @@ export default function ForceTime({
             </div>
           </div>
         </div>
+        }
         <div className="ultimaweaponitemholder">
           <div className="subtext">
             {displayBanner}

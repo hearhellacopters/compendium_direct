@@ -3003,8 +3003,7 @@ export default function Buffs({
                                 <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
                         </div>
                     </div>
-                    : ""
-                }
+                    : 
                 <div className="filterholder noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
                     <div className="similarbanner">Ability Line</div>
                     <div className="filterholderflair">
@@ -3410,12 +3409,13 @@ export default function Buffs({
                         <span className="subtext">Check out the Force Time page</span>
                     </Link>
                 </div>
+                }
                 {showFilter == true ? "" :
-                    <span>
+                    <div>
                         <Link className="whitecolor" to={`/characters/forcetime${jptoggledata == false ? "" : "?JP=true"}`}>
                             <span className="subtext">Force Time</span>
                         </Link>
-                    </span>}
+                    </div>}
                 <ul className="bannertabs">
                     <Link to={`/search/buffs${jptoggledata == false ? "" : "?JP=true"}`}>
                         <li className={"active"} ><span className="gemselected" />Buffs</li>

@@ -520,37 +520,36 @@ export default function JukeBox({
         <div className="charfilterspacer" />
         <div key="filter1" onClick={showfilterbutton} className="charfilter"><span className="filterstext"></span>{showFilter ? <TiArrowSortedUp className="uparrow" /> : <TiArrowSortedDown className="downarrow" />}</div>
         {showFilter == false ?
-          <div className="event-search-reverse-holder">
-            <div className="loopiconholder">
-            </div>
-            <IoSearch className="searchicon" />
-            <div className="search-holder el">
-              <input
-                className="char-search-bar"
-                type="text"
-                id="search"
-                placeholder="Song Name"
-                value={searchdisplay}
-                onChange={handleChange}
-                onKeyDown={handleKeyDown}
-              />
-              {searchTerm === "" ? "" :
-                <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
-            </div>
-            <div className="playiconholder">
-              {playing ?
-                <Tippy content={"Playing"}>
-                  <div onClick={playbutton} className="playericon2 clicker">{playingicon}</div>
-                </Tippy>
-                :
-                <Tippy content={"Stopped"}>
-                  <div onClick={playbutton} className="playericon2 clicker">{noplayicon}</div>
-                </Tippy>
-              }
-            </div>
+        <div className="event-search-reverse-holder">
+          <div className="loopiconholder">
           </div>
-          : ""
-        }
+          <IoSearch className="searchicon" />
+          <div className="search-holder el">
+            <input
+              className="char-search-bar"
+              type="text"
+              id="search"
+              placeholder="Song Name"
+              value={searchdisplay}
+              onChange={handleChange}
+              onKeyDown={handleKeyDown}
+            />
+            {searchTerm === "" ? "" :
+              <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
+          </div>
+          <div className="playiconholder">
+            {playing ?
+              <Tippy content={"Playing"}>
+                <div onClick={playbutton} className="playericon2 clicker">{playingicon}</div>
+              </Tippy>
+              :
+              <Tippy content={"Stopped"}>
+                <div onClick={playbutton} className="playericon2 clicker">{noplayicon}</div>
+              </Tippy>
+            }
+          </div>
+        </div>
+        : 
         <div className="filterholder noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
           <div className="similarbanner">
             {playing ? `Playing: ${song && song.name}` : "Select a song"}
@@ -647,6 +646,7 @@ export default function JukeBox({
             </div>
           </div>
         </div>
+        }
         <ul className="bannertabs">
           <Link to={`/search/buffs${jptoggledata == false ? "" : "?JP=true"}`}>
             <li className={""} >Buffs</li>

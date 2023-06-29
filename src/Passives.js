@@ -852,29 +852,28 @@ export default function Passives ({
         <div className="charfilterspacer" />
         <div key="filter1" onClick={showfilterbutton} className="charfilter"><span className="filterstext"></span>{showFilter ? <TiArrowSortedUp className="uparrow" /> : <TiArrowSortedDown className="downarrow" />}</div>
         {showFilter == false ?
-          <div className="event-search-reverse-holder">
-            <span className={`${jponly ? "jponlybackground" : "GLonlybackground"}`}>
-              <Tippy content={`${jponly == true ? "Switch to GL" : "Switch to JP"}`} className="tooltip" >
-                <span onClick={jponlybutton} className={`${jponly ? "jpflage jpsmallinactive smalleventbutton" : "glflage smalleventbutton"}`} />
-              </Tippy>
-            </span>
-            <IoSearch className="searchicon" />
-            <div className="search-holder el">
-              <input
-                className="char-search-bar"
-                type="text"
-                id="search"
-                placeholder="Search"
-                value={searchdisplay}
-                onChange={handleChange}
-                onKeyDown={handleKeyDown}
-              />
-              {searchTerm === "" ? "" :
-                <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
-            </div>
+        <div className="event-search-reverse-holder">
+          <span className={`${jponly ? "jponlybackground" : "GLonlybackground"}`}>
+            <Tippy content={`${jponly == true ? "Switch to GL" : "Switch to JP"}`} className="tooltip" >
+              <span onClick={jponlybutton} className={`${jponly ? "jpflage jpsmallinactive smalleventbutton" : "glflage smalleventbutton"}`} />
+            </Tippy>
+          </span>
+          <IoSearch className="searchicon" />
+          <div className="search-holder el">
+            <input
+              className="char-search-bar"
+              type="text"
+              id="search"
+              placeholder="Search"
+              value={searchdisplay}
+              onChange={handleChange}
+              onKeyDown={handleKeyDown}
+            />
+            {searchTerm === "" ? "" :
+              <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
           </div>
-          : ""
-        }
+        </div>
+        :
         <div className="filterholder noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
           <div className="similarbanner">Multiple filters can be active</div>
           <div className="filterholderflair">
@@ -992,12 +991,13 @@ export default function Passives ({
               <span className="subtext">Check out the Crystal Brilliance page</span>
           </Link>
         </div>
+        }
         {showFilter == true ? "" :
-            <span>
+            <div>
                 <Link className="whitecolor" to={`/bonuses/crystal`}>
                     <span className="subtext">Crystal Brilliance</span>
                 </Link>
-            </span>}
+            </div>}
         <ul className="bannertabs">
           <Link to={`/search/buffs${jptoggledata == false ? "" : "?JP=true"}`}>
             <li className={""} >Buffs</li>

@@ -794,34 +794,33 @@ export default function Bestiary({ ProcessedEnemy, jptoggledata, ProcessedCharac
         <div className="charfilterspacer" />
         <div onClick={showfilterbutton} className="charfilter" id={showFilter ? "filteropen" : "filterclosed"}><span className="filterstext"></span>{showFilter ? <TiArrowSortedUp className="uparrow" /> : <TiArrowSortedDown className="downarrow" />}</div>
         {showFilter == false ?
-          <div className="event-search-reverse-holder">
-            <span className={`${jponly ? "jponlybackground" : "GLonlybackground"}`}>
-              <Tippy content={`${jponly == true ? "Switch to GL" : "Switch to JP"}`} className="tooltip" >
-                <span onClick={jponlybutton} className={`${jponly ? "jpflage jpsmallinactive smalleventbutton" : "glflage smalleventbutton"}`} />
+        <div className="event-search-reverse-holder">
+          <span className={`${jponly ? "jponlybackground" : "GLonlybackground"}`}>
+            <Tippy content={`${jponly == true ? "Switch to GL" : "Switch to JP"}`} className="tooltip" >
+              <span onClick={jponlybutton} className={`${jponly ? "jpflage jpsmallinactive smalleventbutton" : "glflage smalleventbutton"}`} />
+            </Tippy>
+          </span>
+          <IoSearch className="searchicon" />
+          <div className="search-holder el">
+            <input
+              className="char-search-bar"
+              type="text"
+              id="search"
+              placeholder="Enemy Name"
+              value={searchdisplay}
+              onChange={handleChange}
+              onKeyDown={handleKeyDown}
+            />
+            <span className="detailsbackground">
+              <Tippy content="Details View" className="tooltip" >
+                <span onClick={detailsbutton} className={`detailsview ${details ? "pastsmallactive" : "pastsmallinactive"}`} />
               </Tippy>
             </span>
-            <IoSearch className="searchicon" />
-            <div className="search-holder el">
-              <input
-                className="char-search-bar"
-                type="text"
-                id="search"
-                placeholder="Enemy Name"
-                value={searchdisplay}
-                onChange={handleChange}
-                onKeyDown={handleKeyDown}
-              />
-              <span className="detailsbackground">
-                <Tippy content="Details View" className="tooltip" >
-                  <span onClick={detailsbutton} className={`detailsview ${details ? "pastsmallactive" : "pastsmallinactive"}`} />
-                </Tippy>
-              </span>
-              {searchTerm === "" ? "" :
-                <IoMdCloseCircleOutline onClick={clearSearch} className="eventclearsearch"></IoMdCloseCircleOutline>}
-            </div>
+            {searchTerm === "" ? "" :
+              <IoMdCloseCircleOutline onClick={clearSearch} className="eventclearsearch"></IoMdCloseCircleOutline>}
           </div>
-          : ""
-        }
+        </div>
+        : 
         <div className="filterholder" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
           <div className="similarbanner">Multiple filters can be active</div>
           <div className="filterholderflair">
@@ -1124,6 +1123,7 @@ export default function Bestiary({ ProcessedEnemy, jptoggledata, ProcessedCharac
             </div>
           </div>
         </div>
+        }
         <ul className="bannertabs">
           <Link to={`/bestiary/enemies`}>
             <li className={"active"} ><span className="gemselected" />Enemies</li>

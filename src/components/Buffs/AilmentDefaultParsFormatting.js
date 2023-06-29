@@ -39,10 +39,10 @@ export default function AilmentDefaultParsFormatting({
                     <div className="subpassiveflair cast_str" onClick={showmeraw}> 
                         {default_pars.cast_str}<span className="values">{default_pars.turns_str}</span>{default_pars.target_str}
                     </div>
-                    <div className="p_note">
+                    {default_pars.require_str == "" ? "" : <div className="p_note">
                         <div className="orangebar">Requires:</div>
                         {ReplacerCharacter(default_pars.require_str,from)}
-                    </div>
+                    </div>}
                     {showraw == true ?
                     <span className='react-json-view'>
                         <ObjectView 

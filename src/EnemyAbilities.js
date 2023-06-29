@@ -570,24 +570,23 @@ export default function EnemyAbilities({
         <div className="charfilterspacer" />
         <div key="filter1" onClick={showfilterbutton} className="charfilter"><span className="filterstext"></span>{showFilter ? <TiArrowSortedUp className="uparrow" /> : <TiArrowSortedDown className="downarrow" />}</div>
         {showFilter == false ?
-          <div className="char-search-reverse-holder">
-            <IoSearch className="searchicon" />
-            <div className="search-holder">
-              <input
-                className="char-search-bar"
-                type="text"
-                id="search"
-                placeholder="Ability Name / Effects"
-                value={searchdisplay}
-                onChange={handleChange}
-                onKeyDown={handleKeyDown}
-              />
-              {searchTerm === "" ? "" :
-                <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
-            </div>
+        <div className="char-search-reverse-holder">
+          <IoSearch className="searchicon" />
+          <div className="search-holder">
+            <input
+              className="char-search-bar"
+              type="text"
+              id="search"
+              placeholder="Ability Name / Effects"
+              value={searchdisplay}
+              onChange={handleChange}
+              onKeyDown={handleKeyDown}
+            />
+            {searchTerm === "" ? "" :
+              <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
           </div>
-          : ""
-        }
+        </div>
+        : 
         <div className="filterholder noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
           <div className="similarbanner">Multiple filters can be active</div>
           <div className="filterholderflair">
@@ -687,6 +686,7 @@ export default function EnemyAbilities({
             </div>
           </div>
         </div>
+        }
         <ul className="bannertabs">
           <Link to={`/bestiary/enemies`}>
             <li className={""} >Enemies</li>

@@ -265,6 +265,7 @@ export default function UltimaWeapons({
           <h1 >{`${matchweapon == "" ? `` : `${capitalize(matchweapon)} `}${listLength == 1 ? "Ultima Weapon" : "Ultima Weapons"}`}</h1>
           <div className="charfilterspacer" />
           <div key="filter1" onClick={showfilterbutton} className="charfilter"><span className="infotext"></span>{showFilter ? <TiArrowSortedUp className="uparrow" /> : <TiArrowSortedDown className="downarrow" />}</div>
+          {showFilter == false ? "" :
           <div className="filterholder noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
             <div className="similarbanner">Weapon Filter</div>
             <div className="filterholderflair">
@@ -359,6 +360,7 @@ export default function UltimaWeapons({
               </div>
             </div>
           </div>
+          }
           <div className="ultimaweaponitemholder">
             <div className="subtext">
               {displayBanner}

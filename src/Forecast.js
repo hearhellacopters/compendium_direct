@@ -534,8 +534,7 @@ export default function Forecast({
                 <IoMdCloseCircleOutline onClick={clearSearch} className="eventclearsearch"></IoMdCloseCircleOutline>}
             </div>
           </div>
-          : ""
-        }
+          : 
         <div className="filterholder noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
           <div className="similarbanner">Multiple filters can be active</div>
           <div className="filterholderflair">
@@ -615,6 +614,7 @@ export default function Forecast({
             </div>
           </div>
         </div>
+        }
         <ul className="bannertabs">
           <Link to={"/events"}>
             <li className={""} >Events</li>

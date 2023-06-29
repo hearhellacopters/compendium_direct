@@ -370,29 +370,28 @@ export default function Stickers({
         <div className="charfilterspacer" />
         <div key="filter1" onClick={showfilterbutton} className="charfilter"><span className="filterstext"></span>{showFilter ? <TiArrowSortedUp className="uparrow" /> : <TiArrowSortedDown className="downarrow" />}</div>
         {showFilter == false ?
-          <div className="event-search-reverse-holder">
-            <span className={`${jptoggledata ? "jponlybackground" : "GLonlybackground"}`}>
-              <Tippy content={`${jptoggledata == true ? "Switch to GL" : "Switch to JP"}`} className="tooltip" >
-                <span onClick={jponlybutton} className={`${jptoggledata ? "jpflage jpsmallinactive smalleventbutton" : "glflage smalleventbutton"}`} />
-              </Tippy>
-            </span>
-            <IoSearch className="searchicon" />
-            <div className="search-holder">
-              <input
-                className="char-search-bar"
-                type="text"
-                id="search"
-                placeholder="Name Search"
-                value={searchdisplay}
-                onChange={handleChange}
-                onKeyDown={handleKeyDown}
-              />
-              {searchTerm === "" ? "" :
-                <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
-            </div>
+        <div className="event-search-reverse-holder">
+          <span className={`${jptoggledata ? "jponlybackground" : "GLonlybackground"}`}>
+            <Tippy content={`${jptoggledata == true ? "Switch to GL" : "Switch to JP"}`} className="tooltip" >
+              <span onClick={jponlybutton} className={`${jptoggledata ? "jpflage jpsmallinactive smalleventbutton" : "glflage smalleventbutton"}`} />
+            </Tippy>
+          </span>
+          <IoSearch className="searchicon" />
+          <div className="search-holder">
+            <input
+              className="char-search-bar"
+              type="text"
+              id="search"
+              placeholder="Name Search"
+              value={searchdisplay}
+              onChange={handleChange}
+              onKeyDown={handleKeyDown}
+            />
+            {searchTerm === "" ? "" :
+              <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
           </div>
-          : ""
-        }
+        </div>
+        : 
         <div className="filterholder noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
           <div className="similarbanner">Multiple filters can be active</div>
           <div className="filterholderflair">
@@ -454,6 +453,7 @@ export default function Stickers({
             </div>
           </div>
         </div>
+        }
         <ul className="bannertabs">
           <Link to={`/search/buffs${jptoggledata == false ? "" : "?JP=true"}`}>
             <li className={""} >Buffs</li>
