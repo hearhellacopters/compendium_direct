@@ -157,59 +157,46 @@ export default function Events({
   useEffect(() => {
     const filterholder = [];
     if (pastevents === false) {
+
       if (jponly === false) {
+        //gl
         const filteredevents = ProcessedEvents.filter((item) => {
           return new Date().getTime() <= new Date(item.outdate)
         }).filter((item) => {
           return item.tempdate == false
-        });
+        }).sort((a, b) => new Date(a.indate).getTime() - new Date(b.indate).getTime());
         filterholder.push(...filteredevents);
-      } else {
-        const filteredevents = ProcessedEvents.filter((item) => {
-          return new Date().getTime() <= new Date(item.JPoutdate)
-        }).filter((item) => {
-          return item.url1 != "https://dissidiacompendium.com/images/static/banners/jp/event/eventtitletemp1out.png"
-        });
-        filterholder.push(...filteredevents);
-      }
-      if (reverse === false) {
-        filterholder
-          .filter(onlyUnique)
-          .sort((a, b) => a.eventindex - b.eventindex);
-      } else {
-        filterholder
-          .filter(onlyUnique)
-          .sort((a, b) => a.eventindex - b.eventindex);
-      }
-      if (jponly === false) {
         const filteredevents2 = filterholder.filter((item) => {
           return item.tempdate === false
         })
         setPrefilterlist(filteredevents2);
+
       } else {
+        //jp
+        const filteredevents = ProcessedEvents.filter((item) => {
+          return new Date().getTime() <= new Date(item.JPoutdate)
+        }).filter((item) => {
+          return item.url1 != "https://dissidiacompendium.com/images/static/banners/jp/event/eventtitletemp1out.png"
+        }).sort((a, b) => new Date(a.JPindate).getTime() - new Date(b.JPindate).getTime());
+        filterholder.push(...filteredevents);
         setPrefilterlist(filterholder);
+
       }
+
     } else {
-      filterholder.push(...ProcessedEvents);
-      if (reverse === false) {
-        filterholder
-          .filter(onlyUnique)
-          .sort((a, b) => a.eventindex - b.eventindex);
-      } else {
-        filterholder
-          .filter(onlyUnique)
-          .sort((a, b) => a.eventindex - b.eventindex);
-      }
+
+      filterholder.push(...ProcessedEvents.sort((a, b) => new Date(a.indate).getTime() - new Date(b.indate).getTime()));
       if (jponly === false) {
         const filteredevents = filterholder.filter((item) => {
           return item.tempdate === false
-        })
+        });
         setPrefilterlist(filteredevents);
       } else {
         setPrefilterlist(filterholder);
       }
+      
     }
-  }, [ProcessedEvents, jponly, pastevents, reverse]);
+  }, [ProcessedEvents, jponly, pastevents]);
 
   //filter
   useEffect(() => {
@@ -325,14 +312,14 @@ export default function Events({
       .filter(onlyUnique)
       .sort((a, b) =>
         reverse === false ?
-          b.eventindex - a.eventindex :
-          a.eventindex - b.eventindex) :
+        jponly ? new Date(b.JPindate).getTime() - new Date(a.JPindate).getTime() : new Date(b.indate).getTime() - new Date(a.indate).getTime():
+        jponly ? new Date(a.JPindate).getTime() - new Date(b.JPindate).getTime() : new Date(a.indate).getTime() - new Date(b.indate).getTime()) :
       filterholder
         .filter(onlyUnique)
         .sort((a, b) =>
           reverse === false ?
-            a.eventindex - b.eventindex :
-            b.eventindex - a.eventindex)
+          jponly ? new Date(a.JPindate).getTime() - new Date(b.JPindate).getTime() : new Date(a.indate).getTime() - new Date(b.indate).getTime():
+          jponly ? new Date(b.JPindate).getTime() - new Date(a.JPindate).getTime() : new Date(b.indate).getTime() - new Date(a.indate).getTime())
     const searchit = makeUnique.filter((events) =>
       `${events.name.toLowerCase()} ${events.SpheresList.length != 0 ? " rf spheres" : ""}`.includes(searchTerm)
     );
