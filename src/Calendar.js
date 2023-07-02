@@ -149,47 +149,34 @@ export default function Calendar({
     setjponly((prevValue) => !prevValue);
   };
 
+  const event ={
+    "Banner": "BannerOnly",
+    "Event": "EventsCal",
+    "Raid": "RaidButtonCal",
+    "Heretic": "HereticButtonCal",
+    "Dimension's End": "DimensionsEndCal",
+    "Lost Chapter": "LostChaptersCal",
+    "Hunt": "HuntsCal",
+    "6 Man": "SixManCal",
+    "Abyss": "AbyssButtonCal",
+    "Act 1": "ActOneCal",
+    "Act 2": "ActTwoCal",
+    "Act 3": "ActThreeCal",
+    "Act 4": "ActFourCal",
+    "Boss Rush": "BossRushCal",
+    "Mission Dungeon": "MissionDungeonCal",
+    "World of Illusion": "WorldofIllusionsCal",
+    "Entangled Wills": "EntangledWillsCal",
+    "Memorial": "MemorialCal"
+  }
+
   const renderGLDay = (day) => {
     const daterenders = GLuniqueevents.map(filtered => (
       `${new Date(filtered.startDate).getFullYear()}-${makedouble(new Date(filtered.startDate).getMonth() + 1)}-${makedouble(new Date(filtered.startDate).getDate())}` == `${new Date(day).getFullYear()}-${makedouble(new Date(day).getMonth() + 1)}-${makedouble(new Date(day).getDate())}` ?
         <Tippy key={filtered.id} touch="true" content={<span>{filtered.title}<br />{filtered.endDate}</span>}>
           <div className="tableholder">
             <Link to={filtered.url}>
-              <div className={`buttoncal ${filtered.types == "Banner" ?
-                "BannerOnly" :
-                filtered.types == "Event" ?
-                  "EventsCal" :
-                  filtered.types == "Raid" ?
-                    "RaidButtonCal" :
-                    filtered.types == "Heretic" ?
-                      "HereticButtonCal" :
-                      filtered.types == "Dimension's End" ?
-                        "DimensionsEndCal" :
-                        filtered.types == "Lost Chapter" ?
-                          "LostChaptersCal" :
-                          filtered.types == "Hunt" ?
-                            "HuntsCal" :
-                            filtered.types == "6 Man" ?
-                              "SixManCal" :
-                              filtered.types == "Abyss" ?
-                                "AbyssButtonCal" :
-                                filtered.types == "Act 1" ?
-                                  "ActOneCal" :
-                                  filtered.types == "Act 2" ?
-                                    "ActTwoCal" :
-                                    filtered.types == "Act 3" ?
-                                      "ActThreeCal" :
-                                      filtered.types == "Act 4" ?
-                                        "ActFourCal" :
-                                        filtered.types == "Boss Rush" ?
-                                          "BossRushCal" :
-                                          filtered.types == "Mission Dungeon" ?
-                                            "MissionDungeonCal" :
-                                            filtered.types == "World of Illusion" ?
-                                              "WorldofIllusionsCal" :
-                                              filtered.types == "Entangled Wills" ?
-                                                "EntangledWillsCal" : ""
-                }`} />
+              <div className={`buttoncal ${event[filtered.types]}`} />
             </Link>
           </div>
         </Tippy>
@@ -204,41 +191,7 @@ export default function Calendar({
         <Tippy key={filtered.id} touch="true" content={<span>{filtered.title}<br />{filtered.endDate}</span>}>
           <div className={`tableholder ${new Date(day).toISOString().split("T")[0]} ${filtered.startDate}`}>
             <Link to={filtered.url}>
-              <div className={`buttoncal ${filtered.types == "Banner" ?
-                "BannerOnly" :
-                filtered.types == "Event" ?
-                  "EventsCal" :
-                  filtered.types == "Raid" ?
-                    "RaidButtonCal" :
-                    filtered.types == "Heretic" ?
-                      "HereticButtonCal" :
-                      filtered.types == "Dimension's End" ?
-                        "DimensionsEndCal" :
-                        filtered.types == "Lost Chapter" ?
-                          "LostChaptersCal" :
-                          filtered.types == "Hunt" ?
-                            "HuntsCal" :
-                            filtered.types == "6 Man" ?
-                              "SixManCal" :
-                              filtered.types == "Abyss" ?
-                                "AbyssButtonCal" :
-                                filtered.types == "Act 1" ?
-                                  "ActOneCal" :
-                                  filtered.types == "Act 2" ?
-                                    "ActTwoCal" :
-                                    filtered.types == "Act 3" ?
-                                      "ActThreeCal" :
-                                      filtered.types == "Act 4" ?
-                                        "ActFourCal" :
-                                        filtered.types == "Boss Rush" ?
-                                          "BossRushCal" :
-                                          filtered.types == "Mission Dungeon" ?
-                                            "MissionDungeonCal" :
-                                            filtered.types == "World of Illusion" ?
-                                              "WorldofIllusionsCal" :
-                                              filtered.types == "Entangled Wills" ?
-                                                "EntangledWillsCal" : ""
-                }`} />
+              <div className={`buttoncal ${event[filtered.types]}`} />
             </Link>
           </div>
         </Tippy>

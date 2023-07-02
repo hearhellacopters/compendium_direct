@@ -838,6 +838,9 @@
 .Memorial {
   background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/MemorialQuest2.png');
 }
+.MemorialCal {
+  content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/MemorialQuest2.png');
+}
 
 .LostChapters {
   background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/LostChapters.png');
