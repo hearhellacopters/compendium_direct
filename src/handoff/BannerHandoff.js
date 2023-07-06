@@ -75,12 +75,10 @@ export default function BannerHandoff({
                     <meta name="description" content={`${bannerpull.name} Banner`} />
                     <meta name="twitter:title" content={`${bannerpull.name} Banner`} />
                     <meta name="twitter:description" content={`${bannerpull.name} Banner`} />
-                    <meta name="twitter:image" content={bannerpull.url1} />
                     <meta name="twitter:card" content="summary_large_image" />
                     <meta name="twitter:image:alt" content={`${bannerpull.name}`} />
                     <meta property="og:title" content={`${bannerpull.name} Banner`} />
                     <meta property="og:description" content={`${bannerpull.name} Banner`} />
-                    <meta property="og:image" content={bannerpull.url1} />
                     <meta property="og:url" content={`https://dissidiacompendium.com/events/banners/${bannerpull.bannerindex}`} />
                 </Helmet>
                 <div className="returnbutton">

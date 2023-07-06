@@ -40,10 +40,8 @@ export default function Events({
 
   const [jponly, setJPonly] = useState(jptoggledata);
   const [pastevents, setPastEvents] = useState(getQueryStringVal("past") != null ? true : false);
-  const [prefilterlist, setPrefilterlist] = useState([])
+  const [rawData, setrawData] = useState(ProcessedEvents)
   const [reverse, setReverse] = useState(getQueryStringVal("rev") != null ? true : false);
-
-  const rawData = prefilterlist;
 
   const [actone, setActOne] = useState(getQueryStringVal("act1") != null ? true : false);
   const [acttwo, setActTwo] = useState(getQueryStringVal("act2") != null ? true : false);
@@ -164,12 +162,12 @@ export default function Events({
           return new Date().getTime() <= new Date(item.outdate)
         }).filter((item) => {
           return item.tempdate == false
-        }).sort((a, b) => new Date(a.indate).getTime() - new Date(b.indate).getTime());
+        }).sort((a, b) => reverse ? new Date(b.indate).getTime() - new Date(a.indate).getTime() : new Date(a.indate).getTime() - new Date(b.indate).getTime());
         filterholder.push(...filteredevents);
         const filteredevents2 = filterholder.filter((item) => {
           return item.tempdate === false
         })
-        setPrefilterlist(filteredevents2);
+        setrawData(filteredevents2);
 
       } else {
         //jp
@@ -177,26 +175,24 @@ export default function Events({
           return new Date().getTime() <= new Date(item.JPoutdate)
         }).filter((item) => {
           return item.url1 != "https://dissidiacompendium.com/images/static/banners/jp/event/eventtitletemp1out.png"
-        }).sort((a, b) => new Date(a.JPindate).getTime() - new Date(b.JPindate).getTime());
+        }).sort((a, b) => reverse ? new Date(a.JPindate).getTime() - new Date(b.JPindate).getTime() : new Date(b.JPindate).getTime() - new Date(a.JPindate).getTime());
         filterholder.push(...filteredevents);
-        setPrefilterlist(filterholder);
+        setrawData(filterholder);
 
       }
 
     } else {
 
-      filterholder.push(...ProcessedEvents.sort((a, b) => new Date(a.indate).getTime() - new Date(b.indate).getTime()));
       if (jponly === false) {
-        const filteredevents = filterholder.filter((item) => {
-          return item.tempdate === false
-        });
-        setPrefilterlist(filteredevents);
+        const filteredevents = ProcessedEvents.filter(item=>item.tempdate === false).sort((a, b) => reverse ? new Date(b.indate).getTime() - new Date(a.indate).getTime() : new Date(a.indate).getTime() - new Date(b.indate).getTime())
+        setrawData(filteredevents);
       } else {
-        setPrefilterlist(filterholder);
+        const filteredevents = ProcessedEvents.sort((a, b) => reverse ? b.eventindex - a.eventindex : a.eventindex - b.eventindex)
+        setrawData(filteredevents);
       }
       
     }
-  }, [ProcessedEvents, jponly, pastevents]);
+  }, [ProcessedEvents, jponly, pastevents, reverse]);
 
   //filter
   useEffect(() => {
@@ -308,18 +304,7 @@ export default function Events({
       filterholder.push(...rawData);
     }
 
-    const makeUnique = jponly == true ? filterholder
-      .filter(onlyUnique)
-      .sort((a, b) =>
-        reverse === false ?
-        jponly ? new Date(b.JPindate).getTime() - new Date(a.JPindate).getTime() : new Date(b.indate).getTime() - new Date(a.indate).getTime():
-        jponly ? new Date(a.JPindate).getTime() - new Date(b.JPindate).getTime() : new Date(a.indate).getTime() - new Date(b.indate).getTime()) :
-      filterholder
-        .filter(onlyUnique)
-        .sort((a, b) =>
-          reverse === false ?
-          jponly ? new Date(a.JPindate).getTime() - new Date(b.JPindate).getTime() : new Date(a.indate).getTime() - new Date(b.indate).getTime():
-          jponly ? new Date(b.JPindate).getTime() - new Date(a.JPindate).getTime() : new Date(b.indate).getTime() - new Date(a.indate).getTime())
+    const makeUnique = filterholder.filter(onlyUnique)
     const searchit = makeUnique.filter((events) =>
       `${events.name.toLowerCase()} ${events.SpheresList.length != 0 ? " rf spheres" : ""}`.includes(searchTerm)
     );
@@ -342,7 +327,7 @@ export default function Events({
     setDisplayBanner(
       <>Displaying <span className="subtextgold">{newlistdisplay.length}</span> of <span className="subtextgold"> {gettypefilter.length}</span> {banerDisplayTerm}</>
     );
-  }, [searchTerm, rawData, limits, clearFilter, memorial, actone, acttwo, actthree, actfour, event, lostchapter, woi, feod, abyss, hunt, heretic, raid, dungeon, sixman, bossrush, jponly, pastevents, wills, condFilter, reverse, prefilterlist]);
+  }, [searchTerm, rawData, limits, clearFilter, memorial, actone, acttwo, actthree, actfour, event, lostchapter, woi, feod, abyss, hunt, heretic, raid, dungeon, sixman, bossrush, jponly, pastevents, wills, condFilter, reverse]);
 
 
   //buttons

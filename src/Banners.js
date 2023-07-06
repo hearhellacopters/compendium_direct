@@ -41,6 +41,8 @@ export default function Events({
   const [prefilterlist, setPrefilterlist] = useState([])
   const [reverse, setReverse] = useState(getQueryStringVal("rev") != null ? true : false);
 
+  const [rawData, setrawData] = useState(ProcessedBanners)
+
   //prefilter
   useEffect(() => {
     const filterholder = [];
@@ -52,12 +54,12 @@ export default function Events({
           return new Date().getTime() <= new Date(item.outdate)
         }).filter((item) => {
           return item.tempdate == false
-        }).sort((a, b) => new Date(a.indate).getTime() - new Date(b.indate).getTime());
+        }).sort((a, b) => reverse ? new Date(b.indate).getTime() - new Date(a.indate).getTime() : new Date(a.indate).getTime() - new Date(b.indate).getTime());
         filterholder.push(...filteredevents);
         const filteredevents2 = filterholder.filter((item) => {
           return item.tempdate === false
         })
-        setPrefilterlist(filteredevents2);
+        setrawData(filteredevents2);
 
       } else {
         //jp
@@ -65,28 +67,24 @@ export default function Events({
           return new Date().getTime() <= new Date(item.JPoutdate)
         }).filter((item) => {
           return item.url1 != "https://dissidiacompendium.com/images/static/banners/jp/pull/stl_banner_l_g_tex_temp1out.png"
-        }).sort((a, b) => new Date(a.JPindate).getTime() - new Date(b.JPindate).getTime());
+        }).sort((a, b) => reverse ? new Date(a.JPindate).getTime() - new Date(b.JPindate).getTime() : new Date(b.JPindate).getTime() - new Date(a.JPindate).getTime());
         filterholder.push(...filteredevents);
-        setPrefilterlist(filterholder);
+        setrawData(filterholder);
 
       }
 
     } else {
 
-      filterholder.push(...ProcessedBanners.sort((a, b) => new Date(a.indate).getTime() - new Date(b.indate).getTime()));
       if (jponly === false) {
-        const filteredevents = filterholder.filter((item) => {
-          return item.tempdate === false
-        })
-        setPrefilterlist(filteredevents);
+        const filteredevents = ProcessedBanners.filter(item=>item.tempdate === false).sort((a, b) => reverse ? new Date(b.indate).getTime() - new Date(a.indate).getTime() : new Date(a.indate).getTime() - new Date(b.indate).getTime())
+        setrawData(filteredevents);
       } else {
-        setPrefilterlist(filterholder);
+        const filteredevents = ProcessedBanners.sort((a, b) => reverse ? b.bannerindex - a.bannerindex : a.bannerindex - b.bannerindex)
+        setrawData(filteredevents);
       }
 
     }
-  }, [ProcessedBanners, jponly, pastevents]);
-
-  const rawData = prefilterlist;
+  }, [ProcessedBanners, jponly, pastevents, reverse]);
 
   const [events, setEvents] = useState(getQueryStringVal("event") != null ? true : false);
   const [story, setStory] = useState(getQueryStringVal("story") != null ? true : false);
@@ -208,18 +206,7 @@ export default function Events({
       filterholder.push(...rawData);
     }
 
-    const makeUnique = jponly == true ? filterholder
-      .filter(onlyUnique)
-      .sort((a, b) =>
-        reverse === false ?
-          jponly ? new Date(b.JPindate).getTime() - new Date(a.JPindate).getTime() : new Date(b.indate).getTime() - new Date(a.indate).getTime():
-          jponly ? new Date(a.JPindate).getTime() - new Date(b.JPindate).getTime() : new Date(a.indate).getTime() - new Date(b.indate).getTime()) :
-      filterholder
-        .filter(onlyUnique)
-        .sort((a, b) =>
-          reverse === false ?
-          jponly ? new Date(a.JPindate).getTime() - new Date(b.JPindate).getTime() : new Date(a.indate).getTime() - new Date(b.indate).getTime():
-          jponly ? new Date(b.JPindate).getTime() - new Date(a.JPindate).getTime() : new Date(b.indate).getTime() - new Date(a.indate).getTime())
+    const makeUnique = filterholder.filter(onlyUnique)
     const searchit = makeUnique.filter((events) =>
       events.name.toLowerCase().includes(searchTerm)
     );

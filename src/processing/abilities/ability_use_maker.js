@@ -2,7 +2,11 @@ export default function ability_use_maker (character_ability) {
 
     var number = character_ability && character_ability.UseNum || 0
 
-    if (character_ability.Trap == true ||
+    if( character_ability.Call75 ==true ||
+        character_ability.CallLD ==true
+    ) {
+        number = 1
+    } else if (character_ability.Trap == true ||
         character_ability.FollowUp == true ||
         character_ability.Counter == true ||
         character_ability.BRV == true ||
@@ -26,7 +30,9 @@ export default function ability_use_maker (character_ability) {
             }
             number = new_value
         } else {
-            if (character_ability && character_ability.BT == true && character_ability.UseNum == 0 && character_ability && character_ability.disp_flag_ == 1) {
+            if (character_ability && character_ability.BT == true && 
+                character_ability.UseNum == 0 && 
+                character_ability && character_ability.disp_flag_ == 1) {
                 number = 1
             } else {
                 number = character_ability.UseNum

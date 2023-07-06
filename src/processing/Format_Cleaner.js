@@ -87,13 +87,14 @@ export default function format_cleaner(text){
             .replace(/\\bUb/g, "White Crystal")
             .replace(/#lvd/g, "Lv9")
             .replace(/\\bQp/g, "+")
-            .replace(/\\bR/g, "")
-            .replace(/\\bC1/g, "")
-            .replace(/\\bC2/g, "")
-            .replace(/\\bC4/g, "")
-            .replace(/\\bC5/g, "")
-            .replace(/\\bC7/g, "")
-            .replace(/\\bY0/g, "")
+            .replace(/\\bR/g, "")  //color
+            .replace(/\\bC1/g, "") //color
+            .replace(/\\bC2/g, "") //color
+            .replace(/\\bC4/g, "") //color
+            .replace(/\\bC5/g, "") //color
+            .replace(/\\bC7/g, "") //color
+            .replace(/\\bY0/g, "") //color
+            .replace(/\\bX0/g, "") //color
             .replace(/\\bPa/g, "★")
             .replace(/\\bPY/g, "<Gem>")
             .replace(/\\bZ0/g, "<KupocardsMini1>")
@@ -121,6 +122,7 @@ export default function format_cleaner(text){
             .replace(/\\bTf/g, "<RefugeUltimaBook>")
             .replace(/\\bUI/g, "<hiorbm>")
             .replace(/\\bU3/g, "<RuinUltimaBook>")
+            .replace(/\\bQe/g, "<Perfect>")
             .replace(/％/gm, "%")
       return (
          replacement

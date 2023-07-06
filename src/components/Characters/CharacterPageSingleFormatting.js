@@ -645,12 +645,10 @@ export default function CharacterPageSingleFormatting({
                 <meta name="description" content={`${selected_char.CharacterName} Page`} />
                 <meta name="twitter:title" content={`${selected_char.CharacterName} Page`} />
                 <meta name="twitter:description" content={`${selected_char.CharacterName} Page`} />
-                <meta name="twitter:image" content={`https://dissidiacompendium.com/images/static/characters/${selected_char.CharacterURLName}/cc.png`} />
                 <meta name="twitter:card" content="summary" />
                 <meta name="twitter:image:alt" content={`${selected_char.CharacterName}`} />
                 <meta property="og:title" content={`${selected_char.CharacterName} Page`} />
                 <meta property="og:description" content={`${selected_char.CharacterName} Banner`} />
-                <meta property="og:image" content={`https://dissidiacompendium.com/images/static/characters/${selected_char.CharacterURLName}/cc.png`} />
                 <meta property="og:url" content={`https://dissidiacompendium.com/characters/${selected_char.ShortName}`} />
             </Helmet>
             <div className="returnbutton">

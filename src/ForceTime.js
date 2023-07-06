@@ -272,12 +272,10 @@ export default function ForceTime({
         <meta name="description" content={`${jptoggledata == true ? "JP" : "GL"} Force Time Page`} />
         <meta name="twitter:title" content={`${jptoggledata == true ? "JP" : "GL"} Force Time Page`} />
         <meta name="twitter:description" content={`${jptoggledata == true ? "JP" : "GL"} Force Time Page`} />
-        <meta name="twitter:image" content="https://dissidiacompendium.com/images/static/site/logo512.png" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:image:alt" content={`Dissia Compendium`} />
         <meta property="og:title" content={`${jptoggledata == true ? "JP" : "GL"} Force Time Page`} />
         <meta property="og:description" content={`${jptoggledata == true ? "JP" : "GL"} Force Time Page`} />
-        <meta property="og:image" content="https://dissidiacompendium.com/images/static/site/logo512.png" />
         <meta property="og:url" content={`https://dissidiacompendium.com/characters/forcetime/`} />
       </Helmet>
       <div className="content">

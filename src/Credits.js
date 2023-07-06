@@ -13,12 +13,10 @@ export default function Credits(){
                 <meta name="description" content="Compendium Acknowledgements." />
                 <meta name="twitter:title" content="Compendium Acknowledgements Page." />
                 <meta name="twitter:description" content="Compendium Acknowledgements Page." />
-                <meta name="twitter:image" content="https://dissidiacompendium.com/images/static/site/logo152.png" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:image:alt" content="Dissidia Compendium" />
                 <meta property="og:title" content="Compendium Acknowledgements" />
                 <meta property="og:description" content="Compendium Acknowledgements Page." />
-                <meta property="og:image" content="https://dissidiacompendium.com/images/static/site/logo152.png" />
                 <meta property="og:url" content="https://dissidiacompendium.com/credits" />
             </Helmet>
             <div className="content fullheight">

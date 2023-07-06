@@ -179,12 +179,10 @@ export default function Home({
         <meta name="description" content="Dissidia Final Fantasy Opera Omnia mobile game Database. We provide English and Japanese translations for both Global and Japanese versions. Here you'll find all character abilities, enemies and summons, as well as a complete timeline of game events with community guides" />
         <meta name="twitter:title" content="Dissidia Compendium" />
         <meta name="twitter:description" content="Dissidia Final Fantasy Opera Omnia mobile game Database. We provide English and Japanese translations for both Global and Japanese versions. Here you'll find all character abilities, enemies and summons, as well as a complete timeline of game events with community guides" />
-        <meta name="twitter:image" content="https://dissidiacompendium.com/images/static/site/logo512.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image:alt" content="Dissidia Compendium" />
         <meta property="og:title" content="Dissidia Compendium" />
         <meta property="og:description" content="Dissidia Final Fantasy Opera Omnia mobile game Database. We provide English and Japanese translations for both Global and Japanese versions. Here you'll find all character abilities, enemies and summons, as well as a complete timeline of game events with community guides" />
-        <meta property="og:image" content="https://dissidiacompendium.com/images/static/site/logo512.png" />
         <meta property="og:url" content="https://dissidiacompendium.com" />
       </Helmet>
       <div className="content">

@@ -474,7 +474,6 @@ export default function EnemyFormatting({
                 <meta name="twitter:image:alt" content={`${enemy.Name}`} />
                 <meta property="og:title" content="Dissidia Compendium" />
                 <meta property="og:description" content={enemy.Name} />
-                <meta property="og:image" content={"https://dissidiacompendium.com/images/static/enemy/face/" + enemy.url} />
                 <meta property="og:url" content={`https://dissidiacompendium.com/bestiary/enemies/${enemy.battle_enemy_id}`} />
             </Helmet>
             <div className="content">

@@ -102,12 +102,10 @@ export default function EventHandoff({
                     <meta name="description" content={`Find enemy and characters info as well as Community help for ${eventpull.name} event`} />
                     <meta name="twitter:title" content={`Event ${eventpull.name}`} />
                     <meta name="twitter:description" content={`Find enemy and characters info as well as Community help for ${eventpull.name} event`} />
-                    <meta name="twitter:image" content={`${eventpull.url1}`} />
                     <meta name="twitter:card" content="summary_large_image" />
                     <meta name="twitter:image:alt" content={`${eventpull.name}`} />
                     <meta property="og:title" content={`Event ${eventpull.name}`} />
                     <meta property="og:description" content={`Find enemy and characters info as well as Community help for ${eventpull.name} event`} />
-                    <meta property="og:image" content={`${eventpull.url1}`} />
                     <meta property="og:url" content={`https://dissidiacompendium.com/events/${eventpull.eventindex}`} />
                 </Helmet>
                 <ScrolltoTop />

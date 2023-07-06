@@ -780,12 +780,10 @@ export default function Bestiary({ ProcessedEnemy, jptoggledata, ProcessedCharac
         <meta name="description" content="Dissidia Opera Omnia Database Bestiary with english translations for all enemies found in game" />
         <meta name="twitter:title" content="Dissidia Compendium - Bestiary" />
         <meta name="twitter:description" content="Dissidia Opera Omnia Database Bestiary with english translations for all enemies found in game" />
-        <meta name="twitter:image" content="https://dissidiacompendium.com/images/static/site/logo152.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image:alt" content="Dissidia Compendium - Bestiary" />
         <meta property="og:title" content="Dissidia Compendium  - Bestiary" />
         <meta property="og:description" content="Dissidia Opera Omnia Database Bestiary with english translations for all enemies found in game" />
-        <meta property="og:image" content="https://dissidiacompendium.com/images/static/site/logo152.png" />
         <meta property="og:url" content="https://dissidiacompendium.com/bestiary" />
       </Helmet>
       <div className="content">

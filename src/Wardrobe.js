@@ -185,12 +185,10 @@ export default function Wardrobe({
         <meta name="description" content={`Character Wardrobe Page`} />
         <meta name="twitter:title" content={`Character Wardrobe Page`} />
         <meta name="twitter:description" content={`Character Wardrobe Page`} />
-        <meta name="twitter:image" content="https://dissidiacompendium.com/images/static/site/logo512.png" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:image:alt" content={`Dissia Compendium`} />
         <meta property="og:title" content={`Character Wardrobe Page`} />
         <meta property="og:description" content={`Character Wardrobe skins`} />
-        <meta property="og:image" content="https://dissidiacompendium.com/images/static/site/logo512.png" />
         <meta property="og:url" content={`https://dissidiacompendium.com/characters/skins/wardrobe/`} />
       </Helmet>
       <div className="content">

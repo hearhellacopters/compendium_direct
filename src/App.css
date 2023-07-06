@@ -15,6 +15,13 @@ a:-moz-focusring {
   margin-bottom: -6px;
 }
 
+.Perfect{
+  background-image: url(https://dissidiacompendium.com/images/static/icons/misc/perfect.png);
+  width: 4em;
+  height: 1.2em;
+  margin-top: -0.28em;
+}
+
 .enemy_make_face{
   margin-top: 10px;
   margin-left: 8px;

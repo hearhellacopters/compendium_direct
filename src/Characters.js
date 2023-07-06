@@ -3083,12 +3083,10 @@ export default function Characters({
         <meta name="description" content="Dissidia Opera Omnia Database Characters with english translations for all enemies found in game" />
         <meta name="twitter:title" content="Dissidia Compendium - Characters" />
         <meta name="twitter:description" content="Dissidia Opera Omnia Database Characters with english translations for all enemies found in game" />
-        <meta name="twitter:image" content="https://dissidiacompendium.com/images/static/site/logo152.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image:alt" content="Dissidia Compendium - Characters" />
         <meta property="og:title" content="Dissidia Compendium - Characters" />
         <meta property="og:description" content="Dissidia Opera Omnia Database Characters with english translations for all enemies found in game" />
-        <meta property="og:image" content="https://dissidiacompendium.com/images/static/site/logo152.png" />
         <meta property="og:url" content="https://dissidiacompendium.com/chracters" />
       </Helmet>
       <div className="content">

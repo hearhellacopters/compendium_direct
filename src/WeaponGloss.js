@@ -349,12 +349,10 @@ export default function CharacterWeaponSkinsPage({
         <meta name="description" content={`Weapon Gloss Page`} />
         <meta name="twitter:title" content={`Weapon Gloss Page`} />
         <meta name="twitter:description" content={`Weapon Gloss Page`} />
-        <meta name="twitter:image" content="https://dissidiacompendium.com/images/static/site/logo512.png" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:image:alt" content={`Dissia Compendium`} />
         <meta property="og:title" content={`Weapon Gloss Page`} />
         <meta property="og:description" content={`Weapon Gloss page`} />
-        <meta property="og:image" content="https://dissidiacompendium.com/images/static/site/logo512.png" />
         <meta property="og:url" content={`https://dissidiacompendium.com/characters/skins/weapon/`} />
       </Helmet>
       <div className="content">
