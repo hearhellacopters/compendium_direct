@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Tippy from './components/TippyDefaults.js';
 import { Link, Navigate } from 'react-router-dom';
 import './Summons.css'
 import { Helmet } from 'react-helmet-async';
@@ -114,46 +115,74 @@ export default function Summons({
             <div className="filterholderflair">
               <ul className="summoniconholder">
                 <Link to={`/bonuses/ifrit`}>
-                  <li alt="Ifrit" onClick={ifritbutton} className={`${locator == "Ifrit" ? "gemactive" : "geminactive"} IfritIcon summonsgem`} ></li>
+                  <Tippy content={"Ifrit"}>
+                    <li alt="Ifrit" onClick={ifritbutton} className={`${locator == "Ifrit" ? "gemactive" : "geminactive"} IfritIcon summonsgem`} ></li>
+                  </Tippy>
                 </Link>
                 <Link to={`/bonuses/shiva`}>
-                  <li alt="Shiva" onClick={shivabutton} className={`${locator == "Shiva" ? "gemactive" : "geminactive"} ShivaIcon summonsgem`} ></li>
+                  <Tippy content={"Shiva"}>
+                    <li alt="Shiva" onClick={shivabutton} className={`${locator == "Shiva" ? "gemactive" : "geminactive"} ShivaIcon summonsgem`} ></li>
+                  </Tippy>
                 </Link>
                 <Link to={`/bonuses/ramuh`}>
-                  <li alt="Ramuh" onClick={ramuhbutton} className={`${locator == "Ramuh" ? "gemactive" : "geminactive"} RamuhIcon summonsgem`} ></li>
+                  <Tippy content={"Ramuh"}>
+                    <li alt="Ramuh" onClick={ramuhbutton} className={`${locator == "Ramuh" ? "gemactive" : "geminactive"} RamuhIcon summonsgem`} ></li>
+                  </Tippy>
                 </Link>
                 <Link to={`/bonuses/leviathan`}>
-                  <li alt="Leviathan" onClick={leviathanbutton} className={`${locator == "Leviathan" ? "gemactive" : "geminactive"} LeviathanIcon summonsgem`} ></li>
+                  <Tippy content={"Leviathan"}>
+                    <li alt="Leviathan" onClick={leviathanbutton} className={`${locator == "Leviathan" ? "gemactive" : "geminactive"} LeviathanIcon summonsgem`} ></li>
+                  </Tippy>
                 </Link>
                 <Link to={`/bonuses/brothers`}>
-                  <li alt="Brothers" onClick={brothersbutton} className={`${locator == "Brothers" ? "gemactive" : "geminactive"} BrothersIcon summonsgem`} ></li>
+                  <Tippy content={"The Brothers"}>
+                    <li alt="Brothers" onClick={brothersbutton} className={`${locator == "Brothers" ? "gemactive" : "geminactive"} BrothersIcon summonsgem`} ></li>
+                  </Tippy>
                 </Link>
                 <Link to={`/bonuses/pandemonium`}>
-                  <li alt="Pandemonium" onClick={pandemoniumbutton} className={`${locator == "Pandemonium" ? "gemactive" : "geminactive"} PandemoniumIcon summonsgem`} ></li>
+                  <Tippy content={"Pandemonium"}>
+                    <li alt="Pandemonium" onClick={pandemoniumbutton} className={`${locator == "Pandemonium" ? "gemactive" : "geminactive"} PandemoniumIcon summonsgem`} ></li>
+                  </Tippy>
                 </Link>
                 <Link to={`/bonuses/diabolos`}>
-                  <li alt="Diabolos" onClick={diabolosbutton} className={`${locator == "Diabolos" ? "gemactive" : "geminactive"} DiabolosIcon summonsgem`} ></li>
+                  <Tippy content={"Diabolos"}>
+                    <li alt="Diabolos" onClick={diabolosbutton} className={`${locator == "Diabolos" ? "gemactive" : "geminactive"} DiabolosIcon summonsgem`} ></li>
+                  </Tippy>
                 </Link>
                 <Link to={`/bonuses/alexander`}>
-                  <li alt="Alexander" onClick={alexanderbutton} className={`${locator == "Alexander" ? "gemactive" : "geminactive"} AlexanderIcon summonsgem`} ></li>
+                  <Tippy content={"Alexander"}>
+                    <li alt="Alexander" onClick={alexanderbutton} className={`${locator == "Alexander" ? "gemactive" : "geminactive"} AlexanderIcon summonsgem`} ></li>
+                  </Tippy>
                 </Link>
                 <Link to={`/bonuses/odin`}>
-                  <li alt="Odin" onClick={odinbutton} className={`${locator == "Odin" ? "gemactive" : "geminactive"} OdinIcon summonsgem`} ></li>
+                  <Tippy content={"Odin"}>
+                    <li alt="Odin" onClick={odinbutton} className={`${locator == "Odin" ? "gemactive" : "geminactive"} OdinIcon summonsgem`} ></li>
+                  </Tippy>
                 </Link>
                 <Link to={`/bonuses/bahamut`}>
-                  <li alt="Bahamut" onClick={bahamutbutton} className={`${locator == "Bahamut" ? "gemactive" : "geminactive"} BahamutIcon summonsgem`} ></li>
+                  <Tippy content={"Bahamut"}>
+                    <li alt="Bahamut" onClick={bahamutbutton} className={`${locator == "Bahamut" ? "gemactive" : "geminactive"} BahamutIcon summonsgem`} ></li>
+                  </Tippy>
                 </Link>
                 <Link to={`/bonuses/chocobo`}>
-                  <li alt="Chocobo" onClick={chocobobutton} className={`${locator == "Chocobo" ? "gemactive" : "geminactive"} ChocoboIcon summonsgem`} ></li>
+                  <Tippy content={"Chocobo"}>
+                    <li alt="Chocobo" onClick={chocobobutton} className={`${locator == "Chocobo" ? "gemactive" : "geminactive"} ChocoboIcon summonsgem`} ></li>
+                  </Tippy>
                 </Link>
                 <Link to={`/bonuses/sylph`}>
-                  <li alt="Sylph" onClick={sylphbutton} className={`${locator == "Sylph" ? "gemactive" : "geminactive"} SylphIcon summonsgem`} ></li>
+                  <Tippy content={"Sylph"}>
+                    <li alt="Sylph" onClick={sylphbutton} className={`${locator == "Sylph" ? "gemactive" : "geminactive"} SylphIcon summonsgem`} ></li>
+                  </Tippy>
                 </Link>
                 <Link to={`/bonuses/mog`}>
-                  <li alt="Mog" onClick={mogbutton} className={`${locator == "Mog" ? "gemactive" : "geminactive"} MogIcon summonsgem`} ></li>
+                  <Tippy content={"Mog"}>
+                    <li alt="Mog" onClick={mogbutton} className={`${locator == "Mog" ? "gemactive" : "geminactive"} MogIcon summonsgem`} ></li>
+                  </Tippy>
                 </Link>
                 <Link to={`/bonuses/crystal/passives`}>
-                  <li alt="Crystal Brilliance" onClick={mogbutton} className={`${locator == "Crystal" ? "gemactive" : "geminactive"} all_nodes summonsgemshadow`} ></li>
+                  <Tippy content={"Crystal Brilliance"}>
+                    <li alt="Crystal Brilliance" onClick={mogbutton} className={`${locator == "Crystal" ? "gemactive" : "geminactive"} all_nodes summonsgemshadow`} ></li>
+                  </Tippy>
                 </Link>
               </ul>
             </div>
