@@ -492,7 +492,7 @@ export default function Stickers({
                   </div>
                   <div className="infobase stamppadding Nocolorbase">
                     {stickers.IconGL == undefined ? null :
-                      <img className="stampsicon clicky" onClick={() => onclick(stickers.Voice)} style={stickers.BackgroundColor != null ? { background: `${stickers.BackgroundColor}` } : { background: null }} alt={stickers.Name} src={`https://dissidiacompendium.com/images/static/stamps/GL/${stickers.IconGL}${stickers.Animated == true ? ".gif" : ".png"}`}></img>}
+                      <img className="stampsicon clicky" onClick={() => onclick(stickers.Voice)} style={stickers.BackgroundColor != null ? { background: `${stickers.BackgroundColor}` } : { background: null }} alt={stickers.name} src={`https://dissidiacompendium.com/images/static/stamps/GL/${stickers.IconGL}${stickers.Animated == true ? ".gif" : ".png"}`}></img>}
                     {stickers.IconJP == undefined ? null :
                       <img className="stampsicon clicky" onClick={() => onclick(stickers.Voice)} style={stickers.BackgroundColor != null ? { background: `${stickers.BackgroundColor}` } : { background: null }} alt={stickers.JPName} src={`https://dissidiacompendium.com/images/static/stamps/JP/${stickers.IconJP}${stickers.Animated == true ? ".gif" : ".png"}`}></img>}
                   </div>
