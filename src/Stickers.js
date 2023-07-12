@@ -133,7 +133,7 @@ export default function Stickers({
           b.StickerKey - a.StickerKey :
           a.StickerKey - b.StickerKey);
     const searchit = makeUnique.filter((e) =>
-      (`${e.Name} ${e.JPName}`).toLowerCase().includes(searchTerm)
+      (`${e.name} ${e.JPName}`).toLowerCase().includes(searchTerm)
     );
     const getcondfilter = searchit.filter(function (ef) {
       const newfilterpull = ef["CharID"] == condFilter;
@@ -486,7 +486,7 @@ export default function Stickers({
               <div key={stickers.StickerKey} className="buffunit">
                 <div className="infoholder">
                   <div className="infonameholder clicky Nocolorbanner" onClick={() => onclick(stickers.Voice)}>
-                    {stickers.Name} ►
+                    {stickers.name} ►
                     <div className="abilityJPname">{stickers.JPName}
                     </div>
                   </div>
