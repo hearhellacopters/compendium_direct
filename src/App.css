@@ -15,11 +15,43 @@ a:-moz-focusring {
   margin-bottom: -6px;
 }
 
+.Locked{
+  content: url(https://dissidiacompendium.com/images/static/icons/misc/locked.png);
+  background-size: contain;
+  width: 1.2em;
+  height: 1.2em;
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  position: static;
+  filter: drop-shadow(3px 3px 2px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.Unlocked{
+  content: url(https://dissidiacompendium.com/images/static/icons/misc/unlocked.png);
+  background-size: contain;
+  width: 1.2em;
+  height: 1.2em;
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  position: static;
+  filter: drop-shadow(3px 3px 2px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
 .Perfect{
   background-image: url(https://dissidiacompendium.com/images/static/icons/misc/perfect.png);
+  background-size: contain;
   width: 4em;
   height: 1.2em;
-  margin-top: -0.28em;
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  position: static;
+  filter: drop-shadow(3px 3px 2px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
 .enemy_make_face{
@@ -1829,7 +1861,44 @@ h3 {
   width: 25px;
 }
 
+.Gill{
+  content: url(https://dissidiacompendium.com/images/static/items/game_index/1.png);
+  background-size: contain;
+  width: 1.2em;
+  height: 1.2em;
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  position: static;
+  filter: drop-shadow(3px 3px 2px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
 
+.DISSIDIAPoints{
+  content: url(https://dissidiacompendium.com/images/static/items/game_index/3.png);
+  background-size: contain;
+  width: 1.2em;
+  height: 1.2em;
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  position: static;
+  filter: drop-shadow(3px 3px 2px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.CP{
+  content: url(https://dissidiacompendium.com/images/static/icons/misc/CP.png);
+  background-size: contain;
+  width: 1.8em;
+  height: 1.1em;
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  position: static;
+  filter: drop-shadow(3px 3px 2px #222);
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
 
 .CPIcon {
   content: url(https://dissidiacompendium.com/images/static/icons/misc/CP.png);

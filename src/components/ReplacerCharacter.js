@@ -135,6 +135,12 @@ export default function ReplacerCharacter(text, options){
             <img key={`17-${i}-${number}`} className={"inline-buff"} src={`https://dissidiacompendium.com/images/static/icons/buff/${match}.png`} />
         )
     })
+    replacement = replacement == "" ? "" : reactStringReplace(replacement, /\\\\(.*?)\\\\/, (match, i) => {
+        number = number + 1
+        return (
+            <img key={`17-${i}-${number}`} className={"inline-buff"} src={`https://dissidiacompendium.com/images/static/gaiji/${match}.png`} />
+        )
+    })
     replacement = replacement == "" ? "" : reactStringReplace(replacement, /([0-9]*\.[0-9]+%|[0-9]+%)/, (match, i) => {
         number = number + 1
         return (

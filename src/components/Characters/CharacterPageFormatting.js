@@ -285,7 +285,7 @@ export default function CharacterPageFormatting({
     }
     const final = []
     holder.forEach(self => {
-      if (self.checked != true) {
+      if (self.checked != true && new Date(self.release).getTime() > ct) {
         const same = holder.filter(self2 => self2.release == self.release)
         const new_obj = {
           tag_array: same,
@@ -478,7 +478,7 @@ export default function CharacterPageFormatting({
               {newmatch.Intro}
               <hr />
               <div className='abilityJPname '>
-                {newmatch.JPintro}
+                {newmatch.JPintro && ReplacerCharacter(newmatch.JPintro.replace(/\\n/gm,""))}
               </div>
             </>
             : ""}

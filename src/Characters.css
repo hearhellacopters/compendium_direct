@@ -165,6 +165,149 @@
     background-size: contain;
 }
 
+.Daggermini {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/weapon/Dagger.png");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    position: static;
+    filter: drop-shadow(3px 3px 2px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.Swordmini {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/weapon/Shortsword.png");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    position: static;
+    filter: drop-shadow(3px 3px 2px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.Broadswordmini {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/weapon/Longsword.png");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    position: static;
+    filter: drop-shadow(3px 3px 2px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.Staffmini {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/weapon/Staff.png");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    position: static;
+    filter: drop-shadow(3px 3px 2px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.Gunnmini {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/weapon/Pistol.png");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    position: static;
+    filter: drop-shadow(3px 3px 2px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.Fistnmini {
+    background-image: url("https://dissidiacompendium.com/images/static/icons/weapon/Gloves.png");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    position: static;
+    filter: drop-shadow(3px 3px 2px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.Throwingmini{
+    background-image: url("https://dissidiacompendium.com/images/static/icons/weapon/Boomerang.png");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    position: static;
+    filter: drop-shadow(3px 3px 2px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.Spearmini{
+    background-image: url("https://dissidiacompendium.com/images/static/icons/weapon/Spear.png");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    position: static;
+    filter: drop-shadow(3px 3px 2px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.Bowmini{
+    background-image: url("https://dissidiacompendium.com/images/static/icons/weapon/Longbow.png");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    position: static;
+    filter: drop-shadow(3px 3px 2px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.Whipmini{
+    background-image: url("https://dissidiacompendium.com/images/static/icons/weapon/Whip.png");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    position: static;
+    filter: drop-shadow(3px 3px 2px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.Othermini{
+    background-image: url("https://dissidiacompendium.com/images/static/icons/weapon/Other.png");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    position: static;
+    filter: drop-shadow(3px 3px 2px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
 .Redcrystalmini {
     background-image: url("https://dissidiacompendium.com/images/static/icons/crystalcolors/buttons/Red.png");
     background-size: contain;
