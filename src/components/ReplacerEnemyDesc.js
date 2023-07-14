@@ -74,7 +74,10 @@ const span_formatting = (match, i, number) =>{
         match == "Whitecrystalmini" ||
         match == "Blackcrystalmini" ||
         match == "Yellowcrystalmini" ||
-        match == "EX"
+        match == "EX" ||
+        match == "BREAK" ||
+        match == "BonusHPDamage" ||
+        match == "crypoints"
     ){
         return <span key={`3-${i}-${number}`} className={`inline ${match}`}></span>
     }
