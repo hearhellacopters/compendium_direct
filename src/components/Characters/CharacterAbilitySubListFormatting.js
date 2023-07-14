@@ -1,4 +1,5 @@
 import React from 'react';
+import ReplacerCharacter from '../ReplacerCharacter.js';
 import CharacterAbilityPars from '../Abilities/AbilityPars.js'
 
 export default function CharacterAbilitySubListFormatting({
@@ -54,7 +55,7 @@ export default function CharacterAbilitySubListFormatting({
     return (
         <>
             <div className="abilitygreysinglebutton margtop">
-                <span className={`inline ${tag_display} undertaga`}></span> Attacks
+                {ReplacerCharacter(`<${tag_display}> Attacks`)}
             </div>
             {character_ability.map(cmd => {
                 return <CharacterAbilityPars

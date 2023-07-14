@@ -13,6 +13,7 @@ import CharacterAbilityDifHandler from '../Abilities/AbilityDifHandler.js';
 import AilmentDifHandler from '../Buffs/AilmentDifHandler.js';
 import PassiveAbilityDifHandler from '../Passives/PassiveAbilityDifHandler.js';
 import EquipmentPassiveDifHandler from '../Gear/EquipmentPassiveDifHandler.js';
+import ReplacerCharacter from '../ReplacerCharacter.js';
 import '../../Passives.css';
 
 export default function CharacterPageReworks({
@@ -57,7 +58,7 @@ export default function CharacterPageReworks({
           return (
             <div key={i}>
               <div className="abilitygreysinglebutton margtop">
-                <span className={`${passives.PassiveRank} undertaga`}></span> Passives
+                {ReplacerCharacter(`<${passives.PassiveRank}> Passives`)}
               </div>
               <LazyLoadComponent>
                 <div className="buffunit">
@@ -74,10 +75,10 @@ export default function CharacterPageReworks({
                     </div>
                     {passives && passives.reworks.map((rework, i)=>(
                       <div key={i}>
-                      <div className={`Buffbanner  iconbuffer infonameholder nobuffpadding `}>
+                      <div className={`Buffbanner iconbuffer infonameholder nobuffpadding `}>
                         <div className="displayfex">
                           <div className="spacearound infotitle">
-                          <span className={`inline ${passives.PassiveRank}`} />&nbsp;{rework.title}
+                          {ReplacerCharacter(`<${passives.PassiveRank}> ${rework.title}`)}
                           </div>
                         </div>
                         {rework.bannerindex == undefined ? "" :

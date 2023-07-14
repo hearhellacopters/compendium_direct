@@ -20,103 +20,8 @@
   text-decoration: underline;
 }
 
-/*Calandar Button*/
-
-@media (hover: hover) {
-  .cal_button:hover {
-    filter: brightness(1.2);
-    -webkit-filter: brightness(1.2);
-    transition: all ease 0.3s;
-  }
-  .chq-atc--button:hover {
-    filter: brightness(1.2);
-    -webkit-filter: brightness(1.2);
-    transition: all ease 0.3s;
-  }
-
-  .chq-atc--dropdown a:hover {
-    color: #f7f91d;
-    background-color: #1e3758f0;
-  }
-}
-
-.chq-atc--button:active {
-  filter: drop-shadow(0px 0px 2px #222) brightness(.8);
-  -webkit-filter: drop-shadow(0px 0px 2px #222) brightness(.8);
-  transition: all 0s;
-}
-
-
-.chq-atc--button {
-  background-color: transparent;
-  background-image: url(https://dissidiacompendium.com/images/static/icons/buttons/svg/blue-button.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  border: 0;
-  border-radius: 5px;
-  height: 40px;
-  width: 150px;
-  cursor: pointer;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  outline: none;
-  padding: 4px 10px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  Color: #FFF;
-  text-shadow: -1px -1px #000, 1px -1px #000, -1px 1px #000, 1px 1px #000;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-}
-
-.chq-atc--dropdown {
-  background-color: #81a0c9;
-  border-radius: 5px;
-  border: 1px solid black;
-  box-shadow: 0.5px 0.5px 3px rgb(0 0 0 / 20%);
-  box-sizing: border-box;
-  position: absolute;
-  text-align: left;
-  white-space: nowrap;
-  width: 100%;
-  z-index: 999;
-}
-
-.chq-atc--button svg {
-  vertical-align: text-bottom;
-  filter: invert(1) drop-shadow(1px 0 0 rgb(0, 0, 0)) drop-shadow(0 1px 0 rgb(0, 0, 0)) drop-shadow(0 -1px 0 rgb(0, 0, 0)) drop-shadow(-1px 0 0 rgb(0, 0, 0));
-  -webkit-filter: invert(1) drop-shadow(1px 0 0 #000000) drop-shadow(0 1px 0 #000000) drop-shadow(0 -1px 0 #000000) drop-shadow(-1px 0 0 #000000);
-}
-
-.chq-atc--dropdown a {
-  color: white;
-  display: block;
-  padding: 8px 15px;
-  text-decoration: none;
-  border-bottom: 1px solid black;
-}
-
-.chq-atc {
-  background-color: transparent;
-  display: inline-block;
-  position: relative;
-  filter: drop-shadow(0px 0px 2px #222);
-  -webkit-filter: drop-shadow(0px 0px 2px #222);
-  z-index: 10;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  Color: #FFF;
-  -webkit-font-smoothing: antialiased;
-  text-shadow: -1px -1px #000, 1px -1px #000, -1px 1px #000, 1px 1px #000;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-}
 
 .bannerholdertabs {
-
   display: grid;
   transition: .3s ease all;
   justify-content: center;
@@ -272,105 +177,11 @@
   cursor: pointer;
 }
 
-/*cal buttons*/
-
-.SixManCal {
-  content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/6Man3.png');
-}
-
-.AbyssButtonCal {
-  content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Abyss.png');
-}
-
-.ActOneCal {
-  content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Act1.png');
-}
-
-.ActTwoCal {
-  content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Act2.png');
-}
-
-.ActThreeCal {
-  content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Act3.png');
-}
-
-.ActFourCal {
-  content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Act4.png');
-}
-
-.BossRushCal {
-  content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/BossRush.png');
-}
-
-.DimensionsEndCal {
-  content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/DimensionsEnd.png');
-}
-
-.EventsCal {
-  content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Events.png');
-}
-
-.BannerOnly {
-  content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Banner.png');
-}
-
-.HereticButtonCal {
-  content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Heretic.png');
-}
-
-.HuntsCal {
-  content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Hunts.png');
-}
-
-.LostChaptersCal {
-  content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/LostChapters.png');
-}
-
-.MissionDungeonCal {
-  content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/MissionDungeon.png');
-}
-
-.RaidButtonCal {
-  content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Raid.png');
-}
-
-.LufeniaplusCal {
-  content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Lufenia+.png');
-}
-
-.WorldofIllusionsCal {
-  content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/WorldofIllusions.png');
-}
-
-.EntangledWillsCal {
-  content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/EntangledWills.png');
-}
-
 .tableholder {
   display: flex;
   position: relative;
   z-index: 2;
   box-sizing: border-box;
-}
-
-.buttoncal {
-  text-align: center;
-  margin: auto;
-  margin-top: auto;
-  margin-bottom: auto;
-  z-index: 2;
-  position: absolute;
-  inset: 0px;
-  filter: drop-shadow(3px 3px 3px #222);
-  -webkit-filter: drop-shadow(3px 3px 3px #222);
-}
-
-@media screen and (max-width: 735px) {
-  .buttoncal {
-    max-width: 100%;
-    filter: none;
-    -webkit-filter: none;
-  }
 }
 
 .bannertypes {
@@ -519,16 +330,6 @@
 }
 
 .pasteventbackground {
-  background: radial-gradient(circle, rgba(77, 86, 97, 1) 25%, rgba(0, 0, 0, 0.9612219887955182) 50%, rgba(77, 86, 97, 0) 75%);
-  height: 30px;
-  width: 30px;
-  display: inline-table;
-  margin-left: 5px;
-  filter: drop-shadow(1px 1px 2px #222);
-  -webkit-filter: drop-shadow(1px 1px 2px #222);
-}
-
-.futureeventbackground {
   background: radial-gradient(circle, rgba(77, 86, 97, 1) 25%, rgba(0, 0, 0, 0.9612219887955182) 50%, rgba(77, 86, 97, 0) 75%);
   height: 30px;
   width: 30px;
@@ -895,15 +696,6 @@
   background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, rgba(30, 55, 88, 0.940205) 3.67%, rgba(30, 55, 88, 0.85) 96.44%, rgba(30, 55, 88, 0) 100%);
 }
 
-.similarbannerred {
-  margin-bottom: 0px;
-  margin-top: 0px;
-  padding: 5px;
-  text-align: center;
-  font-weight: bold;
-  background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #af2123 3.67%, #af2123 96.44%, rgba(30, 55, 88, 0) 100%);
-}
-
 .similarbanneruni {
   margin-bottom: 0px;
   margin-top: 0px;
@@ -1010,30 +802,12 @@
   clear: both;
 }
 
-.charenemyevents {
-  transition: all .2s;
-  transform-origin: 50% 0;
-  padding: 0 8px 8px 8px;
-  background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #696969 3.67%, #696969 96.44%, rgba(30, 55, 88, 0) 100%);
-  clear: both;
-  margin: auto;
-}
-
 .znone {
   z-index: -1;
   display: grid;
 }
 
 .enemyevents li {
-  width: 128px;
-  height: 128px;
-  padding: 4px;
-  display: inline-block;
-  vertical-align: top;
-  transition: all .2s;
-}
-
-.charenemyevents li {
   width: 128px;
   height: 128px;
   padding: 4px;
@@ -1052,10 +826,6 @@
   border-radius: 5px;
 }
 
-.bannernamepopout {
-  z-index: 2;
-}
-
 .automarg {
   display: block;
   margin-left: auto;
@@ -1072,33 +842,12 @@
   color: white;
 }
 
-.MuiPaper-root {
-  text-shadow: none;
-}
-
-.calholder {
-  padding-top: 15px;
-  list-style: none;
-  background: #43517a;
-  padding-left: 0px;
-  padding-bottom: 0px;
-  box-shadow: inset 5px 0px 4px rgb(0 0 0 / 50%), inset -5px 5px 4px rgb(0 0 0 / 50%), inset 0px -5px 4px rgb(0 0 0 / 50%);
-  border-radius: 19px;
-  clear: both;
-}
-
 .facetextlist {
   position: absolute;
   width: 100%;
   bottom: 0;
   text-align: center;
   white-space: nowrap;
-}
-
-.warning {
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .singleevenimageholder {
@@ -1178,41 +927,6 @@
   padding-top: 5px;
   padding-bottom: 5px;
 }
-
-.sphereeventunit {
-  -ms-flex-flow: row wrap;
-  flex-flow: row wrap;
-  display: -ms-flexbox;
-  display: flex;
-  margin-top: 5px;
-  background: #1e3758f0;
-  box-shadow: inset 5px 0px 4px rgba(0, 0, 0, 0.5), inset -5px 5px 4px rgba(0, 0, 0, 0.5), inset 0px -5px 4px rgba(0, 0, 0, 0.5);
-  border-radius: 19px;
-}
-
-/*Calender*/
-.calcenter {
-  display: flex;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.cal_button{
-  user-select: none;
-  cursor: pointer;
-  color: rgb(101, 101, 101);
-  transition: all 0.5s ease 0s;
-  margin-left: 5px;
-  margin-right: 5px;
-  height: 25px;
-  width: 25px;
-  filter: drop-shadow(rgb(0, 0, 0) 1px 0px 0px) drop-shadow(rgb(0, 0, 0) 0px 1px 0px) drop-shadow(rgb(0, 0, 0) 0px -1px 0px) drop-shadow(rgb(0, 0, 0) -1px 0px 0px);
-  filter: brightness(2) drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
-  -webkit-filter: brightness(2) drop-shadow(1px 0px 0px black) drop-shadow(0px 1px 0px black) drop-shadow(0px -1px 0px black) drop-shadow(-1px 0px 0px black);
-}
-
-/*Calender*/
 
 @media screen and (max-width: 870px) {
   .bannerimage {
@@ -1396,11 +1110,6 @@
   }
 
   .enemyevents li {
-    height: 96px;
-    width: 96px;
-  }
-
-  .charenemyevents li {
     height: 96px;
     width: 96px;
   }

@@ -259,7 +259,7 @@ export default function CharacterPassiveLinkPageFormatting({
                   passive={passive}
                   ver={ver}
                   master_index={master_index}
-                  tag_overide={passive.cp != 0 ? "smallpassive automarg" : "newstatus"}
+                  tag_overide={passive.cp != 0 ? "smallpassive" : "newstatus"}
                 />
                 : passive.link_type == 2 && passive.passive != undefined ?
                   <PassiveAbilityFormatting

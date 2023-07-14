@@ -19,7 +19,7 @@ import makediff from '../../processing/makediff';
 import ability_use_maker from '../../processing/abilities/ability_use_maker';
 import ailment_level_icon from '../../processing/ailment/ailment_level_icon';
 
-export default function CharacterAbilityDifFormatting({
+export default function AbilityDifFormatting({
     command_old,
     ver_old,
     command_new,
@@ -402,7 +402,7 @@ export default function CharacterAbilityDifFormatting({
                                     : ""}
                             </div>
                             <Tippy content="Scroll to top" className="tooltip" >
-                                <span onClick={() => window.scrollTo(0, 0)} className={character_ability.command && character_ability.command.rank && `${ability_rank_trans(character_ability.command.rank)} clicky`}></span>
+                            <span onClick={() => window.scrollTo(0, 0)} className={`clicky`}>{ReplacerCharacter(character_ability.command && character_ability.command.rank && `<${ability_rank_trans(character_ability.command.rank)}>`)}</span>
                             </Tippy>
                             {character_ability.voice_index != undefined ?
                                     <Tippy content="Play voice line" className="tooltip" >
@@ -421,32 +421,32 @@ export default function CharacterAbilityDifFormatting({
                                 </div>
                                 {typeof use_num == "string" ?
                                     <div className={"abilityusesholder2"}>
-                                        <span className={character_ability.command && character_ability.command.rank && ability_rank_trans(character_ability.command.rank)}></span>
+                                        {ReplacerCharacter(`<${character_ability.command && character_ability.command.rank && ability_rank_trans(character_ability.command.rank)}>`)}
                                         {use_num || "∞"}
                                         {character_ability.increase.map((self, i) => (
                                                 self.recast != undefined ?
                                                     <div key={i} style={{ whiteSpace: "nowrap" }}>
-                                                        <span className={`undertaga ${self.loc_tag}`}></span>{`+${self.recast}%`}
+                                                        {ReplacerCharacter(`<${self.loc_tag}> +${self.recast}%`)}
                                                     </div>
                                                     : self.use == 0 ? "" :
                                                         <div key={i} style={{ whiteSpace: "nowrap" }}>
-                                                            <span className={`undertaga ${self.loc_tag}`}></span>{`+${self.use}`}
+                                                            {ReplacerCharacter(`<${self.loc_tag}> +${self.use}`)}
                                                         </div>
                                         ))}
                                     </div>
                                     :
                                     <div className={"abilityusesholder"}>
-                                        <span className={character_ability.command && character_ability.command.rank && ability_rank_trans(character_ability.command.rank)}></span> 
+                                        {ReplacerCharacter(`<${character_ability.command && character_ability.command.rank && ability_rank_trans(character_ability.command.rank)}>`)}
                                         {use_num || "∞"}
                                         {character_ability.increase != undefined && use_num != 0 ?
                                             character_ability.increase.map((self, i) => (
                                                 self.recast != undefined ?
                                                     <div key={i} style={{ whiteSpace: "nowrap" }}>
-                                                        <span className={`undertaga ${self.loc_tag}`}></span>{`+${self.recast}%`}
+                                                        {ReplacerCharacter(`<${self.loc_tag}> +${self.recast}%`)}
                                                     </div>
                                                     : self.use == 0 ? "" :
                                                         <div key={i} style={{ whiteSpace: "nowrap" }}>
-                                                            <span className={`undertaga ${self.loc_tag}`}></span>{`+${self.use}`}
+                                                            {ReplacerCharacter(`<${self.loc_tag}> +${self.use}`)}
                                                         </div>
                                             ))
                                         : ""}

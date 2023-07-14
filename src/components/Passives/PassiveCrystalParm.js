@@ -1,6 +1,7 @@
 import React from "react";
 import Tippy from '../../components/TippyDefaults'
 import CharacterFaceFormatting from '../Characters/CharacterFaceFormatting';
+import ReplacerCharacter from "../ReplacerCharacter";
 import { StartsInTimer } from "../../components/Timers";
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
 
@@ -44,8 +45,7 @@ export default function PassiveCrystalParm({
                         <div className="spacearound">
                             <Tippy content="Scroll to top">
                                 <div onClick={() => window.scrollTo(0, 0)} className="displayfex clicky">
-                                    <span className={`${type == 6 ? "cl90" : "newstatus"} inline`}>
-                                    </span>&nbsp;
+                                    {ReplacerCharacter(`<${type == 6 ? "cl90" : "newstatus"}> `)}
                                 </div>
                             </Tippy>
                             <div className="infotitle displayfex  ">

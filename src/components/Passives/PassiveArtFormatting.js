@@ -169,10 +169,9 @@ export default function PassiveArtFormatting({
                         {ver == "JP" ?
                             <div>
                                 <div className={`combotext infotitle ${art_passive.rank == 5 ? "orangetext" : ""}`}>
-                                    <span className={"artpass"}></span>{"\xa0"}
-                                    {art_passive.glname != "" ?
+                                    {ReplacerCharacter(`<art> ${art_passive.glname != "" ?
                                         `${art_passive.glname} - #${art_passive.spe_id}` :
-                                        `${textreplace(Format_Cleaner(art_passive.name))} - #${art_passive.spe_id}`}
+                                        `${textreplace(Format_Cleaner(art_passive.name))} - #${art_passive.spe_id}`}`)}
                                 </div>
                                 <div className={`${art_passive.rank == 5 ? "orangetext size12" : "abilityJPname"}`}>
                                     {art_passive.name != undefined && art_passive.name != "" ?
@@ -184,11 +183,10 @@ export default function PassiveArtFormatting({
                             <div>
 
                                 <div className={`combotext infotitle ${art_passive.rank == 5 ? "orangetext" : ""}`}>
-                                    <span className={"artpass"}></span>{"\xa0"}
-                                    {art_passive.name != undefined ?
+                                {ReplacerCharacter(`<art> ${art_passive.name != undefined ?
                                         `${Format_Cleaner(art_passive.name).replace(/(.*?)(<)(.*?)(>)(.*?)/gm, '$1&lt;$3&gt;$5')} - #${art_passive.spe_id}`
                                         :
-                                        `Unknown - #${art_passive.spe_id}`}
+                                        `Unknown - #${art_passive.spe_id}`}`)}
                                 </div>
                                 <div className={`${art_passive.rank == 5 ? "orangetext size12" : "abilityJPname"}`}>
                                     {art_passive.jpname != undefined && art_passive.jpname != "" ?

@@ -1,5 +1,6 @@
 import React from 'react';
 import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
+import ReplacerCharacter from '../ReplacerCharacter';
 
 export default function WeaponSkinsFormatting({
     weapon_data
@@ -15,11 +16,10 @@ export default function WeaponSkinsFormatting({
                         </div>
                     </div>
                     <div className='gearinfonameholder Nocolorbanner'>
-                        <span className={`gear_butt  ${weapon_data.weapon.toLowerCase()}button`}></span>
+                        <span className={`gear_butt ${weapon_data.weapon.toLowerCase()}button`}></span>
                         <div className="geartitletext">&nbsp;{weapon_data.name}</div>
                         <div className='abilityJPname'>{weapon_data.jpname}</div>
-                        <div className='skinbutton undertag'></div>
-                        {weapon_data.weapon}
+                        {ReplacerCharacter(`<skin> ${weapon_data.weapon}`)}
                     </div>
                 </LazyLoadComponent>
             </div>

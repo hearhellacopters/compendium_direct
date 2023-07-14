@@ -29,8 +29,8 @@ export default function killer_cond_trans(
                 if (karg == -1) {
                     karg_trans = "debuffed"
                 } else {
-                    const ailmentpull = AilmentNames[karg] && AilmentNames[karg].name
-                    karg_trans = `[${ailmentpull}] inflicted`
+                    const ailmentpull = AilmentNames[karg]
+                    karg_trans = `//${ailmentpull && ailmentpull.icon}// [${ailmentpull && ailmentpull.name}] inflicted`
                 }
             }
             final_str = killer_pull.replace(/\[karg\]/gm, karg_trans)

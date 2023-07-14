@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
+import ReplacerCharacter from '../ReplacerCharacter.js';
 import Tippy from '../../components/TippyDefaults.js';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
@@ -79,72 +80,67 @@ export default function CharacterBackForcastFormatting({
                 <ul className="forecasttagholder">
                     {match.newcharacter == true ?
                         <Tippy content="New Character">
-                            <li className="NewChar forecasttag"></li>
+                            <li className="forecasttag">{ReplacerCharacter(`<NewChar>`)}</li>
                         </Tippy>
                         : ""}
-                    {match.BTChar == true ?
+                    {match.BTChar == true || match.BTPlus == true?
                         <Tippy content="BT Character">
-                            <li className="wpbtbutton forecasttag"></li>
-                        </Tippy>
-                        : ""}
-                    {match.BTPlus == true ?
-                        <Tippy content="BT+ Character">
-                            <li className="wpbtplusbutton forecasttag"></li>
+                            <li className="forecasttag">{ReplacerCharacter(`<bt+m>`)}</li>
                         </Tippy>
                         : ""}
                     {match.FR == true ?
                         <Tippy content="FR Character">
-                            <li className="wpfrbutton forecasttag"></li>
+                            <li className="forecasttag">{ReplacerCharacter(`<fr>`)}</li>
                         </Tippy>
                         : ""}
                     {match.Board5 == true ?
                         <Tippy content="FR Board Character">
-                            <li className="board5button forecasttag"></li>
+                            <li className="forecasttag">{ReplacerCharacter(`<board5>`)}</li>
                         </Tippy>
                         : ""}
                     {match.FE50 == true ?
                         <Tippy content="Force Enhancement Lv 50">
-                            <li className="fe50button forecasttag"></li>
+                            <li className="forecasttag">{ReplacerCharacter('<boardfr50>')}</li>
                         </Tippy>
                         : ""}
                     {match.FRBoard == true ?
                         <Tippy content="Force Enhancement">
-                            <li className="boardfrbutton forecasttag"></li>
+                            <li className="forecasttag">{ReplacerCharacter(`<boardfr>`)}</li>
                         </Tippy>
                         : ""}
                     {match.LD == true ?
                         <Tippy content="LD Character">
-                            <li className="wpldbutton forecasttag"></li>
+                            <li className="forecasttag">{ReplacerCharacter(`<LD>`)}</li>
                         </Tippy>
                         : ""}
                     {match.LDBoard == true ?
                         <Tippy content="LD Board Character">
-                            <li className="board4button forecasttag"></li>
+                            <li className="forecasttag">{ReplacerCharacter(`<board4>`)}</li>
                         </Tippy>
                         : ""}
                     {match.SevenArmor == true ?
                         <Tippy content="7★ Armor Character">
-                            <li className="arm7abutton forecasttag"></li>
+                            <li className="forecasttag">{ReplacerCharacter(`<arm7a>`)}</li>
                         </Tippy>
                         : ""}
                     {match.SevenArmorPlus == true ?
                         <Tippy content="7★+ Armor Character">
-                            <li className="arm7aplusbutton forecasttag"></li>
+                            <li className="forecasttag">{ReplacerCharacter(`<arm7aplus>`)}</li>
                         </Tippy>
                         : ""}
                     {match.CystalEighty == true ?
                         <Tippy content="Lv80 Character">
-                            <li className="cl80button forecasttag"></li>
+                            <li className="forecasttag">{ReplacerCharacter(`<cl80>`)}</li>
                         </Tippy>
                         : ""}
                     {match.CystalNinety == true ?
                         <Tippy content="Lv90 Character">
-                            <li className="cl90button forecasttag"></li>
+                            <li className="forecasttag">{ReplacerCharacter(`<cl90>`)}</li>
                         </Tippy>
                         : ""}
                     {match.Rework == true ?
                         <Tippy content="Rework">
-                            <li className="reworkicon forecasttag"></li>
+                            <li className="forecasttag">{ReplacerCharacter(`<rework>`)}</li>
                         </Tippy>
                         : ""}
                 </ul>

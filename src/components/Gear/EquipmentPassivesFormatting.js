@@ -5,6 +5,7 @@ import PassiveAbilityFormatting from '../Passives/PassiveAbilityFormatting.js'
 import { StartsInTimer } from '../../components/Timers.js';
 import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
 import { ObjectView } from 'react-object-view'
+import ReplacerCharacter from '../ReplacerCharacter.js';
 
 export default function EquipmentPassivesFormatting ({
     gear,
@@ -127,7 +128,7 @@ export default function EquipmentPassivesFormatting ({
                                 </Link>
                             }
                         </div>
-                        <table className="statstablenonmoble statframe tablenonmobile shadow">
+                        <table className="statstablenonmoble statframe tablenonmobile withshadow">
                             <thead className="statsflair ">
                                 <tr>
                                     <th className="rightborder leftborder tableven"><div className="unique">LB</div></th>
@@ -216,7 +217,7 @@ export default function EquipmentPassivesFormatting ({
                                         <div className='abilityJPname'>{gear.jpname}</div>
                                     </>
                                 }
-                                <div onClick={() => makemaster(1)} className={`${gear.gear_tag}button undertag`} />
+                                <div onClick={() => makemaster(1)} className='clicky'>{ReplacerCharacter(`<${gear.gear_tag}>`)}</div>
                             </div>
                             <div className='gearCPReqHolder spacearound'>
                                 <span>

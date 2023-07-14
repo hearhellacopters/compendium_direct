@@ -177,7 +177,7 @@ export default function CharacterPageFormatting({
       const rework = {
         release: newmatch.ReleaseDate,
         temp: newmatch.ReleaseDateTemp,
-        tag: "NewChar2",
+        tag: "NewChar",
         loc: "",
         tip: "Release"
       }
@@ -198,7 +198,7 @@ export default function CharacterPageFormatting({
         release: newmatch.NinetyRelease,
         temp: newmatch.NinetyReleaseTemp,
         tag: "cl90",
-        loc: "passives/crystal",
+        loc: "passives/crystal?JP=true&",
         tip: "Crystal Level 90"
       }
       holder.push(ninety)
@@ -208,7 +208,7 @@ export default function CharacterPageFormatting({
         release: newmatch.EightyRelease,
         temp: newmatch.EightyReleaseTemp,
         tag: "cl80",
-        loc: "passives/crystal",
+        loc: "passives/crystal?JP=true&",
         tip: "Crystal Level 80"
       }
       holder.push(eighty)
@@ -218,7 +218,7 @@ export default function CharacterPageFormatting({
         release: newmatch.BTPlusRelease,
         temp: newmatch.BTPlusReleaseTemp,
         tag: "wpbtplus",
-        loc: "gear?BTPlus=true",
+        loc: "gear?JP=true&BTPlus=true",
         tip: "BT+ Weapon"
       }
       holder.push(BTPlus)
@@ -228,7 +228,7 @@ export default function CharacterPageFormatting({
         release: newmatch.FRRelease,
         temp: newmatch.FRReleaseTemp,
         tag: "wpfr",
-        loc: "gear?FR=true",
+        loc: "gear?JP=true&FR=true",
         tip: "FR Weapon"
       }
       holder.push(FRRelease)
@@ -238,7 +238,7 @@ export default function CharacterPageFormatting({
         release: newmatch.Board5Release,
         temp: newmatch.Board5ReleaseTemp,
         tag: "board5",
-        loc: "passives/boards",
+        loc: "passives/boards?JP=true&",
         tip: "FR Board"
       }
       holder.push(Board5Release)
@@ -248,7 +248,7 @@ export default function CharacterPageFormatting({
         release: newmatch.FRBoardRelease,
         temp: newmatch.FRBoardReleaseTemp,
         tag: "boardfr",
-        loc: "passives/force",
+        loc: "passives/force?JP=true&",
         tip: "Force Enhancement"
       }
       holder.push(FRBoardRelease)
@@ -258,7 +258,7 @@ export default function CharacterPageFormatting({
         release: newmatch.FE50Release,
         temp: newmatch.FE50ReleaseTemp,
         tag: "boardfr50",
-        loc: "passives/force",
+        loc: "passives/force?JP=true&",
         tip: "Force Enhancement Lv50"
       }
       holder.push(FE50Release)
@@ -268,7 +268,7 @@ export default function CharacterPageFormatting({
         release: newmatch.SevenArmorPlusRelease,
         temp: newmatch.SevenArmorPlusReleaseTemp,
         tag: "arm7aplus",
-        loc: "gear?7APlus=true",
+        loc: "gear?JP=true&7APlus=true",
         tip: "7★+ Armor"
       }
       holder.push(SevenArmorPlusRelease)
@@ -278,7 +278,7 @@ export default function CharacterPageFormatting({
         release: newmatch.SevenArmorPlusRelease,
         temp: newmatch.SevenArmorPlusReleaseTemp,
         tag: "arm7aplus",
-        loc: "gear?7A=true",
+        loc: "gear?JP=true&7A=true",
         tip: "7★+ Armor"
       }
       holder.push(SevenArmorPlusRelease)
@@ -478,7 +478,7 @@ export default function CharacterPageFormatting({
               {newmatch.Intro}
               <hr />
               <div className='abilityJPname '>
-                {newmatch.JPintro && ReplacerCharacter(newmatch.JPintro.replace(/\\n/gm,""))}
+                {newmatch.JPintro && ReplacerCharacter(newmatch.JPintro.replace(/\\n/gm,"").replace(/\n/gm,""))}
               </div>
             </>
             : ""}
@@ -563,7 +563,7 @@ export default function CharacterPageFormatting({
                         self.tag_array.map((self_tag, ii) => (
                           <Link key={ii} to={`/characters/${newmatch.ShortName}/${self_tag.loc}`}>
                             <DefaultTippy content={self_tag.tip}>
-                              <li className={`undertaga ${self_tag.tag}`}></li>
+                              <li className={`undertaga`}>{ReplacerCharacter(`<${self_tag.tag}>`)}</li>
                             </DefaultTippy>
                           </Link>
                         ))}
@@ -576,7 +576,7 @@ export default function CharacterPageFormatting({
                         self.tag_array.map((self_tag, ii) => (
                           <Link key={ii} to={`/characters/${newmatch.ShortName}/${self_tag.loc}`}>
                             <DefaultTippy content={self_tag.tip}>
-                              <li className={`undertaga ${self_tag.tag}`}></li>
+                              <li className={`undertaga`}> {ReplacerCharacter(`<${self_tag.tag}>`)}</li>
                             </DefaultTippy>
                           </Link>
                         ))}

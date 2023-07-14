@@ -2,6 +2,91 @@ import React from 'react';
 import Capped from './Capped';
 import reactStringReplace from "react-string-replace"
 
+const span_formatting = (match, i, number) =>{
+    if(match == "AOE"){
+        return "Group"
+    }
+    if(match == "Knock"){
+        return <span key={`3-${i}-${number}`}><span className={`inline KnockBack`}/>Knock Back</span>
+    }
+    if(match == "Knock_Back"){
+        return <span key={`3-${i}-${number}`}><span className={`inline KnockBack`}/>Knock Back</span>
+    }
+    if(match == "KnockBack"){
+        return <span key={`3-${i}-${number}`}><span className={`inline KnockBack`}/>Knock Back</span>
+    }
+    if(match =="Heal"){
+        return "Heal"
+    }
+    if(match =="Steal"){
+        return "Steal"
+    }
+    if(match =="Inflicts"){
+        return "Inflicts"
+    }
+    if(match =="Dispels"){
+        return "Dispels"
+    }
+    if(match =="Debuff"){
+        return "Debuff"
+    }
+    if(match =="Reduces"){
+        return "Reduces"
+    }
+    if(match == "Counter"){
+        return <span key={`3-${i}-${number}`} className={`glupdategreen`}>Counter</span>
+    }
+    if(match == "Trap"){
+        return <span key={`3-${i}-${number}`} className={`glupdategreen`}>Trap</span>
+    }
+    if(match == "Follow"){
+        return <span key={`3-${i}-${number}`} className={`glupdategreen`}>Follow Up</span>
+    }
+    if(match == "Follows_Up"){
+        return <span key={`3-${i}-${number}`} className={`glupdategreen`}>Follows Up</span>
+    }
+    if(match == "Upgraded"){
+        return <span key={`3-${i}-${number}`} className={`orangecolor`}>Upgraded</span>
+    }
+    if(match == "Upgrades"){
+        return <span key={`3-${i}-${number}`} className={`orangecolor`}>Upgrades</span>
+    }
+    if( match == "Melee" ||
+        match == "Ranged" ||
+        match == "Magic" ||
+        match == "HP" ||
+        match == "BRV" ||
+        match == "CP" ||
+        match == "Fire" ||
+        match == "Ice" ||
+        match == "Thunder" ||
+        match == "Water" ||
+        match == "Earth" ||
+        match == "Wind" ||
+        match == "Holy" ||
+        match == "Dark" ||
+        match == "Gil" || 
+        match == "Gem" ||
+        match == "DISSIDIAPoints" ||
+        match == "Perfect" ||
+        match == "Redcrystalmini" ||
+        match == "Bluecrystalmini" ||
+        match == "Greencrystalmini" ||
+        match == "Whitecrystalmini" ||
+        match == "Blackcrystalmini" ||
+        match == "Yellowcrystalmini" ||
+        match == "EX" ||
+        match == "BREAK" ||
+        match == "BonusHPDamage" ||
+        match == "crypoints"
+    ){
+        return <span key={`3-${i}-${number}`} className={`inline ${match}`}></span>
+    }
+    return (
+        <img key={`3-${i}-${number}`} className={"inline-buff"} src={`https://dissidiacompendium.com/images/static/icons/geartype/${match}.png`} />
+    )
+}
+
 export default function ReplacerCharacter(text, options){
 
     // No up down on Titles or Ability,
@@ -68,66 +153,14 @@ export default function ReplacerCharacter(text, options){
             <span key={`1-${i}-${number}`} className="unique">{
                 reactStringReplace(match, /<(.*?)>/, (match2, i) => {
                     number = number + 1
-                    return (
-                        <span key={`2-${i}-${number}`} className={`inline ${match2}`}></span>
-                    )
+                    return span_formatting(match2, i, number)
                 })
             }</span>
         )
     })
     replacement = replacement == "" ? "" : reactStringReplace(replacement, /<(.*?)>/, (match, i) => {
         number = number + 1
-        if(match == "AOE"){
-            return "Group"
-        }
-        if(match == "Knock"){
-            return <span key={`3-${i}-${number}`}><span className={`inline KnockBack`}/>Knock Back</span>
-        }
-        if(match == "Knock_Back"){
-            return <span key={`3-${i}-${number}`}><span className={`inline KnockBack`}/>Knock Back</span>
-        }
-        if(match == "KnockBack"){
-            return <span key={`3-${i}-${number}`}><span className={`inline KnockBack`}/>Knock Back</span>
-        }
-        if(match =="Heal"){
-            return "Heal"
-        }
-        if(match =="Steal"){
-            return "Steal"
-        }
-        if(match =="Inflicts"){
-            return "Inflicts"
-        }
-        if(match =="Dispels"){
-            return "Dispels"
-        }
-        if(match =="Debuff"){
-            return "Debuff"
-        }
-        if(match =="Reduces"){
-            return "Reduces"
-        }
-        if(match == "Counter"){
-            return <span key={`3-${i}-${number}`} className={`glupdategreen`}>Counter</span>
-        }
-        if(match == "Trap"){
-            return <span key={`3-${i}-${number}`} className={`glupdategreen`}>Trap</span>
-        }
-        if(match == "Follow"){
-            return <span key={`3-${i}-${number}`} className={`glupdategreen`}>Follow Up</span>
-        }
-        if(match == "Follows_Up"){
-            return <span key={`3-${i}-${number}`} className={`glupdategreen`}>Follows Up</span>
-        }
-        if(match == "Upgraded"){
-            return <span key={`3-${i}-${number}`} className={`orangecolor`}>Upgraded</span>
-        }
-        if(match == "Upgrades"){
-            return <span key={`3-${i}-${number}`} className={`orangecolor`}>Upgrades</span>
-        }
-        return (
-            <span key={`3-${i}-${number}`} className={`inline ${match}`}></span>
-        )
+        return span_formatting(match, i, number)
     })
     replacement = replacement == "" ? "" : reactStringReplace(replacement, /\/\/(.*?)\/\//, (match, i) => {
         number = number + 1
@@ -189,9 +222,7 @@ export default function ReplacerCharacter(text, options){
             <span key={`16-${i}-${number}`} className="limit">{
                 reactStringReplace(`[${match}]`, /<(.*?)>/, (match2, i) => {
                     number = number + 1
-                    return (
-                        <span key={`17-${i}-${number}`} className={`inline ${match2}`}></span>
-                    )
+                    return span_formatting(match2, i, number)
                 })
             }</span>
         )

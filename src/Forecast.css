@@ -80,10 +80,6 @@
 }
 
 .forecasttag {
-  width: 54px;
-  min-width: 54px;
-  height: 27px;
-  min-height: 27px;
   display: inline-block;
   vertical-align: middle;
   background-size: contain;

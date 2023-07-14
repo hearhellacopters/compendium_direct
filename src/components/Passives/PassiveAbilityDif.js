@@ -105,7 +105,7 @@ export default function PassiveAbilityDif ({
                             <div className="spacearound" onClick={showmeraw}>
                                 <DefaultTippy content={"Scroll to top"}>
                                     <div onClick={() => window.scrollTo(0, 0)} className="displayfex clicky">
-                                        <span className={`${tag != undefined ? tag : passive_ability_new.loc_tag != undefined ? passive_ability_new.loc_tag : "smallpassive automarg"} inline`}></span>
+                                        {ReplacerCharacter(`<${tag != undefined ? tag : passive_ability_new.loc_tag != undefined ? passive_ability_new.loc_tag : "smallpassive"}>`)}
                                         {"\xa0"}
                                     </div>
                                 </DefaultTippy>

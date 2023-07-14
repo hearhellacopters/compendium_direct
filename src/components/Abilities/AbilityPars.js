@@ -370,7 +370,7 @@ export default function AbilityPars({
                                                     "saholder"
                                 }>
                                     {typeof use_num != "string" ?
-                                        <div className={`sanumber${character_ability.Crystal == true ? "_crystal": ""} ${character_ability.Free_Ability == true ? "upstat" : ""}`}>{use_num || "∞"}</div>
+                                        <div className={`${character_ability.Crystal == true ? "sanumber_crystal": "sanumber"} ${character_ability.Free_Ability == true ? "upstat" : ""}`}>{use_num || "∞"}</div>
                                         :
                                         (use_num || "∞")
                                     }
@@ -489,7 +489,7 @@ export default function AbilityPars({
                                 </div>
                                 {enemy != true ? 
                                 <Tippy content="Scroll to top" className="tooltip" >
-                                    <span onClick={() => window.scrollTo(0, 0)} className={tag_override != undefined ? `${tag_override} undertag clicky` : character_ability.command && character_ability.command.rank && `${ability_rank_trans(character_ability.command.rank)} clicky`}></span>
+                                    <span onClick={() => window.scrollTo(0, 0)} className={`clicky`}>{ReplacerCharacter(tag_override != undefined ? `<${tag_override}>` : character_ability.command && character_ability.command.rank && `<${ability_rank_trans(character_ability.command.rank)}>`)}</span>
                                 </Tippy>
                                 : 
                                 enemy && enemy_names ?
@@ -514,33 +514,33 @@ export default function AbilityPars({
                                     {typeof use_num == "string" ?
                                         <Tippy content={recast_tip}>
                                             <div className={"abilityusesholder2"}>
-                                                <span className={use_tag != undefined ? use_tag : tag_override != undefined ? tag_override : character_ability.command && character_ability.command.rank && ability_rank_trans(character_ability.command.rank)}></span>
+                                            {ReplacerCharacter(`<${use_tag != undefined ? use_tag :tag_override != undefined ? tag_override : character_ability.command && character_ability.command.rank && ability_rank_trans(character_ability.command.rank)}>`)}
                                                 {use_num || "∞"}
                                                 {character_ability.increase && character_ability.increase.map((self, i) => (
                                                         self.recast != undefined ?
                                                             <div key={i} style={{ whiteSpace: "nowrap" }}>
-                                                                <span className={`undertaga ${self.loc_tag}`}></span>{`+${self.recast}%`}
+                                                                {ReplacerCharacter(`<${self.loc_tag}> +${self.recast}%`)}
                                                             </div>
                                                             : self.use == 0 ? "" :
                                                                 <div key={i} style={{ whiteSpace: "nowrap" }}>
-                                                                    <span className={`undertaga ${self.loc_tag}`}></span>{`+${self.use}`}
+                                                                    {ReplacerCharacter(`<${self.loc_tag}> +${self.use}`)}
                                                                 </div>
                                                 ))}
                                             </div>
                                         </Tippy>
                                         :
                                         <div className={"abilityusesholder"}>
-                                            <span className={use_tag != undefined ? use_tag :tag_override != undefined ? tag_override : character_ability.command && character_ability.command.rank && ability_rank_trans(character_ability.command.rank)}></span> 
+                                            {ReplacerCharacter(`<${use_tag != undefined ? use_tag :tag_override != undefined ? tag_override : character_ability.command && character_ability.command.rank && ability_rank_trans(character_ability.command.rank)}>`)}
                                             {use_tag != undefined ? " x" :""}{use_num || "∞"}
                                             {character_ability.increase != undefined && use_num != 0 ?
                                                 character_ability.increase.map((self, i) => (
                                                     self.recast != undefined ?
                                                         <div key={i} style={{ whiteSpace: "nowrap" }}>
-                                                            <span className={`undertaga ${self.loc_tag}`}></span>{`+${self.recast}%`}
+                                                            {ReplacerCharacter(`<${self.loc_tag}> +${self.recast}%`)}
                                                         </div>
                                                         : self.use == 0 ? "" :
                                                             <div key={i} style={{ whiteSpace: "nowrap" }}>
-                                                                <span className={`undertaga ${self.loc_tag}`}></span>{`+${self.use}`}
+                                                                {ReplacerCharacter(`<${self.loc_tag}> +${self.use}`)}
                                                             </div>
                                                 ))
                                             : ""}

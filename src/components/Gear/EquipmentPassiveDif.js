@@ -1,6 +1,7 @@
 import React from "react"; 
 import { useStateIfMounted } from "use-state-if-mounted";
 import Passive_Ability_Dif from "../Passives/PassiveAbilityDif";
+import ReplacerCharacter from "../ReplacerCharacter";
 import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
 import { ObjectView } from 'react-object-view'
 
@@ -104,7 +105,7 @@ export default function EquipmentPassiveDif({
                         <div className='gearimageholder'>
                             <LazyLoadImage effect="opacity" className={`gearimage`} src={`https://dissidiacompendium.com/images/static/${gearurl}`} />
                         </div>
-                        <table className="statstablenonmoble statframe tablenonmobile shadow">
+                        <table className="statstablenonmoble statframe tablenonmobile withshadow">
                             <thead className="statsflair ">
                                 <tr>
                                     <th className="rightborder leftborder tableven"><div className="unique">LB</div></th>
@@ -193,7 +194,7 @@ export default function EquipmentPassiveDif({
                                         <div className='abilityJPname'>{passive_ability_new.jpname}</div>
                                     </>
                                 }
-                                <div onClick={() => makemaster(1)} className={`${passive_ability_new.gear_tag}button undertag`} />
+                                <div onClick={() => makemaster(1)} className='clicky'>{ReplacerCharacter(`<${passive_ability_new.gear_tag}>`)}</div>
                             </div>
                             <div className='gearCPReqHolder spacearound'>
                                 <span>

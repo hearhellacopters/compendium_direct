@@ -337,7 +337,7 @@ export default function CharacterPassiveExpPageFormatting({
                 board_cost={passive.board_point}
                 chara_id_passoff={passive.chara_id}
                 formatting={formatting}
-                tag_overide={`exp${passive.level} notag`}
+                tag_overide={`exp${passive.level}`}
               />
           ))) : (
           <div>No Data</div>

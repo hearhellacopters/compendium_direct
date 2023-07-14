@@ -1,6 +1,7 @@
 import React from "react";
 import Tippy from '../../components/TippyDefaults'
 import CharacterFaceFormatting from "../Characters/CharacterFaceFormatting";
+import ReplacerCharacter from "../ReplacerCharacter";
 import { StartsInTimer } from '../../components/Timers'
 
 export default function PassiveLinkParmFormatting({
@@ -42,8 +43,7 @@ export default function PassiveLinkParmFormatting({
                     <div className="spacearound">
                         <Tippy content="Scroll to top">
                             <div onClick={() => window.scrollTo(0, 0)} className="displayfex clicky">
-                                <span className={`${tag_overide != undefined ? tag_overide : passive.rank_tag} inline`}>
-                                </span>&nbsp;
+                                {ReplacerCharacter(`<${tag_overide != undefined ? tag_overide : passive.rank_tag}>`)}
                             </div>
                         </Tippy>
                         <div className="displayfex  ">

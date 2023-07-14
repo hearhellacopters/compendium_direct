@@ -198,7 +198,7 @@ export default function PassiveAbilityFormatting({
                                 <DefaultTippy content={"Scroll to top"}>
                                     <div onClick={() => window.scrollTo(0, 0)} className="displayfex clicky">
                                         {sphere == undefined ?
-                                            <span className={`${tag_overide != undefined ? tag_overide : passive_ability.loc_tag != undefined ? passive_ability.loc_tag : "smallpassive automarg"} inline`}></span>
+                                            ReplacerCharacter(`<${tag_overide != undefined ? tag_overide : passive_ability.loc_tag != undefined ? passive_ability.loc_tag : "smallpassive"}>`)
                                             : ""}
                                         {sphere != undefined ?
                                             <span className={sphere}></span>
@@ -268,7 +268,7 @@ export default function PassiveAbilityFormatting({
                                 <DefaultTippy content={"Scroll to top"}>
                                     <div onClick={() => window.scrollTo(0, 0)} className="displayfex clicky">
                                         {sphere == undefined ?
-                                            <span className={`${tag_overide != undefined ? tag_overide : passive_ability.loc_tag != undefined ? passive_ability.loc_tag : "smallpassive automarg"} inline`}></span>
+                                            ReplacerCharacter(`<${tag_overide != undefined ? tag_overide : passive_ability.loc_tag != undefined ? passive_ability.loc_tag : "smallpassive"}>`)
                                             : ""}
                                         {sphere != undefined ?
                                             <span className={sphere}></span>

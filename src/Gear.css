@@ -26,78 +26,12 @@
     margin-bottom: auto;
 }
 
-.geartag {
-    position: absolute !important;
-    margin-left: 0px !important;
-    margin-bottom: 3px;
-    bottom: 0px;
-}
-
 .gearimageholder {
     position: relative;
 }
 
-.gearcardholder {
-    margin-right: 5px;
-}
-
-
 .geartitletext {
     display: inline-table;
-}
-
-.gearablspeed {
-    display: block;
-    text-align: center;
-    z-index: 2;
-    width: 100%;
-    margin-top: -1em;
-    position: sticky;
-    z-index: 2;
-    background: rgb(30, 55, 88);
-    background: linear-gradient(0deg, rgba(30, 55, 88, 1) 0%, rgba(30, 55, 88, 0.8015581232492998) 64%, rgba(30, 55, 88, 0) 100%);
-    width: 112px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.gearabilityiconholder {
-    display: none;
-    margin-left: auto;
-    margin-right: 5px;
-    width: 145px;
-}
-
-.gearsaholder {
-    display: table;
-    background-image: url(https://dissidiacompendium.com/images/static/icons/misc/saholder.png);
-    z-index: 2;
-    height: 28px;
-    width: 42px;
-    margin-top: -85px;
-    margin-left: 88px;
-    position: absolute;
-    text-align: center;
-}
-
-.gearsanumber {
-    margin-top: 5px;
-    display: block;
-    margin-bottom: auto;
-    z-index: 3;
-}
-
-.gearfaceandiconholder {
-    margin-left: auto;
-    justify-content: flex-start;
-    align-items: flex-start;
-    display: flex;
-    margin-right: 5px;
-}
-
-.gearfaceandiconholder a {
-    margin-top: auto;
-    margin-bottom: auto;
 }
 
 .gearfaceholder {
@@ -129,31 +63,6 @@
     display: block !important;
 }
 
-.gearabilityuses {
-    display: none;
-}
-
-.shadow {
-    filter: drop-shadow(0px 0px 3px #222);
-    -webkit-filter: drop-shadow(0px 0px 3px #222);
-}
-
-.blockfix {
-    display: block;
-    margin-left: -112px;
-}
-
-.undertag {
-    width: 54px;
-    height: 27px;
-    vertical-align: middle;
-    background-size: contain;
-    background-repeat: no-repeat;
-    filter: drop-shadow(1px 1px 1px #222);
-    -webkit-filter: drop-shadow(1px 1px 1px #222);
-    cursor: pointer;
-}
-
 .flexdisplay {
     display: flex;
 }
@@ -170,32 +79,12 @@
     align-items: center;
 }
 
-.gearbuffbutton {
-    height: 36px;
-    width: 72px;
-    display: inline-block;
-    margin-right: 3px;
-    margin-left: 3px;
-    background-repeat: no-repeat;
-    position: static;
-}
-
 .newbackbanner {
     background-color: #4c4c4c;
 }
 
 .newblue {
     background-color: #242b35;
-}
-
-.tableformatting {
-    display: grid;
-    border-collapse: collapse;
-    border-spacing: 0;
-    font-size: smaller;
-    text-align: center;
-    align-content: space-evenly;
-    justify-content: space-evenly;
 }
 
 .subpassiveflair {
@@ -261,22 +150,6 @@
     box-shadow: inset 0px 0px 10px #000000;
 }
 
-.gearstatsholder {
-    font-size: smaller;
-    display: flex;
-    padding-right: 10px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    align-items: center;
-}
-
-.statsaligment {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .statstable {
     margin-left: auto;
     margin-right: auto;
@@ -293,23 +166,6 @@
     min-width: 40px;
 }
 
-.intbrv::before {
-    content: "iBRV";
-}
-
-.maxbrv::before {
-    content: "mBRV";
-}
-
-.lbspacer {
-    display: table;
-    margin-left: 10px;
-}
-
-.enderspacer {
-    margin-bottom: 12px;
-}
-
 .lsmaller {
     display: block;
     margin-left: auto;
@@ -321,12 +177,6 @@
 .tablemobile {
     display: none;
     width: 100%;
-}
-
-.lsmallerinline {
-    display: flex;
-    background-position: center;
-    background-repeat: no-repeat;
 }
 
 .click {
@@ -363,52 +213,9 @@
     border-bottom: 2px white solid !important;
 }
 
-.whiteborder {
-    border: 2px white solid
-}
-
-.inlinegearabilityiconholder {
-    margin-top: 15px;
-    margin-right: auto;
-    width: 145px;
-    display: block;
-    position: absolute;
-    text-align: center;
-}
-
-.inlinegearabilityiconholder span {
-    display: block !important;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.inlinegearsaholder {
-    display: table;
-    background-image: url(https://dissidiacompendium.com/images/static/icons/misc/saholder.png);
-    z-index: 2;
-    height: 28px;
-    width: 42px;
-    margin-top: -81px;
-    margin-left: 88px;
-    position: absolute;
-    text-align: center;
-}
-
 .spoiler_text {
     text-align: center;
     display: inline;
-}
-
-.inlinegearsaholderg {
-    display: table;
-    background-image: url(https://dissidiacompendium.com/images/static/icons/misc/saholderg.png);
-    z-index: 2;
-    height: 28px;
-    width: 42px;
-    margin-top: -81px;
-    margin-left: 88px;
-    position: absolute;
-    text-align: center;
 }
 
 @media (hover: hover) {
@@ -439,21 +246,6 @@
     }
 }
 
-.mastergearinfobanner {
-    padding-left: 8px;
-    padding-right: 5px;
-    margin-top: 5px;
-    list-style: none;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    clear: both;
-    border: solid 3px #d9dade;
-    border-radius: 5px;
-    box-shadow: inset 0px 0px 10px #000000;
-    transition: .4s;
-    font-size: 1rem;
-}
-
 .gearinfobanner {
     padding-left: 8px;
     padding-right: 5px;
@@ -475,12 +267,6 @@
     }
 }
 
-@media screen and (max-width: 700px) {
-    .gearabilityuses {
-        display: block;
-    }
-}
-
 @media screen and (max-width: 800px) {
     .spoiler_text{
         font-size: 12px;
@@ -493,10 +279,6 @@
     .gearfaceholder {
         width: 82px;
         height: 30px;
-    }
-
-    .gearablspeed {
-        width: auto;
     }
 
     .tablemobile {
@@ -517,28 +299,6 @@
         background-repeat: no-repeat;
     }
 
-    .lsmallerinline {
-        width: 16px;
-        height: 15px;
-        display: inline-table;
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-
-    .intbrv::before {
-        content: "iBRV";
-    }
-
-    .maxbrv::before {
-        content: "mBRV";
-    }
-
-    .undertag {
-        height: 24px;
-        width: 48px;
-    }
-
     .gearinfonameholder {
         margin-left: 0px;
         width: calc(100% - 19px);
@@ -548,26 +308,8 @@
         width: 85px;
     }
 
-    .gearsaholder {
-        display: none;
-    }
-
-    .gearabilityholder {
-        margin-right: 5px;
-    }
-
     .geartitletext {
         display: inline-table;
-    }
-
-    .CharGearFactHolder {
-        width: 85px;
-    }
-
-    .geartag {
-        background-size: contain;
-        height: 24px !important;
-        width: 48px !important;
     }
 
     .gearimage {
@@ -577,24 +319,10 @@
 }
 
 @media screen and (max-width: 700px) {
-    .mastergearinfobanner {
-        margin-left: 0px;
-        width: auto;
-        font-size: .8rem;
-    }
 
     .gearinfobanner {
         margin-left: 0px;
         width: auto;
         font-size: .8rem;
-    }
-
-    .inlinegearabilityiconholder {
-        display: none;
-    }
-
-    .gearabilityiconholder {
-        display: block;
-        margin-right: 10px;
     }
 }

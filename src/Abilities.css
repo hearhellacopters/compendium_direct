@@ -1,32 +1,8 @@
-.toggleforabilities {
-    padding-top: 8px;
-    position: absolute;
-    width: 145px;
-    margin-top: 140px;
-}
-
-.toggleforminigear {
-    position: absolute;
-    width: 145px;
-}
-
 .abilityusesholder {
     display: table;
     padding-right: 5px;
     margin-top: auto;
     margin-bottom: auto;
-}
-
-.abilityglreworkbanner {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    text-align: center;
-    font-weight: bold;
-    background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, rgba(30, 55, 88, 0.940205) 3.67%, rgba(30, 55, 88, 0.85) 96.44%, rgba(30, 55, 88, 0) 100%);
 }
 
 .abilityJPname {
@@ -41,20 +17,6 @@
     margin-top: 5px;
     margin-bottom: 5px;
     max-width: 500px;
-}
-
-.deleted {
-    background-color: LightPink;
-    text-decoration: line-through
-}
-
-.inserted {
-    background-color: PaleGreen
-}
-
-.abilityspacearound {
-    display: flex;
-    align-items: center;
 }
 
 .bufflistbanner {
@@ -74,39 +36,6 @@
     font-size: 1rem;
 }
 
-.gearbufflistbanner {
-    padding-left: 8px;
-    padding-right: 5px;
-    margin-top: 5px;
-    list-style: none;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    clear: both;
-    border: solid 3px #d9dade;
-    border-radius: 5px;
-    box-shadow: inset 0px 0px 10px #000000;
-    transition: .4s;
-    width: calc(100% - 170px);
-    margin-left: auto;
-    font-size: 1rem;
-}
-
-.bufflistbannerbattle {
-    padding-left: 8px;
-    padding-right: 5px;
-    margin-top: 5px;
-    list-style: none;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    clear: both;
-    border: solid 3px #d9dade;
-    border-radius: 5px;
-    box-shadow: inset 0px 0px 10px #000000;
-    transition: .4s;
-    width: calc(100% - 216px);
-    margin-left: auto;
-}
-
 .rainbow_tag {
     height: 27px;
     vertical-align: middle;
@@ -122,6 +51,7 @@
     max-height: 36px;
     margin: -0.2em;
     height: 1.8em;
+    display: inline-block;
     vertical-align: middle;
     background-position: center;
     background-size: contain;
@@ -219,10 +149,6 @@
 
 /*buff icons*/
 
-.listbufficon {
-    display: contents;
-}
-
 .ailmenttext {
     background: linear-gradient(90deg, rgba(77, 86, 97, 1) 0%, rgba(77, 86, 97, 0.9612219887955182) 16%, rgba(77, 86, 97, 0) 100%);
     display: block;
@@ -246,14 +172,6 @@
     height: 44px;
 }
 
-.buffabilityrowiconholder {
-    width: 58px;
-    height: 50px;
-    margin: 0px;
-    display: table-cell;
-    justify-content: center;
-}
-
 .abilitybufficonsholder {
     vertical-align: middle;
     width: 58px;
@@ -267,7 +185,6 @@
     vertical-align: middle;
     margin: auto;
 }
-
 
 .Buffsubbanner {
     font-size: 1.2rem;
@@ -308,23 +225,6 @@
     border-radius: 5px;
 }
 
-.toggleforbuffabilities {
-    padding-top: 8px;
-    position: absolute;
-    width: 145px;
-}
-
-.forcedtoggleforbuffabilities {
-    padding-left: 0px;
-    padding-top: 8px;
-    position: inherit;
-    width: 145px;
-    margin-top: 5px;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 @media screen and (max-width: 900px) {
     .abilityinfobase {
         font-size: .6rem;
@@ -335,10 +235,6 @@
     }
 
     .bufflistbanner {
-        font-size: .6rem;
-    }
-
-    .gearbufflistbanner {
         font-size: .6rem;
     }
 }
@@ -356,37 +252,10 @@
         font-size: 1rem;
     }
 
-    .forcedtoggleforbuffabilities {
-        padding-top: 0px;
-        width: 60px;
-    }
-
-    .toggleforbuffabilities {
-        padding-left: 0px;
-        padding-top: 0px;
-        position: inherit;
-        width: 60px;
-        margin-top: 5px;
-        align-items: center;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
     .bufflistbanner {
         margin-left: 0px;
         width: auto;
         font-size: .8rem;
-    }
-
-    .gearbufflistbanner {
-        width: auto;
-        font-size: .8rem;
-        margin-left: 0px;
-    }
-
-    .bufflistbannerbattle {
-        margin-left: 0px;
-        width: auto;
     }
 
     .ver_gl {
@@ -418,21 +287,5 @@
         margin-left: 0px;
         width: auto;
         min-height: auto;
-    }
-
-    .toggleforabilities {
-        padding-top: 8px;
-        position: inherit;
-        width: 60px;
-        margin-top: 5px;
-        align-items: center;
-    }
-
-    .toggleforminigear {
-        position: inherit;
-        width: 60px;
-        align-items: center;
-        margin-left: auto;
-        margin-right: auto;
     }
 }

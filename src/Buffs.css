@@ -88,19 +88,6 @@
     -webkit-filter: drop-shadow(1px 1px 1px #222);
 }
 
-.BonusHPDamage2{
-    background-image: url(https://dissidiacompendium.com/images/static/icons/misc/HPDamageBonus.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    display: inline-block;
-    vertical-align: middle;
-    background-size: contain;
-    height: 30px;
-    width: 96px;
-    filter: drop-shadow(1px 1px 1px #222);
-    -webkit-filter: drop-shadow(1px 1px 1px #222);
-}
-
 .bufftypes_max {
     display: block;
     padding-left: 0px;
@@ -198,25 +185,10 @@ hr {
     -webkit-filter: drop-shadow(2px 2px 2px #222);
 }
 
-.sphereicon {
-    display: flex;
-    margin: auto;
-    padding-top: 0px;
-    filter: drop-shadow(2px 2px 2px #222);
-    -webkit-filter: drop-shadow(2px 2px 2px #222);
-}
-
-.expandedinfo {
-    text-align: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    cursor: pointer;
-    color: #f7f91d;
-}
-
 .infotitle {
     font-size: 19px;
 }
+
 .infotitle2 {
     font-size: 19px;
     min-height: 40px;
@@ -237,10 +209,6 @@ hr {
     padding-top: 2px;
     padding-bottom: 2px;
     max-width: 185px;
-}
-
-.withlimitorbuffs {
-    max-width: 420px;
 }
 
 .infobase {
@@ -290,14 +258,6 @@ hr {
     }
 }
 
-.orangebanner {
-    background-color: #f16338
-}
-
-.orangebase {
-    background-color: #943434
-}
-
 .blackbase {
     background-color: #473494;
 }
@@ -323,12 +283,6 @@ hr {
     background: #1e3758f0;
     box-shadow: inset 5px 0px 4px rgba(0, 0, 0, 0.5), inset -5px 5px 4px rgba(0, 0, 0, 0.5), inset 0px -5px 4px rgba(0, 0, 0, 0.5);
     border-radius: 19px;
-}
-
-
-.subicon {
-    display: flex;
-    position: absolute;
 }
 
 .wpadding {
@@ -375,20 +329,6 @@ hr {
     margin-right: auto;
     filter: drop-shadow(1px 1px 1px #222);
     -webkit-filter: drop-shadow(1px 1px 1px #222);
-}
-
-.toggleforpassives {
-    padding-top: 8px;
-    position: absolute;
-    width: 145px;
-    margin-top: 55px;
-}
-
-.toggleforgear {
-    padding-top: 8px;
-    position: absolute;
-    width: 145px;
-    margin-top: 80px;
 }
 
 .infonameholder {
@@ -521,14 +461,6 @@ hr {
 .Freebutton {
     background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/free.png");
     background-size: contain;
-}
-
-.abilitybase {
-    min-height: 75px
-}
-
-.nocostpassivebanner {
-    min-height: 40px;
 }
 
 .faceholderpassives {
@@ -728,30 +660,11 @@ hr {
     color: #d0d093;
 }
 
-.subtextwhite {
-    color: white;
-}
-
-
 .subtextgold {
     color: rgb(235, 235, 96);
 }
 
 /*GL toggle*/
-
-.toggleforbuffs {
-    padding-top: 8px;
-    position: absolute;
-    width: 190px;
-    margin-top: 55px;
-}
-
-.GLtoggle {
-    align-items: center;
-    -moz-filter: drop-shadow(2px 2px 2px #222);
-    -webkit-filter: drop-shadow(2px 2px 2px #222);
-    filter: drop-shadow(2px 2px 2px #222);
-}
 
 .switch {
     position: relative;
@@ -887,24 +800,6 @@ hr {
         height: 40px;
     }
 
-    .toggleforpassives {
-        padding-left: 5px;
-        padding-top: 8px;
-        position: inherit;
-        width: 60px;
-        margin-top: 5px;
-        align-items: center;
-    }
-
-    .toggleforgear {
-        padding-left: 5px;
-        padding-top: 8px;
-        position: inherit;
-        width: 60px;
-        margin-top: 5px;
-        align-items: center;
-    }
-
     .saholder {
         display: none;
     }
@@ -946,15 +841,6 @@ hr {
         margin-top: 10px;
         margin-left: 0px;
         width: calc(100% - 19px);
-    }
-
-    .toggleforbuffs {
-        padding-left: 5px;
-        padding-top: 8px;
-        position: inherit;
-        width: 60px;
-        margin-top: 5px;
-        align-items: center;
     }
 
     .infoiconholder {
