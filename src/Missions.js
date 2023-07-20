@@ -963,7 +963,7 @@ export default function Missions({
                                     defaultValue={Typesearch != "" ? { value: Typesearch, label: Typesearch } : null}
                                     key={Typesearch}
                                     isSearchable={true}
-                                    placeholder="Item Select..."
+                                    placeholder="Reward Select..."
                                     className='typecontainer'
                                     classNamePrefix="typetext"
                                     onChange={itemSelect}
@@ -1004,7 +1004,7 @@ export default function Missions({
                             </div>
                             
                         </div>
-                        <span className='subtext'>*Item filter only works on missions</span>
+                        <span className='subtext'>*Reward filter only available on missions</span>
                     </div>
                 }
                 <ul className="bannertabs">

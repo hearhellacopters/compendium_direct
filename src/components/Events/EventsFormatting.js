@@ -407,32 +407,27 @@ export default function EventsFormatting({
                                     </Tippy>
                                 :""}
                                 {showingmissionlist == true && missiondata.length !=0 ?
-                                    missiondata.map((mission, i) => {
-                                        return(
-                                        <MissionFormatting
-                                        key={`${match.field_id}-${i}`}
-                                        mission={mission}
-                                        solo={false}
-                                        no_field={true}
-                                        ver={match.tempdate == true? "JP":"GL"}
-                                        />
-                                        )
-                                    })
-                                :""}
-                                {showingshoplist == true && shopdata.length !=0 ?
                                     <div className={`rewards_limit`}>
-                                        {shopdata.sort((a,b)=>a.sort_num - b.sort_num).map((mission, i) => {
+                                        {missiondata.map((mission, i) => {
                                             return(
                                             <MissionFormatting
                                             key={`${match.field_id}-${i}`}
                                             mission={mission}
                                             solo={false}
-                                            costs={true}
+                                            no_field={true}
                                             ver={match.tempdate == true? "JP":"GL"}
                                             />
                                             )
                                         })}
                                     </div>
+                                :""}
+                                {showingshoplist == true && shopdata.length !=0 ?
+                                    <MissionFormatting
+                                    mission={{rewards:shopdata}}
+                                    solo={false}
+                                    costs={true}
+                                    ver={match.tempdate == true? "JP":"GL"}
+                                    />
                                 :""}
                             </div>
                             {master_index != undefined &&

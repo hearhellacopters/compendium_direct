@@ -229,6 +229,23 @@ a:-moz-focusring {
   cursor: pointer;
 }
 
+.previouspage {
+  background-image: url(https://dissidiacompendium.com/images/static/icons/buttons/svg/blue-circle.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  filter: drop-shadow(0px 0px 2px #222);
+  height: 60px;
+  width: 60px;
+  align-items: center;
+  vertical-align: middle;
+  text-decoration: none;
+  color: white;
+  margin-bottom: 10px;
+}
+
 .previousbutton {
   background-image: url(https://dissidiacompendium.com/images/static/icons/buttons/svg/green-circle.svg);
   background-repeat: no-repeat;
@@ -275,10 +292,14 @@ a:-moz-focusring {
     -webkit-filter: brightness(1.2);
     transition: all ease 0.3s;
   }
-
-  .previousbutton:hover {
+  .previouspage:hover {
     filter: brightness(1.2);
     -webkit-filter: brightness(1.2);
+    transition: all ease 0.3s;
+  }
+  .previousbutton:hover {
+    filter: drop-shadow(0px 0px 2px #222) brightness(1.2);
+    -webkit-filter: drop-shadow(0px 0px 2px #222) brightness(1.2);
     transition: all ease 0.3s;
   }
 }
@@ -290,6 +311,12 @@ a:-moz-focusring {
 }
 
 .previousbutton:active {
+  filter: drop-shadow(0px 0px 2px #222) brightness(.8);
+  -webkit-filter: drop-shadow(0px 0px 2px #222) brightness(.8);
+  transition: all 0s;
+}
+
+.previouspage:active {
   filter: drop-shadow(0px 0px 2px #222) brightness(.8);
   -webkit-filter: drop-shadow(0px 0px 2px #222) brightness(.8);
   transition: all 0s;
@@ -3376,6 +3403,10 @@ h3 {
 }
 
 @media screen and (max-width: 800px) {
+  .previouspage {
+    height: 40px;
+    width: 40px;
+  }
   .subheader {
     font-size: 12px;
   }

@@ -1,4 +1,7 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
+import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
+import { ImArrowRight } from 'react-icons/im';
+import { ImArrowLeft } from 'react-icons/im';
 import { useSelector } from "react-redux";
 import { useStateIfMounted } from "use-state-if-mounted";
 import format_cleaner from "../../processing/format_cleaner";
@@ -164,29 +167,86 @@ export default function MissionFormatting({
         }
     }
 
+    function paginateArray(array, itemsPerPage, currentPage) {
+        const totalPages = Math.ceil(array.length / itemsPerPage);
+      
+        // Ensure the currentPage is within the valid range
+        currentPage = Math.min(Math.max(1, currentPage), totalPages);
+      
+        // Calculate the starting and ending indexes for the current page
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = Math.min(startIndex + itemsPerPage, array.length);
+      
+        // Get the items for the current page
+        const currentPageItems = array.slice(startIndex, endIndex);
+      
+        return {
+          currentPage: currentPage,
+          totalPages: totalPages,
+          currentPageItems: currentPageItems
+        };
+      }
+
+    const [startinglimit, setstartinglimit] = useStateIfMounted(window.innerWidth <= 800 ? 12 : 24)
+    const [currentpage, setcurrentpage] = useStateIfMounted(1)
+    const [list_display, setlist_display] = useStateIfMounted()
+
+    useEffect(()=>{
+        if(costs == true){
+            setlist_display(paginateArray(rewards,startinglimit,currentpage))
+        }
+    },[setcurrentpage,costs,rewards,setlist_display,startinglimit,currentpage])
+
+    const page_change = (value)=>{
+        if(currentpage + value >0 && currentpage + value <= list_display.totalPages){
+            setcurrentpage(currentpage + value)
+        }
+    }
+
     if(costs == true){
         return (
-            <div className="shop-item">
-                {make_reward(mission,false,mission.mission_id)}
-                <div style={{marginTop:"5px"}} className="subtext unique">
-                    {mission.cost.map(self=><span key={self.mission_id}><img  className={"inline-buff"} src={`https://dissidiacompendium.com/images/static/${self.image}`} />{` x${amount(self.item_num)}`}</span>)}
-                </div>
-                <span onClick={showmeraw} className="subtext">
-                    {`Stock: ${mission.stock == 0 ? "∞":amount(mission.stock)}`}
-                </span>
-                {showraw == true ?
-                    <span className='react-json-view'>
-                    <ObjectView 
-                    options={
-                        {
-                            hideDataTypes: true,
-                            expandLevel: 1
-                        }
-                        }
-                    data={mission} />
-                    </span>
-                : ""}
+           <>
+            <div className={`shop_item_holder`}>
+                {list_display && list_display.currentPageItems && list_display.currentPageItems.map((item,i)=>{
+                    return (
+                        <div key={i} className="shop-item">
+                                <LazyLoadComponent>
+                                {make_reward(item,false,item.mission_id)}
+                                <div style={{marginTop:"5px"}} className="subtext unique">
+                                    {item.cost.map(self=><div key={self.mission_id}><img  className={"inline-buff"} src={`https://dissidiacompendium.com/images/static/${self.image}`} />{` x${amount(self.item_num)}`}</div>)}
+                                </div>
+                                <span onClick={showmeraw} className="subtext">
+                                    {`Stock: ${item.stock == 0 ? "∞":amount(item.stock)}`}
+                                </span>
+                            </LazyLoadComponent>
+                        </div>
+                    )
+                })}
             </div>
+            {list_display && list_display.totalPages > 1 ?
+                    <div className="pageholder">
+                        <div onClick={()=>page_change(-1)} className="previouspage">
+                            <ImArrowLeft className="previousicon" />
+                        </div>
+                        <div className="unique">{`Page ${list_display.currentPage} of ${list_display.totalPages}`}</div>
+                        <div onClick={()=>page_change(1)} className="previouspage">
+                            <ImArrowRight className="nexticon" />
+                        </div>
+                    </div>
+                :""}
+            {showraw == true ?
+                <span className='react-json-view'>
+                <ObjectView 
+                options={
+                    {
+                        hideDataTypes: true,
+                        expandLevel: 1
+                    }
+                    }
+                data={mission} />
+                </span>
+            : ""}
+           </>
         )
     } else {
         return (
