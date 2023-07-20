@@ -9,7 +9,7 @@ export default function log () {
                 <h1>Update Log</h1>
                 <div className="creditsholder">
                 <div className="filterholderflair" >
-                        V.6.1
+                        v6.1
                     </div>
                     <ul className="creditslist">
                     ┬ Replaced Panels tab<br />
@@ -22,7 +22,7 @@ export default function log () {
                     Split Crystal Quest enemies into current GL and JP 
                     </ul>
                 <div className="filterholderflair" >
-                        V.6.0
+                        v6.0
                     </div>
                     <ul className="creditslist">
                     - Upgraded Buffs display and dynamic level icon<br />
@@ -30,38 +30,38 @@ export default function log () {
                     - Performance improvements for upcoming features
                     </ul>
                 <div className="filterholderflair" >
-                        V.5.9
+                        v5.9
                     </div>
                     <ul className="creditslist">
                         - Added <Link className="updatelink" to="/events/notices">In Game Notices</Link> page (both JP and GL!)<br />
                     </ul>
                 <div className="filterholderflair" >
-                        V.5.8
+                        v5.8
                     </div>
                     <ul className="creditslist">
                         - Updated rework pages to default to direct data diffing<br />
                     </ul>
                 <div className="filterholderflair" >
-                        V.5.7
+                        v5.7
                     </div>
                     <ul className="creditslist">
                         - Added filters for new Force Enhancement Lv50<br />
                     </ul>
                 <div className="filterholderflair" >
-                        V.5.6.6
+                        v5.6.6
                     </div>
                     <ul className="creditslist">
                         - Added <Link className="updatelink" to="/bonuses/crystal/abilities">Crystal Brilliance Abilities</Link> page<br />
                     </ul>
                 <div className="filterholderflair" >
-                        V.5.6.5
+                        v5.6.5
                     </div>
                     <ul className="creditslist">
                         - Added quick jump between character pages by clicking name<br />
                         - Added Event numbers to event and banner pages
                     </ul>
                 <div className="filterholderflair" >
-                        V.5.6.0
+                        v5.6.0
                     </div>
                     <ul className="creditslist">
                         - Added enemy guide data to eligible enemy pages<br />
@@ -69,7 +69,7 @@ export default function log () {
                         - Bug fixes<br />
                     </ul>
                 <div className="filterholderflair" >
-                        V.5.5.0
+                        v5.5.0
                     </div>
                     <ul className="creditslist">
                         - Renamed Summons section to Party Bonuses<br />
@@ -77,20 +77,20 @@ export default function log () {
                         - Moved Crystal Brilliance page to bonus section<br />
                     </ul>
                 <div className="filterholderflair" >
-                        V.5.4.0
+                        v5.4.0
                     </div>
                     <ul className="creditslist">
                         - Added <Link className="updatelink" to="/bonuses/crystal/passives">Crystal Brilliance Passives</Link> page<br />
                     </ul>
                 <div className="filterholderflair" >
-                        V.5.3.5
+                        v5.3.5
                     </div>
                     <ul className="creditslist">
                         - Added Slower / Faster filters for abilities<br />
                         - Bug fixes
                     </ul>
                     <div className="filterholderflair" >
-                        V.5.3
+                        v5.3
                     </div>
                     <ul className="creditslist">
                         ┬ Enemy and character list hidden on event page on mobile<br />
@@ -99,7 +99,7 @@ export default function log () {
                         - Fixed scrolling on music player for mobile
                     </ul>
                     <div className="filterholderflair" >
-                        V.5.2
+                        v5.2
                     </div>
                     <ul className="creditslist">
                     - Added Character voice lines to abilities <MdRecordVoiceOver className='soundicon click'/><br/>
@@ -107,7 +107,7 @@ export default function log () {
                     - Site retains version after leaving
                     </ul>
                     <div className="filterholderflair" >
-                        V.5.1
+                        v5.1
                     </div>
                     <ul className="creditslist">
                         ┬ Header bar now floats in desktop view<br />
@@ -115,7 +115,7 @@ export default function log () {
                         - Added ability compare to rework page
                     </ul>
                     <div className="filterholderflair" >
-                        V.5.0
+                        v5.0
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -169,7 +169,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.4.7
+                        v4.7
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -177,7 +177,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.4.6
+                        v4.6
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -185,7 +185,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.4.5
+                        v4.5
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -193,7 +193,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.4.4
+                        v4.4
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -203,7 +203,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.4.3
+                        v4.3
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -214,7 +214,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.4.2.5
+                        v4.2.5
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -225,7 +225,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.4.2
+                        v4.2
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -237,7 +237,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.4.1
+                        v4.1
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -254,7 +254,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.4.0
+                        v4.0
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -268,7 +268,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.8
+                        v3.8
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -276,7 +276,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.7
+                        v3.7
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -284,7 +284,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.6
+                        v3.6
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -300,7 +300,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.5
+                        v3.5
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -314,7 +314,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.4.3
+                        v3.4.3
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -323,7 +323,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.4.2
+                        v3.4.2
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -334,7 +334,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.4.1
+                        v3.4.1
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -342,7 +342,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.4.0
+                        v3.4.0
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -356,7 +356,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.3.5
+                        v3.3.5
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -364,7 +364,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.3.4
+                        v3.3.4
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -372,7 +372,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.3.3
+                        v3.3.3
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -380,7 +380,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.3.2
+                        v3.3.2
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -391,7 +391,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.3.1
+                        v3.3.1
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -399,7 +399,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.3
+                        v3.3
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -416,7 +416,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.2
+                        v3.2
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -430,7 +430,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.1.9.6
+                        v3.1.9.6
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -442,7 +442,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.1.9.5
+                        v3.1.9.5
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -450,7 +450,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.1.9
+                        v3.1.9
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -461,7 +461,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.1.8
+                        v3.1.8
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -475,7 +475,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.1.7
+                        v3.1.7
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -486,7 +486,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.1.6
+                        v3.1.6
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -497,7 +497,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.1.5
+                        v3.1.5
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -508,7 +508,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.1.4
+                        v3.1.4
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -519,7 +519,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.1.3
+                        v3.1.3
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -527,7 +527,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.1.2
+                        v3.1.2
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -535,7 +535,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.1.1
+                        v3.1.1
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -546,7 +546,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.1.0
+                        v3.1.0
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -554,7 +554,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.0.9
+                        v3.0.9
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -568,7 +568,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.0.8
+                        v3.0.8
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -576,7 +576,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.0.7
+                        v3.0.7
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -587,7 +587,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.0.6
+                        v3.0.6
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -598,7 +598,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.0.5
+                        v3.0.5
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -609,7 +609,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.0.4
+                        v3.0.4
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -617,7 +617,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.0.3
+                        v3.0.3
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -628,7 +628,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.0.2
+                        v3.0.2
                     </div>
                     <ul className="creditslist">
                         <li>
@@ -645,7 +645,7 @@ export default function log () {
                         </li>
                     </ul>
                     <div className="filterholderflair" >
-                        V.3.0.1
+                        v3.0.1
                     </div>
                     <ul className="creditslist">
                         <li>
