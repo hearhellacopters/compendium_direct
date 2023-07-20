@@ -1,45 +1,4 @@
-export default function ability_use_maker (character_ability) {
-
-    var number = character_ability && character_ability.UseNum || 0
-
-    if( character_ability.Call75 ==true ||
-        character_ability.CallLD ==true
-    ) {
-        number = 1
-    } else if (character_ability.Trap == true ||
-        character_ability.FollowUp == true ||
-        character_ability.Counter == true ||
-        character_ability.BRV == true ||
-        character_ability.HP == true
-    ) {
-        number = 0
-    } else {
-        if (character_ability.increase != undefined) {
-            var new_value = character_ability.UseNum
-            var new_recast = 0
-            character_ability.increase.forEach(self => {
-                if (self.use != undefined) {
-                    new_value = new_value + self.use
-                }
-                if (self.recast != undefined) {
-                    new_recast = new_recast + self.recast
-                }
-            })
-            if (new_recast != 0) {
-                new_value = ((100 - new_recast) / 100) * new_value
-            }
-            number = new_value
-        } else {
-            if (character_ability && character_ability.BT == true && 
-                character_ability.UseNum == 0 && 
-                character_ability && character_ability.disp_flag_ == 1) {
-                number = 1
-            } else {
-                number = character_ability.UseNum
-            }
-        }
-    }
-
+const final_conver = (number)=>{
     if (number <= 99) {
         return (
             number
@@ -85,5 +44,57 @@ export default function ability_use_maker (character_ability) {
             "Slow--"
         )
     }
-    return number
+}
+export default function ability_use_maker (character_ability) {
+
+    var base_use = character_ability && character_ability.UseNum || 0
+    var full_use = character_ability && character_ability.UseNum || 0
+
+    if( character_ability.Call75 ==true ||
+        character_ability.CallLD ==true
+    ) {
+        base_use = 1
+        full_use = 1
+    } else if (character_ability.Trap == true ||
+        character_ability.FollowUp == true ||
+        character_ability.Counter == true ||
+        character_ability.BRV == true ||
+        character_ability.HP == true
+    ) {
+        base_use = 0
+        full_use = 0
+    } else {
+        if (character_ability.increase != undefined) {
+            var new_value = character_ability.UseNum
+            var new_recast = 0
+            character_ability.increase.forEach(self => {
+                if (self.use != undefined) {
+                    new_value = new_value + self.use
+                }
+                if (self.recast != undefined) {
+                    new_recast = new_recast + self.recast
+                }
+            })
+            if (new_recast != 0) {
+                new_value = ((100 - new_recast) / 100) * new_value
+            }
+            full_use = new_value
+        } else {
+            if (character_ability && character_ability.BT == true && 
+                character_ability.UseNum == 0 && 
+                character_ability && character_ability.disp_flag_ == 1) {
+                base_use = 1
+                full_use = 1
+            } else {
+                base_use = character_ability.UseNum
+                full_use = character_ability.UseNum
+            }
+        }
+    }
+
+    
+    return {
+        base: final_conver(base_use),
+        full: final_conver(full_use)
+    }
 }

@@ -880,6 +880,34 @@
   color: white;
 }
 
+.storeicon{
+  padding-top: 5px;
+  padding-left: 3px;
+  padding-right: 3px;
+  max-width: 64px;
+  cursor: pointer;
+  filter: drop-shadow(2px 2px 2px #222);
+  -webkit-filter: drop-shadow(2px 2px 2px #222);
+}
+
+.storeicon-active{
+  padding-top: 5px;
+  padding-left: 3px;
+  padding-right: 3px;
+  max-width: 64px;
+  cursor: pointer;
+  filter: sepia(100%) hue-rotate(18deg) saturate(400%) drop-shadow(2px 2px 2px #222);
+  -webkit-filter: sepia(100%) hue-rotate(18deg) saturate(400%) drop-shadow(2px 2px 2px #222);
+}
+
+.storeholder{
+  z-index: 1;
+  transition: all .2s;
+  transform-origin: 50% 0;
+  background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #8e8f8f 3.67%, #8e8f8f 96.44%, rgba(30, 55, 88, 0) 100%);
+  clear: both;
+}
+
 .loadmorespheres {
   background-image: url("https://dissidiacompendium.com/images/static/icons/buttons/svg/blue-button.svg");
   background-repeat: no-repeat;
@@ -905,6 +933,14 @@
     filter: brightness(1.2);
     -webkit-filter: brightness(1.2);
     transition: all ease 0.3s;
+  }
+  .storeicon:hover{
+    filter: drop-shadow(2px 2px 2px #222) brightness(1.2);
+    -webkit-filter: drop-shadow(2px 2px 2px #222) brightness(1.2);
+  }
+  .storeicon-active:hover{
+    filter: sepia(100%) hue-rotate(18deg) saturate(400%) drop-shadow(2px 2px 2px #222) brightness(1.2);
+    -webkit-filter: sepia(100%) hue-rotate(18deg) saturate(400%) drop-shadow(2px 2px 2px #222) brightness(1.2);
   }
 }
 
@@ -1014,7 +1050,20 @@
   padding-bottom: 10px;
 }
 
+.storeicon-active:active{
+  transform: translateY(1px);
+}
+.storeicon:active{
+  transform: translateY(1px);
+}
+
 @media screen and (max-width: 800px) {
+  .storeicon-active{
+    max-width: 48px;
+  }
+  .storeicon{
+    max-width: 48px;
+  }
   .toevents{
     font-size: 12px;
   }

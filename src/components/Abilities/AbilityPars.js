@@ -209,7 +209,7 @@ export default function AbilityPars({
         master_index,
         ver,
 
-        use_num,
+        use_num.full,
     )
    
     var Name = ""
@@ -361,18 +361,18 @@ export default function AbilityPars({
                         <div className={hide_chara == true ? "enemyabilityiconholder" :"abilityiconholder"} onClick={showmeraw} >
                             <div className="abilityurlholder">
                                 <LazyLoadImage effect="opacity" className="abilityicon" alt={Name} src={`https://dissidiacompendium.com/images/static/${IconURL}.png`} />
-                                {use_num == "∞" || enemy || summon ? "" : <div className={
-                                    typeof use_num == "string" ? "abilityblspeed" :
-                                    character_ability.Crystal == true && use_num != 0 ? "saholder_crystal" :
-                                        character_ability.FR == true && use_num != 0 ? "saholderg" :
-                                            character_ability.CallLD == true && use_num != 0 ? "saholderg" :
-                                                character_ability.BT == true && use_num != 0 ? "saholderg" :
+                                {use_num.full == "∞" || enemy || summon ? "" : <div className={
+                                    typeof use_num.full == "string" ? "abilityblspeed" :
+                                    character_ability.Crystal == true && use_num.full != 0 ? "saholder_crystal" :
+                                        character_ability.FR == true && use_num.full != 0 ? "saholderg" :
+                                            character_ability.CallLD == true && use_num.full != 0 ? "saholderg" :
+                                                character_ability.BT == true && use_num.full != 0 ? "saholderg" :
                                                     "saholder"
                                 }>
-                                    {typeof use_num != "string" ?
-                                        <div className={`${character_ability.Crystal == true ? "sanumber_crystal": "sanumber"} ${character_ability.Free_Ability == true ? "upstat" : ""}`}>{use_num || "∞"}</div>
+                                    {typeof use_num.full != "string" ?
+                                        <div className={`${character_ability.Crystal == true ? "sanumber_crystal": "sanumber"} ${character_ability.Free_Ability == true ? "upstat" : ""}`}>{use_num.full || "∞"}</div>
                                         :
-                                        (use_num || "∞")
+                                        (use_num.full || "∞")
                                     }
                                 </div>}
                             </div>
@@ -502,20 +502,20 @@ export default function AbilityPars({
                                     </Tippy>
                                 :""}
                             </div>
-                            {enemy || summon ? "": use_num != 0 ?
+                            {enemy || summon ? "": use_num.base != 0 ?
                                 <div className="usesmaker">
                                     <div className="sidewaystextholder">
                                         <div className="sidewaystext unique">
-                                            {typeof use_num == "string" ?
+                                            {typeof use_num.base == "string" ?
                                                 "Speed" :
                                                 "Uses"}
                                         </div>
                                     </div>
-                                    {typeof use_num == "string" ?
+                                    {typeof use_num.base == "string" ?
                                         <Tippy content={recast_tip}>
                                             <div className={"abilityusesholder2"}>
                                             {ReplacerCharacter(`<${use_tag != undefined ? use_tag :tag_override != undefined ? tag_override : character_ability.command && character_ability.command.rank && ability_rank_trans(character_ability.command.rank)}>`)}
-                                                {use_num || "∞"}
+                                                {use_num.base || "∞"}
                                                 {character_ability.increase && character_ability.increase.map((self, i) => (
                                                         self.recast != undefined ?
                                                             <div key={i} style={{ whiteSpace: "nowrap" }}>
@@ -526,13 +526,14 @@ export default function AbilityPars({
                                                                     {ReplacerCharacter(`<${self.loc_tag}> +${self.use}`)}
                                                                 </div>
                                                 ))}
+                                                {character_ability.increase != undefined ? <div className=''>{typeof use_num.base == "string" ? `(${use_num.full})` : `Total: ${use_num.full}`}</div>: ""}
                                             </div>
                                         </Tippy>
                                         :
                                         <div className={"abilityusesholder"}>
                                             {ReplacerCharacter(`<${use_tag != undefined ? use_tag :tag_override != undefined ? tag_override : character_ability.command && character_ability.command.rank && ability_rank_trans(character_ability.command.rank)}>`)}
-                                            {use_tag != undefined ? " x" :""}{use_num || "∞"}
-                                            {character_ability.increase != undefined && use_num != 0 ?
+                                            {use_tag != undefined ? " x" :""}{use_num.base || "∞"}
+                                            {character_ability.increase != undefined && use_num.base != 0 ?
                                                 character_ability.increase.map((self, i) => (
                                                     self.recast != undefined ?
                                                         <div key={i} style={{ whiteSpace: "nowrap" }}>
@@ -544,6 +545,7 @@ export default function AbilityPars({
                                                             </div>
                                                 ))
                                             : ""}
+                                            {character_ability.increase != undefined ? <div className=''>{typeof use_num.base == "string" ? `(${use_num.full})` : `Total: ${use_num.full}`}</div>: ""}
                                         </div>}
                                 </div>
                             : ""}

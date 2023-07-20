@@ -1,0 +1,868 @@
+.DailyMission{
+    background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Daily.png');
+}
+
+.PlayerMission{
+    background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Player.png');
+}
+
+.PanelMission {
+    background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Panel.png');
+}
+
+.UltimaMission {
+    background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Ultima.png');
+}
+
+.SingleMission {
+    background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Single.png');
+}
+
+.panel_dyn{
+    position: relative;
+    display: inline-block;
+}
+
+.panel-bg{
+    width: 100%;
+}
+
+.panel-header {
+    position: absolute;
+    width: 81%;
+    top: 0px; 
+    left: 0px; 
+}
+
+.panel-title {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(1vw, 2vw, 20px);
+    width: 37%;
+    height: 7.5%;
+    top: 2%;
+    left: 4%;
+}
+
+.panel-page {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(1vw, 2vw, 20px);
+    width: 9.7%;
+    height: 4.5%;
+    top: 7.5%;
+    left: 46.5%;
+}
+
+.panel-time{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(1vw, 2vw, 20px);
+    width: 13.5%;
+    height: 4.5%;
+    top: 7.5%;
+    left: 60.5%;
+}
+
+.color-grey{
+    color: grey;
+}
+
+.panel-clear-bn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 79.5%;
+    top: 6%;
+    width: 16%;
+    height: 6%;
+    font-size: clamp(1vw, 2vw, 20px);
+    background: linear-gradient(180deg, #FFFFFF 5.73%, rgba(142, 248, 230, 0.476923) 29.69%, rgba(39, 241, 207, 0) 47.92%, rgba(39, 241, 207, 0) 52.08%, #27F1CF 81.25%, #27F1CF 100%), #03a971;
+    box-shadow: inset -2px -2px 4px #000000, inset 2px 0px 4px #93B3A8;
+    cursor: pointer;
+    border-radius: 3px 3px 3px 3px;
+    transition: all ease 0.3s;
+    border: 1px solid black;
+    filter: drop-shadow(0px 0px 2px #222);
+    -webkit-filter: drop-shadow(0px 0px 2px #222); 
+}
+
+@media (hover: hover) {
+    .panel-clear-bn:hover {
+        filter: brightness(1.2);
+        -webkit-filter: brightness(1.2);
+        transition: all ease 0.3s;
+    }
+    .reward-list-item:hover {
+        filter: drop-shadow(2px 2px 2px #222) brightness(1.2);
+        -webkit-filter: drop-shadow(2px 2px 2px #222) brightness(1.2);
+        transition: all ease 0.3s;
+    }
+}
+
+.panel-clear-bn:active {
+    filter: drop-shadow(0px 0px 2px #222) brightness(.8);
+    -webkit-filter: drop-shadow(0px 0px 2px #222) brightness(.8);
+    transition: all 0s;
+}
+
+.panel-bg_1_1{
+    position: absolute;
+    width: 35%;
+    top: 15%; 
+    left: 0%; 
+}
+
+.panel-bg_1_2{
+    position: absolute;
+    width: 35%;
+    top: 15%; 
+    left: 30.5%; 
+}
+
+.panel-bg_1_3{
+    position: absolute;
+    width: 35%;
+    top: 15%; 
+    left: 61%; 
+}
+
+.panel-bg_2_1{
+    position: absolute;
+    width: 35%;
+    top: 40%; 
+    left: 0%; 
+}
+
+.panel-bg_2_2{
+    position: absolute;
+    width: 35%;
+    top: 40%; 
+    left: 30.5%; 
+}
+
+.panel-bg_2_3{
+    position: absolute;
+    width: 35%;
+    top: 40%; 
+    left: 61%; 
+}
+
+.panel-bg_3_1{
+    position: absolute;
+    width: 35%;
+    top: 65%; 
+    left: 0%; 
+}
+
+.panel-bg_3_2{
+    position: absolute;
+    width: 35%;
+    top: 65%; 
+    left: 30.5%; 
+}
+
+.panel-bg_3_3{
+    position: absolute;
+    width: 35%;
+    top: 65%; 
+    left: 61%; 
+}
+
+.panel-box{
+    position: absolute;
+    display: flex;
+    text-align: left;
+    color: #331801;
+    font-family: 'Open Sans';
+    text-shadow: none !important;
+    font-size: clamp(.6vw, 1vw, 14px);
+    width: 19.2%;
+    height: 10%;
+}
+
+.box_1_1{
+    top: 24.5%;
+    left: 13.6%;
+}
+
+.box_1_2{
+    top: 24.5%;
+    left: 44%;
+}
+
+.box_1_3{
+    top: 24.5%;
+    left: 74.5%;
+}
+
+.box_2_1{
+    top: 50%;
+    left: 13.6%;
+}
+
+.box_2_2{
+    top: 50%;
+    left: 44%;
+}
+
+.box_2_3{
+    top: 50%;
+    left: 74.5%;
+}
+
+.box_3_1{
+    top: 75%;
+    left: 13.6%;
+}
+
+.box_3_2{
+    top: 75%;
+    left: 44%;
+}
+
+.box_3_3{
+    top: 75%;
+    left: 74.5%;
+}
+
+.total-box{
+    position: absolute;
+    display: flex;
+    color: #331801;
+    font-family: 'Open Sans';
+    text-shadow: none !important;
+    flex-direction: column-reverse;
+    align-content: flex-end;
+    justify-content: flex-start;
+    align-items: flex-end;
+    font-size: clamp(.5vw, 1.5vw, 16px);
+    width: 3%;
+    height: 4.3%;
+}
+
+.total_1_1{
+    top: 31.5%;
+    left:29.7%
+}
+
+.total_1_2{
+    top: 31.5%;
+    left:60.2%
+}
+
+.total_1_3{
+    top: 31.5%;
+    left:90.8%
+}
+
+.total_2_1{
+    top: 56.8%;
+    left:29.7%
+}
+
+.total_2_2{
+    top: 56.8%;
+    left:60.2%
+}
+
+.total_2_3{
+    top: 56.8%;
+    left:90.8%
+}
+
+.total_3_1{
+    top: 81.8%;
+    left:29.7%
+}
+
+.total_3_2{
+    top: 81.8%;
+    left:60.2%
+}
+
+.total_3_3{
+    top: 81.8%;
+    left:90.8%
+}
+
+.panel-reward{
+    position: absolute;
+    display: flex;
+    font-size: clamp(.5vw, 1.5vw, 16px);
+    width: 5.1%;
+    height: 9%;
+    max-width: 96px;
+    max-height: 96px;
+}
+
+.reward_1_1{
+    top: 23%;
+    left:7.3%
+}
+
+.reward_1_2{
+    top: 23%;
+    left:37.8%
+}
+
+.reward_1_3{
+    top: 23%;
+    left:68.3%
+}
+
+.reward_2_1{
+    top: 48%;
+    left:7.3%
+}
+
+.reward_2_2{
+    top: 48%;
+    left:37.8%
+}
+
+.reward_2_3{
+    top: 48%;
+    left:68.3%
+}
+
+.reward_3_1{
+    top: 73%;
+    left:7.3%
+}
+
+.reward_3_2{
+    top: 73%;
+    left:37.8%
+}
+
+.reward_3_3{
+    top: 73%;
+    left:68.3%
+}
+
+
+.panel-item-icon{
+    display: flex;
+    margin: auto;
+    width: 100%;
+    max-width: 96px;
+    max-height: 96px;
+}
+
+.panel-item{
+    position: absolute;
+    display: flex;
+    font-size: clamp(.5vw, 1.5vw, 16px);
+    width: 4%;
+    height: 7%;
+    max-width: 96px;
+    max-height: 96px;
+}
+
+.item_1_1{
+    top: 24%;
+    left:7.8%
+}
+
+.item_1_2{
+    top: 24%;
+    left:38.3%
+}
+
+.item_1_3{
+    top: 24%;
+    left:68.8%
+}
+
+.item_2_1{
+    top: 49%;
+    left:7.8%
+}
+
+.item_2_2{
+    top: 49%;
+    left:38.3%
+}
+
+.item_2_3{
+    top: 49%;
+    left:68.8%
+}
+
+.item_3_1{
+    top: 74%;
+    left:7.8%
+}
+
+.item_3_2{
+    top: 74%;
+    left:38.3%
+}
+
+.item_3_3{
+    top: 74%;
+    left:68.8%
+}
+
+.item_s_1_1{
+    top: 24.3%;
+    left:7.8%
+}
+
+.item_s_1_2{
+    top: 24.3%;
+    left:38.3%
+}
+
+.item_s_1_3{
+    top: 24.3%;
+    left:68.8%
+}
+
+.item_s_2_1{
+    top: 49.3%;
+    left:7.8%
+}
+
+.item_s_2_2{
+    top: 49.3%;
+    left:38.3%
+}
+
+.item_s_2_3{
+    top: 49.3%;
+    left:68.8%
+}
+
+.item_s_3_1{
+    top: 74.3%;
+    left:7.8%
+}
+
+.item_s_3_2{
+    top: 74.3%;
+    left:38.3%
+}
+
+.item_s_3_3{
+    top: 74.3%;
+    left:68.8%
+}
+
+.panel-star{
+    position: absolute;
+    display: flex;
+    font-size: clamp(.5vw, 1.5vw, 16px);
+    width: 4.9%;
+    height: 2%;
+    max-width: 96px;
+    max-height: 19px;
+}
+
+.star_1_1{
+    top: 23%;
+    left:7.3%
+}
+
+.star_1_2{
+    top: 23%;
+    left:37.8%
+}
+
+.star_1_3{
+    top: 23%;
+    left:68.3%
+}
+
+.star_2_1{
+    top: 48%;
+    left:7.3%
+}
+
+.star_2_2{
+    top: 48%;
+    left:37.8%
+}
+
+.star_2_3{
+    top: 48%;
+    left:68.3%
+}
+
+.star_3_1{
+    top: 73%;
+    left:7.3%
+}
+
+.star_3_2{
+    top: 73%;
+    left:37.8%
+}
+
+.star_3_3{
+    top: 73%;
+    left:68.3%
+}
+
+.panel-amount{
+    position: absolute;
+    display: flex;
+    flex-direction: column-reverse;
+    align-content: flex-end;
+    justify-content: flex-start;
+    align-items: flex-end;
+    font-size: clamp(.5vw, 1.5vw, 12px);
+    width: 4.6%;
+    height: 9%;
+    max-width: 96px;
+    max-height: 96px;
+}
+
+.amount_1_1{
+    top: 23%;
+    left:7.5%
+}
+
+.amount_1_2{
+    top: 23%;
+    left:37.8%
+}
+
+.amount_1_3{
+    top: 23%;
+    left:68.3%
+}
+
+.amount_2_1{
+    top: 48%;
+    left:7.5%
+}
+
+.amount_2_2{
+    top: 48%;
+    left:37.8%
+}
+
+.amount_2_3{
+    top: 48%;
+    left:68.3%
+}
+
+.amount_3_1{
+    top: 73%;
+    left:7.5%
+}
+
+.amount_3_2{
+    top: 73%;
+    left:37.8%
+}
+
+.amount_3_3{
+    top: 73%;
+    left:68.3%
+}
+
+@media (hover: hover) {
+    .panel-box:hover {
+        transform: translateY(-1px);
+        filter: brightness(1.2);
+        -webkit-filter: brightness(1.2);
+        cursor: pointer;
+        transition: all ease 0.3s;
+    }
+    .panel-reward-holder:hover{
+        cursor: pointer;
+    }
+}
+
+.panel-box:active {
+    transform: translateY(0px);
+    transition: all 0s;
+}
+
+@media screen and (max-width: 550px) {
+    .panel-box{
+        visibility: hidden;
+    }
+    .panel-box:before{
+        position: absolute;
+        display: block;
+        text-align: left;
+        color: #331801;
+        font-family: 'Open Sans';
+        font-weight: 800;
+        font-size: clamp(1.8vw, 2vw, 14px);
+        text-shadow: none !important;
+        content: "Click to read";
+        visibility: visible;
+        min-height: 20px;
+    }
+}
+
+.mission_holder{
+    background-color: #273153;
+    border-radius: 5px;
+    margin-top: 5px;
+    padding: 5px;
+    -webkit-filter: drop-shadow(2px 2px 2px #222);
+    filter: drop-shadow(2px 2px 2px #222);
+}
+
+.mis_purple{
+    background-color: #5d38f1 !important;
+}
+
+.mis_gold{
+    background-color: #ab9447  !important;
+}
+
+.mis_reward_title{
+    font-size: 19px;
+}
+
+.solo_reward_title{
+    margin-left: 3px;
+    align-items: center;
+    flex-wrap: nowrap;
+    align-content: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.reward-holder{
+    display: flex;
+    height: 96px;
+    width: 96px;
+    max-width: 100px;
+    max-height: 100px;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 5px;
+    z-index: 0;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+}
+
+.shop-item{
+    display: inline-grid;
+    background-color: #273153;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+    filter: drop-shadow(2px 2px 2px #222);
+    flex-direction: column;
+    align-content: flex-start;
+    justify-content: start;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-items: center;
+}
+
+.float-left{
+    float: left;
+}
+
+.floater{
+    float: left;
+}
+
+.reward-list{
+    clear: both;
+    display: contents;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.reward_bg{
+    display: flex;
+    float: left;
+    position: absolute;
+    z-index: 0;
+    max-width: 96px;
+}
+.reward_star{
+    display: inherit;
+    position: absolute;
+    z-index: 3;
+    max-width: 96px;
+}
+.reward_amount{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-items: flex-end;
+    height: 96px;
+    width: 82px;
+    max-height: 96px;
+    max-width: 96px;
+    z-index: 4;
+}
+.reward_item{
+    display: inherit;
+    position: absolute;
+    z-index: 1;
+    max-width: 80px;
+    max-height: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+}
+.reward_item-solo{
+    display: inherit;
+    position: absolute;
+    z-index: 1;
+    max-width: 96px;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+}
+.reward_star-holder{
+    display: inherit;
+    position: absolute;
+    min-height: 96px;
+    width: 96px;
+}
+.reward_pass{
+    display: inherit;
+    position: absolute;
+    max-height: 32px;
+    z-index: 5;
+}
+.reward_pass-holder{
+    display: flex;
+    position: absolute;
+    width: 96px;
+    height: 96px;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+    align-content: flex-end;
+    flex-wrap: nowrap;
+    margin-left: -10px;
+}
+
+.reward_list{
+    clear: both;
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    margin-top: 3px;
+    padding: 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: center;
+    justify-items: start;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.reward-list-item{
+    display: inline-flex;
+    filter: drop-shadow(2px 2px 2px #222);
+    -webkit-filter: drop-shadow(2px 2px 2px #222);
+    vertical-align: middle;
+    height: 96px;
+    width: 96px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-left: 6px;
+    margin-right: 6px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.rewards_limit{
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.reward_solo{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-content: center;
+    align-items: flex-start;
+}
+
+@media screen and (max-width: 800px) {
+    .reward_solo{
+        display: block;
+    }
+    .reward-list-item{
+        height: 64px;
+        width: 64px;  
+        margin-left: 4px;
+        margin-right: 4px;
+    }
+    .reward_pass-holder{
+        width: 64px;
+        height: 64px;
+        margin-left: -5px;
+    }
+    .reward_pass{
+        max-height: 25px;
+    }
+    .reward_amount{
+        font-size: 14px;
+        height: 64px;
+        width: 59px;
+    }
+    .reward_bg{
+        max-width: 64px;
+    }
+    .reward_item{
+        max-width: 50px;
+        max-height: 50px;
+    }
+    .reward_item-solo{
+        max-width: 64px;
+    }
+    .reward_star-holder{
+        min-height: 64px;
+        width: 64px;
+    }
+    .reward_star{
+        max-width: 62px;
+    }
+    .reward-holder{
+        width: 64px;
+        height: 64px;
+        max-width: 64px;
+        max-height: 64px;
+        padding-bottom: 3px;
+    }
+    .floater{
+        float: none;
+    }
+    .reward-list{
+        width: 64px;
+        height: 64px;
+        max-width: 64px;
+        max-height: 64px;
+    }
+    .solo_reward_title {
+        margin-left: 0px;
+        min-height: 0px;
+    }
+    .mis_reward_title{
+        font-size: 15px;
+        min-height: 0px;
+    }
+}

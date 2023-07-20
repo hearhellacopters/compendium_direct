@@ -108,7 +108,7 @@ export default function AbilityDifFormatting({
         master_index,
         ver_new,
 
-        use_num,
+        use_num.full,
     )
 
     var Name = ""
@@ -279,16 +279,16 @@ export default function AbilityDifFormatting({
                             <div className="abilityurlholder">
                                 <img className="abilityicon" alt={Name} src={`https://dissidiacompendium.com/images/static/${IconURL}.png`} />
                                 <div className={
-                                    typeof use_num == "string" ? "abilityblspeed" :
-                                        character_ability.FR == true && use_num != 0 ? "saholderg" :
-                                            character_ability.CallLD == true && use_num != 0 ? "saholderg" :
-                                                character_ability.BT == true && use_num != 0 ? "saholderg" :
+                                    typeof use_num.full == "string" ? "abilityblspeed" :
+                                        character_ability.FR == true && use_num.full != 0 ? "saholderg" :
+                                            character_ability.CallLD == true && use_num.full != 0 ? "saholderg" :
+                                                character_ability.BT == true && use_num.full != 0 ? "saholderg" :
                                                     "saholder"
                                 }>
-                                    {use_num < 100 ?
-                                        <div className={`sanumber ${character_ability.Free_Ability == true ? "upstat" : ""}`}>{(use_num || "∞")}</div>
+                                    {use_num.full < 100 ?
+                                        <div className={`sanumber ${character_ability.Free_Ability == true ? "upstat" : ""}`}>{(use_num.full || "∞")}</div>
                                         :
-                                        (use_num || "∞")
+                                        (use_num.full || "∞")
                                     }
                                 </div>
                             </div>
@@ -410,19 +410,19 @@ export default function AbilityDifFormatting({
                                     </Tippy>
                                 :""}
                         </div>
-                        {use_num != 0 ?
+                        {use_num.base != 0 ?
                             <div className="usesmaker">
                                 <div className="sidewaystextholder">
                                     <div className="sidewaystext unique">
-                                        {typeof use_num == "string" ?
+                                        {typeof use_num.base == "string" ?
                                             "Speed" :
                                             "Uses"}
                                     </div>
                                 </div>
-                                {typeof use_num == "string" ?
+                                {typeof use_num.base == "string" ?
                                     <div className={"abilityusesholder2"}>
                                         {ReplacerCharacter(`<${character_ability.command && character_ability.command.rank && ability_rank_trans(character_ability.command.rank)}>`)}
-                                        {use_num || "∞"}
+                                        {use_num.base || "∞"}
                                         {character_ability.increase.map((self, i) => (
                                                 self.recast != undefined ?
                                                     <div key={i} style={{ whiteSpace: "nowrap" }}>
@@ -433,12 +433,13 @@ export default function AbilityDifFormatting({
                                                             {ReplacerCharacter(`<${self.loc_tag}> +${self.use}`)}
                                                         </div>
                                         ))}
+                                        {character_ability.increase != undefined ? <div className=''>{typeof use_num.base == "string" ? `(${use_num.full})` : `Total: ${use_num.full}`}</div>: ""}
                                     </div>
                                     :
                                     <div className={"abilityusesholder"}>
                                         {ReplacerCharacter(`<${character_ability.command && character_ability.command.rank && ability_rank_trans(character_ability.command.rank)}>`)}
-                                        {use_num || "∞"}
-                                        {character_ability.increase != undefined && use_num != 0 ?
+                                        {use_num.base || "∞"}
+                                        {character_ability.increase != undefined && use_num.base != 0 ?
                                             character_ability.increase.map((self, i) => (
                                                 self.recast != undefined ?
                                                     <div key={i} style={{ whiteSpace: "nowrap" }}>
@@ -450,6 +451,7 @@ export default function AbilityDifFormatting({
                                                         </div>
                                             ))
                                         : ""}
+                                        {character_ability.increase != undefined ? <div className=''>{typeof use_num.base == "string" ? `(${use_num.full})` : `Total: ${use_num.full}`}</div>: ""}
                                     </div>}
                             </div>
                             : ""}

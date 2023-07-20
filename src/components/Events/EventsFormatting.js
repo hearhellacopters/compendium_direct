@@ -10,10 +10,14 @@ import { EndsInTimer, StartsInTimer } from '../../components/Timers.js'
 import TickDown from '../../components/tickDown.js'
 import TickUp from '../../components/tickUp.js'
 import BackMaker from '../Characters/CharacterBackFormatting.js';
-
+import axios from 'axios';
+import MissionFormatting from '../Missions/MissionFormatting.js';
 import Sphere_Passive_Ability_Formatting from '../Passives/PassiveSphereFormatting.js';
 import { useDispatch, useSelector } from "react-redux";
 import { getJPToggle } from '../../redux/ducks/jptoggle.js';
+import Tippy from '../TippyDefaults.js'
+import { ObjectView } from 'react-object-view'
+import { ImWarning } from 'react-icons/im';
 
 //direct
 
@@ -41,8 +45,44 @@ export default function EventsFormatting({
     const [showingLinks, setShowingLinks] = useState(false)
     const [bannerdisplay, setBannerdisplay] = useState("Banner1")
     const [selectedbanner, setselectedbanner] = useState()
-    const [showingsphereslist, setshowingsphereslist] = useState(permapage == true ? true : false)
+    const [showingsphereslist, setshowingsphereslist] = useState(false)
+    const [showingmissionlist, setshowingmissionlist] = useState(false)
+    const [showingshoplist, setshowingshoplist] = useState(false)
     const [spheres_holder, setspheres_holder] = useState()
+    const [shopdata,setshopdata] = useState([])
+    const [missiondata,setmissiondata] = useState([])
+
+    useEffect(() => {
+        setshowingsphereslist(false)
+        setshowingmissionlist(false)
+        setshowingshoplist(false)
+        setmissiondata([])
+        setshopdata([])
+    },[match])
+
+    useEffect(() => {
+       if(showingshoplist == true && match.shop != undefined && shopdata.length == 0){
+            axios.get(`https://www.dissidiacompendium.com/data/_dir/shops/${match.tempdate == true ? "JP":"GL"}/${match.shop}.json`, { 'muteHttpExceptions': true }).then((res) => {
+                const response = res.data;
+                setshopdata(response)
+            }).catch(function (err) {
+                console.log(err)
+                setshopdata([])
+            })
+        }
+    },[match,showingshoplist,shopdata])
+
+    useEffect(() => {
+        if(showingmissionlist == true && match.missions == true && missiondata.length == 0){
+             axios.get(`https://www.dissidiacompendium.com/data/_dir/missions/${match.tempdate == true ? "JP":"GL"}fields/${match.field_id}.json`, { 'muteHttpExceptions': true }).then((res) => {
+                 const response = res.data;
+                 setmissiondata(response)
+             }).catch(function (err) {
+                 console.log(err)
+                 setmissiondata([])
+             })
+         }
+     },[match,showingmissionlist,missiondata])
 
     useEffect(() => {
         if (match.bannercount != 0 && match.banners && match.banners.length != 0) {
@@ -151,6 +191,41 @@ export default function EventsFormatting({
         }
     }, [jptoggledata, match, showingsphereslist, ProcessedSpheres])
 
+    const showSpheres=()=>{
+        setshowingmissionlist(false)
+        setshowingshoplist(false)
+        setshowingsphereslist((prevValue) => !prevValue)
+    }
+
+    const showMissions=()=>{
+        setshowingmissionlist((prevValue) => !prevValue)
+        setshowingshoplist(false)
+        setshowingsphereslist(false)
+    }
+
+    const showShop=()=>{
+        setshowingmissionlist(false)
+        setshowingshoplist((prevValue) => !prevValue)
+        setshowingsphereslist(false)
+    }
+
+    const [showraw, setshowraw] = useState(false)
+
+    const showmeraw = (e) => {
+        if (e.shiftKey) {
+            if (showraw == false) {
+                setshowraw(true)
+            } else {
+                setshowraw(false)
+            }
+        }
+    }
+
+    const [spoilers, setspoilers] = useState(false)
+    const toggle_spoilers = () => {
+        setspoilers((prevValue) => !prevValue)
+    }
+
     return (
         <li id={match.type} key={match.eventindex}>
             <div className={permapage == true ? "singleeventtitlebanner" : "eventtitlebanner"} style={{ minHeight: "40px" }}>
@@ -158,7 +233,7 @@ export default function EventsFormatting({
                     <Link style={{ color: "white" }} to={`/events/` + match.eventindex} >
                         <h3 className={permapage == false ? "toevents" : "atevents"}>{match.name}</h3>
                     </Link> :
-                    <h3 className={permapage == false ? "toevents" : "atevents"}>{match.name}</h3>
+                    <h3 onClick={showmeraw} className={permapage == false ? "toevents" : "atevents"}>{match.name}</h3>
                 }
                 {currenttime >= new Date(match.outdate) ? (
                     match.permanent == true ? (
@@ -310,43 +385,57 @@ export default function EventsFormatting({
                         : ""}
                     {hide_other != true ?
                     <>
-                    {match.EnemyList.length != 0 ?
+                    {match.SpheresList.length != 0 || match.missions == true || match.shop != undefined?
                         <div className="znone">
-                            <div className="enemyunits" >
-                                <div className="featuredbanner">Featured Enemies</div>
-                                <ul className="enemyevents">
-                                    {match.EnemyList.map(Enemy => (
-                                        <EnemyListingDirect key={Enemy.key} match={Enemy} />
-                                    ))}
-                                </ul>
-                            </div>
-                        </div> : ""
-                    }
-                    {match.CharList.length != 0 ?
-                        <div className="zone">
-                            <div className="featuredbanner">Featured Characters</div>
-                            <div className="charholderflair" style={{ minHeight: "40px" }}>
-                                <ul className="CharListHolder">
-                                    <LazyLoadComponent>
-                                        {match.CharList.map((char,i) => (
-                                            <CharacterFaceFormatting key={i} match={char} BTUnit={match.BTChar} />
-                                        ))
-                                        }
-                                    </LazyLoadComponent>
-                                </ul>
-                            </div>
-                        </div>
-                        : ""
-                    }
-                    {match.SpheresList.length != 0 ?
-                        <div className="zone">
                             <div className="featuredbanner">
-                                <div onClick={() => setshowingsphereslist((prevValue) => !prevValue)} className="loadmorespheres">
-                                    <span className="spheresbutton rfSpheresButton"></span> Spheres
-                                </div>
+                                Stores / Missions
+                            </div>
+                            <div className='storeholder'>
+                                {match.shop != undefined ?
+                                    <Tippy content={"Store"}>
+                                        <img src={'https://dissidiacompendium.com/images/static/icons/misc/ShopStore.png'} alt="Shop Store" onClick={showShop} className={`storeicon${showingshoplist == true && shopdata.length != 0 ? "-active":""}`}/>
+                                    </Tippy>
+                                :""}
+                                {match.SpheresList.length != 0 ?
+                                    <Tippy content={"Spheres"}>
+                                        <img src={'https://dissidiacompendium.com/images/static/icons/misc/SphereStore.png'} alt="Spheres Store" onClick={showSpheres} className={`storeicon${showingsphereslist ==true ? "-active":""}`}/>
+                                    </Tippy>
+                                :""}
+                                {match.missions == true ?
+                                    <Tippy content={"Missions"}>
+                                        <img src={'https://dissidiacompendium.com/images/static/icons/misc/MissionsMenu.png'} alt="Missions" onClick={showMissions} className={`storeicon${showingmissionlist ==true && missiondata.length != 0? "-active":""}`}/>
+                                    </Tippy>
+                                :""}
+                                {showingmissionlist == true && missiondata.length !=0 ?
+                                    missiondata.map((mission, i) => {
+                                        return(
+                                        <MissionFormatting
+                                        key={`${match.field_id}-${i}`}
+                                        mission={mission}
+                                        solo={false}
+                                        no_field={true}
+                                        ver={match.tempdate == true? "JP":"GL"}
+                                        />
+                                        )
+                                    })
+                                :""}
+                                {showingshoplist == true && shopdata.length !=0 ?
+                                    <div className={`rewards_limit`}>
+                                        {shopdata.sort((a,b)=>a.sort_num - b.sort_num).map((mission, i) => {
+                                            return(
+                                            <MissionFormatting
+                                            key={`${match.field_id}-${i}`}
+                                            mission={mission}
+                                            solo={false}
+                                            costs={true}
+                                            ver={match.tempdate == true? "JP":"GL"}
+                                            />
+                                            )
+                                        })}
+                                    </div>
+                                :""}
                             </div>
                             {master_index != undefined &&
-
                                 ver != undefined &&
                                 showingsphereslist == true &&
                                 spheres_holder != undefined ?
@@ -375,9 +464,74 @@ export default function EventsFormatting({
                                             link={"spheres"}
                                         />
                                     ))}
-                                </div> : ""}
+                                </div> 
+                            : ""}
                         </div>
-                        : ""}
+                    : ""}
+                    {match.EnemyList.length != 0 && match.EnemyListGL == undefined && match.EnemyListJP == undefined ?
+                        <div className="znone">
+                            <div className="enemyunits" >
+                                <div className="featuredbanner">Featured Enemies</div>
+                                <ul className="enemyevents">
+                                    {match.EnemyList.map(Enemy => (
+                                        <EnemyListingDirect key={Enemy.key} match={Enemy} />
+                                    ))}
+                                </ul>
+                            </div>
+                        </div> : ""
+                    }
+                    {match.EnemyListGL != undefined || match.EnemyListJP != undefined ?
+                        <div className="znone">
+                            <div className="enemyunits" >
+                                {match.EnemyListGL != undefined ?
+                                <>
+                                <div className="featuredbanner"><span className="emoji">🌎</span> Enemies</div>
+                                <ul className="enemyevents">
+                                    {match.EnemyListGL.map(Enemy => (
+                                        <EnemyListingDirect key={Enemy.key} match={Enemy} />
+                                    ))}
+                                </ul>
+                                </>
+                                :""}
+                                {match.EnemyListJP != undefined ?
+                                    <>
+                                    <div className="featuredbanner"><span style={{marginRight:"3px"}} className='jpflagtick'/>{' Enemies'}</div>
+                                    <ul className="enemyevents">
+                                        {jptoggledata == false && spoilers == false ?
+                                        <div style={{paddingTop:"5px",cursor:"pointer",display:"inline-block"}} id="red" className='' onClick={toggle_spoilers}>
+                                            <ImWarning className='jpsmallinactive'></ImWarning>
+                                            {" SPOILER WARNING "}
+                                            <ImWarning className='jpsmallinactive'></ImWarning><br />
+                                            <span className='updatelink'>- Click to show -</span>
+                                        </div>
+                                        :
+                                        match.EnemyListJP.map(Enemy => (
+                                            <EnemyListingDirect key={Enemy.key} match={Enemy} />
+                                        ))
+                                        }
+                                    </ul>
+                                    </>
+                                :""}
+                            </div>
+                        </div>
+                    :""}
+                    {match.CharList.length != 0 ?
+                        <div className="zone">
+                            <div className="featuredbanner">Featured Characters</div>
+                            <div className="charholderflair" style={{ minHeight: "40px" }}>
+                                <ul className="CharListHolder">
+                                    <LazyLoadComponent>
+                                        {match.CharList.map((char,i) => (
+                                            <CharacterFaceFormatting key={i} match={char} BTUnit={match.BTChar} />
+                                        ))
+                                        }
+                                    </LazyLoadComponent>
+                                </ul>
+                            </div>
+                        </div>
+                        : ""
+                    }
+
                     {showingLinks == false ? "" :
                         <CommunityEventGuidesFormatting index={match.eventindex} EventGuideData={EventGuideData} />
                     }
@@ -422,6 +576,18 @@ export default function EventsFormatting({
                     :""}
                 </div>
             </div>
+            {showraw == true ?
+                <span className='react-json-view'>
+                <ObjectView 
+                options={
+                    {
+                        hideDataTypes: true,
+                        expandLevel: 1
+                    }
+                    }
+                data={match} />
+                </span>
+            : ""}
         </li>
     )
 }

@@ -1,4 +1,4 @@
-export default function format_cleaner(text){
+export default function format_cleaner (text) {
    if (text == undefined) {
       return (
          ""
@@ -299,11 +299,17 @@ export default function format_cleaner(text){
          .replace(/\\bUV/g, "\\\\279\\\\")
          .replace(/\\bUW/g, "\\\\280\\\\")
          .replace(/\\bUX/g, "\\\\281\\\\")
+         .replace(/赤\\bUY/g, "red <Redcrystalmini>")
          .replace(/\\bUY/g, "\\\\282\\\\")
+         .replace(/青\\bUZ/g, "blue <Bluecrystalmini>")
          .replace(/\\bUZ/g, "\\\\283\\\\")
+         .replace(/緑\\bUa/g, "green <Greencrystalmini>")
          .replace(/\\bUa/g, "\\\\284\\\\")
+         .replace(/白\\bUb/g, "white <Whitecrystalmini>")
          .replace(/\\bUb/g, "\\\\285\\\\")
+         .replace(/黒\\bUc/g, "black <Blackcrystalmini>")
          .replace(/\\bUc/g, "\\\\286\\\\")
+         .replace(/黄\\bUd/g, "yellow <Yellowcrystalmini>")
          .replace(/\\bUd/g, "\\\\287\\\\")
          .replace(/\\bUe/g, "\\\\288\\\\")
          .replace(/\\bUf/g, "O")
@@ -359,7 +365,7 @@ export default function format_cleaner(text){
          .replace(/\\bVT/g, "\\\\339\\\\")
          .replace(/\\bVU/g, "\\\\340\\\\")
          .replace(/\\bVV/g, "\\\\341\\\\")
-
+         
          .replace(/\\bVW/g, "\\\\342\\\\")
          .replace(/\\bVX/g, "\\\\343\\\\")
          .replace(/\\bVY/g, "\\\\344\\\\")
@@ -390,7 +396,7 @@ export default function format_cleaner(text){
          .replace(/\\bVx/g, "\\\\369\\\\")
          .replace(/\\bVy/g, "\\\\370\\\\")
          .replace(/\\bVz/g, "\\\\371\\\\")
-                      
+
          .replace(/\\bW0/g, "\\\\372\\\\")
          .replace(/\\bW1/g, "\\\\373\\\\")
          .replace(/\\bW2/g, "\\\\374\\\\")
@@ -486,6 +492,7 @@ export default function format_cleaner(text){
          .replace(/\\bZU/g, "\\\\464\\\\")
          .replace(/\\bZV/g, "\\\\465\\\\")
          .replace(/\\bZW/g, "\\\\466\\\\")
+
          .replace(/\\bZX/g, "\\\\467\\\\")
          .replace(/\\bZY/g, "\\\\468\\\\")
          .replace(/\\bZZ/g, "\\\\469\\\\")

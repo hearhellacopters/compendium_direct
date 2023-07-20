@@ -230,14 +230,14 @@ export default function Calendar({
           <Link to={"../events/banners"}>
             <li className={""} >Banners</li>
           </Link>
+          <Link to={"../events/missions?panels=true"}>
+              <li className={""} >Missions</li>
+          </Link>
           <Link to={"../events/notices"}>
             <li className={""} >Notices</li>
           </Link>
           <Link to={"../events/forecast"}>
             <li className={""} >Forecast</li>
-          </Link>
-          <Link to={"../events/panels"}>
-            <li className={""} >Panels</li>
           </Link>
           <Link to={"/events/calendar"}>
             <li className={"active"} ><span className="gemselected" />Calendar</li>

@@ -51,7 +51,10 @@ const span_formatting = (match, i, number) =>{
     if(match == "Upgrades"){
         return <span key={`3-${i}-${number}`} className={`orangecolor`}>Upgrades</span>
     }
-    if( match == "HP" ||
+    if( match == "Melee" ||
+        match == "Ranged" ||
+        match == "Magic" ||
+        match == "HP" ||
         match == "BRV" ||
         match == "CP" ||
         match == "Fire" ||
@@ -62,10 +65,8 @@ const span_formatting = (match, i, number) =>{
         match == "Wind" ||
         match == "Holy" ||
         match == "Dark" ||
-        match == "Gill" || 
+        match == "Gil" || 
         match == "Gem" ||
-        match == "Locked" ||
-        match == "Unlocked" ||
         match == "DISSIDIAPoints" ||
         match == "Perfect" ||
         match == "Redcrystalmini" ||

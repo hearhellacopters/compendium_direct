@@ -10,7 +10,7 @@ import Footer from './Footer';
 import Home from './callpages/CallHome';
 import Events from './callpages/CallEvents.js';
 import Banners from './callpages/CallBanners.js';
-import Panels from './callpages/CallPanels.js';
+import Missions from './callpages/CallMissions';
 import EventHandoff from './callpages/CallEventHandoff';
 import CallBannerHandoff from './callpages/CallBannerHandoff.js';
 import Characters from './callpages/CallCharacters';
@@ -129,8 +129,9 @@ export default function App(){
               <Route path="/" exact element={<Home />} />
               <Route path="/events" exact element={<Events />} />
               <Route path="/events/banners" exact element={<Banners />} />
+              <Route path="/events/missions" exact element={<Missions />} />
               <Route path="/events/calendar" exact element={<Calendar />} />
-              <Route path="/events/panels" exact element={<Panels />} />
+              <Route path="/events/panels" exact element={<Navigate replace to={`/events/missions?panels=true${jptoggledata == false ? "" : "&JP=true"}`} />} />
               <Route path="/events/notices" exact element={<Notices />} />
               <Route path="/events/forecast" exact element={<Forecast />} />
               <Route path="/events/banners/:id" exact element={<CallBannerHandoff />} />

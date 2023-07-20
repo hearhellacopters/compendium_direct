@@ -121,10 +121,10 @@ export default function EquipmentPassivesFormatting ({
                     <div className='geartoplevel'>
                         <div className='gearimageholder'>
                             {link == undefined ?
-                                <LazyLoadImage effect="opacity" className={`gearimage${link != undefined ? " clicky" : ""}`} src={`https://dissidiacompendium.com/images/static/${gearurl}`} />
+                                <LazyLoadImage effect="opacity" className={`gearimage${link != undefined ? " clicky" : ""}`} src={`https://dissidiacompendium.com/images/static${gearurl}`} />
                                 :
                                 <Link to={`/characters/${getname.toLowerCase()}/${link}`}>
-                                    <LazyLoadImage effect="opacity" className={`gearimage${link != undefined ? " clicky" : ""}`} src={`https://dissidiacompendium.com/images/static/${gearurl}`} />
+                                    <LazyLoadImage effect="opacity" className={`gearimage${link != undefined ? " clicky" : ""}`} src={`https://dissidiacompendium.com/images/static${gearurl}`} />
                                 </Link>
                             }
                         </div>

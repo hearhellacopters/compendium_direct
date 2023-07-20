@@ -9,6 +9,19 @@ export default function log () {
                 <h1>Update Log</h1>
                 <div className="creditsholder">
                 <div className="filterholderflair" >
+                        V.6.1
+                    </div>
+                    <ul className="creditslist">
+                    ┬ Replaced Panels tab<br />
+                    ├─ Added new  <Link className="updatelink" to="/events/missions?panels=true">Missions</Link> tab<br />
+                    ├─ Defaults to Panels<br />
+                    ├─ Includes all game missions<br />
+                    └─ Filters include Missions category & items<br />
+                    Added Missions button to relevant Events<br />
+                    Added Shop button to Events<br />
+                    Split Crystal Quest enemies into current GL and JP 
+                    </ul>
+                <div className="filterholderflair" >
                         V.6.0
                     </div>
                     <ul className="creditslist">
