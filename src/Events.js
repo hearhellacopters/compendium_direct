@@ -786,9 +786,10 @@ export default function Events({
               </Tippy>
             </div>
           </div>
-          <span className="subtext">*featured characters at time of event</span>
+          <span className="subtext"><Link className="whitecolor" to={`/events/2262`}>Weekly Crystal Quest Event</Link></span>
         </div>
         }
+      <div><span className="subtext"><Link className="whitecolor" to={`/events/2262`}>Weekly Crystal Quest Event</Link></span></div>
         <ul className="bannertabs">
           <Link to={"../events"}>
             <li className={"active"} ><span className="gemselected" />Events</li>
