@@ -1507,24 +1507,109 @@ export default function Buffs({
             if (debuffs == true) {
                 buff_debuff = "0"
             }
+
+            if (bstate == true) {
+                const filteredout = rawData.filter(
+                    (ef) => ef.state == true
+                );
+                filterholder.push(...filteredout);
+            }
+            if (start == true) {
+                const filteredout = rawData.filter(
+                    (ef) => ef.start == true
+                );
+                filterholder.push(...filteredout);
+            }
+            if (brv == true) {
+                const filteredout = rawData.filter(
+                    (ef) => ef.BRV == true
+                );
+                filterholder.push(...filteredout);
+            }
+            if (hp == true) {
+                const filteredout = rawData.filter(
+                    (ef) => ef.HP == true
+                );
+                filterholder.push(...filteredout);
+            }
+            if (call_75 == true) {
+                const filteredout = rawData.filter(
+                    (ef) => ef.Call_75 == true
+                );
+                filterholder.push(...filteredout);
+            }
+            if (call_ld == true) {
+                const filteredout = rawData.filter(
+                    (ef) => ef.Call_LD == true
+                );
+                filterholder.push(...filteredout);
+            }
+            if (aBuff == true) {
+                const filteredout = rawData.filter(
+                    (ef) => ef.AA == true
+                );
+                filterholder.push(...filteredout);
+            }
+            if (starting == true) {
+                const filteredout = rawData.filter(
+                    (ef) => ef.S1 == true
+                );
+                filterholder.push(...filteredout);
+            }
+            if (s20 == true) {
+                const filteredout = rawData.filter(
+                    (ef) => ef.S2 == true
+                );
+                filterholder.push(...filteredout);
+            }
+            if (ex == true) {
+                const filteredout = rawData.filter(
+                    (ef) => ef.EX == true
+                );
+                filterholder.push(...filteredout);
+            }
+            if (ld == true) {
+                const filteredout = rawData.filter(
+                    (ef) => ef.LD == true
+                );
+                filterholder.push(...filteredout);
+            }
+            if (fr == true) {
+                const filteredout = rawData.filter(
+                    (ef) => ef.FR == true
+                );
+                filterholder.push(...filteredout);
+            }
+            if (burstBuff == true) {
+                const filteredout = rawData.filter(
+                    (ef) => ef.BT == true
+                );
+                filterholder.push(...filteredout);
+            }
+
+            if (filterholder.length === 0) {
+                filterholder.push(...rawData);
+            }
+
             var charType = {}
             if (party == false) {
                 charType = {
                     chara_id: condFilter != "" ? condFilter : undefined,
-                    AA: aBuff != true ? undefined : aBuff,
-                    BRV: brv != true ? undefined : brv,
-                    HP: hp != true ? undefined : hp,
-                    state: bstate != true ? undefined : bstate,
-                    start: start != true ? undefined : start,
-                    BT: burstBuff != true ? undefined : burstBuff,
-                    Call_LD: call_ld != true ? undefined : call_ld,
-                    Call_75: call_75 != true ? undefined : call_75,
                     is_buff: buff_debuff,
-                    EX: ex != true ? undefined : ex,
-                    FR: fr != true ? undefined : fr,
-                    LD: ld != true ? undefined : ld,
-                    S2: s20 != true ? undefined : s20,
-                    S1: starting != true ? undefined : starting,
+
+                    //AA: aBuff != true ? undefined : aBuff,
+                    //BRV: brv != true ? undefined : brv,
+                    //HP: hp != true ? undefined : hp,
+                    //state: bstate != true ? undefined : bstate,
+                    //start: start != true ? undefined : start,
+                    //BT: burstBuff != true ? undefined : burstBuff,
+                    //Call_LD: call_ld != true ? undefined : call_ld,
+                    //Call_75: call_75 != true ? undefined : call_75,
+                    //EX: ex != true ? undefined : ex,
+                    //FR: fr != true ? undefined : fr,
+                    //LD: ld != true ? undefined : ld,
+                    //S2: s20 != true ? undefined : s20,
+                    //S1: starting != true ? undefined : starting,
 
                     Force_Break: Break != true ? undefined : Break,
                     Break_Reset: BreakCancel != true ? undefined : BreakCancel,
@@ -1618,20 +1703,21 @@ export default function Buffs({
             if (party == true) {
                 charType = {
                     chara_id: condFilter != "" ? condFilter : undefined,
-                    AA: aBuff != true ? undefined : aBuff,
-                    BRV: brv != true ? undefined : brv,
-                    HP: hp != true ? undefined : hp,
-                    state: bstate != true ? undefined : bstate,
-                    start: start != true ? undefined : start,
-                    BT: burstBuff != true ? undefined : burstBuff,
-                    Call_LD: call_ld != true ? undefined : call_ld,
-                    Call_75: call_75 != true ? undefined : call_75,
                     is_buff: buff_debuff,
-                    EX: ex != true ? undefined : ex,
-                    FR: fr != true ? undefined : fr,
-                    LD: ld != true ? undefined : ld,
-                    S2: s20 != true ? undefined : s20,
-                    S1: starting != true ? undefined : starting,
+
+                    //AA: aBuff != true ? undefined : aBuff,
+                    //BRV: brv != true ? undefined : brv,
+                    //HP: hp != true ? undefined : hp,
+                    //state: bstate != true ? undefined : bstate,
+                    //start: start != true ? undefined : start,
+                    //BT: burstBuff != true ? undefined : burstBuff,
+                    //Call_LD: call_ld != true ? undefined : call_ld,
+                    //Call_75: call_75 != true ? undefined : call_75,
+                    //EX: ex != true ? undefined : ex,
+                    //FR: fr != true ? undefined : fr,
+                    //LD: ld != true ? undefined : ld,
+                    //S2: s20 != true ? undefined : s20,
+                    //S1: starting != true ? undefined : starting,
 
                     Force_Break_Party: Break != true ? undefined : Break,
                     Break_Reset_Party: BreakCancel != true ? undefined : BreakCancel,
@@ -1722,17 +1808,14 @@ export default function Buffs({
                     Target_Lock_Party: Target_Lock != true ? undefined : Target_Lock,
                 }
             }
-            const filtermerge = rawData.filter((oneChar) => {
+
+            var filtermerge = filterholder.filter((oneChar) => {
                 return Object.entries(charType)
                     .filter(entry => entry[1])
                     .every(([key, value]) => oneChar[key] == value);
             });
 
-            if (filterholder.length === 0) {
-                filterholder.push(...filtermerge);
-            }
-
-            const makeUnique = filterholder
+            const makeUnique = filtermerge
                 .filter(onlyUnique)
                 .sort((a, b) =>
                     reverse === false ?

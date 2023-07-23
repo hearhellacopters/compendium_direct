@@ -536,19 +536,93 @@ export default function Abilities({
     useEffect(() => {
         if (merge == true) {
             const filterholder = [];
+
+            if (BRV == true) {
+                const filteredout = rawData.filter(
+                    ability => ability.BRV == true
+                )
+                filterholder.push(...filteredout)
+            }
+            if (HP == true) {
+                const filteredout = rawData.filter(
+                    ability => ability.HP == true
+                )
+                filterholder.push(...filteredout)
+            }
+            if (S1 == true) {
+                const filteredout = rawData.filter(
+                    ability => ability.S1 == true
+                )
+                filterholder.push(...filteredout)
+            }
+            if (S2 == true) {
+                const filteredout = rawData.filter(
+                    ability => ability.S2 == true
+                )
+                filterholder.push(...filteredout)
+            }
+            if (AA == true) {
+                const filteredout = rawData.filter(
+                    ability => ability.AA == true
+                )
+                filterholder.push(...filteredout)
+            }
+            if (EX == true) {
+                const filteredout = rawData.filter(
+                    ability => ability.EX == true
+                )
+                filterholder.push(...filteredout)
+            }
+            if (LD == true) {
+                const filteredout = rawData.filter(
+                    ability => ability.LD == true
+                )
+                filterholder.push(...filteredout)
+            }
+            if (Call75 == true) {
+                const filteredout = rawData.filter(
+                    ability => ability.Call75 == true
+                )
+                filterholder.push(...filteredout)
+            }
+            if (CallLD == true) {
+                const filteredout = rawData.filter(
+                    ability => ability.CallLD == true
+                )
+                filterholder.push(...filteredout)
+            }
+            if (FR == true) {
+                const filteredout = rawData.filter(
+                    ability => ability.FR == true
+                )
+                filterholder.push(...filteredout)
+            }
+            if (BT == true) {
+                const filteredout = rawData.filter(
+                    ability => ability.BT == true
+                )
+                filterholder.push(...filteredout)
+            }
+
+            if (filterholder.length === 0) {
+                filterholder.push(...rawData);
+            }
+
             const charType = {
                 charaID: condFilter != "" ? condFilter : undefined,
-                BRV: BRV,
-                HP: HP,
-                S1: S1,
-                S2: S2,
-                AA: AA,
-                EX: EX,
-                LD: LD,
-                Call75: Call75,
-                CallLD: CallLD,
-                FR: FR,
-                BT: BT,
+                
+                //BRV: BRV,
+                //HP: HP,
+                //S1: S1,
+                //S2: S2,
+                //AA: AA,
+                //EX: EX,
+                //LD: LD,
+                //Call75: Call75,
+                //CallLD: CallLD,
+                //FR: FR,
+                //BT: BT,
+
                 Magic: Magic,
                 Melee: Melee,
                 Ranged: Ranged,
@@ -587,17 +661,14 @@ export default function Abilities({
                 Faster: Faster,
                 Slower: Slower
             }
-            const filtermerge = rawData.filter((oneChar) => {
+
+            var filtermerge = filterholder.filter((oneChar) => {
                 return Object.entries(charType)
                     .filter(entry => entry[1])
                     .every(([key, value]) => oneChar[key] == value);
             });
 
-            if (filterholder.length === 0) {
-                filterholder.push(...filtermerge);
-            }
-
-            const makeUnique = filterholder
+            const makeUnique = filtermerge
                 .filter(onlyUnique)
                 .sort((a, b) =>
                     reverse === false ?
