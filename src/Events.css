@@ -901,6 +901,7 @@
 }
 
 .storeholder{
+  padding-bottom: 5px;
   z-index: 1;
   transition: all .2s;
   transform-origin: 50% 0;
