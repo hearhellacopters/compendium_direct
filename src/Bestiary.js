@@ -3,11 +3,7 @@ import { useStateIfMounted } from "use-state-if-mounted";
 import { useDispatch, useSelector } from "react-redux";
 import { setFalse, setTrue } from './redux/ducks/jptoggle'
 import { Link } from 'react-router-dom'
-import './Bestiary.css';
-import './App.css'
 import Tippy from './components/TippyDefaults.js';
-import 'tippy.js/dist/tippy.css';
-import 'tippy.js/animations/shift-away.css';
 import { Helmet } from 'react-helmet-async';
 import Select from 'react-select';
 import EnemyListingDirect from './components/Enemy/EnemyListing'

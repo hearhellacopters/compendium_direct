@@ -664,8 +664,14 @@ export default function require_trans(
                 require_value1 = `less than ${require_value2-1} buff${(require_value2 - 1) == 1 ?"":"s"}`
                 require_value2 = ""
             } else {
-                require_value1 = `between ${require_value1} & ${require_value2-1} buff${(require_value2 - 1) == 1 ?"":"s"}`
-                require_value2 = ""
+                if(require_value2 >= 50){
+                    require_value1 = `≥ ${require_value1} buff${(require_value2 - 1) == 1 ?"":"s"}`
+                    require_value2 = ""
+                } else {
+                    require_value1 = `between ${require_value1} & ${require_value2-1} buff${(require_value2 - 1) == 1 ?"":"s"}`
+                    require_value2 = ""
+                }
+                
             }
         }
     }
@@ -679,8 +685,14 @@ export default function require_trans(
                 require_value1 = `less than ${require_value2-1} debuff${(require_value2 - 1) == 1? "" : "s"}`
                 require_value2 = ""
             } else {
-                require_value1 = `between ${require_value1} & ${require_value2-1} debuff${(require_value2 - 1) == 1 ?"":"s"}`
+                if(require_value2 >= 50){
+                    require_value1 = `≥ ${require_value1} debuff${(require_value2 - 1) == 1 ?"":"s"}`
                 require_value2 = ""
+                } else {
+                    require_value1 = `between ${require_value1} & ${require_value2-1} debuff${(require_value2 - 1) == 1 ?"":"s"}`
+                    require_value2 = ""
+                }
+                
             }
         }
     }

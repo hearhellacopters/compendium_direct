@@ -1,6 +1,4 @@
 import Tippy from '@tippyjs/react';
-import 'tippy.js/animations/shift-away.css';
-import '../App.css'
 
 Tippy.defaultProps = {
   ...Tippy.defaultProps,

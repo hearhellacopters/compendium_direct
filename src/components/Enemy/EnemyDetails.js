@@ -869,7 +869,7 @@ export default function EnemyDetailsDirect({
                                         <EnemyForceGauge gauge_min={self.gauge_min} gauge_max={self.gauge_max} />
                                     }
                                 </div>
-                                <div className={`efginfobase efgbase fontnormal ${self.name == "Force Weakness" ? "blackbase" : self.name == "Force Gauge Increase" ? "Buffbase" : "Debuffbase"}`}>
+                                <div className={`efginfobase fontnormal ${self.name == "Force Weakness" ? "blackbase" : self.name == "Force Gauge Increase" ? "Buffbase" : "Debuffbase"}`}>
                                     {self.desc && ReplacerEnemyDesc(self.desc)}
                                 </div>
                             </div>

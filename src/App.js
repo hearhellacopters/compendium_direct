@@ -1,47 +1,71 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import './Abilities.css';
 import './App.css';
+import './Bestiary.css';
+import './Buffs.css';
+import './Calandar.css';
+import './Characters.css';
+import './Events.css';
+import './Footer.css';
+import './Forecast.css';
+import './Gear.css';
+import './Home.css';
+import './JukeBoxStyle.css';
+import './Missions.css';
 import './Nav.css';
-import './Gear.css'
-import Nav from './Nav';
-import NotFoundPage from './404.js'
-import Footer from './Footer';
-import Home from './callpages/CallHome';
-import Events from './callpages/CallEvents.js';
-import Banners from './callpages/CallBanners.js';
-import Missions from './callpages/CallMissions';
-import EventHandoff from './callpages/CallEventHandoff';
-import CallBannerHandoff from './callpages/CallBannerHandoff.js';
-import Characters from './callpages/CallCharacters';
-import EnemyHandoff from './callpages/CallEnemyHandoff';
-import CharactersUltimaPage from './callpages/CallUltimaWeapon.js';
-import CharactersForceTimePage from './callpages/CallForceTime.js';
-import CharactersWardrobePage from './callpages/CallWardrobe.js';
-import Character from './callpages/CallCharacter';
-import WeaponSkins from './callpages/CallWeaponSkins';
-import CallSummonHandoff from './callpages/CallSummons';
-import Credits from './Credits';
-import Passives from './callpages/CallPassives';
-import Gear from './callpages/CallGear';
-import Abilities from './callpages/CallAbilties';
-import Calendar from "./callpages/CallCalendar";
-import Buffs from './callpages/CallBuffs';
-import Spheres from './callpages/CallSpheres';
-import Bestiary from './callpages/CallBestiary';
-import Log from './Log';
-import Stickers from './callpages/CallStickers.js';
-import JukeBox from './callpages/CallJukeBox.js';
-import EnemyBuffs from './callpages/CallEnemyBuffs.js';
-import EnemyAbilities from './callpages/CallEnemyAbilities.js';
-import JukeBoxMini from './callpages/CallJukeBoxMini';
-import Forecast from './callpages/CallForecast.js'
-import Notices from './callpages/CallNotices'
-import DevSwitch from './redux/DevSwitch'
+import './Passives.css';
+import './Spheres.css';
+import './Summons.css';
+import './components/Characters/CharacterPage.css';
+import './components/Enemy/EnemyFormatting.css';
+import './components/Enemy/LevelsFormatting.css';
+import './components/Direct.css';
+import './components/SilderStyle.css';
+import './components/tickDown.css';
+import './components/ticker.css';
+import Loading from './components/Loading.js'
+import Nav from'./Nav.js';
+const NotFoundPage = React.lazy(() => import('./404.js'));
+const Footer = React.lazy(() => import('./Footer'));
+const Home = React.lazy(() => import('./callpages/CallHome.js'));
+const Events = React.lazy(() => import('./callpages/CallEvents.js'));
+const Banners = React.lazy(() => import('./callpages/CallBanners.js'));
+const Missions = React.lazy(() => import('./callpages/CallMissions.js'));
+const EventHandoff = React.lazy(() => import('./callpages/CallEventHandoff.js'));
+const CallBannerHandoff = React.lazy(() => import('./callpages/CallBannerHandoff.js'));
+const Characters = React.lazy(() => import('./callpages/CallCharacters.js'));
+const EnemyHandoff = React.lazy(() => import('./callpages/CallEnemyHandoff.js'));
+const CharactersUltimaPage = React.lazy(() => import('./callpages/CallUltimaWeapon.js'));
+const CharactersForceTimePage = React.lazy(() => import('./callpages/CallForceTime.js'));
+const CharactersWardrobePage = React.lazy(() => import('./callpages/CallWardrobe.js'));
+const Character = React.lazy(() => import('./callpages/CallCharacter.js'));
+const WeaponSkins = React.lazy(() => import('./callpages/CallWeaponSkins.js'));
+const CallSummonHandoff = React.lazy(() => import('./callpages/CallSummons.js'));
+const Credits = React.lazy(() => import('./Credits.js'));
+const Passives = React.lazy(() => import('./callpages/CallPassives.js'));
+const Gear = React.lazy(() => import('./callpages/CallGear.js'));
+const Abilities = React.lazy(() => import('./callpages/CallAbilties.js'));
+const Calendar = React.lazy(() => import("./callpages/CallCalendar.js"));
+const Buffs = React.lazy(() => import('./callpages/CallBuffs.js'));
+const Spheres = React.lazy(() => import('./callpages/CallSpheres.js'));
+const Bestiary = React.lazy(() => import('./callpages/CallBestiary.js'));
+const Log = React.lazy(() => import('./Log.js'));
+const Stickers = React.lazy(() => import('./callpages/CallStickers.js'));
+const JukeBox = React.lazy(() => import('./callpages/CallJukeBox.js'));
+const EnemyBuffs = React.lazy(() => import('./callpages/CallEnemyBuffs.js'));
+const EnemyAbilities = React.lazy(() => import('./callpages/CallEnemyAbilities.js'));
+const JukeBoxMini = React.lazy(() => import('./callpages/CallJukeBoxMini.js'));
+const Forecast = React.lazy(() => import('./callpages/CallForecast.js'));
+const Notices = React.lazy(() => import('./callpages/CallNotices.js'));
+const DevSwitch = React.lazy(() => import('./redux/DevSwitch.js'));
 import Tippy from './components/TippyDefaults.js';
+import 'tippy.js/dist/tippy.css';
+import 'tippy.js/animations/shift-away.css';
 import { useDispatch, useSelector } from "react-redux";
-import { getJPToggle } from './redux/ducks/jptoggle';
-import { getQueryStringVal, useQueryParam } from './components/URLParams'
+import { getJPToggle } from './redux/ducks/jptoggle.js';
+import { getQueryStringVal, useQueryParam } from './components/URLParams.js'
 import { setFalse, setTrue } from './redux/ducks/jptoggle'
 
 export default function App(){
@@ -125,6 +149,7 @@ export default function App(){
         <div className="wrapper">
           <ErrorBoundary>
             <Nav />
+            <Suspense fallback={<Loading/>}>
             <Routes>
               <Route path="/" exact element={<Home />} />
               <Route path="/events" exact element={<Events />} />
@@ -183,6 +208,7 @@ export default function App(){
               <Route path='*' element={<NotFoundPage />} />
               <Route element={<NotFoundPage />} />
             </Routes>
+            </Suspense>
           </ErrorBoundary>
         </div>
         <Footer />
