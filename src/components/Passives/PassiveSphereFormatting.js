@@ -281,7 +281,8 @@ export default function PassiveSphereFormatting({
                                     ReplacerCharacter(passive_link_trans(
                                         link_effect,
                                         master_index,
-                                        ver
+                                        ver,
+                                        chara_id_passoff == undefined ? passive_ability.CharID : chara_id_passoff
                                     ),form)
                                 ))}
                             </div>

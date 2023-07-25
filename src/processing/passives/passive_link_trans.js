@@ -3,11 +3,13 @@ import require_trans from './require_trans'
 export default function passive_link_trans(
     link_effect,
     master_index,
-    ver
+    ver,
+    Char_ID
 ){
     const val_edit_type = master_index.ailment_effect_id_index.val_edit_type
     const group_id = master_index.ailment_effect_id_index.group_id
 
+    const charid = master_index.charid
     const AilmentNames = master_index.ailments
     const CondData = master_index.cond
     const passive_target = master_index.passive_effects.passive_target
@@ -85,9 +87,10 @@ export default function passive_link_trans(
             if (puller3.modify_value != undefined) {
 
                 if (puller3.modify_value == "group_id") {
-                    const puller4 = group_id[link_effect.modify_value] && group_id[link_effect.modify_value].group_id
+                    const puller4 = group_id[link_effect.modify_value]
                     if (puller4 != undefined) {
-                        value_display = puller3.val_edit_type.replace(/\[modify_value\]/gm, puller4)
+                        console.log(puller4)
+                        value_display = puller3.val_edit_type.replace(/\[modify_value\]/gm, puller4.group_id)
                     } else {
                         value_display = puller3.val_edit_type.replace(/\[modify_value\]/gm, `[unknown group#${link_effect.modify_value}]`)
                     }
@@ -112,5 +115,34 @@ export default function passive_link_trans(
 
     const fliped = link_effect.require_id_1 == 131 || link_effect.require_id_1 == 130 ? true : false
 
-    return (`${effect_}${value_display != undefined ? ` (${value_display})` : ""} ${fliped == true ? `${require__1}, ` : ""}${require_ != "" ? require_ : ""} ${require__1 != "" && require_ != "" && fliped != true ? "and " : ""}${require__1 != "" && fliped != true ? `${require__1}` : ""}${link_effect.add_once_in_turn != undefined ? "(once per turn)" : ""}\n`)
+    var final_str = `${effect_}${value_display != undefined ? ` (${value_display})` : ""} ${fliped == true ? `${require__1}, ` : ""}${require_ != "" ? require_ : ""} ${require__1 != "" && require_ != "" && fliped != true ? "and " : ""}${require__1 != "" && fliped != true ? `${require__1}` : ""}${link_effect.add_once_in_turn != undefined ? "(once per turn)" : ""}\n`
+
+    final_str = final_str.replace(/After Party action, When Party \(except triggered; launching\)/gm, "after a Party member's turn;")
+
+    final_str = final_str.replace(/After Party turn, While Party \(except triggered; launching\)/gm, "after turn while a Party member")
+
+    final_str = final_str.replace(/After Party turn, When Party \(except triggered; launching\)/gm, "after a Party member's turn;")
+
+    final_str = final_str.replace(/After Party action, Party \(except triggered; launching\)/gm,"after Party member's action;")
+
+    final_str = final_str.replace(/and \(includes off turn triggers\)/gm, "(includes off turn triggers)")
+
+    final_str = final_str.replace(/ and Active Force Time/gm,"")
+
+    final_str = final_str.replace(/When attacking enemy targeting self and When Party \(except triggered; launching\) selects any Ability/gm, "when attacking an enemy targeting self on own turn")
+
+    final_str = final_str.replace(/Party: While attacking a debuffed target and Party: When acting \(selecting an ability\)/gm, "after party member turn when selecting an attack on a debuffed enemy")
+
+    if(Char_ID != undefined){
+        const char_name = charid[Char_ID] && charid[Char_ID].CharacterName
+        final_str = final_str.replace(/Self/gm, char_name)
+        final_str = final_str.replace(/Self/gm, char_name)
+        final_str = final_str.replace(/own turn/gm, `${char_name} turn`)
+        final_str = final_str.replace(/own action/gm, `${char_name} action`)
+        const regex1 = new RegExp(`After ${char_name} action, When ${char_name}`);
+        final_str = final_str.replace(regex1, `after ${char_name} action;`)
+        const regex2 = new RegExp(`After ${char_name} turn, When ${char_name}`);
+        final_str = final_str.replace(regex2, `after ${char_name} turn;`)
+    }
+    return final_str
 }

@@ -12,6 +12,9 @@ const span_formatting = (match, i, number) =>{
     if(match == "Knock_Back"){
         return <span key={`3-${i}-${number}`}><span className={`inline KnockBack`}/>Knock Back</span>
     }
+    if(match == "Knock_Backed"){
+        return <span key={`3-${i}-${number}`}><span className={`inline KnockBack`}/>Knock Backed</span>
+    }
     if(match == "KnockBack"){
         return <span key={`3-${i}-${number}`}><span className={`inline KnockBack`}/>Knock Back</span>
     }

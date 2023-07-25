@@ -576,7 +576,8 @@ export default function AilmentDataFormatting({
                                     ReplacerCharacter(passive_link_trans(
                                         link_effect,
                                         master_index,
-                                        ver
+                                        ver,
+                                        ailment_data.chara_id
                                     ),form)
                                 ))}
                                 <div className='abilityJPname'>*Totaled values</div>
