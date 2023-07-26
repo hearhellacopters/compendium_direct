@@ -217,7 +217,7 @@ export default function EquipmentPassivesFormatting ({
                                         <div className='abilityJPname'>{gear.jpname}</div>
                                     </>
                                 }
-                                <div onClick={() => makemaster(1)} className='clicky'>{ReplacerCharacter(`<${gear.gear_tag}>`)}</div>
+                                <div style={{display:"contents"}} onClick={() => makemaster(1)} className='clicky'>{ReplacerCharacter(`<${gear.gear_tag}>`)}</div>
                             </div>
                             <div className='gearCPReqHolder spacearound'>
                                 <span>
