@@ -3579,7 +3579,7 @@ export default function Characters({
                 <input
                   className="search-bar"
                   type="text"
-                  id="search2"
+                  id="search"
                   placeholder="Search Name"
                   value={searchdisplay}
                   onChange={handleChange}

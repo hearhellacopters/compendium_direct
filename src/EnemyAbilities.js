@@ -659,7 +659,7 @@ export default function EnemyAbilities({
                 <input
                   className="search-bar"
                   type="text"
-                  id="search2"
+                  id="search"
                   placeholder="Ability Name / Effects"
                   value={searchdisplay}
                   onChange={handleChange}
