@@ -154,7 +154,7 @@ export default function PassiveAbilityDif ({
                             :""}
                         </div>
                     }
-                    <div className={`bluebase enemyabilityinfobase nobuffpadding`}>
+                    <div className={`bluebase enemyabilityinfobase`}>
 
                         {info != undefined && header == false?
                             <div className='buffglreworkbanner passiveinfobase'>{info}</div>

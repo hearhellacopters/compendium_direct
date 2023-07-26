@@ -378,7 +378,7 @@ export default function AilmentDifFormatting({
                     />
                     <div className={
                         frameless == true ? (buff_new.is_buff == 1 ? "Buffsubbase2" : "Debuffsubbase2") :
-                        buff_new.is_buff == 0 ? "Debuffbase enemyabilityinfobase wpadding" : "Buffbase enemyabilityinfobase wpadding"
+                        buff_new.is_buff == 0 ? "Debuffbase enemyabilityinfobase" : "Buffbase enemyabilityinfobase"
                         }>
                         {buff_new.hide_title == true || default_passoff != undefined || frameless == true || passed_passive != undefined || hide_title == true? "" :
                             <div className={"subpassiveflair cast_str"}>
