@@ -89,7 +89,6 @@ export default function passive_link_trans(
                 if (puller3.modify_value == "group_id") {
                     const puller4 = group_id[link_effect.modify_value]
                     if (puller4 != undefined) {
-                        console.log(puller4)
                         value_display = puller3.val_edit_type.replace(/\[modify_value\]/gm, puller4.group_id)
                     } else {
                         value_display = puller3.val_edit_type.replace(/\[modify_value\]/gm, `[unknown group#${link_effect.modify_value}]`)
