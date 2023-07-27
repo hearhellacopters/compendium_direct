@@ -151,6 +151,12 @@ export default function ReplacerEnemyDesc(text){
             }</span>{":"}</span>
         )
     })
+    replacement = replacement == "" ? "" : reactStringReplace(replacement, /\/\/(.*?)\/\//, (match, i) => {
+        number = number + 1
+        return (
+            <img key={`17-${i}-${number}`} className={"inline-buff"} src={`https://dissidiacompendium.com/images/static/icons/buff/${match}.png`} />
+        )
+    })
     replacement = replacement == undefined ? "" : reactStringReplace(replacement, /(\[.*?\])/, (match, i) => {
         number = number + 1
         return (
