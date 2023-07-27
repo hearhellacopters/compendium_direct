@@ -6,12 +6,11 @@ import { ImSortAmountDesc } from 'react-icons/im';
 import { IoMdCloseCircleOutline } from 'react-icons/io';
 import { IoSearch } from 'react-icons/io5';
 import { FaUndoAlt } from 'react-icons/fa'
-import 'tippy.js/dist/tippy.css';
-import 'tippy.js/animations/shift-away.css';
 import { getQuery, getQueryStringVal, useQueryParam } from '../URLParams'
 import EquipmentPassivesFormatting from '../Gear/EquipmentPassivesFormatting';
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 
-export default function CharacterGearPage({
+function CharacterGearPage({
   equipment_passive_ability,
   ver,
   loc,
@@ -19,7 +18,8 @@ export default function CharacterGearPage({
   ProcessedCharacters,
   formatting,
   showFilter,
-  master_index
+  master_index,
+  scrollPosition 
 }){
 
   const rawData = Object.values(equipment_passive_ability && equipment_passive_ability.sort((a, b) => b.ranked - a.ranked))
@@ -930,6 +930,11 @@ export default function CharacterGearPage({
           {
             listPassives.length > 0 ? (
               listPassives.map(gear => (
+                <LazyLoadComponent
+                placeholder={<div className='infoholder' style={{ minHeight: "350px" }}/>}
+                scrollPosition={scrollPosition }
+                key={gear.equip_id}
+                >
                 <EquipmentPassivesFormatting
                   key={gear.equip_id}
                   gear={gear}
@@ -942,6 +947,7 @@ export default function CharacterGearPage({
 
                   formatting={formatting}
                 />
+                </LazyLoadComponent>
               ))) : (
               <div>No results</div>
             )
@@ -952,3 +958,5 @@ export default function CharacterGearPage({
   }
 
 }
+
+export default trackWindowScroll(CharacterGearPage)

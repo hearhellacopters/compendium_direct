@@ -1,12 +1,17 @@
 import React, { useEffect } from "react";
 import { useStateIfMounted } from "use-state-if-mounted";
 import { Link } from 'react-router-dom'
-import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
+import { LazyLoadImage, LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 import ReplacerCharacter from "../ReplacerCharacter";
 import roles from '../../processing/ailment/ailment_tags.json'
 import Tippy from "../../components/TippyDefaults";
 
-export default function CharacterForceCond({ match, ProcessedCharacters, jptoggledata }){
+function CharacterForceCond({ 
+    match, 
+    ProcessedCharacters,
+    jptoggledata,
+    scrollPosition 
+}){
 
     const Partner = match.FR_Partner == undefined ? ProcessedCharacters[1] : ProcessedCharacters[match.FR_Partner]
 
@@ -107,71 +112,85 @@ export default function CharacterForceCond({ match, ProcessedCharacters, jptoggl
 
     return (
         <div className="buffunit purpleoveride">
-            <div className="infoholder" style={{ minHeight: "230px" }}>
-                <LazyLoadComponent>
-                    <div className="infotitleholder">
-                        <div className="force_background">
-                            <div className="faceandiconholder">
-                                <Link to={`/characters/${match.ShortName}`}>
-                                    <div className="faceholder">
-                                        <LazyLoadImage effect="opacity" alt={match.CharacterName} className="faceicon" src={`https://dissidiacompendium.com/images/static/characters/${match.CharacterURLName}/face.png`} />
-                                        <div className="facetext">{`${match.CharacterName == "Cloud of Darkness" ? "CoD" : match.CharacterName == "Warrior of Light" ? "WoL" : match.CharacterName}`}</div>
-                                    </div>
-                                </Link>
-                            </div>
-                            <div className="faceandiconholder">
-                                <Link to={`/characters/${Partner.ShortName}`}>
-                                    <div className="faceholder">
-                                        <LazyLoadImage effect="opacity" alt={Partner && Partner.CharacterName} className="faceicon" src={Partner && `https://dissidiacompendium.com/images/static/characters/${Partner.CharacterURLName}/face.png`} />
-                                        <div className="facetext">{`${Partner && Partner.CharacterName == "Cloud of Darkness" ? "CoD" : Partner && Partner.CharacterName == "Warrior of Light" ? "WoL" : Partner && Partner.CharacterName}`}</div>
-                                    </div>
-                                </Link>
-                            </div>
+            <LazyLoadComponent
+                scrollPosition={scrollPosition}
+                placeholder={ <div className="infoholder" style={{ minHeight: "230px" }}/>}
+                >
+            <div className="infoholder">
+                <div className="infotitleholder">
+                    <div className="force_background">
+                        <div className="faceandiconholder">
+                            <Link to={`/characters/${match.ShortName}`}>
+                                <div className="faceholder">
+                                    <LazyLoadImage 
+                                    scrollPosition={scrollPosition}
+                                    effect="opacity" 
+                                    alt={match.CharacterName} 
+                                    className="faceicon" 
+                                    src={`https://dissidiacompendium.com/images/static/characters/${match.CharacterURLName}/face.png`} />
+                                    <div className="facetext">{`${match.CharacterName == "Cloud of Darkness" ? "CoD" : match.CharacterName == "Warrior of Light" ? "WoL" : match.CharacterName}`}</div>
+                                </div>
+                            </Link>
+                        </div>
+                        <div className="faceandiconholder">
+                            <Link to={`/characters/${Partner.ShortName}`}>
+                                <div className="faceholder">
+                                    <LazyLoadImage 
+                                    scrollPosition={scrollPosition}
+                                    effect="opacity" 
+                                    alt={Partner && Partner.CharacterName} 
+                                    className="faceicon" 
+                                    src={Partner && `https://dissidiacompendium.com/images/static/characters/${Partner.CharacterURLName}/face.png`} />
+                                    <div className="facetext">{`${Partner && Partner.CharacterName == "Cloud of Darkness" ? "CoD" : Partner && Partner.CharacterName == "Warrior of Light" ? "WoL" : Partner && Partner.CharacterName}`}</div>
+                                </div>
+                            </Link>
                         </div>
                     </div>
-                    <div className="infonameholder wpadding blackbase">
-                        {ReplacerCharacter(match.AbilityFR,{updown:true,force_page:true})}
+                </div>
+                <div className="infonameholder wpadding blackbase">
+                    {ReplacerCharacter(match.AbilityFR,{updown:true,force_page:true})}
 
-                    </div>
-                    <div className="subtext_brev">*info is truncated, dependant on selected version</div>
-                    <div className='zone'>
-                        <div className={`featuredbanner force_coloring noshowbottomline`}>
-                            <div onClick={() => setrun_helpers((prevstate) => !prevstate)} className='loadmorespheres'>
-                                {run_helpers == false ? "Show Helpers" : "Hide Helpers"}
-                            </div>
+                </div>
+                <div className="subtext_brev">*info is truncated, dependant on selected version</div>
+                <div className='zone'>
+                    <div className={`featuredbanner force_coloring noshowbottomline`}>
+                        <div onClick={() => setrun_helpers((prevstate) => !prevstate)} className='loadmorespheres'>
+                            {run_helpers == false ? "Show Helpers" : "Hide Helpers"}
                         </div>
-                        {run_helpers == false ?
-                            ""
+                    </div>
+                    {run_helpers == false ?
+                        ""
+                        :
+                        force_helpers.length == 0 ?
+                            <div className="charholderflair noshowbottomline force_coloring2">
+                                No Helpers listed for above conditions
+                            </div>
                             :
-                            force_helpers.length == 0 ?
-                                <div className="charholderflair noshowbottomline force_coloring2">
-                                    No Helpers listed for above conditions
-                                </div>
-                                :
-                                <div className={`charholderflair${run_helpers == true ? " noshowbottomline force_coloring2" : ""}`}>
-                                    <ul className={`CharNameHolder`} style={{ columnCount: columns, MozColumnsCount: columns, WebkitColumnsCount: columns }}>
-                                        {force_helpers.map((self, i) => (
-                                            <li key={i}>
+                            <div className={`charholderflair${run_helpers == true ? " noshowbottomline force_coloring2" : ""}`}>
+                                <ul className={`CharNameHolder`} style={{ columnCount: columns, MozColumnsCount: columns, WebkitColumnsCount: columns }}>
+                                    {force_helpers.map((self, i) => (
+                                        <li key={i}>
 
-                                                <Link className="linkforce" to={`/characters/${self.ShortName}`}>
-                                                <span className={`${self.CrystalColor}crystalmini`}></span>{self.CharacterName}:
-                                                </Link><br />
+                                            <Link className="linkforce" to={`/characters/${self.ShortName}`}>
+                                            <span className={`${self.CrystalColor}crystalmini`}></span>{self.CharacterName}:
+                                            </Link><br />
 
-                                                {self.roles.map((self3, i) => (
-                                                    <Tippy key={i} content={roles[self3] && roles[self3].name}>
-                                                        <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[self3] && roles[self3].url}.png)` }}>
-                                                        </span>
-                                                    </Tippy>
-                                                ))}
+                                            {self.roles.map((self3, i) => (
+                                                <Tippy key={i} content={roles[self3] && roles[self3].name}>
+                                                    <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[self3] && roles[self3].url}.png)` }}>
+                                                    </span>
+                                                </Tippy>
+                                            ))}
 
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                        }
-                    </div>
-                </LazyLoadComponent>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                    }
+                </div>
             </div>
+            </LazyLoadComponent>
         </div>
     )
 }
+export default trackWindowScroll(CharacterForceCond)

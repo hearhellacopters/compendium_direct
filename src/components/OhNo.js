@@ -1,18 +1,20 @@
 import React from 'react';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/opacity.css';
+import { LazyLoadImage, trackWindowScroll  } from 'react-lazy-load-image-component';
 
-export default function OhNo({
+function OhNo ({
     name, 
     random, 
     message, 
-    message1 
+    message1,
+    scrollPosition 
 }){
     return (
         <div className="zone2">
             <div className="noresultsflair">
                 <div className="noresults">
-                    <LazyLoadImage effect="opacity" key={`ohno${random}`} className={`ohno${random}`} alt="oh no" src={`https://dissidiacompendium.com/images/static/icons/404/${random}.png`} />
+                    <LazyLoadImage 
+                    scrollPosition={scrollPosition}
+                    effect="opacity" key={`ohno${random}`} className={`ohno${random}`} alt="oh no" src={`https://dissidiacompendium.com/images/static/icons/404/${random}.png`} />
                     <div className="singlenolinkstext"><div className="sitsatbottom">{message1 == undefined ? "No results!" : message1}</div></div>
                 </div>
             </div>
@@ -20,3 +22,4 @@ export default function OhNo({
         </div>
     )
 }
+export default trackWindowScroll(OhNo)

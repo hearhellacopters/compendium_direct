@@ -2,13 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { EndsInTimer, StartsInTimer } from '../Timers'
 import { Link } from 'react-router-dom'
 import BackFormatting from '../../components/Characters/CharacterBackForcastFormatting.js'
-import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
-import '../../Forecast.css'
-import 'react-lazy-load-image-component/src/effects/opacity.css';
+import { LazyLoadImage, LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 import TickDown from '../tickDown'
 import TickUp from '../tickUp'
  
-export default function  ForecastFormatting({
+function ForecastFormatting({
     CharID,
     match,
     newchar,
@@ -24,7 +22,8 @@ export default function  ForecastFormatting({
     ninetychar,
     frchar,
     fe50char,
-    board5chr
+    board5chr,
+    scrollPosition 
 }){
 
     const [makedim, setmakedim] = useState(false)
@@ -72,13 +71,19 @@ export default function  ForecastFormatting({
                     <h3 className={"toevents"}>{match.name}</h3>
                 </Link>
                 {currenttime >= new Date(match.outdate) ? (
-                    <LazyLoadComponent>
+                    <LazyLoadComponent
+                    scrollPosition={scrollPosition}
+                    placeholder={<div className="tickholder redcolor"/>}
+                    >
                         <div className="tickholder redcolor">
                             <div className="glshadow"><span className='emoji'>🌎</span></div>&nbsp;<TickDown value={months[new Date(match.outdate).getMonth()]} /><TickDown value={ordinal(new Date(match.outdate).getDate())} /><TickDown value={new Date(match.outdate).getFullYear()} />
                         </div>
                     </LazyLoadComponent>
                 ) : match.tempdate == true ?
-                    <LazyLoadComponent>
+                    <LazyLoadComponent
+                    scrollPosition={scrollPosition}
+                    placeholder={<div className="greencolor tickholder"/>}
+                    >
                         <div className="greencolor">
                             <div className="tickholder">
                                 <div className="glshadow"><span className='emoji'>🌎</span></div>&nbsp;<TickUp value={months[new Date(match.indate).getMonth()]} /><div className="spacerleft"><TickUp value={new Date(match.indate).getFullYear()} /></div>
@@ -91,11 +96,15 @@ export default function  ForecastFormatting({
                         </div>
                     </LazyLoadComponent>
                     : currenttime <= new Date(match.indate) ? (
-                        <LazyLoadComponent>
+                        <LazyLoadComponent
+                        scrollPosition={scrollPosition}
+                        >
                             <StartsInTimer expiryTimestamp={new Date(match.indate)} JPFlag={false} />
                         </LazyLoadComponent>
                     ) : (
-                        <LazyLoadComponent>
+                        <LazyLoadComponent
+                        scrollPosition={scrollPosition}
+                        >
                             <EndsInTimer expiryTimestamp={new Date(match.outdate)} JPFlag={false} />
                         </LazyLoadComponent>
                     )
@@ -107,7 +116,9 @@ export default function  ForecastFormatting({
                         <div className="featuredbanner2"><span className="charpageautotitle">Featured Characters</span></div>
                         <div className="charholderflairlight">
                             <ul className="CharBackListHolder">
-                                <LazyLoadComponent>
+                                <LazyLoadComponent
+                                scrollPosition={scrollPosition}
+                                >
                                     {match.ForecastChars.map(char => (
                                         <BackFormatting key={char.CharID}
                                             match={char}
@@ -131,7 +142,12 @@ export default function  ForecastFormatting({
                                     }
                                     {match.ForecastChars && match.ForecastChars.length == 0 ?
                                         <li className="CharBackListHolderinner">
-                                            <LazyLoadImage effect="opacity" alt="unknown" className={`CharBackForecast`} src={`https://dissidiacompendium.com/images/static/icons/misc/UnknownBack.png`} />
+                                            <LazyLoadImage 
+                                            scrollPosition={scrollPosition}
+                                            effect="opacity" 
+                                            alt="unknown" 
+                                            className={`CharBackForecast`} 
+                                            src={`https://dissidiacompendium.com/images/static/icons/misc/UnknownBack.png`} />
                                             <div className="facetextlist3">Unknown&nbsp;&nbsp;&nbsp;</div>
                                         </li>
                                         : ""}
@@ -144,3 +160,5 @@ export default function  ForecastFormatting({
         </li>
     )
 }
+
+export default trackWindowScroll(ForecastFormatting) 

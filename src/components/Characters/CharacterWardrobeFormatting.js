@@ -1,11 +1,12 @@
 import React from 'react';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { LazyLoadImage, trackWindowScroll } from 'react-lazy-load-image-component';
 import { Link } from 'react-router-dom'
 import Tippy from '../../components/TippyDefaults.js';
 
-export default function CharacterWardrobeFormatting({
+function CharacterWardrobeFormatting({
     match,
-    all
+    all,
+    scrollPosition
 }){
 
     const fullcount = []
@@ -46,7 +47,12 @@ export default function CharacterWardrobeFormatting({
                         <Tippy content={self.CharacterName}>
                             <div className={`chartopimageholder charbackground${self.CrystalColor}`}>
                                 <Link to={'/characters/' + self.ShortName}>
-                                    <LazyLoadImage effect="opacity" className="charmanimage" alt={self.CharacterName} src={`https://dissidiacompendium.com/images/static/characters/${self.CharacterURLName}/c${self.key}.png`} />
+                                    <LazyLoadImage 
+                                    scrollPosition={scrollPosition}
+                                    effect="opacity" 
+                                    className="charmanimage"
+                                    alt={self.CharacterName} 
+                                    src={`https://dissidiacompendium.com/images/static/characters/${self.CharacterURLName}/c${self.key}.png`} />
                                 </Link>
                             </div>
                         </Tippy>
@@ -57,7 +63,12 @@ export default function CharacterWardrobeFormatting({
                     <Tippy content={match.CharacterName}>
                         <div className={`chartopimageholder charbackground${match.CrystalColor}`}>
                             <Link to={'/characters/' + match.ShortName}>
-                                <LazyLoadImage effect="opacity" className="charmanimage" alt={match.CharacterName} src={`https://dissidiacompendium.com/images/static/characters/${match.CharacterURLName}/c1.png`} />
+                                <LazyLoadImage 
+                                scrollPosition={scrollPosition}
+                                effect="opacity" 
+                                className="charmanimage" 
+                                alt={match.CharacterName} 
+                                src={`https://dissidiacompendium.com/images/static/characters/${match.CharacterURLName}/c1.png`} />
                             </Link>
                         </div>
                     </Tippy>
@@ -69,7 +80,12 @@ export default function CharacterWardrobeFormatting({
                         <Tippy content={self.CharacterName}>
                             <div className={`chartopimageholder charbackground${self.CrystalColor}`}>
                                 <Link to={'/characters/' + self.ShortName}>
-                                    <LazyLoadImage effect="opacity" className="charmanimage" alt={self.CharacterName} src={`https://dissidiacompendium.com/images/static/characters/${self.CharacterURLName}/c${self.key}.png`} />
+                                    <LazyLoadImage 
+                                    scrollPosition={scrollPosition}
+                                    effect="opacity" 
+                                    className="charmanimage" 
+                                    alt={self.CharacterName} 
+                                    src={`https://dissidiacompendium.com/images/static/characters/${self.CharacterURLName}/c${self.key}.png`} />
                                 </Link>
                             </div>
                         </Tippy>
@@ -79,3 +95,5 @@ export default function CharacterWardrobeFormatting({
                 ""
     )
 }
+
+export default trackWindowScroll(CharacterWardrobeFormatting)

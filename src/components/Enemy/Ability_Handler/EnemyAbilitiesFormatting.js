@@ -2,9 +2,8 @@ import React from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
 import Tippy from '../../../components/TippyDefaults.js';
 import { Link } from 'react-router-dom'
-import 'react-lazy-load-image-component/src/effects/opacity.css';
 import AilmentDataFormattingEnemy from '../Buff_Handler/AilmentDataFormattingEnemy.js';
-import Option_Pars_Enemy from './OptionParsFormattingEnemy.js';
+import OptionParsFormattingEnemy from './OptionParsFormattingEnemy.js';
 import ReplacerCharacter from '../../ReplacerCharacter.js'
 import AI_Handler from './EnemyAbilities_AI_Handler';
 import { ObjectView } from 'react-object-view'
@@ -91,49 +90,8 @@ export default function EnemyAbilitiesFormatting({
 
     const cast_list = abilitiespull.cast_hit || {}
 
-    const hit_count_map = [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15,
-        16,
-        17,
-        18,
-        19,
-        20,
-        21,
-        22,
-        23,
-        24,
-        25,
-        26,
-        27,
-        28,
-        29,
-        30,
-        31,
-        32,
-        33,
-        34,
-        35,
-        36,
-        37,
-        38,
-        39,
-        40,
-    ]
-
+    const hit_count_map = Array.from(Array(40).keys(), num => num + 1);
+    
     return (
         <div className="buffunit">
             <div className="infoholder">
@@ -357,7 +315,7 @@ export default function EnemyAbilitiesFormatting({
                         : ""}
                 </div>
                 {abilitiespull.Options && abilitiespull.Options.map((options, key) => (
-                    <Option_Pars_Enemy key={key} enemy_option={options} />
+                    <OptionParsFormattingEnemy key={key} enemy_option={options} />
                 ))}
                 {abilitiespull.Casts && abilitiespull.Casts ?
                     <div className={`bufflistbanner noselect newblue`}>

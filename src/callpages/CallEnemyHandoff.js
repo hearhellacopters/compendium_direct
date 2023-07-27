@@ -6,8 +6,6 @@ import { getEvents } from '../redux/ducks/events';
 import { getLevels } from '../redux/ducks/levels';
 import { getCharacters } from '../redux/ducks/characters';
 import { getJPToggle } from '../redux/ducks/jptoggle';
-import '../Abilities.css'
-import '../Buffs.css'
 
 import EnemyHandoff from '../handoff/EnemyHandoff';
 import Loading from '../components/Loading'

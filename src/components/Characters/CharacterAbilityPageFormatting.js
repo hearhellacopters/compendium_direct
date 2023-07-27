@@ -8,10 +8,7 @@ import { TiArrowSortedUp } from 'react-icons/ti';
 import { IoMdCloseCircleOutline } from 'react-icons/io';
 import { IoSearch } from 'react-icons/io5';
 import { FaUndoAlt } from 'react-icons/fa'
-import 'tippy.js/dist/tippy.css';
-import 'tippy.js/animations/shift-away.css';
 import { getQuery, getQueryStringVal, useQueryParam } from '../URLParams'
-import 'react-flow-renderer/dist/theme-default.css';
 import CharacterAbilitySubListFormatting from './CharacterAbilitySubListFormatting';
 
 export default function CharacterAbilityPageFormatting({

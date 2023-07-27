@@ -2,10 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useStateIfMounted } from "use-state-if-mounted";
 import { Link } from 'react-router-dom'
-import './Spheres.css';
 import Tippy from './components/TippyDefaults.js';
-import 'tippy.js/dist/tippy.css';
-import 'tippy.js/animations/shift-away.css';
 import { Helmet } from 'react-helmet-async';
 import Select from 'react-select';
 import { ImSortAmountAsc } from 'react-icons/im';

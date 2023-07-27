@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
-import '../../Characters.css';
 import Tippy from '../../components/TippyDefaults.js'
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/opacity.css';
+import { LazyLoadImage, LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 
-export default function CharacterFilterReturns({ match, reverse, Sortsearch, ProcessedCharacters, jptoggledata, spoilers }){
+function CharacterFilterReturns({ 
+    match, 
+    reverse, 
+    Sortsearch, 
+    ProcessedCharacters, 
+    jptoggledata, 
+    spoilers,
+    scrollPosition
+}){
 
     const [ver, setver] = useState(jptoggledata == true ? "JP" : "GL")
 
@@ -225,12 +231,20 @@ export default function CharacterFilterReturns({ match, reverse, Sortsearch, Pro
     const bannerdisplay = <><span className="subtextgold">{filteredout.length}</span> Non-Matching Character{filteredout.length == 1 ? "" : "s"}</>
 
     return (
-        <div>
+        <LazyLoadComponent
+        scrollPosition={scrollPosition}
+        placeholder={<div className="charlistholder centeralign"/>}
+        >
             <div className="charlistholder centeralign">
                 {match.map(chars => (
                     <Link className="characterlink" key={chars.CharID} to={'/characters/' + chars.ShortName}>
                         <li >
-                            <LazyLoadImage className="charactercard" alt={chars.CharacterName} src={convert_card(chars)} effect="opacity" />
+                            <LazyLoadImage 
+                            scrollPosition={scrollPosition}
+                            effect="opacity" 
+                            className="charactercard" 
+                            alt={chars.CharacterName} 
+                            src={convert_card(chars)} />
                         </li>
                         {chars.JPSynergyStart == undefined && chars.GLSynergyStart == undefined ? "" :
                             <div className={chars.JPSynergyStart == undefined || chars.GLSynergyStart == undefined ? "bubble1" : "bubble2"}>
@@ -270,7 +284,12 @@ export default function CharacterFilterReturns({ match, reverse, Sortsearch, Pro
                 {filteredout.map(chars => (
                     <Link className="characterlink" key={chars.CharID + "dim"} to={'/characters/' + chars.ShortName}>
                         <li >
-                            <LazyLoadImage className="charactercard dim" alt={chars.CharacterName} src={convert_card(chars)} effect="opacity" />
+                            <LazyLoadImage 
+                            scrollPosition={scrollPosition}
+                            effect="opacity" 
+                            className="charactercard dim" 
+                            alt={chars.CharacterName} 
+                            src={convert_card(chars)}/>
                         </li>
                         {chars.JPSynergyStart == undefined && chars.GLSynergyStart == undefined ? "" :
                             <div className={chars.JPSynergyStart == undefined || chars.GLSynergyStart == undefined ? "bubble1 dim" : "bubble2 dim"}>
@@ -301,7 +320,9 @@ export default function CharacterFilterReturns({ match, reverse, Sortsearch, Pro
                     </Link>
                 ))}
             </div>
-        </div>
+        </LazyLoadComponent>
     )
 
 }
+
+export default trackWindowScroll(CharacterFilterReturns)

@@ -19,7 +19,6 @@ import { FaUndoAlt } from 'react-icons/fa'
 import MissionFormatting from './components/Missions/MissionFormatting';
 import PanelFormatting from './components/Missions/PanelFormatting';
 import Select from 'react-select';
-import './Missions.css'
 
 export default function Missions({
     jptoggledata

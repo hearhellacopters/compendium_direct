@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
 import PassiveAbilityFormatting from '../Passives/PassiveAbilityFormatting';
-import 'tippy.js/dist/tippy.css';
-import 'tippy.js/animations/shift-away.css';
 import { getQuery, getQueryStringVal, useQueryParam } from '../URLParams'
 import CharacterAbilityPars from '../Abilities/AbilityPars.js'
 

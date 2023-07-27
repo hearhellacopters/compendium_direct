@@ -1,7 +1,6 @@
 import React, { useState, useRef} from 'react';
 import { useSelector } from "react-redux";
 import { useLocation, Link } from 'react-router-dom';
-import './Nav.css'
 import { GiHamburgerMenu } from 'react-icons/gi';
 import UseOnClickOutside from './components/UseOnClickOutside';
 

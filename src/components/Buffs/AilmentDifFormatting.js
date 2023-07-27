@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useStateIfMounted } from "use-state-if-mounted";
-import { LazyLoadComponent } from 'react-lazy-load-image-component';
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 import CharacterFaceFormatting from "../Characters/CharacterFaceFormatting";
 import format_cleaner from '../../processing/format_cleaner'
 import { useDispatch, useSelector } from "react-redux";
@@ -16,7 +16,7 @@ import AilmentSliderFormatting from "./AilmentSliderFormatting";
 import ailment_data_handler from "../../processing/ailment/ailment_data_handler";
 import ailment_level_icon from "../../processing/ailment/ailment_level_icon";
 
-export default function AilmentDifFormatting({
+function AilmentDifFormatting({
     buff_new,
     ver_new,
     buff_old,
@@ -29,7 +29,8 @@ export default function AilmentDifFormatting({
     default_passoff, //default passoff
     passed_passive, // for passive defaults
     hide_title,
-    debugging
+    debugging,
+    scrollPosition 
 }){
 
     const form = {diffing:true}
@@ -288,172 +289,177 @@ export default function AilmentDifFormatting({
 
     return (
         <div className={frameless != true ? character_face == true ? "buffunit" : "" : ""}>
-            <div className={frameless != true ? "infoholder" : ""} style={{ minHeight: `${frameless == true || character_face != true ? 0 : minH}px` }}>
-                <LazyLoadComponent>
-                    {character_face == true?
-                        <div className="infotitleholder">
-                            <div className="faceandiconholder">
-                                <CharacterFaceFormatting char_id={char_id} id={buff_new.chara_id}/>
-                                <div onClick={showmeraw} className="infoiconholder2">
-                                    <img className="bufficon" alt={buff_new.name && buff_new.name} src={`https://dissidiacompendium.com/images/static/icons/buff/${ailment_level_icon(buff_new,currentlevel)}.png`} />
-                                </div>
+            <LazyLoadComponent
+            scrollPosition={scrollPosition}
+            placeholder={<div className={frameless != true ? "infoholder" : ""} style={{ minHeight: `${frameless == true || character_face != true ? 0 : minH}px` }}/>}
+            >
+            <div className={frameless != true ? "infoholder" : ""}>
+                {character_face == true?
+                    <div className="infotitleholder">
+                        <div className="faceandiconholder">
+                            <CharacterFaceFormatting char_id={char_id} id={buff_new.chara_id}/>
+                            <div onClick={showmeraw} className="infoiconholder2">
+                                <img className="bufficon" alt={buff_new.name && buff_new.name} src={`https://dissidiacompendium.com/images/static/icons/buff/${ailment_level_icon(buff_new,currentlevel)}.png`} />
                             </div>
                         </div>
-                    :""}
-                    <div style={{ marginTop: `${character_face != true ? "5px" : ""}` }} 
-                         className={
-                            frameless == true ? (buff_new.is_buff == 1 ? "Buffsubbanner2" : "Debuffsubbanner2") : 
-                            buff_new.is_buff == 0 ? "Debuffbanner iconbuffer infonameholder nobuffpadding" : "Buffbanner iconbuffer infonameholder nobuffpadding"
-                         }>
-                        <div className={character_face != true ? "flexdisplay" :"infotitle2"}>
-                            {character_face != true?
-                                <div onClick={showmeraw} className="solo_buff_icon">
-                                    <img className="bufficon2" alt={buff_new.name && buff_new.name} src={`https://dissidiacompendium.com/images/static/icons/buff/${ailment_level_icon(buff_new,currentlevel)}.png`} />
-                                </div>
-                            :
-                            ""
-                            }
-                            <span className={character_face != true ? "splitrow" : ""}>
-                            {ReplacerCharacter(`${buff_new && buff_new.name == "" ? `Unknown ${buff_new.is_buff == 1 ? "buff" : "debuff"}` : buff_new.name}${buff_new.is_state == true ? "" : ` - #${buff_new.id}`}`,form)}
-                            {buff_new && buff_new.jpname == "" || buff_new && buff_new.jpname  == undefined ?
-                                <div className="abilityJPname">
-                                    {"None テキストなし"}
-                                </div>
-                                : <div className="abilityJPname">
-                                    {ReplacerCharacter(buff_new.jpname,form)}
-                                </div>}
-                            </span>
-                        </div>
-                        {info != undefined?
-                        <div className='buffglreworkbanner passiveinfobase'>{info}</div>
-                        :""}
                     </div>
-                    <AilmentSliderFormatting
-                        ailment_data={buff_new}
-                        sliders={sliders}
-                        highestlvl={highestlvl}
-                        nobuffpadding={frameless == true ? false : true}
-
-                        currentlevel={currentlevel}
-                        handleChangeLevel={handleChangeLevel}
-
-                        currentturns={currentturns}
-                        handleChangeTurns={handleChangeTurns}
-
-                        currentdebuffsranks={currentdebuffsranks}
-                        handleChangeDebuffRank={handleChangeDebuffRank}
-
-                        currentdebuffsranks2={currentdebuffsranks2}
-                        handleChangeDebuffRank2={handleChangeDebuffRank2}
-
-                        currentdebuffsmuliply={currentdebuffsmuliply}
-                        handleChangeDebuffMuliply={handleChangeDebuffMuliply}
-
-                        currentfieldbuffsranks={currentfieldbuffsranks}
-                        handleChangeFieldBuffRank={handleChangeFieldBuffRank}
-
-                        currentbuffsranks={currentbuffsranks}
-                        handleChangeBuffRank={handleChangeBuffRank}
-
-                        currentbuffsmuliply={currentbuffsmuliply}
-                        handleChangeBuffMuliply={handleChangeBuffMuliply}
-
-                        currentenemies={currentenemies}
-                        handleChangeEnemies={handleChangeEnemies}
-
-                        currentstacks={currentstacks}
-                        handleChangeStacks={handleChangeStacks}
-
-                        currentgroupstacks={currentgroupstacks}
-                        handleChangeGroupStacks={handleChangeGroupStacks}
-
-                        currenthp={currenthp}
-                        handleChangeHP={handleChangeHP}
-
-                        charactersleft={charactersleft}
-                        handleChangeCharactersLeft={handleChangeCharactersLeft}
-
-                        characterskb={characterskb}
-                        handleChangeCharactersKB={handleChangeCharactersKB}
-                    />
-                    <div className={
-                        frameless == true ? (buff_new.is_buff == 1 ? "Buffsubbase2" : "Debuffsubbase2") :
-                        buff_new.is_buff == 0 ? "Debuffbase enemyabilityinfobase" : "Buffbase enemyabilityinfobase"
+                :""}
+                <div style={{ marginTop: `${character_face != true ? "5px" : ""}` }} 
+                        className={
+                        frameless == true ? (buff_new.is_buff == 1 ? "Buffsubbanner2" : "Debuffsubbanner2") : 
+                        buff_new.is_buff == 0 ? "Debuffbanner iconbuffer infonameholder nobuffpadding" : "Buffbanner iconbuffer infonameholder nobuffpadding"
                         }>
-                        {buff_new.hide_title == true || default_passoff != undefined || frameless == true || passed_passive != undefined || hide_title == true? "" :
-                            <div className={"subpassiveflair cast_str"}>
-                                {ReplacerCharacter(makediff(
-                                `${cast_title_str_old}${cast_turns_str_old}${cast_target_str_old}`,
-                                `${cast_title_str}${cast_turns_str}${cast_target_str}`
-                                ),forma)}
+                    <div className={character_face != true ? "flexdisplay" :"infotitle2"}>
+                        {character_face != true?
+                            <div onClick={showmeraw} className="solo_buff_icon">
+                                <img className="bufficon2" alt={buff_new.name && buff_new.name} src={`https://dissidiacompendium.com/images/static/icons/buff/${ailment_level_icon(buff_new,currentlevel)}.png`} />
                             </div>
+                        :
+                        ""
                         }
-                        <AilmentEffectDif
-                            ailment_data_trans_new={ailment_data_trans_new}
-                            ailment_data_trans_old={ailment_data_trans_old}
-                            currentturns_passoff={currentturns}
-                            currentdebuffsranks_passoff={currentdebuffsranks}
-                            currentdebuffsranks2_passoff={currentdebuffsranks2}
-                            currentdebuffsmuliply_passoff={currentdebuffsmuliply}
-                            currentbuffsranks_passoff={currentbuffsranks}
-                            currentfieldbuffsranks_passoff={currentfieldbuffsranks}
-                            currentbuffsmuliply_passoff={currentbuffsmuliply}
-                            currentstacks_passoff={currentstacks}
-                            currentenemies_passoff={currentenemies}
-                            currentgroupstacks_passoff={currentgroupstacks}
-                            currenthp_passoff={currenthp}
-                            charactersleft_passoff={charactersleft}
-                            characterskb={characterskb}
-                            currentlevel_passoff={currentlevel}
-                            debugging={debugging}
-                        />
-                        {buff_new.options != undefined ?
-                            <div className='p_grade'>
-                                <div className='fieldbar'>
-                                    <div >
-                                        <span className='mini_ability'></span>Upgrades:
-                                    </div>
-                                </div>
-                                {ReplacerCharacter(makediff(format_cleaner(options_tex_old).replace(/\s+$/g, ""), format_cleaner(options_tex).replace(/\s+$/g, "")),forma)}
-                                <div className='abilityJPname'>*conditions may apply</div>
+                        <span className={character_face != true ? "splitrow" : ""}>
+                        {ReplacerCharacter(`${buff_new && buff_new.name == "" ? `Unknown ${buff_new.is_buff == 1 ? "buff" : "debuff"}` : buff_new.name}${buff_new.is_state == true ? "" : ` - #${buff_new.id}`}`,form)}
+                        {buff_new && buff_new.jpname == "" || buff_new && buff_new.jpname  == undefined ?
+                            <div className="abilityJPname">
+                                {"None テキストなし"}
                             </div>
-                            : ""}
-
-                        {metadata && ReplacerCharacter(makediff(format_cleaner(metadata_old).replace(/^\s+|\s+$/g, ""), format_cleaner(metadata).replace(/^\s+|\s+$/g, "")),forma)}
-
-                        <div onClick={() => showmedesc(showdesc)} className='clicky updatelink'>{showdesc == false ? "\xa0- Show Desc -" : "\xa0- Hide Desc -"}</div>
-                        {showdesc == true ?
-                            <hr></hr>
-                            : ""}
-                        {showdesc == true && trans != undefined && showtrans == true ?
-                            ReplacerCharacter(trans+"\n",form)
-                            :
-                            showdesc == true && setdesc != undefined && showtrans != true ? 
-                                <div>
-                                    {ReplacerCharacter(format_cleaner(setdesc == undefined || setdesc == "" ? "Not available" : setdesc),form)}
-                                </div>
-                            : ""
-                        }
-                        {ver_new == "JP" && showdesc == true ?
-                            <div className='clicky updatelink contents' onClick={() => doTrans()}>Translate (Beta)</div>
-                            : ""}
-
-                        {showraw == true ?
-                            <span className='react-json-view'>
-                                <ObjectView 
-                                options={
-                                    {
-                                      hideDataTypes: true,
-                                      expandLevel: 1
-                                    }
-                                  }
-                                data={buff_new} 
-                                />
-                            </span>
-                            : ""}
+                            : <div className="abilityJPname">
+                                {ReplacerCharacter(buff_new.jpname,form)}
+                            </div>}
+                        </span>
                     </div>
-                </LazyLoadComponent>
+                    {info != undefined?
+                    <div className='buffglreworkbanner passiveinfobase'>{info}</div>
+                    :""}
+                </div>
+                <AilmentSliderFormatting
+                    ailment_data={buff_new}
+                    sliders={sliders}
+                    highestlvl={highestlvl}
+                    nobuffpadding={frameless == true ? false : true}
+
+                    currentlevel={currentlevel}
+                    handleChangeLevel={handleChangeLevel}
+
+                    currentturns={currentturns}
+                    handleChangeTurns={handleChangeTurns}
+
+                    currentdebuffsranks={currentdebuffsranks}
+                    handleChangeDebuffRank={handleChangeDebuffRank}
+
+                    currentdebuffsranks2={currentdebuffsranks2}
+                    handleChangeDebuffRank2={handleChangeDebuffRank2}
+
+                    currentdebuffsmuliply={currentdebuffsmuliply}
+                    handleChangeDebuffMuliply={handleChangeDebuffMuliply}
+
+                    currentfieldbuffsranks={currentfieldbuffsranks}
+                    handleChangeFieldBuffRank={handleChangeFieldBuffRank}
+
+                    currentbuffsranks={currentbuffsranks}
+                    handleChangeBuffRank={handleChangeBuffRank}
+
+                    currentbuffsmuliply={currentbuffsmuliply}
+                    handleChangeBuffMuliply={handleChangeBuffMuliply}
+
+                    currentenemies={currentenemies}
+                    handleChangeEnemies={handleChangeEnemies}
+
+                    currentstacks={currentstacks}
+                    handleChangeStacks={handleChangeStacks}
+
+                    currentgroupstacks={currentgroupstacks}
+                    handleChangeGroupStacks={handleChangeGroupStacks}
+
+                    currenthp={currenthp}
+                    handleChangeHP={handleChangeHP}
+
+                    charactersleft={charactersleft}
+                    handleChangeCharactersLeft={handleChangeCharactersLeft}
+
+                    characterskb={characterskb}
+                    handleChangeCharactersKB={handleChangeCharactersKB}
+                />
+                <div className={
+                    frameless == true ? (buff_new.is_buff == 1 ? "Buffsubbase2" : "Debuffsubbase2") :
+                    buff_new.is_buff == 0 ? "Debuffbase enemyabilityinfobase" : "Buffbase enemyabilityinfobase"
+                    }>
+                    {buff_new.hide_title == true || default_passoff != undefined || frameless == true || passed_passive != undefined || hide_title == true? "" :
+                        <div className={"subpassiveflair cast_str"}>
+                            {ReplacerCharacter(makediff(
+                            `${cast_title_str_old}${cast_turns_str_old}${cast_target_str_old}`,
+                            `${cast_title_str}${cast_turns_str}${cast_target_str}`
+                            ),forma)}
+                        </div>
+                    }
+                    <AilmentEffectDif
+                        ailment_data_trans_new={ailment_data_trans_new}
+                        ailment_data_trans_old={ailment_data_trans_old}
+                        currentturns_passoff={currentturns}
+                        currentdebuffsranks_passoff={currentdebuffsranks}
+                        currentdebuffsranks2_passoff={currentdebuffsranks2}
+                        currentdebuffsmuliply_passoff={currentdebuffsmuliply}
+                        currentbuffsranks_passoff={currentbuffsranks}
+                        currentfieldbuffsranks_passoff={currentfieldbuffsranks}
+                        currentbuffsmuliply_passoff={currentbuffsmuliply}
+                        currentstacks_passoff={currentstacks}
+                        currentenemies_passoff={currentenemies}
+                        currentgroupstacks_passoff={currentgroupstacks}
+                        currenthp_passoff={currenthp}
+                        charactersleft_passoff={charactersleft}
+                        characterskb={characterskb}
+                        currentlevel_passoff={currentlevel}
+                        debugging={debugging}
+                    />
+                    {buff_new.options != undefined ?
+                        <div className='p_grade'>
+                            <div className='fieldbar'>
+                                <div >
+                                    <span className='mini_ability'></span>Upgrades:
+                                </div>
+                            </div>
+                            {ReplacerCharacter(makediff(format_cleaner(options_tex_old).replace(/\s+$/g, ""), format_cleaner(options_tex).replace(/\s+$/g, "")),forma)}
+                            <div className='abilityJPname'>*conditions may apply</div>
+                        </div>
+                        : ""}
+
+                    {metadata && ReplacerCharacter(makediff(format_cleaner(metadata_old).replace(/^\s+|\s+$/g, ""), format_cleaner(metadata).replace(/^\s+|\s+$/g, "")),forma)}
+
+                    <div onClick={() => showmedesc(showdesc)} className='clicky updatelink'>{showdesc == false ? "\xa0- Show Desc -" : "\xa0- Hide Desc -"}</div>
+                    {showdesc == true ?
+                        <hr></hr>
+                        : ""}
+                    {showdesc == true && trans != undefined && showtrans == true ?
+                        ReplacerCharacter(trans+"\n",form)
+                        :
+                        showdesc == true && setdesc != undefined && showtrans != true ? 
+                            <div>
+                                {ReplacerCharacter(format_cleaner(setdesc == undefined || setdesc == "" ? "Not available" : setdesc),form)}
+                            </div>
+                        : ""
+                    }
+                    {ver_new == "JP" && showdesc == true ?
+                        <div className='clicky updatelink contents' onClick={() => doTrans()}>Translate (Beta)</div>
+                        : ""}
+
+                    {showraw == true ?
+                        <span className='react-json-view'>
+                            <ObjectView 
+                            options={
+                                {
+                                    hideDataTypes: true,
+                                    expandLevel: 1
+                                }
+                                }
+                            data={ailment_debug} 
+                            />
+                        </span>
+                        : ""}
+                </div>
             </div>
+            </LazyLoadComponent>
         </div>
     )
 }
+
+export default trackWindowScroll(AilmentDifFormatting)

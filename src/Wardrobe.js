@@ -9,10 +9,12 @@ import { ImSortAmountDesc } from 'react-icons/im';
 import Tippy from './components/TippyDefaults.js';
 import CharacterWardrobeFormatting from './components/Characters/CharacterWardrobeFormatting.js';
 import { getQuery, getQueryStringVal, useQueryParam } from './components/URLParams.js'
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 
-export default function Wardrobe({
+function Wardrobe({
   match,
-  ProcessedCharacters
+  ProcessedCharacters,
+  scrollPosition 
 }){
 
   const rawData = Object.values(ProcessedCharacters).filter(self => self.ArtworkCount > 1)
@@ -235,7 +237,17 @@ export default function Wardrobe({
           </div>
           {listCharacters.length > 0 ? (
             listCharacters.map(char => (
-              <CharacterWardrobeFormatting key={char.CharID} match={char} all={showAll} />
+              <LazyLoadComponent
+              placeholder={<div className="charimagetoptopholder padd5"/>}
+              key={char.CharID} 
+              scrollPosition={scrollPosition}
+              >
+              <CharacterWardrobeFormatting 
+              key={char.CharID} 
+              match={char} 
+              all={showAll} 
+              />
+              </LazyLoadComponent>
             ))) : (
             <div>No results</div>
           )}
@@ -249,3 +261,4 @@ export default function Wardrobe({
     </div>
   )
 }
+export default trackWindowScroll(Wardrobe)

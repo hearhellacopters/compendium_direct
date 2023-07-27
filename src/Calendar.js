@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import CalendarMonthView from './components/Events/month_view/CalendarMonthView';
 import Tippy from './components/TippyDefaults.js';
 import { getQueryStringVal, useQueryParam } from './components/URLParams'
-import './Calandar.css'
 
 export default function Calendar({ 
   JPCalendarData, 

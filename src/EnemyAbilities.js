@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
 import { Link } from 'react-router-dom'
-import './Spheres.css';
 import Tippy from './components/TippyDefaults.js';
-import 'tippy.js/dist/tippy.css';
-import 'tippy.js/animations/shift-away.css';
 import EnemyAbilitiesListingFormattingDirect from './components/Enemy/Ability_Handler/EnemyAbilitiesListingFormatting'
 import { Helmet } from 'react-helmet-async';
 import Select from 'react-select';

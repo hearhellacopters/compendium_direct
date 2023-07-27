@@ -4,7 +4,6 @@ import Tippy from '../../../components/TippyDefaults.js';
 import ReplacerCharacter from '../../ReplacerCharacter.js'
 import { Link } from 'react-router-dom'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/opacity.css';
 import AilmentDataFormattingEnemy from '../Buff_Handler/AilmentDataFormattingEnemy.js';
 import DevSwitch from '../../../redux/DevSwitch'
 import axios from "axios";
@@ -53,7 +52,7 @@ export default function EnemyAbilitiesListingFormattingDirect({ match }){
                     {match.IconURL != undefined ?
                         <div className="enemyabilityiconholder">
                             <Link className="abilityurlholder" to={`/bestiary/enemies/${match.battle_enemy_id}`}>
-                                <LazyLoadImage effect="opacity" className="abilityicon" alt={match.Name} src={`https://dissidiacompendium.com/images/static/icons/buttons/ability/${match.IconURL}`} />
+                                <img className="abilityicon" alt={match.Name} src={`https://dissidiacompendium.com/images/static/icons/buttons/ability/${match.IconURL}`} />
                             </Link>
                         </div> : ""}
                 </div>

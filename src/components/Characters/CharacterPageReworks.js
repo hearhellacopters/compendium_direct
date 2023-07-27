@@ -2,27 +2,23 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import Random from '../../processing/random.js'
 import OhNo from '../../components/OhNo.js'
-import './CharacterPage.css'
-import 'tippy.js/animations/scale.css';
-import 'tippy.js/animations/scale-subtle.css';
-import 'tippy.js/animations/scale-extreme.css';
 import TickUp from '../../components/tickUp.js'
 import { StartsInTimer } from '../../components/Timers.js'
-import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
+import { LazyLoadImage, LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 import CharacterAbilityDifHandler from '../Abilities/AbilityDifHandler.js';
 import AilmentDifHandler from '../Buffs/AilmentDifHandler.js';
 import PassiveAbilityDifHandler from '../Passives/PassiveAbilityDifHandler.js';
 import EquipmentPassiveDifHandler from '../Gear/EquipmentPassiveDifHandler.js';
 import ReplacerCharacter from '../ReplacerCharacter.js';
-import '../../Passives.css';
 
-export default function CharacterPageReworks({
+function CharacterPageReworks({
   match,
   ProcessedReworks,
   selected_chara,
   master_index,
   ProcessedCharacters,
-  jptoggledata
+  jptoggledata,
+  scrollPosition 
 }){
 
   const [reworks, setreworks] = useState(ProcessedReworks);
@@ -60,13 +56,21 @@ export default function CharacterPageReworks({
               <div className="abilitygreysinglebutton margtop">
                 {ReplacerCharacter(`<${passives.PassiveRank}> Passives`)}
               </div>
-              <LazyLoadComponent>
                 <div className="buffunit">
-                  <div className="infoholder" style={{ minHeight: "160px" }}>
+                <LazyLoadComponent
+                scrollPosition={scrollPosition}
+                placeholder={<div className="infoholder" style={{ minHeight: "250px" }}/>}              
+                >
+                  <div className="infoholder">
                     <div className="infotitleholder">
                       <div className="faceandiconholder">
                         <div className='faceholderpassives'>
-                          <LazyLoadImage effect="opacity" alt={selected_chara.CharacterName} className={`faceicon`} src={selected_chara.CharacterName == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_face.png" : `https://dissidiacompendium.com/images/static/characters/${selected_chara.CharacterName.replace(/ /g, "").replace(/,/g, "").replace(/'/g, "").replace(/&/g, "")}/face.png`} />
+                          <LazyLoadImage 
+                          scrollPosition={scrollPosition}
+                          effect="opacity" 
+                          alt={selected_chara.CharacterName} 
+                          className={`faceicon`} 
+                          src={selected_chara.CharacterName == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_face.png" : `https://dissidiacompendium.com/images/static/characters/${selected_chara.CharacterName.replace(/ /g, "").replace(/,/g, "").replace(/'/g, "").replace(/&/g, "")}/face.png`} />
                           <div className="facetext">
                             {selected_chara.CharacterName == "Cloud of Darkness" ? "CoD" : selected_chara.CharacterName == "Warrior of Light" ? "WoL" : selected_chara.CharacterName}
                           </div>
@@ -146,8 +150,8 @@ export default function CharacterPageReworks({
                     ))
                     }
                   </div>
+                  </LazyLoadComponent>
                 </div>
-              </LazyLoadComponent>
             </div>
           )
         })}
@@ -155,3 +159,5 @@ export default function CharacterPageReworks({
   )
 
 }
+
+export default trackWindowScroll(CharacterPageReworks)

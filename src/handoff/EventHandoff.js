@@ -6,9 +6,6 @@ import { Link } from 'react-router-dom'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import DefaultTippy from '../components/TippyDefaults.js';
 import Tippy from '@tippyjs/react';
-import 'tippy.js/animations/scale.css';
-import 'tippy.js/animations/scale-subtle.css';
-import 'tippy.js/animations/scale-extreme.css';
 import ScrolltoTop from '../components/ScrollToTop.js'
 import { ImArrowRight } from 'react-icons/im';
 import { ImArrowLeft } from 'react-icons/im';

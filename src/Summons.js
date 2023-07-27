@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Tippy from './components/TippyDefaults.js';
 import { Link, Navigate } from 'react-router-dom';
-import './Summons.css'
 import { Helmet } from 'react-helmet-async';
 import SummonsFormatting from './components/Summons/SummonsFormatting';
 

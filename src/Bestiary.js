@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom'
 import Tippy from './components/TippyDefaults.js';
 import { Helmet } from 'react-helmet-async';
 import Select from 'react-select';
-import EnemyListingDirect from './components/Enemy/EnemyListing'
-import EnemyDetailsDirect from './components/Enemy/EnemyDetails';
+import EnemyListing from './components/Enemy/EnemyListing'
+import EnemyDetails from './components/Enemy/EnemyDetails';
 import { ImSortAmountAsc } from 'react-icons/im';
 import { ImSortAmountDesc } from 'react-icons/im';
 import { TiArrowSortedDown } from 'react-icons/ti';
@@ -18,8 +18,15 @@ import { FaUndoAlt } from 'react-icons/fa';
 import { getQuery, getQueryStringVal, useQueryParam } from './components/URLParams'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { FaShareSquare } from 'react-icons/fa';
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 
-export default function Bestiary({ ProcessedEnemy, jptoggledata, ProcessedCharacters, PartnerCharacters }){
+function Bestiary({ 
+  ProcessedEnemy, 
+  jptoggledata, 
+  ProcessedCharacters, 
+  PartnerCharacters,
+  scrollPosition 
+ }){
 
   const dispatch = useDispatch();
 
@@ -1136,26 +1143,36 @@ export default function Bestiary({ ProcessedEnemy, jptoggledata, ProcessedCharac
           {details == true ?
             listenemies.length > 0 ? (
               listenemies.map(enemy => (
-                <EnemyDetailsDirect
+                <LazyLoadComponent
+                key={enemy.battle_enemy_id}
+                placeholder={<div style={{minHeight:"250px"}} className="enemyholderdesc3"/>}
+                >
+                <EnemyDetails
                   key={enemy.battle_enemy_id}
                   match={enemy}
                   ProcessedCharacters={ProcessedCharacters}
                   PartnerCharacters={PartnerCharacters}
                   jptoggledata={jptoggledata}
                 />
+                </LazyLoadComponent>
               ))) : (
               <div>No results</div>
             )
             :
             listenemies.length > 0 ? (
               listenemies.map(enemy => (
-                <EnemyListingDirect
+                <LazyLoadComponent
+                key={enemy.battle_enemy_id}
+                placeholder={<li className='enemyholderli'/>}
+                >
+                <EnemyListing
                   key={enemy.battle_enemy_id}
                   match={enemy}
                   ProcessedCharacters={ProcessedCharacters}
                   PartnerCharacters={PartnerCharacters}
                   jptoggledata={jptoggledata}
                 />
+                </LazyLoadComponent>
               ))) : (
               <div>No results</div>
             )}
@@ -1170,3 +1187,5 @@ export default function Bestiary({ ProcessedEnemy, jptoggledata, ProcessedCharac
     </div>
   );
 }
+
+export default trackWindowScroll(Bestiary)

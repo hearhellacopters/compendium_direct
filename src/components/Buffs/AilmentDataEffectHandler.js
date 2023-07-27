@@ -252,7 +252,7 @@ export default function AilmentDataEffectHandler({
                 </>
             : ""}
             {debugging !=true ? "":
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(num => (
+            Array.from(Array(10).keys(), num => num + 1).map(num => (
                 effect_id && effect_id[`rank${num}`] && effect_id[`rank${num}`].value1 == undefined ? "" :
                     <span key={num} className="padleft values">
                         {`${num}) `}

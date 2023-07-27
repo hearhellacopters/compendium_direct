@@ -6,11 +6,10 @@ import CharacterFaceFormatting from '../components/Characters/CharacterFaceForma
 import EnemyListingsDirect from '../components/Enemy/EnemyListing.js'
 import BannersFormatting from '../components/Events/SingleBannersFormatting.js'
 import ReplacerCharacter from './ReplacerCharacter.js';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { LazyLoadImage, trackWindowScroll } from 'react-lazy-load-image-component';
 import { ImWarning } from 'react-icons/im';
-import 'react-lazy-load-image-component/src/effects/opacity.css';
  
-export default function UpdateFormatting({ match, jptoggledata }){
+function UpdateFormatting({ match, jptoggledata, scrollPosition  }){
 
   const [showupdate, setshowupdate] = useState(false);
 
@@ -118,7 +117,12 @@ export default function UpdateFormatting({ match, jptoggledata }){
                       <li key={summons.SummonID}>
                         <DefaultTippy content={summons.SummonName}>
                           <Link to={`/bonuses/${summons.SummonNameShort}`}>
-                            <LazyLoadImage effect="opacity" alt={summons.SummonName} className="summonimglink" src={`https://dissidiacompendium.com/images/static/icons/summons/face/${summons.SummonFace}`} />
+                            <LazyLoadImage 
+                            scrollPosition={scrollPosition}
+                            effect="opacity" 
+                            alt={summons.SummonName} 
+                            className="summonimglink" 
+                            src={`https://dissidiacompendium.com/images/static/icons/summons/face/${summons.SummonFace}`} />
                           </Link>
                         </DefaultTippy>
                       </li>
@@ -141,3 +145,5 @@ export default function UpdateFormatting({ match, jptoggledata }){
   )
 
 }
+
+export default trackWindowScroll(UpdateFormatting)

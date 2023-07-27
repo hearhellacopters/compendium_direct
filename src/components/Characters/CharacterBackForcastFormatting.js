@@ -1,13 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/opacity.css';
+import { LazyLoadImage, trackWindowScroll } from 'react-lazy-load-image-component';
 import ReplacerCharacter from '../ReplacerCharacter.js';
 import Tippy from '../../components/TippyDefaults.js';
-import 'tippy.js/dist/tippy.css';
-import 'tippy.js/animations/shift-away.css';
 
-export default function CharacterBackForcastFormatting({
+function CharacterBackForcastFormatting({
     match,
     location,
     dim,
@@ -24,7 +21,8 @@ export default function CharacterBackForcastFormatting({
     ninetychar,
     frchar,
     fe50char,
-    board5char
+    board5char,
+    scrollPosition
 }){
 
     var dimmer = undefined
@@ -145,9 +143,16 @@ export default function CharacterBackForcastFormatting({
                         : ""}
                 </ul>
                 <div className="facetextlist2">{match.CharacterName == "Cloud of Darkness" ? "CoD" : match.CharacterName == "Warrior of Light" ? "WoL" : match.CharacterName}</div>
-                <LazyLoadImage effect="opacity" alt={match.CharacterName} className={`CharBackForecast${dimmer == true ? " dim" : ""}`} src={`https://dissidiacompendium.com/images/static/characters/${match.CharacterName.replace(/ /g, "").replace(/,/g, "").replace(/'/g, "").replace(/&/g, "")}/back.png`} />
+                <LazyLoadImage 
+                scrollPosition={scrollPosition}
+                effect="opacity" 
+                alt={match.CharacterName} 
+                className={`CharBackForecast${dimmer == true ? " dim" : ""}`} 
+                src={`https://dissidiacompendium.com/images/static/characters/${match.CharacterName.replace(/ /g, "").replace(/,/g, "").replace(/'/g, "").replace(/&/g, "")}/back.png`} />
             </li>
         </Link>
     )
 
 }
+
+export default trackWindowScroll(CharacterBackForcastFormatting)

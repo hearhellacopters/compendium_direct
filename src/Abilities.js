@@ -15,11 +15,12 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { FaShareSquare } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
 import { getQuery, getQueryStringVal, useQueryParam } from './components/URLParams'
-import CharacterAbilityPars from './components/Abilities/AbilityPars';
+import AbilityPars from './components/Abilities/AbilityPars';
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 
 import { setFalse, setTrue } from './redux/ducks/jptoggle'
 
-export default function Abilities({
+function Abilities({
     ProcessedAbilities,
     ProcessedCharacters,
     ver,
@@ -27,6 +28,7 @@ export default function Abilities({
     file,
 
     master_index,
+    scrollPosition 
 }){
 
     const char_id = master_index.charid
@@ -1634,9 +1636,14 @@ export default function Abilities({
                         {displayBanner}
                     </div>
                     {listAbility.length > 0 ? (
-                        listAbility.map(cmd => (
-                            <CharacterAbilityPars
-                                key={cmd.data_id}
+                        listAbility.map((cmd,i) => (
+                            <LazyLoadComponent
+                            placeholder={<div className='buffunit'><div className="infoholder" style={{ minHeight: "220px" }}/></div>}
+                            key={`${cmd.data_id}-${i}`}
+                            scrollPosition={scrollPosition}
+                            >
+                            <AbilityPars
+                                key={`${cmd.data_id}-${i}`}
                                 character_ability={cmd}
                                 ver={ver}
                                 loc={loc}
@@ -1648,6 +1655,7 @@ export default function Abilities({
 
                                 link={"abilities"}
                             />
+                            </LazyLoadComponent>
                         ))) : (
                         <div>No results</div>
                     )}
@@ -1661,3 +1669,5 @@ export default function Abilities({
         </div>
     )
 }
+
+export default trackWindowScroll(Abilities)

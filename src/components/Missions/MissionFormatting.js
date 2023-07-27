@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 import { ImArrowRight } from 'react-icons/im';
 import { ImArrowLeft } from 'react-icons/im';
 import { useSelector } from "react-redux";
@@ -9,12 +9,13 @@ import ReplacerCharacter from "../ReplacerCharacter";
 import Tippy from '../TippyDefaults';
 import { ObjectView } from 'react-object-view'
 
-export default function MissionFormatting({
+function MissionFormatting({
     mission,
     solo, //for time left and width
     no_field,
     costs,
-    ver
+    ver,
+    scrollPosition 
 }){
 
     const {
@@ -210,7 +211,9 @@ export default function MissionFormatting({
                 {list_display && list_display.currentPageItems && list_display.currentPageItems.map((item,i)=>{
                     return (
                         <div key={i} className="shop-item">
-                                <LazyLoadComponent>
+                            <LazyLoadComponent
+                            scrollPosition={scrollPosition}
+                            >
                                 {make_reward(item,false,item.mission_id)}
                                 <div style={{marginTop:"5px"}} className="subtext unique">
                                     {item.cost.map(self=><div key={self.mission_id}><img  className={"inline-buff"} src={`https://dissidiacompendium.com/images/static/${self.image}`} />{` x${amount(self.item_num)}`}</div>)}
@@ -250,6 +253,10 @@ export default function MissionFormatting({
         )
     } else {
         return (
+            <LazyLoadComponent
+            scrollPosition={scrollPosition}
+            placeholder={<div className={`mission_${bg_color[color]} ${solo==true?"":"rewards_limit"}`} style={{minHeight:"100px"}}/>}
+            >
             <div className={`mission_${bg_color[color]} ${solo==true?"":"rewards_limit"}`}>
                 <div onClick={showmeraw} style={{textAlign:"left"}} className={`${only_one == true ? "reward_solo" : ""}`}>
                     <div className={`${only_one == true ? "mis_reward_title solo_reward_title" : "mis_reward_title"}`}>
@@ -311,6 +318,9 @@ export default function MissionFormatting({
                     </span>
                 : ""}
             </div>
+            </LazyLoadComponent>
         )
     }
 }
+
+export default trackWindowScroll(MissionFormatting)

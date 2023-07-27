@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import Tippy from '../../components/TippyDefaults.js';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/opacity.css';
+import { LazyLoadImage, trackWindowScroll } from 'react-lazy-load-image-component';
 
-export default function SingleBannersFormatting({ 
+function SingleBannersFormatting({ 
     match, 
-    permapage 
+    permapage,
+    scrollPosition
 }){
 
     return (
@@ -16,7 +16,12 @@ export default function SingleBannersFormatting({
                     <Tippy content={match.name}>
                         <div className="singleevenimageholder">
                             <Link to={`/events/banners/${match.bannerindex}`}>
-                                <LazyLoadImage effect="opacity" className={`smallerbanners withshadow ${permapage == false ? "showlink" : ""}`} src={match.url1} alt={match.name} />
+                                <LazyLoadImage 
+                                scrollPosition={scrollPosition}
+                                effect="opacity" 
+                                className={`smallerbanners withshadow ${permapage == false ? "showlink" : ""}`}
+                                src={match.url1} 
+                                alt={match.name} />
                             </Link>
                         </div>
                     </Tippy>
@@ -25,3 +30,5 @@ export default function SingleBannersFormatting({
         </li>
     )
 }
+
+export default trackWindowScroll(SingleBannersFormatting)

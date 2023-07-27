@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './CharacterPage.css'
 import { useDispatch, useSelector } from "react-redux";
 import { setFalse, setTrue } from '../../redux/ducks/jptoggle'
 import { getJPToggle } from '../../redux/ducks/jptoggle';
@@ -12,9 +11,6 @@ import { ImArrowRight } from 'react-icons/im';
 import { ImArrowLeft } from 'react-icons/im';
 import { FaShareSquare } from 'react-icons/fa';
 import Tippy from '@tippyjs/react';
-import 'tippy.js/animations/scale.css';
-import 'tippy.js/animations/scale-subtle.css';
-import 'tippy.js/animations/scale-extreme.css';
 import { getQueryStringVal, useQueryParam } from '../../components/URLParams'
 
 export default function CharacterHeader({ nextevent,

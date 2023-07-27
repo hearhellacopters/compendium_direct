@@ -2,13 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { EndsInTimer, StartsInTimer } from '../../components/Timers'
 import { Link } from 'react-router-dom'
 import CharacterFaceFormatting from '../Characters/CharacterFaceFormatting';
-import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
+import { LazyLoadImage, LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 import ReminderMaker from './ReminderMaker.js';
-import 'react-lazy-load-image-component/src/effects/opacity.css';
 import TickDown from '../../components/tickDown'
 import TickUp from '../../components/tickUp'
 
-export default function BannersFormatting({ match, permapage }){
+function BannersFormatting({ 
+    match, 
+    permapage,
+    scrollPosition 
+ }){
 
     const [bannerdisplay, setBannerdisplay] = useState("Banner1")
 
@@ -44,7 +47,10 @@ export default function BannersFormatting({ match, permapage }){
                     <h3 className={permapage == false ? "toevents" : "atevents"}>{match.name}</h3>
                 }
                 {currenttime >= new Date(match.outdate) ? (
-                    <LazyLoadComponent>
+                    <LazyLoadComponent
+                    scrollPosition={scrollPosition}
+                    placeholder={<div className='EventHolder'/>}
+                    >
                         <div className='EventHolder'>
                             <div className="tickholder redcolor">
                                 <div className="glshadow"><span className='emoji'>🌎</span></div>&nbsp;<TickDown value={months[new Date(match.outdate).getMonth()]} /><TickDown value={ordinal(new Date(match.outdate).getDate())} /><TickDown value={new Date(match.outdate).getFullYear()} />
@@ -53,7 +59,10 @@ export default function BannersFormatting({ match, permapage }){
                         </div>
                     </LazyLoadComponent>
                 ) : match.tempdate == true ?
-                    <LazyLoadComponent>
+                    <LazyLoadComponent
+                    scrollPosition={scrollPosition}
+                    placeholder={<div className='EventHolder'/>}
+                    >
                         <div className='EventHolder'>
                             <div className="greencolor">
                                 <div className="tickholder">
@@ -69,14 +78,20 @@ export default function BannersFormatting({ match, permapage }){
                         </div>
                     </LazyLoadComponent>
                     : currenttime <= new Date(match.indate) ? (
-                        <LazyLoadComponent>
+                        <LazyLoadComponent
+                        scrollPosition={scrollPosition}
+                        placeholder={<div className='EventHolder'/>}
+                        >
                             <div className='EventHolder'>
                                 <StartsInTimer expiryTimestamp={new Date(match.indate)} JPFlag={false} />
                                 <div className='space_left'>{match.number ? match.number : ""}</div>
                             </div>
                         </LazyLoadComponent>
                     ) : (
-                        <LazyLoadComponent>
+                        <LazyLoadComponent
+                        scrollPosition={scrollPosition}
+                        placeholder={<div className='EventHolder'/>}
+                        >
                             <div className='EventHolder'>
                                 <EndsInTimer expiryTimestamp={new Date(match.outdate)} JPFlag={false} />
                                 <div className='space_left'>{match.number ? match.number : ""}</div>
@@ -100,26 +115,46 @@ export default function BannersFormatting({ match, permapage }){
                     {match.url2 == undefined ?
                         permapage == false ?
                             <Link to={`/events/banners/${match.bannerindex}`}>
-                                <LazyLoadImage effect="opacity" className={`bannerimage withshadow ${permapage == false ? "showlink" : ""}`} src={match.url1} alt={match.name} />
+                                <LazyLoadImage 
+                                scrollPosition={scrollPosition}
+                                effect="opacity"
+                                className={`bannerimage withshadow ${permapage == false ? "showlink" : ""}`} 
+                                src={match.url1} 
+                                alt={match.name} />
                             </Link>
                             :
-                            <LazyLoadImage effect="opacity" className={`bannerimage withshadow ${permapage == false ? "showlink" : ""}`} src={match.url1} alt={match.name} />
+                            <LazyLoadImage 
+                            scrollPosition={scrollPosition}
+                            effect="opacity" 
+                            className={`bannerimage withshadow ${permapage == false ? "showlink" : ""}`} 
+                            src={match.url1} 
+                            alt={match.name} />
                         :
                         <div className="eventtabs">
                             <div className="eventwithbackgorundtabs withshadow" style={{ minHeight: "120px" }}>
                                 {permapage == false ?
                                     <Link to={`/events/banners/${match.bannerindex}`}>
-                                        <LazyLoadImage effect="opacity" className={`bannerimage ${permapage == false ? "showlink" : ""}`} src={
+                                        <LazyLoadImage 
+                                        scrollPosition={scrollPosition}
+                                        effect="opacity" 
+                                        className={`bannerimage ${permapage == false ? "showlink" : ""}`} 
+                                        src={
                                             bannerdisplay == "Banner1" ? match.url1 :
                                                 bannerdisplay == "Banner2" ? match.url2 :
                                                     ""
-                                        } alt={match.name} />
+                                        } 
+                                        alt={match.name} />
                                     </Link> :
-                                    <LazyLoadImage effect="opacity" className={`bannerimage ${permapage == false ? "showlink" : ""}`} src={
+                                    <LazyLoadImage 
+                                    scrollPosition={scrollPosition}
+                                    effect="opacity" 
+                                    className={`bannerimage ${permapage == false ? "showlink" : ""}`} 
+                                    src={
                                         bannerdisplay == "Banner1" ? match.url1 :
                                             bannerdisplay == "Banner2" ? match.url2 :
                                                 ""
-                                    } alt={match.name} />
+                                    } 
+                                    alt={match.name} />
                                 }
                             </div>
                             {match.url2 !== undefined ?
@@ -138,7 +173,9 @@ export default function BannersFormatting({ match, permapage }){
                             <div className="featuredbanner">Featured Characters</div>
                             <div className="charholderflair" style={{ minHeight: "40px" }}>
                                 <ul className="CharListHolder">
-                                    <LazyLoadComponent>
+                                    <LazyLoadComponent
+                                    scrollPosition={scrollPosition}
+                                    >
                                         {match.CharList.map(char => (
                                             <CharacterFaceFormatting key={char.CharID} match={char} location="/gear" BTUnit={match.BTUnit} />
                                         ))
@@ -155,7 +192,12 @@ export default function BannersFormatting({ match, permapage }){
                             <div className="eventimageholder">
                                 <div className="eventholder">
                                     <Link to={`/events/${match.event.eventindex}`}>
-                                        <LazyLoadImage effect="opacity" className={`eventimage withshadow showlink`} src={match.event.url1} alt={match.event.name} />
+                                        <LazyLoadImage 
+                                        scrollPosition={scrollPosition}
+                                        effect="opacity" 
+                                        className={`eventimage withshadow showlink`} 
+                                        src={match.event.url1} 
+                                        alt={match.event.name} />
                                         <div className="bannername">{match.event.name}</div>
                                     </Link>
                                 </div>
@@ -167,3 +209,5 @@ export default function BannersFormatting({ match, permapage }){
         </li>
     )
 }
+
+export default trackWindowScroll(BannersFormatting)

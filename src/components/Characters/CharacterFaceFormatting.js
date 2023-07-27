@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/opacity.css';
+import { LazyLoadImage, trackWindowScroll } from 'react-lazy-load-image-component';
 
-export default function CharacterFaceFormatting({ 
+function CharacterFaceFormatting({ 
     char_id, 
     id, 
     loc, 
@@ -11,7 +10,8 @@ export default function CharacterFaceFormatting({
     match, 
     BTUnit, 
     location,
-    list
+    list,
+    scrollPosition
 }){
     
     if(match != undefined){
@@ -19,7 +19,12 @@ export default function CharacterFaceFormatting({
         return (
             <Link to={`/characters/${match.ShortName}${location != undefined ? location : ""}`}>
                 <li>
-                    <LazyLoadImage effect="opacity" alt={match.CharacterName} className={`faceiconlist ${BTUnit == match.CharID ? "btgreen" : ""}`} src={match.CharacterName == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_face.png" : `https://dissidiacompendium.com/images/static/characters/${match.CharacterName.replace(/ /g, "").replace(/,/g, "").replace(/'/g, "").replace(/&/g, "")}/face.png`} />
+                    <LazyLoadImage 
+                    scrollPosition={scrollPosition}
+                    effect="opacity" 
+                    alt={match.CharacterName} 
+                    className={`faceiconlist ${BTUnit == match.CharID ? "btgreen" : ""}`} 
+                    src={match.CharacterName == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_face.png" : `https://dissidiacompendium.com/images/static/characters/${match.CharacterName.replace(/ /g, "").replace(/,/g, "").replace(/'/g, "").replace(/&/g, "")}/face.png`} />
                     <div className="facetextlist">{match.CharacterName == "Cloud of Darkness" ? "CoD" : match.CharacterName == "Warrior of Light" ? "WoL" : match.CharacterName}</div>
                 </li>
             </Link>
@@ -44,12 +49,22 @@ export default function CharacterFaceFormatting({
         }
 
         const list_format = <li>
-                        <LazyLoadImage effect="opacity" alt={direct.CharacterName} className={`faceiconlist`} src={direct.CharacterFaceURL == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_face.png" : direct.CharacterFaceURL} />
+                        <LazyLoadImage 
+                        scrollPosition={scrollPosition}
+                        effect="opacity" 
+                        alt={direct.CharacterName} 
+                        className={`faceiconlist`} 
+                        src={direct.CharacterFaceURL == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_face.png" : direct.CharacterFaceURL} />
                         <div className="facetextlist">{direct.CharacterName == "Cloud of Darkness" ? "CoD" : direct.CharacterName == "Warrior of Light" ? "WoL" : direct.CharacterName}</div>
                     </li>
 
         const non_list = <div className={`${loc == "gear" ? "gearfaceholder" : "faceholder"}`}>
-                            <LazyLoadImage effect="opacity" alt={direct.CharacterName} className={`${loc == "gear" ? "gearfaceicon" : "faceicon"}`} src={direct.CharacterFaceURL == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_face.png" : direct.CharacterFaceURL} />
+                            <LazyLoadImage 
+                            scrollPosition={scrollPosition}
+                            effect="opacity" 
+                            alt={direct.CharacterName} 
+                            className={`${loc == "gear" ? "gearfaceicon" : "faceicon"}`} 
+                            src={direct.CharacterFaceURL == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_face.png" : direct.CharacterFaceURL} />
                             <div className={`${loc == "gear" ? "gearfacetext" : "facetext"}`}>{direct.CharacterName == "Cloud of Darkness" ? "CoD" : direct.CharacterName == "Warrior of Light" ? "WoL" : direct.CharacterName}</div>
                         </div>
 
@@ -67,3 +82,5 @@ export default function CharacterFaceFormatting({
     }
 
 }
+
+export default trackWindowScroll(CharacterFaceFormatting)

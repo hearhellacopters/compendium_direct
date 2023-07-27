@@ -1,7 +1,5 @@
 import React from 'react';
-import './EnemyFormatting.css'
-import Tippy from '@tippyjs/react';
-import './EnemyFormatting.css'
+import Tippy from '../TippyDefaults.js';
 
 export default function ResistIcons({ 
     resist, 
@@ -10,7 +8,7 @@ export default function ResistIcons({
 }){
     const makesmall = small != undefined ? small : ""
     return (
-        <div>
+        <>
             {resist == 1 ?
                 <div className={`${attack}resist1holder`}>
                     <div className={`${attack}resist1`}>-</div>
@@ -41,6 +39,6 @@ export default function ResistIcons({
                     <i className={`${attack}resist6${makesmall} ${small != undefined ? "marg10" : ""}`}></i>
                 </Tippy>
                 : ""}
-        </div>
+        </>
     )
 }

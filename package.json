@@ -23,7 +23,7 @@
     "react-icons": "^4.6.0",
     "react-input-slider": "^6.0.1",
     "react-jinke-music-player": "^4.24.2",
-    "react-lazy-load-image-component": "^1.5.5",
+    "react-lazy-load-image-component": "^1.6.0",
     "react-object-view": "^0.3.4",
     "react-redux": "^8.0.4",
     "react-router-dom": "^6.4.3",
@@ -81,8 +81,8 @@
     ]
   },
   "devDependencies": {
-    "@svgr/webpack": "^8.0.1",
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@svgr/webpack": "^8.0.1"
   },
   "overrides": {
     "@svgr/webpack": "$@svgr/webpack",

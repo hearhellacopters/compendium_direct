@@ -2,7 +2,6 @@ import React from 'react';
 import useTimer from './useTimer/UseTimer'
 import TickUp from './tickUp'
 import TickDown from './tickDown'
-import './ticker.css'
 
 export function EndsInTimer({ expiryTimestamp, JPFlag }) {
     const {

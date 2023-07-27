@@ -4,11 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom'
 import { getQuery, getQueryStringVal, useQueryParam } from './components/URLParams'
-import './JukeBoxStyle.css'
 import Select from 'react-select';
 import Tippy from './components/TippyDefaults.js';
-import 'tippy.js/dist/tippy.css';
-import 'tippy.js/animations/shift-away.css';
 import { IoMdCloseCircleOutline } from 'react-icons/io';
 import { IoSearch } from 'react-icons/io5';
 import { TiArrowSortedDown } from 'react-icons/ti';

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import Tippy from '../../components/TippyDefaults.js';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/opacity.css';
+import { LazyLoadImage, trackWindowScroll } from 'react-lazy-load-image-component';
 
-export default function SingleEventsFormatting({ 
+function SingleEventsFormatting({ 
     match, 
-    permapage 
+    permapage,
+    scrollPosition 
 }){
 
     if (match.tempdate != undefined) {
@@ -17,7 +17,12 @@ export default function SingleEventsFormatting({
                         <Link to={`/events/${match.eventindex}`}>
                             <Tippy content={match.name}>
                                 <div className="singleevenimageholder">
-                                    <LazyLoadImage effect="opacity" className={`eventimage withshadow ${permapage == false ? "showlink" : ""}`} src={match.url1} alt={match.name} />
+                                    <LazyLoadImage 
+                                    scrollPosition={scrollPosition}
+                                    effect="opacity" 
+                                    className={`eventimage withshadow ${permapage == false ? "showlink" : ""}`} 
+                                    src={match.url1} 
+                                    alt={match.name} />
                                 </div>
                             </Tippy>
                         </Link>
@@ -29,3 +34,5 @@ export default function SingleEventsFormatting({
         return ("")
     }
 }
+
+export default trackWindowScroll(SingleEventsFormatting)

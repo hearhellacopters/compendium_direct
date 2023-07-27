@@ -24,8 +24,8 @@
   .CharBackListHolderinner:hover {
     transform: translateY(-1px);
     color: #f7f91d;
-    filter: brightness(1.2);
-    -webkit-filter: brightness(1.2);
+    filter: brightness(1.2) drop-shadow(3px 3px 3px #222);;
+    -webkit-filter: brightness(1.2) drop-shadow(3px 3px 3px #222);;
     transition: all ease 0.3s;
   }
 }

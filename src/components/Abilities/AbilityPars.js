@@ -4,7 +4,6 @@ import Tippy from '../TippyDefaults'
 import DefaultTippy from '../TippyDefaults'
 import Format_Cleaner from '../../processing/format_cleaner'
 import translater from '../../processing/translater_characters'
-import 'react-lazy-load-image-component/src/effects/opacity.css';
 import Ability_Icon_Maker from '../../processing/abilities/ability_icon_maker'
 import AilmentDataFormatting from '../Buffs/AilmentDataFormatting';
 import CharacterFaceFormatting from '../Characters/CharacterFaceFormatting'
@@ -20,14 +19,14 @@ import { getTransNames } from '../../redux/ducks/transnames';
 import { MdRecordVoiceOver }from 'react-icons/md';
 import ability_rank_trans from '../../processing/abilities/ability_rank_trans'
 import { ObjectView } from 'react-object-view'
-import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 import merger_master from '../../processing/passives/passive_stats_merger';
 import Passive_Total_Display from '../Passives/PassiveTotalDisplay';
 import PassiveEffectsHandoff from '../Passives/PassiveEffectsHandoff';
 import ability_use_maker from '../../processing/abilities/ability_use_maker';
 import ailment_level_icon from '../../processing/ailment/ailment_level_icon';
 
-export default function AbilityPars({
+function AbilityPars({
     character_ability,
     loc,
     ver,
@@ -44,7 +43,8 @@ export default function AbilityPars({
     enemy,
     enemy_names,
     summon,
-    debugging
+    debugging,
+    trackWindowScroll 
 }){
 
     const form = {formatting:formatting}
@@ -294,52 +294,15 @@ export default function AbilityPars({
         }
     })
 
-    const hit_count_map = [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15,
-        16,
-        17,
-        18,
-        19,
-        20,
-        21,
-        22,
-        23,
-        24,
-        25,
-        26,
-        27,
-        28,
-        29,
-        30,
-        31,
-        32,
-        33,
-        34,
-        35,
-        36,
-        37,
-        38,
-        39,
-        40,
-    ]
+    const hit_count_map = Array.from(Array(40).keys(), num => num + 1);
 
     return (
-        <div className="buffunit" loading="lazy">
-            <div className="infoholder" style={{ minHeight: "220px" }}>
+        <div className="buffunit">
+            <LazyLoadComponent 
+            trackWindowScroll={trackWindowScroll}
+            placeholder={<div className="infoholder" style={{ minHeight: "220px" }}/>}
+            >
+            <div className="infoholder">
                 <div className="infotitleholder">
                     <div className="faceandiconholder">
                         <div className="idoffset" id={character_ability.LearningAbility}></div>
@@ -360,7 +323,10 @@ export default function AbilityPars({
                         : ""}
                         <div className={hide_chara == true ? "enemyabilityiconholder" :"abilityiconholder"} onClick={showmeraw} >
                             <div className="abilityurlholder">
-                                <LazyLoadImage effect="opacity" className="abilityicon" alt={Name} src={`https://dissidiacompendium.com/images/static/${IconURL}.png`} />
+                                <img
+                                className="abilityicon" 
+                                alt={Name} 
+                                src={`https://dissidiacompendium.com/images/static/${IconURL}.png`} />
                                 {use_num.full == "∞" || enemy || summon ? "" : <div className={
                                     typeof use_num.full == "string" ? "abilityblspeed" :
                                     character_ability.Crystal == true && use_num.full != 0 ? "saholder_crystal" :
@@ -380,161 +346,143 @@ export default function AbilityPars({
 
                     </div>
                 </div>
-                <LazyLoadComponent>
-                    <div className={`bluebanner infonameholder nobuffpadding `}>
-                        <div className="displayfex">
-                            <div className="splitrow">
-                                <div className={`infotitle abilitydisplayfex `}>
-                                    {Name && ReplacerCharacter(Format_Cleaner(Name),form)}{` - #${character_ability.LearningAbility | character_ability.abilityid_}`}
-                                    {character_ability.Group == true ?
-                                        <span className='inline Group'></span>
-                                        : ""}
-                                    {character_ability.Melee == true ?
-                                        <span className='inline Melee'></span>
-                                        : ""}
-                                    {character_ability.Ranged == true ?
-                                        <span className='inline Ranged'></span>
-                                        : ""}
-                                    {character_ability.Magic == true ?
-                                        <span className='inline Magic'></span>
-                                        : ""}
-                                    {character_ability.Fire == true ?
-                                        <span className='inline Fire'></span>
-                                        : ""}
-                                    {character_ability.Ice == true ?
-                                        <span className='inline Ice'></span>
-                                        : ""}
-                                    {character_ability.Thunder == true ?
-                                        <span className='inline Thunder'></span>
-                                        : ""}
-                                    {character_ability.Earth == true ?
-                                        <span className='inline Earth'></span>
-                                        : ""}
-                                    {character_ability.Water == true ?
-                                        <span className='inline Water'></span>
-                                        : ""}
-                                    {character_ability.Wind == true ?
-                                        <span className='inline Wind'></span>
-                                        : ""}
-                                    {character_ability.Holy == true ?
-                                        <span className='inline Holy'></span>
-                                        : ""}
-                                    {character_ability.Dark == true ?
-                                        <span className='inline Dark'></span>
-                                        : ""}
 
-                                    {character_ability.HP_Heal_Ability == true ?
-                                        <Tippy content={"Heals"}>
-                                            <span className='inline Heals'></span>
-                                        </Tippy>
-                                        : ""}
-                                    {character_ability.Ignore_DEF == true ?
-                                        <Tippy content={"Ignores DEF"}>
-                                            <span className='inline IgnoreDEF'></span>
-                                        </Tippy>
-                                        : ""}
-                                    {character_ability.Instant == true ?
-                                        <Tippy content={"Instant Turn Rate"}>
-                                            <span className='inline Instant'></span>
-                                        </Tippy>
-                                        : ""}
-                                    {character_ability.Launcher == true ?
-                                        <Tippy content={"Knock Back"}>
-                                            <span className='inline KnockBack'></span>
-                                        </Tippy>
-                                        : ""}
-                                    {character_ability.Counter == true ?
-                                        <Tippy content={"Counter"}>
-                                            <span className='inline Counters'></span>
-                                        </Tippy>
-                                        : ""}
-                                    {character_ability.Trap == true ?
-                                        <Tippy content={"Trap"}>
-                                            <span className='inline Traps'></span>
-                                        </Tippy>
-                                        : ""}
-                                    {character_ability.FollowUp == true ?
-                                        <Tippy content={"Follow Up"}>
-                                            <span className='inline FollowUp'></span>
-                                        </Tippy>
-                                        : ""}
+                <div className={`bluebanner infonameholder nobuffpadding `}>
+                    <div className="displayfex">
+                        <div className="splitrow">
+                            <div className={`infotitle abilitydisplayfex `}>
+                                {Name && ReplacerCharacter(Format_Cleaner(Name),form)}{` - #${character_ability.LearningAbility | character_ability.abilityid_}`}
+                                {character_ability.Group == true ?
+                                    <span className='inline Group'></span>
+                                    : ""}
+                                {character_ability.Melee == true ?
+                                    <span className='inline Melee'></span>
+                                    : ""}
+                                {character_ability.Ranged == true ?
+                                    <span className='inline Ranged'></span>
+                                    : ""}
+                                {character_ability.Magic == true ?
+                                    <span className='inline Magic'></span>
+                                    : ""}
+                                {character_ability.Fire == true ?
+                                    <span className='inline Fire'></span>
+                                    : ""}
+                                {character_ability.Ice == true ?
+                                    <span className='inline Ice'></span>
+                                    : ""}
+                                {character_ability.Thunder == true ?
+                                    <span className='inline Thunder'></span>
+                                    : ""}
+                                {character_ability.Earth == true ?
+                                    <span className='inline Earth'></span>
+                                    : ""}
+                                {character_ability.Water == true ?
+                                    <span className='inline Water'></span>
+                                    : ""}
+                                {character_ability.Wind == true ?
+                                    <span className='inline Wind'></span>
+                                    : ""}
+                                {character_ability.Holy == true ?
+                                    <span className='inline Holy'></span>
+                                    : ""}
+                                {character_ability.Dark == true ?
+                                    <span className='inline Dark'></span>
+                                    : ""}
 
-                                    {character_ability.Summon == false ?
-                                        <Tippy content={"Doesn't charge Summon"}>
-                                            <span className='inline NoSummon'></span>
-                                        </Tippy>
-                                        : ""}
-                                    {character_ability.NoEX == true ?
-                                        <Tippy content={"Doesn't charge EX"}>
-                                            <span className='inline NoEX'></span>
-                                        </Tippy>
-                                        : ""}
-                                    {character_ability.Free_Ability == false ?
-                                        <Tippy content={"No Free Uses"}>
-                                            <span className='inline NoFree'></span>
-                                        </Tippy>
-                                        : ""}
-                                    {character_ability.Free_Ability == true ?
-                                        <Tippy content={"Does not consume ability use"}>
-                                            <span className='inline Free'></span>
-                                        </Tippy>
-                                        : ""}
-                                </div>
-                                <div className="infolocation">
-                                    {SubName != "" ?
-                                        <div className="abilityJPname">
-                                            {SubName && Format_Cleaner(SubName)}
-                                        </div>
-                                        : ""}
-                                </div>
-                                {enemy != true ? 
-                                <Tippy content="Scroll to top" className="tooltip" >
-                                    <span onClick={() => window.scrollTo(0, 0)} className={`clicky`}>{ReplacerCharacter(tag_override != undefined ? `<${tag_override}>` : character_ability.command && character_ability.command.rank && `<${ability_rank_trans(character_ability.command.rank)}>`)}</span>
-                                </Tippy>
-                                : 
-                                enemy && enemy_names ?
-                                enemy_names[character_ability.enemyID] && enemy_names[character_ability.enemyID].name ?
-                                `${enemy_names[character_ability.enemyID].name} - #${character_ability.enemyID} / ID:${character_ability.data_id}`
-                                :"":""}
-                                {character_ability.voice_index != undefined ?
-                                    <Tippy content="Play voice line" className="tooltip" >
-                                        <span>{" "}<MdRecordVoiceOver onClick={playvoice} className='soundicon click' style={{color:`${playingaudio == true ? "yellow":""}`}}/></span>
+                                {character_ability.HP_Heal_Ability == true ?
+                                    <Tippy content={"Heals"}>
+                                        <span className='inline Heals'></span>
                                     </Tippy>
-                                :""}
+                                    : ""}
+                                {character_ability.Ignore_DEF == true ?
+                                    <Tippy content={"Ignores DEF"}>
+                                        <span className='inline IgnoreDEF'></span>
+                                    </Tippy>
+                                    : ""}
+                                {character_ability.Instant == true ?
+                                    <Tippy content={"Instant Turn Rate"}>
+                                        <span className='inline Instant'></span>
+                                    </Tippy>
+                                    : ""}
+                                {character_ability.Launcher == true ?
+                                    <Tippy content={"Knock Back"}>
+                                        <span className='inline KnockBack'></span>
+                                    </Tippy>
+                                    : ""}
+                                {character_ability.Counter == true ?
+                                    <Tippy content={"Counter"}>
+                                        <span className='inline Counters'></span>
+                                    </Tippy>
+                                    : ""}
+                                {character_ability.Trap == true ?
+                                    <Tippy content={"Trap"}>
+                                        <span className='inline Traps'></span>
+                                    </Tippy>
+                                    : ""}
+                                {character_ability.FollowUp == true ?
+                                    <Tippy content={"Follow Up"}>
+                                        <span className='inline FollowUp'></span>
+                                    </Tippy>
+                                    : ""}
+
+                                {character_ability.Summon == false ?
+                                    <Tippy content={"Doesn't charge Summon"}>
+                                        <span className='inline NoSummon'></span>
+                                    </Tippy>
+                                    : ""}
+                                {character_ability.NoEX == true ?
+                                    <Tippy content={"Doesn't charge EX"}>
+                                        <span className='inline NoEX'></span>
+                                    </Tippy>
+                                    : ""}
+                                {character_ability.Free_Ability == false ?
+                                    <Tippy content={"No Free Uses"}>
+                                        <span className='inline NoFree'></span>
+                                    </Tippy>
+                                    : ""}
+                                {character_ability.Free_Ability == true ?
+                                    <Tippy content={"Does not consume ability use"}>
+                                        <span className='inline Free'></span>
+                                    </Tippy>
+                                    : ""}
                             </div>
-                            {enemy || summon ? "": use_num.base != 0 ?
-                                <div className="usesmaker">
-                                    <div className="sidewaystextholder">
-                                        <div className="sidewaystext unique">
-                                            {typeof use_num.base == "string" ?
-                                                "Speed" :
-                                                "Uses"}
-                                        </div>
+                            <div className="infolocation">
+                                {SubName != "" ?
+                                    <div className="abilityJPname">
+                                        {SubName && Format_Cleaner(SubName)}
                                     </div>
-                                    {typeof use_num.base == "string" ?
-                                        <Tippy content={recast_tip}>
-                                            <div className={"abilityusesholder2"}>
-                                            {ReplacerCharacter(`<${use_tag != undefined ? use_tag :tag_override != undefined ? tag_override : character_ability.command && character_ability.command.rank && ability_rank_trans(character_ability.command.rank)}>`)}
-                                                {use_num.base || "∞"}
-                                                {character_ability.increase && character_ability.increase.map((self, i) => (
-                                                        self.recast != undefined ?
-                                                            <div key={i} style={{ whiteSpace: "nowrap" }}>
-                                                                {ReplacerCharacter(`<${self.loc_tag}> +${self.recast}%`)}
-                                                            </div>
-                                                            : self.use == 0 ? "" :
-                                                                <div key={i} style={{ whiteSpace: "nowrap" }}>
-                                                                    {ReplacerCharacter(`<${self.loc_tag}> +${self.use}`)}
-                                                                </div>
-                                                ))}
-                                                {character_ability.increase != undefined ? <div className=''>{typeof use_num.base == "string" ? `(${use_num.full})` : `Total: ${use_num.full}`}</div>: ""}
-                                            </div>
-                                        </Tippy>
-                                        :
-                                        <div className={"abilityusesholder"}>
-                                            {ReplacerCharacter(`<${use_tag != undefined ? use_tag :tag_override != undefined ? tag_override : character_ability.command && character_ability.command.rank && ability_rank_trans(character_ability.command.rank)}>`)}
-                                            {use_tag != undefined ? " x" :""}{use_num.base || "∞"}
-                                            {character_ability.increase != undefined && use_num.base != 0 ?
-                                                character_ability.increase.map((self, i) => (
+                                    : ""}
+                            </div>
+                            {enemy != true ? 
+                            <Tippy content="Scroll to top" className="tooltip" >
+                                <span onClick={() => window.scrollTo(0, 0)} className={`clicky`}>{ReplacerCharacter(tag_override != undefined ? `<${tag_override}>` : character_ability.command && character_ability.command.rank && `<${ability_rank_trans(character_ability.command.rank)}>`)}</span>
+                            </Tippy>
+                            : 
+                            enemy && enemy_names ?
+                            enemy_names[character_ability.enemyID] && enemy_names[character_ability.enemyID].name ?
+                            `${enemy_names[character_ability.enemyID].name} - #${character_ability.enemyID} / ID:${character_ability.data_id}`
+                            :"":""}
+                            {character_ability.voice_index != undefined ?
+                                <Tippy content="Play voice line" className="tooltip" >
+                                    <span>{" "}<MdRecordVoiceOver onClick={playvoice} className='soundicon click' style={{color:`${playingaudio == true ? "yellow":""}`}}/></span>
+                                </Tippy>
+                            :""}
+                        </div>
+                        {enemy || summon ? "": use_num.base != 0 ?
+                            <div className="usesmaker">
+                                <div className="sidewaystextholder">
+                                    <div className="sidewaystext unique">
+                                        {typeof use_num.base == "string" ?
+                                            "Speed" :
+                                            "Uses"}
+                                    </div>
+                                </div>
+                                {typeof use_num.base == "string" ?
+                                    <Tippy content={recast_tip}>
+                                        <div className={"abilityusesholder2"}>
+                                        {ReplacerCharacter(`<${use_tag != undefined ? use_tag :tag_override != undefined ? tag_override : character_ability.command && character_ability.command.rank && ability_rank_trans(character_ability.command.rank)}>`)}
+                                            {use_num.base || "∞"}
+                                            {character_ability.increase && character_ability.increase.map((self, i) => (
                                                     self.recast != undefined ?
                                                         <div key={i} style={{ whiteSpace: "nowrap" }}>
                                                             {ReplacerCharacter(`<${self.loc_tag}> +${self.recast}%`)}
@@ -543,435 +491,456 @@ export default function AbilityPars({
                                                             <div key={i} style={{ whiteSpace: "nowrap" }}>
                                                                 {ReplacerCharacter(`<${self.loc_tag}> +${self.use}`)}
                                                             </div>
-                                                ))
-                                            : ""}
+                                            ))}
                                             {character_ability.increase != undefined ? <div className=''>{typeof use_num.base == "string" ? `(${use_num.full})` : `Total: ${use_num.full}`}</div>: ""}
-                                        </div>}
-                                </div>
-                            : ""}
-                        </div>
-                        {info != undefined?
-                            <div className='buffglreworkbanner'>{info}</div>
-                        :""}
-                    </div>
-                    <div className={`bluebase abilityinfobase`}>
-
-                        {character_ability.command && character_ability.command.note != undefined ?
-                            <div className="subpassiveflair">
-                                {ReplacerCharacter(`${character_ability.command.note}\n`,form)}
-                            </div>
-                            : ""}
-
-                        {character_ability.FR == true && ProcessedCharacters != undefined?
-                            ProcessedCharacters[character_ability.charaID] &&
-                                ProcessedCharacters[character_ability.charaID].FR_Partner != undefined &&
-                                char_id[ProcessedCharacters[character_ability.charaID].FR_Partner] != undefined ?
-                                ReplacerCharacter(`Summons ${char_id[ProcessedCharacters[character_ability.charaID].FR_Partner].CharacterName}\n`,form)
-                                : ""
-                        : ""}
-
-                        {hit_map[`B1`] != undefined && hit_map[`B1`].show != false ?
-                            <HitDataParsFormatting
-                                key={`B1`}
-                                hit_data={hit_map[`B1`]}
-                                formatting={formatting}
-                                abilitytext={abilitytext}
-                            />
-                            : ""}
-
-                        {hit_map[`B2`] != undefined && hit_map[`B2`].show != false ?
-                            <HitDataParsFormatting
-                                key={`B2`}
-                                hit_data={hit_map[`B2`]}
-                                formatting={formatting}
-                                abilitytext={abilitytext}
-                            />
-                            : ""}
-
-                        {hit_map[`B3`] != undefined && hit_map[`B3`].show != false ?
-                            <HitDataParsFormatting
-                                key={`B3`}
-                                hit_data={hit_map[`B3`]}
-                                formatting={formatting}
-                                abilitytext={abilitytext}
-                            />
-                            : ""}
-
-                        {hit_map[`B4`] != undefined && hit_map[`B4`].show != false ?
-                            <HitDataParsFormatting
-                                key={`B4`}
-                                hit_data={hit_map[`B4`]}
-                                formatting={formatting}
-                                abilitytext={abilitytext}
-                            />
-                            : ""}
-
-                        {cast_list[-1] != undefined ?
-                            cast_list[-1].map(self => (
-                                self.cond != undefined ? ReplacerCharacter(`┬ ${self.cond}\n└─ ${self.cast_str}\n`,form) : ReplacerCharacter(`${self.cast_str}\n`,form)
-                            ))
-                            : ""}
-                            
-                        {hit_count_map.map(number => (
-                            (cast_list[number] != undefined || (hit_map[number] != undefined && hit_map[number].show != false)) ? 
-                                <HitDataParsFormatting
-                                    key={number}
-                                    cast_list={cast_list[number]}
-                                    hit_data={hit_map[number]}
-                                    formatting={formatting}
-                                    abilitytext={abilitytext}
-                                />
-                            :""
-                        ))}
-
-                        {cast_list[0] != undefined ?
-                            cast_list[0].map(self => (
-                                self.cond != undefined ? ReplacerCharacter(`┬ ${self.cond}\n└─ ${self.cast_str}\n`,form) : ReplacerCharacter(`${self.cast_str}\n`,form)
-                            ))
-                            : ""}
-
-                        {hit_map[`S1`] != undefined && hit_map[`S1`].show != false ?
-                            <HitDataParsFormatting
-                                key={`S1`}
-                                hit_data={hit_map[`S1`]}
-                                formatting={formatting}
-                                abilitytext={abilitytext}
-                            />
-                            : ""}
-
-                        {//meta below
-                        }
-                                                
-                        {command_meta && command_meta.bdlur != undefined ?
-                            ReplacerCharacter(command_meta.bdlur+"\n",form)
-                        : ""}
-                        {command_meta && command_meta.mblur != undefined ?
-                            ReplacerCharacter(command_meta.mblur+"\n",form)
-                        : ""}
-                        {command_meta && command_meta.cost != undefined ?
-                            command_meta.cost == "*Instant Turn Rate" ?
-                                ReplacerCharacter(command_meta.cost+"\n",form)
-                                : ""
-                        : ""}
-                        {command_meta && command_meta.blow != undefined ?
-                            ReplacerCharacter(command_meta.blow+"\n",form)
-                        : ""}
-                        {command_meta && command_meta.stun != undefined ?
-                            ReplacerCharacter(command_meta.stun+"\n",form)
-                        : ""}
-                        {command_meta && command_meta.stunadd != undefined ?
-                            ReplacerCharacter(command_meta.stunadd+"\n",form)
-                        : ""}
-                        {command_meta && command_meta.cost != undefined ?
-                            command_meta.cost != "*Instant Turn Rate" ?
-                                ReplacerCharacter(command_meta.cost+"\n",form)
-                            : ""
-                        : ""}
-                        {command_meta && command_meta.exshow != undefined ?
-                            ReplacerCharacter(command_meta.exshow+"\n",form)
-                        : ""}
-                        {command_meta && command_meta.ncharge != undefined ?
-                            ReplacerCharacter(command_meta.ncharge+"\n",form)
-                        : ""}
-                        {command_meta && command_meta.show != undefined ?
-                            ReplacerCharacter(command_meta.show+"\n",form)
-                        : ""}
-                        {command_meta && command_meta.showadd != undefined ?
-                            ReplacerCharacter(command_meta.showadd+"\n",form)
-                        : ""}
-                        {character_ability.same_ability_id_ != 0 && character_ability.same_ability_id_ != undefined?
-                            ReplacerCharacter(`*Ability Group: ${character_ability.same_ability_id_}\n`,form)
-                        : ""}
-                        {character_ability.ability_rank_ != 0 && character_ability.same_ability_id_ != undefined?
-                            ReplacerCharacter(`*Ability Rank: ${character_ability.ability_rank_}\n`,form)
-                        : ""}
-
-                            {command_meta && command_meta.type_ != undefined && debugging == true?
-                                <div>
-                                    {ReplacerCharacter(command_meta.type_+"\n",form)}
-                                </div>
-                            : ""}
-                            {command_meta && command_meta.target_range_ != undefined && debugging == true ?
-                                <div>
-                                    {ReplacerCharacter(command_meta.target_range_+"\n",form)}
-                                </div>
-                            : ""}
-                            {command_meta && command_meta.target_type_ != undefined  && debugging == true?
-                                <div>
-                                    {ReplacerCharacter(command_meta.target_type_+"\n",form)}
-                                </div>
-                            : ""}
-                            {command_meta && command_meta.auto_target_type_ != undefined  && debugging == true?
-                                <div>
-                                    {ReplacerCharacter(command_meta.auto_target_type_+"\n",form)}
-                                </div>
-                            : ""}
-
-                        {character_ability.command != undefined && character_ability.command.desc != undefined ?
-                            desc == false ?
-                                <div className="clicky updatelink contents" onClick={() => showmedesc(desc)}>
-                                    {"\xa0- Show Desc -"}
-                                </div>
-                                :
-                                <div className="clicky updatelink contents" onClick={() => showmedesc(desc)}>
-                                    {"\xa0- Hide Desc -"}
-                                </div>
-                            : ""}
-                        {desc == false && character_ability.command != undefined && character_ability.command.desc != undefined ? "" :
-                            <div>
-                                {desc == true ?
-                                    <hr />
-                                    : ""}
-                                {trans != undefined && showtrans == true ?
-                                    ReplacerCharacter(trans+"\n",form)
-                                    :
-                                    character_ability.command && character_ability.command.desc &&
-                                    ReplacerCharacter(Format_Cleaner(character_ability.command.desc),form)
-                                }
-                            </div>
-                        }
-                        {ver == "JP" && desc == true ?
-                            <div className="clicky updatelink contents" onClick={() => doTrans()} >Translate (Beta)</div>
-                            : ""}
-                        {showraw == true ?
-                            <span className='react-json-view'>
-                            <ObjectView 
-                            options={
-                                {
-                                  hideDataTypes: true,
-                                  expandLevel: 1,
-                                  displayEntriesMaxCount: 1,
-                                }
-                              }
-                            data={hit_parers} />
-                            </span>
-                            : ""}
-                        {showraw == true ?
-                            <span className='react-json-view'>
-                            <ObjectView 
-                            options={
-                                {
-                                  hideDataTypes: true,
-                                  expandLevel: 1
-                                }
-                              }
-                            data={character_ability} />
-                            </span>
-                            : ""}
-
-
-                        {character_ability.passives != undefined ?
-                            <div className='p_grade'>
-                                <div className='fieldbar'><span className='smallpassive'></span>{"\xa0"}Effects:</div>
-                                <div className='spanleft'>
-                                    {character_ability.passives.length != 1 ?
-                                        <div className='subpassiveflair spacearound'>
-                                            <div key="mergecheck1" className={`${merge_pas == true ? "nodisplay" : `uncheck`}`} onClick={togglemerge} />
-                                            <div key="mergecheck2" className={`${merge_pas == true ? "check" : `nodisplay`}`} onClick={togglemerge} />
-                                            <div className='noselect'>&nbsp;&nbsp;Total Values</div>
                                         </div>
-                                        : ""}
-                                    {merger_master(
-                                        character_ability.passives,
-
-                                        master_index,
-                                        ver,
-
-                                        merge_pas,
-                                        "command",
-                                        true
-                                    ).sort((a, b) => a.rank - b.rank).map((ailment_passive, i, whole) => (
-                                        ailment_passive.is_total != true ? <PassiveEffectsHandoff
-                                            key={`${ailment_passive.pa_id}-${i}`}
-                                            passive_ability={ailment_passive}
-                                            ver={ver}
-                                            master_index={master_index}
-
-                                            formatting={formatting}
-                                            skip_space={i}
-                                            use_ailment={true}
-                                            merged={whole[i - 1] && whole[i - 1].loc_tag}
-                                            hide_disp={merge_pas}
-                                            battle_state={true}
-                                        />
-                                            :
-                                            <Passive_Total_Display
-                                                key={i}
-                                                match={ailment_passive}
-                                            />
-                                    ))}
-                                    <div className='abilityJPname'>*depending on origin ability</div>
-                                </div>
-                            </div>
-                            : ""}
-
-                        {character_ability.options != undefined ?
-                            <div className='p_grade'>
-                                <div className='fieldbar'>
-                                    <div className={character_ability.options.length <= 5 ? "" : 'updatelink clicky'} onClick={doshow_upgrades}>
-                                        {character_ability.options.length <= 5 ? "Conditions:" : show_upgrades ? "Hide All Conditions" : "Show All Conditions"}
-                                    </div>
-                                </div>
-                                {show_upgrades == true && character_ability.options.map((options, key) => (
-                                    <OptionParsFormatting
-                                        key={key}
-                                        character_option={options}
-                                        ver={ver}
-                                        master_index={master_index}
-                                        all_options={all_options}
-                                        formatting={formatting}
-                                        enemy={enemy}
-                                    />
-                                ))}
-                            </div>
-                            : ""}
-
-                    </div>
-
-                    {character_ability.command && character_ability.command.casts && character_ability.command.casts != undefined || (bufflist && bufflist.length != 0 || statelist && statelist.length != 0) ?
-                        <div className={`bufflistbanner noselect newblue`}>
-                            {character_ability.command && character_ability.command.casts && character_ability.command.casts != undefined ?
-                                <>
-                                    <div className="unique ailmenttext">Buffs / Debuffs:</div>
-                                    <ul className="abilitybufflist">
-                                        {character_ability.command.casts && character_ability.command.casts.map(buffs => (
-                                            <li className={`abilitybufficonsholder ${selectedbuff.unq_id == buffs.unq_id ? "buffactive" : ""}`} key={buffs.unq_id}>
-                                                <div className="biconspacer" onClick={() => buffselect(buffs)} >
-                                                    <Tippy content={
-                                                        ReplacerCharacter(buffs.name,form)
-                                                    }>
-                                                        <img alt={buffs.name} className={`clicky abilitybufficon `} src={`https://dissidiacompendium.com/images/static/icons/buff/${ailment_level_icon(buffs,buffs.aarg1)}.png`} />
-                                                    </Tippy>
-                                                </div>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </>
-                                : ""}
-                            {bufflist && bufflist.length != 0 ?
-                                <>
-                                    <div className="unique ailmenttext">
-                                        Conditional Casts (Non-self):
-                                    </div>
-                                    <ul className="abilitybufflist">
-                                        {bufflist && bufflist.length != 0 ?
-                                            <ul className="abilitybufflist">
-                                                {bufflist.map(function (buff) {
-                                                    const buffs = Object.values(buff)[0]
-                                                    const cast = buffs.cast
-                                                    return buffs.active == false ? "" : <li className={`abilitybufficonsholder ${selectedbuff.ailment_id == buffs.ailment_id && selectedbuff.data_id == buffs.data_id ? "buffactive" : ""}`} key={`${buffs.ailment_id}-${buffs.data_id}`}>
-                                                        <div className="biconspacer" onClick={() => buffselect(buffs)} >
-                                                            <DefaultTippy content={
-                                                                cast.name === "" ? ReplacerCharacter(`Unknown ${cast.id}`,form) : ReplacerCharacter(cast.name,form)
-                                                            }>
-                                                                <img alt={cast.name} className="clicky abilitybufficon" src={`https://dissidiacompendium.com/images/static/icons/buff/${ailment_level_icon(cast,buffs.arg1)}.png`} />
-                                                            </DefaultTippy>
+                                    </Tippy>
+                                    :
+                                    <div className={"abilityusesholder"}>
+                                        {ReplacerCharacter(`<${use_tag != undefined ? use_tag :tag_override != undefined ? tag_override : character_ability.command && character_ability.command.rank && ability_rank_trans(character_ability.command.rank)}>`)}
+                                        {use_tag != undefined ? " x" :""}{use_num.base || "∞"}
+                                        {character_ability.increase != undefined && use_num.base != 0 ?
+                                            character_ability.increase.map((self, i) => (
+                                                self.recast != undefined ?
+                                                    <div key={i} style={{ whiteSpace: "nowrap" }}>
+                                                        {ReplacerCharacter(`<${self.loc_tag}> +${self.recast}%`)}
+                                                    </div>
+                                                    : self.use == 0 ? "" :
+                                                        <div key={i} style={{ whiteSpace: "nowrap" }}>
+                                                            {ReplacerCharacter(`<${self.loc_tag}> +${self.use}`)}
                                                         </div>
-                                                    </li>
-                                                })}
-                                            </ul> :
-                                            ""}
-                                    </ul>
-                                </>
-                                : ""}
-                            {statelist && statelist.length != 0 ?
-                                <>
-                                    <div className="unique ailmenttext">
-                                        Battle States:
-                                    </div>
-                                    <ul className="abilitybufflist">
-                                        {statelist.map(function (buff) {
-                                            const buffs = Object.values(buff)[0]
-                                            const cast = buffs.cast
-                                            return <li className={`abilitybufficonsholder ${selectedbuff.ailment_id == buffs.ailment_id && selectedbuff.data_id == buffs.data_id ? "buffactive" : ""}`} key={`${buffs.ailment_id}-${buffs.data_id}`}>
-                                                <div className="biconspacer" onClick={() => buffselect(buffs)} >
-                                                    <DefaultTippy content={
-                                                        cast.name === "" ? ReplacerCharacter(`Unknown ${cast.id}`,form) : ReplacerCharacter(cast.name,form)
-                                                    }>
-                                                        <img alt={cast.name} className="clicky abilitybufficon" src={`https://dissidiacompendium.com/images/static/icons/buff/${cast.icon}.png`} />
-                                                    </DefaultTippy>
-                                                </div>
-                                            </li>
-                                        })}
-                                    </ul>
-                                </>
-                                : ""}
+                                            ))
+                                        : ""}
+                                        {character_ability.increase != undefined ? <div className=''>{typeof use_num.base == "string" ? `(${use_num.full})` : `Total: ${use_num.full}`}</div>: ""}
+                                    </div>}
+                            </div>
+                        : ""}
+                    </div>
+                    {info != undefined?
+                        <div className='buffglreworkbanner'>{info}</div>
+                    :""}
+                </div>
+                <div className={`bluebase abilityinfobase`}>
+
+                    {character_ability.command && character_ability.command.note != undefined ?
+                        <div className="subpassiveflair">
+                            {ReplacerCharacter(`${character_ability.command.note}\n`,form)}
                         </div>
                         : ""}
-                    {selectedbuff.length != 0 && selectedbuff.is_state != true ?
-                        <AilmentDataFormatting
-                            key={selectedbuff.id}
-                            file={file}
-                            loc={loc}
-                            ver={ver}
-                            ailment_data={selectedbuff.default == true ? selectedbuff.cast : selectedbuff}
-                            master_index={master_index}
-                            slider={true}
-                            rank={selectedbuff.default == true ? selectedbuff.rank_id : selectedbuff.arank}
-                            arg1={selectedbuff.default == true ? selectedbuff.arg1 : selectedbuff.aarg1}
-                            arg2={selectedbuff.default == true ? selectedbuff.arg2 : selectedbuff.aarg2}
-                            castlocation={true}
-                            alt_rank={selectedbuff.aranka}
-                            alt_aug1={selectedbuff.aarg1a}
-                            alt_aug2={selectedbuff.aarg2a}
+
+                    {character_ability.FR == true && ProcessedCharacters != undefined?
+                        ProcessedCharacters[character_ability.charaID] &&
+                            ProcessedCharacters[character_ability.charaID].FR_Partner != undefined &&
+                            char_id[ProcessedCharacters[character_ability.charaID].FR_Partner] != undefined ?
+                            ReplacerCharacter(`Summons ${char_id[ProcessedCharacters[character_ability.charaID].FR_Partner].CharacterName}\n`,form)
+                            : ""
+                    : ""}
+
+                    {hit_map[`B1`] != undefined && hit_map[`B1`].show != false ?
+                        <HitDataParsFormatting
+                            key={`B1`}
+                            hit_data={hit_map[`B1`]}
                             formatting={formatting}
-                            cur_char={character_ability.charaID}
-                            turns={selectedbuff.default == true ? selectedbuff.turn : selectedbuff.alife}
-                            character_face={false}
-                            hide_title={true}
-                            passed_passive={selectedbuff.passive}
-                            debugging={debugging}
+                            abilitytext={abilitytext}
                         />
                         : ""}
-                    {selectedbuff.length != 0 && selectedbuff.is_state == true ?
-                        <div className='bufflistbanner Buffbase'>
-                            <div className='Buffsubbanner'>
-                                {ReplacerCharacter(selectedbuff.cast.name,form)}
-                                <div className='abilityJPname'>
-                                    {ReplacerCharacter(selectedbuff.cast.jpname,form)}
+
+                    {hit_map[`B2`] != undefined && hit_map[`B2`].show != false ?
+                        <HitDataParsFormatting
+                            key={`B2`}
+                            hit_data={hit_map[`B2`]}
+                            formatting={formatting}
+                            abilitytext={abilitytext}
+                        />
+                        : ""}
+
+                    {hit_map[`B3`] != undefined && hit_map[`B3`].show != false ?
+                        <HitDataParsFormatting
+                            key={`B3`}
+                            hit_data={hit_map[`B3`]}
+                            formatting={formatting}
+                            abilitytext={abilitytext}
+                        />
+                        : ""}
+
+                    {hit_map[`B4`] != undefined && hit_map[`B4`].show != false ?
+                        <HitDataParsFormatting
+                            key={`B4`}
+                            hit_data={hit_map[`B4`]}
+                            formatting={formatting}
+                            abilitytext={abilitytext}
+                        />
+                        : ""}
+
+                    {cast_list[-1] != undefined ?
+                        cast_list[-1].map(self => (
+                            self.cond != undefined ? ReplacerCharacter(`┬ ${self.cond}\n└─ ${self.cast_str}\n`,form) : ReplacerCharacter(`${self.cast_str}\n`,form)
+                        ))
+                        : ""}
+                        
+                    {hit_count_map.map(number => (
+                        (cast_list[number] != undefined || (hit_map[number] != undefined && hit_map[number].show != false)) ? 
+                            <HitDataParsFormatting
+                                key={number}
+                                cast_list={cast_list[number]}
+                                hit_data={hit_map[number]}
+                                formatting={formatting}
+                                abilitytext={abilitytext}
+                            />
+                        :""
+                    ))}
+
+                    {cast_list[0] != undefined ?
+                        cast_list[0].map(self => (
+                            self.cond != undefined ? ReplacerCharacter(`┬ ${self.cond}\n└─ ${self.cast_str}\n`,form) : ReplacerCharacter(`${self.cast_str}\n`,form)
+                        ))
+                        : ""}
+
+                    {hit_map[`S1`] != undefined && hit_map[`S1`].show != false ?
+                        <HitDataParsFormatting
+                            key={`S1`}
+                            hit_data={hit_map[`S1`]}
+                            formatting={formatting}
+                            abilitytext={abilitytext}
+                        />
+                        : ""}
+
+                    {//meta below
+                    }
+                                            
+                    {command_meta && command_meta.bdlur != undefined ?
+                        ReplacerCharacter(command_meta.bdlur+"\n",form)
+                    : ""}
+                    {command_meta && command_meta.mblur != undefined ?
+                        ReplacerCharacter(command_meta.mblur+"\n",form)
+                    : ""}
+                    {command_meta && command_meta.cost != undefined ?
+                        command_meta.cost == "*Instant Turn Rate" ?
+                            ReplacerCharacter(command_meta.cost+"\n",form)
+                            : ""
+                    : ""}
+                    {command_meta && command_meta.blow != undefined ?
+                        ReplacerCharacter(command_meta.blow+"\n",form)
+                    : ""}
+                    {command_meta && command_meta.stun != undefined ?
+                        ReplacerCharacter(command_meta.stun+"\n",form)
+                    : ""}
+                    {command_meta && command_meta.stunadd != undefined ?
+                        ReplacerCharacter(command_meta.stunadd+"\n",form)
+                    : ""}
+                    {command_meta && command_meta.cost != undefined ?
+                        command_meta.cost != "*Instant Turn Rate" ?
+                            ReplacerCharacter(command_meta.cost+"\n",form)
+                        : ""
+                    : ""}
+                    {command_meta && command_meta.exshow != undefined ?
+                        ReplacerCharacter(command_meta.exshow+"\n",form)
+                    : ""}
+                    {command_meta && command_meta.ncharge != undefined ?
+                        ReplacerCharacter(command_meta.ncharge+"\n",form)
+                    : ""}
+                    {command_meta && command_meta.show != undefined ?
+                        ReplacerCharacter(command_meta.show+"\n",form)
+                    : ""}
+                    {command_meta && command_meta.showadd != undefined ?
+                        ReplacerCharacter(command_meta.showadd+"\n",form)
+                    : ""}
+                    {character_ability.same_ability_id_ != 0 && character_ability.same_ability_id_ != undefined?
+                        ReplacerCharacter(`*Ability Group: ${character_ability.same_ability_id_}\n`,form)
+                    : ""}
+                    {character_ability.ability_rank_ != 0 && character_ability.same_ability_id_ != undefined?
+                        ReplacerCharacter(`*Ability Rank: ${character_ability.ability_rank_}\n`,form)
+                    : ""}
+
+                        {command_meta && command_meta.type_ != undefined && debugging == true?
+                            <div>
+                                {ReplacerCharacter(command_meta.type_+"\n",form)}
+                            </div>
+                        : ""}
+                        {command_meta && command_meta.target_range_ != undefined && debugging == true ?
+                            <div>
+                                {ReplacerCharacter(command_meta.target_range_+"\n",form)}
+                            </div>
+                        : ""}
+                        {command_meta && command_meta.target_type_ != undefined  && debugging == true?
+                            <div>
+                                {ReplacerCharacter(command_meta.target_type_+"\n",form)}
+                            </div>
+                        : ""}
+                        {command_meta && command_meta.auto_target_type_ != undefined  && debugging == true?
+                            <div>
+                                {ReplacerCharacter(command_meta.auto_target_type_+"\n",form)}
+                            </div>
+                        : ""}
+
+                    {character_ability.command != undefined && character_ability.command.desc != undefined ?
+                        desc == false ?
+                            <div className="clicky updatelink contents" onClick={() => showmedesc(desc)}>
+                                {"\xa0- Show Desc -"}
+                            </div>
+                            :
+                            <div className="clicky updatelink contents" onClick={() => showmedesc(desc)}>
+                                {"\xa0- Hide Desc -"}
+                            </div>
+                        : ""}
+                    {desc == false && character_ability.command != undefined && character_ability.command.desc != undefined ? "" :
+                        <div>
+                            {desc == true ?
+                                <hr />
+                                : ""}
+                            {trans != undefined && showtrans == true ?
+                                ReplacerCharacter(trans+"\n",form)
+                                :
+                                character_ability.command && character_ability.command.desc &&
+                                ReplacerCharacter(Format_Cleaner(character_ability.command.desc),form)
+                            }
+                        </div>
+                    }
+                    {ver == "JP" && desc == true ?
+                        <div className="clicky updatelink contents" onClick={() => doTrans()} >Translate (Beta)</div>
+                        : ""}
+                    {showraw == true ?
+                        <span className='react-json-view'>
+                        <ObjectView 
+                        options={
+                            {
+                                hideDataTypes: true,
+                                expandLevel: 1,
+                                displayEntriesMaxCount: 1,
+                            }
+                            }
+                        data={hit_parers} />
+                        </span>
+                        : ""}
+                    {showraw == true ?
+                        <span className='react-json-view'>
+                        <ObjectView 
+                        options={
+                            {
+                                hideDataTypes: true,
+                                expandLevel: 1
+                            }
+                            }
+                        data={character_ability} />
+                        </span>
+                        : ""}
+
+
+                    {character_ability.passives != undefined ?
+                        <div className='p_grade'>
+                            <div className='fieldbar'><span className='smallpassive'></span>{"\xa0"}Effects:</div>
+                            <div className='spanleft'>
+                                {character_ability.passives.length != 1 ?
+                                    <div className='subpassiveflair spacearound'>
+                                        <div key="mergecheck1" className={`${merge_pas == true ? "nodisplay" : `uncheck`}`} onClick={togglemerge} />
+                                        <div key="mergecheck2" className={`${merge_pas == true ? "check" : `nodisplay`}`} onClick={togglemerge} />
+                                        <div className='noselect'>&nbsp;&nbsp;Total Values</div>
+                                    </div>
+                                    : ""}
+                                {merger_master(
+                                    character_ability.passives,
+
+                                    master_index,
+                                    ver,
+
+                                    merge_pas,
+                                    "command",
+                                    true
+                                ).sort((a, b) => a.rank - b.rank).map((ailment_passive, i, whole) => (
+                                    ailment_passive.is_total != true ? <PassiveEffectsHandoff
+                                        key={`${ailment_passive.pa_id}-${i}`}
+                                        passive_ability={ailment_passive}
+                                        ver={ver}
+                                        master_index={master_index}
+
+                                        formatting={formatting}
+                                        skip_space={i}
+                                        use_ailment={true}
+                                        merged={whole[i - 1] && whole[i - 1].loc_tag}
+                                        hide_disp={merge_pas}
+                                        battle_state={true}
+                                    />
+                                        :
+                                        <Passive_Total_Display
+                                            key={i}
+                                            match={ailment_passive}
+                                        />
+                                ))}
+                                <div className='abilityJPname'>*depending on origin ability</div>
+                            </div>
+                        </div>
+                        : ""}
+
+                    {character_ability.options != undefined ?
+                        <div className='p_grade'>
+                            <div className='fieldbar'>
+                                <div className={character_ability.options.length <= 5 ? "" : 'updatelink clicky'} onClick={doshow_upgrades}>
+                                    {character_ability.options.length <= 5 ? "Conditions:" : show_upgrades ? "Hide All Conditions" : "Show All Conditions"}
                                 </div>
                             </div>
-                            {selectedbuff.passives && selectedbuff.passives.length > 1 ?
-                                <div className='subpassiveflair spacearound'>
-                                    <div key="mergecheck1" className={`${merge_pas_buffs == true ? "nodisplay" : `uncheck`}`} onClick={togglemerge_buffs} />
-                                    <div key="mergecheck2" className={`${merge_pas_buffs == true ? "check" : `nodisplay`}`} onClick={togglemerge_buffs} />
-                                    <div className='noselect'>&nbsp;&nbsp;Total Values</div>
-                                </div>
-                                : ""}
-                            {merger_master(
-                                selectedbuff.passives,
-
-                                master_index,
-                                ver,
-
-                                merge_pas_buffs,
-                                "state",
-                                false
-                            ).sort((a, b) => a.rank - b.rank).map((battle_passive, i, whole) => (
-                                battle_passive.is_total != true ? <PassiveEffectsHandoff
-                                    key={`${battle_passive.pa_id}-${i}`}
-                                    passive_ability={battle_passive}
+                            {show_upgrades == true && character_ability.options.map((options, key) => (
+                                <OptionParsFormatting
+                                    key={key}
+                                    character_option={options}
                                     ver={ver}
-
                                     master_index={master_index}
-
+                                    all_options={all_options}
                                     formatting={formatting}
-                                    skip_space={i}
-                                    use_ailment={false}
-                                    merged={whole[i - 1] && whole[i - 1].loc_tag}
-                                    hide_disp={merge_pas_buffs}
-                                    battle_state={true}
+                                    enemy={enemy}
                                 />
-                                    :
-                                    <Passive_Total_Display
-                                        key={i}
-                                        match={battle_passive}
-                                    />
                             ))}
                         </div>
                         : ""}
-                </LazyLoadComponent>
+
+                </div>
+
+                {character_ability.command && character_ability.command.casts && character_ability.command.casts != undefined || (bufflist && bufflist.length != 0 || statelist && statelist.length != 0) ?
+                    <div className={`bufflistbanner noselect newblue`}>
+                        {character_ability.command && character_ability.command.casts && character_ability.command.casts != undefined ?
+                            <>
+                                <div className="unique ailmenttext">Buffs / Debuffs:</div>
+                                <ul className="abilitybufflist">
+                                    {character_ability.command.casts && character_ability.command.casts.map(buffs => (
+                                        <li className={`abilitybufficonsholder ${selectedbuff.unq_id == buffs.unq_id ? "buffactive" : ""}`} key={buffs.unq_id}>
+                                            <div className="biconspacer" onClick={() => buffselect(buffs)} >
+                                                <Tippy content={
+                                                    ReplacerCharacter(buffs.name,form)
+                                                }>
+                                                    <img alt={buffs.name} className={`clicky abilitybufficon `} src={`https://dissidiacompendium.com/images/static/icons/buff/${ailment_level_icon(buffs,buffs.aarg1)}.png`} />
+                                                </Tippy>
+                                            </div>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </>
+                            : ""}
+                        {bufflist && bufflist.length != 0 ?
+                            <>
+                                <div className="unique ailmenttext">
+                                    Conditional Casts (Non-self):
+                                </div>
+                                <ul className="abilitybufflist">
+                                    {bufflist && bufflist.length != 0 ?
+                                        <ul className="abilitybufflist">
+                                            {bufflist.map(function (buff) {
+                                                const buffs = Object.values(buff)[0]
+                                                const cast = buffs.cast
+                                                return buffs.active == false ? "" : <li className={`abilitybufficonsholder ${selectedbuff.ailment_id == buffs.ailment_id && selectedbuff.data_id == buffs.data_id ? "buffactive" : ""}`} key={`${buffs.ailment_id}-${buffs.data_id}`}>
+                                                    <div className="biconspacer" onClick={() => buffselect(buffs)} >
+                                                        <DefaultTippy content={
+                                                            cast.name === "" ? ReplacerCharacter(`Unknown ${cast.id}`,form) : ReplacerCharacter(cast.name,form)
+                                                        }>
+                                                            <img alt={cast.name} className="clicky abilitybufficon" src={`https://dissidiacompendium.com/images/static/icons/buff/${ailment_level_icon(cast,buffs.arg1)}.png`} />
+                                                        </DefaultTippy>
+                                                    </div>
+                                                </li>
+                                            })}
+                                        </ul> :
+                                        ""}
+                                </ul>
+                            </>
+                            : ""}
+                        {statelist && statelist.length != 0 ?
+                            <>
+                                <div className="unique ailmenttext">
+                                    Battle States:
+                                </div>
+                                <ul className="abilitybufflist">
+                                    {statelist.map(function (buff) {
+                                        const buffs = Object.values(buff)[0]
+                                        const cast = buffs.cast
+                                        return <li className={`abilitybufficonsholder ${selectedbuff.ailment_id == buffs.ailment_id && selectedbuff.data_id == buffs.data_id ? "buffactive" : ""}`} key={`${buffs.ailment_id}-${buffs.data_id}`}>
+                                            <div className="biconspacer" onClick={() => buffselect(buffs)} >
+                                                <DefaultTippy content={
+                                                    cast.name === "" ? ReplacerCharacter(`Unknown ${cast.id}`,form) : ReplacerCharacter(cast.name,form)
+                                                }>
+                                                    <img alt={cast.name} className="clicky abilitybufficon" src={`https://dissidiacompendium.com/images/static/icons/buff/${cast.icon}.png`} />
+                                                </DefaultTippy>
+                                            </div>
+                                        </li>
+                                    })}
+                                </ul>
+                            </>
+                            : ""}
+                    </div>
+                    : ""}
+                {selectedbuff.length != 0 && selectedbuff.is_state != true ?
+                    <AilmentDataFormatting
+                        key={selectedbuff.id}
+                        file={file}
+                        loc={loc}
+                        ver={ver}
+                        ailment_data={selectedbuff.default == true ? selectedbuff.cast : selectedbuff}
+                        master_index={master_index}
+                        slider={true}
+                        rank={selectedbuff.default == true ? selectedbuff.rank_id : selectedbuff.arank}
+                        arg1={selectedbuff.default == true ? selectedbuff.arg1 : selectedbuff.aarg1}
+                        arg2={selectedbuff.default == true ? selectedbuff.arg2 : selectedbuff.aarg2}
+                        castlocation={true}
+                        alt_rank={selectedbuff.aranka}
+                        alt_aug1={selectedbuff.aarg1a}
+                        alt_aug2={selectedbuff.aarg2a}
+                        formatting={formatting}
+                        cur_char={character_ability.charaID}
+                        turns={selectedbuff.default == true ? selectedbuff.turn : selectedbuff.alife}
+                        character_face={false}
+                        hide_title={true}
+                        passed_passive={selectedbuff.passive}
+                        debugging={debugging}
+                    />
+                    : ""}
+                {selectedbuff.length != 0 && selectedbuff.is_state == true ?
+                    <div className='bufflistbanner Buffbase'>
+                        <div className='Buffsubbanner'>
+                            {ReplacerCharacter(selectedbuff.cast.name,form)}
+                            <div className='abilityJPname'>
+                                {ReplacerCharacter(selectedbuff.cast.jpname,form)}
+                            </div>
+                        </div>
+                        {selectedbuff.passives && selectedbuff.passives.length > 1 ?
+                            <div className='subpassiveflair spacearound'>
+                                <div key="mergecheck1" className={`${merge_pas_buffs == true ? "nodisplay" : `uncheck`}`} onClick={togglemerge_buffs} />
+                                <div key="mergecheck2" className={`${merge_pas_buffs == true ? "check" : `nodisplay`}`} onClick={togglemerge_buffs} />
+                                <div className='noselect'>&nbsp;&nbsp;Total Values</div>
+                            </div>
+                            : ""}
+                        {merger_master(
+                            selectedbuff.passives,
+
+                            master_index,
+                            ver,
+
+                            merge_pas_buffs,
+                            "state",
+                            false
+                        ).sort((a, b) => a.rank - b.rank).map((battle_passive, i, whole) => (
+                            battle_passive.is_total != true ? <PassiveEffectsHandoff
+                                key={`${battle_passive.pa_id}-${i}`}
+                                passive_ability={battle_passive}
+                                ver={ver}
+
+                                master_index={master_index}
+
+                                formatting={formatting}
+                                skip_space={i}
+                                use_ailment={false}
+                                merged={whole[i - 1] && whole[i - 1].loc_tag}
+                                hide_disp={merge_pas_buffs}
+                                battle_state={true}
+                            />
+                                :
+                                <Passive_Total_Display
+                                    key={i}
+                                    match={battle_passive}
+                                />
+                        ))}
+                    </div>
+                    : ""}
+
             </div>
+            </LazyLoadComponent>
         </div>
     )
 }
+
+export default trackWindowScroll(AbilityPars)

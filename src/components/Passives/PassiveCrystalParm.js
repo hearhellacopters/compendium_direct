@@ -3,13 +3,14 @@ import Tippy from '../../components/TippyDefaults'
 import CharacterFaceFormatting from '../Characters/CharacterFaceFormatting';
 import ReplacerCharacter from "../ReplacerCharacter";
 import { StartsInTimer } from "../../components/Timers";
-import { LazyLoadComponent } from 'react-lazy-load-image-component';
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 
-export default function PassiveCrystalParm({
+function PassiveCrystalParm({
     passive,
     master_index,
     type,
-    ver
+    ver,
+    scrollPosition 
 }){
 
     const char_id = master_index.charid
@@ -31,51 +32,56 @@ export default function PassiveCrystalParm({
 
     return (
         <div key={passive.lc_id} className='buffunit'>
-            <div className='infoholder' style={{ minHeight: `50px` }}>
-                <LazyLoadComponent>
-                    <div className="infotitleholder">
-                        <div className='faceandiconholder'>
-                            <CharacterFaceFormatting
-                                char_id={char_id}
-                                id={passive.chara_id}
-                            />
+            <LazyLoadComponent
+            scrollPosition={scrollPosition}
+            placeholder={<div className='infoholder' style={{ minHeight: `250px` }}/>}
+            >
+            <div className='infoholder'>
+                <div className="infotitleholder">
+                    <div className='faceandiconholder'>
+                        <CharacterFaceFormatting
+                            char_id={char_id}
+                            id={passive.chara_id}
+                        />
+                    </div>
+                </div>
+                <div className="Dbanner iconbuffer infonameholder nobuffpadding ">
+                    <div className="spacearound">
+                        <Tippy content="Scroll to top">
+                            <div onClick={() => window.scrollTo(0, 0)} className="displayfex clicky">
+                                {ReplacerCharacter(`<${type == 6 ? "cl90" : "newstatus"}> `)}
+                            </div>
+                        </Tippy>
+                        <div className="infotitle displayfex  ">
+                            {passive.name}{` Lv${passive.level} - #${passive.cac_id}`}
                         </div>
                     </div>
-                    <div className="Dbanner iconbuffer infonameholder nobuffpadding ">
-                        <div className="spacearound">
-                            <Tippy content="Scroll to top">
-                                <div onClick={() => window.scrollTo(0, 0)} className="displayfex clicky">
-                                    {ReplacerCharacter(`<${type == 6 ? "cl90" : "newstatus"}> `)}
-                                </div>
-                            </Tippy>
-                            <div className="infotitle displayfex  ">
-                                {passive.name}{` Lv${passive.level} - #${passive.cac_id}`}
-                            </div>
+                    <div className="displayfex ">
+                        <div className="abilityJPname ">
+                            {passive.jpname}{` Lv${passive.level} - #${passive.cac_id}`}
                         </div>
-                        <div className="displayfex ">
-                            <div className="abilityJPname ">
-                                {passive.jpname}{` Lv${passive.level} - #${passive.cac_id}`}
+                        {passive.cp != 0 ?
+                            <div className="CPReqHolder">
+                                <span className="unique">Req. </span>
+                                <span className="CPIcon CPIconSmaller" />
+                                <span> {passive.cp}</span>
                             </div>
-                            {passive.cp != 0 ?
-                                <div className="CPReqHolder">
-                                    <span className="unique">Req. </span>
-                                    <span className="CPIcon CPIconSmaller" />
-                                    <span> {passive.cp}</span>
-                                </div>
-                                : ""}
-                        </div>
-                        {rData != undefined ?
-                            <StartsInTimer
-                                expiryTimestamp={rData}
-                                JPFlag={ver == "JP" ? true : false}
-                            />
                             : ""}
                     </div>
-                    <div className='Dbase infobase nobuffpadding'>
-                        {passive.name}
-                    </div>
-                </LazyLoadComponent>
+                    {rData != undefined ?
+                        <StartsInTimer
+                            expiryTimestamp={rData}
+                            JPFlag={ver == "JP" ? true : false}
+                        />
+                        : ""}
+                </div>
+                <div className='Dbase infobase nobuffpadding'>
+                    {passive.name}
+                </div>
             </div>
+            </LazyLoadComponent>
         </div>
     )
 }
+
+export default trackWindowScroll(PassiveCrystalParm)

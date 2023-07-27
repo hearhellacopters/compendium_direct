@@ -965,6 +965,7 @@
     border-radius: 19px;
     clear: both;
     margin-top: 5px;
+    min-height: 300px;
 }
 
 .characterholder li {

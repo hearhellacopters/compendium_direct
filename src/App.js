@@ -1,6 +1,18 @@
 import React, { useEffect, useState, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { useDispatch, useSelector } from "react-redux";
+import { getJPToggle } from './redux/ducks/jptoggle.js';
+import { getQueryStringVal, useQueryParam } from './components/URLParams.js'
+import { setFalse, setTrue } from './redux/ducks/jptoggle'
+import Loading from './components/Loading.js'
+import Nav from'./Nav.js';
+import DevSwitch from './redux/DevSwitch.js';
+import Tippy from './components/TippyDefaults.js';
+import 'tippy.js/dist/tippy.css';
+import 'tippy.js/animations/shift-away.css';
+import 'react-lazy-load-image-component/src/effects/opacity.css';
+
 import './Abilities.css';
 import './App.css';
 import './Bestiary.css';
@@ -25,8 +37,7 @@ import './components/Direct.css';
 import './components/SilderStyle.css';
 import './components/tickDown.css';
 import './components/ticker.css';
-import Loading from './components/Loading.js'
-import Nav from'./Nav.js';
+
 const NotFoundPage = React.lazy(() => import('./404.js'));
 const Footer = React.lazy(() => import('./Footer'));
 const Home = React.lazy(() => import('./callpages/CallHome.js'));
@@ -59,14 +70,6 @@ const EnemyAbilities = React.lazy(() => import('./callpages/CallEnemyAbilities.j
 const JukeBoxMini = React.lazy(() => import('./callpages/CallJukeBoxMini.js'));
 const Forecast = React.lazy(() => import('./callpages/CallForecast.js'));
 const Notices = React.lazy(() => import('./callpages/CallNotices.js'));
-const DevSwitch = React.lazy(() => import('./redux/DevSwitch.js'));
-import Tippy from './components/TippyDefaults.js';
-import 'tippy.js/dist/tippy.css';
-import 'tippy.js/animations/shift-away.css';
-import { useDispatch, useSelector } from "react-redux";
-import { getJPToggle } from './redux/ducks/jptoggle.js';
-import { getQueryStringVal, useQueryParam } from './components/URLParams.js'
-import { setFalse, setTrue } from './redux/ducks/jptoggle'
 
 export default function App(){
 

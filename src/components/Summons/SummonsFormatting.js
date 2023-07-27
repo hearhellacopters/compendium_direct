@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import ScrollHere from '../ScrollHere.js';
-import '../SilderStyle.css'
 import ReplacerCharacter from '../ReplacerCharacter.js';
 import SummonPassiveFormatting from './SummonPassiveFormatting.js'
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/opacity.css';
+import { LazyLoadImage, trackWindowScroll } from 'react-lazy-load-image-component';
 import CrystalBrilliance from '../../callpages/CallCrystalBrilliance.js';
 import StatsMaker from '../StatsDisplay.js';
  
-export default function SummonsFormatting({
+function SummonsFormatting({
   match,
   ProcessedSummons,
   ProcessedSummonLevels,
-  ProcessedSummonPassives
+  ProcessedSummonPassives,
+  scrollPosition 
 }){
 
   const [searchTerm, setSearchTerm] = useState();
@@ -77,7 +76,12 @@ export default function SummonsFormatting({
         </div>
         <div className="sumdescholder">
           <div className="sumimgholder">
-            <LazyLoadImage effect="opacity" className="sumimg" alt={summons.SummonName} src={"https://dissidiacompendium.com/images/static/icons/summons/face/" + summons.SummonFace} />
+            <LazyLoadImage 
+            scrollPosition={scrollPosition}
+            effect="opacity" 
+            className="sumimg" 
+            alt={summons.SummonName} 
+            src={"https://dissidiacompendium.com/images/static/icons/summons/face/" + summons.SummonFace} />
             <img className={`${summons.SummonName == "Odin" ? "sumelehelper" : summons.SummonName == "Bahamut" ? "sumelehelper" : summons.SummonName == "Chocobo" ? "sumelehelper" : "nohelper"} sumele`} alt={summons.ElementIcon} src={"https://dissidiacompendium.com/images/static/icons/" + summons.ElementIcon} />
             <span className="sumlv">LV.{searchTerm}</span>
             <input
@@ -170,3 +174,5 @@ export default function SummonsFormatting({
     </div>
   )
 }
+
+export default trackWindowScroll(SummonsFormatting)

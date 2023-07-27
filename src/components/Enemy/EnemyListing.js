@@ -1,16 +1,14 @@
 import React from 'react';
 import Tippy from '../../components/TippyDefaults';
-import '../../Bestiary.css'
-import './EnemyFormatting.css'
 import { Link } from 'react-router-dom'
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/opacity.css';
+import { LazyLoadImage, trackWindowScroll } from 'react-lazy-load-image-component';
 
-export default function EnemyListing({ 
+function EnemyListing({ 
     match, 
     ProcessedCharacters, 
     PartnerCharacters, 
-    jptoggledata 
+    jptoggledata,
+    scrollPosition 
 }){
 
     const cleaner = (text) => {
@@ -27,7 +25,12 @@ export default function EnemyListing({
                 </span>
             } className="tooltip" >
                 <li className="enemyholderli">
-                    <LazyLoadImage className="enemycard" alt={match.Name} src={"https://dissidiacompendium.com/images/static/enemy/face/" + match.url} effect="opacity" />
+                    <LazyLoadImage 
+                    scrollPosition={scrollPosition}
+                    effect="opacity" 
+                    className="enemycard" 
+                    alt={match.Name} 
+                    src={"https://dissidiacompendium.com/images/static/enemy/face/" + match.url}/>
                 </li>
             </Tippy>
             <Tippy content="JP Only" className="tooltip" >
@@ -46,3 +49,4 @@ export default function EnemyListing({
     )
 
 }
+export default trackWindowScroll(EnemyListing)

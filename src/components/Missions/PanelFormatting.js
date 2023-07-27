@@ -2,16 +2,17 @@ import React from "react";
 import { useStateIfMounted } from "use-state-if-mounted";
 import { EndsInTimer, StartsInTimer } from '../Timers'
 import ReminderMaker from '../Events/ReminderMaker';
-import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 import TickUp from '../tickUp'
 import ReplacerCharacter from '../ReplacerCharacter';
 import { ObjectView } from 'react-object-view'
 import format_cleaner from "../../processing/format_cleaner";
 import MissionFormatting from "./MissionFormatting";
 
-export default function PanelFormatting({
+function PanelFormatting({
     panel,
-    ver
+    ver,
+    scrollPosition 
 }){
 
     const [mission_select, setmission_select] = useStateIfMounted([])
@@ -166,22 +167,32 @@ export default function PanelFormatting({
     }
 
     return (
-        <>
+        <LazyLoadComponent
+        placeholder={<div style={{minHeight:"600px"}} className="eventholder"/>}
+        scrollPosition={scrollPosition}
+        >
             <div className="eventtitlebanner">
                 <h3 className="atevents">{panel.title}</h3>
                 {currenttime <= panel.term_from_date && panel.reward_receive_date < 1900000000000  ? (
-                    <LazyLoadComponent>
+                    <LazyLoadComponent
+                    scrollPosition={scrollPosition}
+                    >
                         <StartsInTimer expiryTimestamp={start_date} JPFlag={ver == "JP" ? true : false} />
                     </LazyLoadComponent>
                 ) : 
                 panel.reward_receive_date> 1900000000000 ? (
-                    <LazyLoadComponent>
+                    <LazyLoadComponent
+                    scrollPosition={scrollPosition}
+                    placeholder={<div className="tickholder greencolor"/>}
+                    >
                         <div className="tickholder greencolor">
                             <div className="glshadow"><span className='emoji'>🌎</span></div>&nbsp;<TickUp value={months[start_date.getMonth()]} /><TickUp value={ordinal(start_date.getDate())} /><TickUp value={start_date.getFullYear()} />
                         </div>
                     </LazyLoadComponent>
                 ) : (
-                    <LazyLoadComponent>
+                    <LazyLoadComponent
+                    scrollPosition={scrollPosition}
+                    >
                         <EndsInTimer expiryTimestamp={end_date} JPFlag={ver == "JP" ? true : false} />
                     </LazyLoadComponent>
                 )
@@ -274,6 +285,8 @@ export default function PanelFormatting({
                 data={panel} />
                 </span>
             : ""}
-</>
+        </LazyLoadComponent>
     )
 }
+
+export default trackWindowScroll(PanelFormatting)

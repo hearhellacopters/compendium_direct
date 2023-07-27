@@ -2,10 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
 import { useDispatch } from "react-redux";
 import { setFalse, setTrue } from './redux/ducks/jptoggle'
-import './Events.css';
 import Tippy from './components/TippyDefaults.js';
-import 'tippy.js/dist/tippy.css';
-import 'tippy.js/animations/shift-away.css';
 import { Helmet } from 'react-helmet-async';
 import Select from 'react-select';
 import { Link } from 'react-router-dom'

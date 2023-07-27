@@ -7,8 +7,6 @@ import { IoMdCloseCircleOutline } from 'react-icons/io';
 import { IoSearch } from 'react-icons/io5';
 import { FaUndoAlt } from 'react-icons/fa'
 import PassiveAbilityFormatting from '../Passives/PassiveAbilityFormatting';
-import 'tippy.js/dist/tippy.css';
-import 'tippy.js/animations/shift-away.css';
 import { getQuery, getQueryStringVal, useQueryParam } from '../URLParams'
 import CharacterAbilityPars from '../Abilities/AbilityPars.js'
 

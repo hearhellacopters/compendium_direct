@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
 import Art_Passive_Formatting from '../Passives/PassiveArtFormatting.js'
-import 'tippy.js/dist/tippy.css';
-import 'tippy.js/animations/shift-away.css';
 import { getQuery, getQueryStringVal, useQueryParam } from '../URLParams.js'
 
 export default function CharacterPassiveArtPageFormatting({

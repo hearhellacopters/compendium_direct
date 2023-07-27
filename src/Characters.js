@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
 import { useDispatch } from "react-redux";
 import { setFalse, setTrue } from './redux/ducks/jptoggle'
-import './Characters.css';
 import Tippy from './components/TippyDefaults.js';
 import { Helmet } from 'react-helmet-async';
 import Select from 'react-select';

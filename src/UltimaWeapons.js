@@ -1,15 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, Navigate } from 'react-router-dom'
-import 'react-lazy-load-image-component/src/effects/opacity.css';
-import 'tippy.js/animations/scale.css';
-import 'tippy.js/animations/scale-subtle.css';
-import 'tippy.js/animations/scale-extreme.css';
 import { TiArrowSortedDown } from 'react-icons/ti';
 import { TiArrowSortedUp } from 'react-icons/ti';
 import Tippy from './components/TippyDefaults.js';
-import 'tippy.js/dist/tippy.css';
-import 'tippy.js/animations/shift-away.css';
 import EquipmentPassivesFormatting from './components/Gear/EquipmentPassivesFormatting.js';
 import {getQueryStringVal, useQueryParam } from './components/URLParams.js'
 

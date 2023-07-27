@@ -2,15 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
 import { Helmet } from 'react-helmet-async';
 import CharacterForceCond from './components/Characters/CharacterForceCond.js'
-import 'react-lazy-load-image-component/src/effects/opacity.css';
-import 'tippy.js/animations/scale.css';
-import 'tippy.js/animations/scale-subtle.css';
-import 'tippy.js/animations/scale-extreme.css';
 import { TiArrowSortedDown } from 'react-icons/ti';
 import { TiArrowSortedUp } from 'react-icons/ti';
 import Tippy from './components/TippyDefaults.js';
-import 'tippy.js/dist/tippy.css';
-import 'tippy.js/animations/shift-away.css';
 import { ImSortAmountAsc } from 'react-icons/im';
 import { ImSortAmountDesc } from 'react-icons/im';
 import { IoMdCloseCircleOutline } from 'react-icons/io';

@@ -2,11 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from "react-redux";
 import Tippy from './components/TippyDefaults'
 import { setFalse, setTrue } from './redux/ducks/jptoggle'
-import './Home.css';
-import './Bestiary.css'
-import './Events.css'
-import './Summons.css'
-import './components/Enemy/EnemyFormatting.css'
 import ReplacerCharacter from './components/ReplacerCharacter';
 import { Helmet } from 'react-helmet-async';
 import DefaultTippy from './components/TippyDefaults.js'
@@ -17,7 +12,6 @@ import BannersFormatting from './components/Events/SingleBannersFormatting.js'
 import UpdatesFormmating from './components/UpdatesFormatting.js'
 import { ImWarning } from 'react-icons/im';
 import { Link } from 'react-router-dom'
-import 'react-lazy-load-image-component/src/effects/opacity.css';
 import { getQueryStringVal, useQueryParam } from './components/URLParams'
 
 export default function Home({ 

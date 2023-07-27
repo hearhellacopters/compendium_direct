@@ -10,11 +10,11 @@ import AilmentDefaultPassoff from "../Buffs/AilmentDefaultPassoff";
 import AilmentDataFormatting from "../Buffs/AilmentDataFormatting";
 import PassiveArtEffectsHandoff from "./PassiveArtEffectsHandoff";
 import ReplacerCharacter from '../ReplacerCharacter'
-import { LazyLoadComponent } from 'react-lazy-load-image-component';
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 import { ObjectView } from 'react-object-view'
 import ailment_level_icon from "../../processing/ailment/ailment_level_icon";
 
-export default function PassiveArtFormatting({
+function PassiveArtFormatting({
     art_passive,
     loc,
     ver,
@@ -25,7 +25,8 @@ export default function PassiveArtFormatting({
     base_color,
     span,
     link,
-    master_index
+    master_index,
+    scrollPosition 
 }){
 
     const form = {formatting:formatting,updown:true}
@@ -156,142 +157,147 @@ export default function PassiveArtFormatting({
 
     return (
         <div className="buffunit">
-            <div className="infoholder" style={{ minHeight: `${minH}px` }}>
-                <LazyLoadComponent>
-                    {art_passive.chara_id != undefined ?
-                        <div className="infotitleholder">
-                            <div className="faceandiconholder" >
-                                <CharacterFaceFormatting char_id={char_id} id={art_passive.chara_id} loc={loc} link={link} />
+            <LazyLoadComponent
+            scrollPosition={scrollPosition}
+            placeholder={<div className="infoholder" style={{ minHeight: `${minH}px` }}/>}
+            >
+            <div className="infoholder">
+                {art_passive.chara_id != undefined ?
+                    <div className="infotitleholder">
+                        <div className="faceandiconholder" >
+                            <CharacterFaceFormatting char_id={char_id} id={art_passive.chara_id} loc={loc} link={link} />
+                        </div>
+                    </div>
+                    : ""}
+                <div className={`${art_passive.chara_id != undefined ? "iconbuffer infonameholder nobuffpadding " : "infonameholderenemybuff "}${banner_color == undefined ? "Buffbanner" : banner_color}`} onClick={showmeraw}>
+                    {ver == "JP" ?
+                        <div>
+                            <div className={`combotext infotitle ${art_passive.rank == 5 ? "orangetext" : ""}`}>
+                                {ReplacerCharacter(`<art> ${art_passive.glname != "" ?
+                                    `${art_passive.glname} - #${art_passive.spe_id}` :
+                                    `${textreplace(Format_Cleaner(art_passive.name))} - #${art_passive.spe_id}`}`)}
                             </div>
+                            <div className={`${art_passive.rank == 5 ? "orangetext size12" : "abilityJPname"}`}>
+                                {art_passive.name != undefined && art_passive.name != "" ?
+                                    `${Format_Cleaner(art_passive.name)} - #${art_passive.spe_id}` :
+                                    `Unknown - #${art_passive.spe_id}`}
+                            </div>
+                        </div>
+                        :
+                        <div>
+
+                            <div className={`combotext infotitle ${art_passive.rank == 5 ? "orangetext" : ""}`}>
+                            {ReplacerCharacter(`<art> ${art_passive.name != undefined ?
+                                    `${Format_Cleaner(art_passive.name).replace(/(.*?)(<)(.*?)(>)(.*?)/gm, '$1&lt;$3&gt;$5')} - #${art_passive.spe_id}`
+                                    :
+                                    `Unknown - #${art_passive.spe_id}`}`)}
+                            </div>
+                            <div className={`${art_passive.rank == 5 ? "orangetext size12" : "abilityJPname"}`}>
+                                {art_passive.jpname != undefined && art_passive.jpname != "" ?
+                                    `${Format_Cleaner(art_passive.jpname).replace(/(.*?)(<)(.*?)(>)(.*?)/gm, '$1&lt;$3&gt;$5')} - #${art_passive.spe_id}` :
+                                    `${revtextreplace(Format_Cleaner(art_passive.name))} - #${art_passive.spe_id}`}
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div className={`${art_passive.chara_id != undefined ? "infobase nobuffpadding " : "infobase "}${base_color == undefined ? "Buffbase" : base_color}`}>
+                    {trans != undefined && showtrans == true ?
+                        ReplacerCharacter(trans+"\n",form)
+                        :
+                        ReplacerCharacter(Format_Cleaner(art_passive.desc+"\n"),form)
+                    }
+                    {ver == "JP" ?
+                        <div className="clicky updatelink contents" onClick={() => doTrans()} >Translate (Beta)</div>
+                        : ""}
+                    <div className="newbluepassive infonameholderenemybuff default_passive">
+                        <PassiveArtEffectsHandoff
+                            passive_ability={art_passive}
+                            master_index={master_index}
+                            ver={ver}
+                            file={file}
+                            formatting={formatting}
+                        />
+                    </div>
+                    {art_passive.defaults != undefined ?
+                        Object.values(listByChar).map(buffs => (
+                            <AilmentDefaultPassoff
+                                file={"passive_ability"}
+                                key={buffs.char_id}
+                                ver={ver}
+                                ailment_default={buffs}
+                                master_index={master_index}
+                                loc={loc}
+                                framless={true}
+                                full={false}
+                                formatting={formatting}
+                                character_face={false}
+                                base_color={"classcolor"}
+                            />
+                        ))
+                        : ""}
+                    {bufflist.length != 0 ?
+                        <div className={art_passive.chara_id != undefined ? file == "exskill" ? "infonameholderenemybuff newblue default_passive" : "defaultlistholder newblue default_passive" : "infonameholderenemybuff newblue default_passive"}>
+                            <div className="unique ailmenttext">
+                                Buffs / Debuffs:
+                            </div>
+                            {bufflist.length != 0 ?
+                                <ul className={"abilitybufflist"}>
+                                    {bufflist.map(buff => (
+                                        <li className={`abilitybufficonsholder ${selectedbuff.id == buff.id ? "buffactive" : ""}`} key={buff.id}>
+                                            <div className="biconspacer" onClick={() => buffselect(buff)} >
+                                                <DefaultTippy content={
+                                                    buff.name === "" ? `Unknown ${buff.id}` : buff.name
+                                                }>
+                                                    <img alt={buff.name} className="clicky abilitybufficon" src={`https://dissidiacompendium.com/images/static/icons/buff/${ailment_level_icon(buff,buff.aarg1)}.png`} />
+                                                </DefaultTippy>
+                                            </div>
+                                        </li>
+                                    ))}
+                                </ul> :
+                                ""}
                         </div>
                         : ""}
-                    <div className={`${art_passive.chara_id != undefined ? "iconbuffer infonameholder nobuffpadding " : "infonameholderenemybuff "}${banner_color == undefined ? "Buffbanner" : banner_color}`} onClick={showmeraw}>
-                        {ver == "JP" ?
-                            <div>
-                                <div className={`combotext infotitle ${art_passive.rank == 5 ? "orangetext" : ""}`}>
-                                    {ReplacerCharacter(`<art> ${art_passive.glname != "" ?
-                                        `${art_passive.glname} - #${art_passive.spe_id}` :
-                                        `${textreplace(Format_Cleaner(art_passive.name))} - #${art_passive.spe_id}`}`)}
-                                </div>
-                                <div className={`${art_passive.rank == 5 ? "orangetext size12" : "abilityJPname"}`}>
-                                    {art_passive.name != undefined && art_passive.name != "" ?
-                                        `${Format_Cleaner(art_passive.name)} - #${art_passive.spe_id}` :
-                                        `Unknown - #${art_passive.spe_id}`}
-                                </div>
-                            </div>
-                            :
-                            <div>
+                    {selectedbuff.length != 0 ?
+                        <AilmentDataFormatting
+                            file={"exskill"}
+                            loc={loc}
+                            ver={ver}
+                            ailment_data={selectedbuff}
 
-                                <div className={`combotext infotitle ${art_passive.rank == 5 ? "orangetext" : ""}`}>
-                                {ReplacerCharacter(`<art> ${art_passive.name != undefined ?
-                                        `${Format_Cleaner(art_passive.name).replace(/(.*?)(<)(.*?)(>)(.*?)/gm, '$1&lt;$3&gt;$5')} - #${art_passive.spe_id}`
-                                        :
-                                        `Unknown - #${art_passive.spe_id}`}`)}
-                                </div>
-                                <div className={`${art_passive.rank == 5 ? "orangetext size12" : "abilityJPname"}`}>
-                                    {art_passive.jpname != undefined && art_passive.jpname != "" ?
-                                        `${Format_Cleaner(art_passive.jpname).replace(/(.*?)(<)(.*?)(>)(.*?)/gm, '$1&lt;$3&gt;$5')} - #${art_passive.spe_id}` :
-                                        `${revtextreplace(Format_Cleaner(art_passive.name))} - #${art_passive.spe_id}`}
-                                </div>
-                            </div>
-                        }
-                    </div>
-                    <div className={`${art_passive.chara_id != undefined ? "infobase nobuffpadding " : "infobase "}${base_color == undefined ? "Buffbase" : base_color}`}>
-                        {trans != undefined && showtrans == true ?
-                            ReplacerCharacter(trans+"\n",form)
-                            :
-                            ReplacerCharacter(Format_Cleaner(art_passive.desc+"\n"),form)
-                        }
-                        {ver == "JP" ?
-                            <div className="clicky updatelink contents" onClick={() => doTrans()} >Translate (Beta)</div>
-                            : ""}
-                        <div className="newbluepassive infonameholderenemybuff default_passive">
-                            <PassiveArtEffectsHandoff
-                                passive_ability={art_passive}
-                                master_index={master_index}
-                                ver={ver}
-                                file={file}
-                                formatting={formatting}
-                            />
-                        </div>
-                        {art_passive.defaults != undefined ?
-                            Object.values(listByChar).map(buffs => (
-                                <AilmentDefaultPassoff
-                                    file={"passive_ability"}
-                                    key={buffs.char_id}
-                                    ver={ver}
-                                    ailment_default={buffs}
-                                    master_index={master_index}
-                                    loc={loc}
-                                    framless={true}
-                                    full={false}
-                                    formatting={formatting}
-                                    character_face={false}
-                                    base_color={"classcolor"}
-                                />
-                            ))
-                            : ""}
-                        {bufflist.length != 0 ?
-                            <div className={art_passive.chara_id != undefined ? file == "exskill" ? "infonameholderenemybuff newblue default_passive" : "defaultlistholder newblue default_passive" : "infonameholderenemybuff newblue default_passive"}>
-                                <div className="unique ailmenttext">
-                                    Buffs / Debuffs:
-                                </div>
-                                {bufflist.length != 0 ?
-                                    <ul className={"abilitybufflist"}>
-                                        {bufflist.map(buff => (
-                                            <li className={`abilitybufficonsholder ${selectedbuff.id == buff.id ? "buffactive" : ""}`} key={buff.id}>
-                                                <div className="biconspacer" onClick={() => buffselect(buff)} >
-                                                    <DefaultTippy content={
-                                                        buff.name === "" ? `Unknown ${buff.id}` : buff.name
-                                                    }>
-                                                        <img alt={buff.name} className="clicky abilitybufficon" src={`https://dissidiacompendium.com/images/static/icons/buff/${ailment_level_icon(buff,buff.aarg1)}.png`} />
-                                                    </DefaultTippy>
-                                                </div>
-                                            </li>
-                                        ))}
-                                    </ul> :
-                                    ""}
-                            </div>
-                            : ""}
-                        {selectedbuff.length != 0 ?
-                            <AilmentDataFormatting
-                                file={"exskill"}
-                                loc={loc}
-                                ver={ver}
-                                ailment_data={selectedbuff}
+                            master_index={master_index}
 
-                                master_index={master_index}
-
-                                slider={false}
-                                rank={selectedbuff.rank_id}
-                                arg1={selectedbuff.arg1}
-                                arg2={selectedbuff.arg2}
-                                castlocation={true}
-                                fullspan={art_passive.chara_id == undefined || file == "exskill" ? true : false}
-                                formatting={formatting}
-                                turns={selectedbuff.turn}
-                                character_face={false}
-                                frameless={true}
-                                default_passoff={selectedbuff}
-                                passed_passive={selectedbuff.passive}
-                            />
-                            : ""}
-                        {showraw == true ?
-                            <span className='react-json-view'>
-                                <ObjectView 
-                                options={
-                                    {
-                                    hideDataTypes: true,
-                                    expandLevel: 1
-                                    }
+                            slider={false}
+                            rank={selectedbuff.rank_id}
+                            arg1={selectedbuff.arg1}
+                            arg2={selectedbuff.arg2}
+                            castlocation={true}
+                            fullspan={art_passive.chara_id == undefined || file == "exskill" ? true : false}
+                            formatting={formatting}
+                            turns={selectedbuff.turn}
+                            character_face={false}
+                            frameless={true}
+                            default_passoff={selectedbuff}
+                            passed_passive={selectedbuff.passive}
+                        />
+                        : ""}
+                    {showraw == true ?
+                        <span className='react-json-view'>
+                            <ObjectView 
+                            options={
+                                {
+                                hideDataTypes: true,
+                                expandLevel: 1
                                 }
-                                data={art_passive} 
-                                />
-                            </span>
-                            : ""}
-                    </div>
-                </LazyLoadComponent>
+                            }
+                            data={art_passive} 
+                            />
+                        </span>
+                        : ""}
+                </div>
             </div>
+            </LazyLoadComponent>
         </div>
     )
 }
+
+export default trackWindowScroll(PassiveArtFormatting)

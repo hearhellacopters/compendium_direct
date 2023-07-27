@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom'
 import CharacterFaceFormatting from '../Characters/CharacterFaceFormatting.js';
 import EnemyListingDirect from '../Enemy/EnemyListing.js'
 import ReminderMaker from './ReminderMaker.js';
-import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/opacity.css';
+import { LazyLoadImage, LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 import CommunityEventGuidesFormatting from './CommunityEventGuidesFormatting.js'
 import { EndsInTimer, StartsInTimer } from '../../components/Timers.js'
 import TickDown from '../../components/tickDown.js'
@@ -24,11 +23,12 @@ import { ImWarning } from 'react-icons/im';
 import { getJPGameListSphere } from '../../redux/ducks/JP/gamelist_sphere.js';
 import { getGLGameListSphere } from '../../redux/ducks/GL/gamelist_sphere.js';
 
-export default function EventsFormatting({ 
+function EventsFormatting({ 
     match, 
     permapage, 
     EventGuideData, 
-    master_index 
+    master_index,
+    scrollPosition 
 }){
 
     const char_id = master_index.charid
@@ -237,7 +237,10 @@ export default function EventsFormatting({
                 }
                 {currenttime >= new Date(match.outdate) ? (
                     match.permanent == true ? (
-                        <LazyLoadComponent>
+                        <LazyLoadComponent
+                        scrollPosition={scrollPosition}
+                        placeholder={<div className='EventHolder'/>}
+                        >
                             <div className='EventHolder'>
                                 <div className="tickholder greencolor">
                                     <div className="glshadow"><span className='emoji'>🌎</span></div>&nbsp;<TickUp value={months[new Date(match.indate).getMonth()]} /><TickUp value={ordinal(new Date(match.indate).getDate())} /><TickUp value={new Date(match.indate).getFullYear()} />
@@ -246,7 +249,10 @@ export default function EventsFormatting({
                             </div>
                         </LazyLoadComponent>
                     ) : (
-                        <LazyLoadComponent>
+                        <LazyLoadComponent
+                        scrollPosition={scrollPosition}
+                        placeholder={<div className='EventHolder'/>}
+                        >
                             <div className='EventHolder'>
                                 <div className="tickholder redcolor">
                                     <div className="glshadow"><span className='emoji'>🌎</span></div>&nbsp;<TickDown value={months[new Date(match.outdate).getMonth()]} /><TickDown value={ordinal(new Date(match.outdate).getDate())} /><TickDown value={new Date(match.outdate).getFullYear()} />
@@ -256,7 +262,10 @@ export default function EventsFormatting({
                         </LazyLoadComponent>
                     )
                 ) : match.tempdate == true ?
-                    <LazyLoadComponent>
+                    <LazyLoadComponent
+                    scrollPosition={scrollPosition}
+                    placeholder={<div className='EventHolder'/>}
+                    >
                         <div className='EventHolder'>
                             <div className="greencolor">
                                 <div className="tickholder">
@@ -276,14 +285,20 @@ export default function EventsFormatting({
                         </div>
                     </LazyLoadComponent>
                     : currenttime <= new Date(match.indate) ? (
-                        <LazyLoadComponent>
+                        <LazyLoadComponent
+                        scrollPosition={scrollPosition}
+                        placeholder={<div className='EventHolder'/>}
+                        >
                             <div className='EventHolder'>
                                 <StartsInTimer expiryTimestamp={new Date(match.indate)} JPFlag={false} />
                                 <div className='space_left'>{match.number ? match.number : ""}</div>
                             </div>
                         </LazyLoadComponent>
                     ) : match.permanent == false ? (
-                        <LazyLoadComponent>
+                        <LazyLoadComponent
+                        scrollPosition={scrollPosition}
+                        placeholder={<div className='EventHolder'/>}
+                        >
                             <div className='EventHolder'>
                                 <EndsInTimer expiryTimestamp={new Date(match.outdate)} JPFlag={false} />
                                 <div className='space_left'>{match.number ? match.number : ""}</div>
@@ -291,7 +306,10 @@ export default function EventsFormatting({
                         </LazyLoadComponent>
                     )
                         : (
-                            <LazyLoadComponent>
+                            <LazyLoadComponent
+                            scrollPosition={scrollPosition}
+                            placeholder={<div className='EventHolder'/>}
+                            >
                                 <div className='EventHolder'>
                                     <div className="tickholder greencolor">
                                         <div className="glshadow"><span className='emoji'>🌎</span></div>&nbsp;<TickUp value={months[new Date(match.indate).getMonth()]} /><TickUp value={ordinal(new Date(match.indate).getDate())} /><TickUp value={new Date(match.indate).getFullYear()} />
@@ -316,30 +334,50 @@ export default function EventsFormatting({
                     {match.url2 == undefined ?
                         permapage == false ?
                             <Link to={`../events/${match.eventindex}`}>
-                                <LazyLoadImage effect="opacity" className={`eventimage withshadow ${permapage == false ? "showlink" : ""}`} src={match.url1} alt={match.name} />
+                                <LazyLoadImage 
+                                scrollPosition={scrollPosition}
+                                effect="opacity" 
+                                className={`eventimage withshadow ${permapage == false ? "showlink" : ""}`} 
+                                src={match.url1} 
+                                alt={match.name} />
                             </Link>
                             :
-                            <LazyLoadImage effect="opacity" className={`eventimage withshadow ${permapage == false ? "showlink" : ""}`} src={match.url1} alt={match.name} />
+                            <LazyLoadImage 
+                            scrollPosition={scrollPosition}
+                            effect="opacity" 
+                            className={`eventimage withshadow ${permapage == false ? "showlink" : ""}`} 
+                            src={match.url1} 
+                            alt={match.name} />
                         :
                         <div className="eventtabs">
                             <div className="eventwithbackgorundtabs withshadow">
                                 {permapage == false ?
                                     <Link to={`../events/${match.eventindex}`}>
-                                        <LazyLoadImage effect="opacity" className={`eventimage ${permapage == false ? "showlink" : ""}`} src={
+                                        <LazyLoadImage 
+                                        scrollPosition={scrollPosition}
+                                        effect="opacity" 
+                                        className={`eventimage ${permapage == false ? "showlink" : ""}`} 
+                                        src={
                                             eventURL == "Event1" ? match.url1 :
                                                 eventURL == "Event2" ? match.url2 :
                                                     eventURL == "Event3" ? match.url3 :
                                                         eventURL == "Event4" ? match.url4 :
                                                             ""
-                                        } alt={match.name} />
+                                        } 
+                                        alt={match.name} />
                                     </Link> :
-                                    <LazyLoadImage effect="opacity" className={`eventimage ${permapage == false ? "showlink" : ""}`} src={
+                                    <LazyLoadImage 
+                                    scrollPosition={scrollPosition}
+                                    effect="opacity" 
+                                    className={`eventimage ${permapage == false ? "showlink" : ""}`} 
+                                    src={
                                         eventURL == "Event1" ? match.url1 :
                                             eventURL == "Event2" ? match.url2 :
                                                 eventURL == "Event3" ? match.url3 :
                                                     eventURL == "Event4" ? match.url4 :
                                                         ""
-                                    } alt={match.name} />
+                                    } 
+                                    alt={match.name} />
                                 }
                             </div>
                             {match.url3 == undefined ?
@@ -515,7 +553,9 @@ export default function EventsFormatting({
                             <div className="featuredbanner">Featured Characters</div>
                             <div className="charholderflair" style={{ minHeight: "40px" }}>
                                 <ul className="CharListHolder">
-                                    <LazyLoadComponent>
+                                    <LazyLoadComponent
+                                    scrollPosition={scrollPosition}
+                                    >
                                         {match.CharList.map((char,i) => (
                                             <CharacterFaceFormatting key={i} match={char} BTUnit={match.BTChar} />
                                         ))
@@ -547,12 +587,22 @@ export default function EventsFormatting({
                             {totalbannercount == 0 || selectedbanner == undefined ? "" :
                                 totalbannercount == 1 ?
                                     <Link to={`../events/banners/${selectedbanner.bannerindex}`}>
-                                        <LazyLoadImage effect="opacity" className={`bannerimage showlink`} src={selectedbanner.url} alt={selectedbanner.name} />
+                                        <LazyLoadImage 
+                                        scrollPosition={scrollPosition}
+                                        effect="opacity" 
+                                        className={`bannerimage showlink`} 
+                                        src={selectedbanner.url} 
+                                        alt={selectedbanner.name} />
                                         <div className="bannername">{selectedbanner.name}</div>
                                     </Link> :
                                     <div className="eventwithbackgorundtabs">
                                         <Link to={`/events/banners/${selectedbanner.bannerindex}`}>
-                                            <LazyLoadImage effect="opacity" className={`bannerimage showlink`} src={selectedbanner.url} alt={selectedbanner.name} />
+                                            <LazyLoadImage 
+                                            scrollPosition={scrollPosition}
+                                            effect="opacity" 
+                                            className={`bannerimage showlink`} 
+                                            src={selectedbanner.url} 
+                                            alt={selectedbanner.name} />
                                             <div className="bannername">{selectedbanner.name}</div></Link>
                                     </div>}
                             {totalbannercount == 1 ? "" :
@@ -586,3 +636,5 @@ export default function EventsFormatting({
         </li>
     )
 }
+
+export default trackWindowScroll (EventsFormatting) 

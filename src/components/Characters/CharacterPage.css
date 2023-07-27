@@ -454,13 +454,11 @@
     display: flex;
     width: 40px;
     height: 40px;
-}
-
-.sphereletter span {
-    width: 32px;
-    display: block;
-    height: 32px;
-    margin: auto;
+    flex-direction: row;
+    align-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
 }
 
 .sphereletterholder {

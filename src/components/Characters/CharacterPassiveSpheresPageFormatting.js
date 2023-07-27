@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from 'react-router-dom'
 import Tippy from '../TippyDefaults'
-import Sphere_Passive_Ability_Formatting from "../Passives/PassiveSphereFormatting";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import PassiveSphereFormatting from "../Passives/PassiveSphereFormatting";
+import { LazyLoadImage, trackWindowScroll } from 'react-lazy-load-image-component';
 
-export default function PassiveSpheresPageFormatting({
+function PassiveSpheresPageFormatting({
     data,
     ver,
     loc,
@@ -14,7 +14,8 @@ export default function PassiveSpheresPageFormatting({
     ProcessedEventsIndex,
     ProcessedCharacters,
     master_index,
-    formatting
+    formatting,
+    scrollPosition 
 }){
 
     return (
@@ -23,19 +24,19 @@ export default function PassiveSpheresPageFormatting({
                 <div className="singlesubbanner">{profiledata.CharacterName}{"'s Spheres"}</div>
                 <div className="sphereletterholder filterholderflair somepadding">
                     <div className={`sphereletter ${profiledata.SphereSlotLocked == 1 ? "lockedslot" : "unlockedslot"}`}>
-                        <LazyLoadImage effect="opacity" src={profiledata.SphereSlot1Letter == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/spheres/SphereLetter${profiledata.SphereSlot1Letter}.png`} alt={profiledata.Sphere1} />
+                        <img src={profiledata.SphereSlot1Letter == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/spheres/SphereLetter${profiledata.SphereSlot1Letter}.png`} alt={profiledata.Sphere1} />
                     </div>
                     <div className={`sphereletter ${profiledata.SphereSlotLocked == 2 ? "lockedslot" : "unlockedslot"}`}>
-                        <LazyLoadImage effect="opacity" src={profiledata.SphereSlot2Letter == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/spheres/SphereLetter${profiledata.SphereSlot2Letter}.png`} alt={profiledata.Sphere2} />
+                        <img src={profiledata.SphereSlot2Letter == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/spheres/SphereLetter${profiledata.SphereSlot2Letter}.png`} alt={profiledata.Sphere2} />
                     </div>
                     <div className={`sphereletter ${profiledata.SphereSlotLocked == 3 ? "lockedslot" : "unlockedslot"}`}>
-                        <LazyLoadImage effect="opacity" src={profiledata.SphereSlot3Letter == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/spheres/SphereLetter${profiledata.SphereSlot3Letter}.png`} alt={profiledata.Sphere3} />
+                        <img src={profiledata.SphereSlot3Letter == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/spheres/SphereLetter${profiledata.SphereSlot3Letter}.png`} alt={profiledata.Sphere3} />
                     </div>
                 </div>
             </div>
             {data.length > 0 ? (
                 data.map(passive => (passive.passive &&
-                    <Sphere_Passive_Ability_Formatting
+                    <PassiveSphereFormatting
                         key={passive.pa_id}
                         passive_ability={passive.passive}
                         ver={ver}
@@ -70,7 +71,12 @@ export default function PassiveSpheresPageFormatting({
                                     <Link to={`/events/${events}`}>
                                         <Tippy content={match && match.label}>
                                             <div className="singleevenimageholder">
-                                                <LazyLoadImage effect="opacity" className={`eventimage withshadow showlink`} src={match && match.url} alt={match && match.label} />
+                                                <LazyLoadImage 
+                                                scrollPosition={scrollPosition}
+                                                effect="opacity" 
+                                                className={`eventimage withshadow showlink`} 
+                                                src={match && match.url} 
+                                                alt={match && match.label} />
                                             </div>
                                         </Tippy>
                                     </Link>
@@ -84,3 +90,5 @@ export default function PassiveSpheresPageFormatting({
         </div>
     )
 }
+
+export default trackWindowScroll(PassiveSpheresPageFormatting)

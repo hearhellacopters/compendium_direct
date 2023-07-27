@@ -1,17 +1,18 @@
 import React from "react";
 import { Link } from 'react-router-dom'
-import { LazyLoadComponent } from 'react-lazy-load-image-component';
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 import Format_Cleaner from '../../processing/format_cleaner'
 import TickUp from '../../components/tickUp'
 import TickDown from '../../components/tickDown'
 import CharacterEventPageFormatting from './CharacterEventPageFormatting';
 import CharFaceEventFormatting from './CharFaceEventFormatting';
   
-export default function EventCharacterFormatting({
+function EventCharacterFormatting({
     self,
     ver,
     char_id,
     ProcessedEventsIndex,
+    scrollPosition 
 }){
 
     const get_event_id = Object.values(ProcessedEventsIndex).filter(self2 =>
@@ -42,40 +43,44 @@ export default function EventCharacterFormatting({
     }
 
     return (
-        <div>
-            <div className='singleeventtitlebanner' style={{ minHeight: "65px" }}>
-                <LazyLoadComponent>
-                    <h3 className={`atevents ${get_event_id.length != 0 ? "clicky" : ""}`}>
-                        {get_event_id.length != 0 ?
-                            <Link className="toevents" to={"/events/" + get_event_id[0].id}>
-                                {Format_Cleaner(self.name)}
-                            </Link>
-                            :
-                            Format_Cleaner(self.name)}
-                    </h3>
-                    <div className='infolocation size12'>{Format_Cleaner(self.sub)}</div>
-                    <div className="greencolor tickholder">
-                        <TickUp value={months[new Date(make_date(self.start)).getMonth()]} /><TickUp value={ordinal(new Date(make_date(self.start)).getDate())} /><TickUp value={new Date(make_date(self.start)).getFullYear()} />
+        <LazyLoadComponent
+        scrollPosition={scrollPosition}
+        placeholder={<div className='singleeventtitlebanner' style={{ minHeight: "65px" }}/>}
+        >
+            <div className='singleeventtitlebanner'>
+                <h3 className={`atevents ${get_event_id.length != 0 ? "clicky" : ""}`}>
+                    {get_event_id.length != 0 ?
+                        <Link className="toevents" to={"/events/" + get_event_id[0].id}>
+                            {Format_Cleaner(self.name)}
+                        </Link>
+                        :
+                        Format_Cleaner(self.name)}
+                </h3>
+                <div className='infolocation size12'>{Format_Cleaner(self.sub)}</div>
+                <div className="greencolor tickholder">
+                    <TickUp value={months[new Date(make_date(self.start)).getMonth()]} /><TickUp value={ordinal(new Date(make_date(self.start)).getDate())} /><TickUp value={new Date(make_date(self.start)).getFullYear()} />
+                </div>
+                {new Date(make_date(self.end)) < new Date("2029-01-01T00:00:00Z") ?
+                    <div className="tickholder redcolor">
+                        <TickDown value={months[new Date(make_date(self.end)).getMonth()]} /><TickDown value={ordinal(new Date(make_date(self.end)).getDate())} /><TickDown value={new Date(make_date(self.end)).getFullYear()} />
                     </div>
-                    {new Date(make_date(self.end)) < new Date("2029-01-01T00:00:00Z") ?
-                        <div className="tickholder redcolor">
-                            <TickDown value={months[new Date(make_date(self.end)).getMonth()]} /><TickDown value={ordinal(new Date(make_date(self.end)).getDate())} /><TickDown value={new Date(make_date(self.end)).getFullYear()} />
-                        </div>
-                        : ""}
-                </LazyLoadComponent>
+                : ""}
             </div>
             {self.images != undefined ?
                 <div className="eventimageholder">
-                    <div className="eventholder" style={{ minHeight: "100px" }}>
-                        <LazyLoadComponent>
+                    <LazyLoadComponent
+                    scrollPosition={scrollPosition}
+                    placeholder={<div className="eventholder" style={{ minHeight: "100px" }}/>}
+                    >
+                        <div className="eventholder">
                             <CharacterEventPageFormatting
                                 key={self.id}
                                 images={self.images}
                                 ver={ver}
                                 loc={get_event_id[0] && get_event_id[0].id}
                             />
-                        </LazyLoadComponent>
-                    </div>
+                        </div>
+                    </LazyLoadComponent>
                 </div>
                 : ""}
             {self.char_ids != undefined ?
@@ -85,6 +90,8 @@ export default function EventCharacterFormatting({
                     char_id={char_id}
                 />
                 : ""}
-        </div>
+        </LazyLoadComponent>
     )
 }
+
+export default trackWindowScroll(EventCharacterFormatting)

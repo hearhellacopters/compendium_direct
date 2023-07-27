@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
-import './EnemyFormatting.css'
-import './LevelsFormatting.css'
 import DefaultTippy from '../../components/TippyDefaults';
 
 export default function LevelsFormattingDetails({

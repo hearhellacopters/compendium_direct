@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
 import { Link } from 'react-router-dom'
-import './Buffs.css';
 import Tippy from './components/TippyDefaults.js';
-import 'tippy.js/dist/tippy.css';
-import 'tippy.js/animations/shift-away.css';
 import AilmentDataFormattingEnemy from './components/Enemy/Buff_Handler/AilmentDataFormattingEnemy';
 import { Helmet } from 'react-helmet-async';
 import { ImSortAmountAsc } from 'react-icons/im';

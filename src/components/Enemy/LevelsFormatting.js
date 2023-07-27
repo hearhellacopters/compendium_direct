@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
 import { Link } from 'react-router-dom'
-import './EnemyFormatting.css'
-import './LevelsFormatting.css'
 import DefaultTippy from '../../components/TippyDefaults';
 
 export default function LevelsFormatting({ 

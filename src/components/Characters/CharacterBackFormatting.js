@@ -1,9 +1,10 @@
 import React from "react";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { LazyLoadImage, trackWindowScroll } from 'react-lazy-load-image-component';
 
-export default function CharacterBackFormatting({
+function CharacterBackFormatting({
     char_id,
-    match
+    match,
+    scrollPosition 
 }){
     var characterpull = ""
     if(match != undefined){
@@ -12,7 +13,14 @@ export default function CharacterBackFormatting({
 
     return(
         <div className="spanhelper">
-            <LazyLoadImage effect="opacity" className="BTCharacter noselect" src={`https://dissidiacompendium.com/images/static/characters/${characterpull}/back.png`} alt={characterpull} />
+            <LazyLoadImage 
+            scrollPosition={scrollPosition}
+            effect="opacity" 
+            className="BTCharacter noselect" 
+            src={`https://dissidiacompendium.com/images/static/characters/${characterpull}/back.png`} 
+            alt={characterpull} />
         </div>
     )
 }
+
+export default trackWindowScroll(CharacterBackFormatting)

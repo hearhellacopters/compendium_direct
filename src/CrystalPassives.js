@@ -3,10 +3,6 @@ import { useStateIfMounted } from "use-state-if-mounted";
 import { Helmet } from 'react-helmet-async';
 import { Link, Navigate } from 'react-router-dom'
 import Select from 'react-select';
-import 'react-lazy-load-image-component/src/effects/opacity.css';
-import 'tippy.js/animations/scale.css';
-import 'tippy.js/animations/scale-subtle.css';
-import 'tippy.js/animations/scale-extreme.css';
 import { ImSortAmountAsc } from 'react-icons/im';
 import { ImSortAmountDesc } from 'react-icons/im';
 import { TiArrowSortedDown } from 'react-icons/ti';
@@ -17,8 +13,6 @@ import { FaUndoAlt } from 'react-icons/fa';
 import { FaShareSquare } from 'react-icons/fa';
 import { IoMdCloseCircleOutline } from 'react-icons/io';
 import Tippy from './components/TippyDefaults.js';
-import 'tippy.js/dist/tippy.css';
-import 'tippy.js/animations/shift-away.css';
 import PassiveAbilityFormatting from './components/Passives/PassiveAbilityFormatting.js';
 import { getQuery, getQueryStringVal, useQueryParam } from './components/URLParams.js'
 import StatsMaker from './components/StatsDisplay.js';

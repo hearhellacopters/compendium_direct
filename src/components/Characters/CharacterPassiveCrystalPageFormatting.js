@@ -8,8 +8,6 @@ import { ImSortAmountDesc } from 'react-icons/im';
 import { IoMdCloseCircleOutline } from 'react-icons/io';
 import { IoSearch } from 'react-icons/io5';
 import { FaUndoAlt } from 'react-icons/fa'
-import 'tippy.js/dist/tippy.css';
-import 'tippy.js/animations/shift-away.css';
 import { getQuery, getQueryStringVal, useQueryParam } from '../URLParams.js'
 import CharacterAbilityPars from '../Abilities/AbilityPars.js'
 

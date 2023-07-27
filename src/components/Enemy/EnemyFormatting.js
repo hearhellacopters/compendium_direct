@@ -4,15 +4,13 @@ import { useDispatch } from "react-redux";
 import { Link } from 'react-router-dom'
 import LevelsFormatting from './LevelsFormatting.js'
 import EventListing from '../Events/SingleEventsFormatting.js'
-import './EnemyFormatting.css'
 import { Helmet } from 'react-helmet-async';
 import ResistIcon from './ResistIcons.js';
 import DefaultTippy from '../../components/TippyDefaults.js';
 import EnemyListing from './EnemyListing.js'
 import EnemyAbilities_MasterList from './Ability_Handler/EnemyAbilities_MasterList.js';
 import ScrollToTop from '../../components/ScrollToTop.js';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/opacity.css';
+import { LazyLoadImage, LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 import { ImArrowRight } from 'react-icons/im';
 import { ImArrowLeft } from 'react-icons/im';
 import DevSwitch from '../../redux/DevSwitch.js'
@@ -29,7 +27,7 @@ import axios from "axios";
 import EnemyGuide from './EnemyGuide.js';
 import { ObjectView } from 'react-object-view'
 
-export default function EnemyFormatting({ 
+function EnemyFormatting({ 
     match, 
     stats, 
     alllevels, 
@@ -42,7 +40,8 @@ export default function EnemyFormatting({
     battle_enemy, 
     PartnerCharacters, 
     ProcessedCharacters, 
-    jptoggledata 
+    jptoggledata,
+    scrollPosition 
 }){
 
     //const battle_enemy = ProcessedEnemies.filter(function (el) {
@@ -521,7 +520,11 @@ export default function EnemyFormatting({
                     </div>}
                 <div className="enemyholderdesc">
                     <div className="imageelementholder">
-                        <LazyLoadImage onClick={handleClick} effect="opacity" className={`enemyimage ${enemy.SummonFlag1 == true ? "spansummon" : ""}`} alt={enemy.Name} src={"https://dissidiacompendium.com/images/static/enemy/face/" + enemy.url} />
+                        <img 
+                        onClick={handleClick} 
+                        className={`enemyimage ${enemy.SummonFlag1 == true ? "spansummon" : ""}`} 
+                        alt={enemy.Name} 
+                        src={"https://dissidiacompendium.com/images/static/enemy/face/" + enemy.url} />
                         <div className={`elementsholder elements1 ${enemy.ElementsFlag === true ? "" : "nodisplayenemy"}`}>
                             <div className="elementtext">Elements</div>
                             <div className="elementholder">
@@ -565,7 +568,12 @@ export default function EnemyFormatting({
                                     <DefaultTippy content={enemy.SummonEnemy1.split('\n').map((str, loc) => <div key={loc}>{str}</div>)} className="tooltip" >
                                         <li>
                                             <Link to={`/bestiary/enemies/${summonedenemy1.battle_enemy_id}${typeof summonedenemy1.battle_enemy_id == "string"?"":`/${stats && stats.data_index}`}`}>
-                                                <LazyLoadImage effect="opacity"  className="similarenemycard" alt={summonedenemy1.Name} src={"https://dissidiacompendium.com/images/static/enemy/face/" + summonedenemy1.url} />
+                                                <LazyLoadImage 
+                                                scrollPosition={scrollPosition}
+                                                effect="opacity" 
+                                                className="similarenemycard" 
+                                                alt={summonedenemy1.Name} 
+                                                src={"https://dissidiacompendium.com/images/static/enemy/face/" + summonedenemy1.url} />
                                             </Link>
                                         </li>
                                     </DefaultTippy>
@@ -574,7 +582,12 @@ export default function EnemyFormatting({
                                         <DefaultTippy content={enemy.SummonEnemy2.split('\n').map((str, loc) => <div key={loc}>{str}</div>)} className="tooltip" >
                                             <li>
                                                 <Link to={`/bestiary/enemies/${summonedenemy2.battle_enemy_id}${typeof summonedenemy2.battle_enemy_id == "string"?"":`/${stats && stats.data_index}`}`}>
-                                                    <LazyLoadImage effect="opacity" className="similarenemycard" alt={summonedenemy2.Name} src={"https://dissidiacompendium.com/images/static/enemy/face/" + summonedenemy2.url} />
+                                                    <LazyLoadImage 
+                                                    scrollPosition={scrollPosition}
+                                                    effect="opacity"
+                                                    className="similarenemycard" 
+                                                    alt={summonedenemy2.Name} 
+                                                    src={"https://dissidiacompendium.com/images/static/enemy/face/" + summonedenemy2.url} />
                                                 </Link>
                                             </li>
                                         </DefaultTippy>}
@@ -678,15 +691,30 @@ export default function EnemyFormatting({
                                 <div className="elementsholder">
                                     <div className="elementtext">Attacks</div>
                                     <div className="attacktypeholder">
-                                        <LazyLoadImage effect="opacity" className="damagetypeimage" alt="Melee" src="https://dissidiacompendium.com/images/static/icons/buttons/ability/Ability_Melee_BRV_Blue.png" />
+                                        <LazyLoadImage 
+                                        scrollPosition={scrollPosition}
+                                        effect="opacity" 
+                                        className="damagetypeimage" 
+                                        alt="Melee" 
+                                        src="https://dissidiacompendium.com/images/static/icons/buttons/ability/Ability_Melee_BRV_Blue.png" />
                                         <ResistIcon attack="attack" resist={enemy.Melee} />
                                     </div>
                                     <div className="attacktypeholder">
-                                        <LazyLoadImage effect="opacity" className="damagetypeimage" alt="Ranged" src="https://dissidiacompendium.com/images/static/icons/buttons/ability/Ability_Ranged_BRV_Blue.png" />
+                                        <LazyLoadImage 
+                                        scrollPosition={scrollPosition}
+                                        effect="opacity" 
+                                        className="damagetypeimage" 
+                                        alt="Ranged" 
+                                        src="https://dissidiacompendium.com/images/static/icons/buttons/ability/Ability_Ranged_BRV_Blue.png" />
                                         <ResistIcon attack="attack" resist={enemy.Ranged} />
                                     </div>
                                     <div className="attacktypeholder">
-                                        <LazyLoadImage effect="opacity" className="damagetypeimage" alt="Magic" src="https://dissidiacompendium.com/images/static/icons/buttons/ability/Ability_Magic_BRV_Blue.png" />
+                                        <LazyLoadImage 
+                                        scrollPosition={scrollPosition}
+                                        effect="opacity" 
+                                        className="damagetypeimage" 
+                                        alt="Magic" 
+                                        src="https://dissidiacompendium.com/images/static/icons/buttons/ability/Ability_Magic_BRV_Blue.png" />
                                         <ResistIcon attack="attack" resist={enemy.Magic} />
                                     </div>
                                 </div>
@@ -733,7 +761,12 @@ export default function EnemyFormatting({
                                     </DefaultTippy>
                                     <span className="textsafe">Force Time</span>
                                 </div>
-                                <LazyLoadImage effect="opacity" alt="orb" className="orbicon2" src={`https://dissidiacompendium.com/images/static/icons/misc/Shinryu1.png`} />
+                                <LazyLoadImage 
+                                scrollPosition={scrollPosition}
+                                effect="opacity" 
+                                alt="orb" 
+                                className="orbicon2" 
+                                src={`https://dissidiacompendium.com/images/static/icons/misc/Shinryu1.png`} />
                             </div>
                             <div className="orbcondtext">
                                 {enemy.ForceTime.map((self,i) => (
@@ -795,7 +828,12 @@ export default function EnemyFormatting({
                                 <div>
                                     <span className="textsafe">Special Counter</span>
                                 </div>
-                                <LazyLoadImage effect="opacity" alt="orb" className="orbicon" src={`https://dissidiacompendium.com/images/static/icons/misc/43${enemy.LufeniaPlusFlag == true ? "+" : ""}.png`} />
+                                <LazyLoadImage 
+                                scrollPosition={scrollPosition}
+                                effect="opacity" 
+                                alt="orb" 
+                                className="orbicon" 
+                                src={`https://dissidiacompendium.com/images/static/icons/misc/43${enemy.LufeniaPlusFlag == true ? "+" : ""}.png`} />
                                 {enemy.LufeniaStartCounter === undefined ? "" :
                                     <div>
                                         <span className="textsafe">Start count: <span className="values">{enemy.LufeniaStartCounter}</span></span>
@@ -884,7 +922,12 @@ export default function EnemyFormatting({
                             <DefaultTippy content={<span>{summonedenemy1.Name}<br />ID: {summonedenemy1.battle_enemy_id}</span>} className="tooltip" >
                                 <li>
                                     <Link to={`/bestiary/enemies/${summonedenemy1.battle_enemy_id}`}>
-                                        <LazyLoadImage effect="opacity" className="enemycard" alt={summonedenemy1.Name} src={"https://dissidiacompendium.com/images/static/enemy/face/" + summonedenemy1.url} />
+                                        <LazyLoadImage
+                                        scrollPosition={scrollPosition}
+                                        effect="opacity" 
+                                        className="enemycard" 
+                                        alt={summonedenemy1.Name} 
+                                        src={"https://dissidiacompendium.com/images/static/enemy/face/" + summonedenemy1.url} />
                                     </Link>
                                 </li>
                             </DefaultTippy>
@@ -893,7 +936,12 @@ export default function EnemyFormatting({
                                 <DefaultTippy  content={<span>{summonedenemy2.Name}<br />ID: {summonedenemy2.battle_enemy_id}</span>} className="tooltip" >
                                     <li>
                                         <Link to={`/bestiary/enemies/${summonedenemy2.battle_enemy_id}`}>
-                                            <LazyLoadImage effect="opacity" className="enemycard" alt={summonedenemy2.Name} src={"https://dissidiacompendium.com/images/static/enemy/face/" + summonedenemy2.url} />
+                                            <LazyLoadImage 
+                                            scrollPosition={scrollPosition}
+                                            effect="opacity" 
+                                            className="enemycard" 
+                                            alt={summonedenemy2.Name} 
+                                            src={"https://dissidiacompendium.com/images/static/enemy/face/" + summonedenemy2.url} />
                                         </Link>
                                     </li>
                                 </DefaultTippy>}
@@ -1035,21 +1083,35 @@ export default function EnemyFormatting({
                     <ul className="similarholder nolist">
                         <div className="similarbanner addbordertop addborderbottom">Featured Events</div>
                         {eventsin.map((events, i)=> (
-                            <EventListing key={i} match={events} permapage={false} />
+                            <LazyLoadComponent
+                            key={i} 
+                            scrollPosition={scrollPosition}
+                            placeholder={<div className='titlemainupdateholder'/>}
+                            >
+                                <EventListing key={i} match={events} permapage={false} />
+                            </LazyLoadComponent>
+                            
                         ))}
                     </ul>
                 }
                 {similarids[0] !== undefined ?
                     <div className="similarholder">
                         <div className="similarbanner addbordertop addborderbottom">Similar Enemies</div>
+                        <LazyLoadComponent
+                        scrollPosition={scrollPosition}
+                        placeholder={<ul className="enemyholder similarformating"/>}
+                        >
                         <ul className="enemyholder similarformating">
                             {similarids.map((similarids,i) => (
                                 <EnemyListing key={i} match={similarids} />
                             ))}
                         </ul>
+                        </LazyLoadComponent>
                     </div> :
                     ""}
             </div>
         </div>
     )
 }
+
+export default trackWindowScroll(EnemyFormatting)

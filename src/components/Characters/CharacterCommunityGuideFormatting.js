@@ -1,10 +1,11 @@
 import React from 'react';
 import Random from '../../processing/random.js'
-import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
+import { LazyLoadImage, LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 
-export default function CommunityCharacterGuideFormatting({ 
+function CommunityCharacterGuideFormatting({ 
     index, 
-    CharGuideData 
+    CharGuideData,
+    scrollPosition 
 }){
 
     const setrandom = Random(7)
@@ -56,7 +57,12 @@ export default function CommunityCharacterGuideFormatting({
                 <div className="guidebanner nobordertop">Community Help Error!</div>
                 <div className="guidelinksflair">
                     <div className="nolinksholder">
-                        <LazyLoadImage effect="opacity" key={`ohno${setrandom}`} className={`ohno${setrandom}`} alt="oh no" src={`https://dissidiacompendium.com/images/static/icons/404/${setrandom}.png`} />
+                        <LazyLoadImage 
+                        scrollPosition={scrollPosition}
+                        effect="opacity" 
+                        className={`ohno${setrandom}`} 
+                        alt="oh no" 
+                        src={`https://dissidiacompendium.com/images/static/icons/404/${setrandom}.png`} />
                         <div className="nolinkstext"><div className="sitsatbottom">Error!</div></div>
                     </div>
                     <div className="infobase Debuffbase centertext warning">There was an issue loading character guide data!
@@ -74,7 +80,10 @@ export default function CommunityCharacterGuideFormatting({
                             {thischar.sort((a, b) => b.id - a.id).map((links, index) => (
                                 is_youtube(links.url) == true ?
                                     <div key={index} className='video-wrap'>
-                                        <LazyLoadComponent>
+                                        <LazyLoadComponent
+                                        scrollPosition={scrollPosition}
+                                        placeholder={<div className="video-container"/>}
+                                        >
                                             <div className="video-container">
                                                 <iframe src={`https://www.youtube.com/embed/${get_youhash(links.url)}`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                                             </div>
@@ -100,7 +109,13 @@ export default function CommunityCharacterGuideFormatting({
                     <div className="guidebanner nobordertop">Community Help</div>
                     <div className="guidelinksflair">
                         <div className="nolinksholder">
-                            <LazyLoadImage effect="opacity" key={`ohno${setrandom}`} className={`ohno${setrandom}`} alt="oh no" src={`https://dissidiacompendium.com/images/static/icons/404/${setrandom}.png`} />
+                            <LazyLoadImage 
+                            scrollPosition={scrollPosition}
+                            effect="opacity" 
+                            key={`ohno${setrandom}`} 
+                            className={`ohno${setrandom}`} 
+                            alt="oh no" 
+                            src={`https://dissidiacompendium.com/images/static/icons/404/${setrandom}.png`} />
                             <div className="nolinkstext"><div className="sitsatbottom"> No Help!</div></div>
                         </div>
                         <div className="infobase Debuffbase centertext warning">Are you a content creator?
@@ -111,3 +126,5 @@ export default function CommunityCharacterGuideFormatting({
         )
     }
 }
+
+export default trackWindowScroll(CommunityCharacterGuideFormatting)

@@ -1,17 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from "react-redux";
-import './CharacterPage.css'
-import '../../Spheres.css'
-import '../../Events.css'
 import DefaultTippy from '../TippyDefaults.js';
 import { Link } from 'react-router-dom'
 import EventListing from '../Events/SingleEventsFormatting.js'
 import CommunityCharacterGuideFormatting from './CharacterCommunityGuideFormatting.js'
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/opacity.css';
-import 'tippy.js/animations/scale.css';
-import 'tippy.js/animations/scale-subtle.css';
-import 'tippy.js/animations/scale-extreme.css';
 import { TiArrowSortedDown } from 'react-icons/ti';
 import { TiArrowSortedUp } from 'react-icons/ti';
 import CharacterBrevityProfileFormatting from './CharacterBrevityProfileFormatting.js'
@@ -389,7 +381,7 @@ export default function CharacterPageFormatting({
               />
             </ul>
             {newmatch.ArtworkCount > 1 ?
-              <LazyLoadImage onClick={() => handleartworkchange(currentartwork)} effect="opacity" className="charalts clicky" alt="Stats" src={"https://dissidiacompendium.com/images/static/icons/misc/Costume2.png"} />
+              <img onClick={() => handleartworkchange(currentartwork)} className="charalts clicky" alt="Stats" src={"https://dissidiacompendium.com/images/static/icons/misc/Costume2.png"} />
               : ""}
             <img className="charstats" alt="Stats" src={"https://dissidiacompendium.com/images/static/icons/stats/star/back.png"} />
             <img className="charstats" alt="Stats" src={`https://dissidiacompendium.com/images/static/icons/stats/star/HP-${newmatch.HP}.png`} />
@@ -399,16 +391,16 @@ export default function CharacterPageFormatting({
             <img className="charstats" alt="Stats" src={`https://dissidiacompendium.com/images/static/icons/stats/star/DEF-${newmatch.DEF}.png`} />
             <img className="charstats" alt="Stats" src={`https://dissidiacompendium.com/images/static/icons/stats/star/SPD-${newmatch.SPD}.png`} />
 
-            <LazyLoadImage effect="opacity" className="charmanimage" alt={newmatch.CharacterName} src={`https://dissidiacompendium.com/images/static/characters/${newmatch.CharacterURLName}/c${currentartwork}.png`} />
+            <img className="charmanimage" alt={newmatch.CharacterName} src={`https://dissidiacompendium.com/images/static/characters/${newmatch.CharacterURLName}/c${currentartwork}.png`} />
             <div className="spherestop">
               <div className={`sphereletter ${newmatch.SphereSlotLocked == 1 ? "lockedslot" : "unlockedslot"}`}>
-                <LazyLoadImage effect="opacity" src={newmatch.SphereSlot1Letter == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/spheres/SphereLetter${newmatch.SphereSlot1Letter}.png`} alt={newmatch.Sphere1} />
+                <img src={newmatch.SphereSlot1Letter == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/spheres/SphereLetter${newmatch.SphereSlot1Letter}.png`} alt={newmatch.Sphere1} />
               </div>
               <div className={`sphereletter ${newmatch.SphereSlotLocked == 2 ? "lockedslot" : "unlockedslot"}`}>
-                <LazyLoadImage effect="opacity" src={newmatch.SphereSlot2Letter == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/spheres/SphereLetter${newmatch.SphereSlot2Letter}.png`} alt={newmatch.Sphere2} />
+                <img src={newmatch.SphereSlot2Letter == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/spheres/SphereLetter${newmatch.SphereSlot2Letter}.png`} alt={newmatch.Sphere2} />
               </div>
               <div className={`sphereletter ${newmatch.SphereSlotLocked == 3 ? "lockedslot" : "unlockedslot"}`}>
-                <LazyLoadImage effect="opacity" src={newmatch.SphereSlot3Letter == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/spheres/SphereLetter${newmatch.SphereSlot3Letter}.png`} alt={newmatch.Sphere3} />
+                <img src={newmatch.SphereSlot3Letter == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/spheres/SphereLetter${newmatch.SphereSlot3Letter}.png`} alt={newmatch.Sphere3} />
               </div>
             </div>
             {newmatch.JPSynergyStart == undefined && newmatch.GLSynergyStart == undefined ? "" :
@@ -464,12 +456,12 @@ export default function CharacterPageFormatting({
         <div className="introcolor introflex">
           <div className="subtextinfo">Info:</div>
           <div className="subpassiveflair spacearound ">
-            <span className={`charintro undertaga clicky ${introvoice == "intro" ? "buffactive" : ""}`} onClick={() => setintrovoice("intro")}></span>
+            <span className={`charintro mar2lr undertaga clicky ${introvoice == "intro" ? "buffactive" : ""}`} onClick={() => setintrovoice("intro")}></span>
             {ProcessedVoices.length != 0 ?
-              <span className={`charvoice undertaga clicky ${introvoice == "voice" ? "buffactive" : ""}`} onClick={() => setintrovoice("voice")}></span>
+              <span className={`charvoice mar2lr undertaga clicky ${introvoice == "voice" ? "buffactive" : ""}`} onClick={() => setintrovoice("voice")}></span>
               : ""}
             {CharStickers.length != 0 ?
-              <span className={`charstamps undertaga clicky ${introvoice == "sticker" ? "buffactive" : ""}`} onClick={() => setintrovoice("sticker")}></span>
+              <span className={`charstamps mar2lr undertaga clicky ${introvoice == "sticker" ? "buffactive" : ""}`} onClick={() => setintrovoice("sticker")}></span>
               : ""}
           </div>
           {introvoice == "voice" ? <div className="vaartist"><span className="emoji">🎤</span>{` ${ProcessedVoices[0].va} / ${ProcessedVoices[0].vajp}`}</div> : ""}

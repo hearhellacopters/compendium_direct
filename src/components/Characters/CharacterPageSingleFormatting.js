@@ -5,10 +5,6 @@ import { Helmet } from 'react-helmet-async';
 import { Link, useNavigate  } from 'react-router-dom'
 import Random from '../../processing/random.js'
 import OhNo from '../OhNo.js'
-import './CharacterPage.css'
-import 'tippy.js/animations/scale.css';
-import 'tippy.js/animations/scale-subtle.css';
-import 'tippy.js/animations/scale-extreme.css';
 import CharcterHeader from './CharacterHeader.js'
 import { TiArrowSortedDown } from 'react-icons/ti';
 import { TiArrowSortedUp } from 'react-icons/ti';
@@ -18,7 +14,6 @@ import { setFalse, setTrue } from '../../redux/ducks/jptoggle.js'
 import { getQuery, getQueryStringVal, useQueryParam } from '../URLParams.js'
 import DevSwitch from '../../redux/DevSwitch.js';
 import axios from "axios";
-import '../../components/Direct.css'
 import Event_Single from './CharacterEventPageFormatting.js'
 import CharacterBuffPageFormatting from './CharacterBuffPageFormatting.js'
 import EXP_Passives from './CharacterPassiveExpPageFormatting.js';

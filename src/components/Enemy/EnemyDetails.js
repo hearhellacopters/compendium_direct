@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useStateIfMounted } from 'use-state-if-mounted';
-import './EnemyFormatting.css'
 import { Link } from 'react-router-dom'
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/opacity.css';
+import { LazyLoadImage, LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 import ResistIcon from './ResistIcons.js';
 import DefaultTippy from '../TippyDefaults.js';
 import DevSwitch from '../../redux/DevSwitch';
@@ -20,11 +18,12 @@ import roles from '../../processing/ailment/ailment_tags.json'
 import Tippy from '../TippyDefaults.js';
 import EnemyGuide from './EnemyGuide';
 
-export default function EnemyDetailsDirect({ 
+function EnemyDetailsDirect({ 
     match, 
     ProcessedCharacters, 
     PartnerCharacters, 
-    jptoggledata 
+    jptoggledata,
+    scrollPosition 
 }){
 
     const [columns, setcolumns] = useStateIfMounted(`${window.innerWidth == undefined ? 2 : window.innerWidth > 799 ? 3 : window.innerWidth > 349 ? 2 : 1}`)
@@ -633,6 +632,10 @@ export default function EnemyDetailsDirect({
     const enemy = match
 
     return (
+        <LazyLoadComponent
+        scrollPosition={scrollPosition}
+        placeholder={<div style={{minHeight:"250px"}} className="enemyholderdesc3"/>}
+        >
         <div className="enemyholderdesc3">
             <div className='enemyiconholder makeleft enemytitledetails' to={`/bestiary/enemies/${match.battle_enemy_id}`}>
                 <Link className="click linktopage" >
@@ -649,7 +652,11 @@ export default function EnemyDetailsDirect({
                         </span>
                     } className="tooltip" >
                         <li className="enemyholderli">
-                            <LazyLoadImage className="enemycard" alt={match.Name} src={"https://dissidiacompendium.com/images/static/enemy/face/" + match.url} effect="opacity" />
+                            <LazyLoadImage 
+                            scrollPosition={scrollPosition}
+                            className="enemycard" 
+                            alt={match.Name}
+                            src={"https://dissidiacompendium.com/images/static/enemy/face/" + match.url} effect="opacity" />
                         </li>
                     </DefaultTippy>
                     <DefaultTippy content="JP Only" className="tooltip" >
@@ -832,7 +839,12 @@ export default function EnemyDetailsDirect({
                             <div>
                                 <span className="textsafe">Force Time</span>
                             </div>
-                            <LazyLoadImage effect="opacity" alt="orb" className="orbicon2" src={`https://dissidiacompendium.com/images/static/icons/misc/Shinryu1.png`} />
+                            <LazyLoadImage 
+                            scrollPosition={scrollPosition}
+                            effect="opacity" 
+                            alt="orb" 
+                            className="orbicon2"
+                            src={`https://dissidiacompendium.com/images/static/icons/misc/Shinryu1.png`} />
                         </div>
                         <div className="orbcondtext">
                             {getForce.ForceTime.map((self,i) => (
@@ -945,7 +957,12 @@ export default function EnemyDetailsDirect({
                                 <div>
                                     <span className="textsafe">Special Counter</span>
                                 </div>
-                                <LazyLoadImage effect="opacity" alt="orb" className="orbicon" src={`https://dissidiacompendium.com/images/static/icons/misc/43${enemy.LufeniaPlusFlag == true ? "+" : ""}.png`} />
+                                <LazyLoadImage 
+                                scrollPosition={scrollPosition}
+                                effect="opacity" 
+                                alt="orb" 
+                                className="orbicon" 
+                                src={`https://dissidiacompendium.com/images/static/icons/misc/43${enemy.LufeniaPlusFlag == true ? "+" : ""}.png`} />
                                 {getOrb.LufeniaStartCounter === undefined ? "" :
                                     <div>
                                         <span className="textsafe">Start count: <span className="values">{getOrb.LufeniaStartCounter}</span></span>
@@ -1084,6 +1101,9 @@ export default function EnemyDetailsDirect({
                 </>
                 : ""}
         </div>
+        </LazyLoadComponent>
     )
 
 }
+
+export default trackWindowScroll(EnemyDetailsDirect)

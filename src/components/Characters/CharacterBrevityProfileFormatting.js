@@ -93,46 +93,46 @@ export default function CharacterBrevityProfileFormatting({ match }){
                 <span className="subtext">Quick Profile:</span><span className="infolocation subtext">{" (may contain JP reworks)"}</span>
                 <div className="subpassiveflair ">
                     {match.AbilityBRV != undefined ?
-                        <span onClick={() => handleShowBrevirty(match.AbilityBRV)} className={`brvattackiconbutton undertaga clicky ${showBrevity == match.AbilityBRV ? "buffactive" : ""}`}></span>
+                        <span onClick={() => handleShowBrevirty(match.AbilityBRV)} className={`brvattackiconbutton mar2lr undertaga clicky ${showBrevity == match.AbilityBRV ? "buffactive" : ""}`}></span>
                         : ""}
                     {match.AbilityHP != undefined ?
-                        <span onClick={() => handleShowBrevirty(match.AbilityHP)} className={`hpplusattackiconbutton undertaga clicky ${showBrevity == match.AbilityHP ? "buffactive" : ""}`}></span>
+                        <span onClick={() => handleShowBrevirty(match.AbilityHP)} className={`hpplusattackiconbutton mar2lr undertaga clicky ${showBrevity == match.AbilityHP ? "buffactive" : ""}`}></span>
                         : ""}
                     {match.AbilityCL1 != undefined ?
-                        <span onClick={() => handleShowBrevirty(match.AbilityCL1)} className={`startingButton undertaga clicky ${showBrevity == match.AbilityCL1 ? "buffactive" : ""}`}></span>
+                        <span onClick={() => handleShowBrevirty(match.AbilityCL1)} className={`startingButton mar2lr undertaga clicky ${showBrevity == match.AbilityCL1 ? "buffactive" : ""}`}></span>
                         : ""}
                     {match.AbilityCL20 != undefined ?
-                        <span onClick={() => handleShowBrevirty(match.AbilityCL20)} className={`cl20button undertaga clicky ${showBrevity == match.AbilityCL20 ? "buffactive" : ""}`}></span>
+                        <span onClick={() => handleShowBrevirty(match.AbilityCL20)} className={`cl20button mar2lr undertaga clicky ${showBrevity == match.AbilityCL20 ? "buffactive" : ""}`}></span>
                         : ""}
                     {match.AbilityCL65 != undefined ?
-                        <span onClick={() => handleShowBrevirty(match.AbilityCL65)} className={`aaabilityButton undertaga clicky ${showBrevity == match.AbilityCL65 ? "buffactive" : ""}`}></span>
+                        <span onClick={() => handleShowBrevirty(match.AbilityCL65)} className={`aaabilityButton mar2lr undertaga clicky ${showBrevity == match.AbilityCL65 ? "buffactive" : ""}`}></span>
                         : ""}
                     {match.AbilityEXPlus != undefined ?
-                        <span onClick={() => handleShowBrevirty(match.AbilityEXPlus)} className={`wpexbutton undertaga clicky ${showBrevity == match.AbilityEXPlus ? "buffactive" : ""}`}></span>
+                        <span onClick={() => handleShowBrevirty(match.AbilityEXPlus)} className={`wpexbutton mar2lr undertaga clicky ${showBrevity == match.AbilityEXPlus ? "buffactive" : ""}`}></span>
                         : ""}
                     {match.AbilityLimited != undefined ?
-                        <span onClick={() => handleShowBrevirty(match.AbilityLimited)} className={`wpldbutton undertaga clicky ${showBrevity == match.AbilityLimited ? "buffactive" : ""}`}></span>
+                        <span onClick={() => handleShowBrevirty(match.AbilityLimited)} className={`wpldbutton mar2lr undertaga clicky ${showBrevity == match.AbilityLimited ? "buffactive" : ""}`}></span>
                         : ""}
                     {match.AbilityBurst != undefined && match.AbilityBurstPlus == undefined ?
-                        <span onClick={() => handleShowBrevirty(match.AbilityBurst)} className={`wpbtbutton undertaga clicky ${showBrevity == match.AbilityBurst ? "buffactive" : ""}`}></span>
+                        <span onClick={() => handleShowBrevirty(match.AbilityBurst)} className={`wpbtbutton mar2lr undertaga clicky ${showBrevity == match.AbilityBurst ? "buffactive" : ""}`}></span>
                         : ""}
                     {match.AbilityBurstPlus != undefined ?
-                        <span onClick={() => handleShowBrevirty(match.AbilityBurstPlus)} className={`btpluscharbutton undertaga clicky ${showBrevity == match.AbilityBurstPlus ? "buffactive" : ""}`}></span>
+                        <span onClick={() => handleShowBrevirty(match.AbilityBurstPlus)} className={`btpluscharbutton mar2lr undertaga clicky ${showBrevity == match.AbilityBurstPlus ? "buffactive" : ""}`}></span>
                         : ""}
                     {match.AbilityFR != undefined ?
-                        <span onClick={() => handleShowBrevirty(match.AbilityFR)} className={`frcharbutton undertaga clicky ${showBrevity == match.AbilityFR ? "buffactive" : ""}`}></span>
+                        <span onClick={() => handleShowBrevirty(match.AbilityFR)} className={`frcharbutton mar2lr undertaga clicky ${showBrevity == match.AbilityFR ? "buffactive" : ""}`}></span>
                         : ""}
                     {match.AbilityCL75 != undefined ?
-                        <span onClick={() => handleShowBrevirty(match.AbilityCL75)} className={`call1button undertaga clicky ${showBrevity == match.AbilityCL75 ? "buffactive" : ""}`}></span>
+                        <span onClick={() => handleShowBrevirty(match.AbilityCL75)} className={`call1button mar2lr undertaga clicky ${showBrevity == match.AbilityCL75 ? "buffactive" : ""}`}></span>
                         : ""}
                     {match.AbilityLimitedCall != undefined ?
-                        <span onClick={() => handleShowBrevirty(match.AbilityLimitedCall)} className={`call2button undertaga clicky ${showBrevity == match.AbilityLimitedCall ? "buffactive" : ""}`}></span>
+                        <span onClick={() => handleShowBrevirty(match.AbilityLimitedCall)} className={`call2button mar2lr undertaga clicky ${showBrevity == match.AbilityLimitedCall ? "buffactive" : ""}`}></span>
                         : ""}
                     {match.ArtPriority1 != undefined ?
-                        <span onClick={() => handleShowBrevirty(artifacts)} className={`artpassbutton undertaga clicky ${showBrevity == artifacts ? "buffactive" : ""}`}></span>
+                        <span onClick={() => handleShowBrevirty(artifacts)} className={`artpassbutton mar2lr undertaga clicky ${showBrevity == artifacts ? "buffactive" : ""}`}></span>
                         : ""}
                     {match.Passive7StarArmor != undefined ?
-                        <span onClick={() => handleShowBrevirty(match.Passive7StarArmor)} className={`arm7abutton undertaga clicky ${showBrevity == match.Passive7StarArmor ? "buffactive" : ""}`}></span>
+                        <span onClick={() => handleShowBrevirty(match.Passive7StarArmor)} className={`arm7abutton mar2lr undertaga clicky ${showBrevity == match.Passive7StarArmor ? "buffactive" : ""}`}></span>
                         : ""}
                 </div>
                 {showforce == true ?

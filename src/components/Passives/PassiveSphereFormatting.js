@@ -13,12 +13,12 @@ import PassiveEffectsHandoff from "./PassiveEffectsHandoff";
 import { StartsInTimer } from '../Timers'
 import passive_link_trans from "../../processing/passives/passive_link_trans";
 import ReplacerCharacter from '../ReplacerCharacter'
-import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
+import { LazyLoadImage, LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 import sphere_tags from '../../processing/passives/sphere_tags.json'
 import { ObjectView } from 'react-object-view'
 import ailment_level_icon from "../../processing/ailment/ailment_level_icon";
 
-export default function PassiveSphereFormatting({
+function PassiveSphereFormatting({
     passive_ability,
     loc,
     ver,
@@ -39,7 +39,8 @@ export default function PassiveSphereFormatting({
     span,
     raw,
     link,
-    master_index
+    master_index,
+    scrollPosition 
 }){
 
     const form = {formatting:formatting}
@@ -176,232 +177,242 @@ export default function PassiveSphereFormatting({
 
     return (
         <div className={gear == true ? "margtop" : `buffunit`}>
-            <div className="infoholder" style={{ minHeight: `50px` }}>
-                <LazyLoadComponent>
-                    {passive_ability.CharID != undefined || chara_id_passoff != undefined ?
-                        gear == true ? "" :
-                            <div className="infotitleholder">
-                                <div className="faceandiconholder" >
-                                    <CharacterFaceFormatting char_id={char_id} id={chara_id_passoff == undefined ? passive_ability.CharID : chara_id_passoff} loc={loc} link={link} />
-                                    <div className="infoiconholder ">
-                                        <LazyLoadImage effect="opacity" className="sphereicon" alt={`${sphere} sphere`} src={`https://dissidiacompendium.com/images/static/icons/spheres/Sphere${sphere}.png`} />
-                                    </div>
+            <LazyLoadComponent
+            scrollPosition={scrollPosition}
+            placeholder={<div className="infoholder" style={{ minHeight: `250px` }}/>}
+            >
+            <div className="infoholder">
+                {passive_ability.CharID != undefined || chara_id_passoff != undefined ?
+                    gear == true ? "" :
+                        <div className="infotitleholder">
+                            <div className="faceandiconholder" >
+                                <CharacterFaceFormatting char_id={char_id} id={chara_id_passoff == undefined ? passive_ability.CharID : chara_id_passoff} loc={loc} link={link} />
+                                <div className="infoiconholder ">
+                                    <LazyLoadImage 
+                                    scrollPosition={scrollPosition}
+                                    effect="opacity" 
+                                    className="sphereicon" 
+                                    alt={`${sphere} sphere`} 
+                                    src={`https://dissidiacompendium.com/images/static/icons/spheres/Sphere${sphere}.png`} />
                                 </div>
                             </div>
-                        : ""}
-                    {ver == "JP" ?
-                        <div className={`${Capletter[sphere_letter]}banner infonameholder wpadding`} onClick={showmeraw}>
-                            <div className="spacearound">
-                                <div className="infotitle displayfex  ">
-                                    {passive_ability.glname != undefined ?
-                                        ReplacerCharacter(`${passive_ability.glname} - #${passive_ability.pa_id}`,form) :
-                                        `Unknown - #${passive_ability.pa_id}`}
-                                </div>
-                            </div>
-                            <div className="displayfex ">
-                                <div className="abilityJPname ">
-                                    {passive_ability.name != undefined ?
-                                        ReplacerCharacter(`${format_cleaner(passive_ability.name)} - #${passive_ability.pa_id}`,form) :
-                                        `Unknown - #${passive_ability.pa_id}`}
-                                </div>
-                            </div>
-                            {rData != undefined ?
-                                <StartsInTimer
-                                    expiryTimestamp={rData}
-                                    JPFlag={ver == "JP" ? true : false}
-                                />
-                                : ""}
                         </div>
-                        :
-                        <div className={`${Capletter[sphere_letter]}banner infonameholder wpadding`} onClick={showmeraw}>
-                            <div className="spacearound">
-                                <div className="infotitle displayfex">
-                                    {passive_ability.name != undefined ?
-                                        ReplacerCharacter(`${format_cleaner(passive_ability.name)} - #${passive_ability.pa_id}`,form)
-                                        :
-                                        "Unknown"}
-                                </div>
+                    : ""}
+                {ver == "JP" ?
+                    <div className={`${Capletter[sphere_letter]}banner infonameholder wpadding`} onClick={showmeraw}>
+                        <div className="spacearound">
+                            <div className="infotitle displayfex  ">
+                                {passive_ability.glname != undefined ?
+                                    ReplacerCharacter(`${passive_ability.glname} - #${passive_ability.pa_id}`,form) :
+                                    `Unknown - #${passive_ability.pa_id}`}
                             </div>
-                            <div className="displayfex ">
-                                <div className="abilityJPname ">
-                                    {passive_ability.jpname != undefined ?
-                                        ReplacerCharacter(`${format_cleaner(passive_ability.jpname)} - #${passive_ability.pa_id}`,form) :
-                                        `Unknown - #${passive_ability.pa_id}`}
-                                </div>
-                            </div>
-                            {rData != undefined ?
-                                <StartsInTimer
-                                    expiryTimestamp={rData}
-                                    JPFlag={ver == "JP" ? true : false}
-                                />
-                                : ""}
                         </div>
-                    }
-                    <div className={`${Capletter[sphere_letter]}base infobase wpadding`}>
-
-                        {trans != undefined && showtrans == true ?
-                            ReplacerCharacter(trans+"\n",forma)
-                            :
-                            ReplacerCharacter(format_cleaner(passive_ability.desc+'\n',forma))
-                        }
-                        {ver == "JP" ?
-                            <div className="clicky updatelink contents" onClick={() => doTrans()} >Translate (Beta)</div>
-                            : ""}
-                        <div className={`${passive_ability.effect_ == undefined && passive_ability.effect__1 == undefined ? "" : `infonameholderenemybuff default_passive bluebase`}`}>
-                            <PassiveEffectsHandoff
-                                passive_ability={passive_ability}
-                                master_index={master_index}
-                                ver={ver}
-                                file={file}
-
-                                formatting={formatting}
+                        <div className="displayfex ">
+                            <div className="abilityJPname ">
+                                {passive_ability.name != undefined ?
+                                    ReplacerCharacter(`${format_cleaner(passive_ability.name)} - #${passive_ability.pa_id}`,form) :
+                                    `Unknown - #${passive_ability.pa_id}`}
+                            </div>
+                        </div>
+                        {rData != undefined ?
+                            <StartsInTimer
+                                expiryTimestamp={rData}
+                                JPFlag={ver == "JP" ? true : false}
                             />
-                            {passive_ability.field != undefined ?
-                                passive_ability.field.map(buffs => (
-                                    <AilmentFieldAttached
-                                        key={buffs.data_id}
-                                        castlocation={true}
-                                        ver={ver}
-                                        ailment_field={buffs}
-
-                                        master_index={master_index}
-
-                                        loc={loc}
-                                        slider={false}
-                                        formatting={formatting}
-                                        base_color={undefined}
-                                    />
-                                ))
-                                : ""}
+                            : ""}
+                    </div>
+                    :
+                    <div className={`${Capletter[sphere_letter]}banner infonameholder wpadding`} onClick={showmeraw}>
+                        <div className="spacearound">
+                            <div className="infotitle displayfex">
+                                {passive_ability.name != undefined ?
+                                    ReplacerCharacter(`${format_cleaner(passive_ability.name)} - #${passive_ability.pa_id}`,form)
+                                    :
+                                    "Unknown"}
+                            </div>
                         </div>
-                        {passive_ability.force != undefined ?
-                            <div className="forceaddtach infonameholderenemybuff default_passive">
-                                <div className='BonusHPDamage' />
-                                {passive_ability.force.map(link_effect => (
-                                    ReplacerCharacter(passive_link_trans(
-                                        link_effect,
-                                        master_index,
-                                        ver,
-                                        chara_id_passoff == undefined ? passive_ability.CharID : chara_id_passoff
-                                    ),form)
-                                ))}
+                        <div className="displayfex ">
+                            <div className="abilityJPname ">
+                                {passive_ability.jpname != undefined ?
+                                    ReplacerCharacter(`${format_cleaner(passive_ability.jpname)} - #${passive_ability.pa_id}`,form) :
+                                    `Unknown - #${passive_ability.pa_id}`}
                             </div>
+                        </div>
+                        {rData != undefined ?
+                            <StartsInTimer
+                                expiryTimestamp={rData}
+                                JPFlag={ver == "JP" ? true : false}
+                            />
                             : ""}
-                        {passive_ability.options != undefined ?
-                            <div className={`default_passive infonameholderenemybuff ${base_color == undefined ? "Buffbase" : "blackbase"}`}>
-                                <div>
-                                    {passive_ability.options.length > 5 ?
-                                        <div className="clicky updatelink" onClick={() => showmeoptions(showoptions)}>{showoptions == false ? <div><span className="mini_ability"></span>Show Upgrades:</div> : <div><span className="mini_ability"></span>Hide Upgrades:</div>}</div>
-                                        :
-                                        <><div className="mini_ability"/>Upgrades:<br/></>
-                                    }
-                                    {showoptions == true ?
-                                    passive_ability.options.map((self, key) => (
-                                        ReplacerCharacter(`\xa0- ${self}\n`,form)
-                                        ))
-                                    : ""}
-                                </div>
-                            </div>
-                            : ""}
-                        {passive_ability.defaults != undefined ?
-                            Object.values(listByChar).map((buffs,i) => (
-                                <AilmentDefaultPassoff
-                                    file={"passive_ability"}
+                    </div>
+                }
+                <div className={`${Capletter[sphere_letter]}base infobase wpadding`}>
+
+                    {trans != undefined && showtrans == true ?
+                        ReplacerCharacter(trans+"\n",forma)
+                        :
+                        ReplacerCharacter(format_cleaner(passive_ability.desc+'\n',forma))
+                    }
+                    {ver == "JP" ?
+                        <div className="clicky updatelink contents" onClick={() => doTrans()} >Translate (Beta)</div>
+                        : ""}
+                    <div className={`${passive_ability.effect_ == undefined && passive_ability.effect__1 == undefined ? "" : `infonameholderenemybuff default_passive bluebase`}`}>
+                        <PassiveEffectsHandoff
+                            passive_ability={passive_ability}
+                            master_index={master_index}
+                            ver={ver}
+                            file={file}
+
+                            formatting={formatting}
+                        />
+                        {passive_ability.field != undefined ?
+                            passive_ability.field.map(buffs => (
+                                <AilmentFieldAttached
+                                    key={buffs.data_id}
+                                    castlocation={true}
                                     ver={ver}
-                                    key={i}
-                                    ailment_default={buffs}
+                                    ailment_field={buffs}
 
                                     master_index={master_index}
 
                                     loc={loc}
                                     slider={false}
                                     formatting={formatting}
-                                    character_face={false}
-                                    gear={gear}
-                                    framless={true}
-                                    full={false}
-                                    base_color={"classcolor"}
-                                    span={span}
+                                    base_color={undefined}
                                 />
                             ))
+                            : ""}
+                    </div>
+                    {passive_ability.force != undefined ?
+                        <div className="forceaddtach infonameholderenemybuff default_passive">
+                            <div className='BonusHPDamage' />
+                            {passive_ability.force.map(link_effect => (
+                                ReplacerCharacter(passive_link_trans(
+                                    link_effect,
+                                    master_index,
+                                    ver,
+                                    chara_id_passoff == undefined ? passive_ability.CharID : chara_id_passoff
+                                ),form)
+                            ))}
+                        </div>
                         : ""}
-                        {bufflist.length != 0 ?
-                            <div className={passive_ability.CharID != undefined ? file == "exskill" ? "infonameholderenemybuff classcolor default_passive" : "defaultlistholder newblue default_passive" : "infonameholderenemybuff newblue default_passive"}>
-                                <div className="unique ailmenttext">
-                                    Buffs / Debuffs:
-                                </div>
-                                {bufflist.length != 0 ?
-                                    <ul className={"abilitybufflist"}>
-                                        {bufflist.map(buff => (
-                                            <li className={`abilitybufficonsholder ${selectedbuff.id == buff.id ? "buffactive" : ""}`} key={buff.id}>
-                                                <div className="biconspacer" onClick={() => buffselect(buff)} >
-                                                    <DefaultTippy content={
-                                                        buff.name == "" ? `Unknown ${buff.id}` : ReplacerCharacter(buff.name && buff.name,form)
-                                                    }>
-                                                        <img alt={buff.name} className="clicky abilitybufficon" src={`https://dissidiacompendium.com/images/static/icons/buff/${ailment_level_icon(buff,buff.aarg1)}.png`} />
-                                                    </DefaultTippy>
-                                                </div>
-                                            </li>
-                                        ))}
-                                    </ul> :
-                                    ""}
+                    {passive_ability.options != undefined ?
+                        <div className={`default_passive infonameholderenemybuff ${base_color == undefined ? "Buffbase" : "blackbase"}`}>
+                            <div>
+                                {passive_ability.options.length > 5 ?
+                                    <div className="clicky updatelink" onClick={() => showmeoptions(showoptions)}>{showoptions == false ? <div><span className="mini_ability"></span>Show Upgrades:</div> : <div><span className="mini_ability"></span>Hide Upgrades:</div>}</div>
+                                    :
+                                    <><div className="mini_ability"/>Upgrades:<br/></>
+                                }
+                                {showoptions == true ?
+                                passive_ability.options.map((self, key) => (
+                                    ReplacerCharacter(`\xa0- ${self}\n`,form)
+                                    ))
+                                : ""}
                             </div>
-                            : ""}
-                        {selectedbuff.length != 0 ?
-                            <AilmentDataFormatting
+                        </div>
+                        : ""}
+                    {passive_ability.defaults != undefined ?
+                        Object.values(listByChar).map((buffs,i) => (
+                            <AilmentDefaultPassoff
                                 file={"passive_ability"}
-                                loc={loc}
                                 ver={ver}
-                                ailment_data={selectedbuff}
+                                key={i}
+                                ailment_default={buffs}
+
                                 master_index={master_index}
+
+                                loc={loc}
                                 slider={false}
-                                rank={selectedbuff.rank_id}
-                                arg1={selectedbuff.arg1}
-                                arg2={selectedbuff.arg2}
-                                castlocation={true}
-                                fullspan={passive_ability.CharID == undefined || file == "exskill" ? true : false}
                                 formatting={formatting}
-                                turns={selectedbuff.turn}
                                 character_face={false}
-                                full={true}
-                                passed_passive={selectedbuff.passive}
-                                hide_title={true}
+                                gear={gear}
+                                framless={true}
+                                full={false}
+                                base_color={"classcolor"}
+                                span={span}
                             />
-                            : ""}
-                        {showraw == true ?
-                            <div className="newblue">
-                                <div className="unique ailmenttext">
-                                    Sphere Tag:
-                                </div>
-                                <ul className="abilitybufflist">
-                                    {passive_tag.map(function (buff) {
-                                        return <li className={`abilitybufficonsholder`} key={`${buff.name}`}>
-                                            <div className="biconspacer" >
-                                                <DefaultTippy content={buff.name}>
-                                                    <img alt={buff.name} className="abilitybufficon" src={`https://dissidiacompendium.com/images/static/icons/buff/${buff.url}.png`} />
+                        ))
+                    : ""}
+                    {bufflist.length != 0 ?
+                        <div className={passive_ability.CharID != undefined ? file == "exskill" ? "infonameholderenemybuff classcolor default_passive" : "defaultlistholder newblue default_passive" : "infonameholderenemybuff newblue default_passive"}>
+                            <div className="unique ailmenttext">
+                                Buffs / Debuffs:
+                            </div>
+                            {bufflist.length != 0 ?
+                                <ul className={"abilitybufflist"}>
+                                    {bufflist.map(buff => (
+                                        <li className={`abilitybufficonsholder ${selectedbuff.id == buff.id ? "buffactive" : ""}`} key={buff.id}>
+                                            <div className="biconspacer" onClick={() => buffselect(buff)} >
+                                                <DefaultTippy content={
+                                                    buff.name == "" ? `Unknown ${buff.id}` : ReplacerCharacter(buff.name && buff.name,form)
+                                                }>
+                                                    <img alt={buff.name} className="clicky abilitybufficon" src={`https://dissidiacompendium.com/images/static/icons/buff/${ailment_level_icon(buff,buff.aarg1)}.png`} />
                                                 </DefaultTippy>
                                             </div>
                                         </li>
-                                    })}
-                                </ul>
+                                    ))}
+                                </ul> :
+                                ""}
+                        </div>
+                        : ""}
+                    {selectedbuff.length != 0 ?
+                        <AilmentDataFormatting
+                            file={"passive_ability"}
+                            loc={loc}
+                            ver={ver}
+                            ailment_data={selectedbuff}
+                            master_index={master_index}
+                            slider={false}
+                            rank={selectedbuff.rank_id}
+                            arg1={selectedbuff.arg1}
+                            arg2={selectedbuff.arg2}
+                            castlocation={true}
+                            fullspan={passive_ability.CharID == undefined || file == "exskill" ? true : false}
+                            formatting={formatting}
+                            turns={selectedbuff.turn}
+                            character_face={false}
+                            full={true}
+                            passed_passive={selectedbuff.passive}
+                            hide_title={true}
+                        />
+                        : ""}
+                    {showraw == true ?
+                        <div className="newblue">
+                            <div className="unique ailmenttext">
+                                Sphere Tag:
                             </div>
-                            :
-                            ""}
-                        {showraw == true ?
-                            <span className='react-json-view'>
-                                <ObjectView 
-                                options={
-                                    {
-                                      hideDataTypes: true,
-                                      expandLevel: 1
-                                    }
-                                  }
-                                data={raw} />
-                            </span>
-                            : ""}
-                    </div>
-                </LazyLoadComponent>
+                            <ul className="abilitybufflist">
+                                {passive_tag.map(function (buff) {
+                                    return <li className={`abilitybufficonsholder`} key={`${buff.name}`}>
+                                        <div className="biconspacer" >
+                                            <DefaultTippy content={buff.name}>
+                                                <img alt={buff.name} className="abilitybufficon" src={`https://dissidiacompendium.com/images/static/icons/buff/${buff.url}.png`} />
+                                            </DefaultTippy>
+                                        </div>
+                                    </li>
+                                })}
+                            </ul>
+                        </div>
+                        :
+                        ""}
+                    {showraw == true ?
+                        <span className='react-json-view'>
+                            <ObjectView 
+                            options={
+                                {
+                                    hideDataTypes: true,
+                                    expandLevel: 1
+                                }
+                                }
+                            data={raw} />
+                        </span>
+                        : ""}
+                </div>
             </div>
+            </LazyLoadComponent>
         </div>
     )
 }
+
+export default trackWindowScroll(PassiveSphereFormatting)

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
 import { useDispatch, useSelector } from "react-redux";
 import translater from '../../processing/translater_characters'
@@ -18,15 +18,17 @@ import AilmentDifFormatting from '../Buffs/AilmentDifFormatting';
 import makediff from '../../processing/makediff';
 import ability_use_maker from '../../processing/abilities/ability_use_maker';
 import ailment_level_icon from '../../processing/ailment/ailment_level_icon';
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 
-export default function AbilityDifFormatting({
+function AbilityDifFormatting({
     command_old,
     ver_old,
     command_new,
     ver_new,
     master_index,
     info,
-    debugging
+    debugging,
+    scrollPosition 
 }){
 
     const from = {diffing:true}
@@ -269,8 +271,12 @@ export default function AbilityDifFormatting({
     }
 
     return (
-        <div className="buffunit" loading="lazy">
-            <div className="infoholder" style={{ minHeight: "220px" }}>
+        <div className="buffunit">
+            <LazyLoadComponent
+            scrollPosition={scrollPosition}
+            placeholder={<div className="infoholder" style={{ minHeight: "220px" }}/>}
+            >
+            <div className="infoholder">
                 <div className="infotitleholder">
                     <div className="faceandiconholder">
                         <div className="idoffset" id={character_ability.LearningAbility}></div>
@@ -586,6 +592,9 @@ export default function AbilityDifFormatting({
                         
                 : ""}
             </div>
+            </LazyLoadComponent>
         </div>
     )
 }
+
+export default trackWindowScroll(AbilityDifFormatting)
