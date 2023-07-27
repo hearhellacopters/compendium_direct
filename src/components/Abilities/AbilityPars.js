@@ -885,6 +885,7 @@ function AbilityPars({
                         turns={selectedbuff.default == true ? selectedbuff.turn : selectedbuff.alife}
                         character_face={false}
                         hide_title={true}
+                        default_passoff={selectedbuff.default == true ? selectedbuff : undefined}
                         passed_passive={selectedbuff.passive}
                         debugging={debugging}
                     />
