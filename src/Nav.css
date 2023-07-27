@@ -8,6 +8,11 @@
     width: 100%;
 }
 
+::selection {
+    color: white;
+    background: rgb(200, 200, 0);
+}
+
 .menu {
     margin: 0 1em;
     border: 0;
@@ -125,7 +130,7 @@
     }
 
     .active li {
-        background: linear-gradient(180deg, rgba(122, 122, 122, 1) 0%, rgba(119, 130, 153, 1) 9%, rgba(63, 91, 146, 1) 24%, rgba(63, 91, 146, 1) 75%, #18224e 97%, rgba(15, 15, 15, 1) 100%) !important;
+        background: linear-gradient(180deg, rgba(51, 64, 135, 1) 0%, rgba(93, 117, 168, 1) 9%, rgba(63, 91, 146, 1) 24%, rgba(63, 91, 146, 1) 75%, #18224e 97%, rgba(15, 15, 15, 1) 100%) !important;
     }
 
     .menu button {

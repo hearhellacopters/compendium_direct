@@ -1,9 +1,9 @@
-import React, { useState} from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState, useRef} from 'react';
+import { useSelector } from "react-redux";
 import { useLocation, Link } from 'react-router-dom';
 import './Nav.css'
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { useQueryParam } from './components/URLParams'
+import UseOnClickOutside from './components/UseOnClickOutside';
 
 export default function Nav(){
 
@@ -17,19 +17,17 @@ export default function Nav(){
     setShowLinks(false)
   }
 
-  const dispatch = useDispatch();
-
   const jptoggledata = useSelector((state) =>
     state.toggle.toggle
   );
 
-  const [jponly, setJPonly] = useState(jptoggledata);
-  const [JPsearch, setJPSearch] = useQueryParam("JP", "");
+  const btnRef = useRef();
+  UseOnClickOutside(btnRef, () => setShowLinks(false));
 
   return (
     <nav className="access">
       <div className="menu">
-        <div id="navtoggle" className={showLinks == false ? "" : "navactive"} onClick={() => setShowLinks(!showLinks)} ><GiHamburgerMenu className="mobilelines"></GiHamburgerMenu><span className="menuspan">MENU</span></div>
+        <div ref={btnRef} id="navtoggle" className={showLinks == false ? "" : "navactive"} onClick={() => setShowLinks(!showLinks)} ><GiHamburgerMenu className="mobilelines"></GiHamburgerMenu><span className="menuspan">MENU</span></div>
         <ul id={showLinks ? "shown" : "hidden"} className="prime_nav" >
           <Link to={`/events${jptoggledata == false ? "" : "?JP=true"}`} onClick={menutoggle} className={`${loc == "events" ? "active" : ""}`}>
             <li>Events</li>
