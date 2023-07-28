@@ -149,6 +149,11 @@
         "url": "buff/buff_support0_unframed",
         "hidden": true
     },
+    "Buffer": {
+        "name": "Buffer",
+        "url": "buff/buff_personup_unframed",
+        "hidden": true
+    },
     "ST_Target": {
         "name": "Single Target Damage",
         "url": "roles/Role_ST_Target",
