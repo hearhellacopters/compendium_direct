@@ -33,169 +33,40 @@ function CharacterFilterReturns({
         return 0;
     }
 
-    filteredout
-        .sort((a, b) =>
-            reverse == false && Sortsearch == "" ?
-                b[`${ver}Order`] - a[`${ver}Order`] :
-                null)
-        .sort((a, b) =>
-            reverse == true && Sortsearch == "" ?
-                a[`${ver}Order`] - b[`${ver}Order`] :
-                null)
-        .sort((a, b) =>
-            reverse == false && Sortsearch == "Name" ?
-                cmp(b.CharacterName, a.CharacterName) :
-                null)
-        .sort((a, b) =>
-            reverse == true && Sortsearch == "Name" ?
-                cmp(a.CharacterName, b.CharacterName) :
-                null)
-        .sort((a, b) =>
-            reverse == false && Sortsearch == "Realm" ?
-                cmp(a.RealmPars, b.RealmPars) || cmp(a.Sort, b.Sort) :
-                null)
-        .sort((a, b) =>
-            reverse == true && Sortsearch == "Realm" ?
-                cmp(b.RealmPars, a.RealmPars) || cmp(a.Sort, b.Sort) :
-                null)
-        .sort((a, b) =>
-            reverse == false && Sortsearch == "JP" ?
-                b.JPOrder - a.JPOrder :
-                null)
-        .sort((a, b) =>
-            reverse == true && Sortsearch == "JP" ?
-                a.JPOrder - b.JPOrder :
-                null)
-        .sort((a, b) =>
-            reverse == true && Sortsearch == "HP" ?
-                a.HP - b.HP :
-                null)
-        .sort((a, b) =>
-            reverse == false && Sortsearch == "HP" ?
-                b.HP - a.HP :
-                null)
-        .sort((a, b) =>
-            reverse == true && Sortsearch == "INTBRV" ?
-                a.INTBRV - b.INTBRV :
-                null)
-        .sort((a, b) =>
-            reverse == false && Sortsearch == "INTBRV" ?
-                b.INTBRV - a.INTBRV :
-                null)
-        .sort((a, b) =>
-            reverse == true && Sortsearch == "MAXBRV" ?
-                a.MAXBRV - b.MAXBRV :
-                null)
-        .sort((a, b) =>
-            reverse == false && Sortsearch == "MAXBRV" ?
-                b.MAXBRV - a.MAXBRV :
-                null)
-        .sort((a, b) =>
-            reverse == true && Sortsearch == "ATK" ?
-                a.ATK - b.ATK :
-                null)
-        .sort((a, b) =>
-            reverse == false && Sortsearch == "ATK" ?
-                b.ATK - a.ATK :
-                null)
-        .sort((a, b) =>
-            reverse == true && Sortsearch == "DEF" ?
-                a.DEF - b.DEF :
-                null)
-        .sort((a, b) =>
-            reverse == false && Sortsearch == "DEF" ?
-                b.DEF - a.DEF :
-                null)
-        .sort((a, b) =>
-            reverse == true && Sortsearch == "SPD" ?
-                a.SPD - b.SPD :
-                null)
-        .sort((a, b) =>
-            reverse == false && Sortsearch == "SPD" ?
-                b.SPD - a.SPD :
-                null)
+    function filter_compare(a, b) {
+        if(Sortsearch == ""){
+            if(reverse == false ){
+                return (b[`${ver}Order`] || 0 )- (a[`${ver}Order`] || 0 )
+            } else {
+                return a[`${ver}Order`] - b[`${ver}Order`] 
+            }
+        }
+        if(Sortsearch == "Name"){
+            if(reverse == false){
+                return cmp(a.CharacterName, b.CharacterName) 
+            } else {
+                return cmp(b.CharacterName, a.CharacterName)
+            }
+        }
+        if(Sortsearch == "Realm"){
+            if(reverse == false){
+                return cmp(a.RealmPars, b.RealmPars) || cmp(a.Sort, b.Sort)
+            } else {
+                return cmp(b.RealmPars, a.RealmPars) || cmp(a.Sort, b.Sort)
+            }
+        }
+        if(Sortsearch == "JP"){
+            if(reverse == false){
+                return b.JPOrder - a.JPOrder 
+            } else {
+                return a.JPOrder - b.JPOrder
+            }
+        }
+      }
 
-    match
-        .sort((a, b) =>
-            reverse == false && Sortsearch == "" ?
-                b[`${ver}Order`] - a[`${ver}Order`] :
-                null)
-        .sort((a, b) =>
-            reverse == true && Sortsearch == "" ?
-                a[`${ver}Order`] - b[`${ver}Order`] :
-                null)
-        .sort((a, b) =>
-            reverse == false && Sortsearch == "Name" ?
-                cmp(b.CharacterName, a.CharacterName) :
-                null)
-        .sort((a, b) =>
-            reverse == true && Sortsearch == "Name" ?
-                cmp(a.CharacterName, b.CharacterName) :
-                null)
-        .sort((a, b) =>
-            reverse == false && Sortsearch == "Realm" ?
-                cmp(a.RealmPars, b.RealmPars) || cmp(a.Sort, b.Sort) :
-                null)
-        .sort((a, b) =>
-            reverse == true && Sortsearch == "Realm" ?
-                cmp(b.RealmPars, a.RealmPars) || cmp(a.Sort, b.Sort) :
-                null)
-        .sort((a, b) =>
-            reverse == false && Sortsearch == "JP" ?
-                b.JPOrder - a.JPOrder :
-                null)
-        .sort((a, b) =>
-            reverse == true && Sortsearch == "JP" ?
-                a.JPOrder - b.JPOrder :
-                null)
-        .sort((a, b) =>
-            reverse == true && Sortsearch == "HP" ?
-                a.HP - b.HP :
-                null)
-        .sort((a, b) =>
-            reverse == false && Sortsearch == "HP" ?
-                b.HP - a.HP :
-                null)
-        .sort((a, b) =>
-            reverse == true && Sortsearch == "INTBRV" ?
-                a.INTBRV - b.INTBRV :
-                null)
-        .sort((a, b) =>
-            reverse == false && Sortsearch == "INTBRV" ?
-                b.INTBRV - a.INTBRV :
-                null)
-        .sort((a, b) =>
-            reverse == true && Sortsearch == "MAXBRV" ?
-                a.MAXBRV - b.MAXBRV :
-                null)
-        .sort((a, b) =>
-            reverse == false && Sortsearch == "MAXBRV" ?
-                b.MAXBRV - a.MAXBRV :
-                null)
-        .sort((a, b) =>
-            reverse == true && Sortsearch == "ATK" ?
-                a.ATK - b.ATK :
-                null)
-        .sort((a, b) =>
-            reverse == false && Sortsearch == "ATK" ?
-                b.ATK - a.ATK :
-                null)
-        .sort((a, b) =>
-            reverse == true && Sortsearch == "DEF" ?
-                a.DEF - b.DEF :
-                null)
-        .sort((a, b) =>
-            reverse == false && Sortsearch == "DEF" ?
-                b.DEF - a.DEF :
-                null)
-        .sort((a, b) =>
-            reverse == true && Sortsearch == "SPD" ?
-                a.SPD - b.SPD :
-                null)
-        .sort((a, b) =>
-            reverse == false && Sortsearch == "SPD" ?
-                b.SPD - a.SPD :
-                null)
+    filteredout.sort(filter_compare)
+
+    match.sort(filter_compare)
 
     const ct = new Date().getTime();
 

@@ -471,8 +471,10 @@ export default function require_trans(
     if (value_trans == "targets") {
         if (require_value1 != 1) {
             require_value1 = `${require_value1} targets`
+            require_value2 = `and less than ${require_value2} targets`
         } else {
             require_value1 = `a single target`
+            require_str = require_str.replace(/\[value2\]/gm,"")
         }
     }
 
