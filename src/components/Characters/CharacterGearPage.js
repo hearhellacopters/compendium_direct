@@ -17,7 +17,6 @@ function CharacterGearPage({
   newcompare,
   ProcessedCharacters,
   formatting,
-  showFilter,
   master_index,
   scrollPosition 
 }){
@@ -779,7 +778,7 @@ function CharacterGearPage({
   } else {
     return (
       <div>
-        <div className="filterholder noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
+        <div className="filterholder noselect" id={"showfilteren"}>
           <div className="similarbanner">Subcategories</div>
           <div className="filterholderflair">
             <ul className='bufftypes'>

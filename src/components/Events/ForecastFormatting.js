@@ -64,6 +64,12 @@ function ForecastFormatting({
         return n + (s[(v - 20) % 10] || s[v] || s[0]);
     }
 
+    const [bannerdisplay, setBannerdisplay] = useState("Banner1")
+
+    useEffect(() => {
+        setBannerdisplay("Banner1")
+    }, []);
+
     return (
         <li id={match.type} key={match.bannerindex}>
             <div className={"featuredbannerdark"}>
@@ -113,6 +119,47 @@ function ForecastFormatting({
             <div className="eventimageholder">
                 {match.ForecastChars != undefined ?
                     <div className="eventholder">
+                        {match.type == "Campaign" && match.ForecastChars.length == 0 ? 
+                        <div className="bannerForecast">
+                            {match.url2 == undefined ?
+                                <Link to={`/events/banners/${match.bannerindex}`}>
+                                    <LazyLoadImage 
+                                    scrollPosition={scrollPosition}
+                                    effect="opacity"
+                                    className={`bannerimage withshadow showlink`} 
+                                    src={match.url1} 
+                                    alt={match.name} />
+                                </Link>
+                                :
+                                <div className="eventtabs">
+                                    <div className="eventwithbackgorundtabs withshadow" style={{ minHeight: "120px" }}>
+                                        <Link to={`/events/banners/${match.bannerindex}`}>
+                                            <LazyLoadImage 
+                                            scrollPosition={scrollPosition}
+                                            effect="opacity" 
+                                            className={`bannerimage showlink`} 
+                                            src={
+                                                bannerdisplay == "Banner1" ? match.url1 :
+                                                    bannerdisplay == "Banner2" ? match.url2 :
+                                                        ""
+                                            } 
+                                            alt={match.name} />
+                                        </Link> 
+                                    </div>
+                                    {match.url2 !== undefined ?
+                                        <ul className="eventablist">
+                                            <li onClick={() => setBannerdisplay("Banner1")} className={bannerdisplay == "Banner1" ? "activeeventtab" : "inactiveeventtab"} >
+                                                Banner 1
+                                            </li>
+                                            <li onClick={() => setBannerdisplay("Banner2")} className={bannerdisplay == "Banner2" ? "activeeventtab" : "inactiveeventtab"}>
+                                                Banner 2
+                                            </li>
+                                        </ul> : ""}
+                                </div>
+                            }
+                        </div>
+                        :
+                        <>
                         <div className="featuredbanner2"><span className="charpageautotitle">Featured Characters</span></div>
                         <div className="charholderflairlight">
                             <ul className="CharBackListHolder">
@@ -154,6 +201,8 @@ function ForecastFormatting({
                                 </LazyLoadComponent>
                             </ul>
                         </div>
+                        </>
+                        }
                     </div> : ""
                 }
             </div>

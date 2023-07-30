@@ -20,7 +20,6 @@ export default function CharacterPassiveLinkPageFormatting({
   master_index,
 
   formatting,
-  showFilter
 }){
 
   const rawData = Object.values(linkeddata && linkeddata.sort((a, b) => b.link_level - a.link_level))
@@ -208,7 +207,7 @@ export default function CharacterPassiveLinkPageFormatting({
   } else {
     return (
       <div>
-        <div className="filterholder noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
+        <div className="filterholder noselect" id={ "showfilteren" }>
           <div className="similarbanner">Filters</div>
           <div className="filterholderflair">
             <div className="typeholder">

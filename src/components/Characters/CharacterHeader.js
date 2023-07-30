@@ -21,9 +21,7 @@ export default function CharacterHeader({ nextevent,
     pageloc,
     nonext,
     match,
-    direct_loc,
-    showFilter,
-    showfilterbutton
+    direct_loc
 }){
 
     const dispatch = useDispatch();
@@ -103,16 +101,14 @@ export default function CharacterHeader({ nextevent,
                 </Link>}
             {headertitle}
             <div className="subheader">{Subheader}</div>
-            <div className="filterpadding"></div>
             <CopyToClipboard text={url}>
                 <div className="characterpageshare">
                     <Tippy content="Link Copied!" inertia={true} animation={"shift-away"} touch={true} arrow={false} trigger={"click"} placement={"bottom"} duration={[100, 500]}>
-                        <div className="sharebutton automarg"><div className="centertext"><FaShareSquare className="shareicon" />&nbsp;Share Page</div></div>
+                        <div style={{marginBottom:"5px"}}  className="sharebutton automarg"><div className="centertext"><FaShareSquare className="shareicon" />&nbsp;Share Page</div></div>
                     </Tippy>
                 </div>
             </CopyToClipboard>
-            <div onClick={showfilterbutton} key="filter1" className="sharefilter"><span className="jumptext"></span>{showFilter ? <TiArrowSortedUp className="uparrow" /> : <TiArrowSortedDown className="downarrow" />}</div>
-            <div className="filterholderpages noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
+            <div className="filterholderpages noselect" id={"showfilteren"}>
                 <div className="filterholderflair">
                     <div className="similarbanner">{`Updated on ${months[new Date(newmatch[`${ver}update`]).getMonth()]} ${ordinal(new Date(newmatch[`${ver}update`]).getDate())}`}</div>
                     <ul className="bufftypes">

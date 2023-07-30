@@ -1116,10 +1116,6 @@ h3 {
   content: "Info ";
 }
 
-.jumptext::before {
-  content: "Jump ";
-}
-
 .downarrow {
   margin-top: auto;
   margin-bottom: auto;
@@ -3645,10 +3641,6 @@ h3 {
 
   h1 {
     font-size: large;
-  }
-
-  .jumptext::before {
-    content: "";
   }
 
   .filterstext::before {

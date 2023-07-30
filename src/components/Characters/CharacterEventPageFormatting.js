@@ -16,7 +16,6 @@ export default function CharacterEventPageFormatting({
   ver,
   ProcessedCharacters,
   jptoggledata,
-  showFilter
 }){
 
   const rawData = Object.values(data).sort((a, b) => new Date(b.start) - new Date(a.start))
@@ -225,7 +224,7 @@ export default function CharacterEventPageFormatting({
   } else {
     return (
       <div>
-        <div className="filterholder noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
+        <div className="filterholder noselect" id={"showfilteren"}>
           <div className="similarbanner">Filters</div>
           <div className="filterholderflair">
             <div className="typeholder">

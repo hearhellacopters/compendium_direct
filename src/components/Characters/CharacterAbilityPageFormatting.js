@@ -22,7 +22,6 @@ export default function CharacterAbilityPageFormatting({
     file,
 
     formatting,
-    showFilter,
     master_index
 }){
 
@@ -613,7 +612,7 @@ export default function CharacterAbilityPageFormatting({
     } else {
         return (
             <div>
-                <div className="filterholder noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
+                <div className="filterholder noselect" id={"showfilteren"}>
                     <div className="similarbanner">Subcategories</div>
                     <div className="filterholderflair">
                         <ul className='bufftypes'>

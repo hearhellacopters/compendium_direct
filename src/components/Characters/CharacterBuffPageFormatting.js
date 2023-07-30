@@ -30,7 +30,6 @@ export default function CharacterBuffPage({
 
     selected_id,
     gear,
-    showFilter,
     master_index
 }){
 
@@ -592,7 +591,7 @@ export default function CharacterBuffPage({
 
     return (
         <div>
-            <div className="filterholder noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
+            <div className="filterholder noselect" id={"showfilteren"}>
                 <div className="similarbanner">Subcategories</div>
                 <div className="filterholderflair">
                     <ul className='bufftypes'>

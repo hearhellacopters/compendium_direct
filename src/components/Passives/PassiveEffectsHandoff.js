@@ -523,7 +523,7 @@ export default function PassiveEffectsHandoff({
                                 />
                             ))
                         : ""}
-                        {effect__1 == "" && passive_ability.field == undefined ? "" : require__1 != "" ? ReplacerCharacter(`\xa0┬ ${require__1}\n`, {formatting:formatting}) : ""}
+                        {effect__1 == "" && passive_ability.field == undefined ? "" : require__1 != "" ? ReplacerCharacter(`${effect_ != ""?"\n":""}\xa0┬ ${require__1}\n`, {formatting:formatting}) : ""}
                         {ReplacerCharacter(effect_display_pars(effect_, effect__1, require_, require__1, 2),form)}
                         {effect__1 == "Field Effect" && passive_ability.hide_field != true ?
                             passive_ability.field && passive_ability.field.map((buffs, i) => (

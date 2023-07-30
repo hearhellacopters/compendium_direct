@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link, useNavigate  } from 'react-router-dom'
 import Random from '../../processing/random.js'
 import OhNo from '../OhNo.js'
-import CharcterHeader from './CharacterHeader.js'
+import CharacterHeader from './CharacterHeader.js'
 import { TiArrowSortedDown } from 'react-icons/ti';
 import { TiArrowSortedUp } from 'react-icons/ti';
 import AutosizeInput from '../AutosizeInput.js';
@@ -80,10 +80,7 @@ export default function CharacterPageSingleFormatting({
             setver("GL")
         }
     };
-    const [showFilter, setShowFilter] = useState(true)
-    const showfilterbutton = () => {
-        setShowFilter((prevValue) => !prevValue);
-    }
+
     const [random] = useStateIfMounted(Random(7));
     const [chr_list, setchr_list] = useState(Object.values(ProcessedCharacters).filter(self => jptoggledata == true ? self.JPOrder != undefined : self.GLOrder != undefined).sort((a, b) => jptoggledata == true ? b.JPOrder - a.JPOrder : b.GLOrder - a.GLOrder))
 
@@ -654,7 +651,7 @@ export default function CharacterPageSingleFormatting({
                 </DefaultTippy>
             </div>
             <div className="content">
-                <CharcterHeader
+                <CharacterHeader
                     nextevent={nextevent}
                     previousevent={previousevent}
                     Subheader={banner_loc}
@@ -733,8 +730,6 @@ export default function CharacterPageSingleFormatting({
                     pageloc={loc}
                     Access={ProcessedCharacters[selectedCharaID]}
                     direct_loc={match.params.type}
-                    showFilter={showFilter}
-                    showfilterbutton={showfilterbutton}
                 />
                 {hide_page == true ?
                     <div className='singlepageholder'>
@@ -789,7 +784,6 @@ export default function CharacterPageSingleFormatting({
                                 ProcessedCharacters={ProcessedCharacters}
 
                                 formatting={formatting}
-                                showFilter={showFilter}
                             />
                             :
                             <div className='characterpageholder'>
@@ -814,7 +808,6 @@ export default function CharacterPageSingleFormatting({
 
 
                                 formatting={formatting}
-                                showFilter={showFilter}
                             />
                             :
                             <div className='characterpageholder'>
@@ -835,7 +828,6 @@ export default function CharacterPageSingleFormatting({
                                 ProcessedCharacters={ProcessedCharacters}
 
                                 formatting={formatting}
-                                showFilter={showFilter}
                             />
                             :
                             <div className='characterpageholder'>
@@ -855,7 +847,6 @@ export default function CharacterPageSingleFormatting({
                                 ProcessedCharacters={ProcessedCharacters}
 
                                 formatting={formatting}
-                                showFilter={showFilter}
                             />
                             :
                             <div className='characterpageholder'>
@@ -876,7 +867,6 @@ export default function CharacterPageSingleFormatting({
                                 ProcessedCharacters={ProcessedCharacters}
 
                                 formatting={formatting}
-                                showFilter={showFilter}
                             />
                             :
                             <div className='characterpageholder'>
@@ -897,7 +887,6 @@ export default function CharacterPageSingleFormatting({
                                 master_index={master_index}
 
                                 formatting={formatting}
-                                showFilter={showFilter}
                             />
                             :
                             <div className='characterpageholder'>
@@ -916,7 +905,6 @@ export default function CharacterPageSingleFormatting({
                                 master_index={master_index}
 
                                 formatting={formatting}
-                                showFilter={showFilter}
                             />
                             :
                             <div className='characterpageholder'>
@@ -938,7 +926,6 @@ export default function CharacterPageSingleFormatting({
                                 master_index={master_index}
 
                                 formatting={formatting}
-                                showFilter={showFilter}
                             />
                             :
                             <div className='characterpageholder'>
@@ -955,7 +942,6 @@ export default function CharacterPageSingleFormatting({
                                 match={match}
                                 selected_chara={selected_char}
                                 jptoggledata={jptoggledata}
-                                showFilter={showFilter}
                             />
                             :
                             <div className='characterpageholder'>
@@ -976,7 +962,6 @@ export default function CharacterPageSingleFormatting({
                                 master_index={master_index}
 
                                 formatting={formatting}
-                                showFilter={showFilter}
                             />
                             :
                             <div className='characterpageholder'>
@@ -993,7 +978,6 @@ export default function CharacterPageSingleFormatting({
                                 jptoggledata={jptoggledata}
                                 ver={ver}
                                 ProcessedCharacters={ProcessedCharacters}
-                                showFilter={showFilter}
                             />
                             :
                             <div className='characterpageholder'>
