@@ -112,7 +112,7 @@ function PanelFormatting({
 
     const ArrayChest = {
         bg: "grey",
-        image: "item/ArrayChest.png",
+        image: "items/ArrayChest.png",
         item_id: 99,
         type: 0,
         item_num: 1,
