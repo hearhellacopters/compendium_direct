@@ -65,7 +65,9 @@ export default function ailment_data_handler(
     const sliders = ailment_slider_handler(
         ailment_data,
         effect_value_type_field,
-        val_edit_type_field);
+        val_edit_type_field,
+        master_index
+        );
 
     const ailment_pars = {}
 

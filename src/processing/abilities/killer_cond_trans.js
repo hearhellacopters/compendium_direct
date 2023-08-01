@@ -22,17 +22,23 @@ export default function killer_cond_trans(
         var karg_trans = karg
 
         if (killer_pull != undefined) {
-            if (value_trans == "killer_cond_1") {
-                karg_trans = killer_cond_1[karg] && killer_cond_1[karg].killer_cond_1
+
+            switch (value_trans) {
+                case "killer_cond_1":
+                    karg_trans = killer_cond_1[karg] && killer_cond_1[karg].killer_cond_1
+                    break;
+                case "afflicted_debuffed":
+                    if (karg == -1) {
+                        karg_trans = "debuffed"
+                    } else {
+                        const ailmentpull = AilmentNames[karg]
+                        karg_trans = `//${ailmentpull && ailmentpull.icon}// [${ailmentpull && ailmentpull.name}] inflicted`
+                    }
+                    break;
+                default:
+                    break;
             }
-            if (value_trans == "afflicted_debuffed") {
-                if (karg == -1) {
-                    karg_trans = "debuffed"
-                } else {
-                    const ailmentpull = AilmentNames[karg]
-                    karg_trans = `//${ailmentpull && ailmentpull.icon}// [${ailmentpull && ailmentpull.name}] inflicted`
-                }
-            }
+            
             final_str = killer_pull.replace(/\[karg\]/gm, karg_trans)
                 .replace(/\[keff\]/gm, keff)
                 .replace(/\[sarg\]/gm, sarg)

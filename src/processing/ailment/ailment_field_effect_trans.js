@@ -19,7 +19,7 @@ export default function ailment_field_effect_trans(
 ){
 
     //const EffectID = master_index.ailment_effect_id_index.effect_id
-    //const ValType = master_index.ailment_effect_id_index.val_type
+    const ValType = master_index.ailment_effect_id_index.val_type
     const ValEditType = master_index.ailment_effect_id_index.val_edit_type
     const EffectValueType = master_index.ailment_effect_id_index.effect_value_type
     const EffectTypeID = master_index.ailment_effect_id_index.effect_type_id
@@ -114,6 +114,30 @@ export default function ailment_field_effect_trans(
         hidden = EffectTypeID[effect_type_id].hidden
     }
 
+    const attached = []
+
+    if(match.attached != undefined){
+        match.attached.forEach(element => {
+            const field_data = ailment_field_effect_trans(
+                element,
+                Single,
+
+                is_buff,
+                AugValue1,
+                AugValue2,
+                max_level,
+                rank,
+                alt_rank,
+                alt_aug1,
+                alt_aug2,
+                ver,
+                base_buff,
+                master_index
+            )
+            attached.push(field_data)
+        });
+    }
+
     //target
 
     var targetstr = ""
@@ -171,64 +195,62 @@ export default function ailment_field_effect_trans(
     //require_id_1
     var requ_1_value_trans = field_require_id_1[require_id_1] && field_require_id_1[require_id_1].value_trans
 
-    if (requ_1_value_trans == "ailment_id_2_over_under") {
-        const ailmentpull = AilmentNames[require_value_2] && AilmentNames[require_value_2].name
-        if (ailmentpull != undefined) {
-            require_value_2_str = `[${ailmentpull}] #${require_value_2}`
-        }
-        require_value_str = require_value > require_value_1 ? `≥ ${require_value}` : `≤  ${require_value_1}`
-    }
-
-    if (requ_1_value_trans == "over_under_2") {
-        require_value_2_str = require_value_2 > require_value_3 ? `≥ ${require_value_2}` : `≤ ${require_value_3}`
-        require_value_3_str = ""
-    }
-
-    if (requ_1_value_trans == "cond_id_2") {
-        const cond_pull = CondData[require_value_2] && CondData[require_value_2].trans
-
-        if (cond_pull != undefined) {
-            if (ver == "GL" && CondData[require_value_2].GLtrans != undefined) {
-                require_value_2_str = CondData[require_value_2].GLtrans
-            } else {
-                require_value_2_str = cond_pull
+    switch (requ_1_value_trans) {
+        case "ailment_id_2_over_under":
+            const ailmentpull = AilmentNames[require_value_2] && AilmentNames[require_value_2].name
+            if (ailmentpull != undefined) {
+                require_value_2_str = `[${ailmentpull}] #${require_value_2}`
             }
-        } else {
-            require_value_2_str = `Cond: #${require_value_2}`
-        }
-    }
-
-    if (requ_1_value_trans == "MessageData_Category_2") {
-        const weapon_pull = MessageData_Category[require_value_2] && MessageData_Category[require_value_2].name
-        if (weapon_pull != undefined) {
-            require_value_2_str = weapon_pull
-        } else {
-            require_value_2_str = `Unknown Weapon #${require_value_2}`
-        }
-    }
-
-    if (requ_1_value_trans == "Crystal_2") {
-        const crystal = ["none", "Red", "Blue", "Green", "Yellow", "Black", "White"]
-        const crystal_pull = crystal[require_value_2]
-        if (crystal_pull != undefined) {
-            require_value_2_str = crystal_pull
-        } else {
-            require_value_2_str = `Unknown crystal #${require_value_2}`
-        }
-    }
-
-    if (requ_1_value_trans == "MessageData_FFSeries_2") {
-        const series_pull = MessageData_FFSeries[require_value_2] && MessageData_FFSeries[require_value_2].name
-        if (series_pull != undefined) {
-            require_value_2_str = series_pull
-        } else {
-            require_value_2_str = `unknown sereies #${require_value_2}`
-        }
-    }
-
-    if (requ_1_value_trans == "over_between_2") {
-        require_value_2_str = require_value_3 == 0 ? `over ${require_value_2}%` : `between ${require_value_2}% - ${require_value_3}%`
-        require_value_3_str = ""
+            require_value_str = require_value > require_value_1 ? `≥ ${require_value}` : `≤  ${require_value_1}`
+            break;
+        case "over_under_2":
+            require_value_2_str = require_value_2 > require_value_3 ? `≥ ${require_value_2}` : `≤ ${require_value_3}`
+            require_value_3_str = ""
+            break;
+        case "cond_id_2":
+            const cond_pull = CondData[require_value_2] && CondData[require_value_2].trans
+    
+            if (cond_pull != undefined) {
+                if (ver == "GL" && CondData[require_value_2].GLtrans != undefined) {
+                    require_value_2_str = CondData[require_value_2].GLtrans
+                } else {
+                    require_value_2_str = cond_pull
+                }
+            } else {
+                require_value_2_str = `Cond: #${require_value_2}`
+            }
+            break;
+        case "MessageData_Category_2":
+            const weapon_pull = MessageData_Category[require_value_2] && MessageData_Category[require_value_2].name
+            if (weapon_pull != undefined) {
+                require_value_2_str = weapon_pull
+            } else {
+                require_value_2_str = `Unknown Weapon #${require_value_2}`
+            }
+            break;
+        case "Crystal_2":
+            const crystal = ["none", "Red", "Blue", "Green", "Yellow", "Black", "White"]
+            const crystal_pull = crystal[require_value_2]
+            if (crystal_pull != undefined) {
+                require_value_2_str = crystal_pull
+            } else {
+                require_value_2_str = `Unknown crystal #${require_value_2}`
+            }
+            break;
+        case "MessageData_FFSeries_2":
+            const series_pull = MessageData_FFSeries[require_value_2] && MessageData_FFSeries[require_value_2].name
+            if (series_pull != undefined) {
+                require_value_2_str = series_pull
+            } else {
+                require_value_2_str = `unknown sereies #${require_value_2}`
+            }
+            break;
+        case "over_between_2":
+            require_value_2_str = require_value_3 == 0 ? `over ${require_value_2}%` : `between ${require_value_2}% - ${require_value_3}%`
+            require_value_3_str = ""
+            break;
+        default:
+            break;
     }
 
     require_id_1str = require_id_1str && require_id_1str
@@ -239,9 +261,6 @@ export default function ailment_field_effect_trans(
         .replace(/\[require_value_4\]/gm, require_value_4_str)
         .replace(/\[require_value_5\]/gm, require_value_5_str)
 
-    //require_id_2
-    var requ_2_value_trans = field_require_id_2[require_id_2] && field_require_id_2[require_id_2].value_trans
-
     var require_value_str_1 = require_value
     var require_value_1_str_1 = require_value_1
     var require_value_2_str_1 = require_value_2
@@ -249,55 +268,57 @@ export default function ailment_field_effect_trans(
     var require_value_4_str_1 = require_value_4
     var require_value_5_str_1 = require_value_5
 
-    if (requ_2_value_trans == "over_under_3") {
-        require_value_4_str_1 = require_value_4 > require_value_5 ? `≥ ${require_value_4}` : `≤ ${require_value_5}`
-        require_value_5_str_1 = ""
-    }
+    //require_id_2
+    var requ_2_value_trans = field_require_id_2[require_id_2] && field_require_id_2[require_id_2].value_trans
 
-    if (requ_2_value_trans == "cond_id_4") {
-        const cond_pull_4 = CondData[require_value_4] && CondData[require_value_4].trans
-        if (cond_pull_4 != undefined) {
-            if (ver == "GL" && CondData[require_value_4].GLtrans != undefined) {
-                require_value_4_str_1 = CondData[require_value_4].GLtrans
+    switch (requ_2_value_trans) {
+        case "over_under_3":
+            require_value_4_str_1 = require_value_4 > require_value_5 ? `≥ ${require_value_4}` : `≤ ${require_value_5}`
+            require_value_5_str_1 = ""
+            break;
+        case "cond_id_4":
+            const cond_pull_4 = CondData[require_value_4] && CondData[require_value_4].trans
+            if (cond_pull_4 != undefined) {
+                if (ver == "GL" && CondData[require_value_4].GLtrans != undefined) {
+                    require_value_4_str_1 = CondData[require_value_4].GLtrans
+                } else {
+                    require_value_4_str_1 = cond_pull_4
+                }
             } else {
-                require_value_4_str_1 = cond_pull_4
+                require_value_4_str_1 = `Cond: #${require_value_4}`
             }
-        } else {
-            require_value_4_str_1 = `Cond: #${require_value_4}`
-        }
-    }
-
-    if (requ_2_value_trans == "MessageData_Category_4") {
-        const weapon_pull_4 = MessageData_Category[require_value_4] && MessageData_Category[require_value_4].name
-        if (weapon_pull_4 != undefined) {
-            require_value_4_str_1 = weapon_pull_4
-        } else {
-            require_value_4_str_1 = `Unknown Weapon #${require_value_4}`
-        }
-    }
-
-    if (requ_2_value_trans == "Crystal_4") {
-        const crystal_4 = ["none", "Red", "Blue", "Green", "Yellow", "Black", "White"]
-        const crystal_pull_4 = crystal_4[require_value_4]
-        if (crystal_pull_4 != undefined) {
-            require_value_4_str_1 = crystal_pull_4
-        } else {
-            require_value_4_str_1 = `Unknown crystal #${require_value_4}`
-        }
-    }
-
-    if (requ_2_value_trans == "MessageData_FFSeries_4") {
-        const series_pull_4 = MessageData_FFSeries[require_value_4] && MessageData_FFSeries[require_value_4].name
-        if (series_pull_4 != undefined) {
-            require_value_4_str_1 = series_pull_4
-        } else {
-            require_value_4_str_1 = `unknown sereies #${require_value_2}`
-        }
-    }
-
-    if (requ_2_value_trans == "over_between_4") {
-        require_value_4_str_1 = require_value_5 == 0 ? `over ${require_value_4}%` : `between ${require_value_4}% - ${require_value_5}%`
-        require_value_5_str_1 = ""
+            break;
+        case "MessageData_Category_4":
+            const weapon_pull_4 = MessageData_Category[require_value_4] && MessageData_Category[require_value_4].name
+            if (weapon_pull_4 != undefined) {
+                require_value_4_str_1 = weapon_pull_4
+            } else {
+                require_value_4_str_1 = `Unknown Weapon #${require_value_4}`
+            }
+            break;
+        case "Crystal_4":
+            const crystal_4 = ["none", "Red", "Blue", "Green", "Yellow", "Black", "White"]
+            const crystal_pull_4 = crystal_4[require_value_4]
+            if (crystal_pull_4 != undefined) {
+                require_value_4_str_1 = crystal_pull_4
+            } else {
+                require_value_4_str_1 = `Unknown crystal #${require_value_4}`
+            }
+            break;
+        case "MessageData_FFSeries_4":
+            const series_pull_4 = MessageData_FFSeries[require_value_4] && MessageData_FFSeries[require_value_4].name
+            if (series_pull_4 != undefined) {
+                require_value_4_str_1 = series_pull_4
+            } else {
+                require_value_4_str_1 = `unknown sereies #${require_value_2}`
+            }
+            break;
+        case "over_between_4":
+            require_value_4_str_1 = require_value_5 == 0 ? `over ${require_value_4}%` : `between ${require_value_4}% - ${require_value_5}%`
+            require_value_5_str_1 = ""
+            break;
+        default:
+            break;
     }
 
     require_id_2str = require_id_2str && require_id_2str
@@ -404,78 +425,24 @@ export default function ailment_field_effect_trans(
 
     //others
 
-    var slidertype = "ranks"
-    var multiply = false
-    var multiplyslider = undefined
+    var slidertype = EffectValueType[effect_value_type] && EffectValueType[effect_value_type].slidertype || "ranks"
+    var multiply = ValEditType[val_edit_type] && ValEditType[val_edit_type].multiplyslider != undefined ? true : false || false
+    var multiplyslider = ValEditType[val_edit_type] && ValEditType[val_edit_type].multiplyslider || undefined
     var defaultrank = rank != undefined ? rank < 1 ? 1 : rank : 1
 
-    if (effect_value_type == 2) {
-        slidertype = "levels"
-        defaultrank = AugValue1 != undefined ? AugValue1 : 1
-    }
-    if (effect_value_type == 3) {
-        slidertype = "ranks"
-        defaultrank = rank != undefined ? rank < 1 ? 1 : rank : 1
-    }
-    if (effect_value_type == 6) {
-        slidertype = "fieldbuffsrank"
-    }
-    if (effect_value_type == 8) {
-        slidertype = "groupstacks"
-    }
-    if (effect_value_type == 10) {
-        slidertype = "currenthp"
-    }
-    if (effect_value_type == 11) {
-        slidertype = "charactersleft"
-    }
-    if (effect_value_type == 15) {
-        slidertype = "characterskb"
-    }
-    if (effect_value_type == 17) {
-        slidertype = "debuffsrank2"
-    }
-    if (base_buff && base_buff.effect_id_4 == 60 && base_buff && base_buff.val_type_4 != 0) {
-        if (base_buff.val_type_4 == 3) {
-            slidertype = "levels"
-        }
-        if (base_buff.val_type_4 == 4) {
-            slidertype = "levels"
-        }
-        if (base_buff.val_type_4 == 7) {
-            slidertype = "debuffsrank"
-        }
-        if (base_buff.val_type_4 == 10) {
-            slidertype = "turns"
-        }
-        if (base_buff.val_type_4 == 11) {
-            slidertype = "debuffsrank"
-        }
-        if (base_buff.val_type_4 == 14) {
-            slidertype = "stacks"
-        }
-        if (base_buff.val_type_4 == 16) {
-            slidertype = "stacks"
-        }
-        if (base_buff.val_type_4 == 18) {
-            slidertype = "debuffsrank"
-        }
-        if (base_buff.val_type_4 == 20) {
-            slidertype = "enemies"
-        }
+    switch (effect_value_type) {
+        case 2:
+            defaultrank = AugValue1 != undefined ? AugValue1 : 1
+            break;
+        case 3:
+            defaultrank = rank != undefined ? rank < 1 ? 1 : rank : 1
+            break;
+        default:
+            break;
     }
 
-    if (val_edit_type == 16) {
-        multiply = true
-        multiplyslider = "debuffsmuliply"
-    }
-    if (val_edit_type == 19) {
-        multiply = true
-        multiplyslider = "buffsmuliply"
-    }
-    if (val_edit_type == 25) {
-        multiply = true
-        multiplyslider = "debuffsmuliply"
+    if (base_buff && base_buff.effect_id_4 == 60 && base_buff && base_buff.val_type_4 != 0) {
+        slidertype = ValType[base_buff.val_type_4] && ValType[base_buff.val_type_4].slidertype
     }
 
     //make values
@@ -605,6 +572,7 @@ export default function ailment_field_effect_trans(
         multiply: multiply,
         multiplyslider: multiplyslider,
         defaultrank: defaultrank,
+        attached: attached,
         hidden: hidden
     }
 
@@ -848,6 +816,7 @@ export default function ailment_field_effect_trans(
                 multiply: multiply,
                 multiplyslider: multiplyslider,
                 defaultrank: defaultrank,
+                attached: attached,
                 hidden: hidden
             }
         } else {
@@ -873,6 +842,7 @@ export default function ailment_field_effect_trans(
                 multiply: multiply,
                 multiplyslider: multiplyslider,
                 defaultrank: defaultrank,
+                attached: attached,
                 hidden: hidden
             }
         }
@@ -913,6 +883,7 @@ export default function ailment_field_effect_trans(
                 stack_flag: stack_flagstr,
                 defaultrank: defaultrank,
                 effectstr: effectstrpull,
+                attached: attached,
                 hidden: geteffect.hidden == undefined ? hidden : geteffect.hidden
             })
     }

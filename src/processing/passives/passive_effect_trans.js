@@ -70,352 +70,338 @@ export default function passive_effect_trans(
 
     //value trans
 
+    var BRV_CAP;
+
     const value_trans = effect_pull && effect_pull.value_trans
 
-    if (value_trans == "command_id_1") {
-        if (effect_value1 == -1) {
-            effect_value1 = " any ability"
-        }
-        if (CommandNames[effect_value1] != undefined) {
-            effect_value1 = `[${CommandNames[effect_value1].name}]: #${effect_value1}`
-        }
-    }
-
-    if (value_trans == "command_id_2") {
-        if (effect_value2 == -1) {
-            effect_value2 = "any ability"
-        }
-        if (CommandNames[effect_value2] != undefined) {
-            effect_value2 = `[${CommandNames[effect_value2].name}]: #${effect_value2}`
-        }
-    }
-    if(value_trans == "ability_type_mod"){
-        if (effect_value2 < 0) {
-            effect_str = effect_pull.deffect_str
-            effect_value2 = Math.abs(effect_value2)
-        }
-        if (ability_type[effect_value1] && ability_type[effect_value1].ability_type != undefined) {
-            effect_value1 = ability_type[effect_value1].ability_type
-        }
-    }
-    if (value_trans == "cast_id_1") {
-        if (CastNames[effect_value1] != undefined) {
-            effect_value1 = `//${CastNames[effect_value1].icon}// [${CastNames[effect_value1].name}] #${CastNames[effect_value1].id}`
-        }
-        if(effect_value2 < 1){
-            effect_value2 = ""
-        } else {
-            effect_value2 = ` for ${effect_value2} turns${effect_value2!=1?"s":""}`
-        }
-    }
-    if (value_trans == "cast_id_2") {
-        if (CastNames[effect_value2] != undefined) {
-            effect_value2 = `//${CastNames[effect_value2].icon}// [${CastNames[effect_value2].name}] #${CastNames[effect_value2].id}`
-        }
-        const test = effect_value3
-        if (test != 1) {
-            effect_value3 = ` for ${effect_value3} turns`
-        } else {
-            effect_value3 = ` for ${effect_value3} turn`
-        }
-        if (test == -1) {
-            effect_value3 = ""
-        }
-    }
-    if (value_trans == "cast_id_2_chance") {
-        if (effect_value1 != 100) {
-            effect_value1 = `${effect_value1}% chance to `
-        }
-        if (effect_value2 == -1) {
-            effect_value2 = " any ability"
-        }
-        if (effect_value1 == 100) {
-            effect_value1 = ""
-        }
-        if (CastNames[effect_value2] != undefined) {
-            effect_value2 = `//${CastNames[effect_value2].icon}// [${CastNames[effect_value2].name}] #${CastNames[effect_value2].id}`
-        }
-        const test = effect_value3
-        if (test != 1) {
-            effect_value3 = ` for ${effect_value3} turns`
-        } else {
-            effect_value3 = ` for ${effect_value3} turn`
-        }
-        if (test == -1) {
-            effect_value3 = ""
-        }
-    }
-
-    if (value_trans == "command_id_2_chance") {
-        if (effect_value1 != 100) {
-            effect_value1 = ` a ${effect_value1}% chance to`
-        }
-        if (effect_value1 == 100) {
-            effect_value1 = ""
-        }
-        if (effect_value2 == -1) {
-            effect_value2 = "any ability"
-        }
-        if (CommandNames[effect_value2] != undefined) {
-            effect_value2 = `[${CommandNames[effect_value2].name}] #${effect_value2}`
-        }
-    }
-
-    if (value_trans == "no_0_values") {
-        if (effect_value1 == 0) {
-            effect_str = effect_str.replace(/Adds \[target\] BRV Damage Up by \[value1\]%\n/gm, "")
-        }
-        if (effect_value2 == 0) {
-            effect_str = effect_str.replace(/\nAdds \[target\] HP Damage Up by \[value1\]%/gm, "")
-        }
-    }
-
-    if (value_trans == "int_max") {
-        if (effect_value2 >= 1) {
-            effect_value2 = "INT BRV"
-        }
-        if (effect_value2 == 0) {
-            effect_value2 = "MAX BRV"
-        }
-    }
-
-    if (value_trans == "int_max_2") {
-        if (effect_value2 == 0) {
-            effect_value2 = "INT BRV"
-        }
-        if (effect_value2 >= 1) {
-            effect_value2 = "MAX BRV"
-        }
-    }
-
-    if (value_trans == "brv_damage_cap_per") {
-        const BRV_CAP = Math.round(effect_value1 * 100)
-        effect_str = effect_str.replace(/\[BRV_CAP\]/gm, BRV_CAP.toLocaleString("en-US"))
-    }
-    if (value_trans == "max_brv_cap_per") {
-        const BRV_CAP = Math.round(effect_value1 * 1000)
-        effect_str = effect_str.replace(/\[MAX_CAP\]/gm, BRV_CAP.toLocaleString("en-US"))
-    }
-
-    if (value_trans == "elementid_1") {
-        if (elementid_1[effect_value1] != undefined) {
-            effect_value1 = elementid_1[effect_value1].elementid_1
-        }
-    }
-
-    if (value_trans == "incremental") {
-        if (effect__1 == undefined) {
-            effect_value2 = (effect_value2 + 1)
-        } else {
-            effect_value1 = (effect_value1 * 2)
-            effect_value2 = (effect_value2 + 1) / 2
-        }
-    }
-
-    if (value_trans == "attack_type") {
-        if (attack_type[effect_value1] != undefined) {
-            effect_value1 = attack_type[effect_value1].attack_type
-        }
-    }
-
-    if (value_trans == "passive_grant") {
-        if (passivenames[effect_value1] != undefined) {
-            if (effect_value1 != -1) {
-                if (passivenames[effect_value1].name != undefined) {
-                    effect_value1 = `[${passivenames[effect_value1].name}] #${effect_value1}`
-                } else {
-                    effect_value1 = `[#${effect_value1}]`
-                }
-            } else {
-                effect_value1 = ""
+    switch (value_trans) {
+        case "command_id_1":
+            if (effect_value1 == -1) {
+                effect_value1 = " any ability"
             }
-            if (effect_value2 != -1) {
-                if (passivenames[effect_value2] && passivenames[effect_value2].name != undefined) {
-                    effect_value2 = `, [${passivenames[effect_value2].name}] #${effect_value2}`
-                } else {
-                    effect_value2 = `, [#${effect_value2}]`
-                }
-            } else {
+            if (CommandNames[effect_value1] != undefined) {
+                effect_value1 = `[${CommandNames[effect_value1].name}]: #${effect_value1}`
+            }
+            break;
+        case "command_id_2":
+            if (effect_value2 == -1) {
+                effect_value2 = "any ability"
+            }
+            if (CommandNames[effect_value2] != undefined) {
+                effect_value2 = `[${CommandNames[effect_value2].name}]: #${effect_value2}`
+            }
+            break;
+        case "ability_type_mod":
+            if (effect_value2 < 0) {
+                effect_str = effect_pull.deffect_str
+                effect_value2 = Math.abs(effect_value2)
+            }
+            if (ability_type[effect_value1] && ability_type[effect_value1].ability_type != undefined) {
+                effect_value1 = ability_type[effect_value1].ability_type
+            }
+            break;
+        case "cast_id_1":
+            if (CastNames[effect_value1] != undefined) {
+                effect_value1 = `//${CastNames[effect_value1].icon}// [${CastNames[effect_value1].name}] #${CastNames[effect_value1].id}`
+            }
+            if(effect_value2 < 1){
                 effect_value2 = ""
-            }
-            if (effect_value3 != -1) {
-                if (passivenames[effect_value3] && passivenames[effect_value3].name != undefined) {
-                    effect_value3 = `, [${passivenames[effect_value3].name}] #${effect_value3}`
-                } else {
-                    effect_value3 = `, [#${effect_value3}]`
-                }
             } else {
+                effect_value2 = ` for ${effect_value2} turns${effect_value2!=1?"s":""}`
+            }
+            break;
+        case "cast_id_2":
+            if (CastNames[effect_value2] != undefined) {
+                effect_value2 = `//${CastNames[effect_value2].icon}// [${CastNames[effect_value2].name}] #${CastNames[effect_value2].id}`
+            }
+            const test = effect_value3
+            if (test != 1) {
+                effect_value3 = ` for ${effect_value3} turns`
+            } else {
+                effect_value3 = ` for ${effect_value3} turn`
+            }
+            if (test == -1) {
                 effect_value3 = ""
             }
-        }
-    }
-
-    if (value_trans == "equipment_passive_grant") {
-        if (equipmentpassivenames[effect_value1] != undefined) {
-            if (effect_value1 != -1) {
-                if (equipmentpassivenames[effect_value1].name != undefined) {
-                    effect_value1 = `[${equipmentpassivenames[effect_value1].name}] #${effect_value1}`
-                } else {
-                    effect_value1 = `[#${effect_value1}]`
-                }
-            } else {
+            break;
+        case "cast_id_2_chance":
+            if (effect_value1 != 100) {
+                effect_value1 = `${effect_value1}% chance to `
+            }
+            if (effect_value2 == -1) {
+                effect_value2 = " any ability"
+            }
+            if (effect_value1 == 100) {
                 effect_value1 = ""
             }
-            if (effect_value2 != -1) {
-                if (equipmentpassivenames[effect_value2] && equipmentpassivenames[effect_value2].name != undefined) {
-                    effect_value2 = `, [${equipmentpassivenames[effect_value2].name}] #${effect_value2}`
-                } else {
-                    effect_value2 = `, [#${effect_value2}]`
-                }
-            } else {
-                effect_value2 = ""
+            if (CastNames[effect_value2] != undefined) {
+                effect_value2 = `//${CastNames[effect_value2].icon}// [${CastNames[effect_value2].name}] #${CastNames[effect_value2].id}`
             }
-            if (effect_value3 != -1) {
-                if (equipmentpassivenames[effect_value3] && equipmentpassivenames[effect_value3].name != undefined) {
-                    effect_value3 = `, [${equipmentpassivenames[effect_value3].name}] #${effect_value3}`
-                } else {
-                    effect_value3 = `, [#${effect_value3}]`
-                }
+            const test1 = effect_value3
+            if (test1 != 1) {
+                effect_value3 = ` for ${effect_value3} turns`
             } else {
+                effect_value3 = ` for ${effect_value3} turn`
+            }
+            if (test1 == -1) {
                 effect_value3 = ""
             }
-        }
+            break;
+        case "command_id_2_chance":
+            if (effect_value1 != 100) {
+                effect_value1 = ` a ${effect_value1}% chance to`
+            }
+            if (effect_value1 == 100) {
+                effect_value1 = ""
+            }
+            if (effect_value2 == -1) {
+                effect_value2 = "any ability"
+            }
+            if (CommandNames[effect_value2] != undefined) {
+                effect_value2 = `[${CommandNames[effect_value2].name}] #${effect_value2}`
+            }
+            break;
+        case "no_0_values":
+            if (effect_value1 == 0) {
+                effect_str = effect_str.replace(/Adds \[target\] BRV Damage Up by \[value1\]%\n/gm, "")
+            }
+            if (effect_value2 == 0) {
+                effect_str = effect_str.replace(/\nAdds \[target\] HP Damage Up by \[value1\]%/gm, "")
+            }
+            break;
+        case "int_max":
+            if (effect_value2 >= 1) {
+                effect_value2 = "INT BRV"
+            }
+            if (effect_value2 == 0) {
+                effect_value2 = "MAX BRV"
+            }
+            break;
+        case "int_max_2":
+            if (effect_value2 == 0) {
+                effect_value2 = "INT BRV"
+            }
+            if (effect_value2 >= 1) {
+                effect_value2 = "MAX BRV"
+            }
+            break;
+        case "brv_damage_cap_per":
+            BRV_CAP = Math.round(effect_value1 * 100)
+            effect_str = effect_str.replace(/\[BRV_CAP\]/gm, BRV_CAP.toLocaleString("en-US"))
+            break;
+        case "max_brv_cap_per":
+            BRV_CAP = Math.round(effect_value1 * 1000)
+            effect_str = effect_str.replace(/\[MAX_CAP\]/gm, BRV_CAP.toLocaleString("en-US"))
+            break;
+        case "elementid_1":
+            if (elementid_1[effect_value1] != undefined) {
+                effect_value1 = elementid_1[effect_value1].elementid_1
+            }
+            break;
+        case "incremental":
+            if (effect__1 == undefined) {
+                effect_value2 = (effect_value2 + 1)
+            } else {
+                effect_value1 = (effect_value1 * 2)
+                effect_value2 = (effect_value2 + 1) / 2
+            }
+            break;
+        case "attack_type":
+            if (attack_type[effect_value1] != undefined) {
+                effect_value1 = attack_type[effect_value1].attack_type
+            }
+            break;
+        case "passive_grant":
+            if (passivenames[effect_value1] != undefined) {
+                if (effect_value1 != -1) {
+                    if (passivenames[effect_value1].name != undefined) {
+                        effect_value1 = `[${passivenames[effect_value1].name}] #${effect_value1}`
+                    } else {
+                        effect_value1 = `[#${effect_value1}]`
+                    }
+                } else {
+                    effect_value1 = ""
+                }
+                if (effect_value2 != -1) {
+                    if (passivenames[effect_value2] && passivenames[effect_value2].name != undefined) {
+                        effect_value2 = `, [${passivenames[effect_value2].name}] #${effect_value2}`
+                    } else {
+                        effect_value2 = `, [#${effect_value2}]`
+                    }
+                } else {
+                    effect_value2 = ""
+                }
+                if (effect_value3 != -1) {
+                    if (passivenames[effect_value3] && passivenames[effect_value3].name != undefined) {
+                        effect_value3 = `, [${passivenames[effect_value3].name}] #${effect_value3}`
+                    } else {
+                        effect_value3 = `, [#${effect_value3}]`
+                    }
+                } else {
+                    effect_value3 = ""
+                }
+            }
+            break;
+        case "equipment_passive_grant":
+            if (equipmentpassivenames[effect_value1] != undefined) {
+                if (effect_value1 != -1) {
+                    if (equipmentpassivenames[effect_value1].name != undefined) {
+                        effect_value1 = `[${equipmentpassivenames[effect_value1].name}] #${effect_value1}`
+                    } else {
+                        effect_value1 = `[#${effect_value1}]`
+                    }
+                } else {
+                    effect_value1 = ""
+                }
+                if (effect_value2 != -1) {
+                    if (equipmentpassivenames[effect_value2] && equipmentpassivenames[effect_value2].name != undefined) {
+                        effect_value2 = `, [${equipmentpassivenames[effect_value2].name}] #${effect_value2}`
+                    } else {
+                        effect_value2 = `, [#${effect_value2}]`
+                    }
+                } else {
+                    effect_value2 = ""
+                }
+                if (effect_value3 != -1) {
+                    if (equipmentpassivenames[effect_value3] && equipmentpassivenames[effect_value3].name != undefined) {
+                        effect_value3 = `, [${equipmentpassivenames[effect_value3].name}] #${effect_value3}`
+                    } else {
+                        effect_value3 = `, [#${effect_value3}]`
+                    }
+                } else {
+                    effect_value3 = ""
+                }
+            }
+            break;
+        case "enemy_type":
+            if (enemy_type[effect_value1] != undefined) {
+                effect_value1 = enemy_type[effect_value1].translation
+            }
+            break;
+        case "split_by_3":
+            var value1_1 = ailment_val_edit_type_handler(2, effect_value1)
+            if (value1_1 == 0) {
+                effect_str = effect_str
+                    .replace(/Adds \[target\] ATK Up.*\n/gm, "")
+            }
+            var value1_2 = ailment_val_edit_type_handler(3, effect_value1)
+            if (value1_2 == 0) {
+                effect_str = effect_str
+                    .replace(/Adds \[target\] DEF Up.*\n/gm, "")
+            }
+            var value1_3 = ailment_val_edit_type_handler(4, effect_value1)
+            if (value1_3 == 0) {
+                effect_str = effect_str
+                    .replace(/Adds \[target\] SPD Up.*\n/gm, "")
+            }
+            var value2_2 = ailment_val_edit_type_handler(3, effect_value2)
+            if (value2_2 == 0) {
+                effect_str = effect_str
+                    .replace(/Adds \[target\] INT BRV Up.*\n/gm, "")
+            }
+            var value2_3 = ailment_val_edit_type_handler(4, effect_value2)
+            if (value2_3 == 0) {
+                effect_str = effect_str
+                    .replace(/Adds \[target\] MAX BRV Up.*\n/gm, "")
+            }
+            var newstr = effect_str
+                .replace(/\[value1_1\]/gm, value1_1)
+                .replace(/\[value1_2\]/gm, value1_2)
+                .replace(/\[value1_3\]/gm, value1_3)
+                .replace(/\[value2_2\]/gm, value2_2)
+                .replace(/\[value2_3\]/gm, value2_3)
+                .replace(/\[target\]/gm, effect_target_str)
+            if (effect_pull && effect_pull.target_trans == "no_self") {
+                newstr = newstr.replace(/Self /gm, "")
+            }
+            effect_str = newstr
+            break;
+        case "ailment_id_1s":
+            const ailment_pull = AilmentNames[effect_value1]
+            if (effect_value1 != -1 && ailment_pull == undefined) {
+                effect_value1 = `[${effect_value1}] #${effect_value1}`
+            }
+            if (ailment_pull != undefined) {
+                effect_value1 = `//${AilmentNames[effect_value1].icon}// [${AilmentNames[effect_value1].name}] #${effect_value1}`
+            }
+            if (effect_value1 == -1) {
+                effect_value1 = "any"
+            }
+            break;
+        case "ailment_id_1":
+            if (AilmentNames[effect_value1] != undefined) {
+                effect_value1 = `//${AilmentNames[effect_value1].icon}// [${AilmentNames[effect_value1].name}] #${effect_value1}`
+            } else {
+                effect_value1 = `[${effect_value1}] #${effect_value1}`
+            }
+            if (effect_value1 == -1) {
+                effect_value1 = "any"
+            }
+            break;
+        case "ailment_id_2":
+            if (AilmentNames[effect_value2] != undefined) {
+                effect_value2 = `//${AilmentNames[effect_value2].icon}// [${AilmentNames[effect_value2].name}] #${effect_value2}`
+            } else {
+                effect_value2 = `[${effect_value2}] #${effect_value2}`
+            }
+            if (effect_value2 == -1) {
+                effect_value2 = "any"
+            }
+            break;
+        case "ailment_effect_boost":
+            if (AilmentNames[effect_value1] != undefined) {
+                effect_value1 = `//${AilmentNames[effect_value1].icon}// [${AilmentNames[effect_value1].name}] #${effect_value1}`
+            } else {
+                effect_value1 = `[${effect_value1}] #${effect_value1}`
+            }
+            var newval2 = effect_value2 - 1
+            if (newval2 == -1) {
+                effect_value2 = "all"
+                effect_str += "s"
+            } else {
+                effect_value2 = ordinal(effect_value2)
+            }
+            break;
+        case "ailment_group_effect_boost":
+            if (ailment_group[effect_value1] != undefined) {
+                effect_value1 = ailment_group[effect_value1].unique
+            } else {
+                effect_value1 = `ailment group #${effect_value1}`
+            }
+            var newval3 = effect_value2 - 1
+            if (newval3 == -1) {
+                effect_value2 = "all"
+                effect_str += "s"
+            } else {
+                effect_value2 = ordinal(effect_value2)
+            }
+            break;
+        case "by_10":
+            const newval = effect_value1 / 10
+            effect_value1 = newval
+            break;
+        case "no_turns2":
+            if (effect_value2 != 0) {
+                effect_str += "s"
+            }
+            if (effect_value2 == -1) {
+                effect_str = effect_str
+                    .replace(/ for \[value2\] turns/gm, "")
+            }
+            break;
+        case "no_turns1":
+            if (effect_value1 != 1) {
+                effect_str += "s"
+            }
+            if (effect_value1 == -1) {
+                effect_str = effect_str
+                    .replace(/ by \[value1\] turns/gm, "")
+            }
+            break;
+        default:
+            break;
     }
-
-    if (value_trans == "enemy_type") {
-        if (enemy_type[effect_value1] != undefined) {
-            effect_value1 = enemy_type[effect_value1].translation
-        }
-    }
-
-    if (value_trans == "split_by_3") {
-        var value1_1 = ailment_val_edit_type_handler(2, effect_value1)
-        if (value1_1 == 0) {
-            effect_str = effect_str
-                .replace(/Adds \[target\] ATK Up.*\n/gm, "")
-        }
-        var value1_2 = ailment_val_edit_type_handler(3, effect_value1)
-        if (value1_2 == 0) {
-            effect_str = effect_str
-                .replace(/Adds \[target\] DEF Up.*\n/gm, "")
-        }
-        var value1_3 = ailment_val_edit_type_handler(4, effect_value1)
-        if (value1_3 == 0) {
-            effect_str = effect_str
-                .replace(/Adds \[target\] SPD Up.*\n/gm, "")
-        }
-        var value2_2 = ailment_val_edit_type_handler(3, effect_value2)
-        if (value2_2 == 0) {
-            effect_str = effect_str
-                .replace(/Adds \[target\] INT BRV Up.*\n/gm, "")
-        }
-        var value2_3 = ailment_val_edit_type_handler(4, effect_value2)
-        if (value2_3 == 0) {
-            effect_str = effect_str
-                .replace(/Adds \[target\] MAX BRV Up.*\n/gm, "")
-        }
-        var newstr = effect_str
-            .replace(/\[value1_1\]/gm, value1_1)
-            .replace(/\[value1_2\]/gm, value1_2)
-            .replace(/\[value1_3\]/gm, value1_3)
-            .replace(/\[value2_2\]/gm, value2_2)
-            .replace(/\[value2_3\]/gm, value2_3)
-            .replace(/\[target\]/gm, effect_target_str)
-        if (effect_pull && effect_pull.target_trans == "no_self") {
-            newstr = newstr.replace(/Self /gm, "")
-        }
-        effect_str = newstr
-    }
-
-    if (value_trans == "ailment_id_1s") {
-        const ailment_pull = AilmentNames[effect_value1]
-        if (effect_value1 != -1 && ailment_pull == undefined) {
-            effect_value1 = `[${effect_value1}] #${effect_value1}`
-        }
-        if (ailment_pull != undefined) {
-            effect_value1 = `//${AilmentNames[effect_value1].icon}// [${AilmentNames[effect_value1].name}] #${effect_value1}`
-        }
-        if (effect_value1 == -1) {
-            effect_value1 = "any"
-        }
-    }
-
-    if (value_trans == "ailment_id_1") {
-        if (AilmentNames[effect_value1] != undefined) {
-            effect_value1 = `//${AilmentNames[effect_value1].icon}// [${AilmentNames[effect_value1].name}] #${effect_value1}`
-        } else {
-            effect_value1 = `[${effect_value1}] #${effect_value1}`
-        }
-        if (effect_value1 == -1) {
-            effect_value1 = "any"
-        }
-    }
-
-    if (value_trans == "ailment_id_2") {
-        if (AilmentNames[effect_value2] != undefined) {
-            effect_value2 = `//${AilmentNames[effect_value2].icon}// [${AilmentNames[effect_value2].name}] #${effect_value2}`
-        } else {
-            effect_value2 = `[${effect_value2}] #${effect_value2}`
-        }
-        if (effect_value2 == -1) {
-            effect_value2 = "any"
-        }
-    }
-
-    if (value_trans == "ailment_effect_boost") {
-        if (AilmentNames[effect_value1] != undefined) {
-            effect_value1 = `//${AilmentNames[effect_value1].icon}// [${AilmentNames[effect_value1].name}] #${effect_value1}`
-        } else {
-            effect_value1 = `[${effect_value1}] #${effect_value1}`
-        }
-        var newval2 = effect_value2 - 1
-        if (newval2 == -1) {
-            effect_value2 = "all"
-            effect_str += "s"
-        } else {
-            effect_value2 = ordinal(effect_value2)
-        }
-    }
-
-    if (value_trans == "ailment_group_effect_boost") {
-        if (ailment_group[effect_value1] != undefined) {
-            effect_value1 = ailment_group[effect_value1].unique
-        } else {
-            effect_value1 = `ailment group #${effect_value1}`
-        }
-        var newval3 = effect_value2 - 1
-        if (newval3 == -1) {
-            effect_value2 = "all"
-            effect_str += "s"
-        } else {
-            effect_value2 = ordinal(effect_value2)
-        }
-    }
-    if (value_trans == "by_10") {
-        const newval = effect_value1 / 10
-        effect_value1 = newval
-    }
-
-    if (value_trans == "no_turns2") {
-        if (effect_value2 != 0) {
-            effect_str += "s"
-        }
-        if (effect_value2 == -1) {
-            effect_str = effect_str
-                .replace(/ for \[value2\] turns/gm, "")
-        }
-    }
-
-    if (value_trans == "no_turns1") {
-        if (effect_value1 != 1) {
-            effect_str += "s"
-        }
-        if (effect_value1 == -1) {
-            effect_str = effect_str
-                .replace(/ by \[value1\] turns/gm, "")
-        }
-    }
-
+    
     //ending
     var final_str = effect_str
         .replace(/\[value1\]/gm, effect_value1)

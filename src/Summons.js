@@ -179,8 +179,8 @@ export default function Summons({
                   </Tippy>
                 </Link>
                 <Link to={`/bonuses/crystal/passives`}>
-                  <Tippy content={"Crystal Brilliance"}>
-                    <li alt="Crystal Brilliance" onClick={mogbutton} className={`${locator == "Crystal" ? "gemactive" : "geminactive"} all_nodes summonsgemshadow`} ></li>
+                  <Tippy content={"Crystal Room"}>
+                    <li alt="Crystal Room" onClick={mogbutton} className={`${locator == "Crystal" ? "gemactive" : "geminactive"} all_nodes summonsgemshadow`} ></li>
                   </Tippy>
                 </Link>
               </ul>

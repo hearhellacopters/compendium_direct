@@ -47,403 +47,384 @@ export default function options_label_pars(
     var final_str = ""
 
     if (label1_pull != undefined) {
+
         final_str = label1_pull.label_str
 
-        if (value_trans == "element_id") {
-            if (elementid_1[valueA] != undefined) {
-                valueA_str = elementid_1[valueA].elementid_1
-            }
-        }
-
-
-        if (value_trans == "ailment_idA_debuffed") {
-            if (valueA == -1) {
+        switch (value_trans) {
+            case "element_id":
+                if (elementid_1[valueA] != undefined) {
+                    valueA_str = elementid_1[valueA].elementid_1
+                }
+                break;
+            case "ailment_idA_debuffed":
+                if (valueA == -1) {
+                    if (valueB == 1) {
+                        valueB_str = ""
+                        valueA_str = "debuffed"
+                    }
+                    if (valueB != 1) {
+                        valueB_str = "not "
+                        valueA_str = "debuffed"
+                    }
+                } else {
+                    var ailmentpull = AilmentNames[valueA] ||{}
+                    if (ailmentpull != undefined) {
+                        if (valueB == 1) {
+                            valueB_str = ""
+                        }
+                        if (valueB != 1) {
+                            valueB_str = "not "
+                        }
+                        valueA_str = `debuffed with //${ailmentpull.icon}// [${ailmentpull.name}] #${valueA}`
+    
+                    } else {
+                        if (valueB == 1) {
+                            valueB_str = ""
+                        }
+                        if (valueB != 1) {
+                            valueB_str = "not "
+                        }
+                        ailmentpull = `debuffed with //${ailmentpull.icon}// [${valueA}] #${valueA}`
+                    }
+                }
+                break;
+            case "ailment_idA_buffed":
+                if (valueA == -1) {
+                    if (valueB == 1) {
+                        valueB_str = ""
+                        valueA_str = "buffed"
+                    }
+                    if (valueB != 1) {
+                        valueB_str = "not "
+                        valueA_str = "buffed"
+                    }
+                } else {
+                    ailmentpull = AilmentNames[valueA] || {}
+                    if (ailmentpull != undefined) {
+                        if (valueB == 1) {
+                            valueB_str = ""
+                        }
+                        if (valueB != 1) {
+                            valueB_str = "not "
+                        }
+                        valueA_str = `buffed with //${ailmentpull.icon}// [${ailmentpull.name}] #${valueA}`
+    
+                    } else {
+                        if (valueB == 1) {
+                            valueB_str = ""
+                        }
+                        if (valueB != 1) {
+                            valueB_str = "not "
+                        }
+                        ailmentpull = `buffed with [${valueA}] #${valueA}`
+                    }
+                }
+                break;
+            case "times":
                 if (valueB == 1) {
-                    valueB_str = ""
-                    valueA_str = "debuffed"
+                    valueB_str = " 1 time"
                 }
                 if (valueB != 1) {
-                    valueB_str = "not "
-                    valueA_str = "debuffed"
+                    valueB_str = ` ${valueB} times`
                 }
-            } else {
-                var ailmentpull = AilmentNames[valueA] ||{}
-                if (ailmentpull != undefined) {
-                    if (valueB == 1) {
-                        valueB_str = ""
+                break;
+            case "ailment_idB":
+                if (valueB == -1) {
+                    valueB_str = `[removed]`
+                } else {
+                    ailmentpull = AilmentNames[valueB] || {}
+                    if (ailmentpull != undefined) {
+                        valueB_str = `//${ailment_level_icon(ailmentpull,valueC)}// [${ailmentpull.name}] #${valueB}`
+                    } else {
+                        valueB_str = `[${valueB}] #${valueB}`
                     }
-                    if (valueB != 1) {
-                        valueB_str = "not "
+                }
+                break;
+            case "equipment_idA_ailment_idB":
+                if (valueB == -1) {
+                    valueB_str = `[removed]`
+                } else {
+                    ailmentpull = AilmentNames[valueB] || {}
+                    if (ailmentpull != undefined) {
+                        valueB_str = `//${ailmentpull.icon}// [${ailmentpull.name}] #${valueB}`
+                    } else {
+                        valueB_str = `[${valueB}] #${valueB}`
                     }
-                    valueA_str = `debuffed with //${ailmentpull.icon}// [${ailmentpull.name}] #${valueA}`
-
+                }
+                break;
+            case "equipment_idA_ailment_idB_command_idC":
+                if (valueB == -1) {
+                    valueB_str = `[removed]`
                 } else {
-                    if (valueB == 1) {
-                        valueB_str = ""
+                    ailmentpull = AilmentNames[valueB] || {}
+                    if (ailmentpull != undefined) {
+                        valueB_str = `//${ailmentpull.icon}// [${ailmentpull.name}] #${valueB}`
+                    } else {
+                        valueB_str = `[${valueB}] #${valueB}`
                     }
-                    if (valueB != 1) {
-                        valueB_str = "not "
+                }
+                if (valueC == -1) {
+                    valueC_str = `[removed]`
+                } else {
+                    var commandpull = CommandNames[valueC] && CommandNames[valueC].name
+                    if (commandpull != undefined) {
+                        valueC_str = `[${commandpull}] #${valueC}`
+                    } else {
+                        valueC_str = `[${valueC}] #${valueC}`
                     }
-                    ailmentpull = `debuffed with //${ailmentpull.icon}// [${valueA}] #${valueA}`
                 }
-            }
-        }
-
-        if (value_trans == "ailment_idA_buffed") {
-            if (valueA == -1) {
-                if (valueB == 1) {
-                    valueB_str = ""
-                    valueA_str = "buffed"
-                }
-                if (valueB != 1) {
-                    valueB_str = "not "
-                    valueA_str = "buffed"
-                }
-            } else {
-                ailmentpull = AilmentNames[valueA] || {}
-                if (ailmentpull != undefined) {
-                    if (valueB == 1) {
-                        valueB_str = ""
+                break;
+            case "ailment_idB_command_idC":
+                if (valueB == -1) {
+                    valueB_str = `[removed]`
+                } else {
+                    ailmentpull = AilmentNames[valueB] || {}
+                    if (ailmentpull != undefined) {
+                        valueB_str = `//${ailment_level_icon(ailmentpull,valueC)}// [${ailmentpull.name}] #${valueB}`
+                    } else {
+                        valueB_str = `[${valueB}] #${valueB}`
                     }
-                    if (valueB != 1) {
-                        valueB_str = "not "
+                }
+                if (valueC == -1) {
+                    valueC_str = `[removed]`
+                } else {
+                    commandpull = CommandNames[valueC] && CommandNames[valueC].name
+                    if (commandpull != undefined) {
+                        valueC_str = `[${commandpull}] #${valueC}`
+                    } else {
+                        valueC_str = `[${valueC}] #${valueC}`
                     }
-                    valueA_str = `buffed with //${ailmentpull.icon}// [${ailmentpull.name}] #${valueA}`
-
+                }
+                break;
+            case "ailment_idB_ailment_idC":
+                if (valueB == -1) {
+                    valueB_str = `[removed]`
                 } else {
-                    if (valueB == 1) {
-                        valueB_str = ""
+                    ailmentpull = AilmentNames[valueB] ||{}
+                    if (ailmentpull != undefined) {
+                        valueB_str = `//${ailmentpull.icon}// [${ailmentpull.name}] #${valueB}`
+                    } else {
+                        valueB_str = `[${valueB}] #${valueB}`
                     }
-                    if (valueB != 1) {
-                        valueB_str = "not "
+                }
+                if (valueC == -1) {
+                    valueC_str = `[removed]`
+                } else {
+                    ailmentpull = AilmentNames[valueC] || {}
+                    valueC_str = `//${ailmentpull.icon}// [${ailmentpull.name}] #${valueC}`
+                }
+                break;
+            case "ailment_idB_timesC":
+                if (valueB == -1) {
+                    valueB_str = `[removed]`
+                } else {
+                    ailmentpull = AilmentNames[valueB] || {}
+                    if (ailmentpull != undefined) {
+                        valueB_str = `//${ailmentpull.icon}// [${ailmentpull.name}] #${valueB}`
+                    } else {
+                        valueB_str = `[${valueB}] #${valueB}`
                     }
-                    ailmentpull = `buffed with [${valueA}] #${valueA}`
                 }
-            }
-        }
-
-        if (value_trans == "times") {
-            if (valueB == 1) {
-                valueB_str = " 1 time"
-            }
-            if (valueB != 1) {
-                valueB_str = ` ${valueB} times`
-            }
-        }
-
-        if (value_trans == "ailment_idB") {
-            if (valueB == -1) {
-                valueB_str = `[removed]`
-            } else {
-                ailmentpull = AilmentNames[valueB] || {}
-                if (ailmentpull != undefined) {
-                    valueB_str = `//${ailment_level_icon(ailmentpull,valueC)}// [${ailmentpull.name}] #${valueB}`
+                if (valueC == 1) {
+                    valueC_str = " 1 time"
+                }
+                if (valueC != 1) {
+                    valueC_str = ` ${valueC} times`
+                }
+                break;
+            case "ailment_idB_equipment_idA":
+                if (valueB == -1) {
+                    valueB_str = `[removed]`
                 } else {
-                    valueB_str = `[${valueB}] #${valueB}`
+                    ailmentpull = AilmentNames[valueB] || {}
+                    if (ailmentpull != undefined) {
+                        valueB_str = `//${ailmentpull.icon}// [${ailmentpull.name}] #${valueB}`
+                    } else {
+                        valueB_str = `[${valueB}] #${valueB}`
+                    }
                 }
-            }
-        }
-
-        if (value_trans == "equipment_idA_ailment_idB") {
-            if (valueB == -1) {
-                valueB_str = `[removed]`
-            } else {
-                ailmentpull = AilmentNames[valueB] || {}
-                if (ailmentpull != undefined) {
-                    valueB_str = `//${ailmentpull.icon}// [${ailmentpull.name}] #${valueB}`
+                break;
+            case "ailment_idA":
+                if (valueA == -1) {
+                    valueA_str = `[removed]`
                 } else {
-                    valueB_str = `[${valueB}] #${valueB}`
+                    ailmentpull = AilmentNames[valueA]  || {}
+                    if (ailmentpull != undefined) {
+                        valueA_str = `//${ailmentpull.icon}// [${ailmentpull.name}] #${valueA}`
+                    } else {
+                        valueA_str = `[${valueA}] #${valueA}`
+                    }
                 }
-            }
-        }
-
-        if (value_trans == "equipment_idA_ailment_idB_command_idC") {
-            if (valueB == -1) {
-                valueB_str = `[removed]`
-            } else {
-                ailmentpull = AilmentNames[valueB] || {}
-                if (ailmentpull != undefined) {
-                    valueB_str = `//${ailmentpull.icon}// [${ailmentpull.name}] #${valueB}`
+                break;
+            case "ailment_idA_level":
+                if (valueA == -1) {
+                    valueA_str = `[removed]`
                 } else {
-                    valueB_str = `[${valueB}] #${valueB}`
+                    ailmentpull = AilmentNames[valueA]  || {}
+                    if (ailmentpull != undefined) {
+                        valueA_str = `//${ailment_level_icon(ailmentpull,valueB)}// [${ailmentpull.name}] #${valueA}`
+                    } else {
+                        valueA_str = `[${valueA}] #${valueA}`
+                    }
                 }
-            }
-            if (valueC == -1) {
-                valueC_str = `[removed]`
-            } else {
-                var commandpull = CommandNames[valueC] && CommandNames[valueC].name
-                if (commandpull != undefined) {
-                    valueC_str = `[${commandpull}] #${valueC}`
+                break;
+            case "ailment_idA_between_lessthanzero":
+                if (valueA == -1) {
+                    if (valueB == 0) {
+                        valueA_str = ``
+                        valueB_str = ` count of less than ${valueC} `
+                        valueC_str = ""
+                    } else {
+                        if (valueB == 1) {
+                            valueA_str = ``
+                            valueB_str = `ed`
+                            valueC_str = ""
+                        } else {
+                            valueA_str = ``
+                            valueB_str = ` count of at least ${valueB}`
+                            valueC_str = ""
+                        }
+                    }
                 } else {
-                    valueC_str = `[${valueC}] #${valueC}`
+                    ailmentpull = AilmentNames[valueA] || {}
+                    if (ailmentpull != undefined) {
+                        valueA_str = ` //${ailmentpull.icon}// [${ailmentpull.name}] #${valueA}`
+                        if (valueB != 1) {
+                            valueB_str = ` count of at least ${valueB}`
+                            valueC_str = ""
+                        } else {
+                            valueB_str = ""
+                            valueC_str = ""
+                        }
+                    } else {
+                        valueA_str = ` [${valueA}] #${valueA} `
+                        if (valueB != 1) {
+                            valueB_str = ` count of at least ${valueB}`
+                            valueC_str = ""
+                        } else {
+                            valueB_str = ""
+                            valueC_str = ""
+                        }
+                    }
                 }
-            }
-        }
-
-        if (value_trans == "ailment_idB_command_idC") {
-            if (valueB == -1) {
-                valueB_str = `[removed]`
-            } else {
-                ailmentpull = AilmentNames[valueB] || {}
-                if (ailmentpull != undefined) {
-                    valueB_str = `//${ailment_level_icon(ailmentpull,valueC)}// [${ailmentpull.name}] #${valueB}`
-                } else {
-                    valueB_str = `[${valueB}] #${valueB}`
-                }
-            }
-            if (valueC == -1) {
-                valueC_str = `[removed]`
-            } else {
-                commandpull = CommandNames[valueC] && CommandNames[valueC].name
-                if (commandpull != undefined) {
-                    valueC_str = `[${commandpull}] #${valueC}`
-                } else {
-                    valueC_str = `[${valueC}] #${valueC}`
-                }
-            }
-        }
-
-        if (value_trans == "ailment_idB_ailment_idC") {
-            if (valueB == -1) {
-                valueB_str = `[removed]`
-            } else {
-                ailmentpull = AilmentNames[valueB] ||{}
-                if (ailmentpull != undefined) {
-                    valueB_str = `//${ailmentpull.icon}// [${ailmentpull.name}] #${valueB}`
-                } else {
-                    valueB_str = `[${valueB}] #${valueB}`
-                }
-            }
-            if (valueC == -1) {
-                valueC_str = `[removed]`
-            } else {
-                ailmentpull = AilmentNames[valueC] || {}
-                valueC_str = `//${ailmentpull.icon}// [${ailmentpull.name}] #${valueC}`
-            }
-        }
-
-        if (value_trans == "ailment_idB_timesC") {
-            if (valueB == -1) {
-                valueB_str = `[removed]`
-            } else {
-                ailmentpull = AilmentNames[valueB] || {}
-                if (ailmentpull != undefined) {
-                    valueB_str = `//${ailmentpull.icon}// [${ailmentpull.name}] #${valueB}`
-                } else {
-                    valueB_str = `[${valueB}] #${valueB}`
-                }
-            }
-            if (valueC == 1) {
-                valueC_str = " 1 time"
-            }
-            if (valueC != 1) {
-                valueC_str = ` ${valueC} times`
-            }
-        }
-
-        if (value_trans == "ailment_idB_equipment_idA") {
-            if (valueB == -1) {
-                valueB_str = `[removed]`
-            } else {
-                ailmentpull = AilmentNames[valueB] || {}
-                if (ailmentpull != undefined) {
-                    valueB_str = `//${ailmentpull.icon}// [${ailmentpull.name}] #${valueB}`
-                } else {
-                    valueB_str = `[${valueB}] #${valueB}`
-                }
-            }
-        }
-
-        if (value_trans == "ailment_idA") {
-            if (valueA == -1) {
-                valueA_str = `[removed]`
-            } else {
-                ailmentpull = AilmentNames[valueA]  || {}
-                if (ailmentpull != undefined) {
-                    valueA_str = `//${ailmentpull.icon}// [${ailmentpull.name}] #${valueA}`
-                } else {
-                    valueA_str = `[${valueA}] #${valueA}`
-                }
-            }
-        }
-
-        if (value_trans == "ailment_idA_level") {
-            if (valueA == -1) {
-                valueA_str = `[removed]`
-            } else {
-                ailmentpull = AilmentNames[valueA]  || {}
-                if (ailmentpull != undefined) {
-                    valueA_str = `//${ailment_level_icon(ailmentpull,valueB)}// [${ailmentpull.name}] #${valueA}`
-                } else {
-                    valueA_str = `[${valueA}] #${valueA}`
-                }
-            }
-        }
-
-        if (value_trans == "ailment_idA_between_lessthanzero") {
-            if (valueA == -1) {
+                break;
+            case "equipment_idA_between_lessthanzero":
                 if (valueB == 0) {
-                    valueA_str = ``
-                    valueB_str = ` count of less than ${valueC} `
+                    valueA_str = `of `
+                    valueB_str = `less than ${valueC}`
                     valueC_str = ""
                 } else {
+                    valueA_str = ``
+                    valueB_str = `between ${valueB}% & ${valueC}`
+                    valueC_str = ""
+                }
+                break;
+            case "equipment_idA":
+                //handled elsewhere
+                final_str = ""
+                //equipmentpull = equipmentpassivenames[valueA] && equipmentpassivenames[valueA].name
+                //loc_tag = equipmentpassivenames[valueA] && equipmentpassivenames[valueA].loc_tag
+                //if(equipmentpull != undefined){
+                //    valueA_str = `[${equipmentpull}]${loc_tag != undefined ? ` <${loc_tag}>` : ""}`
+                //} else {
+                //    valueA_str = `[#${valueA}]`
+                //}
+                //if(valueA == -1){
+                //    final_str = ""
+                //}
+                break;
+            case "equipment_idA_times":
+                if (valueC > valueB) {
+                    valueB_str = ` between ${valueB} & ${valueC} times`
+                    valueC_str = ""
+                }
+                if (valueC < valueB) {
                     if (valueB == 1) {
-                        valueA_str = ``
-                        valueB_str = `ed`
-                        valueC_str = ""
+                        valueB_str = ` 1 time`
                     } else {
-                        valueA_str = ``
-                        valueB_str = ` count of at least ${valueB}`
-                        valueC_str = ""
+                        valueB_str = ` ${valueB} times`
                     }
                 }
-            } else {
-                ailmentpull = AilmentNames[valueA] || {}
+                break;
+            case "ailment_groupA":
+                ailmentpull = ailment_group[valueA] && ailment_group[valueA].unique
                 if (ailmentpull != undefined) {
-                    valueA_str = ` //${ailmentpull.icon}// [${ailmentpull.name}] #${valueA}`
-                    if (valueB != 1) {
-                        valueB_str = ` count of at least ${valueB}`
-                        valueC_str = ""
-                    } else {
-                        valueB_str = ""
-                        valueC_str = ""
-                    }
+                    valueA_str = `${ailmentpull}`
                 } else {
-                    valueA_str = ` [${valueA}] #${valueA} `
-                    if (valueB != 1) {
-                        valueB_str = ` count of at least ${valueB}`
-                        valueC_str = ""
-                    } else {
-                        valueB_str = ""
-                        valueC_str = ""
-                    }
+                    valueA_str = `ailmen_group #${valueA}`
                 }
-            }
-        }
-
-        if (value_trans == "equipment_idA_between_lessthanzero") {
-            if (valueB == 0) {
-                valueA_str = `of `
-                valueB_str = `less than ${valueC}`
-                valueC_str = ""
-            } else {
-                valueA_str = ``
-                valueB_str = `between ${valueB}% & ${valueC}`
-                valueC_str = ""
-            }
-        }
-
-        if (value_trans == "equipment_idA") {
-            //handled elsewhere
-            final_str = ""
-            //equipmentpull = equipmentpassivenames[valueA] && equipmentpassivenames[valueA].name
-            //loc_tag = equipmentpassivenames[valueA] && equipmentpassivenames[valueA].loc_tag
-            //if(equipmentpull != undefined){
-            //    valueA_str = `[${equipmentpull}]${loc_tag != undefined ? ` <${loc_tag}>` : ""}`
-            //} else {
-            //    valueA_str = `[#${valueA}]`
-            //}
-            //if(valueA == -1){
-            //    final_str = ""
-            //}
-        }
-
-        if (value_trans == "equipment_idA_times") {
-            if (valueC > valueB) {
-                valueB_str = ` between ${valueB} & ${valueC} times`
-                valueC_str = ""
-            }
-            if (valueC < valueB) {
+                break;
+            case "between_lessthanzero":
+                if (valueB == 0) {
+                    valueB_str = `less than ${valueC}`
+                    valueC_str = ""
+                } else {
+                    valueB_str = `between ${valueB}% & ${valueC}`
+                    valueC_str = ""
+                }
+                break;
+            case "command_idA_uses":
+                commandpull = CommandNames[valueA] && CommandNames[valueA].name
+                if (commandpull != undefined) {
+                    valueA_str = `[${commandpull}] #${valueA}`
+                } else {
+                    valueA_str = `[${valueA}] #${valueC}`
+                }
+                if (valueB == 1) {
+                    valueB_str = `1 use`
+                } else {
+                    valueB_str = `${valueB} uses`
+                }
+                break;
+            case "command_idA_times":
+                commandpull = CommandNames[valueA] && CommandNames[valueA].name
+                if (commandpull != undefined) {
+                    valueA_str = `[${commandpull}] #${valueA}`
+                } else {
+                    valueA_str = `[${valueA}] #${valueA}`
+                }
                 if (valueB == 1) {
                     valueB_str = ` 1 time`
                 } else {
                     valueB_str = ` ${valueB} times`
                 }
-            }
-        }
-
-        if (value_trans == "ailment_groupA") {
-            ailmentpull = ailment_group[valueA] && ailment_group[valueA].unique
-            if (ailmentpull != undefined) {
-                valueA_str = `${ailmentpull}`
-            } else {
-                valueA_str = `ailmen_group #${valueA}`
-            }
-        }
-
-        if (value_trans == "between_lessthanzero") {
-            if (valueB == 0) {
-                valueB_str = `less than ${valueC}`
-                valueC_str = ""
-            } else {
-                valueB_str = `between ${valueB}% & ${valueC}`
-                valueC_str = ""
-            }
-        }
-
-        if (value_trans == "command_idA_uses") {
-            commandpull = CommandNames[valueA] && CommandNames[valueA].name
-            if (commandpull != undefined) {
-                valueA_str = `[${commandpull}] #${valueA}`
-            } else {
-                valueA_str = `[${valueA}] #${valueC}`
-            }
-            if (valueB == 1) {
-                valueB_str = `1 use`
-            } else {
-                valueB_str = `${valueB} uses`
-            }
-        }
-
-        if (value_trans == "command_idA_times") {
-            commandpull = CommandNames[valueA] && CommandNames[valueA].name
-            if (commandpull != undefined) {
-                valueA_str = `[${commandpull}] #${valueA}`
-            } else {
-                valueA_str = `[${valueA}] #${valueA}`
-            }
-            if (valueB == 1) {
-                valueB_str = ` 1 time`
-            } else {
-                valueB_str = ` ${valueB} times`
-            }
-        }
-
-        if (value_trans == "least_under_valueC") {
-            if (valueB == 0) {
-                valueA_str = `over ${valueA}%`
-                valueB_str = ""
-                valueC_str = ""
-            }
-            if (valueA == 0) {
-                valueA_str = `under ${valueB}%`
-                valueB_str = ""
-                valueC_str = ""
-            }
-            if (valueB != 0 && valueA != 0) {
-                valueA_str = `between ${valueA}% & ${valueB}%`
-                valueB_str = ""
-                valueC_str = ""
-            }
-        }
-
-        if (value_trans == "cond_idA") {
-            const condpull = CondData[valueA] && CondData[valueA].trans
-            if (condpull != undefined) {
-                valueA_str = condpull
-            } else {
-                valueA_str = `cond #${valueA}`
-            }
-        }
-
-        if (value_trans == "target_count") {
-            if ((valueB + 1) == valueC) {
-                valueB_str = valueB
-                valueC_str = ""
-            } else {
-                valueB_str = `at least ${valueB}`
-                valueC_str = ` but less than ${valueC}`
-            }
+                break;
+            case "least_under_valueC":
+                if (valueB == 0) {
+                    valueA_str = `over ${valueA}%`
+                    valueB_str = ""
+                    valueC_str = ""
+                }
+                if (valueA == 0) {
+                    valueA_str = `under ${valueB}%`
+                    valueB_str = ""
+                    valueC_str = ""
+                }
+                if (valueB != 0 && valueA != 0) {
+                    valueA_str = `between ${valueA}% & ${valueB}%`
+                    valueB_str = ""
+                    valueC_str = ""
+                }
+                break;
+            case "cond_idA":
+                const condpull = CondData[valueA] && CondData[valueA].trans
+                if (condpull != undefined) {
+                    valueA_str = condpull
+                } else {
+                    valueA_str = `cond #${valueA}`
+                }
+                break;
+            case "target_count":
+                if ((valueB + 1) == valueC) {
+                    valueB_str = valueB
+                    valueC_str = ""
+                } else {
+                    valueB_str = `at least ${valueB}`
+                    valueC_str = ` but less than ${valueC}`
+                }
+                break;
+            default:
+                break;
         }
 
         final_str = final_str.replace(/\[target\]/gm, target_str)
@@ -452,28 +433,32 @@ export default function options_label_pars(
             .replace(/\[valueC\]/gm, valueC_str)
             .replace(/\[original_label_\]/gm, original_label_str)
 
-        if (target_trans == "is_noself") {
-            final_str = final_str.replace(/Self is /gm, "")
-        }
-        if (target_trans == "is_noself_any_debuff") {
-            final_str = final_str.replace(/any target is buffed/gm, "any target is debuffed")
-            final_str = final_str.replace(/Party is buffed/gm, "buffed")
-            final_str = final_str.replace(/Self is /gm, "")
-        }
-        if (target_trans == "has_noself") {
-            final_str = final_str.replace(/Self has /gm, "")
-        }
-        if (target_trans == "total_noself") {
-            final_str = final_str.replace(/Self total /gm, "")
-        }
-        if (target_trans == "has_used_using_noself") {
-            final_str = final_str.replace(/Self has used/gm, "using")
-        }
-        if (target_trans == "has_debuffed") {
-            final_str = final_str.replace(/has debuffed/gm, "is debuffed")
-        }
-        if (target_trans == "self_has_buffed_with") {
-            final_str = final_str.replace(/Self has/gm, "buffed with")
+        switch (target_trans) {
+            case "is_noself":
+                final_str = final_str.replace(/Self is /gm, "")
+                break;
+            case "is_noself_any_debuff":
+                final_str = final_str.replace(/any target is buffed/gm, "any target is debuffed")
+                final_str = final_str.replace(/Party is buffed/gm, "buffed")
+                final_str = final_str.replace(/Self is /gm, "")
+                break;
+            case "has_noself":
+                final_str = final_str.replace(/Self has /gm, "")
+                break;
+            case "total_noself":
+                final_str = final_str.replace(/Self total /gm, "")
+                break;
+            case "has_used_using_noself":
+                final_str = final_str.replace(/Self has used/gm, "using")
+                break;
+            case "has_debuffed":
+                final_str = final_str.replace(/has debuffed/gm, "is debuffed")
+                break;
+            case "self_has_buffed_with":
+                final_str = final_str.replace(/Self has/gm, "buffed with")
+                break;
+            default:
+                break;
         }
     }
 

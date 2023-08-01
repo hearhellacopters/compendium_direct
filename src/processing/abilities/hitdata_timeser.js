@@ -93,44 +93,77 @@ export default function hitdata_timeser(
     ) {
         //all hp hits
         var all_hp = true
-        for (let index = 2; index < (count + 1); index++) {
-            if (holder[`hit_${index - 1}`].id != holder[`hit_${index}`].id) {
-                all_hp = false
+        //if to display
+        var show_true = true
+        //if all effects
+        var all_effects = true
+        //before & after aded effect to hp dumps
+        var but_eff_add_str = true
+        //before effect and 2 added effect to hp dumps
+        var but_eff_add_str_2 = true
+        //deattach effects
+        var no_eff_add_str = true
+        
+        for (let index = 1; index < (count + 1); index++) {
+            if (index != 1) {
+                if (holder[`hit_${index - 1}`].eff_add_str != holder[`hit_${index}`].eff_add_str) {
+                    all_effects = false
+                    but_eff_add_str_2 = false
+                }
+                if (holder[`hit_${index - 1}`].eff_add_str_2 != holder[`hit_${index}`].eff_add_str_2) {
+                    all_effects = false
+                    but_eff_add_str = false
+                }
+                if (index != count) {
+                    if (holder[`hit_${index - 1}`].eff_add_str != holder[`hit_${index}`].eff_add_str) {
+                        but_eff_add_str = false
+                        no_eff_add_str = false
+                    }
+                    if (holder[`hit_${index - 1}`].eff_add_str_2 != holder[`hit_${index}`].eff_add_str_2) {
+                        but_eff_add_str_2 = false
+                        no_eff_add_str = false
+                    }
+                }
             }
-            if (holder[`hit_${index - 1}`].atk_hp_str != holder[`hit_${index}`].atk_hp_str) {
-                all_hp = false
+            if (index == count) {
+                if (holder[`hit_${index - 1}`].eff_add_str == holder[`hit_${index}`].eff_add_str) {
+                    but_eff_add_str = false
+                    no_eff_add_str = false
+                }
+                if (holder[`hit_${index - 1}`].eff_add_str_2 == holder[`hit_${index}`].eff_add_str_2) {
+                    but_eff_add_str_2 = false
+                    no_eff_add_str = false
+                }
             }
-            if (holder[`hit_${index - 1}`].hit_count != holder[`hit_${index}`].hit_count) {
-                all_hp = false
+            if (index != count) {
+                if (holder[`hit_${index}`].eff_before_hp_str != undefined) {
+                    all_effects = false
+                    but_eff_add_str = false
+                    but_eff_add_str_2 = false
+                    no_eff_add_str = false
+                }
             }
-            if (holder[`hit_${index - 1}`].atk_type != holder[`hit_${index}`].atk_type) {
-                all_hp = false
+            if (holder[`hit_${index}`].show == false) {
+                show_true = false
+            }
+            if(index >= 2){
+                if (holder[`hit_${index - 1}`].id != holder[`hit_${index}`].id) {
+                    all_hp = false
+                }
+                if (holder[`hit_${index - 1}`].atk_hp_str != holder[`hit_${index}`].atk_hp_str) {
+                    all_hp = false
+                }
+                if (holder[`hit_${index - 1}`].hit_count != holder[`hit_${index}`].hit_count) {
+                    all_hp = false
+                }
+                if (holder[`hit_${index - 1}`].atk_type != holder[`hit_${index}`].atk_type) {
+                    all_hp = false
+                }
             }
         }
+
         if (all_hp == true) {
-            var show_true = true
-            for (let index = 1; index < (count + 1); index++) {
-                if (holder[`hit_${index}`].show == false) {
-                    show_true = false
-                }
-            }
             if (show_true == true) {
-                var all_effects = true
-                for (let index = 1; index < (count + 1); index++) {
-                    if (index != 1) {
-                        if (holder[`hit_${index - 1}`].eff_add_str != holder[`hit_${index}`].eff_add_str) {
-                            all_effects = false
-                        }
-                        if (holder[`hit_${index - 1}`].eff_add_str_2 != holder[`hit_${index}`].eff_add_str_2) {
-                            all_effects = false
-                        }
-                    }
-                    if (index != count) {
-                        if (holder[`hit_${index}`].eff_before_hp_str != undefined) {
-                            all_effects = false
-                        }
-                    }
-                }
                 if (all_effects == true) {
                     Object.assign(hit_1, {
                         show: true,
@@ -144,29 +177,6 @@ export default function hitdata_timeser(
                         }
                     }
                 } else {
-                    var but_eff_add_str = true
-                    for (let index = 1; index < (count + 1); index++) {
-                        if (index != 1) {
-                            if (index != count) {
-                                if (holder[`hit_${index - 1}`].eff_add_str != holder[`hit_${index}`].eff_add_str) {
-                                    but_eff_add_str = false
-                                }
-                            }
-                            if (holder[`hit_${index - 1}`].eff_add_str_2 != holder[`hit_${index}`].eff_add_str_2) {
-                                but_eff_add_str = false
-                            }
-                        }
-                        if (index == count) {
-                            if (holder[`hit_${index - 1}`].eff_add_str == holder[`hit_${index}`].eff_add_str) {
-                                but_eff_add_str = false
-                            }
-                        }
-                        if (index != count) {
-                            if (holder[`hit_${index}`].eff_before_hp_str != undefined) {
-                                but_eff_add_str = false
-                            }
-                        }
-                    }
                     if (but_eff_add_str == true) {
                         Object.assign(hit_1, {
                             show: true,
@@ -181,31 +191,7 @@ export default function hitdata_timeser(
                                 Object.assign(holder[`hit_${index}`], { show: false, timers: "but_eff_add_str" })
                             }
                         }
-                    }
-                    var but_eff_add_str_2 = true
-                    for (let index = 1; index < (count + 1); index++) {
-                        if (index != 1) {
-                            if (index != count) {
-                                if (holder[`hit_${index - 1}`].eff_add_str_2 != holder[`hit_${index}`].eff_add_str_2) {
-                                    but_eff_add_str_2 = false
-                                }
-                            }
-                            if (holder[`hit_${index - 1}`].eff_add_str != holder[`hit_${index}`].eff_add_str) {
-                                but_eff_add_str_2 = false
-                            }
-                        }
-                        if (index == count) {
-                            if (holder[`hit_${index - 1}`].eff_add_str_2 == holder[`hit_${index}`].eff_add_str_2) {
-                                but_eff_add_str_2 = false
-                            }
-                        }
-                        if (index != count) {
-                            if (holder[`hit_${index}`].eff_before_hp_str != undefined) {
-                                but_eff_add_str_2 = false
-                            }
-                        }
-                    }
-                    if (but_eff_add_str_2 == true) {
+                    } else if (but_eff_add_str_2 == true) {
                         Object.assign(hit_1, {
                             show: true,
                             times_count: ` ${count} times`,
@@ -219,34 +205,7 @@ export default function hitdata_timeser(
                                 Object.assign(holder[`hit_${index}`], { show: false, timers: "but_eff_add_str_2" })
                             }
                         }
-                    }
-                    var no_eff_add_str = true
-                    for (let index = 1; index < (count + 1); index++) {
-                        if (index != 1) {
-                            if (index != count) {
-                                if (holder[`hit_${index - 1}`].eff_add_str_2 != holder[`hit_${index}`].eff_add_str_2) {
-                                    no_eff_add_str = false
-                                }
-                                if (holder[`hit_${index - 1}`].eff_add_str != holder[`hit_${index}`].eff_add_str) {
-                                    no_eff_add_str = false
-                                }
-                            }
-                        }
-                        if (index == count) {
-                            if (holder[`hit_${index - 1}`].eff_add_str == holder[`hit_${index}`].eff_add_str) {
-                                no_eff_add_str = false
-                            }
-                            if (holder[`hit_${index - 1}`].eff_add_str_2 == holder[`hit_${index}`].eff_add_str_2) {
-                                no_eff_add_str = false
-                            }
-                        }
-                        if (index != count) {
-                            if (holder[`hit_${index}`].eff_before_hp_str != undefined) {
-                                no_eff_add_str = false
-                            }
-                        }
-                    }
-                    if (no_eff_add_str == true) {
+                    } else if (no_eff_add_str == true) {
                         var eff_det_str_holder = holder[`hit_${count}`].eff_add_str
                         var eff_det_str_2_holder = holder[`hit_${count}`].eff_add_str_2
                         var except_last = true

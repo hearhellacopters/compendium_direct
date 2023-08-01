@@ -283,7 +283,7 @@ export default function CrystalPassives({
   const listgear = listDisplay;
 
     return (
-      <div><h1 className="">Crystal Brilliance</h1>
+      <div><h1 className="">Crystal Room</h1>
           <div className="filterholder" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
             <div className="filterholderflair">
             
@@ -297,7 +297,7 @@ export default function CrystalPassives({
               <div className="yellowcolor">The <span className="cryspark"></span> color is dependent on the crystal color of the completing party.</div><br/>
               <div className="yellowcolor">Party MUST be a team of a single color.</div><br/>
               <div className="yellowcolor">The difficulty of the quest can be increased for greater <span className="cryspark"></span> gain.</div><br/>
-              <div className="yellowcolor"><span className="cryspark"></span> x80 base at Lv 0 and <span className="cryspark"></span> x400 base plus <span className="cryspark"></span> x300 bonus at max Lv 3.</div><br/>
+              <div className="yellowcolor"><span className="cryspark"></span> x200 base at Lv 0 and <span className="cryspark"></span> x400 base plus <span className="cryspark"></span> x300 bonus at max Lv 3.</div><br/>
               <div className="yellowcolor">The weekly limit is 400 base and 300 bonus of <span className="cryspark"></span> x700.</div><br/>
               <div className="yellowcolor">Difficulty levels increase the enemy's HP (up to x1.5).</div><br/>
               <div className="yellowcolor">Each board has <span className="crynode"></span> x90 stat nodes and <span className="crypnode"></span> x18 passive nodes.</div><br/>

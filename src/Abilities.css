@@ -61,11 +61,12 @@
 }
 
 .abilitydisplayfex {
-    display: inline;
-}
-
-.abilitydisplayfex div {
-    display: inline;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .sidewaystextholder {

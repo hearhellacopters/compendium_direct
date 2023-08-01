@@ -165,6 +165,11 @@ export default function AilmentDataEffectHandler({
         if (effect_id && effect_id.cond_id) {
             setcond_str(` ┬ ${effect_id.cond_id}`)
         }
+        if (effect_id && effect_id.attached != undefined) {
+            effect_id && effect_id.attached.forEach(self=>{
+                setcond_str((preVale)=> preVale + `\n ├─ Or ${self.cond_id}`)
+            })
+        }
         if (effect_id && effect_id.effectstr) {
             seteff_str(` ${spacer != undefined ? spacer : effect_id.cond_id != undefined ? "└─" : "-"} ${
                 effect_id.effectstr.replace(/\[value1\]/gm, displayrank && displayrank.value1)

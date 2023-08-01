@@ -65,49 +65,51 @@ export default function ailment_default_trans(
         if (default_data.cond_id != 1) {
             cond_id_str = cond_id
 
-            if (cond_id_value_trans == "passivenames") {
-                const pass_pull = passivenames[default_data.cond_arg1] && passivenames[default_data.cond_arg1].name
-                if (pass_pull != undefined) {
-                    arg1 = `[${pass_pull}] #${default_data.cond_arg1} `
-                } else {
-                    arg1 = `[#${default_data.cond_arg1}] #${default_data.cond_arg1} `
-                }
-                const tag_pull = passivenames[default_data.cond_arg1] && passivenames[default_data.cond_arg1].loc_tag
-                if (tag_pull != undefined) {
-                    tag = `<${tag_pull}>`
-                } else {
-                    tag = `unknown tag`
-                }
-            }
-
-            if (cond_id_value_trans == "equipmentpassivenames") {
-                const equpass_pull = equipmentpassivenames[default_data.cond_arg1] && equipmentpassivenames[default_data.cond_arg1].name
-                if (equpass_pull != undefined) {
-                    arg1 = `[${equpass_pull}] #${default_data.cond_arg1} `
-                } else {
-                    arg1 = `[#${default_data.cond_arg1}] #${default_data.cond_arg1} `
-                }
-                const eqtag_pull = equipmentpassivenames[default_data.cond_arg1] && equipmentpassivenames[default_data.cond_arg1].loc_tag
-                if (eqtag_pull != undefined) {
-                    tag = `<${eqtag_pull}>`
-                } else {
-                    tag = `unknown tag`
-                }
-            }
-
-            if (cond_id_value_trans == "CommandNames") {
-                const comd_pull = CommandNames[default_data.cond_arg1] && CommandNames[default_data.cond_arg1].name
-                if (comd_pull != undefined) {
-                    arg1 = `[${comd_pull}] #${default_data.cond_arg1}`
-                } else {
-                    arg1 = `[#${default_data.cond_arg1}] #${default_data.cond_arg1}`
-                }
-                const rank_pull = CommandNames[default_data.cond_arg1] && CommandNames[default_data.cond_arg1].rank
-                if (rank_pull != undefined) {
-                    tag = `<${EX_rename(rank_pull)}>`
-                } else {
-                    tag = `unknown tag`
-                }
+            switch (cond_id_value_trans) {
+                case "passivenames":
+                    const pass_pull = passivenames[default_data.cond_arg1] && passivenames[default_data.cond_arg1].name
+                    if (pass_pull != undefined) {
+                        arg1 = `[${pass_pull}] #${default_data.cond_arg1} `
+                    } else {
+                        arg1 = `[#${default_data.cond_arg1}] #${default_data.cond_arg1} `
+                    }
+                    const tag_pull = passivenames[default_data.cond_arg1] && passivenames[default_data.cond_arg1].loc_tag
+                    if (tag_pull != undefined) {
+                        tag = `<${tag_pull}>`
+                    } else {
+                        tag = `unknown tag`
+                    }
+                    break;
+                case "equipmentpassivenames":
+                    const equpass_pull = equipmentpassivenames[default_data.cond_arg1] && equipmentpassivenames[default_data.cond_arg1].name
+                    if (equpass_pull != undefined) {
+                        arg1 = `[${equpass_pull}] #${default_data.cond_arg1} `
+                    } else {
+                        arg1 = `[#${default_data.cond_arg1}] #${default_data.cond_arg1} `
+                    }
+                    const eqtag_pull = equipmentpassivenames[default_data.cond_arg1] && equipmentpassivenames[default_data.cond_arg1].loc_tag
+                    if (eqtag_pull != undefined) {
+                        tag = `<${eqtag_pull}>`
+                    } else {
+                        tag = `unknown tag`
+                    }
+                    break;
+                case "CommandNames":
+                    const comd_pull = CommandNames[default_data.cond_arg1] && CommandNames[default_data.cond_arg1].name
+                    if (comd_pull != undefined) {
+                        arg1 = `[${comd_pull}] #${default_data.cond_arg1}`
+                    } else {
+                        arg1 = `[#${default_data.cond_arg1}] #${default_data.cond_arg1}`
+                    }
+                    const rank_pull = CommandNames[default_data.cond_arg1] && CommandNames[default_data.cond_arg1].rank
+                    if (rank_pull != undefined) {
+                        tag = `<${EX_rename(rank_pull)}>`
+                    } else {
+                        tag = `unknown tag`
+                    }
+                    break;
+                default:
+                    break;
             }
 
             if (default_data.cond_arg2 != 0) {
@@ -134,49 +136,51 @@ export default function ailment_default_trans(
         if (default_data.cond_id_1 != 1) {
             cond_id_1_str = cond_id_1
 
-            if (cond_id_1_value_trans == "passivenames") {
-                const pass_pull_1 = passivenames[default_data.cond_arg1_1] && passivenames[default_data.cond_arg1_1].name
-                if (pass_pull_1 != undefined) {
-                    arg1_1 = `[${pass_pull_1}] #${default_data.cond_arg1_1}`
-                } else {
-                    arg1_1 = `[#${default_data.cond_arg1_1}] #${default_data.cond_arg1_1}`
-                }
-                const tag_pull_1 = passivenames[default_data.cond_arg1_1] && passivenames[default_data.cond_arg1_1].loc_tag
-                if (tag_pull_1 != undefined) {
-                    tag_1 = `<${tag_pull_1}>`
-                } else {
-                    tag_1 = `unknown tag`
-                }
-            }
-
-            if (cond_id_1_value_trans == "equipmentpassivenames") {
-                const equpass_pull_1 = equipmentpassivenames[default_data.cond_arg1_1] && equipmentpassivenames[default_data.cond_arg1_1].name
-                if (equpass_pull_1 != undefined) {
-                    arg1_1 = `[${equpass_pull_1}] #${default_data.cond_arg1_1}`
-                } else {
-                    arg1_1 = `[#${default_data.cond_arg1_1}] #${default_data.cond_arg1_1} `
-                }
-                const eqtag_pull_1 = equipmentpassivenames[default_data.cond_arg1_1] && equipmentpassivenames[default_data.cond_arg1_1].loc_tag
-                if (eqtag_pull_1 != undefined) {
-                    tag_1 = `<${eqtag_pull_1}>`
-                } else {
-                    tag_1 = `unknown tag`
-                }
-            }
-
-            if (cond_id_1_value_trans == "CommandNames") {
-                const comd_pull_1 = CommandNames[default_data.cond_arg1_1] && CommandNames[default_data.cond_arg1_1].name
-                if (comd_pull_1 != undefined) {
-                    arg1_1 = `[${comd_pull_1}] #${default_data.cond_arg1_1}`
-                } else {
-                    arg1_1 = `[#${default_data.cond_arg1_1}] #${default_data.cond_arg1_1}`
-                }
-                const rank_pull_1 = CommandNames[default_data.cond_arg1_1] && CommandNames[default_data.cond_arg1_1].rank
-                if (rank_pull_1 != undefined) {
-                    tag_1 = `<${rank_pull_1}>`
-                } else {
-                    tag_1 = `unknown tag`
-                }
+            switch (cond_id_1_value_trans) {
+                case "passivenames":
+                    const pass_pull_1 = passivenames[default_data.cond_arg1_1] && passivenames[default_data.cond_arg1_1].name
+                    if (pass_pull_1 != undefined) {
+                        arg1_1 = `[${pass_pull_1}] #${default_data.cond_arg1_1}`
+                    } else {
+                        arg1_1 = `[#${default_data.cond_arg1_1}] #${default_data.cond_arg1_1}`
+                    }
+                    const tag_pull_1 = passivenames[default_data.cond_arg1_1] && passivenames[default_data.cond_arg1_1].loc_tag
+                    if (tag_pull_1 != undefined) {
+                        tag_1 = `<${tag_pull_1}>`
+                    } else {
+                        tag_1 = `unknown tag`
+                    }
+                    break;
+                case "equipmentpassivenames":
+                    const equpass_pull_1 = equipmentpassivenames[default_data.cond_arg1_1] && equipmentpassivenames[default_data.cond_arg1_1].name
+                    if (equpass_pull_1 != undefined) {
+                        arg1_1 = `[${equpass_pull_1}] #${default_data.cond_arg1_1}`
+                    } else {
+                        arg1_1 = `[#${default_data.cond_arg1_1}] #${default_data.cond_arg1_1} `
+                    }
+                    const eqtag_pull_1 = equipmentpassivenames[default_data.cond_arg1_1] && equipmentpassivenames[default_data.cond_arg1_1].loc_tag
+                    if (eqtag_pull_1 != undefined) {
+                        tag_1 = `<${eqtag_pull_1}>`
+                    } else {
+                        tag_1 = `unknown tag`
+                    }
+                    break;
+                case "CommandNames":
+                    const comd_pull_1 = CommandNames[default_data.cond_arg1_1] && CommandNames[default_data.cond_arg1_1].name
+                    if (comd_pull_1 != undefined) {
+                        arg1_1 = `[${comd_pull_1}] #${default_data.cond_arg1_1}`
+                    } else {
+                        arg1_1 = `[#${default_data.cond_arg1_1}] #${default_data.cond_arg1_1}`
+                    }
+                    const rank_pull_1 = CommandNames[default_data.cond_arg1_1] && CommandNames[default_data.cond_arg1_1].rank
+                    if (rank_pull_1 != undefined) {
+                        tag_1 = `<${rank_pull_1}>`
+                    } else {
+                        tag_1 = `unknown tag`
+                    }
+                    break;
+                default:
+                    break;
             }
 
             if (default_data.cond_arg2_1 != 0) {

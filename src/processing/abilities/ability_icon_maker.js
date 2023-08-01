@@ -49,70 +49,81 @@ export default function ability_icon_maker(
         green_check = true
     }
 
-    if (rank == "S1" ||
-        rank == "S2" ||
-        rank == "AA" ||
-        rank == "EX" ||
-        rank == "LD" ||
-        (Counter == true ||
-            Trap == true ||
-            FollowUp == true
-        )
-    ) {
+    const green_checker =()=>{
         if (green_check == true) {
             final_str = final_str.replace(/_Red/gm, "_Green").replace(/_Blue/gm, "_Green")
         }
     }
 
-    if (rank == "Call 75") {
-        var characterpull = char_id_index[chara_id] && char_id_index[chara_id].CharacterURLName
-        if (characterpull != undefined) {
-            final_str = `characters/${characterpull}/75c`
-        }
-    }
-
-    if (rank == "Call LD") {
-        characterpull = char_id_index[chara_id] && char_id_index[chara_id].CharacterURLName
-        if (characterpull != undefined) {
-            final_str = `characters/${characterpull}/ldc`
-        }
-    }
-
-    if (rank == "BT") {
-        final_str = `icons/buttons/ability/Ability_${typepull == "Battery" ? "Battery" : typepull == "Debuff" ? "Debuff" : typepull == "Heal" ? "Heal" : typepull == "Tank" ? "Tank" : attpull}${typepull == "HP" ? "_HP" : "_BRV"}_Burst`
-        if (green_check == true) {
-            final_str = final_str.replace(/_Burst/gm, "_Green")
-        }
-    }
-
-    if (rank == "BT+") {
-        final_str = `icons/buttons/ability/Ability_${typepull == "Battery" ? "Battery" : typepull == "Debuff" ? "Debuff" : typepull == "Heal" ? "Heal" : typepull == "Tank" ? "Tank" : attpull}${typepull == "HP" ? "_HP" : "_BRV"}_Burst+`
-        if (green_check == true) {
-            final_str = final_str.replace(/_Burst\+/gm, "_Green")
-        }
-    }
-
-    if (rank == "FR") {
-        final_str = `icons/buttons/ability/Ability_${typepull == "Battery" ? "Battery" : typepull == "Debuff" ? "Debuff" : typepull == "Heal" ? "Heal" : typepull == "Tank" ? "Tank" : attpull}${typepull == "HP" ? "_HP" : "_BRV"}_Force`
-        if (green_check == true) {
-            final_str = final_str.replace(/_Force/gm, "_Green")
-        }
-    }
-    if (rank == "FRExt") {
-        final_str = `icons/buttons/ability/Ability_${typepull == "Battery" ? "Battery" : typepull == "Debuff" ? "Debuff" : typepull == "Heal" ? "Heal" : typepull == "Tank" ? "Tank" : attpull}${typepull == "HP" ? "_HP" : "_BRV"}_ForceExt`
-        if (green_check == true) {
-            final_str = final_str.replace(/_ForceExt/gm, "_Green")
-        }
-    }
-    if (rank == "Crystal") {
-        final_str = `icons/buttons/ability/Ability_${typepull == "Battery" ? "Battery" : typepull == "Debuff" ? "Debuff" : typepull == "Heal" ? "Heal" : typepull == "Tank" ? "Tank" : attpull}${typepull == "HP" ? "_HP" : "_BRV"}_Crystal`
-        if (green_check == true) {
-            final_str = final_str.replace(/_Crystal/gm, "_Green")
-        }
-    }
-
-    if (Trap == true) {
-        final_str = `icons/buttons/ability/Ability_Trap${typepull == "HP" ? "_HP" : "_BRV"}_Green`
+    switch (rank) {
+        case "S1":
+            green_checker()
+            break;
+        case "S2":
+            green_checker()
+            break;
+        case "AA":
+            green_checker()
+            break;
+        case "EX":
+            green_checker()
+            break;
+        case "LD":
+            green_checker()
+            break;
+        case "Call 75":
+            var characterpull = char_id_index[chara_id] && char_id_index[chara_id].CharacterURLName
+            if (characterpull != undefined) {
+                final_str = `characters/${characterpull}/75c`
+            }
+            break;
+        case "Call LD":
+            characterpull = char_id_index[chara_id] && char_id_index[chara_id].CharacterURLName
+            if (characterpull != undefined) {
+                final_str = `characters/${characterpull}/ldc`
+            }
+            break;
+        case "BT":
+            final_str = `icons/buttons/ability/Ability_${typepull == "Battery" ? "Battery" : typepull == "Debuff" ? "Debuff" : typepull == "Heal" ? "Heal" : typepull == "Tank" ? "Tank" : attpull}${typepull == "HP" ? "_HP" : "_BRV"}_Burst`
+            if (green_check == true) {
+                final_str = final_str.replace(/_Burst/gm, "_Green")
+            }
+            break;
+        case "BT+":
+            final_str = `icons/buttons/ability/Ability_${typepull == "Battery" ? "Battery" : typepull == "Debuff" ? "Debuff" : typepull == "Heal" ? "Heal" : typepull == "Tank" ? "Tank" : attpull}${typepull == "HP" ? "_HP" : "_BRV"}_Burst+`
+            if (green_check == true) {
+                final_str = final_str.replace(/_Burst\+/gm, "_Green")
+            }
+            break;
+        case "FR":
+            final_str = `icons/buttons/ability/Ability_${typepull == "Battery" ? "Battery" : typepull == "Debuff" ? "Debuff" : typepull == "Heal" ? "Heal" : typepull == "Tank" ? "Tank" : attpull}${typepull == "HP" ? "_HP" : "_BRV"}_Force`
+            if (green_check == true) {
+                final_str = final_str.replace(/_Force/gm, "_Green")
+            }
+            break;
+        case "FRExt":
+            final_str = `icons/buttons/ability/Ability_${typepull == "Battery" ? "Battery" : typepull == "Debuff" ? "Debuff" : typepull == "Heal" ? "Heal" : typepull == "Tank" ? "Tank" : attpull}${typepull == "HP" ? "_HP" : "_BRV"}_ForceExt`
+            if (green_check == true) {
+                final_str = final_str.replace(/_ForceExt/gm, "_Green")
+            }
+            break;
+        case "Crystal":
+            final_str = `icons/buttons/ability/Ability_${typepull == "Battery" ? "Battery" : typepull == "Debuff" ? "Debuff" : typepull == "Heal" ? "Heal" : typepull == "Tank" ? "Tank" : attpull}${typepull == "HP" ? "_HP" : "_BRV"}_Crystal`
+            if (green_check == true) {
+                final_str = final_str.replace(/_Crystal/gm, "_Green")
+            }
+            break;
+        default:
+            if(Counter == true ||
+                Trap == true ||
+                FollowUp == true
+            ){
+                green_checker()
+            }
+            if (Trap == true) {
+                final_str = `icons/buttons/ability/Ability_Trap${typepull == "HP" ? "_HP" : "_BRV"}_Green`
+            }
+            break;
     }
 
     return (

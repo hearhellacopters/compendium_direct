@@ -280,7 +280,7 @@ export default function CrystalAbility({
   const listgear = listDisplay;
 
     return (
-      <div><h1 className="">Crystal Brilliance</h1>
+      <div><h1 className="">Crystal Room</h1>
           <div className="filterholder" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
             <div className="filterholderflair">
             

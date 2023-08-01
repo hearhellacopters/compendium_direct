@@ -103,8 +103,7 @@ export default function hitdata_trans(
     if (ability_target_id == 5) {
         if (type_id == 19) {
             split_full = "Split "
-        }
-        if (type_id == 2) {
+        } else if (type_id == 2) {
             split_full = "Split "
             if (effect_id == 53) {
                 split_full = "Split "
@@ -120,15 +119,13 @@ export default function hitdata_trans(
             } else {
                 split_full = "Split "
             }
-        }
-        if(effect_id == 226){
+        } else if(effect_id == 226){
             if(ability_target_id == 5){
                 split_full = "Split "
             } else {
                 split_full = ""
             }
-        }
-        if(effect_id == 227){
+        } else if(effect_id == 227){
             if(ability_target_id == 5){
                 split_full = "Full "
             } else {
@@ -262,7 +259,7 @@ export default function hitdata_trans(
     //typetrans
 
     if (effect_value_type_id_value_trans == "aliment_amount") {
-        const ailment_pull = m_nARG.toString().slice(0, 4)
+        ailment_pull = m_nARG.toString().slice(0, 4)
         const ailment_value = m_nARG.toString().slice(6)
         const ailment_name = AilmentNames[ailment_pull]
         effect_value_type_str = effect_value_type_str
@@ -273,457 +270,402 @@ export default function hitdata_trans(
 
     //value trans
 
-    if(value_trans == "instant_zero"){
-        if (m_nARG == 0) {
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, `Instant`)
-        }
-    }
-
-    if (value_trans == "negone_all_debuffs") {
-        if (m_nARG == -1) {
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, `all debuffs`)
-        } else {
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG} debuff${m_nARG != 1 ? "s" : ""}`)
-        }
-    }
-
-    if (value_trans == "activated") {
-        effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG == 1 ? "activated" : "deactivated"}`)
-    }
-
-    if (value_trans == "ailment_group") {
-        const grouppull = ailment_group[m_nARG] && ailment_group[m_nARG].unique
-        effect_str = effect_str.replace(/\[m_nARG\]/gm, grouppull == undefined ? m_nARG : grouppull)
-    }
-
-    if (value_trans == "ailment_id") {
-        const ailment_pull = AilmentNames[m_nARG]
-        effect_str = effect_str.replace(/\[m_nARG\]/gm, `${ailment_pull == undefined ? `[#${m_nARG}]` : `//${ailment_pull.icon}// [${ailment_pull.name}] #${m_nARG}`}`)
-        m_nARG = m_nARG = ailment_pull == undefined ? `[#${m_nARG}]` : `//${ailment_pull.icon}// [${ailment_pull.name}] #${m_nARG}`
-    }
-
-    if (value_trans == "ailment_id4") {
-        const ailment_pull = AilmentNames[m_nARG_4]
-        effect_str = effect_str.replace(/\[m_nARG_4\]/gm, `${ailment_pull == undefined ? `[#${m_nARG_4}]` : `//${ailment_pull.icon}// [${ailment_pull.name}] #${m_nARG_4}`}`)
-    }
-    if (value_trans == "ailment_id4_level") {
-        const ailment_pull = AilmentNames[m_nARG_4]
-        effect_str = effect_str.replace(/\[m_nARG_4\]/gm, `${ailment_pull == undefined ? `[#${m_nARG_4}]` : `//${ailment_level_icon(ailment_pull,m_nARG)}// [${ailment_pull.name}] #${m_nARG_4}`}`)
-    }
-
-    if (value_trans == "ailment_id4_any") {
-        const ailment_pull = AilmentNames[m_nARG_4]
-        effect_str = effect_str
-            .replace(/\[m_nARG_3\]/gm, `${m_nARG_3 == 1 ? "any" : "self casted"}`)
-            .replace(/\[m_nARG_4\]/gm, `${ailment_pull == undefined ? `[#${m_nARG_4}]` : `//${ailment_pull.icon}// [${ailment_pull.name}] #${m_nARG_4}`}`)
-    }
-
-    if (value_trans == "ailment_id4_buffdebuff") {
-        if (m_nARG_4 != -1) {
-            const ailment_pull = AilmentNames[m_nARG_4] 
-            effect_str = effect_str.replace(/\[m_nARG_3\]/gm, `${m_nARG_3 == 1 ? "targets debuffed with " : "targets buffed with "}`)
-                .replace(/\[m_nARG_4\]/gm, `${ailment_pull == undefined ? `[${m_nARG_4}]` : `//${ailment_pull.icon}// [${ailment_pull.name}]`}`)
-        } else {
-            effect_str = effect_str.replace(/\[m_nARG_3\]/gm, `${m_nARG_3 == 1 ? "debuffed targets" : "buffed targets"}`)
-                .replace(/\[m_nARG_4\]/gm, ``)
-        }
-    }
-
-    if (value_trans == "ailment_id4_split3_remove_16atk") {
-        if (effect_value_type_id == 49) {
-            const val_1 = ailment_val_edit_type_handler(2, m_nARG)
-            const val_2 = ailment_val_edit_type_handler(3, m_nARG)
-            const val_3 = ailment_val_edit_type_handler(4, m_nARG)
-            const m_nARG_str = `${val_1 != 0 ? `${val_1}%` : ""}${val_2 != 0 ? ` / ${val_2}%` : ""}${val_3 != 0 ? ` / ${val_3}%` : ""}`
-            const val_4 = ailment_val_edit_type_handler(2, m_nARG_1)
-            const val_5 = ailment_val_edit_type_handler(3, m_nARG_1)
-            const val_6 = ailment_val_edit_type_handler(4, m_nARG_1)
-            const m_nARG_1_str = `${val_4 != 0 ? ` / ${val_4}%` : ""}${val_5 != 0 ? ` / ${val_5}%` : ""}${val_6 != 0 ? ` / ${val_6}%` : ""}`
-            const val_7 = ailment_val_edit_type_handler(2, m_nARG_2)
-            const val_8 = ailment_val_edit_type_handler(3, m_nARG_2)
-            const val_9 = ailment_val_edit_type_handler(4, m_nARG_2)
-            const m_nARG_2_str = `${val_7 != 0 ? ` / ${val_7}%` : ""}${val_8 != 0 ? ` / ${val_8}%` : ""}${val_9 != 0 ? ` / ${val_9}%` : ""}`
-            const val_10 = ailment_val_edit_type_handler(2, m_nARG_3)
-            const m_nARG_3_str = `${val_10 != 0 ? ` / ${val_10}%` : ""}`
-            const ailment_pull = AilmentNames[m_nARG_4]
-            effect_str = effect_str
-                .replace(/\[m_nARG\]/gm, m_nARG_str)
-                .replace(/\[m_nARG_1\]/gm, m_nARG_1_str)
-                .replace(/\[m_nARG_2\]/gm, m_nARG_2_str)
-                .replace(/\[m_nARG_3\]/gm, m_nARG_3_str)
-                .replace(/\[m_nARG_4\]/gm, `based on level of ${ailment_pull == undefined ? `[#${m_nARG_4}]` : `//${ailment_pull.icon}// [${ailment_pull.name}] #${m_nARG_4}`} `)
-        } else {
-            effect_str = effect_str
-                .replace(/\[m_nARG\]/gm, `${m_nARG}%`)
-                .replace(/\[m_nARG_1\]/gm, "")
-                .replace(/\[m_nARG_2\]/gm, "")
-                .replace(/\[m_nARG_3\]/gm, "")
-                .replace(/\[m_nARG_4\]/gm, "")
-        }
-    }
-
-    if (value_trans == "all_debuffs_turns") {
-        if (m_nARG != -1) {
-            const ailment_pull = AilmentNames[m_nARG]
-            effect_str = effect_str
-                .replace(/\[m_nARG\]/gm, `${ailment_pull == undefined ? `[#${m_nARG}]` : `//${ailment_pull.icon}// [${ailment_pull.name}] #${m_nARG}`}`)
-                .replace(/\[m_nARG_1\]/gm, `${m_nARG_1 != 1 ? `${m_nARG_1} turns` : `1 turn`}`)
-        } else {
-            effect_str = effect_str
-                .replace(/\[m_nARG\]/gm, `all inflicted debuffs`)
-                .replace(/\[m_nARG_1\]/gm, `${m_nARG_1 != 1 ? `${m_nARG_1} turns` : `1 turn`}`)
-        }
-
-    }
-
-    if (value_trans == "brv_less_than") {
-        effect_str = effect_str.replace(/\[m_nARG_3\]/gm, `${m_nARG_3 == 1 ? `If BRV is less than ${effect_value_type_str}, ` : ""}`)
-    }
-
-    if (value_trans == "buffs") {
-        effect_str = effect_str
-            .replace(/\[m_nARG\]/gm, `${m_nARG != 1 ? `${m_nARG} buffs` : "1 buff"}`)
-    }
-
-    if (value_trans == "cast_buff_inflicted_debuff") {
-        effect_str = effect_str.replace(/\[m_nARG_3\]/gm, `${m_nARG_3 == 1 ? `inflicted debuffs` : "casted buffs"}`)
-    }
-
-    if (value_trans == "cast_buff_inflicted_debuff_turns") {
-        effect_str = effect_str.replace(/\[m_nARG_3\]/gm, `${m_nARG_3 == 1 ? `inflicted debuffs` : "casted buffs"}`)
-            .replace(/\[m_nARG\]/gm, `${m_nARG == 1 ? `1 turn` : `${m_nARG} turns`}`)
-    }
-
-    if (value_trans == "charge") {
-        effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG == 0 ? "Cancels" : "Starts"}`)
-    }
-
-    if (value_trans == "command_id4_negmax") {
-        const abilitypull = CommandNames[m_nARG_4] && CommandNames[m_nARG_4].name
-        effect_str = effect_str.replace(/\[m_nARG_1\]/gm, `${m_nARG_1 != 100 ? `${m_nARG_1}% chance to ` : ""}`)
-            .replace(/\[m_nARG_4\]/gm, `${abilitypull == undefined ? `[#${m_nARG_4}]` : `[${abilitypull}] #${m_nARG_4}`}`)
-        if (m_nARG == -1) {
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, "to default")
-        } else {
-            const replacement = `by ${m_nARG}`
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, replacement)
-        }
-    }
-
-    if (value_trans == "damage_display") {
-        effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG == 0 ? "" : " with damage display"}`)
-    }
-
-    if (value_trans == "dice_potency") {
-        pot_str = effect_str.replace(/\[m_nARG_1\]/gm, `${pot_cent * m_nARG_1}`)
-            .replace(/\[potency\]/gm, `${pot_cent}`)
-        effect_str = ""
-    }
-
-    if (value_trans == "divide_100") {
-        const newvalue = m_nARG_1 / 100
-        effect_str = effect_str.replace(/\[m_nARG_1\]/gm, `${newvalue}`)
-    }
-
-    if (value_trans == "divide_100_0") {
-        const newvalue = m_nARG / 100
-        effect_str = effect_str.replace(/\[m_nARG\]/gm, `${newvalue}`)
-    }
-
-    if (value_trans == "effect41") {
-        if (effect_value_type_id == 53) {
-            const val_1 = ailment_val_edit_type_handler(2, m_nARG)
-            const val_2 = ailment_val_edit_type_handler(3, m_nARG)
-            const val_3 = ailment_val_edit_type_handler(4, m_nARG)
-            const val_4 = ailment_val_edit_type_handler(2, m_nARG_1)
-            const val_5 = ailment_val_edit_type_handler(3, m_nARG_1)
-            const val_6 = ailment_val_edit_type_handler(4, m_nARG_1)
-            const val_7 = ailment_val_edit_type_handler(2, m_nARG_2)
-            const val_8 = ailment_val_edit_type_handler(3, m_nARG_2)
-            const val_9 = ailment_val_edit_type_handler(4, m_nARG_2)
-            const val_10 = ailment_val_edit_type_handler(2, m_nARG_3)
-            const m_nARG_str = `${val_1}%${val_2 != 0 ? ` / ${val_2}%` : ""}${val_3 != 0 ? ` / ${val_3}%` : ""}`
-            const m_nARG_1_str = `${val_4 != 0 ? ` / ${val_4}%` : ""}${val_5 != 0 ? ` / ${val_5}%` : ""}${val_6 != 0 ? ` / ${val_6}%` : ""}`
-            const m_nARG_2_str = `${val_7 != 0 ? ` / ${val_7}%` : ""}${val_8 != 0 ? ` / ${val_8}%` : ""}${val_9 != 0 ? ` / ${val_9}%` : ""}`
-            const m_nARG_3_str = `${val_10 != 0 ? ` / ${val_10}%` : ""}`
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG_str}${m_nARG_1_str}${m_nARG_2_str}${m_nARG_3_str}`)
-        }
-        if (effect_value_type_id == 46) {
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG}% / ${m_nARG_1}% / ${m_nARG_2}% / ${m_nARG_3}%`)
-        }
-        if(effect_value_type_id == 16){
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG}`)
-            .replace(/\[target\]/gm, ability_target_str)
-            .replace("Self ", "")
-        } else {
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG}%`)
-            .replace(/\[target\]/gm, ability_target_str)
-            .replace("Self ", "")
-        }
-    }
-
-    if (value_trans == "effect43") {
-        if (effect_value_type_id == 16) {
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG}`)
-        } else {
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG}%`)
-        }
-        effect_str = effect_str
-            .replace(/\[target\]/gm, ability_target_str)
-            .replace("Self ", "")
-    }
-
-    if (value_trans == "effect44") {
-        if (effect_value_type_id == 16) {
-            effect_str = effect_str.replace(/\[effect44\]/gm, `${m_nARG}`)
-        }
-        if (effect_value_type_id == 36) {
-            effect_str = effect_str.replace(/\[effect44\]/gm, `${m_nARG}% of total HP Damage dealt (${m_nARG_1}% on <BREAK> afflicted targets)`)
-        }
-        if (effect_value_type_id == 58) {
-            const ailment_pull = AilmentNames[m_nARG]
-            effect_str = effect_str.replace(/\[effect44\]/gm, `${m_nARG_1}% of stored value from ${ailment_pull == undefined ? `[#${m_nARG}]` : `//${ailment_pull.icon}// [${ailment_pull.name}] #${m_nARG}`}`)
-        }
-        if (effect_value_type_id == 14) {
-            effect_str = effect_str.replace(/Deals Splash/gm, `Deals ${m_nARG}% Splash`)
-                .replace(/by \[effect44\] /gm, "")
-        }
-        if (effect_value_type_id == 61) {
-            effect_str = effect_str.replace(/by \[effect44\] /gm, `by ${effect_value_type_str} `)
-        }
-        effect_str = effect_str.replace(/\[effect44\]/gm, `${m_nARG}% of ${effect_value_type_str}`)
-    }
-
-    if (value_trans == "enemy_resist") {
-        const enemyresistpull = enemy_resist[m_nARG]
-        effect_str = effect_str.replace(/\[m_nARG\]/gm, enemyresistpull)
-    }
-
-    if (value_trans == "grants_consumes_ailment_id4") {
-        const ailment_pull = AilmentNames[m_nARG_4]
-        var levels;
-        if (m_nARG < 0) {
-            levels = Math.abs(m_nARG)
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, `Reduces ${levels} level${levels != 1 ? "s" : ""} of active`)
-        } else {
-            if (ability_target_id == 1 || ability_target_id == 5) {
-                levels = Math.abs(m_nARG)
-                effect_str = effect_str.replace(/\[m_nARG\]/gm, `Inflicts ${levels} level${levels != 1 ? "s" : ""} of active`)
-            } else {
-                levels = m_nARG
-                effect_str = effect_str.replace(/\[m_nARG\]/gm, `Grants ${m_nARG} level${m_nARG != 1 ? "s" : ""} of active`)
+    switch (value_trans) {
+        case "instant_zero":
+            if (m_nARG == 0) {
+                effect_str = effect_str.replace(/\[m_nARG\]/gm, `Instant`)
             }
-        }
-        effect_str = effect_str.replace(/\[m_nARG_4\]/gm, `${ailment_pull == undefined ? `[#${m_nARG_4}]` : `//${ailment_level_icon(ailment_pull,m_nARG)}// [${ailment_pull.name}] #${m_nARG_4}`}`)
-            .replace(/\[target\]/gm, ability_target_str)
-            .replace("on Self", "")
-    }
-
-    if (value_trans == "hits") {
-        effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG == 0 ? "" : ` for the next ${m_nARG} hit${m_nARG != 1 ? "s" : ""}`}`)
-    }
-
-    if (value_trans == "if_even") {
-        effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG == 2 ? "If current BRV is an even number, " : ``}`)
-    }
-
-    if (value_trans == "increase_decrease_ailment_id4") {
-        const ailment_pull = AilmentNames[m_nARG_4]
-        effect_str = effect_str.replace(/\[m_nARG_4\]/gm, `${ailment_pull == undefined ? `[#${m_nARG_4}]` : `//${ailment_pull.icon}// [${ailment_pull.name}] #${m_nARG_4}`}`)
-        if (m_nARG < 0) {
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, `Decreases turns by ${Math.abs(m_nARG)}`)
-        } else {
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, `Increases turns by ${m_nARG}`)
-        }
-    }
-
-    if (value_trans == "increase_decrease_force") {
-        if (m_nARG < 0) {
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, `Decreases Force Gauge by ${Math.round(Math.abs(m_nARG) / 10)}%`)
-        } else {
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, `Increases Force Gauge by ${Math.round(m_nARG / 10)}%`)
-        }
-    }
-
-    if (value_trans == "increase_decrease_recast") {
-        if (m_nARG < 0) {
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, `Decreases Recast Bar by ${Math.abs(m_nARG)}%`)
-        } else {
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, `Increases Recast Bar by ${m_nARG}%`)
-        }
-    }
-
-    if (value_trans == "negone_all_buffs") {
-        if (m_nARG == -1) {
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, "all buffs")
-        } else {
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG} buff${m_nARG != 1 ? "s" : ""}`)
-        }
-    }
-
-    if (value_trans == "negone_all_debuffs") {
-        if (m_nARG == -1) {
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, "all debuffs")
-        } else {
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG} debuff${m_nARG != 1 ? "s" : ""}`)
-        }
-    }
-
-    if (value_trans == "negone_one_count") {
-        if (m_nARG == -1) {
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, "of all S1 & AA Abilities")
-        } else {
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, `by ${m_nARG} use(s) to S1 & S2 Abilities`)
-        }
-    }
-
-    if (value_trans == "no_self") {
-        effect_str = effect_str
-            .replace(/\[target\]/gm, ability_target_str)
-            .replace("Self ", "")
-    }
-
-    if (value_trans == "on_off") {
-        if (m_nARG == 1) {
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, "on")
-        } else {
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, `off`)
-        }
-    }
-
-    if (value_trans == "one_recover") {
-        if (m_nARG == 1) {
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG == 1 ? "(Recovers)" : ""}`)
-        } else {
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, "")
-        }
-    }
-
-    if (value_trans == "plus_1") {
-        effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG + 1}`)
-    }
-
-    if (value_trans == "split_half2") {
-        const val_2 = ailment_val_edit_type_handler(3, m_nARG_2)
-        effect_str = effect_str.replace(/\[m_nARG_2\]/gm, val_2)
-    }
-
-    if (value_trans == "split_merge") {
-        if (ability_target_id == 6) {
-            effect_str = effect_str.replace(/\[target\]/gm, "Merge Effect")
-        } else {
-            effect_str = effect_str.replace(/\[target\]/gm, "Split Effect")
-        }
-    }
-
-    if (value_trans == "times_ten") {
-        pot_str = effect_str
-            .replace(/\[effect_value_type\]/, effect_value_type_str)
-            .replace(/\[target\]/gm, ability_target_str)
-            .replace(/\[m_nARG\]/gm, m_nARG * 10)
-            .replace(/\[m_nARG_1\]/gm, m_nARG_1 * 10)
-            .replace(/\[m_nARG_2\]/gm, m_nARG_2 * 10)
-            .replace(/\[m_nARG_3\]/gm, m_nARG_3 * 10)
-            .replace(/\[m_nARG_4\]/gm, m_nARG_4 * 10)
-        effect_str = ""
-    }
-
-    if (value_trans == "turn_mod") {
-        effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG == 19 ? "debuffs" : "buffs"}`)
-        if (m_nARG_1 > 0) {
-            effect_str = effect_str.replace(/\[m_nARG_1\]/gm, `increases by ${m_nARG_1} turn${m_nARG_1 != 1 ? "s" : ""}`)
-        } else {
-            effect_str = effect_str.replace(/\[m_nARG_1\]/gm, `decreases by ${Math.abs(m_nARG_1)} turn${m_nARG_1 != -1 ? "s" : ""}`)
-        }
-    }
-
-    if (value_trans == "turns") {
-        effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG == 1 ? "1 turn" : `${m_nARG} turns`}`)
-    }
-
-    if (value_trans == "turns_ailment_id1") {
-        const ailment_pull = AilmentNames[m_nARG_1] 
-        effect_str = effect_str.replace(/\[m_nARG_1\]/gm, `${ailment_pull == undefined ? `[#${m_nARG_1}]` : `//${ailment_pull.icon}// [${ailment_pull.name}] #${m_nARG_1}`}`)
-            .replace(/\[m_nARG\]/gm, `${m_nARG == 1 ? "1 turn" : `${m_nARG} turns`}`)
-    }
-
-    if (value_trans == "turns_ailment_id4_buffdebuff_noself") {
-        if (m_nARG_4 != -1) {
-            const ailment_pull = AilmentNames[m_nARG_4]
+            break;
+        case "negone_all_debuffs":
+            if (m_nARG == -1) {
+                effect_str = effect_str.replace(/\[m_nARG\]/gm, `all debuffs`)
+            } else {
+                effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG} debuff${m_nARG != 1 ? "s" : ""}`)
+            }
+            break;
+        case "activated":
+            effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG == 1 ? "activated" : "deactivated"}`)
+            break;
+        case "ailment_group":
+            const grouppull = ailment_group[m_nARG] && ailment_group[m_nARG].unique
+            effect_str = effect_str.replace(/\[m_nARG\]/gm, grouppull == undefined ? m_nARG : grouppull)
+            break;
+        case "ailment_id":
+            ailment_pull = AilmentNames[m_nARG]
+            effect_str = effect_str.replace(/\[m_nARG\]/gm, `${ailment_pull == undefined ? `[#${m_nARG}]` : `//${ailment_pull.icon}// [${ailment_pull.name}] #${m_nARG}`}`)
+            m_nARG = m_nARG = ailment_pull == undefined ? `[#${m_nARG}]` : `//${ailment_pull.icon}// [${ailment_pull.name}] #${m_nARG}`
+            break;
+        case "ailment_id4":
+            ailment_pull = AilmentNames[m_nARG_4]
             effect_str = effect_str.replace(/\[m_nARG_4\]/gm, `${ailment_pull == undefined ? `[#${m_nARG_4}]` : `//${ailment_pull.icon}// [${ailment_pull.name}] #${m_nARG_4}`}`)
-                .replace(/\[m_nARG_3\]/gm, "")
-        }
-        effect_str = effect_str
-            .replace(/\[target\]/gm, ability_target_str)
-            .replace(/Self /gm, "")
-            .replace(/\[m_nARG\]/gm, `${m_nARG == 1 ? "1 turn" : `${m_nARG} turns`}`)
-            .replace(/\[m_nARG_3\]/gm, `${m_nARG_3 == 2 ? " buffs" : " debuffs"}`)
-            .replace(/ \[m_nARG_4\]/gm, "")
-
-    }
-
-    if (value_trans == "turns_selfgranted") {
-        if (m_nARG_1 == 1) {
-            effect_str = effect_str.replace(/\[m_nARG_1\]/gm, "self granted")
-        } else {
-            effect_str = effect_str.replace(/\[m_nARG_1\]/gm, "any")
-        }
-        effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG == 1 ? "1 turn" : `${m_nARG} turns`}`)
-    }
-
-    if (value_trans == "with_percent_of") {
-        if (m_nARG_3 == 1) {
-            effect_str = effect_str.replace(/\[m_nARG_3\]/gm, `(If BRV is lower than ${effect_value_type_str}) `)
-        } else {
-            effect_str = effect_str.replace(/\[m_nARG_3\]/gm, "")
-        }
-        if (effect_value_type_id != 16) {
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG}% of `)
-        }
-        effect_str = effect_str.replace(/\[target\]/gm, ability_target_str)
-            .replace(/to Self/gm, "")
-    }
-
-    if (value_trans == "effect_70") {
-        if (ability_target_id == 6) {
-            effect_value_type_str = effect_value_type_str.replace(/Individual's/, "total")
-        } else {
-            effect_value_type_str = effect_value_type_str.replace(/Individual's /, "")
-        }
-        effect_str = effect_str.replace(/\[effect_value_type\]/, effect_value_type_str)
-            .replace(/\[target\]/gm, ability_target_str).replace(/own /, "").replace(/Self /, "")
-    }
-
-    if (value_trans == "break_chance") {
-        if (m_nARG == 100) {
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, "Inflicts")
-        } else {
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG}% chance of inflicting`)
-        }
-    }
-
-    if(value_trans == "m_nARG_3_MAX_HP"){
-        if (m_nARG_3 > 0) {
-            effect_str = effect_str.replace(/\[m_nARG_3\]/gm, `, up to ${m_nARG_3}% of their Max HP`)
-        } else {
-            effect_str = effect_str.replace(/\[m_nARG_3\]/gm, ``)
-        }
-        effect_str = effect_str
-            .replace(/\[target\]/gm, ability_target_str)
-            .replace("Self ", "")
-    }
-
-    if(value_trans == "cast_id0"){
-        if (CastNames[m_nARG] != undefined) {
-            effect_str = effect_str.replace(/\[m_nARG\]/gm, `//${CastNames[m_nARG].icon}// [${CastNames[m_nARG].name}] #${CastNames[m_nARG].id}`) + `${m_nARG_1 != 1 ? "s":""}`
-        }
-    }
-
-    if(value_trans == "ailment_id_level_and"){
-        const ail_id = Math.floor((m_nARG % 1000000) / 100)
-        const ailment_pull = AilmentNames[ail_id]
-        const level = Math.floor(m_nARG % 100)
-        effect_str = effect_str.replace(/\[m_nARG\]/gm, `//${ailment_pull.icon}// [${ailment_pull.name}] #${ail_id}${level != 0 ? ` level to ${level} and` :""}`)
+            break;
+        case "ailment_id4_level":
+            ailment_pull = AilmentNames[m_nARG_4]
+            effect_str = effect_str.replace(/\[m_nARG_4\]/gm, `${ailment_pull == undefined ? `[#${m_nARG_4}]` : `//${ailment_level_icon(ailment_pull,m_nARG)}// [${ailment_pull.name}] #${m_nARG_4}`}`)
+            break; 
+        case "ailment_id4_any":
+            ailment_pull = AilmentNames[m_nARG_4]
+            effect_str = effect_str
+                .replace(/\[m_nARG_3\]/gm, `${m_nARG_3 == 1 ? "any" : "self casted"}`)
+                .replace(/\[m_nARG_4\]/gm, `${ailment_pull == undefined ? `[#${m_nARG_4}]` : `//${ailment_pull.icon}// [${ailment_pull.name}] #${m_nARG_4}`}`)
+            break;
+        case "ailment_id4_buffdebuff":
+            if (m_nARG_4 != -1) {
+                ailment_pull = AilmentNames[m_nARG_4] 
+                effect_str = effect_str.replace(/\[m_nARG_3\]/gm, `${m_nARG_3 == 1 ? "targets debuffed with " : "targets buffed with "}`)
+                    .replace(/\[m_nARG_4\]/gm, `${ailment_pull == undefined ? `[${m_nARG_4}]` : `//${ailment_pull.icon}// [${ailment_pull.name}]`}`)
+            } else {
+                effect_str = effect_str.replace(/\[m_nARG_3\]/gm, `${m_nARG_3 == 1 ? "debuffed targets" : "buffed targets"}`)
+                    .replace(/\[m_nARG_4\]/gm, ``)
+            }
+            break;
+        case "ailment_id4_split3_remove_16atk":
+            if (effect_value_type_id == 49) {
+                const val_1 = ailment_val_edit_type_handler(2, m_nARG)
+                const val_2 = ailment_val_edit_type_handler(3, m_nARG)
+                const val_3 = ailment_val_edit_type_handler(4, m_nARG)
+                const m_nARG_str = `${val_1 != 0 ? `${val_1}%` : ""}${val_2 != 0 ? ` / ${val_2}%` : ""}${val_3 != 0 ? ` / ${val_3}%` : ""}`
+                const val_4 = ailment_val_edit_type_handler(2, m_nARG_1)
+                const val_5 = ailment_val_edit_type_handler(3, m_nARG_1)
+                const val_6 = ailment_val_edit_type_handler(4, m_nARG_1)
+                const m_nARG_1_str = `${val_4 != 0 ? ` / ${val_4}%` : ""}${val_5 != 0 ? ` / ${val_5}%` : ""}${val_6 != 0 ? ` / ${val_6}%` : ""}`
+                const val_7 = ailment_val_edit_type_handler(2, m_nARG_2)
+                const val_8 = ailment_val_edit_type_handler(3, m_nARG_2)
+                const val_9 = ailment_val_edit_type_handler(4, m_nARG_2)
+                const m_nARG_2_str = `${val_7 != 0 ? ` / ${val_7}%` : ""}${val_8 != 0 ? ` / ${val_8}%` : ""}${val_9 != 0 ? ` / ${val_9}%` : ""}`
+                const val_10 = ailment_val_edit_type_handler(2, m_nARG_3)
+                const m_nARG_3_str = `${val_10 != 0 ? ` / ${val_10}%` : ""}`
+                ailment_pull = AilmentNames[m_nARG_4]
+                effect_str = effect_str
+                    .replace(/\[m_nARG\]/gm, m_nARG_str)
+                    .replace(/\[m_nARG_1\]/gm, m_nARG_1_str)
+                    .replace(/\[m_nARG_2\]/gm, m_nARG_2_str)
+                    .replace(/\[m_nARG_3\]/gm, m_nARG_3_str)
+                    .replace(/\[m_nARG_4\]/gm, `based on level of ${ailment_pull == undefined ? `[#${m_nARG_4}]` : `//${ailment_pull.icon}// [${ailment_pull.name}] #${m_nARG_4}`} `)
+            } else {
+                effect_str = effect_str
+                    .replace(/\[m_nARG\]/gm, `${m_nARG}%`)
+                    .replace(/\[m_nARG_1\]/gm, "")
+                    .replace(/\[m_nARG_2\]/gm, "")
+                    .replace(/\[m_nARG_3\]/gm, "")
+                    .replace(/\[m_nARG_4\]/gm, "")
+            }
+            break;
+        case "all_debuffs_turns":
+            if (m_nARG != -1) {
+                ailment_pull = AilmentNames[m_nARG]
+                effect_str = effect_str
+                    .replace(/\[m_nARG\]/gm, `${ailment_pull == undefined ? `[#${m_nARG}]` : `//${ailment_pull.icon}// [${ailment_pull.name}] #${m_nARG}`}`)
+                    .replace(/\[m_nARG_1\]/gm, `${m_nARG_1 != 1 ? `${m_nARG_1} turns` : `1 turn`}`)
+            } else {
+                effect_str = effect_str
+                    .replace(/\[m_nARG\]/gm, `all inflicted debuffs`)
+                    .replace(/\[m_nARG_1\]/gm, `${m_nARG_1 != 1 ? `${m_nARG_1} turns` : `1 turn`}`)
+            }
+            break;
+        case "brv_less_than":
+            effect_str = effect_str.replace(/\[m_nARG_3\]/gm, `${m_nARG_3 == 1 ? `If BRV is less than ${effect_value_type_str}, ` : ""}`)
+            break;
+        case "buffs":
+            effect_str = effect_str
+                .replace(/\[m_nARG\]/gm, `${m_nARG != 1 ? `${m_nARG} buffs` : "1 buff"}`)
+            break;
+        case "cast_buff_inflicted_debuff":
+            effect_str = effect_str.replace(/\[m_nARG_3\]/gm, `${m_nARG_3 == 1 ? `inflicted debuffs` : "casted buffs"}`)
+            break;
+        case "cast_buff_inflicted_debuff_turns":
+            effect_str = effect_str.replace(/\[m_nARG_3\]/gm, `${m_nARG_3 == 1 ? `inflicted debuffs` : "casted buffs"}`)
+                .replace(/\[m_nARG\]/gm, `${m_nARG == 1 ? `1 turn` : `${m_nARG} turns`}`)
+            break;
+        case "charge":
+            effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG == 0 ? "Cancels" : "Starts"}`)
+            break;
+        case "command_id4_negmax":
+            const abilitypull = CommandNames[m_nARG_4] && CommandNames[m_nARG_4].name
+            effect_str = effect_str.replace(/\[m_nARG_1\]/gm, `${m_nARG_1 != 100 ? `${m_nARG_1}% chance to ` : ""}`)
+                .replace(/\[m_nARG_4\]/gm, `${abilitypull == undefined ? `[#${m_nARG_4}]` : `[${abilitypull}] #${m_nARG_4}`}`)
+            if (m_nARG == -1) {
+                effect_str = effect_str.replace(/\[m_nARG\]/gm, "to default")
+            } else {
+                const replacement = `by ${m_nARG}`
+                effect_str = effect_str.replace(/\[m_nARG\]/gm, replacement)
+            }
+            break;
+        case "damage_display":
+            effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG == 0 ? "" : " with damage display"}`)
+            break;
+        case "dice_potency":
+            pot_str = effect_str.replace(/\[m_nARG_1\]/gm, `${pot_cent * m_nARG_1}`)
+                .replace(/\[potency\]/gm, `${pot_cent}`)
+            effect_str = ""
+            break;
+        case "divide_100":
+            var newvalue = m_nARG_1 / 100
+            effect_str = effect_str.replace(/\[m_nARG_1\]/gm, `${newvalue}`)
+            break;
+        case "divide_100_0":
+            newvalue = m_nARG / 100
+            effect_str = effect_str.replace(/\[m_nARG\]/gm, `${newvalue}`)
+            break;
+        case "effect41":
+            if (effect_value_type_id == 53) {
+                const val_1 = ailment_val_edit_type_handler(2, m_nARG)
+                const val_2 = ailment_val_edit_type_handler(3, m_nARG)
+                const val_3 = ailment_val_edit_type_handler(4, m_nARG)
+                const val_4 = ailment_val_edit_type_handler(2, m_nARG_1)
+                const val_5 = ailment_val_edit_type_handler(3, m_nARG_1)
+                const val_6 = ailment_val_edit_type_handler(4, m_nARG_1)
+                const val_7 = ailment_val_edit_type_handler(2, m_nARG_2)
+                const val_8 = ailment_val_edit_type_handler(3, m_nARG_2)
+                const val_9 = ailment_val_edit_type_handler(4, m_nARG_2)
+                const val_10 = ailment_val_edit_type_handler(2, m_nARG_3)
+                const m_nARG_str = `${val_1}%${val_2 != 0 ? ` / ${val_2}%` : ""}${val_3 != 0 ? ` / ${val_3}%` : ""}`
+                const m_nARG_1_str = `${val_4 != 0 ? ` / ${val_4}%` : ""}${val_5 != 0 ? ` / ${val_5}%` : ""}${val_6 != 0 ? ` / ${val_6}%` : ""}`
+                const m_nARG_2_str = `${val_7 != 0 ? ` / ${val_7}%` : ""}${val_8 != 0 ? ` / ${val_8}%` : ""}${val_9 != 0 ? ` / ${val_9}%` : ""}`
+                const m_nARG_3_str = `${val_10 != 0 ? ` / ${val_10}%` : ""}`
+                effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG_str}${m_nARG_1_str}${m_nARG_2_str}${m_nARG_3_str}`)
+            }
+            if (effect_value_type_id == 46) {
+                effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG}% / ${m_nARG_1}% / ${m_nARG_2}% / ${m_nARG_3}%`)
+            }
+            if(effect_value_type_id == 16){
+                effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG}`)
+                .replace(/\[target\]/gm, ability_target_str)
+                .replace("Self ", "")
+            } else {
+                effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG}%`)
+                .replace(/\[target\]/gm, ability_target_str)
+                .replace("Self ", "")
+            }
+            break;
+        case "effect43":
+            if (effect_value_type_id == 16) {
+                effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG}`)
+            } else {
+                effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG}%`)
+            }
+            effect_str = effect_str
+                .replace(/\[target\]/gm, ability_target_str)
+                .replace("Self ", "")
+            break;
+        case "effect44":
+            if (effect_value_type_id == 16) {
+                effect_str = effect_str.replace(/\[effect44\]/gm, `${m_nARG}`)
+            }
+            if (effect_value_type_id == 36) {
+                effect_str = effect_str.replace(/\[effect44\]/gm, `${m_nARG}% of total HP Damage dealt (${m_nARG_1}% on <BREAK> afflicted targets)`)
+            }
+            if (effect_value_type_id == 58) {
+                ailment_pull = AilmentNames[m_nARG]
+                effect_str = effect_str.replace(/\[effect44\]/gm, `${m_nARG_1}% of stored value from ${ailment_pull == undefined ? `[#${m_nARG}]` : `//${ailment_pull.icon}// [${ailment_pull.name}] #${m_nARG}`}`)
+            }
+            if (effect_value_type_id == 14) {
+                effect_str = effect_str.replace(/Deals Splash/gm, `Deals ${m_nARG}% Splash`)
+                    .replace(/by \[effect44\] /gm, "")
+            }
+            if (effect_value_type_id == 61) {
+                effect_str = effect_str.replace(/by \[effect44\] /gm, `by ${effect_value_type_str} `)
+            }
+            effect_str = effect_str.replace(/\[effect44\]/gm, `${m_nARG}% of ${effect_value_type_str}`)
+            break;
+        case "enemy_resist":
+            const enemyresistpull = enemy_resist[m_nARG]
+            effect_str = effect_str.replace(/\[m_nARG\]/gm, enemyresistpull)
+            break;
+        case "grants_consumes_ailment_id4":
+            ailment_pull = AilmentNames[m_nARG_4]
+            var levels;
+            if (m_nARG < 0) {
+                levels = Math.abs(m_nARG)
+                effect_str = effect_str.replace(/\[m_nARG\]/gm, `Reduces ${levels} level${levels != 1 ? "s" : ""} of active`)
+            } else {
+                if (ability_target_id == 1 || ability_target_id == 5) {
+                    levels = Math.abs(m_nARG)
+                    effect_str = effect_str.replace(/\[m_nARG\]/gm, `Inflicts ${levels} level${levels != 1 ? "s" : ""} of active`)
+                } else {
+                    levels = m_nARG
+                    effect_str = effect_str.replace(/\[m_nARG\]/gm, `Grants ${m_nARG} level${m_nARG != 1 ? "s" : ""} of active`)
+                }
+            }
+            effect_str = effect_str.replace(/\[m_nARG_4\]/gm, `${ailment_pull == undefined ? `[#${m_nARG_4}]` : `//${ailment_level_icon(ailment_pull,m_nARG)}// [${ailment_pull.name}] #${m_nARG_4}`}`)
+                .replace(/\[target\]/gm, ability_target_str)
+                .replace("on Self", "")
+            break;
+        case "hits":
+            effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG == 0 ? "" : ` for the next ${m_nARG} hit${m_nARG != 1 ? "s" : ""}`}`)
+            break;
+        case "if_even":
+            effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG == 2 ? "If current BRV is an even number, " : ``}`)
+            break;
+        case "increase_decrease_ailment_id4":
+            ailment_pull = AilmentNames[m_nARG_4]
+            effect_str = effect_str.replace(/\[m_nARG_4\]/gm, `${ailment_pull == undefined ? `[#${m_nARG_4}]` : `//${ailment_pull.icon}// [${ailment_pull.name}] #${m_nARG_4}`}`)
+            if (m_nARG < 0) {
+                effect_str = effect_str.replace(/\[m_nARG\]/gm, `Decreases turns by ${Math.abs(m_nARG)}`)
+            } else {
+                effect_str = effect_str.replace(/\[m_nARG\]/gm, `Increases turns by ${m_nARG}`)
+            }
+            break;
+        case "increase_decrease_force":
+            if (m_nARG < 0) {
+                effect_str = effect_str.replace(/\[m_nARG\]/gm, `Decreases Force Gauge by ${Math.round(Math.abs(m_nARG) / 10)}%`)
+            } else {
+                effect_str = effect_str.replace(/\[m_nARG\]/gm, `Increases Force Gauge by ${Math.round(m_nARG / 10)}%`)
+            }
+            break;
+        case "increase_decrease_recast":
+            if (m_nARG < 0) {
+                effect_str = effect_str.replace(/\[m_nARG\]/gm, `Decreases Recast Bar by ${Math.abs(m_nARG)}%`)
+            } else {
+                effect_str = effect_str.replace(/\[m_nARG\]/gm, `Increases Recast Bar by ${m_nARG}%`)
+            }
+            break;
+        case "negone_all_buffs":
+            if (m_nARG == -1) {
+                effect_str = effect_str.replace(/\[m_nARG\]/gm, "all buffs")
+            } else {
+                effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG} buff${m_nARG != 1 ? "s" : ""}`)
+            }
+            break;
+        case "negone_one_count":
+            if (m_nARG == -1) {
+                effect_str = effect_str.replace(/\[m_nARG\]/gm, "of all S1 & AA Abilities")
+            } else {
+                effect_str = effect_str.replace(/\[m_nARG\]/gm, `by ${m_nARG} use(s) to S1 & S2 Abilities`)
+            }
+            break;
+        case "no_self":
+            effect_str = effect_str
+                .replace(/\[target\]/gm, ability_target_str)
+                .replace("Self ", "")
+            break;
+        case "on_off":
+            if (m_nARG == 1) {
+                effect_str = effect_str.replace(/\[m_nARG\]/gm, "on")
+            } else {
+                effect_str = effect_str.replace(/\[m_nARG\]/gm, `off`)
+            }
+            break;
+        case "one_recover":
+            if (m_nARG == 1) {
+                effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG == 1 ? "(Recovers)" : ""}`)
+            } else {
+                effect_str = effect_str.replace(/\[m_nARG\]/gm, "")
+            }
+            break;
+        case "plus_1":
+            effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG + 1}`)
+            break;
+        case "split_half2":
+            const val_2 = ailment_val_edit_type_handler(3, m_nARG_2)
+            effect_str = effect_str.replace(/\[m_nARG_2\]/gm, val_2)
+            break;
+        case "split_merge":
+            if (ability_target_id == 6) {
+                effect_str = effect_str.replace(/\[target\]/gm, "Merge Effect")
+            } else {
+                effect_str = effect_str.replace(/\[target\]/gm, "Split Effect")
+            }
+            break;
+        case "times_ten":
+            pot_str = effect_str
+                .replace(/\[effect_value_type\]/, effect_value_type_str)
+                .replace(/\[target\]/gm, ability_target_str)
+                .replace(/\[m_nARG\]/gm, m_nARG * 10)
+                .replace(/\[m_nARG_1\]/gm, m_nARG_1 * 10)
+                .replace(/\[m_nARG_2\]/gm, m_nARG_2 * 10)
+                .replace(/\[m_nARG_3\]/gm, m_nARG_3 * 10)
+                .replace(/\[m_nARG_4\]/gm, m_nARG_4 * 10)
+            effect_str = ""
+            break;
+        case "turn_mod":
+            effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG == 19 ? "debuffs" : "buffs"}`)
+            if (m_nARG_1 > 0) {
+                effect_str = effect_str.replace(/\[m_nARG_1\]/gm, `increases by ${m_nARG_1} turn${m_nARG_1 != 1 ? "s" : ""}`)
+            } else {
+                effect_str = effect_str.replace(/\[m_nARG_1\]/gm, `decreases by ${Math.abs(m_nARG_1)} turn${m_nARG_1 != -1 ? "s" : ""}`)
+            }
+            break;
+        case "turns":
+            effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG == 1 ? "1 turn" : `${m_nARG} turns`}`)
+            break;
+        case "turns_ailment_id1":
+            ailment_pull = AilmentNames[m_nARG_1] 
+            effect_str = effect_str.replace(/\[m_nARG_1\]/gm, `${ailment_pull == undefined ? `[#${m_nARG_1}]` : `//${ailment_pull.icon}// [${ailment_pull.name}] #${m_nARG_1}`}`)
+                .replace(/\[m_nARG\]/gm, `${m_nARG == 1 ? "1 turn" : `${m_nARG} turns`}`)
+            break;
+        case "turns_ailment_id4_buffdebuff_noself":
+            if (m_nARG_4 != -1) {
+                ailment_pull = AilmentNames[m_nARG_4]
+                effect_str = effect_str.replace(/\[m_nARG_4\]/gm, `${ailment_pull == undefined ? `[#${m_nARG_4}]` : `//${ailment_pull.icon}// [${ailment_pull.name}] #${m_nARG_4}`}`)
+                    .replace(/\[m_nARG_3\]/gm, "")
+            }
+            effect_str = effect_str
+                .replace(/\[target\]/gm, ability_target_str)
+                .replace(/Self /gm, "")
+                .replace(/\[m_nARG\]/gm, `${m_nARG == 1 ? "1 turn" : `${m_nARG} turns`}`)
+                .replace(/\[m_nARG_3\]/gm, `${m_nARG_3 == 2 ? " buffs" : " debuffs"}`)
+                .replace(/ \[m_nARG_4\]/gm, "")
+            break;
+        case "turns_selfgranted":
+            if (m_nARG_1 == 1) {
+                effect_str = effect_str.replace(/\[m_nARG_1\]/gm, "self granted")
+            } else {
+                effect_str = effect_str.replace(/\[m_nARG_1\]/gm, "any")
+            }
+            effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG == 1 ? "1 turn" : `${m_nARG} turns`}`)
+            break;
+        case "with_percent_of":
+            if (m_nARG_3 == 1) {
+                effect_str = effect_str.replace(/\[m_nARG_3\]/gm, `(If BRV is lower than ${effect_value_type_str}) `)
+            } else {
+                effect_str = effect_str.replace(/\[m_nARG_3\]/gm, "")
+            }
+            if (effect_value_type_id != 16) {
+                effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG}% of `)
+            }
+            effect_str = effect_str.replace(/\[target\]/gm, ability_target_str)
+                .replace(/to Self/gm, "")
+            break;
+        case "effect_70":
+            if (ability_target_id == 6) {
+                effect_value_type_str = effect_value_type_str.replace(/Individual's/, "total")
+            } else {
+                effect_value_type_str = effect_value_type_str.replace(/Individual's /, "")
+            }
+            effect_str = effect_str.replace(/\[effect_value_type\]/, effect_value_type_str)
+                .replace(/\[target\]/gm, ability_target_str).replace(/own /, "").replace(/Self /, "")
+            break;
+        case "break_chance":
+            if (m_nARG == 100) {
+                effect_str = effect_str.replace(/\[m_nARG\]/gm, "Inflicts")
+            } else {
+                effect_str = effect_str.replace(/\[m_nARG\]/gm, `${m_nARG}% chance of inflicting`)
+            }
+            break;
+        case "m_nARG_3_MAX_HP":
+            if (m_nARG_3 > 0) {
+                effect_str = effect_str.replace(/\[m_nARG_3\]/gm, `, up to ${m_nARG_3}% of their Max HP`)
+            } else {
+                effect_str = effect_str.replace(/\[m_nARG_3\]/gm, ``)
+            }
+            effect_str = effect_str
+                .replace(/\[target\]/gm, ability_target_str)
+                .replace("Self ", "")
+            break;
+        case "cast_id0":
+            if (CastNames[m_nARG] != undefined) {
+                effect_str = effect_str.replace(/\[m_nARG\]/gm, `//${CastNames[m_nARG].icon}// [${CastNames[m_nARG].name}] #${CastNames[m_nARG].id}`) + `${m_nARG_1 != 1 ? "s":""}`
+            }
+            break;
+        case "ailment_id_level_and":
+            var ail_id = Math.floor((m_nARG % 1000000) / 100)
+            ailment_pull = AilmentNames[ail_id]
+            var level = Math.floor(m_nARG % 100)
+            effect_str = effect_str.replace(/\[m_nARG\]/gm, `//${ailment_pull.icon}// [${ailment_pull.name}] #${ail_id}${level != 0 ? ` level to ${level} and` :""}`)
+            break;
+        default:
+            break;
     }
 
     effect_str = effect_str
@@ -735,24 +677,32 @@ export default function hitdata_trans(
         .replace(/\[m_nARG_3\]/gm, m_nARG_3)
         .replace(/\[m_nARG_4\]/gm, m_nARG_4)
 
-    if (type_id == 16) {
-        var new_atk_str = `${atk_str} ${effect_str}`
-        new_atk_str = new_atk_str.replace(/Deals /gm, "")
-        atk_str = new_atk_str
-        effect_str = ""
-    }
-    if (type_id == 9 || 
-        type_id == 14) {
+    switch (type_id) {
+        case 9:
             atk_str = atk_str.replace(/ \(Ignores DEF\)/gm, "")
             effect_str = `Ignores DEF${effect_str!=""?"\n":""}${effect_str}`
-    }
-    if (type_id == 21) {
+            break;
+        case 16:
+            var new_atk_str = `${atk_str} ${effect_str}`
+            new_atk_str = new_atk_str.replace(/Deals /gm, "")
+            atk_str = new_atk_str
+            effect_str = ""
+            break;
+        case 14:
+            atk_str = atk_str.replace(/ \(Ignores DEF\)/gm, "")
+            effect_str = `Ignores DEF${effect_str!=""?"\n":""}${effect_str}`
+            break;
+        case 21:
             atk_str = atk_str.replace(/ \(Ignores DEF & Buffs\)/gm, "")
             effect_str = `Ignores DEF & Buffs${effect_str!=""?"\n":""}${effect_str}`
             if(pot_str != "" && power != undefined){
                 pot_str = `BRV potency of ${power.toLocaleString()} fixed damage`
             }
+            break;
+        default:
+            break;
     }
+
     if(effect_id == 137){
         atk_str = `${atk_str} ${effect_str}`
         effect_str = `*Doesn't consume BRV`

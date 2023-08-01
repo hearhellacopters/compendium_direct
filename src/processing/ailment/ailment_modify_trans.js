@@ -51,22 +51,25 @@ export default function ailment_modify_trans(
 
     var requ_trans = modify_require_data[modify.require] && modify_require_data[modify.require].value_trans
 
-    if (requ_trans == "command_group") {
-        const group_pull = command_group[modify.require_value_1] && command_group[modify.require_value_1].unique
-        if (group_pull == undefined) {
-            requ_value_str = `unknown ailment group #${modify.require_value_1}`
-        } else {
-            requ_value_str = group_pull
-        }
-    }
-
-    if (requ_trans == "cond") {
-        const cond_pull = CondData[modify.require_value_1] && CondData[modify.require_value_1].trans
-        if (cond_pull == undefined) {
-            requ_value_str = `cond #${modify.require_value_1}`
-        } else {
-            requ_value_str = cond_pull
-        }
+    switch (requ_trans) {
+        case "command_group":
+            const group_pull = command_group[modify.require_value_1] && command_group[modify.require_value_1].unique
+            if (group_pull == undefined) {
+                requ_value_str = `unknown ailment group #${modify.require_value_1}`
+            } else {
+                requ_value_str = group_pull
+            }
+            break;
+        case "cond":
+            const cond_pull = CondData[modify.require_value_1] && CondData[modify.require_value_1].trans
+            if (cond_pull == undefined) {
+                requ_value_str = `cond #${modify.require_value_1}`
+            } else {
+                requ_value_str = cond_pull
+            }
+            break;
+        default:
+            break;
     }
 
     requ_str = requ_str && requ_str.replace(/\[value_1\]/gm, requ_value_str)
@@ -89,22 +92,25 @@ export default function ailment_modify_trans(
 
     var requ_1_value_str = modify.require_value_1_1
 
-    if (requ_1_trans == "command_group") {
-        const group_pull_1 = command_group[modify.require_value_1_1] && command_group[modify.require_value_1_1].unique
-        if (group_pull_1 == undefined) {
-            requ_1_value_str = `unknown ailment group #${modify.require_value_1_1}`
-        } else {
-            requ_1_value_str = group_pull_1
-        }
-    }
-
-    if (requ_1_trans == "cond") {
-        const cond_pull_1 = CondData[modify.require_value_1_1] && CondData[modify.require_value_1_1].trans
-        if (cond_pull_1 == undefined) {
-            requ_1_value_str = `cond #${modify.require_value_1_1}`
-        } else {
-            requ_1_value_str = cond_pull_1
-        }
+    switch (requ_1_trans) {
+        case "command_group":
+            const group_pull_1 = command_group[modify.require_value_1_1] && command_group[modify.require_value_1_1].unique
+            if (group_pull_1 == undefined) {
+                requ_1_value_str = `unknown ailment group #${modify.require_value_1_1}`
+            } else {
+                requ_1_value_str = group_pull_1
+            }
+            break;
+        case "cond":
+            const cond_pull_1 = CondData[modify.require_value_1_1] && CondData[modify.require_value_1_1].trans
+            if (cond_pull_1 == undefined) {
+                requ_1_value_str = `cond #${modify.require_value_1_1}`
+            } else {
+                requ_1_value_str = cond_pull_1
+            }
+            break;
+        default:
+            break;
     }
 
     requ_1_str = requ_1_str && requ_1_str.replace(/\[value_1\]/gm, requ_1_value_str)

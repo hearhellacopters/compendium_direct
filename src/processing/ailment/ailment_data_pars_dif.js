@@ -132,6 +132,11 @@ export default function ailment_data_pars_dif(
     if (effect_id && effect_id.cond_id) {
         cond_str = ` ┬ ${effect_id.cond_id}`
     }
+    if (effect_id && effect_id.attached != undefined) {
+        effect_id && effect_id.attached.forEach(self=>{
+            cond_str = cond_str + `\n ├─ Or ${self.cond_id}`
+        })
+    }
     if (effect_id && effect_id.effectstr) {
         eff_str = ` ${spacer != undefined ? spacer : effect_id.cond_id != undefined ? "└─" : "-"} ${
             effect_id.effectstr.replace(/\[value1\]/gm, displayrank && displayrank.value1)
