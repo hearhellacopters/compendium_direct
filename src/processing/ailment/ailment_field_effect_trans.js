@@ -175,14 +175,14 @@ export default function ailment_field_effect_trans(
     }
 
     if (targetstr == "Party " && require_id_1str == "(except Allies)") {
-        targetstr = "Adds " //formally self
-    }
+        targetstr = "" //formally self
+    } else
     if (targetstr == "Party " && require_id_2str == "(except Allies)") {
-        targetstr = "Adds " //formally self
-    }
+        targetstr = "" //formally self
+    } else 
     if (targetstr == "Party " && require_id_1str == "(except Self)") {
         targetstr = "Party (except Self) "
-    }
+    } else 
     if (targetstr == "Party " && require_id_2str == "(except Self)") {
         targetstr = "Party (except Self) "
     }
