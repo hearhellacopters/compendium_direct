@@ -230,11 +230,6 @@ export default function ailment_effect_trans(
         hidden: hidden
     }
 
-    if(hidden == true){
-        return (tables)
-    }
-
-
     if (rank == -1) {
         if (alt_rank != undefined && alt_rank != 0 && val_type != 3 && val_type != 4 && val_type != 20) {
             for (let i=1;i<11;i++){

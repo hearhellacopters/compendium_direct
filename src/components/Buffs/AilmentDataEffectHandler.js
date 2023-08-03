@@ -27,7 +27,7 @@ export default function AilmentDataEffectHandler({
     setshowdesc,
     hide_type,
     spacer,
-    debugging
+    showvalues
 }){
 
     const form = {formatting:formatting}
@@ -163,7 +163,7 @@ export default function AilmentDataEffectHandler({
     //textdisplay
     useEffect(() => {
         if (effect_id && effect_id.cond_id) {
-            setcond_str(` ┬ ${effect_id.cond_id}`)
+            setcond_str(` ${effect_id.concatted == true ? "├ But" : "┬"} ${effect_id.cond_id}`)
         }
         if (effect_id && effect_id.attached != undefined) {
             effect_id && effect_id.attached.forEach(self=>{
@@ -171,7 +171,7 @@ export default function AilmentDataEffectHandler({
             })
         }
         if (effect_id && effect_id.effectstr) {
-            seteff_str(` ${spacer != undefined ? spacer : effect_id.cond_id != undefined ? "└─" : "-"} ${
+            seteff_str(` ${spacer != undefined ? spacer : effect_id.cond_id != undefined ? effect_id.concat != undefined ? "├─ ": effect_id.concatted != undefined ? "└─ Becomes ": "└─ " : "- "}${
                 effect_id.effectstr.replace(/\[value1\]/gm, displayrank && displayrank.value1)
                                    .replace(/\[value2\]/gm, rank && rank.value2)
                                    .replace(/\[value3\]/gm, rank && rank.value3)
@@ -256,12 +256,12 @@ export default function AilmentDataEffectHandler({
                         : ""}
                 </>
             : ""}
-            {debugging !=true ? "":
+            {showvalues !=true ? "":
             Array.from(Array(10).keys(), num => num + 1).map(num => (
                 effect_id && effect_id[`rank${num}`] && effect_id[`rank${num}`].value1 == undefined ? "" :
-                    <span key={num} className="padleft values">
+                    <span key={num} style={{color:"grey"}} className="padleft">
                         {`${num}) `}
-                        <span className='unique'>
+                        <span className='grey'>
                         {effect_id[`rank${num}`].value1}
                         {effect_id && effect_id[`rank${num}`].value2 && effect_id[`rank${num}`].value2 != undefined ? " " + effect_id[`rank${num}`].value2 : ""}
                         {effect_id && effect_id[`rank${num}`].value3 && effect_id[`rank${num}`].value3 != undefined ? " " + effect_id[`rank${num}`].value3 : ""}
@@ -271,7 +271,7 @@ export default function AilmentDataEffectHandler({
                     </span>
             ))
             }
-            {debugging ==true && effect_id && effect_id[`rank1`] && effect_id[`rank1`].value1 != undefined ?
+            {showvalues ==true && effect_id && effect_id[`rank1`] && effect_id[`rank1`].value1 != undefined ?
             <br/>
             :""}
         </>

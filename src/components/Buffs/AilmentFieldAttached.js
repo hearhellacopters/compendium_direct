@@ -14,6 +14,7 @@ export default function AilmentFieldAttached({
     hide_disp,
     master_index,
     spacer,
+    showvalues,
     battle_state
 }){
 
@@ -84,6 +85,7 @@ export default function AilmentFieldAttached({
                 formatting={formatting}
                 castlocation={castlocation == undefined ? false : castlocation}
                 hide_type={hide_type}
+                showvalues={showvalues}
                 spacer={spacer}
             />}
              {showraw == true ?

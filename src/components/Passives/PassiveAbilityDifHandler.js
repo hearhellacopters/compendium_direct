@@ -5,6 +5,8 @@ import PassiveAbilityFormatting from "./PassiveAbilityFormatting";
 export default function PassiveAbilityDifHandler({
     passive_data,
     master_index,
+    ProcessedCharacters,
+    debugging
 }){
     return(
         passive_data.new_only == true ? 
@@ -13,10 +15,12 @@ export default function PassiveAbilityDifHandler({
         loc={"crystal"}
         ver={passive_data.ver_new}
         file={"crystal"}
+        Single={true}
         master_index={master_index}
         chara_id_passoff={passive_data.pass_new.chara_id}
         formatting={true}
         gear={false}
+        debugging={debugging}
         header={passive_data.header}
         />
         :

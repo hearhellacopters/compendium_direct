@@ -51,6 +51,7 @@ function AilmentDataFormatting({
     passed_passive, // for passive defaults
     hide_title,
     debugging,
+    showvalues,
     scrollPosition 
 }){
 
@@ -522,7 +523,7 @@ function AilmentDataFormatting({
                             formatting={formatting}
                             setonion_passoff={setonion_passoff}
                             setshowdesc={setshowdesc}
-                            debugging={castlocation == true ? false : debugging}
+                            showvalues={showvalues}
                         />
                     ))}
                     {ailment_pars.field != undefined ?
@@ -556,7 +557,7 @@ function AilmentDataFormatting({
                                     characterskb={characterskb}
                                     castlocation={castlocation}
                                     formatting={formatting}
-                                    debugging={castlocation == true ? false : debugging}
+                                    showvalues={showvalues}
                                 />
                             )}
                         </>
@@ -697,6 +698,7 @@ function AilmentDataFormatting({
                             frameless={true}
                             hide_cast_str={true}
                             debugging={debugging}
+                            showvalues={showvalues}
                         />
                         : ""}
                     {showraw == true ?

@@ -30,6 +30,7 @@ function AilmentDifFormatting({
     passed_passive, // for passive defaults
     hide_title,
     debugging,
+    showvalues,
     scrollPosition 
 }){
 
@@ -409,6 +410,7 @@ function AilmentDifFormatting({
                         charactersleft_passoff={charactersleft}
                         characterskb={characterskb}
                         currentlevel_passoff={currentlevel}
+                        showvalues={showvalues}
                         debugging={debugging}
                     />
                     {buff_new.options != undefined ?

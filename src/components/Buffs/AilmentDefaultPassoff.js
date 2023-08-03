@@ -20,7 +20,8 @@ export default function AilmentDefaultPassoff({
     frameless,
     character_face,
     full,
-    master_index
+    master_index,
+    debugging
 }){
 
     const form = {formatting:formatting}
@@ -159,6 +160,8 @@ export default function AilmentDefaultPassoff({
                         frameless={frameless}
                         full={full}
                         default_passoff={selectedbuff}
+                        showvalues={false}
+                        debugging={debugging}
                         passed_passive={selectedbuff.passive}
                     />
                 : ""}

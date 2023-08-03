@@ -28,6 +28,7 @@ function AbilityDifFormatting({
     master_index,
     info,
     debugging,
+    showvalues,
     scrollPosition 
 }){
 
@@ -574,6 +575,7 @@ function AbilityDifFormatting({
                             character_face={false}
                             hide_title={true}
                             passed_passive={selectedbuff.passive}
+                            showvalues={showvalues}
                             debugging={debugging}
                         />
                         :

@@ -1,23 +1,25 @@
 import React from "react";
-import Equipment_Passive_Handler from "./EquipmentPassivesFormatting";
-import Equipment_Passive_Dif from "./EquipmentPassiveDif";
+import EquipmentPassivesFormatting from "./EquipmentPassivesFormatting";
+import EquipmentPassiveDif from "./EquipmentPassiveDif";
 
 export default function EquipmentPassiveDifHandler({
     passive_data,
     master_index,
     ProcessedCharacters,
+    debugging
 }){
     return(
         passive_data.new_only == true?
-        <Equipment_Passive_Handler
+        <EquipmentPassivesFormatting
         gear={passive_data.equ_pass_new}
         ver={passive_data.ver_new}
         loc={"gear"}
         master_index={master_index}
+        debugging={debugging}
         formatting={true}
         />
         :
-        <Equipment_Passive_Dif
+        <EquipmentPassiveDif
         passive_ability_new={passive_data.equ_pass_new}
         ver_new={passive_data.ver_new}
         passive_ability_old={passive_data.equ_pass_old}

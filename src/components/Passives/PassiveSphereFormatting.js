@@ -40,6 +40,7 @@ function PassiveSphereFormatting({
     raw,
     link,
     master_index,
+    debugging,
     scrollPosition 
 }){
 
@@ -374,6 +375,8 @@ function PassiveSphereFormatting({
                             character_face={false}
                             full={true}
                             passed_passive={selectedbuff.passive}
+                            debugging={debugging}
+                            showvalues={false}
                             hide_title={true}
                         />
                         : ""}

@@ -26,6 +26,7 @@ function PassiveArtFormatting({
     span,
     link,
     master_index,
+    debugging,
     scrollPosition 
 }){
 
@@ -277,6 +278,8 @@ function PassiveArtFormatting({
                             character_face={false}
                             frameless={true}
                             default_passoff={selectedbuff}
+                            debugging={debugging}
+                            showvalues={false}
                             passed_passive={selectedbuff.passive}
                         />
                         : ""}

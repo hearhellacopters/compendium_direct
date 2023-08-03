@@ -887,6 +887,7 @@ function AbilityPars({
                         hide_title={true}
                         default_passoff={selectedbuff.default == true ? selectedbuff : undefined}
                         passed_passive={selectedbuff.passive}
+                        showvalues={false}
                         debugging={debugging}
                     />
                     : ""}

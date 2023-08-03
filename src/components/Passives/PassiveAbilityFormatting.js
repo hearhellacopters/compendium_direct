@@ -36,6 +36,7 @@ function PassiveAbilityFormatting({
     banner_color,
     base_color,
     link,
+    debugging,
     scrollPosition
 }){
     const form = {formatting:formatting}
@@ -431,6 +432,8 @@ function PassiveAbilityFormatting({
                             turns={selectedbuff.turn}
                             character_face={false}
                             hide_title={true}
+                            debugging={debugging}
+                            showvalues={false}
                             full={passive_ability.CharID == undefined && chara_id_passoff == undefined ? true : false}
                             passed_passive={selectedbuff.passive}
                         />

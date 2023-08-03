@@ -49,6 +49,8 @@ export default function ailment_field_effect_trans(
     const require_value_4 = match.require_value_4
     const require_value_5 = match.require_value_5
     const no_stack = match.no_stack
+    const concat = match.concat
+    const concatted = match.concatted
     var hidden = match.hidden
     var effect_data = undefined
     var effect_target_id = undefined
@@ -249,6 +251,9 @@ export default function ailment_field_effect_trans(
             require_value_2_str = require_value_3 == 0 ? `over ${require_value_2}%` : `between ${require_value_2}% - ${require_value_3}%`
             require_value_3_str = ""
             break;
+        case "minus1_2":
+            require_value_2_str = require_value_2 - 1
+            break;
         default:
             break;
     }
@@ -316,6 +321,9 @@ export default function ailment_field_effect_trans(
         case "over_between_4":
             require_value_4_str_1 = require_value_5 == 0 ? `over ${require_value_4}%` : `between ${require_value_4}% - ${require_value_5}%`
             require_value_5_str_1 = ""
+            break;
+        case "minus1_4":
+            require_value_4_str_1 = require_value_4 - 1
             break;
         default:
             break;
@@ -573,6 +581,8 @@ export default function ailment_field_effect_trans(
         multiplyslider: multiplyslider,
         defaultrank: defaultrank,
         attached: attached,
+        concat: concat,
+        concatted: concatted,
         hidden: hidden
     }
 
@@ -794,57 +804,53 @@ export default function ailment_field_effect_trans(
             }
         }
         if (effect_value_type == 1) {
-            rank_table = {
-                rank1: effect_value,
-                rank2: effect_value,
-                rank3: effect_value,
-                rank4: effect_value,
-                rank5: effect_value,
-                rank6: effect_value,
-                rank7: effect_value,
-                rank8: effect_value,
-                rank9: effect_value,
-                rank10: effect_value,
-                effectstr: effectstr,
-                cond_id: condstr,
-                effect_value_typestr: effect_value_typestr,
-                EffectValueTypeShow: EffectValueTypeShow,
-                val_edit_typestr: val_edit_typestr,
-                ValEditTypeShow: ValEditTypeShow,
-                stack_flag: stack_flagstr,
-                slidertype: slidertype,
-                multiply: multiply,
-                multiplyslider: multiplyslider,
-                defaultrank: defaultrank,
-                attached: attached,
-                hidden: hidden
-            }
+            rank_table.rank1 = effect_value
+            rank_table.rank2 = effect_value
+            rank_table.rank3 = effect_value
+            rank_table.rank4 = effect_value
+            rank_table.rank5 = effect_value
+            rank_table.rank6 = effect_value
+            rank_table.rank7 = effect_value
+            rank_table.rank8 = effect_value
+            rank_table.rank9 = effect_value
+            rank_table.rank10 = effect_value
+            rank_table.effectstr = effectstr
+            rank_table.cond_id = condstr
+            rank_table.effect_value_typestr = effect_value_typestr
+            rank_table.EffectValueTypeShow = EffectValueTypeShow
+            rank_table.val_edit_typestr = val_edit_typestr
+            rank_table.ValEditTypeShow = ValEditTypeShow
+            rank_table.stack_flag = stack_flagstr
+            rank_table.slidertype = slidertype
+            rank_table.multiply = multiply
+            rank_table.multiplyslider = multiplyslider
+            rank_table.defaultrank = defaultrank
+            rank_table.attached = attached
+            rank_table.hidden = hidden
         } else {
-            rank_table = {
-                rank1: effect_value,
-                rank2: effect_value_1,
-                rank3: effect_value_2,
-                rank4: effect_value_3,
-                rank5: effect_value_4,
-                rank6: effect_value_5,
-                rank7: effect_value_6,
-                rank8: effect_value_7,
-                rank9: effect_value_8,
-                rank10: effect_value_9,
-                effectstr: effectstr,
-                cond_id: condstr,
-                effect_value_typestr: effect_value_typestr,
-                EffectValueTypeShow: EffectValueTypeShow,
-                val_edit_typestr: val_edit_typestr,
-                ValEditTypeShow: ValEditTypeShow,
-                stack_flag: stack_flagstr,
-                slidertype: slidertype,
-                multiply: multiply,
-                multiplyslider: multiplyslider,
-                defaultrank: defaultrank,
-                attached: attached,
-                hidden: hidden
-            }
+            rank_table.rank1 = effect_value
+            rank_table.rank2 = effect_value_1
+            rank_table.rank3 = effect_value_2
+            rank_table.rank4 = effect_value_3
+            rank_table.rank5 = effect_value_4
+            rank_table.rank6 = effect_value_5
+            rank_table.rank7 = effect_value_6
+            rank_table.rank8 = effect_value_7
+            rank_table.rank9 = effect_value_8
+            rank_table.rank10 = effect_value_9
+            rank_table.effectstr = effectstr
+            rank_table.cond_id = condstr
+            rank_table.effect_value_typestr = effect_value_typestr
+            rank_table.EffectValueTypeShow = EffectValueTypeShow
+            rank_table.val_edit_typestr = val_edit_typestr
+            rank_table.ValEditTypeShow = ValEditTypeShow
+            rank_table.stack_flag = stack_flagstr
+            rank_table.slidertype = slidertype
+            rank_table.multiply = multiply
+            rank_table.multiplyslider = multiplyslider
+            rank_table.defaultrank = defaultrank
+            rank_table.attached = attached
+            rank_table.hidden = hidden
         }
 
         geteffect = ailment_data_pars(
@@ -884,6 +890,8 @@ export default function ailment_field_effect_trans(
                 defaultrank: defaultrank,
                 effectstr: effectstrpull,
                 attached: attached,
+                concat: concat,
+                concatted: concatted,
                 hidden: geteffect.hidden == undefined ? hidden : geteffect.hidden
             })
     }

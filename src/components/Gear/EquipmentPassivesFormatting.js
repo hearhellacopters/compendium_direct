@@ -15,6 +15,7 @@ function EquipmentPassivesFormatting ({
     master_index,
     formatting,
     link,
+    debugging,
     scrollPosition 
 }){
 
@@ -270,6 +271,7 @@ function EquipmentPassivesFormatting ({
                         master_index={master_index}
                         formatting={formatting}
                         gear={true}
+                        debugging={debugging}
                         banner_color={"newblue"}
                         base_color={"bluebase"}
                         tag_overide={gear.gear_tag == "wp4w" || gear.gear_tag == "arm4a" || gear.gear_tag == "arm35a" || gear.gear_tag == "armhg" || gear.gear_tag == "armhgplus" ? gear.gear_tag : undefined}

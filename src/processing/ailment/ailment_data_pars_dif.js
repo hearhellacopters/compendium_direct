@@ -130,7 +130,7 @@ export default function ailment_data_pars_dif(
     var full_text = undefined
 
     if (effect_id && effect_id.cond_id) {
-        cond_str = ` ┬ ${effect_id.cond_id}`
+        cond_str = ` ${effect_id.concatted == true ? "├ But" : "┬"} ${effect_id.cond_id}`
     }
     if (effect_id && effect_id.attached != undefined) {
         effect_id && effect_id.attached.forEach(self=>{
@@ -138,7 +138,7 @@ export default function ailment_data_pars_dif(
         })
     }
     if (effect_id && effect_id.effectstr) {
-        eff_str = ` ${spacer != undefined ? spacer : effect_id.cond_id != undefined ? "└─" : "-"} ${
+        eff_str = ` ${spacer != undefined ? spacer : effect_id.cond_id != undefined ? effect_id.concat != undefined ? "├─ ": effect_id.concatted != undefined ? "└─ Becomes ": "└─ " : "- "}${
             effect_id.effectstr.replace(/\[value1\]/gm, displayrank && displayrank.value1)
                                .replace(/\[value2\]/gm, rank && rank.value2)
                                .replace(/\[value3\]/gm, rank && rank.value3)
