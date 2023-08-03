@@ -261,60 +261,60 @@ export default function passive_effects_dif(
 
 
     const effect_display_pars = (effect_, effect__1, require_, require__1, effect_num) => {
-        const effec_1_break = effect_ && effect_.search('\n') != -1
-        var add_char_1 = ` - `
-        var last_char_1 = ` - `
-        if (passive_ability.passive_cond_type == 1 && (require_ != undefined || require__1 != undefined)) {
-            add_char_1 = ` ├─ `
-            last_char_1 = effect__1 == undefined ? ` └─ ` : ` ├─ `
-        }
-        if (passive_ability.passive_cond_type == 3 && (require_ != undefined || require__1 != undefined)) {
-            add_char_1 = ` ├─ `
-            last_char_1 = effect__1 == undefined ? ` └─ ` : ` ├─ `
-        }
-        if (passive_ability.passive_cond_type == 2 && require_ != undefined) {
-            add_char_1 = ` ├─ `
-            last_char_1 = ` └─ `
-        }
-        if (effec_1_break) {
-            const last1 = effect_.split(/\n/g).length - 1
-            var effect_display = effect_.split(/\n/g).map((text, key) => {
-                return (
-                    `${key != last1 ? add_char_1 : last_char_1}${text}`
-                )
-            }).join("\n")
-
-        } else {
-            effect_display = `${last_char_1}${effect_}`
-        }
-        const effec_2_break = effect__1 && effect__1.search('\n') != -1
-        var add_char_2 = ` - `
-        var last_char_2 = ` - `
-        if (passive_ability.passive_cond_type == 1 && (require_ != undefined || require__1 != undefined)) {
-            add_char_2 = ` ├─ `
-            last_char_2 = ` └─ `
-        }
-        if (passive_ability.passive_cond_type == 3 && (require_ != undefined || require__1 != undefined)) {
-            add_char_2 = ` ├─ `
-            last_char_2 = ` └─ `
-        }
-        if (passive_ability.passive_cond_type == 2 && require__1 != undefined) {
-            add_char_2 = ` ├─ `
-            last_char_2 = ` └─ `
-        }
-        if (effec_2_break) {
-            const last2 = effect__1.split(/\n/g).length - 1
-            var effect__1_display = effect__1.split(/\n/g).map((text, key) => {
-                return (
-                    `${key != last2 ? add_char_2 : last_char_2}${text}`
-                )
-            }).join("\n")
-        } else {
-            effect__1_display = `${last_char_2}${effect__1}`
-        }
         if (effect_num == 1) {
+            const effec_1_break = effect_ && effect_.search('\n') != -1
+            var add_char_1 = ` - `
+            var last_char_1 = ` - `
+            if (passive_ability.passive_cond_type == 1 && (require_ != undefined || require__1 != undefined)) {
+                add_char_1 = ` ├─ `
+                last_char_1 = effect__1 == undefined ? ` └─ ` : ` ├─ `
+            }
+            if (passive_ability.passive_cond_type == 3 && (require_ != undefined || require__1 != undefined)) {
+                add_char_1 = ` ├─ `
+                last_char_1 = effect__1 == undefined ? ` └─ ` : ` ├─ `
+            }
+            if (passive_ability.passive_cond_type == 2 && require_ != undefined) {
+                add_char_1 = ` ├─ `
+                last_char_1 = ` └─ `
+            }
+            if (effec_1_break) {
+                const last1 = effect_.split(/\n/g).length - 1
+                var effect_display = effect_.split(/\n/g).map((text, key) => {
+                    return (
+                        `${key != last1 ? add_char_1 : last_char_1}${text}`
+                    )
+                }).join("\n")
+    
+            } else {
+                effect_display = `${last_char_1}${effect_}`
+            }
             return effect_ != "Field Effect" && effect_ != undefined && effect_display != " - " ? effect_display : undefined
         } else {
+            const effec_2_break = effect__1 && effect__1.search('\n') != -1
+            var add_char_2 = ` - `
+            var last_char_2 = ` - `
+            if (passive_ability.passive_cond_type == 1 && (require_ != undefined || require__1 != undefined)) {
+                add_char_2 = ` ├─ `
+                last_char_2 = ` └─ `
+            }
+            if (passive_ability.passive_cond_type == 3 && (require_ != undefined || require__1 != undefined)) {
+                add_char_2 = ` ├─ `
+                last_char_2 = ` └─ `
+            }
+            if (passive_ability.passive_cond_type == 2 && require__1 != undefined) {
+                add_char_2 = ` ├─ `
+                last_char_2 = ` └─ `
+            }
+            if (effec_2_break) {
+                const last2 = effect__1.split(/\n/g).length - 1
+                var effect__1_display = effect__1.split(/\n/g).map((text, key) => {
+                    return (
+                        `${key != last2 ? add_char_2 : last_char_2}${text}`
+                    )
+                }).join("\n")
+            } else {
+                effect__1_display = `${last_char_2}${effect__1}`
+            }
             return effect__1 != "Field Effect" && effect__1 != undefined && effect__1_display != " - " ? effect__1_display : undefined
         }
     }
@@ -335,6 +335,54 @@ export default function passive_effects_dif(
             ver,
             undefined,
             master_index
+        )
+    }
+
+    const makefield=(spacer)=>{
+
+        const make_spacer = (buffs, i)=>{
+            var string;
+            switch (spacer) {
+                case "require_":
+                    string = require_ != "" ? `${passive_ability.field.length == i + 1 ? "└─" : "├─"}` : undefined
+                    break;
+                case "require__1":
+                    string = require__1 != "" ? `${passive_ability.field.length == i + 1 ? "└─" : "├─"}` : undefined 
+                    break;
+                case "cond_id":
+                    string = `${buffs.cond_id != undefined ? "└─" : "-"}`
+                    break;
+                case "":
+                    string = `${passive_ability.field.length == i + 1 ? "└─" : "├─"}`
+                    break;
+                default:
+                    string = undefined
+                    break;
+            }
+            return string
+        }
+
+        return(
+            passive_ability.field && passive_ability.field.map((buffs, i) => (
+                ailment_data_pars_dif(
+                    field_data(buffs),
+                    1, //currentlevel
+                    1, //currentturns
+                    1, //currentenemies
+                    1, //currentstacks
+                    1, //currentdebuffsranks,
+                    1, //currentdebuffsranks2,
+                    1, //currentdebuffsmuliply,
+                    1, //currentbuffsranks,
+                    1, //currentfieldbuffsranks,
+                    1, //currentbuffsmuliply,
+                    1, //currentgroupstacks,
+                    1, //currenthp,
+                    1, //charactersleft,
+                    1, //characterskb,
+                    make_spacer(buffs, i)
+                )
+            ))
         )
     }
 
@@ -380,26 +428,7 @@ export default function passive_effects_dif(
                 full_text.push(effect_1_disp)
             }
             if(effect_ == "Field Effect" && passive_ability.hide_field != true){
-                const field_1_disp = passive_ability.field && passive_ability.field.map((buffs, i) => (
-                    ailment_data_pars_dif(
-                        field_data(buffs),
-                        1, //currentlevel
-                        1, //currentturns
-                        1, //currentenemies
-                        1, //currentstacks
-                        1, //currentdebuffsranks,
-                        1, //currentdebuffsranks2,
-                        1, //currentdebuffsmuliply,
-                        1, //currentbuffsranks,
-                        1, //currentfieldbuffsranks,
-                        1, //currentbuffsmuliply,
-                        1, //currentgroupstacks,
-                        1, //currenthp,
-                        1, //charactersleft,
-                        1, //characterskb,
-                        require_ != undefined ? `${passive_ability.field.length == i + 1 ? "└─" : "├─"}` : undefined
-                    )
-                ))
+                const field_1_disp = makefield("require_")
                 if(field_1_disp != undefined){
                     full_text.push(field_1_disp)
                 }
@@ -409,26 +438,7 @@ export default function passive_effects_dif(
                 full_text.push(effect_2_disp)
             }
             if(effect__1 == "Field Effect" && passive_ability.hide_field != true){
-                const field_2_disp = passive_ability.field && passive_ability.field.map((buffs, i) => (
-                    ailment_data_pars_dif(
-                        field_data(buffs),
-                        1, //currentlevel
-                        1, //currentturns
-                        1, //currentenemies
-                        1, //currentstacks
-                        1, //currentdebuffsranks,
-                        1, //currentdebuffsranks2,
-                        1, //currentdebuffsmuliply,
-                        1, //currentbuffsranks,
-                        1, //currentfieldbuffsranks,
-                        1, //currentbuffsmuliply,
-                        1, //currentgroupstacks,
-                        1, //currenthp,
-                        1, //charactersleft,
-                        1, //characterskb,
-                        require__1 != undefined ? `${passive_ability.field.length == i + 1 ? "└─" : "├─"}` : undefined
-                    )
-                ))
+                const field_2_disp = makefield("require__1")
                 if(field_2_disp != undefined){
                     full_text.push(field_2_disp)
                 }
@@ -454,26 +464,7 @@ export default function passive_effects_dif(
                 full_text.push(effect_1_disp)
             }
             if(effect_ == "Field Effect" && passive_ability.hide_field != true){
-                const field_1_disp = passive_ability.field && passive_ability.field.map((buffs, i) => (
-                    ailment_data_pars_dif(
-                        field_data(buffs),
-                        1, //currentlevel
-                        1, //currentturns
-                        1, //currentenemies
-                        1, //currentstacks
-                        1, //currentdebuffsranks,
-                        1, //currentdebuffsranks2,
-                        1, //currentdebuffsmuliply,
-                        1, //currentbuffsranks,
-                        1, //currentfieldbuffsranks,
-                        1, //currentbuffsmuliply,
-                        1, //currentgroupstacks,
-                        1, //currenthp,
-                        1, //charactersleft,
-                        1, //characterskb,
-                       require_ != undefined ? `${passive_ability.field.length == i + 1 ? "└─" : "├─"}` : undefined
-                    )
-                ))
+                const field_1_disp = makefield("require_")
                 if(field_1_disp != undefined){
                     full_text.push(field_1_disp)
                 }
@@ -483,51 +474,13 @@ export default function passive_effects_dif(
                 full_text.push(effect_2_disp)
             }
             if(effect__1 == "Field Effect" && passive_ability.hide_field != true){
-                const field_2_disp = passive_ability.field && passive_ability.field.map((buffs, i) => (
-                    ailment_data_pars_dif(
-                        field_data(buffs),
-                        1, //currentlevel
-                        1, //currentturns
-                        1, //currentenemies
-                        1, //currentstacks
-                        1, //currentdebuffsranks,
-                        1, //currentdebuffsranks2,
-                        1, //currentdebuffsmuliply,
-                        1, //currentbuffsranks,
-                        1, //currentfieldbuffsranks,
-                        1, //currentbuffsmuliply,
-                        1, //currentgroupstacks,
-                        1, //currenthp,
-                        1, //charactersleft,
-                        1, //characterskb,
-                        require__1 != undefined ? `${passive_ability.field.length == i + 1 ? "└─" : "├─"}` : undefined
-                    )
-                ))
+                const field_2_disp = makefield("require__1")
                 if(field_2_disp != undefined){
                     full_text.push(field_2_disp)
                 }
             }
             if(effect__1 != "Field Effect" && effect_ != "Field Effect" && passive_ability.hide_field != true && passive_ability.field != undefined){
-                const defun_field = passive_ability.field && passive_ability.field.map((buffs, i) => (
-                    ailment_data_pars_dif(
-                        field_data(buffs),
-                        1, //currentlevel
-                        1, //currentturns
-                        1, //currentenemies
-                        1, //currentstacks
-                        1, //currentdebuffsranks,
-                        1, //currentdebuffsranks2,
-                        1, //currentdebuffsmuliply,
-                        1, //currentbuffsranks,
-                        1, //currentfieldbuffsranks,
-                        1, //currentbuffsmuliply,
-                        1, //currentgroupstacks,
-                        1, //currenthp,
-                        1, //charactersleft,
-                        1, //characterskb,
-                        `${passive_ability.field.length == i + 1 ? "└─" : "├─"}`
-                    )
-                ))
+                const defun_field = makefield("")
                 if(defun_field != undefined){
                     full_text.push(defun_field)
                 }
@@ -553,26 +506,7 @@ export default function passive_effects_dif(
                 full_text.push(effect_1_disp)
             }
             if(effect_ == "Field Effect" && passive_ability.hide_field != true){
-                const field_1_disp = passive_ability.field && passive_ability.field.map((buffs, i) => (
-                    ailment_data_pars_dif(
-                        field_data(buffs),
-                        1, //currentlevel
-                        1, //currentturns
-                        1, //currentenemies
-                        1, //currentstacks
-                        1, //currentdebuffsranks,
-                        1, //currentdebuffsranks2,
-                        1, //currentdebuffsmuliply,
-                        1, //currentbuffsranks,
-                        1, //currentfieldbuffsranks,
-                        1, //currentbuffsmuliply,
-                        1, //currentgroupstacks,
-                        1, //currenthp,
-                        1, //charactersleft,
-                        1, //characterskb,
-                        require_ != undefined ? `${passive_ability.field.length == i + 1 ? "└─" : "├─"}` : undefined
-                    )
-                ))
+                const field_1_disp = makefield("require_")
                 if(field_1_disp != undefined){
                     full_text.push(field_1_disp)
                 }
@@ -586,51 +520,13 @@ export default function passive_effects_dif(
                 full_text.push(effect_2_disp)
             }
             if(effect__1 == "Field Effect" && passive_ability.hide_field != true){
-                const field_1_disp = passive_ability.field && passive_ability.field.map((buffs, i) => (
-                    ailment_data_pars_dif(
-                        field_data(buffs),
-                        1, //currentlevel
-                        1, //currentturns
-                        1, //currentenemies
-                        1, //currentstacks
-                        1, //currentdebuffsranks,
-                        1, //currentdebuffsranks2,
-                        1, //currentdebuffsmuliply,
-                        1, //currentbuffsranks,
-                        1, //currentfieldbuffsranks,
-                        1, //currentbuffsmuliply,
-                        1, //currentgroupstacks,
-                        1, //currenthp,
-                        1, //charactersleft,
-                        1, //characterskb,
-                        require__1 != "" ? `${passive_ability.field.length == i + 1 ? "└─" : "├─"}` : undefined
-                    )
-                ))
+                const field_1_disp = makefield("require__1")
                 if(field_1_disp != undefined){
                     full_text.push(field_1_disp)
                 }
             }
             if(effect__1 != "Field Effect" && effect_ != "Field Effect" && passive_ability.hide_field != true && passive_ability.field != undefined){
-                const defun_field = passive_ability.field && passive_ability.field.map((buffs, i) => (
-                    ailment_data_pars_dif(
-                        field_data(buffs),
-                        1, //currentlevel
-                        1, //currentturns
-                        1, //currentenemies
-                        1, //currentstacks
-                        1, //currentdebuffsranks,
-                        1, //currentdebuffsranks2,
-                        1, //currentdebuffsmuliply,
-                        1, //currentbuffsranks,
-                        1, //currentfieldbuffsranks,
-                        1, //currentbuffsmuliply,
-                        1, //currentgroupstacks,
-                        1, //currenthp,
-                        1, //charactersleft,
-                        1, //characterskb,
-                       `${buffs.cond_id != undefined ? "└─" : "-"}`
-                    )
-                ))
+                const defun_field = makefield("cond_id")
                 if(defun_field != undefined){
                     full_text.push(defun_field)
                 }

@@ -306,80 +306,127 @@ export default function PassiveEffectsHandoff({
     }
 
     const effect_display_pars = (effect_, effect__1, require_, require__1, effect_num) => {
-        const effec_1_break = effect_ && effect_.search('\n') != -1
-        var add_char_1 = `\xa0- `
-        var last_char_1 = `\xa0- `
-        if (passive_ability.passive_cond_type == 1 && (require_ != "" || require__1 != "")) {
-            add_char_1 = `\xa0├─ `
-            last_char_1 = effect__1 == "" ? `\xa0└─ ` : `\xa0├─ `
-        }
-        if (passive_ability.passive_cond_type == 3 && (require_ != "" || require__1 != "")) {
-            add_char_1 = `\xa0├─ `
-            last_char_1 = effect__1 == "" ? `\xa0└─ ` : `\xa0├─ `
-        }
-        if (passive_ability.passive_cond_type == 2 && require_ != "") {
-            add_char_1 = `\xa0├─ `
-            last_char_1 = `\xa0└─ `
-        }
-        if (effec_1_break) {
-            const last1 = effect_.split(/\n/g).length - 1
-            var effect_display = effect_.split(/\n/g).map((text, key) => {
-                return (
-                    `${key != last1 ? add_char_1 : last_char_1}${text}`
-                )
-            }).join("\n")
-
-        } else {
-            effect_display = `${last_char_1}${effect_}\n`
-        }
-        const effec_2_break = effect__1 && effect__1.search('\n') != -1
-        var add_char_2 = `\xa0- `
-        var last_char_2 = `\xa0- `
-        if (passive_ability.passive_cond_type == 1 && (require_ != "" || require__1 != "")) {
-            add_char_2 = `\xa0├─ `
-            last_char_2 = `\xa0└─ `
-        }
-        if (passive_ability.passive_cond_type == 3 && (require_ != "" || require__1 != "")) {
-            add_char_2 = `\xa0├─ `
-            last_char_2 = `\xa0└─ `
-        }
-        if (passive_ability.passive_cond_type == 2 && require__1 != "") {
-            add_char_2 = `\xa0├─ `
-            last_char_2 = `\xa0└─ `
-        }
-        if (effec_2_break) {
-            const last2 = effect__1.split(/\n/g).length - 1
-            var effect__1_display = effect__1.split(/\n/g).map((text, key) => {
-                return (
-                    `${key != last2 ? add_char_2 : last_char_2}${text}`
-                )
-            }).join("\n")
-        } else {
-            effect__1_display = `${last_char_2}${effect__1}\n`
-        }
         if (effect_num == 1) {
+            const effec_1_break = effect_ && effect_.search('\n') != -1
+            var add_char_1 = `\xa0- `
+            var last_char_1 = `\xa0- `
+            if (passive_ability.passive_cond_type == 1 && (require_ != "" || require__1 != "")) {
+                add_char_1 = `\xa0├─ `
+                last_char_1 = effect__1 == "" ? `\xa0└─ ` : `\xa0├─ `
+            } else
+            if (passive_ability.passive_cond_type == 3 && (require_ != "" || require__1 != "")) {
+                add_char_1 = `\xa0├─ `
+                last_char_1 = effect__1 == "" ? `\xa0└─ ` : `\xa0├─ `
+            } else
+            if (passive_ability.passive_cond_type == 2 && require_ != "") {
+                add_char_1 = `\xa0├─ `
+                last_char_1 = `\xa0└─ `
+            }
+            if (effec_1_break) {
+                const last1 = effect_.split(/\n/g).length - 1
+                var effect_display = effect_.split(/\n/g).map((text, key) => {
+                    return (
+                        `${key != last1 ? add_char_1 : last_char_1}${text}`
+                    )
+                }).join("\n")
+                if(effect__1!=""||require__1!=""){
+                    effect_display = `${effect_display}\n`
+                }
+            } else {
+                effect_display = `${last_char_1}${effect_}\n`
+            }
             return effect_ != "Field Effect" && effect_ != "" ? effect_display : ""
         } else {
+            const effec_2_break = effect__1 && effect__1.search('\n') != -1
+            var add_char_2 = `\xa0- `
+            var last_char_2 = `\xa0- `
+            if (passive_ability.passive_cond_type == 1 && (require_ != "" || require__1 != "")) {
+                add_char_2 = `\xa0├─ `
+                last_char_2 = `\xa0└─ `
+            } else
+            if (passive_ability.passive_cond_type == 3 && (require_ != "" || require__1 != "")) {
+                add_char_2 = `\xa0├─ `
+                last_char_2 = `\xa0└─ `
+            } else
+            if (passive_ability.passive_cond_type == 2 && require__1 != "") {
+                add_char_2 = `\xa0├─ `
+                last_char_2 = `\xa0└─ `
+            }
+            if (effec_2_break) {
+                const last2 = effect__1.split(/\n/g).length - 1
+                var effect__1_display = effect__1.split(/\n/g).map((text, key) => {
+                    return (
+                        `${key != last2 ? add_char_2 : last_char_2}${text}`
+                    )
+                }).join("\n")
+            } else {
+                effect__1_display = `${last_char_2}${effect__1}\n`
+            }
             return effect__1 != "Field Effect" && effect__1 != "" ? effect__1_display : ""
         }
     }
 
-     const ending = <>
-                    {restrict_type != "" ?
-                        <div>
-                            {restrict_type}
-                        </div>
-                    : ""}
-                    {type_ != "" ?
-                        <div>
-                            {type_}
-                        </div>
-                    : ""}
-                    {required_equip_pa_id != "" ?
-                        <div>
-                            {required_equip_pa_id}
-                        </div>
-                    : ""}
+    const makefield=(spacer)=>{
+
+        const make_spacer = (buffs, i)=>{
+            var string;
+            switch (spacer) {
+                case "require_":
+                    string = require_ != "" ? `${passive_ability.field.length == i + 1 ? "└─" : "├─"}` : undefined
+                    break;
+                case "require__1":
+                    string = require__1 != "" ? `${passive_ability.field.length == i + 1 ? "└─" : "├─"}` : undefined 
+                    break;
+                case "cond_id":
+                    string = `${buffs.cond_id != undefined ? "└─" : "-"}`
+                    break;
+                case "":
+                    string = `${passive_ability.field.length == i + 1 ? "└─" : "├─"}`
+                    break;
+                default:
+                    string = undefined
+                    break;
+            }
+            return string
+        }
+
+        return(
+            passive_ability.field && passive_ability.field.map((buffs, i) => (
+                <AilmentFieldAttached
+                    key={buffs.data_id}
+                    castlocation={true}
+                    ver={ver}
+                    master_index={master_index}
+                    ailment_field={buffs}
+
+                    loc={"passive"}
+                    slider={false}
+                    formatting={formatting}
+                    hide_type={true}
+                    battle_state={battle_state}
+                    hide_disp={hide_disp != true ? false : buffs.field_hide}
+                    spacer={make_spacer(buffs,i)}
+                />
+            ))
+        )
+    }
+
+    const ending =  <>
+                        {restrict_type != "" ?
+                            <div>
+                                {restrict_type}
+                            </div>
+                        : ""}
+                        {type_ != "" ?
+                            <div>
+                                {type_}
+                            </div>
+                        : ""}
+                        {required_equip_pa_id != "" ?
+                            <div>
+                                {required_equip_pa_id}
+                            </div>
+                        : ""}
                     </>       
 
     if (passive_ability.attached == undefined && require_ == "" && require__1 == "" && effect_ == "" && effect__1 == "" && (passive_ability.field == undefined || passive_ability.hide_field == true)) {
@@ -396,43 +443,11 @@ export default function PassiveEffectsHandoff({
                         {ReplacerCharacter(`${require__1 == "" && require_ == "" ? "" : "\xa0┬ "}${require_}${require__1 != "" && require_ != "" ? " & " : ""}${require__1 != "" ? `${require__1}\n` : require_ == "" ? "" : "\n"}`,{formatting:formatting})}
                         {ReplacerCharacter(effect_display_pars(effect_, effect__1, require_, require__1, 1),form)}
                         {effect_ == "Field Effect" && passive_ability.hide_field != true ?
-                            passive_ability.field && passive_ability.field.map((buffs, i) => (
-                                <AilmentFieldAttached
-                                    key={buffs.data_id}
-                                    castlocation={true}
-                                    ver={ver}
-                                    master_index={master_index}
-                                    ailment_field={buffs}
-
-                                    loc={"passive"}
-                                    slider={false}
-                                    formatting={formatting}
-                                    hide_type={true}
-                                    battle_state={battle_state}
-                                    hide_disp={hide_disp != true ? false : buffs.field_hide}
-                                    spacer={require_ != "" ? `${passive_ability.field.length == i + 1 ? "└─" : "├─"}` : undefined}
-                                />
-                            ))
+                            makefield("require_")
                         : ""}
                         {ReplacerCharacter(effect_display_pars(effect_, effect__1, require_, require__1, 2),form)}
                         {effect__1 == "Field Effect" && passive_ability.hide_field != true ?
-                            passive_ability.field && passive_ability.field.map((buffs, i) => (
-                                <AilmentFieldAttached
-                                    key={buffs.data_id}
-                                    castlocation={true}
-                                    ver={ver}
-                                    master_index={master_index}
-                                    ailment_field={buffs}
-
-                                    loc={"passive"}
-                                    slider={false}
-                                    formatting={formatting}
-                                    hide_type={true}
-                                    battle_state={battle_state}
-                                    hide_disp={hide_disp != true ? false : buffs.field_hide}
-                                    spacer={require__1 != "" ? `${passive_ability.field.length == i + 1 ? "└─" : "├─"}` : undefined}
-                                />
-                            ))
+                            makefield("require__1")
                         : ""}
                     </>
                 : ""}
@@ -441,62 +456,14 @@ export default function PassiveEffectsHandoff({
                         {ReplacerCharacter(`${require_ != "" ? `\xa0┬ ${require_}` : ""}${require__1 != "" && require_ != "" ? " or " : ""}${require__1 != "" ? `${require__1}\n` : require_ != "" ? "\n" : ""}`, {formatting:formatting})}
                         {ReplacerCharacter(effect_display_pars(effect_, effect__1, require_, require__1, 1),form)}
                         {effect_ == "Field Effect" && passive_ability.hide_field != true ?
-                            passive_ability.field && passive_ability.field.map((buffs, i) => (
-                                <AilmentFieldAttached
-                                    key={buffs.data_id}
-                                    castlocation={true}
-                                    ver={ver}
-                                    master_index={master_index}
-                                    ailment_field={buffs}
-
-                                    loc={"passive"}
-                                    slider={false}
-                                    formatting={formatting}
-                                    hide_type={true}
-                                    battle_state={battle_state}
-                                    hide_disp={hide_disp != true ? false : buffs.field_hide}
-                                    spacer={require_ != "" ? `${passive_ability.field.length == i + 1 ? "└─" : "├─"}` : undefined}
-                                />
-                            ))
+                            makefield("require_")
                         : ""}
                         {ReplacerCharacter(effect_display_pars(effect_, effect__1, require_, require__1, 2),form)}
                         {effect__1 == "Field Effect" && passive_ability.hide_field != true ?
-                            passive_ability.field && passive_ability.field.map((buffs, i) => (
-                                <AilmentFieldAttached
-                                    key={buffs.data_id}
-                                    castlocation={true}
-                                    ver={ver}
-                                    master_index={master_index}
-                                    ailment_field={buffs}
-
-                                    loc={"passive"}
-                                    slider={false}
-                                    formatting={formatting}
-                                    hide_type={true}
-                                    battle_state={battle_state}
-                                    hide_disp={hide_disp != true ? false : buffs.field_hide}
-                                    spacer={require__1 != "" ? `${passive_ability.field.length == i + 1 ? "└─" : "├─"}` : undefined}
-                                />
-                            ))
+                            makefield("require__1")
                         : ""}
                         {effect__1 != "Field Effect" && effect_ != "Field Effect" && passive_ability.hide_field != true && passive_ability.field != undefined ?
-                            passive_ability.field && passive_ability.field.map((buffs, i) => (
-                                <AilmentFieldAttached
-                                    key={buffs.data_id}
-                                    castlocation={true}
-                                    ver={ver}
-                                    ailment_field={buffs}
-                                    master_index={master_index}
-
-                                    loc={"passive"}
-                                    slider={false}
-                                    formatting={formatting}
-                                    hide_type={true}
-                                    battle_state={battle_state}
-                                    hide_disp={hide_disp != true ? false : buffs.field_hide}
-                                    spacer={`${passive_ability.field.length == i + 1 ? "└─" : "├─"}`}
-                                />
-                            ))
+                            makefield(``)
                         : ""}
                     </>
                 : ""}
@@ -505,63 +472,15 @@ export default function PassiveEffectsHandoff({
                         {effect_ == "" && passive_ability.field == undefined ? "" : require_ != "" ? ReplacerCharacter(`\xa0┬ ${require_}\n`, {formatting:formatting}) : ""}
                         {ReplacerCharacter(effect_display_pars(effect_, effect__1, require_, require__1, 1),form)}
                         {effect_ == "Field Effect" && passive_ability.hide_field != true ?
-                            passive_ability.field && passive_ability.field.map((buffs, i) => (
-                                <AilmentFieldAttached
-                                    key={buffs.data_id}
-                                    castlocation={true}
-                                    ver={ver}
-                                    ailment_field={buffs}
-                                    master_index={master_index}
-
-                                    loc={"passive"}
-                                    slider={false}
-                                    formatting={formatting}
-                                    hide_type={true}
-                                    battle_state={battle_state}
-                                    hide_disp={hide_disp != true ? false : buffs.field_hide}
-                                    spacer={require_ != "" ? `${passive_ability.field.length == i + 1 ? "└─" : "├─"}` : undefined}
-                                />
-                            ))
+                            makefield("require_")
                         : ""}
-                        {effect__1 == "" && passive_ability.field == undefined ? "" : require__1 != "" ? ReplacerCharacter(`${effect_ != ""?"\n":""}\xa0┬ ${require__1}\n`, {formatting:formatting}) : ""}
+                        {effect__1 == "" && passive_ability.field == undefined ? "" : require__1 != "" ? ReplacerCharacter(`\xa0┬ ${require__1}\n`, {formatting:formatting}) : ""}
                         {ReplacerCharacter(effect_display_pars(effect_, effect__1, require_, require__1, 2),form)}
                         {effect__1 == "Field Effect" && passive_ability.hide_field != true ?
-                            passive_ability.field && passive_ability.field.map((buffs, i) => (
-                                <AilmentFieldAttached
-                                    key={buffs.data_id}
-                                    castlocation={true}
-                                    ver={ver}
-                                    ailment_field={buffs}
-                                    master_index={master_index}
-
-                                    loc={"passive"}
-                                    slider={false}
-                                    formatting={formatting}
-                                    hide_type={true}
-                                    battle_state={battle_state}
-                                    hide_disp={hide_disp != true ? false : buffs.field_hide}
-                                    spacer={require__1 != "" ? `${passive_ability.field.length == i + 1 ? "└─" : "├─"}` : undefined}
-                                />
-                            ))
+                            makefield("require__1")
                         : ""}
                         {effect__1 != "Field Effect" && effect_ != "Field Effect" && passive_ability.hide_field != true && passive_ability.field != undefined ?
-                            passive_ability.field && passive_ability.field.map((buffs, i) => (
-                                <AilmentFieldAttached
-                                    key={buffs.data_id}
-                                    castlocation={true}
-                                    ver={ver}
-                                    ailment_field={buffs}
-                                    master_index={master_index}
-
-                                    loc={"passive"}
-                                    slider={false}
-                                    formatting={formatting}
-                                    hide_type={true}
-                                    battle_state={battle_state}
-                                    hide_disp={hide_disp != true ? false : buffs.field_hide}
-                                    spacer={`${buffs.cond_id != undefined ? "└─" : "-"}`}
-                                />
-                            ))
+                            makefield(`cond_id`)
                         : ""}
                     </>
                 : ""}

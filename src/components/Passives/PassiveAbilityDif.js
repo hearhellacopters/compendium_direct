@@ -5,7 +5,7 @@ import DefaultTippy from '../TippyDefaults';
 import CharacterFaceFormatting from '../Characters/CharacterFaceFormatting'
 import ReplacerCharacter from '../ReplacerCharacter'
 import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
-import Passive_Effects_Dif from "../../processing/passives/passive_effects_dif";
+import passive_effects_dif from "../../processing/passives/passive_effects_dif";
 import Passive_Link_Dif from "../../processing/passives/passive_link_dif";
 import { ObjectView } from 'react-object-view'
 import makediff from "../../processing/makediff";
@@ -43,13 +43,13 @@ function PassiveAbilityDif ({
     }
 
     const [passive_new, setpassive_new] = useState(
-        Passive_Effects_Dif(
+        passive_effects_dif(
         passive_ability_new,
         master_index,
         ver_new))
 
     const [passive_old, setpassive_old] = useState(
-        Passive_Effects_Dif(
+        passive_effects_dif(
             passive_ability_old,
             master_index,
             ver_old))

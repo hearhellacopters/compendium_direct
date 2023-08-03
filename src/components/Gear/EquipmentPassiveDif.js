@@ -1,6 +1,6 @@
 import React from "react"; 
 import { useStateIfMounted } from "use-state-if-mounted";
-import Passive_Ability_Dif from "../Passives/PassiveAbilityDif";
+import PassiveAbilityDif from "../Passives/PassiveAbilityDif";
 import ReplacerCharacter from "../ReplacerCharacter";
 import { LazyLoadImage, LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 import { ObjectView } from 'react-object-view'
@@ -226,7 +226,7 @@ function EquipmentPassiveDif({
                     </span>
                     : ""}
                 {passive_ability_new && passive_ability_new.passives && passive_ability_new.passives.map((passive2,i) => (
-                    <Passive_Ability_Dif
+                    <PassiveAbilityDif
                         key={passive2.pa_id}
 
                         passive_ability_new={passive2}
