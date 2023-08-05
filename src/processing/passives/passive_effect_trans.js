@@ -163,10 +163,10 @@ export default function passive_effect_trans(
             break;
         case "no_0_values":
             if (effect_value1 == 0) {
-                effect_str = effect_str.replace(/Adds \[target\] BRV Damage Up by \[value1\]%\n/gm, "")
+                effect_str = effect_str.replace(/\[target\] BRV Damage Up by \[value1\]%\n/gm, "")
             }
             if (effect_value2 == 0) {
-                effect_str = effect_str.replace(/\nAdds \[target\] HP Damage Up by \[value1\]%/gm, "")
+                effect_str = effect_str.replace(/\n\[target\] HP Damage Up by \[value1\]%/gm, "")
             }
             break;
         case "int_max":
@@ -282,27 +282,27 @@ export default function passive_effect_trans(
             var value1_1 = ailment_val_edit_type_handler(2, effect_value1)
             if (value1_1 == 0) {
                 effect_str = effect_str
-                    .replace(/Adds \[target\] ATK Up.*\n/gm, "")
+                    .replace(/\[target\] ATK Up.*\n/gm, "")
             }
             var value1_2 = ailment_val_edit_type_handler(3, effect_value1)
             if (value1_2 == 0) {
                 effect_str = effect_str
-                    .replace(/Adds \[target\] DEF Up.*\n/gm, "")
+                    .replace(/\[target\] DEF Up.*\n/gm, "")
             }
             var value1_3 = ailment_val_edit_type_handler(4, effect_value1)
             if (value1_3 == 0) {
                 effect_str = effect_str
-                    .replace(/Adds \[target\] SPD Up.*\n/gm, "")
+                    .replace(/\[target\] SPD Up.*\n/gm, "")
             }
             var value2_2 = ailment_val_edit_type_handler(3, effect_value2)
             if (value2_2 == 0) {
                 effect_str = effect_str
-                    .replace(/Adds \[target\] INT BRV Up.*\n/gm, "")
+                    .replace(/\[target\] INT BRV Up.*\n/gm, "")
             }
             var value2_3 = ailment_val_edit_type_handler(4, effect_value2)
             if (value2_3 == 0) {
                 effect_str = effect_str
-                    .replace(/Adds \[target\] MAX BRV Up.*\n/gm, "")
+                    .replace(/\[target\] MAX BRV Up.*\n/gm, "")
             }
             var newstr = effect_str
                 .replace(/\[value1_1\]/gm, value1_1)
@@ -408,16 +408,16 @@ export default function passive_effect_trans(
         .replace(/\[value2\]/gm, effect_value2)
         .replace(/\[value3\]/gm, effect_value3)
         .replace(/\[target\]/gm, effect_target_str)
-        .replace(/Adds ATK Up by 0%/gm, "")
-        .replace(/\nAdds SPD Up by 0%/gm, "")
-        .replace(/\nAdds INT BRV Up by 0%/gm, "")
-        .replace(/\nAdds DEF Up by 0%/gm, "")
-        .replace(/\nAdds MAX BRV Up by 0%/gm, "")
-        .replace(/Adds ATK Up by 0% for 0 turns/gm, "")
-        .replace(/\nAdds SPD Up by 0% for 0 turns/gm, "")
-        .replace(/\nAdds INT BRV Up by 0% for 0 turns/gm, "")
-        .replace(/\nAdds DEF Up by 0% for 0 turns/gm, "")
-        .replace(/\nAdds MAX BRV Up by 0% for 0 turns/gm, "")
+        .replace(/ATK Up by 0%/gm, "")
+        .replace(/\nSPD Up by 0%/gm, "")
+        .replace(/\nINT BRV Up by 0%/gm, "")
+        .replace(/\nDEF Up by 0%/gm, "")
+        .replace(/\nMAX BRV Up by 0%/gm, "")
+        .replace(/ATK Up by 0% for 0 turns/gm, "")
+        .replace(/\nSPD Up by 0% for 0 turns/gm, "")
+        .replace(/\nINT BRV Up by 0% for 0 turns/gm, "")
+        .replace(/\nDEF Up by 0% for 0 turns/gm, "")
+        .replace(/\nMAX BRV Up by 0% for 0 turns/gm, "")
 
 
     if (value_trans == "ailment_id_1s") {

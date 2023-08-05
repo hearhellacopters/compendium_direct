@@ -1,6 +1,5 @@
-import element_weakness from "./require_element_weakness.js"
-import element_other from "./require_element_other.js"
-import additional_attack from "./require_additional_attack.js"
+import require_element_weakness from "./require_element_weakness.js"
+import require_additional_attack from "./require_additional_attack.js"
 import ailment_level_icon from "../ailment/ailment_level_icon.js"
 
 export default function require_trans(
@@ -439,9 +438,9 @@ export default function require_trans(
             break;
         case "m_abilities":
             if (require_value1 != 1) {
-                require_value1 = ` ${require_value1} abilities`
+                require_value1 = `${require_value1} abilities`
             } else {
-                require_value1 = ` ${require_value1} ability`
+                require_value1 = `${require_value1} ability`
             }
             break;
         case "targets":
@@ -462,10 +461,6 @@ export default function require_trans(
             if (ailment_group[require_value1] != undefined) {
                 require_value1 = ailment_group[require_value1].unique
             }
-            break;
-        case "element_weak":
-            const getweakness = element_weakness(require_value1)
-            require_value1 = getweakness
             break;
         case "trap_type":
             if (trap_type[require_value1] != undefined) {
@@ -558,17 +553,21 @@ export default function require_trans(
             }
             break;
         case "additional_attack":
-            const getattack1 = additional_attack(require_value1)
+            const getattack1 = require_additional_attack(require_value1,"or", 1)
             require_value1 = getattack1
             break;
         case "element_weakness":
-            const getweakness4 = element_weakness(require_value1)
+            const getweakness4 = require_element_weakness(require_value1, "or", 1)
             require_value1 = getweakness4
             break;
+        case "element_weakness_and":
+            const getweaknessand = require_element_weakness(require_value1, "and", 1)
+            require_value1 = getweaknessand
+            break;
         case "element_weakness_additional_attack":
-            const getweakness2 = element_weakness(require_value1)
+            const getweakness2 = require_element_weakness(require_value1, "or", 1)
             require_value1 = getweakness2
-            const getattack2 = additional_attack(require_value2)
+            const getattack2 = require_additional_attack(require_value2,"or", 1)
             require_value2 = getattack2
             break;
         case "command_type":
@@ -596,7 +595,7 @@ export default function require_trans(
             if (getcommand2 != undefined) {
                 require_value1 = getcommand2.command_type
             }
-            const getweakness3 = element_weakness(require_value2)
+            const getweakness3 = require_element_weakness(require_value2, "and", 1)
             require_value2 = getweakness3
             break;
         case "command_type_element_weakness2":
@@ -604,13 +603,13 @@ export default function require_trans(
             if (getcommand3 != undefined) {
                 require_value1 = getcommand3.command_type
             }
-            const getweakness6 = element_weakness(require_value2)
+            const getweakness6 = require_element_weakness(require_value2, "and", 1)
             require_value2 = getweakness6
-            const getweakness5 = element_weakness(require_value3)
+            const getweakness5 = require_element_weakness(require_value3, "and", 1)
             require_value3 = getweakness5
             break;
         case "element_other":
-            const getother = element_other(require_value1)
+            const getother = require_element_weakness(require_value1, "or", 0)
             require_value1 = getother
             break;
         case "buff_count":
@@ -772,6 +771,10 @@ export default function require_trans(
 
     if (require && require.target_trans == "has_noself") {
         final_str = final_str.replace(/Self has /gm, "")
+    }
+
+    if (require && require.target_trans == "is_noself") {
+        final_str = final_str.replace(/Self is /gm, "")
     }
 
     return final_str

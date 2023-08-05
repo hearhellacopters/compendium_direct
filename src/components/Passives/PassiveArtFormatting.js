@@ -8,7 +8,7 @@ import { getTransNames } from '../../redux/ducks/transnames';
 import CharacterFaceFormatting from '../Characters/CharacterFaceFormatting'
 import AilmentDefaultPassoff from "../Buffs/AilmentDefaultPassoff";
 import AilmentDataFormatting from "../Buffs/AilmentDataFormatting";
-import PassiveArtEffectsHandoff from "./PassiveArtEffectsHandoff";
+import PassiveEffectsHandoff from "./PassiveEffectsHandoff";
 import ReplacerCharacter from '../ReplacerCharacter'
 import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 import { ObjectView } from 'react-object-view'
@@ -211,7 +211,7 @@ function PassiveArtFormatting({
                         <div className="clicky updatelink contents" onClick={() => doTrans()} >Translate (Beta)</div>
                         : ""}
                     <div className="newbluepassive infonameholderenemybuff default_passive">
-                        <PassiveArtEffectsHandoff
+                        <PassiveEffectsHandoff
                             passive_ability={art_passive}
                             master_index={master_index}
                             ver={ver}
