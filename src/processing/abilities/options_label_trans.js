@@ -102,21 +102,21 @@ export default function options_label_pars(
                     ailmentpull = AilmentNames[valueA] || {}
                     if (ailmentpull != undefined) {
                         if (valueB == 1) {
-                            valueB_str = ""
+                            valueB_str = "A"
                         }
                         if (valueB != 1) {
-                            valueB_str = "While no "
+                            valueB_str = "Ina"
                         }
-                        valueA_str = `Active //${ailmentpull.icon}// [${ailmentpull.name}] #${valueA}`
+                        valueA_str = `ctive //${ailmentpull.icon}// [${ailmentpull.name}] #${valueA}`
     
                     } else {
                         if (valueB == 1) {
-                            valueB_str = ""
+                            valueB_str = "A"
                         }
                         if (valueB != 1) {
-                            valueB_str = "While no "
+                            valueB_str = "Ina"
                         }
-                        valueA_str = `Active [${valueA}] #${valueA}`
+                        valueA_str = `ctive [${valueA}] #${valueA}`
                     }
                 }
                 break;
@@ -446,6 +446,7 @@ export default function options_label_pars(
                 break;
             case "has_noself":
                 final_str = final_str.replace(/Self has /gm, "")
+                final_str = final_str.replace(/While Self HP/gm, "While HP")
                 break;
             case "total_noself":
                 final_str = final_str.replace(/Self total /gm, "")
