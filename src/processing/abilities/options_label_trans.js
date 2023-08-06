@@ -75,7 +75,7 @@ export default function options_label_pars(
                         if (valueB != 1) {
                             valueB_str = "not "
                         }
-                        valueA_str = `debuffed with //${ailmentpull.icon}// [${ailmentpull.name}] #${valueA}`
+                        valueA_str = `inflicted with //${ailmentpull.icon}// [${ailmentpull.name}] #${valueA}`
     
                     } else {
                         if (valueB == 1) {
@@ -84,7 +84,7 @@ export default function options_label_pars(
                         if (valueB != 1) {
                             valueB_str = "not "
                         }
-                        ailmentpull = `debuffed with //${ailmentpull.icon}// [${valueA}] #${valueA}`
+                        valueA_str = `inflicted with //${ailmentpull.icon}// [${valueA}] #${valueA}`
                     }
                 }
                 break;
@@ -92,10 +92,10 @@ export default function options_label_pars(
                 if (valueA == -1) {
                     if (valueB == 1) {
                         valueB_str = ""
-                        valueA_str = "buffed"
+                        valueA_str = "While buffed"
                     }
                     if (valueB != 1) {
-                        valueB_str = "not "
+                        valueB_str = "While not "
                         valueA_str = "buffed"
                     }
                 } else {
@@ -105,18 +105,18 @@ export default function options_label_pars(
                             valueB_str = ""
                         }
                         if (valueB != 1) {
-                            valueB_str = "not "
+                            valueB_str = "While no "
                         }
-                        valueA_str = `buffed with //${ailmentpull.icon}// [${ailmentpull.name}] #${valueA}`
+                        valueA_str = `Active //${ailmentpull.icon}// [${ailmentpull.name}] #${valueA}`
     
                     } else {
                         if (valueB == 1) {
                             valueB_str = ""
                         }
                         if (valueB != 1) {
-                            valueB_str = "not "
+                            valueB_str = "While no "
                         }
-                        ailmentpull = `buffed with [${valueA}] #${valueA}`
+                        valueA_str = `Active [${valueA}] #${valueA}`
                     }
                 }
                 break;
@@ -311,11 +311,11 @@ export default function options_label_pars(
             case "equipment_idA_between_lessthanzero":
                 if (valueB == 0) {
                     valueA_str = `of `
-                    valueB_str = `less than ${valueC}`
+                    valueB_str = `≤ ${valueC}`
                     valueC_str = ""
                 } else {
                     valueA_str = ``
-                    valueB_str = `between ${valueB}% & ${valueC}`
+                    valueB_str = `between ${valueB}% - ${valueC}`
                     valueC_str = ""
                 }
                 break;
@@ -356,10 +356,10 @@ export default function options_label_pars(
                 break;
             case "between_lessthanzero":
                 if (valueB == 0) {
-                    valueB_str = `less than ${valueC}`
+                    valueB_str = `≤ ${valueC}`
                     valueC_str = ""
                 } else {
-                    valueB_str = `between ${valueB}% & ${valueC}`
+                    valueB_str = `between ${valueB}% - ${valueC}`
                     valueC_str = ""
                 }
                 break;
@@ -391,12 +391,12 @@ export default function options_label_pars(
                 break;
             case "least_under_valueC":
                 if (valueB == 0) {
-                    valueA_str = `over ${valueA}%`
+                    valueA_str = `≥ ${valueA}%`
                     valueB_str = ""
                     valueC_str = ""
                 }
                 if (valueA == 0) {
-                    valueA_str = `under ${valueB}%`
+                    valueA_str = `≤ ${valueB}%`
                     valueB_str = ""
                     valueC_str = ""
                 }
@@ -435,12 +435,14 @@ export default function options_label_pars(
 
         switch (target_trans) {
             case "is_noself":
+                final_str = final_str.replace(/while Self is buffed with/gm, "Active")
+                final_str = final_str.replace(/while buffed with/gm, "Active")
                 final_str = final_str.replace(/Self is /gm, "")
                 break;
             case "is_noself_any_debuff":
-                final_str = final_str.replace(/any target is buffed/gm, "any target is debuffed")
-                final_str = final_str.replace(/Party is buffed/gm, "buffed")
-                final_str = final_str.replace(/Self is /gm, "")
+                final_str = final_str.replace(/any target is buffed/gm, "any target is inflicted")
+                final_str = final_str.replace(/While Party is buffed with/gm, "Active")
+                final_str = final_str.replace(/While Self is buffed with/gm, "Active")
                 break;
             case "has_noself":
                 final_str = final_str.replace(/Self has /gm, "")
@@ -455,6 +457,8 @@ export default function options_label_pars(
                 final_str = final_str.replace(/has debuffed/gm, "is debuffed")
                 break;
             case "self_has_buffed_with":
+                final_str = final_str.replace(/While Self has/gm, "Active")
+                final_str = final_str.replace(/any target has/gm, "any target is inflicted with")
                 final_str = final_str.replace(/Self has/gm, "buffed with")
                 break;
             default:
