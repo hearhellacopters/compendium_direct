@@ -66,6 +66,7 @@ export default function Missions({
     const [single,setsingle] = useState(getQueryStringVal("single") != null ? true : false);
     const [sixman, setsixman] = useState(getQueryStringVal("sixman") != null ? true : false);
     const [memorial, setmemorial] = useState(getQueryStringVal("memorial") != null ? true : false);
+    const [raid, setraid] = useState(getQueryStringVal("raid") != null ? true : false);
 
     const [loop, setLoop] = useStateIfMounted(false);
     const [searchTerm, setSearchTerm] = useState(getQueryStringVal("search") != null ? getQueryStringVal("search").toLowerCase() : "");
@@ -94,6 +95,7 @@ export default function Missions({
     const [singlesearch, setsinglesearch] = useQueryParam("single", "");
     const [sixmansearch, setsixmansearch] = useQueryParam("sixman", "");
     const [memorialsearch, setmemorialsearch] = useQueryParam("memorial", "");
+    const [raidsearch, setraidsearch] = useQueryParam("raid", "");
 
     const [TEXTsearch, setTEXTsearch] = useQueryParam("search", "");
     const [Reversesearch, setReversesearch] = useQueryParam("rev", "");
@@ -350,6 +352,12 @@ export default function Missions({
                 );
                 filterholder.push(...filteredout);
             }
+            if (raid === true) {
+                const filteredout = rawData.filter(
+                    (event) => event.mission_category == 5 || event.mission_category == 6
+                );
+                filterholder.push(...filteredout);
+            }
             if (single === true) {
                 const filteredout = rawData.filter(
                     (event) => event.mission_category == 16
@@ -366,7 +374,7 @@ export default function Missions({
             filterholder.push(...rawData);
         }
        
-        if (![dailies, player, event, feod, abyss, ultima, sixman, spiritus, single, memorial].includes(true)) {
+        if (![dailies, player, event, feod, abyss, ultima, raid, sixman, spiritus, single, memorial].includes(true)) {
             filterholder.push(...rawData);
         }
 
@@ -396,7 +404,7 @@ export default function Missions({
         setDisplayBanner(
         <>Displaying <span className="subtextgold">{newlistdisplay.length}</span> of <span className="subtextgold"> {gettypefilter.length}</span> {banerDisplayTerm}</>
         );
-    }, [banerDisplayTerm, searchTerm, rawData, limits, clearFilter, panel, dailies, player, event, feod, abyss, ultima, sixman, spiritus, single, memorial, condFilter, reverse]);
+    }, [banerDisplayTerm, searchTerm, rawData, limits, raid, clearFilter, panel, dailies, player, event, feod, abyss, ultima, sixman, spiritus, single, memorial, condFilter, reverse]);
 
     const dailiesbutton = () => {
         if (dailies == false) {
@@ -428,6 +436,8 @@ export default function Missions({
             setsinglesearch("")
             setmemorial(false)
             setmemorialsearch("")
+            setraid(false)
+            setraidsearch("")
         }
     };
     const playerbutton = () => {
@@ -461,6 +471,8 @@ export default function Missions({
             setsinglesearch("")
             setmemorial(false)
             setmemorialsearch("")
+            setraid(false)
+            setraidsearch("")
         }
     };
     const panelbutton = () => {
@@ -494,6 +506,8 @@ export default function Missions({
             setsinglesearch("")
             setmemorial(false)
             setmemorialsearch("")
+            setraid(false)
+            setraidsearch("")
         }
     };
     const eventsbutton = () => {
@@ -527,6 +541,8 @@ export default function Missions({
             setsinglesearch("")
             setmemorial(false)
             setmemorialsearch("")
+            setraid(false)
+            setraidsearch("")
         }
     };
     const feodbutton = () => {
@@ -560,6 +576,8 @@ export default function Missions({
             setsinglesearch("")
             setmemorial(false)
             setmemorialsearch("")
+            setraid(false)
+            setraidsearch("")
         }
     };
     const abyssbutton = () => {
@@ -593,6 +611,8 @@ export default function Missions({
             setsinglesearch("")
             setmemorial(false)
             setmemorialsearch("")
+            setraid(false)
+            setraidsearch("")
         }
     };
     const ultimabutton = () => {
@@ -626,6 +646,8 @@ export default function Missions({
             setsinglesearch("")
             setmemorial(false)
             setmemorialsearch("")
+            setraid(false)
+            setraidsearch("")
         }
     };
     const sixmanbutton = () => {
@@ -659,6 +681,8 @@ export default function Missions({
             setsinglesearch("")
             setmemorial(false)
             setmemorialsearch("")
+            setraid(false)
+            setraidsearch("")
         }
     };
     const spiritusbutton = () => {
@@ -692,6 +716,8 @@ export default function Missions({
             setsinglesearch("")
             setmemorial(false)
             setmemorialsearch("")
+            setraid(false)
+            setraidsearch("")
         }
     };
     const singlebutton = () => {
@@ -725,6 +751,8 @@ export default function Missions({
 
             setmemorial(false)
             setmemorialsearch("")
+            setraid(false)
+            setraidsearch("")
         }
     };
     const memorialbutton = () => {
@@ -757,6 +785,44 @@ export default function Missions({
 
             setmemorial(true)
             setmemorialsearch("true")
+
+            setraid(false)
+            setraidsearch("")
+        }
+    };
+
+    const raidbutton = () => {
+        if (raid == false) {
+            if(banerDisplayTerm == "panels"){
+                setbanerDisplayTerm("missions")
+                setrawData([])
+            }
+
+            setdailies(false);
+            setdailiessearch("")
+            setplayer(false);
+            setplayersearch("")
+            setpanel(false);
+            setpanelsearch("")
+            setevent(false)
+            seteventsearch("")
+            setfeod(false)
+            setfeodsearch("")
+            setabyss(false)
+            setabysssearch("")
+            setultima(false)
+            setultimasearch("")
+            setsixman(false)
+            setsixmansearch("")
+            setspiritus(false)
+            setspiritussearch("")
+            setsingle(false)
+            setsinglesearch("")
+            setmemorial(false)
+            setmemorialsearch("")
+
+            setraid(true)
+            setraidsearch("true")
         }
     };
 
@@ -947,6 +1013,9 @@ export default function Missions({
                                 </Tippy>
                                 <Tippy content="Ultima Missions" className="tooltip">
                                     <li alt="Ultima" onClick={ultimabutton} className={`${ultima ? "filteractive" : "filterinactive"} UltimaMission eventbutton`} ></li>
+                                </Tippy>
+                                <Tippy content="Raid Missions" className="tooltip">
+                                    <li alt="Raid" onClick={raidbutton} className={`${raid ? "filteractive" : "filterinactive"} RaidButton eventbutton`} ></li>
                                 </Tippy>
                             </ul>
                             <ul className="bufftypes">

@@ -14,7 +14,7 @@ export default function CharacterAbilitySubListFormatting({
     all_options,
     tag_display,
     reverse,
-
+    debugging,
     master_index
 }){
 
@@ -68,7 +68,7 @@ export default function CharacterAbilitySubListFormatting({
                     master_index={master_index}
                     ProcessedCharacters={ProcessedCharacters}
                     buff_data={buff_data}
-
+                    debugging={debugging}
                     formatting={formatting}
                     all_options={all_options}
                     tag_override={tag_override}
