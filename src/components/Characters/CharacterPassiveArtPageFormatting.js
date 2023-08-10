@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
-import Art_Passive_Formatting from '../Passives/PassiveArtFormatting.js'
+import PassiveArtFormatting from '../Passives/PassiveArtFormatting.js'
 import { getQuery, getQueryStringVal, useQueryParam } from '../URLParams.js'
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 
-export default function CharacterPassiveArtPageFormatting({
+function CharacterPassiveArtPageFormatting({
   art_passive,
   ProcessedCharacters,
   ver,
@@ -13,7 +14,8 @@ export default function CharacterPassiveArtPageFormatting({
   match,
 
   formatting,
-  master_index
+  master_index,
+  scrollPosition
 }){
 
   const char_id = master_index.charid
@@ -349,7 +351,15 @@ export default function CharacterPassiveArtPageFormatting({
           </div>}
         {listPassives.length > 0 ? (
           listPassives.map(passive => (
-            <Art_Passive_Formatting
+            <LazyLoadComponent
+              key={passive.spe_id}
+              scrollPosition={scrollPosition}
+              placeholder={<div className="buffunit infoholder" style={{ minHeight: `250px` }}>
+                <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+              </div>
+                }
+              >
+            <PassiveArtFormatting
               key={passive.spe_id}
               art_passive={passive}
               ver={ver}
@@ -365,6 +375,7 @@ export default function CharacterPassiveArtPageFormatting({
               banner_color={"ArtRedbanner"}
               base_color={"ArtRedbase"}
             />
+            </LazyLoadComponent>
           ))) : (
           <div>No Data</div>
         )}
@@ -372,3 +383,5 @@ export default function CharacterPassiveArtPageFormatting({
     </div>
   )
 }
+
+export default trackWindowScroll(CharacterPassiveArtPageFormatting)

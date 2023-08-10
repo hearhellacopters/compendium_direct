@@ -15,9 +15,11 @@ import { FaUndoAlt } from 'react-icons/fa';
 import { getQuery, getQueryStringVal, useQueryParam } from './components/URLParams'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { FaShareSquare } from 'react-icons/fa';
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 
-export default function EnemyAbilities({ 
-  ProcessedEnemyAbilities 
+function EnemyAbilities({ 
+  ProcessedEnemyAbilities,
+  scrollPosition
 }){
 
   const passivelimit = window.innerWidth <= 815 ? 15 : 30;
@@ -701,7 +703,19 @@ export default function EnemyAbilities({
           </div>
           {listabilities.length > 0 ? (
             listabilities.map(abilities => (
-              <EnemyAbilitiesListingFormattingDirect key={abilities.data_id} match={abilities} />
+              <LazyLoadComponent
+                key={abilities.data_id}
+                scrollPosition={scrollPosition}
+                placeholder={<div className="buffunit">
+                                <div className="infoholder" style={{ minHeight: "220px" }}>
+                                <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                                </div>
+                            </div>}
+                >
+              <EnemyAbilitiesListingFormattingDirect 
+              key={abilities.data_id} 
+              match={abilities} />
+              </LazyLoadComponent>
             ))) : (
             <div>No results</div>
           )}
@@ -715,3 +729,5 @@ export default function EnemyAbilities({
     </div>
   );
 }
+
+export default trackWindowScroll(EnemyAbilities)

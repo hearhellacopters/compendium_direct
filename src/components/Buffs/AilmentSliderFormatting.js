@@ -115,7 +115,7 @@ export default function AilmentSliderFormatting({
 
 
     return (
-        <div className={`sliderbase infonameholder ${nobuffpadding == true ? "nobuffpadding":""}`}>
+        <div className={`sliderbase infonameholderenemybuff ${nobuffpadding == true ? "nobuffpadding":""}`}>
             {sliders.levels == true ?
                 <div className="sliderspacer">
                     <div className="rankspacer">{`Level: ${currentlevel} / ${highestlvl}`}</div>

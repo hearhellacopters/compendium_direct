@@ -9,13 +9,15 @@ import { IoMdCloseCircleOutline } from 'react-icons/io';
 import { IoSearch } from 'react-icons/io5';
 import { FaUndoAlt } from 'react-icons/fa'
 import CharacterEventFormatting from './CharacterEventFormatting.js';
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
  
-export default function CharacterEventPageFormatting({
+function CharacterEventPageFormatting({
   data,
   ProcessedEventsIndex,
   ver,
   ProcessedCharacters,
   jptoggledata,
+  scrollPosition
 }){
 
   const rawData = Object.values(data).sort((a, b) => new Date(b.start) - new Date(a.start))
@@ -270,6 +272,13 @@ export default function CharacterEventPageFormatting({
           {displaydata.length != 0 ?
             displaydata.map((self, key) => (
               self.images != undefined ?
+                <LazyLoadComponent
+                key={key}
+                scrollPosition={scrollPosition}
+                placeholder={<div className='singleeventtitlebanner' style={{ minHeight: "65px" }}>
+                              <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                            </div>}
+                >
                 <CharacterEventFormatting
                   key={key}
                   self={self}
@@ -277,6 +286,7 @@ export default function CharacterEventPageFormatting({
                   char_id={ProcessedCharacters}
                   ProcessedEventsIndex={ProcessedEventsIndex}
                 />
+                </LazyLoadComponent>
                 : ""
             ))
             : "No Data"}
@@ -285,3 +295,5 @@ export default function CharacterEventPageFormatting({
     )
   }
 }
+
+export default trackWindowScroll(CharacterEventPageFormatting)

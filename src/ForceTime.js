@@ -14,12 +14,14 @@ import Select from 'react-select';
 import { FaShareSquare } from 'react-icons/fa';
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { getQuery, getQueryStringVal, useQueryParam } from './components/URLParams.js'
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 
-export default function ForceTime({ 
+function ForceTime({ 
   match, 
   ProcessedCharacters, 
   ForceCharacters, 
-  jptoggledata 
+  jptoggledata ,
+  scrollPosition 
 }){
 
   const passivelimit = 50
@@ -374,12 +376,22 @@ export default function ForceTime({
           </div>
           {listgear.length > 0 ? (
             listgear.map(self => (
+              <LazyLoadComponent
+              key={self.CharID}
+                scrollPosition={scrollPosition}
+                placeholder={<div className='buffunit purpleoveride' style={{ minHeight: `210px` }}>
+                                <div className='infoholder'>
+                                <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                                </div>
+                            </div>}
+              >
               <CharacterForceCond
                 key={self.CharID}
                 match={self}
                 ProcessedCharacters={ProcessedCharacters}
                 jptoggledata={jptoggledata}
               />
+              </LazyLoadComponent>
             ))
           ) : (
             <div>No results</div>
@@ -394,3 +406,5 @@ export default function ForceTime({
     </div>
   )
 }
+
+export default trackWindowScroll(ForceTime)

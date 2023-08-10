@@ -14,9 +14,11 @@ import { FaUndoAlt } from 'react-icons/fa'
 import { getQuery, getQueryStringVal, useQueryParam } from './components/URLParams'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { FaShareSquare } from 'react-icons/fa';
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 
-export default function EnemyBuffs({ 
-  ProcessedEnemyBuffs 
+function EnemyBuffs({ 
+  ProcessedEnemyBuffs,
+  scrollPosition 
 }){
 
   const startinglimit = window.innerWidth <= 815 ? 30 : 50;
@@ -335,11 +337,21 @@ export default function EnemyBuffs({
           </div>
           {listBuff.length > 0 ? (
             listBuff.map(buffs => (
+              <LazyLoadComponent
+                key={buffs.id}
+                scrollPosition={scrollPosition}
+                placeholder={<div className='buffunit' style={{ minHeight: `210px` }}>
+                                <div className='infoholder'>
+                                <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                                </div>
+                            </div>}
+                >
               <AilmentDataFormattingEnemy
                 key={buffs.id}
                 ailment_data={buffs}
                 enemy_space={false}
               />
+              </LazyLoadComponent>
             ))) : (
             <div>No results</div>
           )}
@@ -353,3 +365,5 @@ export default function EnemyBuffs({
     </div>
   );
 }
+
+export default trackWindowScroll(EnemyBuffs)

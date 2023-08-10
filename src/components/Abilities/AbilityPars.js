@@ -44,7 +44,7 @@ function AbilityPars({
     enemy_names,
     summon,
     debugging,
-    trackWindowScroll 
+    scrollPosition
 }){
 
     const form = {formatting:formatting}
@@ -299,7 +299,7 @@ function AbilityPars({
     return (
         <div className="buffunit">
             <LazyLoadComponent 
-            trackWindowScroll={trackWindowScroll}
+            scrollPosition={scrollPosition}
             placeholder={<div className="infoholder" style={{ minHeight: "220px" }}/>}
             >
             <div className="infoholder">

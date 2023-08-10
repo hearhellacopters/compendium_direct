@@ -17,10 +17,11 @@ import { Link } from 'react-router-dom'
 import { getQuery, getQueryStringVal, useQueryParam } from './components/URLParams'
 import PassiveAbilityFormatting from './components/Passives/PassiveAbilityFormatting';
 import PassiveArtFormatting from './components/Passives/PassiveArtFormatting';
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 
 import { setFalse, setTrue } from './redux/ducks/jptoggle'
 
-export default function Passives ({
+function Passives ({
   ProcessedPassives,
 
   ver,
@@ -28,7 +29,8 @@ export default function Passives ({
   file,
 
   formatting,
-  master_index
+  master_index,
+  scrollPosition
 }){
 
   const char_id = master_index.charid
@@ -1028,6 +1030,14 @@ export default function Passives ({
           {listPasives.length > 0 ? (
             listPasives.map(passive => (
               passive.art == true ?
+                <LazyLoadComponent
+                  key={passive.order}
+                  scrollPosition={scrollPosition}
+                  placeholder={<div className="buffunit infoholder" style={{ minHeight: `250px` }}>
+                    <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                  </div>
+                    }
+                  >
                 <PassiveArtFormatting
                   key={passive.order}
                   art_passive={passive}
@@ -1042,7 +1052,16 @@ export default function Passives ({
                   base_color={"ArtRedbase"}
                   link={"passives"}
                 />
+                </LazyLoadComponent>
                 :
+                <LazyLoadComponent
+                  key={passive.order}
+                  scrollPosition={scrollPosition}
+                  placeholder={<div className="buffunit infoholder" style={{ minHeight: `250px` }}>
+                    <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                  </div>
+                    }
+                  >
                 <PassiveAbilityFormatting
                   key={passive.order}
                   passive_ability={passive.passive}
@@ -1060,6 +1079,7 @@ export default function Passives ({
                   base_color={"bluebase"}
                   link={"passives"}
                 />
+                </LazyLoadComponent>
             ))) : (
             <div>No results</div>
           )}
@@ -1074,3 +1094,5 @@ export default function Passives ({
     </div>
   )
 }
+
+export default trackWindowScroll(Passives)

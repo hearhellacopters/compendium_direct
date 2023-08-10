@@ -6,14 +6,15 @@ import { TiArrowSortedUp } from 'react-icons/ti';
 import Tippy from './components/TippyDefaults.js';
 import EquipmentPassivesFormatting from './components/Gear/EquipmentPassivesFormatting.js';
 import {getQueryStringVal, useQueryParam } from './components/URLParams.js'
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 
-export default function UltimaWeapons({
+function UltimaWeapons({
   jptoggledata,
 
   ProcessedGear,
   match,
-  master_index
-
+  master_index,
+  scrollPosition
 }){
 
   const matchweapon = match.params.id
@@ -359,6 +360,14 @@ export default function UltimaWeapons({
             </div>
             {listgear.length > 0 ? (
               listgear.map(gear => (
+                <LazyLoadComponent
+                key={gear.equip_id}
+                  scrollPosition={scrollPosition}
+                  placeholder={<div className='infoholder' style={{ minHeight: "350px" }}>
+                                  <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                              </div>
+                                  }
+                >
                 <EquipmentPassivesFormatting
                   gear={gear}
                   ver={"GL"}
@@ -370,6 +379,7 @@ export default function UltimaWeapons({
                   formatting={true}
 
                 />
+                </LazyLoadComponent>
               ))) : (
               <div>No results</div>
             )}
@@ -388,3 +398,4 @@ export default function UltimaWeapons({
     )
   }
 }
+export default trackWindowScroll(UltimaWeapons)

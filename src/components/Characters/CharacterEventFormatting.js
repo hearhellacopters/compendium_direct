@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
-import { LazyLoadComponent, LazyLoadImage, trackWindowScroll } from 'react-lazy-load-image-component';
+import { LazyLoadImage} from 'react-lazy-load-image-component';
 import CharacterFaceFormatting from './CharacterFaceFormatting';
 import format_cleaner from '../../processing/format_cleaner';
 import TickUp from '../tickUp.js'
 import TickDown from '../tickUp.js'
 
-function CharacterEventFormatting({
+export default function CharacterEventFormatting({
     self,
     ver,
     char_id,
-    ProcessedEventsIndex,
-    scrollPosition 
+    ProcessedEventsIndex
 }){
 
     const get_event_id = Object.values(ProcessedEventsIndex).filter(self2 =>
@@ -56,10 +55,7 @@ function CharacterEventFormatting({
     const [showcharacters, setshowcharacters] = useState(false)
 
     return (
-        <LazyLoadComponent
-        scrollPosition={scrollPosition}
-        placeholder={<div className='singleeventtitlebanner' style={{ minHeight: "65px" }}/>}
-        >
+        <>
             <div className='singleeventtitlebanner'>
                 <h3 className={`toevents ${get_event_id.length != 0 ? "clicky" : ""}`}>
                     {get_event_id.length != 0 ?
@@ -87,7 +83,6 @@ function CharacterEventFormatting({
                             <Link to={"/events/" + loc}>
                                 <div className={`eventwithbackgorundtabs withshadow ${loc != undefined ? "clicky" : ""}`}>
                                     <LazyLoadImage 
-                                    scrollPosition={scrollPosition}
                                     placeholder={<div className='eventimage'/>}
                                     effect="opacity" 
                                     className='eventimage' 
@@ -109,7 +104,6 @@ function CharacterEventFormatting({
                         <div className='eventtabs'>
                             <div className='eventwithbackgorundtabs withshadow'>
                                 <LazyLoadImage 
-                                scrollPosition={scrollPosition}
                                 effect="opacity" 
                                 className='eventimage' 
                                 src={url} 
@@ -155,8 +149,7 @@ function CharacterEventFormatting({
                     }
                 </div>
             : ""}
-        </LazyLoadComponent>
+        </>
     )
 
 }
-export default trackWindowScroll(CharacterEventFormatting) 

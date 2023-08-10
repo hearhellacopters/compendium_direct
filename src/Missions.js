@@ -1104,13 +1104,13 @@ export default function Missions({
                         return(
                             banerDisplayTerm == "panels"?
                             <PanelFormatting
-                            key={`${i}-${banerDisplayTerm}-${JP==true?"JP":"GL"}`}
+                            key={`${i}-${banerDisplayTerm}-${JP}`}
                             panel={self}
                             ver={JP==true?"JP":"GL"}
                             />
                             :
                             <MissionFormatting
-                            key={`${i}-${banerDisplayTerm}-${JP==true?"JP":"GL"}`}
+                            key={`${i}-${banerDisplayTerm}-${JP}`}
                             mission={self}
                             solo={true}
                             ver={JP==true?"JP":"GL"}

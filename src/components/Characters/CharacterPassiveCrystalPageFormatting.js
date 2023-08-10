@@ -10,8 +10,9 @@ import { IoSearch } from 'react-icons/io5';
 import { FaUndoAlt } from 'react-icons/fa'
 import { getQuery, getQueryStringVal, useQueryParam } from '../URLParams.js'
 import CharacterAbilityPars from '../Abilities/AbilityPars.js'
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 
-export default function CharacterPassiveCrystalPageFormatting({
+function CharacterPassiveCrystalPageFormatting({
   crydata,
   ver,
   newcompare,
@@ -19,7 +20,8 @@ export default function CharacterPassiveCrystalPageFormatting({
   ProcessedCharacters,
   formatting,
 
-  master_index
+  master_index,
+  scrollPosition
 }){
 
   const [rawData, setrawData] = useState(crydata)
@@ -499,6 +501,15 @@ export default function CharacterPassiveCrystalPageFormatting({
           {displaydata.length > 0 ? (
             displaydata.map(passive => (
               passive.awakening_type == 3 && passive.command != undefined ?
+                <LazyLoadComponent
+                  key={passive.cac_id}
+                  scrollPosition={scrollPosition}
+                  placeholder={<div className="buffunit">
+                                  <div className="infoholder" style={{ minHeight: "220px" }}>
+                                  <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                                  </div>
+                              </div>}
+                  >
                 <CharacterAbilityPars
                   key={passive.cac_id}
 
@@ -514,7 +525,16 @@ export default function CharacterPassiveCrystalPageFormatting({
 
                   formatting={formatting}
                 />
+                </LazyLoadComponent>
                 : passive.awakening_type == 3 ?
+                  <LazyLoadComponent
+                  key={passive.cac_id}
+                  scrollPosition={scrollPosition}
+                  placeholder={<div className="buffunit infoholder" style={{ minHeight: `250px` }}>
+                    <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                  </div>
+                    }
+                  >
                   <PassiveCrystalParm
                     key={passive.cac_id}
                     type={3}
@@ -522,7 +542,16 @@ export default function CharacterPassiveCrystalPageFormatting({
                     master_index={master_index}
                     ver={ver}
                   />
+                  </LazyLoadComponent>
                   : passive.awakening_type == 2 || passive.awakening_type == 5 ?
+                    <LazyLoadComponent
+                    key={passive.cac_id}
+                    scrollPosition={scrollPosition}
+                    placeholder={<div className="buffunit infoholder" style={{ minHeight: `250px` }}>
+                      <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                    </div>
+                      }
+                    >
                     <PassiveAbilityFormatting
                       key={passive.cac_id}
                       passive_ability={passive.passive}
@@ -538,7 +567,16 @@ export default function CharacterPassiveCrystalPageFormatting({
                       banner_color={"bluebanner"}
                       base_color={"bluebase"}
                     />
+                    </LazyLoadComponent>
                     : passive.awakening_type == 6 ?
+                      <LazyLoadComponent
+                      key={passive.cac_id}
+                      scrollPosition={scrollPosition}
+                      placeholder={<div className="buffunit infoholder" style={{ minHeight: `250px` }}>
+                        <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                      </div>
+                        }
+                      >
                       <PassiveCrystalParm
                         key={passive.cac_id}
                         type={6}
@@ -546,7 +584,17 @@ export default function CharacterPassiveCrystalPageFormatting({
                         master_index={master_index}
                         ver={ver}
                       />
+                      </LazyLoadComponent>
                       : passive.awakening_type == 1 && passive.command != undefined ?
+                        <LazyLoadComponent
+                          key={passive.cac_id}
+                          scrollPosition={scrollPosition}
+                          placeholder={<div className="buffunit">
+                                          <div className="infoholder" style={{ minHeight: "220px" }}>
+                                          <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                                          </div>
+                                      </div>}
+                          >
                         <CharacterAbilityPars
                           key={passive.cac_id}
 
@@ -562,7 +610,17 @@ export default function CharacterPassiveCrystalPageFormatting({
 
                           formatting={formatting}
                         />
+                        </LazyLoadComponent>
                         : passive.awakening_type == -1 && passive.command != undefined ?
+                          <LazyLoadComponent
+                          key={passive.cac_id}
+                          scrollPosition={scrollPosition}
+                          placeholder={<div className="buffunit">
+                                          <div className="infoholder" style={{ minHeight: "220px" }}>
+                                          <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                                          </div>
+                                      </div>}
+                          >
                           <CharacterAbilityPars
                             key={passive.cac_id}
 
@@ -578,7 +636,17 @@ export default function CharacterPassiveCrystalPageFormatting({
 
                             formatting={formatting}
                           />
+                          </LazyLoadComponent>
                           : passive.awakening_type == 4 && passive.command != undefined ?
+                            <LazyLoadComponent
+                            key={passive.cac_id}
+                            scrollPosition={scrollPosition}
+                            placeholder={<div className="buffunit">
+                                            <div className="infoholder" style={{ minHeight: "220px" }}>
+                                            <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                                            </div>
+                                        </div>}
+                            >
                             <CharacterAbilityPars
                               key={passive.cac_id}
 
@@ -594,8 +662,18 @@ export default function CharacterPassiveCrystalPageFormatting({
 
                               formatting={formatting}
                             />
+                            </LazyLoadComponent>
                             :
                             passive.command != undefined ?
+                              <LazyLoadComponent
+                              key={passive.cac_id}
+                              scrollPosition={scrollPosition}
+                              placeholder={<div className="buffunit">
+                                              <div className="infoholder" style={{ minHeight: "220px" }}>
+                                              <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                                              </div>
+                                          </div>}
+                              >
                               <CharacterAbilityPars
                                 key={passive.cac_id}
 
@@ -611,6 +689,7 @@ export default function CharacterPassiveCrystalPageFormatting({
 
                                 formatting={formatting}
                               />
+                              </LazyLoadComponent>
                               : ""
             ))) : (
             <div className=''>No Data</div>
@@ -621,3 +700,5 @@ export default function CharacterPassiveCrystalPageFormatting({
     )
   }
 }
+
+export default trackWindowScroll(CharacterPassiveCrystalPageFormatting)

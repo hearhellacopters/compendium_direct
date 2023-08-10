@@ -16,8 +16,9 @@ import PassiveTotalDisplay from '../Passives/PassiveTotalDisplay';
 import passive_stats_merger from '../../processing/passives/passive_stats_merger';
 import { ObjectView } from 'react-object-view'
 import ailment_level_icon from '../../processing/ailment/ailment_level_icon';
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 
-export default function CharacterBuffPage({
+function CharacterBuffPageFormatting({
     ability_data,
     buff_data,
 
@@ -30,7 +31,8 @@ export default function CharacterBuffPage({
 
     selected_id,
     gear,
-    master_index
+    master_index,
+    scrollPosition 
 }){
 
     const form = {formatting:formatting}
@@ -833,6 +835,15 @@ export default function CharacterBuffPage({
                     <div className='directbuffholder'>
                         <div className='subtext2'>Strength of buff is determined by ability</div>
                         {displaybuffs.map(self => (
+                            <LazyLoadComponent
+                                key={self.id}
+                                scrollPosition={scrollPosition}
+                                placeholder={<div className='buffunit' style={{ minHeight: `210px` }}>
+                                                <div className='infoholder'>
+                                                <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                                                </div>
+                                            </div>}
+                            >
                             <AilmentDataFormatting
                                 key={self.id}
                                 file={file}
@@ -856,6 +867,7 @@ export default function CharacterBuffPage({
                                 character_face={true}
                                 frameless={false}
                             />
+                            </LazyLoadComponent>
                         ))}
                     </div>
                     : "No Data"}
@@ -863,3 +875,5 @@ export default function CharacterBuffPage({
         </div>
     )
 }
+
+export default trackWindowScroll(CharacterBuffPageFormatting)

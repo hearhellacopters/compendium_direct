@@ -3,8 +3,9 @@ import { useStateIfMounted } from "use-state-if-mounted";
 import PassiveAbilityFormatting from '../Passives/PassiveAbilityFormatting';
 import { getQuery, getQueryStringVal, useQueryParam } from '../URLParams'
 import CharacterAbilityPars from '../Abilities/AbilityPars.js'
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 
-export default function CharacterPassiveExpPageFormatting({
+function CharacterPassiveExpPageFormatting({
   ver,
   loc,
   file,
@@ -14,7 +15,8 @@ export default function CharacterPassiveExpPageFormatting({
 
   formatting,
 
-  master_index
+  master_index,
+  scrollPosition
 }){
 
   const char_id = master_index.charid
@@ -312,6 +314,14 @@ export default function CharacterPassiveExpPageFormatting({
         {listPassives.length > 0 ? (
           listPassives.map(passive => (
             passive.ability_type == 1 && passive.command != undefined ?
+              <LazyLoadComponent
+                key={passive.cla_id}
+                scrollPosition={scrollPosition}
+                placeholder={<div className="buffunit infoholder" style={{ minHeight: `250px` }}>
+                  <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                </div>
+                  }
+                >
               <CharacterAbilityPars
                 key={passive.cla_id}
                 character_ability={passive.command}
@@ -323,7 +333,16 @@ export default function CharacterPassiveExpPageFormatting({
                 formatting={formatting}
                 tag_override={`cl${passive.level}`}
               />
+              </LazyLoadComponent>
               : passive.passive &&
+              <LazyLoadComponent
+                key={passive.cla_id}
+                scrollPosition={scrollPosition}
+                placeholder={<div className="buffunit infoholder" style={{ minHeight: `250px` }}>
+                  <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                </div>
+                  }
+                >
               <PassiveAbilityFormatting
                 key={passive.cla_id}
                 passive_ability={passive.passive}
@@ -337,6 +356,7 @@ export default function CharacterPassiveExpPageFormatting({
                 formatting={formatting}
                 tag_overide={`exp${passive.level}`}
               />
+              </LazyLoadComponent>
           ))) : (
           <div>No Data</div>
         )}
@@ -344,3 +364,5 @@ export default function CharacterPassiveExpPageFormatting({
     </div>
   )
 }
+
+export default trackWindowScroll(CharacterPassiveExpPageFormatting)

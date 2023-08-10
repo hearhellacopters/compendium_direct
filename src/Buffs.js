@@ -17,16 +17,18 @@ import { Link } from 'react-router-dom'
 import { getQuery, getQueryStringVal, useQueryParam } from './components/URLParams'
 import AilmentDataFormatting from './components/Buffs/AilmentDataFormatting';
 import ailment_tags from './processing/ailment/ailment_tags.json'
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 
 import { setFalse, setTrue } from './redux/ducks/jptoggle'
 
-export default function Buffs({
+function Buffs({
     ver,
     match,
 
     ProcessedBuffs,
 
-    master_index
+    master_index,
+    scrollPosition 
 }) {
 
     const char_id = master_index.charid
@@ -3528,6 +3530,15 @@ export default function Buffs({
                     </div>
                     {listBuff.length > 0 ? (
                         listBuff.map(self => (
+                            <LazyLoadComponent
+                                key={`${self.id}_${self.chara_id}`}
+                                scrollPosition={scrollPosition}
+                                placeholder={<div className='buffunit' style={{ minHeight: `210px` }}>
+                                                <div className='infoholder'>
+                                                <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                                                </div>
+                                            </div>}
+                            >
                             <AilmentDataFormatting
                                 key={`${self.id}_${self.chara_id}`}
                                 ver={ver}
@@ -3546,6 +3557,7 @@ export default function Buffs({
                                 character_face={true}
                                 link={"buffs"}
                             />
+                            </LazyLoadComponent>
                         ))) : (
                         <div>No results</div>
                     )}
@@ -3560,3 +3572,5 @@ export default function Buffs({
         </div>
     )
 }
+
+export default trackWindowScroll(Buffs)

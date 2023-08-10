@@ -16,14 +16,15 @@ import Tippy from './components/TippyDefaults.js';
 import PassiveAbilityFormatting from './components/Passives/PassiveAbilityFormatting.js';
 import { getQuery, getQueryStringVal, useQueryParam } from './components/URLParams.js'
 import StatsMaker from './components/StatsDisplay.js';
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 
-export default function CrystalPassives({
+function CrystalPassives({
   jptoggledata,
 
   crystalpassives,
   match,
-  master_index
-
+  master_index,
+  scrollPosition
 }){
   const matchweapon = match.params.id
 
@@ -398,6 +399,14 @@ export default function CrystalPassives({
             </div>
             {listgear.length > 0 ? (
               listgear.map(passive => (
+                <LazyLoadComponent
+                key={passive.pa_id}
+                scrollPosition={scrollPosition}
+                placeholder={<div className="buffunit infoholder" style={{ minHeight: `250px` }}>
+                  <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                </div>
+                  }
+                >
                 <PassiveAbilityFormatting
                     key={passive.pa_id}
                     passive_ability={passive}
@@ -407,6 +416,7 @@ export default function CrystalPassives({
                     formatting={true}
                     release={passive.start_date}
                 />
+                </LazyLoadComponent>
               ))) : (
               <div>No results</div>
             )}
@@ -419,3 +429,5 @@ export default function CrystalPassives({
       </div>
     )
 }
+
+export default trackWindowScroll(CrystalPassives)

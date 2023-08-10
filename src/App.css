@@ -10,11 +10,6 @@ a:-moz-focusring {
   font-weight: initial !important;
 }
 
-.loadingbardots {
-  height: 32px;
-  margin-bottom: -6px;
-}
-
 .Locked{
   content: url(https://dissidiacompendium.com/images/static/icons/misc/locked.png);
   background-size: contain;
@@ -125,12 +120,6 @@ a:-moz-focusring {
   }
   .notice_text{
     text-align: left !important;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .loadingbardots {
-    height: 24px;
   }
 }
 

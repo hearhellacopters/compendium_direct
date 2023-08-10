@@ -930,9 +930,12 @@ function CharacterGearPage({
             listPassives.length > 0 ? (
               listPassives.map(gear => (
                 <LazyLoadComponent
-                placeholder={<div className='infoholder' style={{ minHeight: "350px" }}/>}
                 scrollPosition={scrollPosition }
                 key={gear.equip_id}
+                placeholder={<div className='infoholder' style={{ minHeight: "350px" }}>
+                                <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                            </div>
+                                }
                 >
                 <EquipmentPassivesFormatting
                   key={gear.equip_id}

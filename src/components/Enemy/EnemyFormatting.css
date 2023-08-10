@@ -942,6 +942,13 @@
     box-shadow: inset 0px 0px 10px #000000;
 }
 
+@media (max-width: 700px) {
+    .infonameholderenemybuff {
+        margin-left: 0px;
+        width: calc(100% - 19px);
+    }
+}
+
 @media (max-width: 815px) {
     .fontnormal {
         font-size: small;
@@ -955,11 +962,6 @@
 
     .largerfont {
         font-size: smaller;
-    }
-
-    .infonameholderenemybuff {
-        margin-left: 0px;
-        width: calc(100% - 19px);
     }
 }
 

@@ -59,7 +59,10 @@ function CharacterPageReworks({
                 <div className="buffunit">
                 <LazyLoadComponent
                 scrollPosition={scrollPosition}
-                placeholder={<div className="infoholder" style={{ minHeight: "250px" }}/>}              
+                placeholder={<div className="infoholder" style={{ minHeight: "250px" }}>
+                                <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                            </div>
+                  }              
                 >
                   <div className="infoholder">
                     <div className="infotitleholder">

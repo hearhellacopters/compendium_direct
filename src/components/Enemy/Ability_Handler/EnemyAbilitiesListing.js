@@ -20,7 +20,9 @@ function EnemyAbilitiesListing({
                     <LazyLoadComponent
                     key={abilities.data_id}
                     scrollPosition={scrollPosition}
-                    placeholder={<div className="buffunit"><div style={{minHeight:"250px"}} className="infoholder"/></div>}
+                    placeholder={<div className="buffunit"><div style={{minHeight:"250px"}} className="infoholder"/>
+                                <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                                </div>}
                     >
                     <EnemyAbilitiesFormattingDirect
                         key={abilities.data_id}

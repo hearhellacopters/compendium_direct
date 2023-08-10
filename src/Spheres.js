@@ -17,10 +17,11 @@ import { Link } from 'react-router-dom'
 import { getQuery, getQueryStringVal, useQueryParam } from './components/URLParams'
 import PassiveSphereFormatting from './components/Passives/PassiveSphereFormatting';
 import sphere_tags from './processing/passives/sphere_tags.json'
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 
 import { setFalse, setTrue } from './redux/ducks/jptoggle'
 
-export default function Spheres({
+function Spheres({
   ver,
   loc,
   file,
@@ -29,7 +30,8 @@ export default function Spheres({
   ProcessedSpheres,
   Access,
 
-  master_index
+  master_index,
+  scrollPosition
 }){
 
   const char_id = master_index.charid
@@ -1281,6 +1283,14 @@ export default function Spheres({
           {listSphere.length > 0 ? (
             listSphere.map(passive => (
               passive.passive &&
+              <LazyLoadComponent
+                key={passive.pa_id}
+                scrollPosition={scrollPosition}
+                placeholder={<div className="buffunit infoholder" style={{ minHeight: `250px` }}>
+                  <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                </div>
+                  }
+                >
               <PassiveSphereFormatting
                 key={passive.pa_id}
                 passive_ability={passive.passive}
@@ -1298,6 +1308,7 @@ export default function Spheres({
                 raw={passive}
                 link={"spheres"}
               />
+              </LazyLoadComponent>
             ))) : (
             <div>No results</div>
           )}
@@ -1312,3 +1323,5 @@ export default function Spheres({
     </div>
   )
 }
+
+export default trackWindowScroll(Spheres)

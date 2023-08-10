@@ -572,7 +572,12 @@ export default function EnemyAbilities_MasterList({
                             :
                             ""}
                     </div>
-                    <EnemyAbilitiesListing showai={showmeai != "" ? true : false} match={fullcommands} enemy_id={enemy_id} showmeraw={showmeraw} abilitylist={abilitydebug} />
+                    <EnemyAbilitiesListing 
+                    showai={showmeai != "" ? true : false} 
+                    match={fullcommands} 
+                    enemy_id={enemy_id} 
+                    showmeraw={showmeraw} 
+                    abilitylist={abilitydebug} />
                     {showmeraw == true ?
                         <span className='react-json-view'>
                             <ObjectView 

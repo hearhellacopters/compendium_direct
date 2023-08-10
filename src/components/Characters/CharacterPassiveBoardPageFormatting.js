@@ -9,8 +9,9 @@ import { FaUndoAlt } from 'react-icons/fa'
 import PassiveAbilityFormatting from '../Passives/PassiveAbilityFormatting';
 import { getQuery, getQueryStringVal, useQueryParam } from '../URLParams'
 import CharacterAbilityPars from '../Abilities/AbilityPars.js'
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 
-export default function CharacterPassiveBoardPageFormatting({
+function CharacterPassiveBoardPageFormatting({
   sum_fix_passive,
   ver,
   loc,
@@ -18,7 +19,8 @@ export default function CharacterPassiveBoardPageFormatting({
   newcompare,
   ProcessedCharacters,
   formatting,
-  master_index
+  master_index,
+  scrollPosition
 }){
 
   const [rawData, setrawData] = useState(sum_fix_passive);
@@ -401,6 +403,15 @@ export default function CharacterPassiveBoardPageFormatting({
         {listPassives.length > 0 ? (
           listPassives.map(passive => (
             passive.ability == true ?
+              <LazyLoadComponent
+                key={passive.sfp_id}
+                scrollPosition={scrollPosition}
+                placeholder={<div className="buffunit">
+                                <div className="infoholder" style={{ minHeight: "220px" }}>
+                                <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                                </div>
+                            </div>}
+                >
               <CharacterAbilityPars
                 key={passive.sfp_id}
 
@@ -415,7 +426,16 @@ export default function CharacterPassiveBoardPageFormatting({
                 formatting={formatting}
                 tag_override={passive.passive_num == 27 ? "board4cext" : "board4c"}
               />
+              </LazyLoadComponent>
               : passive.passive &&
+              <LazyLoadComponent
+                key={passive.sfp_id}
+                scrollPosition={scrollPosition}
+                placeholder={<div className="buffunit infoholder" style={{ minHeight: `250px` }}>
+                  <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                </div>
+                  }
+                >
               <PassiveAbilityFormatting
                 key={passive.sfp_id}
                 passive_ability={passive.passive}
@@ -431,6 +451,7 @@ export default function CharacterPassiveBoardPageFormatting({
                 banner_color={"board4banner"}
                 base_color={"bluebase"}
               />
+              </LazyLoadComponent>
           ))) : (
           <div className=''>No Data</div>
         )}
@@ -438,3 +459,5 @@ export default function CharacterPassiveBoardPageFormatting({
     </div>
   )
 }
+
+export default trackWindowScroll(CharacterPassiveBoardPageFormatting)

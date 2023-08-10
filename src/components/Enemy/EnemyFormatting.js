@@ -1036,27 +1036,27 @@ function EnemyFormatting({
                     }
                     {abilities == "guide"?
                     <>
-                    <div className="enemysubheader">※ Guides ※</div>
-                    {enemy[`ForceGauge`] && enemy[`ForceGauge`].length == 1?
-                    "":
-                    <ul className="enemyguidelist">
-                        {enemy[`ForceGauge`] && enemy[`ForceGauge`].map((self, i) => (
-                            <li key={i} className={ForcetimeTab == i ? "clicky" : "updatelink clicky"} onClick={() => ForceTimeSelect(i)}>
-                                {ForcetimeTab == i ? <span className="gemselected" />
-                                    : ""}
-                                {`Guide ${i + 1}`}
-                            </li>
-                        ))}
-                    </ul>
-                    }
-                    <div className='enemyholderdesc normalfont margtop makeright lighterblue'>
-                            <EnemyGuide
-                                guide={getGuide}
-                                showjp={showjp}
-                                toggle_jp={toggle_jp}
-                            />
-                    </div>
-                    <div className="subtextfg">*guide data not always provided</div>
+                        <div className="enemysubheader">※ Guides ※</div>
+                        {enemy[`ForceGauge`] && enemy[`ForceGauge`].length == 1?
+                        "":
+                        <ul className="enemyguidelist">
+                            {enemy[`ForceGauge`] && enemy[`ForceGauge`].map((self, i) => (
+                                <li key={i} className={ForcetimeTab == i ? "clicky" : "updatelink clicky"} onClick={() => ForceTimeSelect(i)}>
+                                    {ForcetimeTab == i ? <span className="gemselected" />
+                                        : ""}
+                                    {`Guide ${i + 1}`}
+                                </li>
+                            ))}
+                        </ul>
+                        }
+                        <div className='enemyholderdesc normalfont margtop makeright lighterblue'>
+                                <EnemyGuide
+                                    guide={getGuide}
+                                    showjp={showjp}
+                                    toggle_jp={toggle_jp}
+                                />
+                        </div>
+                        <div className="subtextfg">*guide data not always provided</div>
                     </>
                     :""}
                     {abilities == "abilities" ?

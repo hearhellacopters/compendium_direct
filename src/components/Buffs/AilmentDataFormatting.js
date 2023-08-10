@@ -313,8 +313,6 @@ function AilmentDataFormatting({
         return newtext
     }
 
-    const minH = window.innerWidth <= 800 ? 210 : 150;
-
     const ailment_debug = {
         ailment_pars: ailment_pars,
         sliders: sliders,
@@ -325,7 +323,7 @@ function AilmentDataFormatting({
         <div className={frameless != true ? character_face == true ? "buffunit" : "" : ""}>
             <LazyLoadComponent
             scrollPosition={scrollPosition}
-            placeholder={<div className={frameless != true ? "infoholder" : ""} style={{ minHeight: `${frameless == true || character_face != true ? 0 : minH}px` }}/>}
+            placeholder={<div className={frameless != true ? "infoholder" : ""} style={{ minHeight: `210px` }}/>}
             >
             <div className={frameless != true ? "infoholder" : ""}>
                 {character_face == true?

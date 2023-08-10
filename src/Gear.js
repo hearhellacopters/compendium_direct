@@ -16,17 +16,19 @@ import { FaShareSquare } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
 import { getQuery, getQueryStringVal, useQueryParam } from './components/URLParams'
 import EquipmentPassivesFormatting from './components/Gear/EquipmentPassivesFormatting';
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 
 import { setFalse, setTrue } from './redux/ducks/jptoggle'
  
-export default function Gear({
+function Gear({
     ProcessedGear,
     ver,
     loc,
 
     formatting,
 
-    master_index
+    master_index,
+    scrollPosition
 }){
 
     const startinglimit = window.innerWidth <= 815 ? 10 : 20;
@@ -1315,6 +1317,14 @@ export default function Gear({
                     </div>
                     {listGear.length > 0 ? (
                         listGear.map(gear => (
+                            <LazyLoadComponent
+                                key={`${gear.equip_id}-${gear.chara_id}`}
+                                scrollPosition={scrollPosition}
+                                placeholder={<div className='infoholder' style={{ minHeight: "350px" }}>
+                                                <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                                            </div>
+                                                }
+                            >
                             <EquipmentPassivesFormatting
                                 key={`${gear.equip_id}-${gear.chara_id}`}
                                 gear={gear}
@@ -1325,6 +1335,7 @@ export default function Gear({
                                 formatting={true}
                                 link={"gear"}
                             />
+                            </LazyLoadComponent>
                         ))) : (
                         <div>No results</div>
                     )}
@@ -1338,3 +1349,5 @@ export default function Gear({
         </div>
     )
 }
+
+export default trackWindowScroll(Gear)

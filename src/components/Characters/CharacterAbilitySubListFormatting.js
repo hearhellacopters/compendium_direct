@@ -1,8 +1,9 @@
 import React from 'react';
 import ReplacerCharacter from '../ReplacerCharacter.js';
 import CharacterAbilityPars from '../Abilities/AbilityPars.js'
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 
-export default function CharacterAbilitySubListFormatting({
+function CharacterAbilitySubListFormatting({
     character_ability,
     loc,
     ver,
@@ -15,7 +16,8 @@ export default function CharacterAbilitySubListFormatting({
     tag_display,
     reverse,
     debugging,
-    master_index
+    master_index,
+    scrollPosition
 }){
 
     if (character_ability && character_ability.length == 0) {
@@ -58,23 +60,37 @@ export default function CharacterAbilitySubListFormatting({
                 {ReplacerCharacter(`<${tag_display}> Attacks`)}
             </div>
             {character_ability.map(cmd => {
-                return <CharacterAbilityPars
+                return (
+                    <LazyLoadComponent
                     key={cmd.data_id}
-                    character_ability={cmd}
-                    ver={ver}
-                    loc={loc}
-                    file={file}
+                    scrollPosition={scrollPosition}
+                    placeholder={<div className="buffunit">
+                                    <div className="infoholder" style={{ minHeight: "220px" }}>
+                                    <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                                    </div>
+                                </div>}
+                    >
+                    <CharacterAbilityPars
+                        key={cmd.data_id}
+                        character_ability={cmd}
+                        ver={ver}
+                        loc={loc}
+                        file={file}
 
-                    master_index={master_index}
-                    ProcessedCharacters={ProcessedCharacters}
-                    buff_data={buff_data}
-                    debugging={debugging}
-                    formatting={formatting}
-                    all_options={all_options}
-                    tag_override={tag_override}
-                />
+                        master_index={master_index}
+                        ProcessedCharacters={ProcessedCharacters}
+                        buff_data={buff_data}
+                        debugging={debugging}
+                        formatting={formatting}
+                        all_options={all_options}
+                        tag_override={tag_override}
+                    />
+                    </LazyLoadComponent>
+                )
             })}
         </>
     )
     
 }
+
+export default trackWindowScroll(CharacterAbilitySubListFormatting)

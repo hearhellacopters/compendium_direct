@@ -37,7 +37,8 @@
 }
 
 .rainbow_tag {
-    height: 27px;
+    margin-top: -.5ex;
+    height: 2.8ex;
     vertical-align: middle;
     background-size: contain;
     background-repeat: no-repeat;
@@ -241,6 +242,11 @@
 }
 
 @media screen and (max-width: 700px) {
+    .rainbow_tag{
+        margin-top: -1.4ex;
+        height: 3ex;
+    }
+    
     .abilityJPname {
         font-size: .8rem;
     }
@@ -267,10 +273,6 @@
     .ver_jp {
         height: 24px;
         width: 48px
-    }
-
-    .rainbow_tag {
-        height: 30px;
     }
 
     .abilityinfobase {

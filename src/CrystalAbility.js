@@ -15,14 +15,15 @@ import Tippy from './components/TippyDefaults.js';
 import AbilityPars from './components/Abilities/AbilityPars.js';
 import { getQuery, getQueryStringVal, useQueryParam } from './components/URLParams.js'
 import StatsMaker from './components/StatsDisplay.js';
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 
-export default function CrystalAbility({
+function CrystalAbility({
   jptoggledata,
 
   crystalabilities,
   match,
-  master_index
-
+  master_index,
+  scrollPosition
 }){
 
   const passivelimit = 20
@@ -394,20 +395,30 @@ export default function CrystalAbility({
               {displayBanner}
             </div>
             {listgear.length > 0 ? (
-              listgear.map(passive => (
+              listgear.map(ability => (
+                <LazyLoadComponent
+                    key={ability.data_id}
+                    scrollPosition={scrollPosition}
+                    placeholder={<div className="buffunit">
+                                    <div className="infoholder" style={{ minHeight: "220px" }}>
+                                    <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                                    </div>
+                                </div>}
+                    >
                 <AbilityPars
-                    key={passive.data_id}
-                    character_ability={passive}
+                    key={ability.data_id}
+                    character_ability={ability}
                     ver={"JP"}
                     loc={"crystal"}
                     Single={true}
                     master_index={master_index}
                     formatting={true}
                     span={true}
-                    tag_override={passive.loc_tag}
+                    tag_override={ability.loc_tag}
                     hide_chara={true}
                     use_tag={"crypoints"}
                 />
+                </LazyLoadComponent>
               ))) : (
               <div>No results</div>
             )}
@@ -420,3 +431,5 @@ export default function CrystalAbility({
       </div>
     )
 }
+
+export default trackWindowScroll(CrystalAbility)

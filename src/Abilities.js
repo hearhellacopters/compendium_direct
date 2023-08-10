@@ -1638,9 +1638,13 @@ function Abilities({
                     {listAbility.length > 0 ? (
                         listAbility.map((cmd,i) => (
                             <LazyLoadComponent
-                            placeholder={<div className='buffunit'><div className="infoholder" style={{ minHeight: "220px" }}/></div>}
                             key={`${cmd.data_id}-${i}`}
                             scrollPosition={scrollPosition}
+                            placeholder={<div className='buffunit'>
+                                            <div className="infoholder" style={{ minHeight: "220px" }}>
+                                            <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                                            </div>
+                                        </div>}
                             >
                             <AbilityPars
                                 key={`${cmd.data_id}-${i}`}

@@ -10,8 +10,9 @@ import { ImSortAmountDesc } from 'react-icons/im';
 import { IoMdCloseCircleOutline } from 'react-icons/io';
 import { IoSearch } from 'react-icons/io5';
 import { FaUndoAlt } from 'react-icons/fa'
- 
-export default function CharacterPassiveLinkPageFormatting({
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
+
+function CharacterPassiveLinkPageFormatting({
   linkeddata,
   ver,
   newcompare,
@@ -20,6 +21,7 @@ export default function CharacterPassiveLinkPageFormatting({
   master_index,
 
   formatting,
+  scrollPosition
 }){
 
   const rawData = Object.values(linkeddata && linkeddata.sort((a, b) => b.link_level - a.link_level))
@@ -253,6 +255,14 @@ export default function CharacterPassiveLinkPageFormatting({
           {listPassives.length > 0 ? (
             listPassives.map(passive => (
               passive.link_type == 3 ?
+                <LazyLoadComponent
+                  key={passive.lc_id}
+                  scrollPosition={scrollPosition}
+                  placeholder={<div className="buffunit infoholder" style={{ minHeight: `250px` }}>
+                    <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                  </div>
+                    }
+                  >
                 <Link_Parm
                   key={passive.lc_id}
                   passive={passive}
@@ -260,7 +270,16 @@ export default function CharacterPassiveLinkPageFormatting({
                   master_index={master_index}
                   tag_overide={passive.cp != 0 ? "smallpassive" : "newstatus"}
                 />
+                </LazyLoadComponent>
                 : passive.link_type == 2 && passive.passive != undefined ?
+                  <LazyLoadComponent
+                  key={passive.lc_id}
+                  scrollPosition={scrollPosition}
+                  placeholder={<div className="buffunit infoholder" style={{ minHeight: `250px` }}>
+                    <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                  </div>
+                    }
+                  >
                   <PassiveAbilityFormatting
                     key={passive.lc_id}
                     passive_ability={passive.passive}
@@ -277,6 +296,7 @@ export default function CharacterPassiveLinkPageFormatting({
                     banner_color={"newblue"}
                     base_color={"bluebase"}
                   />
+                  </LazyLoadComponent>
                   : ""
             ))) : (
             <div>No results</div>
@@ -287,3 +307,5 @@ export default function CharacterPassiveLinkPageFormatting({
     )
   }
 }
+
+export default trackWindowScroll(CharacterPassiveLinkPageFormatting)
