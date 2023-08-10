@@ -568,7 +568,7 @@ function AilmentDataFormatting({
                                     link_effect,
                                     master_index,
                                     ver,
-                                    ailment_data.chara_id
+                                    ailment_data.chara_id || cur_char
                                 ),form)
                             ))}
                             <div className='abilityJPname'>*Totaled values</div>
