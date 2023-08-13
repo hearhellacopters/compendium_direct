@@ -110,7 +110,7 @@ export default function EnemyAbilitiesFormatting({
                     }
                 </div>
                 <div className={`bluebanner infonameholder nobuffpadding`}>
-                    <div className={`infotitle abilitydisplayfex `}>
+                    <div className={`infotitle abilitydisplayfex splitrow`}>
                         {abilitiespull.Name && ReplacerCharacter(abilitiespull.Name)}{` #${match.abilityid_}`}
                         {abilitiespull.Magic == true ?
                             <span className="inline Magic"></span>
