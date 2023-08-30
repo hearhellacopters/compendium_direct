@@ -259,8 +259,8 @@ export default function hitdata_trans(
     //typetrans
 
     if (effect_value_type_id_value_trans == "aliment_amount") {
-        ailment_pull = m_nARG.toString().slice(0, 4)
-        const ailment_value = m_nARG.toString().slice(6)
+        ailment_pull = parseInt(m_nARG.toString().slice(0, 4))
+        const ailment_value = parseInt(m_nARG.toString().slice(6))
         const ailment_name = AilmentNames[ailment_pull]
         effect_value_type_str = effect_value_type_str
             .replace(/\[m_nARG\]/gm, `//${ailment_name && ailment_name.icon}// [${ailment_name && ailment_name.name}] #${ailment_pull}`)
