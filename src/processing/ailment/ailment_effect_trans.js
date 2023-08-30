@@ -175,6 +175,13 @@ export default function ailment_effect_trans(
                 defaultrank = rank
             }
             break;
+        case 28:
+            const buffname28 = AilmentNames[val_specify]
+            val_typestr = `• Stored Value of //${buffname28 && buffname28.icon}// [${buffname28 && buffname28.name}] - #${val_specify}`
+            if (rank != undefined) {
+                defaultrank = rank
+            }
+            break;
         default:
             if (rank != undefined) {
                 defaultrank = rank
@@ -2042,6 +2049,40 @@ export default function ailment_effect_trans(
                 rank10 = Math.abs(rank10)
             }
             break;
+        case 28:
+                const ranker2 = val_specify && ailment_val_edit_type_handler(val_edit_type, val_specify)
+                if (neg_flag == true) {
+                    if (ranker2 < 0) {
+                        effectstr = effectstrpull.debuff_string
+                    }
+                    if (ranker2 > 0) {
+                        effectstr = effectstrpull.buff_string
+                    }
+                }
+                if (use_neg == true) {
+                    rank1  = ranker2
+                    rank2  = ranker2
+                    rank3  = ranker2
+                    rank4  = ranker2
+                    rank5  = ranker2
+                    rank6  = ranker2
+                    rank7  = ranker2
+                    rank8  = ranker2
+                    rank9  = ranker2
+                    rank10 = ranker2
+                } else {
+                    rank1  = Math.abs(ranker2)
+                    rank2  = Math.abs(ranker2)
+                    rank3  = Math.abs(ranker2)
+                    rank4  = Math.abs(ranker2)
+                    rank5  = Math.abs(ranker2)
+                    rank6  = Math.abs(ranker2)
+                    rank7  = Math.abs(ranker2)
+                    rank8  = Math.abs(ranker2)
+                    rank9  = Math.abs(ranker2)
+                    rank10 = Math.abs(ranker2)
+                }
+                break;
         default:
             break;
     }
@@ -2520,6 +2561,11 @@ export default function ailment_effect_trans(
             for (let i = 1; i <11; i++){
                 var rank1value1cap = tables[`rank${i}`].value1
                 var rank1value2cap = (tables[`rank${i}`].value1 + 99999).toLocaleString()
+                if(val_type == 28){
+                    rank2ail = AilmentNames[tables[`rank${i}`].value1]
+                    rank1value1cap = ' (stored value in)'
+                    rank1value2cap = `//${rank2ail && rank2ail.icon}// [${rank2ail && rank2ail.name}] - #${tables[`rank${i}`].value1}`
+                }
                 tables[`rank${i}`].value1 = rank1value1cap
                 tables[`rank${i}`].value2 = rank1value2cap
             }
