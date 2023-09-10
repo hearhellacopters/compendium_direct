@@ -297,6 +297,11 @@
     filter: grayscale();
 }
 
+.hide_answer:active, .hide_answer:focus, .hide_answer:hover {
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+}
+
 @media (hover: hover) {
     .world_object:hover{
        opacity: 1;
