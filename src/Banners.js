@@ -63,7 +63,7 @@ export default function Events({
         const filteredevents = ProcessedBanners.filter((item) => {
           return new Date().getTime() <= new Date(item.JPoutdate)
         }).filter((item) => {
-          return item.url1 != "https://dissidiacompendium.com/images/static/banners/jp/pull/stl_banner_l_g_tex_temp1out.png"
+          return item.url1 != "jp/pull/stl_banner_l_g_tex_temp1out.png"
         }).sort((a, b) => reverse ? new Date(a.JPindate).getTime() - new Date(b.JPindate).getTime() : new Date(b.JPindate).getTime() - new Date(a.JPindate).getTime());
         filterholder.push(...filteredevents);
         setrawData(filterholder);

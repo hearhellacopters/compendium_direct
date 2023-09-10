@@ -1,0 +1,523 @@
+.talk-bg{
+    position: relative;
+    transition: opacity 0.3s ease-out;
+    -webkit-transition: opacity 0.3s ease-out;
+    -moz-transition: opacity 0.3s ease-out;
+    -ms-transition: opacity 0.3s ease-out;
+    -o-transition: opacity 0.3s ease-out;
+}
+
+.imgchange{
+    background-size: contain;
+    opacity: 0;
+}
+
+.teventimage{
+    display: inline-block;
+    padding: 5px;
+    width: 250px;
+    height: 83px;
+    cursor: pointer;
+    filter: drop-shadow(2px 2px 2px #222);
+    -webkit-filter: drop-shadow(2px 2px 2px #222);
+}
+
+.auto_height{
+    min-height: 100% !important;
+}
+
+.teventimage_dummy{
+    display: inline-block;
+    padding: 5px;
+    width: 250px;
+    height: 83px;
+    filter: drop-shadow(2px 2px 2px #222) blur(2px);
+    -webkit-filter: drop-shadow(2px 2px 2px #222) blur(2px);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(https://dissidiacompendium.com/images/static/banners/acts/blank.png);
+}
+
+.talk_unit{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px;
+    width: 100%;
+    min-height: 6rem;
+}
+
+.with_icon{
+    padding-left: 3.5rem;
+    margin-left: 5rem;
+}
+
+.with_icon_bottom{
+    padding-left: 7rem;
+    margin-left: 1.8rem;
+}
+
+.chatbox{
+    max-width: 500px;
+    width: 100%;
+}
+
+.mid_action{
+    color: rgb(189, 186, 186);
+    text-align: center;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.speakicon {
+    filter: drop-shadow(1px 0 0 rgb(0, 0, 0)) drop-shadow(0 1px 0 rgb(0, 0, 0)) drop-shadow(0 -1px 0 rgb(0, 0, 0)) drop-shadow(-1px 0 0 rgb(0, 0, 0));
+    -webkit-filter: drop-shadow(1px 0 0 #000000) drop-shadow(0 1px 0 #000000) drop-shadow(0 -1px 0 #000000) drop-shadow(-1px 0 0 #000000);
+    height: 2rem;
+    width: 2rem;
+    transition: color .8s;
+    vertical-align: middle;
+    cursor: pointer;
+    z-index: 4;
+    overflow: hidden;
+    position: absolute;
+    background-repeat: no-repeat;
+    box-sizing: inherit;
+    margin-left: 6.1rem;
+    margin-top: 3.8rem;
+    color: rgb(150, 140, 50);
+}
+
+.speakicon:active {
+    filter: drop-shadow(0px 0px 2px #222) brightness(.8);
+    -webkit-filter: drop-shadow(0px 0px 2px #222) brightness(.8);
+    transition: all 0s;
+}
+.speakicon:hover{
+    transform: translateY(-1px);
+    color: #f7f91d;
+    transition: all ease 0.3s;
+    cursor: pointer;
+}
+
+.cb_top{
+    text-align: left;
+    margin-bottom: 5px;
+    height: 2.1rem;
+    display: flex;
+    background: rgb(0,0,0,.2);
+    border-radius: 5px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.cb_mid{
+    padding-top: 2px;
+    text-align: left;
+    display: flex;
+    background: rgb(0,0,0,.2);
+    border-radius: 5px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-height: 3.35rem;
+}
+
+.talk_emote{
+    display: inline-block;
+    vertical-align: top;
+    position: absolute;
+    z-index: 4;
+    width: 3rem;
+    height: 3rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: var(--image);
+}
+
+.talk_pic_wrapper{
+    width: 9rem;
+    height: 6rem;
+    position: relative;
+    display: contents;
+    float: left;
+    vertical-align: top;
+    margin-left: -1rem;
+}
+
+.talk_pic_wrapper::after{
+    content: "";
+    display: block;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 0 0;
+    width: 9rem;
+    height: 6rem;
+    z-index: 1;
+    background-image: url(https://dissidiacompendium.com/images/static/icons/banners/talk/stl_back.png);
+}
+
+.char_talk_face{
+    z-index: 2;
+    overflow: hidden;
+    position: absolute;
+    background-repeat: no-repeat;
+    box-sizing: inherit;
+    background-size: 8rem;
+    width: 9rem;
+    height: 6rem;
+    background-image: var(--image);
+}
+
+.char_talk_face::after{
+    content: "";
+    display: block;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 0 0;
+    width: 9rem;
+    height: 6rem;
+    z-index: 3;
+    background-image: url(https://dissidiacompendium.com/images/static/icons/banners/talk/stl_front.png);
+}
+
+.hide_answer{
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+    transition: ease filter .5s;
+}
+
+.talk-bg{
+    padding: 5px;
+}
+.talk-bg::before { 
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        linear-gradient(180deg, rgba(0,0,0,0.3029586834733894) 0%, rgba(0,0,0,0.3029586834733894) 100%),
+        linear-gradient(90deg, rgba(0,0,0,0.3029586834733894) 0%, rgba(0,0,0,0)3.67%, rgba(0,0,0,0) 96.44%, rgba(0,0,0,0.3029586834733894) 100%),
+        linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 2%, rgba(0,0,0,0) 98%, rgba(0,0,0,1) 100%),
+        var(--image);
+    background-repeat: repeat-y;
+    background-position: top center;
+    background-size: 100%;
+    filter: blur(.1rem);
+    opacity: 1;
+    transition: opacity 0.3s ease-out;
+    -webkit-transition: opacity 0.3s ease-out;
+    -moz-transition: opacity 0.3s ease-out;
+    -ms-transition: opacity 0.3s ease-out;
+    -o-transition: opacity 0.3s ease-out;
+}
+
+.unline{
+    text-decoration: underline;
+}
+
+.transp{
+    display: table-row;
+    opacity: .8;
+}
+
+.bgm_info{
+    display: table;
+    text-decoration: underline;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.emote_solo{
+    width: 2rem;
+    height: 2rem;
+    display: inline-flex;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: var(--image);
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.left_info{
+    font-size: 1rem;
+    margin-bottom: 5px;
+    display: inline;
+}
+.single_info{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.bgm-icon{
+    filter: drop-shadow(1px 0 0 rgb(0, 0, 0)) drop-shadow(0 1px 0 rgb(0, 0, 0)) drop-shadow(0 -1px 0 rgb(0, 0, 0)) drop-shadow(-1px 0 0 rgb(0, 0, 0));
+    -webkit-filter: drop-shadow(1px 0 0 #000000) drop-shadow(0 1px 0 #000000) drop-shadow(0 -1px 0 #000000) drop-shadow(-1px 0 0 #000000);
+    margin-bottom: -2px;
+    display: inline;
+    font-size: 1rem;
+}
+
+.talk_bar_holder{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+    height: 32px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.non_talk{
+    filter: grayscale();
+}
+
+@media (hover: hover) {
+    .world_object:hover{
+       opacity: 1;
+    }
+    .teventimage:hover{
+        transform: translateY(-1px);
+        filter: brightness(1.1) drop-shadow(2px 2px 2px #222);
+        -webkit-filter: brightness(1.1) drop-shadow(2px 2px 2px #222);
+    }
+    .transp:hover{
+        transform: translateY(-1px);
+        opacity: 1;
+        filter: brightness(1.1);
+        -webkit-filter: brightness(1.1);
+        transition: all ease 0.3s;
+    }
+    .hide_answer:hover{
+        filter: blur(0px);
+        -webkit-filter: blur(0px);
+    }
+    .bgm_info:hover{
+        transform: translateY(-1px);
+        color: #f7f91d;
+        filter: brightness(1.1);
+        -webkit-filter: brightness(1.1);
+        transition: all ease 0.3s;
+        cursor: pointer;
+    }
+    .talk_click:hover{
+        transform: translateY(-1px);
+        color: #f7f91d;
+        filter: brightness(1.1);
+        -webkit-filter: brightness(1.1);
+        transition: all ease 0.3s;
+        cursor: pointer;
+    }
+}
+
+.talk_click:active {
+    filter: drop-shadow(0px 0px 2px #222) brightness(.8);
+    -webkit-filter: drop-shadow(0px 0px 2px #222) brightness(.8);
+    transition: all 0s;
+}
+
+.talk_storybar_l{
+    display: flex;
+    min-height: 32px;
+    width:  var(--width);
+    min-width: var(--width);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: var(--image);
+}
+.talk_storybar_r{
+    display: flex;
+    min-height: 32px;
+    width:  var(--width);
+    min-width: var(--width);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image:  var(--image);
+}
+.talk_storybar_c{
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 32px;
+    max-width: 500px;
+    width: 100%;
+    background-size: contain;
+    background-image: var(--image);
+}
+@media screen and (max-width: 800px) {
+    .speakicon{
+        height: 1.1rem;
+        width: 1.1rem;
+        margin-left: 3.2rem;
+        margin-top: 1.7rem;
+    }
+    .cb_top{
+        height: 3rem;
+    }
+    .with_icon{
+        padding-left: 4.5rem;
+        margin-left: 0rem;
+    }
+    .with_icon_bottom{
+        padding-left: .5rem;
+        margin-left: 0rem;
+    }
+    .talk_emote{
+        height: 1.5rem;
+        width: 1.5rem;
+        margin-left: 0rem;
+    }
+    .talk_pic_wrapper{
+        width: 4.5rem;
+        height: 3rem;
+    }
+    .talk_pic_wrapper::after{
+        width: 4.5rem;
+        height: 3rem;
+    }
+    .char_talk_face{
+        background-size: 4.2rem;
+        width: 4.5rem;
+        height: 3rem;
+    }
+    .char_talk_face::after{
+        width: 4.5rem;
+        height: 3rem;
+    }
+    .talk_storybar_c{
+        font-size: 12px;
+    }
+    
+    .emote_solo{
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+}
+
+.worldmap1{
+    display: inline-block;
+    position: relative;
+    background-image: url(https://dissidiacompendium.com/images/static/FieldMap/WorldMap1.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 0;
+    padding-top: 46.5%; /* (img-height / img-width * container-width) */
+                /* (853 / 1280 * 100) */
+}
+
+.worldmap2{
+    display: inline-block;
+    position: relative;
+    background-image: url(https://dissidiacompendium.com/images/static/FieldMap/WorldMap2.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 0;
+    padding-top: 42.5%; /* (img-height / img-width * container-width) */
+                /* (853 / 1280 * 100) */
+}
+
+.worldmap3{
+    display: inline-block;
+    position: relative;
+    background-image: url(https://dissidiacompendium.com/images/static/FieldMap/WorldMap3.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 0;
+    padding-top: 100%; /* (img-height / img-width * container-width) */
+                /* (853 / 1280 * 100) */
+}
+
+.worldmap4{
+    display: inline-block;
+    position: relative;
+    background-image: url(https://dissidiacompendium.com/images/static/FieldMap/WorldMap4.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 0;
+    padding-top: 100%; /* (img-height / img-width * container-width) */
+                /* (853 / 1280 * 100) */
+}
+
+.world_object{
+    opacity: 0;
+    cursor: pointer;
+    border-radius: 4rem;
+    position: absolute;
+    -moz-box-shadow:0px 0px 7px rgba(255,249,53,0.7063200280112045);
+    -webkit-box-shadow:0px 0px 7px rgba(255,249,53,0.7063200280112045);
+    box-shadow:0px 0px 7px rgba(255,249,53,0.7063200280112045);
+    background: radial-gradient(circle, rgba(0,0,0,0) 40%, rgba(255,249,53,0.7063200280112045) 70%);
+}
+
+.makevis{
+    opacity: 1;
+}
+
+.testobj{
+    height: 15.46%;
+    left: 45.34%;
+    top: 53.01%;
+    width: 7.76%;
+}
+
+.mapsicon{
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+    height: 30px;
+    cursor: pointer;
+}
+
+.mapspan{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+.above{
+    position: inherit;
+    padding: 1%;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+    z-index: 1;
+    opacity: 1;
+    max-width: 1140px;
+    text-align: left;
+}

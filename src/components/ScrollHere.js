@@ -23,7 +23,7 @@ function withRouter(Component) {
 
 const ScrollToHere = ({ children }) => {
   useEffect(() => {
-    document.getElementById('scrollhere').scrollIntoView();
+    document.getElementById('scrollhere') && document.getElementById('scrollhere').scrollIntoView();
   }, []);
 
 

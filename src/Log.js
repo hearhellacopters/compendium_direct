@@ -9,6 +9,18 @@ export default function log () {
                 <h1>Update Log</h1>
                 <div className="creditsholder">
                 <div className="filterholderflair" >
+                        v7.0
+                    </div>
+                    <ul className="creditslist">
+                    - Added <Link className="updatelink" to="/story">Story</Link> section<br />
+                    - Browse by World Map or the on Event page<br />
+                    - Get read the full story with dialogue, action and effects!<br />
+                    - Play music, sound effects and character lines!<br />
+                    - Change background to field maps!<br />
+                    - Dialogue dependant on selected version<br />
+                    - Immerse yourself in the full game story!
+                    </ul>
+                <div className="filterholderflair" >
                         v6.1
                     </div>
                     <ul className="creditslist">

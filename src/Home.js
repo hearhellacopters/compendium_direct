@@ -180,7 +180,7 @@ export default function Home({
         <meta property="og:url" content="https://dissidiacompendium.com" />
       </Helmet>
       <div className="content">
-        <h1 className="maintitle" >Welcome to Dissidia Compendium <Link className="updatelink" to="/log">v6.1!</Link><span className="squallsmile"></span></h1>
+        <h1 className="maintitle" >Welcome to Dissidia Compendium <Link className="updatelink" to="/log">v7.0!</Link><span className="squallsmile"></span></h1>
         <div className="enemyholderdesc" style={{ whiteSpace: "normal" }}>
           <div className="subheader">
             <div className="homewelcomeholder noselect">

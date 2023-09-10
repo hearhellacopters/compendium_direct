@@ -75,7 +75,7 @@ function PassiveSpheresPageFormatting({
                                                 scrollPosition={scrollPosition}
                                                 effect="opacity" 
                                                 className={`eventimage withshadow showlink`} 
-                                                src={match && match.url} 
+                                                src={match && "https://dissidiacompendium.com/images/static/banners/"+match.url} 
                                                 alt={match && match.label} />
                                             </div>
                                         </Tippy>

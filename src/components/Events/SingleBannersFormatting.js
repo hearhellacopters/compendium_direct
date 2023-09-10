@@ -20,7 +20,7 @@ function SingleBannersFormatting({
                                 scrollPosition={scrollPosition}
                                 effect="opacity" 
                                 className={`smallerbanners withshadow ${permapage == false ? "showlink" : ""}`}
-                                src={match.url1} 
+                                src={"https://dissidiacompendium.com/images/static/banners/"+match.url1} 
                                 alt={match.name} />
                             </Link>
                         </div>

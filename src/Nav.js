@@ -34,11 +34,14 @@ export default function Nav(){
           <Link to={`/characters${jptoggledata == false ? "" : "?JP=true"}`} onClick={menutoggle} className={`${loc == "characters" ? "active" : ""}`}>
             <li>Characters</li>
           </Link>
+          <Link to={`/story${jptoggledata == false ? "" : "?JP=true"}`} onClick={menutoggle} className={`${loc == "story" ? "active" : ""}`}>
+            <li>Story</li>
+          </Link>
           <Link to={`/search/buffs${jptoggledata == false ? "" : "?JP=true"}`} onClick={menutoggle} className={`${loc == "search" ? "active" : ""}`}>
             <li>Search</li>
           </Link>
           <Link to={`/bonuses${jptoggledata == false ? "" : "?JP=true"}`} onClick={menutoggle} className={`${loc == "bonuses" ? "active" : ""}`}>
-            <li>Party Bonuses</li>
+            <li>Bonuses</li>
           </Link>
           <Link to={`/bestiary/enemies${jptoggledata == false ? "" : "?JP=true"}`} onClick={menutoggle} className={`${loc == "bestiary" ? "active" : ""}`}>
             <li>Bestiary</li>

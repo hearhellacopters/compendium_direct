@@ -206,36 +206,50 @@
 .ohno0 {
   width: 128px;
   height: 126px;
+  mask-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
 }
 
 .ohno1 {
   width: 128px;
   height: 128px;
+  mask-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
 }
 
 .ohno2 {
   width: 130px;
   height: 130px;
+  mask-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
 }
 
 .ohno3 {
   width: 137px;
   height: 131px;
+  mask-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
 }
 
 .ohno4 {
   width: 116px;
   height: 116px;
+  mask-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
 }
 
 .ohno5 {
   width: 128px;
   height: 128px;
+  mask-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
 }
 
 .ohno6 {
   width: 128px;
   height: 128px;
+  mask-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
 }
 
 .loadbanners {
@@ -660,6 +674,10 @@
 
 .RaidButton {
   background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Raid.png');
+}
+
+.TalkButton{
+  background-image: url('https://dissidiacompendium.com/images/static/banners/icons/misc/TalkEvents.png')
 }
 
 .Lufeniaplus {
@@ -1152,7 +1170,6 @@
 
   .eventimage {
     width: 250px;
-    height: 82px;
     height: auto;
   }
 

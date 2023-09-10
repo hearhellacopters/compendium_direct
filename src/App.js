@@ -30,6 +30,7 @@ import './Nav.css';
 import './Passives.css';
 import './Spheres.css';
 import './Summons.css';
+import './Talk.css';
 import './components/Characters/CharacterPage.css';
 import './components/Enemy/EnemyFormatting.css';
 import './components/Enemy/LevelsFormatting.css';
@@ -45,6 +46,7 @@ const Events = React.lazy(() => import('./callpages/CallEvents.js'));
 const Banners = React.lazy(() => import('./callpages/CallBanners.js'));
 const Missions = React.lazy(() => import('./callpages/CallMissions.js'));
 const EventHandoff = React.lazy(() => import('./callpages/CallEventHandoff.js'));
+const StoryHandoff = React.lazy(() => import('./callpages/CallStoryHandoff.js'));
 const CallBannerHandoff = React.lazy(() => import('./callpages/CallBannerHandoff.js'));
 const Characters = React.lazy(() => import('./callpages/CallCharacters.js'));
 const EnemyHandoff = React.lazy(() => import('./callpages/CallEnemyHandoff.js'));
@@ -70,6 +72,7 @@ const EnemyAbilities = React.lazy(() => import('./callpages/CallEnemyAbilities.j
 const JukeBoxMini = React.lazy(() => import('./callpages/CallJukeBoxMini.js'));
 const Forecast = React.lazy(() => import('./callpages/CallForecast.js'));
 const Notices = React.lazy(() => import('./callpages/CallNotices.js'));
+const Story = React.lazy(() => import('./callpages/CallStory.js'));
 
 export default function App(){
 
@@ -182,6 +185,8 @@ export default function App(){
               <Route path="/characters/:id/reworks" exact element={<Character loc="reworks" />} />
               <Route path="/characters/:id/community" exact element={<Character loc="community" />} />
               <Route path="/characters/:id/events" exact element={<Character loc="events" />} />
+              <Route path="/story" element={<Story />} />
+              <Route path="/story/:id" exact element={<StoryHandoff />} />
               <Route path="/search/buffs" element={<Buffs />} />
               <Route path="/search/" element={<Navigate replace to={`/search/buffs${jptoggledata == false ? "" : "?JP=true"}`} />} />
               <Route path="/search/abilities" element={<Abilities />} />

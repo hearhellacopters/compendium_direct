@@ -765,7 +765,6 @@
     display: flex;
     vertical-align: baseline;
     height: 100px;
-    box-shadow: inset 0px -50px 34px -28px #43517a;
 }
 
 .sharefilter {

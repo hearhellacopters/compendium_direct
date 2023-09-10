@@ -127,7 +127,7 @@ function ForecastFormatting({
                                     scrollPosition={scrollPosition}
                                     effect="opacity"
                                     className={`bannerimage withshadow showlink`} 
-                                    src={match.url1} 
+                                    src={"https://dissidiacompendium.com/images/static/banners/"+match.url1} 
                                     alt={match.name} />
                                 </Link>
                                 :
@@ -139,8 +139,8 @@ function ForecastFormatting({
                                             effect="opacity" 
                                             className={`bannerimage showlink`} 
                                             src={
-                                                bannerdisplay == "Banner1" ? match.url1 :
-                                                    bannerdisplay == "Banner2" ? match.url2 :
+                                                bannerdisplay == "Banner1" ? "https://dissidiacompendium.com/images/static/banners/"+match.url1 :
+                                                    bannerdisplay == "Banner2" ? "https://dissidiacompendium.com/images/static/banners/"+match.url2 :
                                                         ""
                                             } 
                                             alt={match.name} />

@@ -1,5 +1,5 @@
 import React from 'react';
-import EventListing from '../components/Events/EventsFormatting.js'
+import EventsFormatting from '../components/Events/EventsFormatting.js'
 import { Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom'
@@ -16,6 +16,7 @@ export default function EventHandoff({
     ProcessedEvents, 
     EventGuideData, 
     master_index, 
+    talk_index,
     jptoggledata 
 }){
 
@@ -138,12 +139,13 @@ export default function EventHandoff({
                         </div>
                     </CopyToClipboard>
                     <ul className="nolistdisplay">
-                        <EventListing
+                        <EventsFormatting
                             match={eventpull}
                             permapage={true}
                             EventGuideData={EventGuideData}
                             jptoggledata={jptoggledata}
                             master_index={master_index}
+                            talk_index={talk_index}
                         />
                     </ul>
                 </div>

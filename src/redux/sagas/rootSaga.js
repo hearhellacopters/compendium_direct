@@ -112,6 +112,12 @@ import { GET_JPGAMELISTPASSIVE } from "../ducks/JP/gamelist_passive";
 import { handleGetNotices } from "./handlers/notices";
 import { GET_NOTICES } from "../ducks/notices";
 
+import { handleGetTalk } from "./handlers/talk";
+import { GET_TALK } from "../ducks/talk";
+
+import { handleGetTalkIndex } from "./handlers/talk_index";
+import { GET_TALK_INDEX } from "../ducks/talk_index";
+
 export function* watcherSaga() {
   yield takeLatest(GET_CHARACTERS, handleGetCharacters);
   yield takeLatest(GET_EVENTGUIDE, handleGetEventGuide);
@@ -134,6 +140,8 @@ export function* watcherSaga() {
   yield takeLatest(GET_ULTIMAWEAPON, handleGetUltimaWeapon);
   yield takeLatest(GET_CRYSTALPASSIVES, handleGetCrystalPassives);
   yield takeLatest(GET_CRYSTALABILITIES, handleGetCrystalAbilities);
+  yield takeLatest(GET_TALK_INDEX, handleGetTalkIndex);
+  yield takeLatest(GET_TALK, handleGetTalk);
   //direct
   yield takeLatest(GET_MASTERINDEX, handleGetMasterIndex);
   yield takeLatest(GET_TRANSNAMES, handleGetTransNames);

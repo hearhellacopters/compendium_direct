@@ -22,7 +22,8 @@ export default function Events({
   ProcessedEvents, 
   ProcessedCharacters, 
   EventGuideData, 
-  jptoggledata, 
+  jptoggledata,
+  talk_index, 
   master_index 
 }){
 
@@ -171,7 +172,7 @@ export default function Events({
         const filteredevents = ProcessedEvents.filter((item) => {
           return new Date().getTime() <= new Date(item.JPoutdate)
         }).filter((item) => {
-          return item.url1 != "https://dissidiacompendium.com/images/static/banners/jp/event/eventtitletemp1out.png"
+          return item.url1 != "jp/event/eventtitletemp1out.png"
         }).sort((a, b) => reverse ? new Date(a.JPindate).getTime() - new Date(b.JPindate).getTime() : new Date(b.JPindate).getTime() - new Date(a.JPindate).getTime());
         filterholder.push(...filteredevents);
         setrawData(filterholder);
@@ -820,6 +821,7 @@ export default function Events({
                 permapage={false}
                 EventGuideData={EventGuideData}
                 master_index={master_index}
+                talk_index={talk_index}
               />
             )) :
             <div className="subtextbottom">

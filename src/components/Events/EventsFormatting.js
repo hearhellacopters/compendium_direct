@@ -17,6 +17,7 @@ import { getJPToggle } from '../../redux/ducks/jptoggle.js';
 import Tippy from '../TippyDefaults.js'
 import { ObjectView } from 'react-object-view'
 import { ImWarning } from 'react-icons/im';
+import TalkFormatting from '../Talk/TalkFormatting.js';
 
 //direct
 
@@ -28,6 +29,7 @@ function EventsFormatting({
     permapage, 
     EventGuideData, 
     master_index,
+    talk_index,
     scrollPosition 
 }){
 
@@ -47,6 +49,7 @@ function EventsFormatting({
     const [selectedbanner, setselectedbanner] = useState()
     const [showingsphereslist, setshowingsphereslist] = useState(false)
     const [showingmissionlist, setshowingmissionlist] = useState(false)
+    const [showingstorylist, setshowingstorylist] = useState(false)
     const [showingshoplist, setshowingshoplist] = useState(false)
     const [spheres_holder, setspheres_holder] = useState()
     const [shopdata,setshopdata] = useState([])
@@ -56,6 +59,7 @@ function EventsFormatting({
         setshowingsphereslist(false)
         setshowingmissionlist(false)
         setshowingshoplist(false)
+        setshowingstorylist(false)
         setmissiondata([])
         setshopdata([])
     },[match])
@@ -189,23 +193,33 @@ function EventsFormatting({
             }
 
         }
+        setver(jptoggledata == true ? "JP" : "GL")
     }, [jptoggledata, match, showingsphereslist, ProcessedSpheres])
 
     const showSpheres=()=>{
+        setshowingstorylist(false)
         setshowingmissionlist(false)
         setshowingshoplist(false)
         setshowingsphereslist((prevValue) => !prevValue)
     }
 
     const showMissions=()=>{
+        setshowingstorylist(false)
         setshowingmissionlist((prevValue) => !prevValue)
         setshowingshoplist(false)
         setshowingsphereslist(false)
     }
 
     const showShop=()=>{
+        setshowingstorylist(false)
         setshowingmissionlist(false)
         setshowingshoplist((prevValue) => !prevValue)
+        setshowingsphereslist(false)
+    }
+    const showStory=()=>{
+        setshowingstorylist((prevValue) => !prevValue)
+        setshowingmissionlist(false)
+        setshowingshoplist(false)
         setshowingsphereslist(false)
     }
 
@@ -338,7 +352,7 @@ function EventsFormatting({
                                 scrollPosition={scrollPosition}
                                 effect="opacity" 
                                 className={`eventimage withshadow ${permapage == false ? "showlink" : ""}`} 
-                                src={match.url1} 
+                                src={"https://dissidiacompendium.com/images/static/banners/"+match.url1} 
                                 alt={match.name} />
                             </Link>
                             :
@@ -346,7 +360,7 @@ function EventsFormatting({
                             scrollPosition={scrollPosition}
                             effect="opacity" 
                             className={`eventimage withshadow ${permapage == false ? "showlink" : ""}`} 
-                            src={match.url1} 
+                            src={"https://dissidiacompendium.com/images/static/banners/"+match.url1} 
                             alt={match.name} />
                         :
                         <div className="eventtabs">
@@ -358,10 +372,10 @@ function EventsFormatting({
                                         effect="opacity" 
                                         className={`eventimage ${permapage == false ? "showlink" : ""}`} 
                                         src={
-                                            eventURL == "Event1" ? match.url1 :
-                                                eventURL == "Event2" ? match.url2 :
-                                                    eventURL == "Event3" ? match.url3 :
-                                                        eventURL == "Event4" ? match.url4 :
+                                            eventURL == "Event1" ? "https://dissidiacompendium.com/images/static/banners/"+match.url1 :
+                                                eventURL == "Event2" ? "https://dissidiacompendium.com/images/static/banners/"+match.url2 :
+                                                    eventURL == "Event3" ? "https://dissidiacompendium.com/images/static/banners/"+match.url3 :
+                                                        eventURL == "Event4" ? "https://dissidiacompendium.com/images/static/banners/"+match.url4 :
                                                             ""
                                         } 
                                         alt={match.name} />
@@ -371,10 +385,10 @@ function EventsFormatting({
                                     effect="opacity" 
                                     className={`eventimage ${permapage == false ? "showlink" : ""}`} 
                                     src={
-                                        eventURL == "Event1" ? match.url1 :
-                                            eventURL == "Event2" ? match.url2 :
-                                                eventURL == "Event3" ? match.url3 :
-                                                    eventURL == "Event4" ? match.url4 :
+                                        eventURL == "Event1" ? "https://dissidiacompendium.com/images/static/banners/"+match.url1 :
+                                            eventURL == "Event2" ? "https://dissidiacompendium.com/images/static/banners/"+match.url2 :
+                                                eventURL == "Event3" ? "https://dissidiacompendium.com/images/static/banners/"+match.url3 :
+                                                    eventURL == "Event4" ? "https://dissidiacompendium.com/images/static/banners/"+match.url4 :
                                                         ""
                                     } 
                                     alt={match.name} />
@@ -423,12 +437,17 @@ function EventsFormatting({
                         : ""}
                     {hide_other != true ?
                     <>
-                    {match.SpheresList.length != 0 || match.missions == true || match.shop != undefined?
+                    {match.SpheresList.length != 0 || match.missions == true || match.shop != undefined || match.talk != undefined?
                         <div className="znone">
                             <div className="featuredbanner">
-                                Stores / Missions
+                                Story / Stores / Missions
                             </div>
                             <div className='storeholder'>
+                                {match.talk != undefined ?
+                                    <Tippy content={"Story"}>
+                                        <img src={'https://dissidiacompendium.com/images/static/icons/misc/TalkEvents.png'} alt="Story" onClick={showStory} className={`storeicon${showingstorylist == true ? "-active":""}`}/>
+                                    </Tippy>
+                                :""}
                                 {match.shop != undefined ?
                                     <Tippy content={"Store"}>
                                         <img src={'https://dissidiacompendium.com/images/static/icons/misc/ShopStore.png'} alt="Shop Store" onClick={showShop} className={`storeicon${showingshoplist == true && shopdata.length != 0 ? "-active":""}`}/>
@@ -499,6 +518,17 @@ function EventsFormatting({
                                     ))}
                                 </div> 
                             : ""}
+                            {talk_index != undefined &&
+                                match.talk != undefined &&
+                                ver != undefined &&
+                                showingstorylist == true ?
+                                <TalkFormatting
+                                    key={`${ver}-${match.talk.id}`}
+                                    ver={ver}
+                                    talk_index={talk_index}
+                                    talk={match.talk}
+                                /> 
+                            : ""}
                         </div>
                     : ""}
                     {match.EnemyList.length != 0 && match.EnemyListGL == undefined && match.EnemyListJP == undefined ?
@@ -521,7 +551,9 @@ function EventsFormatting({
                                 <div className="featuredbanner"><span className="emoji">🌎</span> Enemies</div>
                                 <ul className="enemyevents">
                                     {match.EnemyListGL.map(Enemy => (
+                                        Enemy.close_date && new Date(Enemy.close_date) > currenttime ?
                                         <EnemyListingDirect key={Enemy.key} match={Enemy} />
+                                        :""
                                     ))}
                                 </ul>
                                 </>
@@ -539,7 +571,9 @@ function EventsFormatting({
                                         </div>
                                         :
                                         match.EnemyListJP.map(Enemy => (
+                                            Enemy.close_date && new Date(Enemy.close_date) > currenttime ?
                                             <EnemyListingDirect key={Enemy.key} match={Enemy} />
+                                            :""
                                         ))
                                         }
                                     </ul>

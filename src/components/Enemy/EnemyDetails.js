@@ -995,11 +995,11 @@ function EnemyDetailsDirect({
                                     {helpers.map((self, i) => (
                                         <li key={i}>
                                             <Link className="linkforce" to={`/characters/${self.ShortName}`}>
-                                                <span className={`${self.CrystalColor}crystalmini`}></span>{self.CharacterName}:
+                                            <span className={`${self.CrystalColor}crystalmini`}></span>{self.CharacterName}:
                                             </Link><br />
-                                            {self.roles.map((self3, i) => (
-                                                <Tippy key={i} content={roles[self3].name}>
-                                                    <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[self3].url})` }}>
+                                            {self.roles.map((self3,i) => (
+                                                <Tippy key={i} content={roles[self3] && roles[self3].name}>
+                                                    <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[self3] && roles[self3].url}.png)` }}>
                                                     </span>
                                                 </Tippy>
                                             ))}
@@ -1008,21 +1008,21 @@ function EnemyDetailsDirect({
                                 </ul>
                             :
                             showhelpers == false ?
-                                <div className={`force_coloring noshowbottomline`}>
-                                    <div onClick={() => setshowhelpers((prevstate) => !prevstate)} className='loadbanners'>
-                                        {"Show Helpers"}
+                                    <div className={`force_coloring noshowbottomline`}>
+                                        <div onClick={() => setshowhelpers((prevstate) => !prevstate)} className='loadbanners'>
+                                            {"Show Helpers"}
+                                        </div>
                                     </div>
-                                </div>
-                            :
-                            <ul className="CharNameHolder" style={{ columnCount: columns, MozColumnsCount: columns, WebkitColumnsCount: columns }}>
+                                    :
+                                    <ul className="CharNameHolder" style={{ columnCount: columns, MozColumnsCount: columns, WebkitColumnsCount: columns }}>
                                     {helpers.map((self, i) => (
                                         <li key={i}>
                                             <Link className="linkforce" to={`/characters/${self.ShortName}`}>
-                                                <span className={`${self.CrystalColor}crystalmini`}></span>{self.CharacterName}:
+                                            <span className={`${self.CrystalColor}crystalmini`}></span>{self.CharacterName}:
                                             </Link><br />
-                                            {self.roles.map((self3, i) => (
-                                                <Tippy key={i} content={roles[self3].name}>
-                                                    <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[self3].url})` }}>
+                                            {self.roles.map((self3,i) => (
+                                                <Tippy key={i} content={roles[self3] && roles[self3].name}>
+                                                    <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[self3] && roles[self3].url}.png)` }}>
                                                     </span>
                                                 </Tippy>
                                             ))}
