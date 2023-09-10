@@ -14,7 +14,7 @@ export default function log () {
                     <ul className="creditslist">
                     - Added <Link className="updatelink" to="/story">Story</Link> section<br />
                     - Browse by World Map or the on Event page<br />
-                    - Get read the full story with dialogue, action and effects!<br />
+                    - Read the full story with dialogue, action and effects!<br />
                     - Play music, sound effects and character lines!<br />
                     - Change background to field maps!<br />
                     - Dialogue dependant on selected version<br />
