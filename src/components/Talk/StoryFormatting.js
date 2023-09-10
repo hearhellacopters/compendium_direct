@@ -38,8 +38,6 @@ export default function StoryFormatting({
         }
     }
 
-    const [playingaudio, setplayingaudio] = useState(false)
-
     const [JPsearch, setJPSearch] = useQueryParam("JP", "");
 
     const jponlybutton = () => {
@@ -56,13 +54,15 @@ export default function StoryFormatting({
         state.volume.volume
     );
 
+    const [playingaudio, setplayingaudio] = useState(false)
 
     const soundfx = (sfx) => {
         if(playingaudio != true){
           try {
             const myAudioElement = new Audio(sfx)
-            myAudioElement.volume = volume * 1.5
+            myAudioElement.volume = (volume * 1.5) % 1
             myAudioElement.style.display = "none"
+            myAudioElement.load();
             myAudioElement.addEventListener("canplaythrough", (event) => {
               /* the audio is now playable; play it if permissions allow */
               setplayingaudio(true)
