@@ -197,11 +197,6 @@ export default function TalkUintFormatting({
             if(text_display == true){
                 if(action != undefined){
                     //text and character acting
-                    if(effect != undefined){
-                        action = `${action}${blend_display!= undefined?blend_display:""} ${effect.verb}`
-                    } else {
-                        action = `${action}${blend_display!= undefined?blend_display:""}`
-                    }
                 } else if(effect != undefined){
                     unit = effect.noun
                     effect = undefined
@@ -210,7 +205,6 @@ export default function TalkUintFormatting({
                 //stl == undefined
                 if(unit != undefined){
                     //unit == defined but must have action effect, blend or emote
-                    action = `${action==undefined?"":" "+action}${blend_display != undefined? blend_display :""}${effect!= undefined ? " "+effect.verb :""}`
                 } else if(effect != undefined){
                     //unit == undefined must be effect
                     unit = effect.noun
@@ -271,13 +265,10 @@ export default function TalkUintFormatting({
                         {SE001_b != undefined ?
                             <div className="bgm_info" onClick={()=>soundfx(SE001_b)}><ImVolumeHigh className="bgm-icon"/>: SFX</div>
                         :""}
-                        {action != undefined && emote == undefined?
-                            <span className="left_info">
-                                {`${unit != undefined ? unit +" " :""}${action}. `}
+                        {unit != undefined ?
+                            <span className={emote == undefined ? "left_info" : "single_info"}>
+                                {`${unit != undefined ? unit :""}${action != undefined ? " "+action :""}${blend_display != undefined? blend_display :""}${effect!= undefined ? " "+effect.verb :""}${emote == undefined ? ". ":""}`}{emote != undefined ? <span className="emote_solo" style={{"--image":`url(${emote})`}}/>:""}
                             </span>
-                        :
-                        unit != undefined || emote != undefined ?
-                            <div className="single_info">{`${unit != undefined ? unit :""}${action != undefined ? " "+action :""}${blend_display != undefined? blend_display :""}${effect!= undefined ? " "+effect.verb :""}`}{emote != undefined ? <span className="emote_solo" style={{"--image":`url(${emote})`}}/>:""}</div>
                         :""}
                     </>
                 :""
@@ -377,13 +368,10 @@ export default function TalkUintFormatting({
                         {SE001_b != undefined ?
                             <div className="bgm_info" onClick={()=>soundfx(SE001_b)}><ImVolumeHigh className="bgm-icon"/>: SFX</div>
                         :""}
-                        {action != undefined && emote == undefined?
-                            <span className="left_info">
-                                {`${unit != undefined ? unit +" " :""}${action}. `}
+                        {unit != undefined ?
+                            <span className={emote == undefined ? "left_info" : "single_info"}>
+                                {`${unit != undefined ? unit :""}${action != undefined ? " "+action :""}${blend_display != undefined? blend_display :""}${effect!= undefined ? " "+effect.verb :""}${emote == undefined ? ". ":""}`}{emote != undefined ? <span className="emote_solo" style={{"--image":`url(${emote})`}}/>:""}
                             </span>
-                        :
-                        unit != undefined || emote != undefined ?
-                            <div className="single_info">{`${unit != undefined ? unit :""}${action != undefined ? " "+action :""}${blend_display != undefined? blend_display :""}${effect!= undefined ? " "+effect.verb :""}`}{emote != undefined ? <span className="emote_solo" style={{"--image":`url(${emote})`}}/>:""}</div>
                         :""}
                     </>
                 :""
