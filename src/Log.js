@@ -15,9 +15,9 @@ export default function log () {
                     - Added <Link className="updatelink" to="/story">Story</Link> section<br />
                     - Browse by World Map or the on Event page<br />
                     - Read the full story with dialogue, action and effects!<br />
+                    - *Dialogue dependant on selected version<br />
                     - Play music, sound effects and character lines!<br />
                     - Change background to field maps!<br />
-                    - Dialogue dependant on selected version<br />
                     - Immerse yourself in the full game story!
                     </ul>
                 <div className="filterholderflair" >
