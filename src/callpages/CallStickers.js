@@ -14,10 +14,6 @@ export default function CallStickers(){
         state.stickers.stickers
     );
 
-    const ProcessedCharacters = useSelector((state) =>
-        state.characters.characters
-    );
-
     const jptoggledata = useSelector((state) =>
         state.toggle.toggle
     );
@@ -27,16 +23,28 @@ export default function CallStickers(){
         if (mounted && ProcessedStickers == undefined) {
             dispatch(getStickers());
         }
-        if (mounted && ProcessedCharacters == undefined) {
-            dispatch(getCharacters());
-        }
         if (mounted) {
             dispatch(getJPToggle());
         }
         return function cleanup() {
             mounted = false
         }
-    }, [dispatch, ProcessedCharacters, ProcessedStickers]);
+    }, [dispatch, ProcessedStickers]);
+
+
+    const ProcessedCharacters = useSelector((state) =>
+        state.characters.characters
+    );
+
+    useEffect(() => {
+        let mounted = true
+        if (mounted && ProcessedCharacters == undefined) {
+            dispatch(getCharacters());
+        }
+        return function cleanup() {
+            mounted = false
+        }
+    }, [dispatch, ProcessedCharacters]);
 
     return (
         ProcessedStickers != undefined && ProcessedCharacters != undefined && jptoggledata != undefined ?

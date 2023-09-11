@@ -24,17 +24,10 @@ export default function CallStory(){
         state.talk_index.talk_index
     );
 
-    const talk = useSelector((state) =>
-        state.talk.talk
-    );
-
     useEffect(() => {
         let mounted = true
         if (mounted && talk_index == undefined) {
             dispatch(getTalkIndex());
-        }
-        if (mounted && talk == undefined) {
-            dispatch(getTalk());
         }
         if (mounted) {
             dispatch(getJPToggle());
@@ -42,7 +35,21 @@ export default function CallStory(){
         return function cleanup() {
             mounted = false
         }
-    }, [dispatch, talk_index, talk]);
+    }, [dispatch, talk_index]);
+
+    const talk = useSelector((state) =>
+        state.talk.talk
+    );
+
+    useEffect(() => {
+        let mounted = true
+        if (mounted && talk == undefined) {
+            dispatch(getTalk());
+        }
+        return function cleanup() {
+            mounted = false
+        }
+    }, [dispatch, talk]);
 
     return (
             talk != undefined &&

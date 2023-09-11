@@ -104,27 +104,17 @@ export default function CallSpheres(){
 
 
     return (
-
         ver != undefined &&
-
             ProcessedSpheres != undefined &&
-
             master_index != undefined
-
             ?
-
             <Spheres
-
                 ProcessedSpheres={ProcessedSpheres}
                 ver={ver}
-
                 match={match}
-
                 master_index={master_index}
             />
-
             :
-
             <Loading />
     )
 }

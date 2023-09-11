@@ -18,24 +18,29 @@ export default function CallEnemyHandoff(){
 
     const dispatch = useDispatch();
 
+    const jptoggledata = useSelector((state) =>
+        state.toggle.toggle
+    );
+
     const ProcessedCharacters = useSelector((state) =>
         state.characters.characters
     );
 
+    useEffect(() => {
+        let mounted = true
+        if (mounted && ProcessedCharacters == undefined) {
+            dispatch(getCharacters())
+        }
+        if (mounted) {
+            dispatch(getJPToggle());
+        }
+        return function cleanup() {
+            mounted = false
+        }
+    }, [dispatch, ProcessedCharacters]);
+
     const ProcessedEnemies = useSelector((state) =>
         state.enemies_direct.enemies_direct
-    );
-
-    const ProcessedEvents = useSelector((state) =>
-        state.events.events
-    );
-
-    const ProcessedLevels = useSelector((state) =>
-        state.levels.levels
-    );
-
-    const jptoggledata = useSelector((state) =>
-        state.toggle.toggle
     );
 
     useEffect(() => {
@@ -43,22 +48,38 @@ export default function CallEnemyHandoff(){
         if (mounted && ProcessedEnemies == undefined) {
             dispatch(getEnemiesDirect());
         }
+        return function cleanup() {
+            mounted = false
+        }
+    }, [dispatch, ProcessedEnemies]);
+
+    const ProcessedEvents = useSelector((state) =>
+        state.events.events
+    );
+
+    useEffect(() => {
+        let mounted = true
         if (mounted && ProcessedEvents == undefined) {
             dispatch(getEvents())
-        }
-        if (mounted && ProcessedLevels == undefined) {
-            dispatch(getLevels())
-        }
-        if (mounted) {
-            dispatch(getJPToggle());
-        }
-        if (mounted && ProcessedCharacters == undefined) {
-            dispatch(getCharacters())
         }
         return function cleanup() {
             mounted = false
         }
-    }, [dispatch, ProcessedEvents, ProcessedEnemies, ProcessedLevels, ProcessedCharacters]);
+    }, [dispatch, ProcessedEvents]);
+
+    const ProcessedLevels = useSelector((state) =>
+        state.levels.levels
+    );
+
+    useEffect(() => {
+        let mounted = true
+        if (mounted && ProcessedLevels == undefined) {
+            dispatch(getLevels())
+        }
+        return function cleanup() {
+            mounted = false
+        }
+    }, [dispatch, ProcessedLevels]);
 
     return (
         ProcessedEnemies != undefined && ProcessedEvents != undefined && ProcessedLevels != undefined && ProcessedCharacters != undefined && jptoggledata != undefined ?

@@ -19,24 +19,10 @@ export default function CallStory(){
         state.toggle.toggle
     );
 
-    const talk_index = useSelector((state) =>
-        state.talk_index.talk_index
-    );
-
-    const talk = useSelector((state) =>
-        state.talk.talk
-    );
-
     useEffect(() => {
         let mounted = true
         if (mounted && ProcessedCharacters == undefined) {
             dispatch(getCharacters());
-        }
-        if (mounted && talk_index == undefined) {
-            dispatch(getTalkIndex());
-        }
-        if (mounted && talk == undefined) {
-            dispatch(getTalk());
         }
         if (mounted) {
             dispatch(getJPToggle());
@@ -44,7 +30,35 @@ export default function CallStory(){
         return function cleanup() {
             mounted = false
         }
-    }, [dispatch, ProcessedCharacters, talk_index, talk]);
+    }, [dispatch, ProcessedCharacters]);
+
+    const talk_index = useSelector((state) =>
+        state.talk_index.talk_index
+    );
+
+    useEffect(() => {
+        let mounted = true
+        if (mounted && talk_index == undefined) {
+            dispatch(getTalkIndex());
+        }
+        return function cleanup() {
+            mounted = false
+        }
+    }, [dispatch, talk_index]);
+
+    const talk = useSelector((state) =>
+        state.talk.talk
+    );
+
+    useEffect(() => {
+        let mounted = true
+        if (mounted && talk == undefined) {
+            dispatch(getTalk());
+        }
+        return function cleanup() {
+            mounted = false
+        }
+    }, [dispatch, talk]);
 
     return (
             ProcessedCharacters != undefined &&

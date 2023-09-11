@@ -105,24 +105,16 @@ export default function CallBuffs(){
 
     return (
         ver != undefined &&
-
             ProcessedBuffs != undefined &&
-
             master_index != undefined
-
             ?
-
             <Buffs
-
                 ProcessedBuffs={ProcessedBuffs}
                 ver={ver}
-
                 match={match}
                 master_index={master_index}
             />
-
             :
-
             <Loading />
     )
 }

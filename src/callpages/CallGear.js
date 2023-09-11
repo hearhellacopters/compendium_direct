@@ -104,27 +104,17 @@ export default function CallGear(){
 
 
     return (
-
         ver != undefined &&
-
             ProcessedGear != undefined &&
-
             master_index != undefined
-
             ?
-
             <Gear
-
                 ProcessedGear={ProcessedGear}
                 ver={ver}
-
                 match={match}
-
                 master_index={master_index}
             />
-
             :
-
             <Loading />
     )
 }

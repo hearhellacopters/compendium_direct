@@ -53,23 +53,15 @@ export default function CallUltimaWeapon(){
     }, [dispatch, UltimaWeapon]);
 
     return (
-
         jptoggledata != undefined &&
-
             UltimaWeapon != undefined &&
-
             master_index != undefined
-
             ?
-
             <UltimaWeaponPageFormatting
                 jptoggledata={jptoggledata}
-
                 ProcessedGear={UltimaWeapon}
                 match={match}
-
                 master_index={master_index}
-
             />
             :
             <Loading />

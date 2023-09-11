@@ -20,9 +20,31 @@ export default function CallSummons(){
         state.summons.summons
     );
 
+    useEffect(() => {
+        let mounted = true
+        if (mounted && ProcessedSummons == undefined) {
+            dispatch(getSummons());
+        }
+        return function cleanup() {
+            mounted = false
+        }
+    }, [dispatch, ProcessedSummons]);
+
+
     const ProcessedSummonLevels = useSelector((state) =>
         state.summonlevels.summonlevels
     );
+
+    useEffect(() => {
+        let mounted = true
+        if (mounted && ProcessedSummonLevels == undefined) {
+            dispatch(getSummonLevels());
+        }
+        return function cleanup() {
+            mounted = false
+        }
+    }, [dispatch, ProcessedSummonLevels]);
+
 
     const ProcessedSummonPassives = useSelector((state) =>
         state.summonpassives.summonpassives
@@ -30,19 +52,13 @@ export default function CallSummons(){
 
     useEffect(() => {
         let mounted = true
-        if (mounted && ProcessedSummons == undefined) {
-            dispatch(getSummons());
-        }
-        if (mounted && ProcessedSummonLevels == undefined) {
-            dispatch(getSummonLevels());
-        }
         if (mounted && ProcessedSummonPassives == undefined) {
             dispatch(getSummonPassives());
         }
         return function cleanup() {
             mounted = false
         }
-    }, [dispatch, ProcessedSummons, ProcessedSummonLevels, ProcessedSummonPassives]);
+    }, [dispatch, ProcessedSummonPassives]);
 
     return (
         ProcessedSummons != undefined && ProcessedSummonLevels != undefined && ProcessedSummonPassives != undefined ?

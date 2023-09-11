@@ -14,6 +14,16 @@ export default function CallForecast(){
         state.banners.banners
     );
 
+    useEffect(() => {
+        let mounted = true
+        if (mounted && ProcessedBanners == undefined) {
+            dispatch(getBanners());
+        }
+        return function cleanup() {
+            mounted = false
+        }
+    }, [dispatch, ProcessedBanners]);
+
     const ProcessedCharacters = useSelector((state) =>
         state.characters.characters
     );
@@ -24,9 +34,6 @@ export default function CallForecast(){
 
     useEffect(() => {
         let mounted = true
-        if (mounted && ProcessedBanners == undefined) {
-            dispatch(getBanners());
-        }
         if (mounted && ProcessedCharacters == undefined) {
             dispatch(getCharacters());
         }
@@ -36,7 +43,7 @@ export default function CallForecast(){
         return function cleanup() {
             mounted = false
         }
-    }, [dispatch, ProcessedCharacters, ProcessedBanners]);
+    }, [dispatch, ProcessedCharacters]);
 
     return (
         ProcessedBanners != undefined && ProcessedCharacters != undefined && jptoggledata != undefined ?

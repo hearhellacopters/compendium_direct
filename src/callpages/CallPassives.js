@@ -105,25 +105,16 @@ export default function CallPassives(){
 
     return (
         ver != undefined &&
-
             ProcessedPassives != undefined &&
-
             master_index != undefined
-
             ?
-
             <Passives
-
                 ProcessedPassives={ProcessedPassives}
                 ver={ver}
-
                 match={match}
-
                 master_index={master_index}
             />
-
             :
-
             <Loading />
     )
 }

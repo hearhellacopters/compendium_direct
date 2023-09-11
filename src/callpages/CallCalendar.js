@@ -15,14 +15,6 @@ export default function CallCalendar(){
         state.jpcalendar.jpcalendar
     );
 
-    const EventData = useSelector((state) =>
-        state.events.events
-    );
-
-    const BannerData = useSelector((state) =>
-        state.banners.banners
-    );
-
     const jptoggledata = useSelector((state) =>
         state.toggle.toggle
     );
@@ -32,19 +24,41 @@ export default function CallCalendar(){
         if (mounted && JPCalendarData == undefined) {
             dispatch(getJPCalendar());
         }
-        if (mounted && EventData == undefined) {
-            dispatch(getEvents())
-        }
-        if (mounted && BannerData == undefined) {
-            dispatch(getBanners())
-        }
         if (mounted) {
             dispatch(getJPToggle())
         }
         return function cleanup() {
             mounted = false
         }
-    }, [dispatch, JPCalendarData, BannerData, EventData]);
+    }, [dispatch, JPCalendarData]);
+
+    const EventData = useSelector((state) =>
+        state.events.events
+    );
+
+    useEffect(() => {
+        let mounted = true
+        if (mounted && EventData == undefined) {
+            dispatch(getEvents())
+        }
+        return function cleanup() {
+            mounted = false
+        }
+    }, [dispatch, EventData]);
+
+    const BannerData = useSelector((state) =>
+        state.banners.banners
+    );
+
+    useEffect(() => {
+        let mounted = true
+        if (mounted && BannerData == undefined) {
+            dispatch(getBanners())
+        }
+        return function cleanup() {
+            mounted = false
+        }
+    }, [dispatch, BannerData]);
 
     return (
         EventData != undefined && JPCalendarData != undefined && jptoggledata != undefined && BannerData != undefined ?

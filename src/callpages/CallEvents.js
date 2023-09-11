@@ -18,60 +18,18 @@ export default function CallEvents(){
 
     const dispatch = useDispatch();
 
-    const ProcessedEvents = useSelector((state) =>
-        state.events.events
-    );
-
-    const ProcessedCharacters = useSelector((state) =>
-        state.characters.characters
-    );
-
-    const EventGuideData = useSelector((state) =>
-        state.eventGuide.eventGuide
-    );
-
     const jptoggledata = useSelector((state) =>
         state.toggle.toggle
     );
 
-    const talk_index = useSelector((state) =>
-        state.talk_index.talk_index
+    const ProcessedEvents = useSelector((state) =>
+        state.events.events
     );
-
-    const master_index = useSelector((state) =>
-        state.master_index.master_index
-    );
-
-    const jp_gamelist_sphere = useSelector((state) =>
-        state.jp_gamelist_sphere.jp_gamelist_sphere
-    )
-
-    const gl_gamelist_sphere = useSelector((state) =>
-        state.gl_gamelist_sphere.gl_gamelist_sphere
-    )
 
     useEffect(() => {
         let mounted = true
         if (mounted && ProcessedEvents == undefined) {
             dispatch(getEvents());
-        }
-        if (mounted && ProcessedCharacters == undefined) {
-            dispatch(getCharacters());
-        }
-        if (mounted && EventGuideData == undefined) {
-            dispatch(getEventGuide());
-        }
-        if (mounted && talk_index == undefined) {
-            dispatch(getTalkIndex());
-        }
-        if (mounted && master_index == undefined) {
-            dispatch(getMasterIndex());
-        }
-        if (mounted && jp_gamelist_sphere == undefined) {
-            dispatch(getJPGameListSphere())
-        }
-        if (mounted && gl_gamelist_sphere == undefined) {
-            dispatch(getGLGameListSphere())
         }
         if (mounted) {
             dispatch(getJPToggle());
@@ -79,7 +37,91 @@ export default function CallEvents(){
         return function cleanup() {
             mounted = false
         }
-    }, [dispatch, ProcessedEvents, ProcessedCharacters, EventGuideData, talk_index, master_index, jp_gamelist_sphere, gl_gamelist_sphere]);
+    }, [dispatch, ProcessedEvents]);
+
+    const ProcessedCharacters = useSelector((state) =>
+        state.characters.characters
+    );
+
+    useEffect(() => {
+        let mounted = true
+        if (mounted && ProcessedCharacters == undefined) {
+            dispatch(getCharacters());
+        }
+        return function cleanup() {
+            mounted = false
+        }
+    }, [dispatch, ProcessedCharacters]);
+
+    const EventGuideData = useSelector((state) =>
+        state.eventGuide.eventGuide
+    );
+
+    useEffect(() => {
+        let mounted = true
+        if (mounted && EventGuideData == undefined) {
+            dispatch(getEventGuide());
+        }
+        return function cleanup() {
+            mounted = false
+        }
+    }, [dispatch, EventGuideData]);
+
+    const talk_index = useSelector((state) =>
+        state.talk_index.talk_index
+    );
+
+    useEffect(() => {
+        let mounted = true
+        if (mounted && talk_index == undefined) {
+            dispatch(getTalkIndex());
+        }
+        return function cleanup() {
+            mounted = false
+        }
+    }, [dispatch, talk_index]);
+
+    const master_index = useSelector((state) =>
+        state.master_index.master_index
+    );
+
+    useEffect(() => {
+        let mounted = true
+        if (mounted && master_index == undefined) {
+            dispatch(getMasterIndex());
+        }
+        return function cleanup() {
+            mounted = false
+        }
+    }, [dispatch, master_index]);
+
+    const jp_gamelist_sphere = useSelector((state) =>
+        state.jp_gamelist_sphere.jp_gamelist_sphere
+    )
+
+    useEffect(() => {
+        let mounted = true
+        if (mounted && jp_gamelist_sphere == undefined) {
+            dispatch(getJPGameListSphere())
+        }
+        return function cleanup() {
+            mounted = false
+        }
+    }, [dispatch, jp_gamelist_sphere]);
+
+    const gl_gamelist_sphere = useSelector((state) =>
+        state.gl_gamelist_sphere.gl_gamelist_sphere
+    )
+
+    useEffect(() => {
+        let mounted = true
+        if (mounted && gl_gamelist_sphere == undefined) {
+            dispatch(getGLGameListSphere())
+        }
+        return function cleanup() {
+            mounted = false
+        }
+    }, [dispatch, gl_gamelist_sphere]);
 
     return (
         ProcessedEvents != undefined &&

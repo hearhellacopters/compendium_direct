@@ -126,7 +126,6 @@ export default function CallCharacter ({
                                 <CharacterPageSingleFormatting
                                     key={match.params.id}
                                     loc={loc}
-
                                     filtered={filtered}
                                     match={match}
                                     jptoggledata={jptoggledata}
@@ -135,7 +134,6 @@ export default function CallCharacter ({
                                     ProcessedCharacters={ProcessedCharacters}
                                     selected_char={filtered}
                                     CharGuideData={CharGuideData}
-
                                     master_index={master_index}
                                 />
 

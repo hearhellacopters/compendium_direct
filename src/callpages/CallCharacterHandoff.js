@@ -19,6 +19,19 @@ export default function CallCharacterHandoff(){
         state.characters.characters
     );
 
+    useEffect(() => {
+        let mounted = true
+        if (mounted && ProcessedCharacters == undefined) {
+            dispatch(getCharacters());
+        }
+        if (mounted) {
+            dispatch(getJPToggle());
+        }
+        return function cleanup() {
+            mounted = false
+        }
+    }, [dispatch, ProcessedCharacters]);
+
     const url_access = useSelector((state) =>
         state.characters.access
     );
@@ -33,19 +46,13 @@ export default function CallCharacterHandoff(){
 
     useEffect(() => {
         let mounted = true
-        if (mounted && ProcessedCharacters == undefined) {
-            dispatch(getCharacters());
-        }
         if (mounted && CharGuideData == undefined) {
             dispatch(getCharGuide());
-        }
-        if (mounted) {
-            dispatch(getJPToggle());
         }
         return function cleanup() {
             mounted = false
         }
-    }, [dispatch, CharGuideData, ProcessedCharacters]);
+    }, [dispatch, CharGuideData]);
 
     return (
         ProcessedCharacters != undefined && CharGuideData != undefined && jptoggledata != undefined && url_access != undefined ?

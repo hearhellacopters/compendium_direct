@@ -68,32 +68,23 @@ export default function CallCrystalBrilliance(){
     }, [dispatch, crystalabilities]);
 
     return (
-
         jptoggledata != undefined &&
-
             crystalpassives != undefined &&
-
             crystalabilities != undefined &&
-
             master_index != undefined
-
             ?
             match.params.type == "passives" ?
             <CrystalPassivesPage
                 jptoggledata={jptoggledata}
-
                 crystalpassives={crystalpassives}
                 match={match}
-
                 master_index={master_index}
             />
             :
             <CrystalAbilityPage
                 jptoggledata={jptoggledata}
-
                 crystalabilities={Object.values(crystalabilities)}
                 match={match}
-
                 master_index={master_index}
             />
             :

@@ -14,10 +14,6 @@ export default function CallBanners(){
         state.banners.banners
     );
 
-    const ProcessedCharacters = useSelector((state) =>
-        state.characters.characters
-    );
-
     const jptoggledata = useSelector((state) =>
         state.toggle.toggle
     );
@@ -27,16 +23,27 @@ export default function CallBanners(){
         if (mounted && ProcessedBanners == undefined) {
             dispatch(getBanners());
         }
-        if (mounted && ProcessedCharacters == undefined) {
-            dispatch(getCharacters());
-        }
         if (mounted) {
             dispatch(getJPToggle());
         }
         return function cleanup() {
             mounted = false
         }
-    }, [dispatch, ProcessedCharacters, ProcessedBanners]);
+    }, [dispatch, ProcessedBanners]);
+
+    const ProcessedCharacters = useSelector((state) =>
+        state.characters.characters
+    );
+
+    useEffect(() => {
+        let mounted = true
+        if (mounted && ProcessedCharacters == undefined) {
+            dispatch(getCharacters());
+        }
+        return function cleanup() {
+            mounted = false
+        }
+    }, [dispatch, ProcessedCharacters]);
 
     return (
         ProcessedBanners != undefined && ProcessedCharacters != undefined && jptoggledata != undefined ?

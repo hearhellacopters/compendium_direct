@@ -107,11 +107,8 @@ export default function CallAbilties () {
         ver != undefined &&
             ProcessedCharacters != undefined &&
             ProcessedAbilities != undefined &&
-
             master_index != undefined
-
             ?
-
             <Abilities
                 ProcessedAbilities={ProcessedAbilities}
                 ProcessedCharacters={ProcessedCharacters}
@@ -119,9 +116,7 @@ export default function CallAbilties () {
                 match={match}
                 master_index={master_index}
             />
-
             :
-
             <Loading />
     )
 }

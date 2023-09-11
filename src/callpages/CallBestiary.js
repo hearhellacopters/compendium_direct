@@ -14,19 +14,12 @@ export default function CallBestiary(){
         state.characters.characters
     );
 
-    const ProcessedEnemyDirect = useSelector((state) =>
-        state.enemies_direct.enemies_direct
-    );
-
     const jptoggledata = useSelector((state) =>
         state.toggle.toggle
     );
 
     useEffect(() => {
         let mounted = true
-        if (mounted && ProcessedEnemyDirect == undefined) {
-            dispatch(getEnemiesDirect());
-        }
         if (mounted) {
             dispatch(getJPToggle());
         }
@@ -36,7 +29,21 @@ export default function CallBestiary(){
         return function cleanup() {
             mounted = false
         }
-    }, [dispatch, ProcessedEnemyDirect, ProcessedCharacters]);
+    }, [dispatch, ProcessedCharacters]);
+
+    const ProcessedEnemyDirect = useSelector((state) =>
+        state.enemies_direct.enemies_direct
+    );
+
+    useEffect(() => {
+        let mounted = true
+        if (mounted && ProcessedEnemyDirect == undefined) {
+            dispatch(getEnemiesDirect());
+        }
+        return function cleanup() {
+            mounted = false
+        }
+    }, [dispatch, ProcessedEnemyDirect]);
 
     const reversed = ProcessedEnemyDirect && Object.values(ProcessedEnemyDirect).reverse()
 
