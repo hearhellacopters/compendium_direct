@@ -475,17 +475,25 @@ function Story({
             image = image + "temp1out.png"
         }
         return(
-                <Link className='teventimage' to={`/story/${data.field_id}`}>
-                <LazyLoadImage
-                key={`${data.or}_${data.eventindex}`}
-                scrollPosition={scrollPosition}
-                alt={data.name}
-                placeholder={<div className='teventimage_dummy'/>}
-                className='teventimage'
-                src={image}
+                <LazyLoadComponent
+                key={data.or}
                 effect="opacity"
-                />
-                </Link>
+                scrollPosition={scrollPosition}
+                placeholder={<img src="https://dissidiacompendium.com/images/static/banners/acts/blank.png" className='teventimage_dummy'/>}
+                >
+                    <Tippy key={data.or} content={data.name}>
+                        <Link className='teventimage' to={`/story/${data.field_id}`}>
+                        <LazyLoadImage
+                        key={`${data.or}_${data.eventindex}`}
+                        scrollPosition={scrollPosition}
+                        alt={data.name}
+                        className='teventimage'
+                        src={image}
+                        effect="opacity"
+                        />
+                        </Link>
+                    </Tippy>
+                </LazyLoadComponent>
             )
     }
 
@@ -614,9 +622,7 @@ function Story({
                                 />
                             </Tippy>
                             :
-                            <Tippy key={field.or} content={field.name}>
-                                {make_image(field)}
-                            </Tippy>
+                            make_image(field)
                         ))}
                         </span>
                         :
@@ -647,9 +653,7 @@ function Story({
                                 />
                             </Tippy>
                             :
-                            <Tippy key={field.or} content={field.name}>
-                                {make_image(field)}
-                            </Tippy>
+                            make_image(field)
                         ))}
                         </span>
                         :
@@ -680,9 +684,7 @@ function Story({
                                 />
                             </Tippy>
                             :
-                            <Tippy key={field.or} content={field.name}>
-                                {make_image(field)}
-                            </Tippy>
+                            make_image(field)
                         ))}
                         </span>
                         :
@@ -713,9 +715,7 @@ function Story({
                                 />
                             </Tippy>
                             :
-                            <Tippy key={field.or} content={field.name}>
-                                {make_image(field)}
-                            </Tippy>
+                            make_image(field)
                         ))}
                         </span>
                         :
@@ -731,9 +731,7 @@ function Story({
                     {chapters == true ?
                         chaptersdisplay.length != 0 ?
                         chaptersdisplay.map(field=>(
-                            <Tippy key={field.or} content={field.name}>
-                                {make_image(field)}
-                            </Tippy>
+                            make_image(field)
                         )):
                         "No returns"
                     :""}
@@ -747,9 +745,7 @@ function Story({
                     {wills == true ?
                         willsdisplay.length != 0 ?
                         willsdisplay.map(field=>(
-                            <Tippy key={field.or} content={field.name}>
-                                {make_image(field)}
-                            </Tippy>
+                            make_image(field)
                         )):
                         "No returns"
                     :""}
@@ -763,9 +759,7 @@ function Story({
                     {events == true ?
                         eventsdisplay.length != 0 ?
                         eventsdisplay.map(field=>(
-                            <Tippy key={field.or} content={field.name}>
-                                {make_image(field)}
-                            </Tippy>
+                            make_image(field)
                         )):
                         "No returns"
                     :""}
@@ -779,9 +773,7 @@ function Story({
                     {illusions == true ?
                         illusionsdisplay.length != 0 ?
                         illusionsdisplay.map(field=>(
-                            <Tippy key={field.or} content={field.name}>
-                                {make_image(field)}
-                            </Tippy>
+                            make_image(field)
                         )):
                         "No returns"
                     :""}
