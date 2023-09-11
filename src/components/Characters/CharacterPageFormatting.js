@@ -97,7 +97,7 @@ export default function CharacterPageFormatting({
   const newmatch = match
 
   const [artworkcount, setartworkcount] = useState(match.ArtworkCount);
-  const [currentartwork, setcurrentartwork] = useState();
+  const [currentartwork, setcurrentartwork] = useState(1);
   const [artwork, setartwork] = useState(`https://dissidiacompendium.com/images/static/characters/${match.CharacterURLName}/c1.png`);
   const [random, setRandom] = useState(1);
   const [events, setevents] = useState([]);
