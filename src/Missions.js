@@ -27,6 +27,12 @@ export default function Missions({
 
     const dispatch = useDispatch();
 
+    useEffect(()=>{
+        setListDisplay([])
+        setrawData([])
+        // eslint-disable-next-line
+    },[jptoggledata])
+
     const startinglimit = 25;
 
     const [banerDisplayTerm, setbanerDisplayTerm] = useStateIfMounted("panels");
@@ -1104,13 +1110,13 @@ export default function Missions({
                         return(
                             banerDisplayTerm == "panels"?
                             <PanelFormatting
-                            key={`${i}-${banerDisplayTerm}-${JP}`}
+                            key={`${i}-${banerDisplayTerm}-${JP}-${jptoggledata}`}
                             panel={self}
                             ver={JP==true?"JP":"GL"}
                             />
                             :
                             <MissionFormatting
-                            key={`${i}-${banerDisplayTerm}-${JP}`}
+                            key={`${i}-${banerDisplayTerm}-${JP}-${jptoggledata}`}
                             mission={self}
                             solo={true}
                             ver={JP==true?"JP":"GL"}
