@@ -66,6 +66,8 @@ function Wardrobe({
   //filter
   useEffect(() => {
     const filterholder = [];
+    var total = 0
+    var display = 0
     if (showAll == true) {
       filterholder.push(...Object.values(ProcessedCharacters));
     }
@@ -85,23 +87,28 @@ function Wardrobe({
     const searchit = makeUnique.filter((char) =>
       `${char.CharacterName} ${char.JPName} realm-${realmlabel[char.RealmPars]}`.toLowerCase().includes(searchTerm)
     );
-    const getcharacterfilter = searchit
     setFilterResults(makeUnique);
-    setSearchResults(getcharacterfilter);
-    const newlistdisplay = getcharacterfilter.slice(0, limits);
-    if (limits < getcharacterfilter.length) {
+    searchit.forEach(self=>{
+      total += self.ArtworkCount - (showAll == true ? 0 :1) 
+    })
+    setSearchResults(searchit);
+    const newlistdisplay = searchit.slice(0, limits);
+    newlistdisplay.forEach(self=>{
+      display += self.ArtworkCount - (showAll == true ? 0 :1)
+    })
+    if (limits < searchit.length) {
       setShowLoadMore(true);
       setListDisplay(newlistdisplay);
-      setListLength(getcharacterfilter.length);
+      setListLength(searchit.length);
       setDisplayBanner(
-        <>Displaying <span className="subtextgold">{newlistdisplay.length}</span> of <span className="subtextgold"> {getcharacterfilter.length}</span> {banerDisplayTerm}</>
+        <>Displaying <span className="subtextgold">{display}</span> of <span className="subtextgold"> {total}</span> {banerDisplayTerm}</>
       );
     } else {
       setShowLoadMore(false);
       setListDisplay(newlistdisplay);
       setListLength(newlistdisplay.length);
       setDisplayBanner(
-        <>Displaying <span className="subtextgold">{newlistdisplay.length}</span> of <span className="subtextgold"> {newlistdisplay.length}</span> {banerDisplayTerm}</>
+        <>Displaying <span className="subtextgold">{display}</span> of <span className="subtextgold"> {total}</span> {banerDisplayTerm}</>
       );
     }
     // eslint-disable-next-line
