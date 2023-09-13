@@ -2191,7 +2191,8 @@ export default function ailment_effect_trans(
             break;
         case "by_100":
             for (let i = 1; i <11; i++){
-                var by_100 = tables[`rank${i}`].value1 && tables[`rank${i}`].value1 == 0 ? 100 : Math.abs(100 - tables[`rank${i}`].value1)
+                var by_100 = tables[`rank${i}`].value1 && tables[`rank${i}`].value1
+                by_100 = by_100 == 0 ? 100 : by_100 == 100 ? 100 : Math.abs(100 - by_100)
                 tables[`rank${i}`].value1 = by_100
             }
             break;
