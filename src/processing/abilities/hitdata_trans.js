@@ -58,17 +58,33 @@ export default function hitdata_trans(
 
     const effpull = hit_effect_id_data[effect_id]
 
-    const value_trans = hit_effect_id_data[effect_id] && hit_effect_id_data[effect_id].value_trans
+    const value_trans = effpull && effpull.value_trans
 
-    const count = type_id_data[type_id] && type_id_data[type_id].hit_count
+    const make_hp = effpull && effpull.HP
 
-    const times = type_id_data[type_id] && type_id_data[type_id].times_count
+    const value_type_pull = effect_value_type_id_data[effect_value_type_id]
+
+    const effect_value_type_id_value_trans = value_type_pull && value_type_pull.value_trans
+
+    const type_pull = type_id_data[type_id]
+
+    const count = type_pull && type_pull.hit_count
+
+    const times = type_pull && type_pull.times_count
+
+    const brv_attack = type_pull && type_pull.BRV
+
+    const hp_attack = type_pull && type_pull.HP
+
+    const fixed_attack = type_pull && type_pull.Fixed
+
+    const no_consume = type_pull && type_pull.NoConsume
 
     if (effect_id != undefined) {
         if (effpull == undefined) {
             effect_str = `UNKNOWN${effect_id} [target] [effect_value_type] [m_nARG] - [m_nARG_1] - [m_nARG_2] - [m_nARG_3] - [m_nARG_4]`
         } else {
-            effect_str = hit_effect_id_data[effect_id].effect_str
+            effect_str = effpull.effect_str
         }
     }
 
@@ -82,10 +98,12 @@ export default function hitdata_trans(
         }
     }
 
-    if (effect_id == 116) {
+    //Increases BRV damage when attacking single targets by 60%
+    if (value_trans == "overflow_1") {
         ove_str = `Allows for ${m_nARG_1}% Stolen MAX BRV Overflow${over_max_brv_rate_with_break_ && over_max_brv_rate_with_break_ != 0 ? `, on <BREAK>: ${m_nARG_1 + over_max_brv_rate_with_break_}%` : ""}`
     }
-    if (effect_id == 106) {
+    //Allows for [m_nARG]% Stolen MAX BRV Overflow
+    if (value_trans == "overflow") {
         ove_str = `Allows for ${m_nARG}% Stolen MAX BRV Overflow${over_max_brv_rate_with_break_ && over_max_brv_rate_with_break_ != 0 ? `, on <BREAK>: ${m_nARG + over_max_brv_rate_with_break_}%` : ""}`
         effect_str = ""
     }
@@ -100,38 +118,9 @@ export default function hitdata_trans(
 
     var split_full = ""
 
-    if (ability_target_id == 5) {
-        if (type_id == 19) {
-            split_full = "Split "
-        } else if (type_id == 2) {
-            split_full = "Split "
-            if (effect_id == 53) {
-                split_full = "Split "
-            }
-            if ( effect_id == 107) {
-                split_full = "Full "
-                effect_str = ""
-            }
-        }
-        if(effect_id == 225){
-            if(m_nARG_1 == 1){
-                split_full = "Full "
-            } else {
-                split_full = "Split "
-            }
-        } else if(effect_id == 226){
-            if(ability_target_id == 5){
-                split_full = "Split "
-            } else {
-                split_full = ""
-            }
-        } else if(effect_id == 227){
-            if(ability_target_id == 5){
-                split_full = "Full "
-            } else {
-                split_full = ""
-            }
-        }
+    //split default
+    if (ability_target_id == 5 && hp_attack == true) {
+        split_full = "Split "
     }
 
     var elem = ""
@@ -154,34 +143,31 @@ export default function hitdata_trans(
 
     var type_id_str = ""
 
-    type_id_str = type_id_data[type_id] && type_id_data[type_id].type_id
+    type_id_str = type_pull && type_pull.type_id
 
     var effect_value_type_str = ""
-
-    var effect_value_type_id_value_trans = ""
-
-    if (effect_value_type_id && 
-        effect_value_type_id !=  1 && 
-        effect_value_type_id != -1 && 
-        effect_value_type_id != 16 && //set fixed value
-        effect_value_type_id != 49 //xdeath fixed ATK stat based on stack
-        ) {
-        effect_value_type_str = effect_value_type_id_data[effect_value_type_id] && effect_value_type_id_data[effect_value_type_id].effect_value_type_id
-        effect_value_type_id_value_trans = effect_value_type_id_data[effect_value_type_id] && effect_value_type_id_data[effect_value_type_id].value_trans
-    }
-
-    if(effect_value_type_id == 16){
-        effect_str = effect_str.replace(/of \[effect_value_type\]/gm,"[effect_value_type]")
-        m_nARG = m_nARG.toLocaleString("en-US")
-    }
 
     var ability_target_str = ""
 
     ability_target_str = ability_target_id_data[ability_target_id] && ability_target_id_data[ability_target_id].ability_target_id
 
-    if (effect_value_type_id && effect_value_type_id == 58) {
+    //effect_value_type_id_value_trans
+    if (effect_value_type_id_value_trans != "hide" && effect_value_type_id_value_trans != "hide_replace" ) {
+        effect_value_type_str = value_type_pull && value_type_pull.effect_value_type_id
+    } else if(effect_value_type_id_value_trans == "hide_replace"){
+        effect_str = effect_str.replace(/of \[effect_value_type\]/gm,"[effect_value_type]")
+        m_nARG = m_nARG.toLocaleString("en-US")
+    } else  if (effect_value_type_id_value_trans == "m_nARG_replace") {
         var ailment_pull = AilmentNames[m_nARG] 
         ability_target_str.replace(/\[m_nARG\]/gm, `${ailment_pull == undefined ? `[${m_nARG}]` : `//${ailment_pull.icon}// [${ailment_pull.name}]`}`)
+    } else if (effect_value_type_id_value_trans == "aliment_amount") {
+        ailment_pull = parseInt(m_nARG.toString().slice(0, 4))
+        const ailment_value = parseInt(m_nARG.toString().slice(6))
+        const ailment_name = AilmentNames[ailment_pull]
+        effect_value_type_str = effect_value_type_str
+            .replace(/\[m_nARG\]/gm, `//${ailment_name && ailment_name.icon}// [${ailment_name && ailment_name.name}] #${ailment_pull}`)
+            effect_value_type_str = effect_value_type_str
+            .replace(/\[m_nARG0\]/gm, ailment_value)
     }
 
     var mcap_str = ""
@@ -221,56 +207,69 @@ export default function hitdata_trans(
         }
     }
 
-    if (times == true) {
+    if (times == true || make_hp == true) {
         atk_type = "HP"
     }
 
-    if (effect_id == 52 || 
-        effect_id == 53 || 
-        effect_id == 107 || 
-        effect_id == 137 || 
-        effect_id == 225 || 
-        effect_id == 226 || 
-        effect_id == 238) {
-        atk_type = "HP"
-    }
-
-    if (type_id == 1 || 
-        type_id == 9 || 
-        type_id == 12 || 
-        type_id == 14 || 
-        type_id == 21) {
+     //atk strings
+    //<BRV> attacks
+    if (brv_attack == true) {
         atk_str = `${ability_target_id != 1 ? `${ability_target_str} ` : ``}${elem != "" ? `${elem} ` : ``}${attack_type_str} ${type_id_str} ${times == true ? "Attack" : "{Attack}"}`
     }
-    if (type_id == 2 || 
-        type_id == 19) {
+    //<HP>
+    if (hp_attack == true) {
         atk_str = `${ability_target_id != 1 ? `${ability_target_str} ` : ``}${attack_type_str} ${type_id_str} ${times == true ? `${split_full}Attack` : `${split_full}{Attack}`}`
     }
-    if (type_id == 8 || 
-        type_id == 15) {
+    //Fixed <BRV> Damage Needle
+    if (fixed_attack == true) {
         atk_str = `${attack_type_str != '' ? `${attack_type_str} ${brave_rate_numerator} ` : ""}${type_id_str}`
         pot_str = ""
     }
-    if (type_id == 16) {
+    //Doesn't consume BRV
+    if (no_consume == true) {
         atk_str = `${attack_type_str}`
         pot_str = `*${type_id_str} ${pot_str}`
     }
 
-    //typetrans
-
-    if (effect_value_type_id_value_trans == "aliment_amount") {
-        ailment_pull = parseInt(m_nARG.toString().slice(0, 4))
-        const ailment_value = parseInt(m_nARG.toString().slice(6))
-        const ailment_name = AilmentNames[ailment_pull]
-        effect_value_type_str = effect_value_type_str
-            .replace(/\[m_nARG\]/gm, `//${ailment_name && ailment_name.icon}// [${ailment_name && ailment_name.name}] #${ailment_pull}`)
-            effect_value_type_str = effect_value_type_str
-            .replace(/\[m_nARG0\]/gm, ailment_value)
-    }
-
     //value trans
-
     switch (value_trans) {
+        case "split_full_1":
+            if(ability_target_id == 5){
+                if(m_nARG_1 == 1){
+                    split_full = "Full "
+                } else {
+                    split_full = "Split "
+                }
+            }
+            break;
+        case "split_by":
+            if(atk_type == "HP" && ability_target_id == 5){
+                split_full = "Split "
+            }
+            break;
+        case "full_by":
+            if(atk_type == "HP" && ability_target_id == 5){
+                split_full = "Full "
+                effect_str = ""
+            }
+            break;
+        case "always_full":
+            if(ability_target_id == 5){
+                split_full = "Full "
+            }
+            break;
+        case "always_split":
+            if(ability_target_id == 5){
+                split_full = "Split "
+            }
+            break;
+        case "or_splash":
+            if(ability_target_id != 10) {
+                atk_type = "HP"
+            } else {
+                effect_str = "Deals [m_nARG]% Splash <HP> Damage to non-targets"
+            }
+            break;
         case "instant_zero":
             if (m_nARG == 0) {
                 effect_str = effect_str.replace(/\[m_nARG\]/gm, `Instant`)
@@ -664,6 +663,10 @@ export default function hitdata_trans(
             var level = Math.floor(m_nARG % 100)
             effect_str = effect_str.replace(/\[m_nARG\]/gm, `//${ailment_pull.icon}// [${ailment_pull.name}] #${ail_id}${level != 0 ? ` level to ${level} and` :""}`)
             break;
+        case "no_brv_consume":
+            atk_str = `${atk_str} ${effect_str}`
+            effect_str = `*Doesn't consume BRV`
+            break;
         default:
             break;
     }
@@ -678,15 +681,10 @@ export default function hitdata_trans(
         .replace(/\[m_nARG_4\]/gm, m_nARG_4)
 
     switch (type_id) {
+        //Ignores DEF fix
         case 9:
             atk_str = atk_str.replace(/ \(Ignores DEF\)/gm, "")
             effect_str = `Ignores DEF${effect_str!=""?"\n":""}${effect_str}`
-            break;
-        case 16:
-            var new_atk_str = `${atk_str} ${effect_str}`
-            new_atk_str = new_atk_str.replace(/Deals /gm, "")
-            atk_str = new_atk_str
-            effect_str = ""
             break;
         case 14:
             atk_str = atk_str.replace(/ \(Ignores DEF\)/gm, "")
@@ -699,13 +697,15 @@ export default function hitdata_trans(
                 pot_str = `BRV potency of ${power.toLocaleString()} fixed damage`
             }
             break;
+        //Doesn't consume BRV fix
+        case 16:
+            var new_atk_str = `${atk_str} ${effect_str}`
+            new_atk_str = new_atk_str.replace(/Deals /gm, "")
+            atk_str = new_atk_str
+            effect_str = ""
+            break;
         default:
             break;
-    }
-
-    if(effect_id == 137){
-        atk_str = `${atk_str} ${effect_str}`
-        effect_str = `*Doesn't consume BRV`
     }
 
     var after_each_except_last = ""
