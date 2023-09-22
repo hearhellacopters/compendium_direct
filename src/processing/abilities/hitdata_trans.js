@@ -211,26 +211,6 @@ export default function hitdata_trans(
         atk_type = "HP"
     }
 
-     //atk strings
-    //<BRV> attacks
-    if (brv_attack == true) {
-        atk_str = `${ability_target_id != 1 ? `${ability_target_str} ` : ``}${elem != "" ? `${elem} ` : ``}${attack_type_str} ${type_id_str} ${times == true ? "Attack" : "{Attack}"}`
-    }
-    //<HP>
-    if (hp_attack == true) {
-        atk_str = `${ability_target_id != 1 ? `${ability_target_str} ` : ``}${attack_type_str} ${type_id_str} ${times == true ? `${split_full}Attack` : `${split_full}{Attack}`}`
-    }
-    //Fixed <BRV> Damage Needle
-    if (fixed_attack == true) {
-        atk_str = `${attack_type_str != '' ? `${attack_type_str} ${brave_rate_numerator} ` : ""}${type_id_str}`
-        pot_str = ""
-    }
-    //Doesn't consume BRV
-    if (no_consume == true) {
-        atk_str = `${attack_type_str}`
-        pot_str = `*${type_id_str} ${pot_str}`
-    }
-
     //value trans
     switch (value_trans) {
         case "split_full_1":
@@ -669,6 +649,26 @@ export default function hitdata_trans(
             break;
         default:
             break;
+    }
+
+    //atk strings
+    //<BRV> attacks
+    if (brv_attack == true) {
+        atk_str = `${ability_target_id != 1 ? `${ability_target_str} ` : ``}${elem != "" ? `${elem} ` : ``}${attack_type_str} ${type_id_str} ${times == true ? "Attack" : "{Attack}"}`
+    }
+    //<HP>
+    if (hp_attack == true) {
+        atk_str = `${ability_target_id != 1 ? `${ability_target_str} ` : ``}${attack_type_str} ${type_id_str} ${times == true ? `${split_full}Attack` : `${split_full}{Attack}`}`
+    }
+    //Fixed <BRV> Damage Needle
+    if (fixed_attack == true) {
+        atk_str = `${attack_type_str != '' ? `${attack_type_str} ${brave_rate_numerator} ` : ""}${type_id_str}`
+        pot_str = ""
+    }
+    //Doesn't consume BRV
+    if (no_consume == true) {
+        atk_str = `${attack_type_str}`
+        pot_str = `*${type_id_str} ${pot_str}`
     }
 
     effect_str = effect_str
