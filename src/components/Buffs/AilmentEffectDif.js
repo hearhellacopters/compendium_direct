@@ -21,6 +21,7 @@ export default function AilmentEffectDif ({
     currenthp_passoff,
     charactersleft_passoff,
     characterskb_passoff,
+    currentweaknessmuliply_passoff
 }){
 
     const forma = {diffing:true,updown:true}
@@ -47,7 +48,8 @@ export default function AilmentEffectDif ({
             currentgroupstacks_passoff,
             currenthp_passoff,
             charactersleft_passoff,
-            characterskb_passoff
+            characterskb_passoff,
+            currentweaknessmuliply_passoff
         )
         if (text == " - Activates Field Effects\n") {
             new_text = `${new_text}<fieldeffects>\n`
@@ -73,7 +75,8 @@ export default function AilmentEffectDif ({
                 currentgroupstacks_passoff,
                 currenthp_passoff,
                 charactersleft_passoff,
-                characterskb_passoff
+                characterskb_passoff,
+                currentweaknessmuliply_passoff
             )
             new_text = `${new_text}${text}`
         })
@@ -97,7 +100,8 @@ export default function AilmentEffectDif ({
             currentgroupstacks_passoff,
             currenthp_passoff,
             charactersleft_passoff,
-            characterskb_passoff
+            characterskb_passoff,
+            currentweaknessmuliply_passoff
         )
         if (text == " - Activates Field Effects\n") {
             old_text = `${old_text}<fieldeffects>\n`
@@ -123,7 +127,8 @@ export default function AilmentEffectDif ({
                 currentgroupstacks_passoff,
                 currenthp_passoff,
                 charactersleft_passoff,
-                characterskb_passoff
+                characterskb_passoff,
+                currentweaknessmuliply_passoff
             )
             old_text = `${old_text}${text}`
         })

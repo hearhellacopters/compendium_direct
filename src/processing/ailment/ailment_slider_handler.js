@@ -49,7 +49,8 @@ export default function ailment_slider_handler(
         groupstacks: false,
         currenthp: false,
         charactersleft: false,
-        characterskb: false
+        characterskb: false,
+        weaknessmuliply: false,
     }
     if (val_edit_type_field != undefined) {
         val_edit_type_field.forEach(self => {
@@ -91,7 +92,8 @@ export default function ailment_slider_handler(
         groupstacks: sliders.groupstacks,
         currenthp: sliders.currenthp,
         charactersleft: sliders.charactersleft,
-        characterskb: sliders.characterskb
+        characterskb: sliders.characterskb,
+        weaknessmuliply: sliders.weaknessmuliply
     }
     return silders
 }

@@ -207,6 +207,7 @@ function AilmentDifFormatting({
     const [currenthp, setcurrenthp] = useStateIfMounted(100)
     const [charactersleft, setcharactersleft] = useStateIfMounted(2)
     const [characterskb, setcharacterskb] = useStateIfMounted(3)
+    const [currentweaknessmuliply, setcurrentweaknessmuliply] = useStateIfMounted(2)
 
     const handleChangeLevel = (e) => {
         setcurrentlevel(parseInt(e.x));
@@ -230,6 +231,9 @@ function AilmentDifFormatting({
     };
     const handleChangeBuffMuliply = (e) => {
         setcurrentbuffsmuliply(parseInt(e.x));
+    };
+    const handleChangeWeaknessMuliply = (e) => {
+        setcurrentweaknessmuliply(parseInt(e.x));
     };
 
     const handleChangeGroupStacks = (e) => {
@@ -363,6 +367,9 @@ function AilmentDifFormatting({
                     currentbuffsmuliply={currentbuffsmuliply}
                     handleChangeBuffMuliply={handleChangeBuffMuliply}
 
+                    currentweaknessmuliply={currentweaknessmuliply}
+                    handleChangeWeaknessMuliply={handleChangeWeaknessMuliply}
+
                     currentenemies={currentenemies}
                     handleChangeEnemies={handleChangeEnemies}
 
@@ -406,6 +413,7 @@ function AilmentDifFormatting({
                         currentstacks_passoff={currentstacks}
                         currentenemies_passoff={currentenemies}
                         currentgroupstacks_passoff={currentgroupstacks}
+                        currentweaknessmuliply={currentweaknessmuliply}
                         currenthp_passoff={currenthp}
                         charactersleft_passoff={charactersleft}
                         characterskb={characterskb}

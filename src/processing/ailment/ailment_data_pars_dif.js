@@ -16,6 +16,7 @@ export default function ailment_data_pars_dif(
     currenthp,
     charactersleft,
     characterskb,
+    currentweaknessmuliply,
     spacer,
 ){
 
@@ -101,6 +102,10 @@ export default function ailment_data_pars_dif(
         }
         if (effect_id && effect_id.multiplyslider == "buffsmuliply") {
             const holder = rank && rank.value1 * (currentbuffsmuliply - 1)
+            displayrank = { value1: holder }
+        }
+        if (effect_id && effect_id.multiplyslider == "weaknessmuliply") {
+            const holder = rank && rank.value1 * (currentweaknessmuliply - 1)
             displayrank = { value1: holder }
         }
     }

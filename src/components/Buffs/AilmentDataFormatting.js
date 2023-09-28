@@ -195,6 +195,7 @@ function AilmentDataFormatting({
     const [currenthp, setcurrenthp] = useStateIfMounted(100)
     const [charactersleft, setcharactersleft] = useStateIfMounted(2)
     const [characterskb, setcharacterskb] = useStateIfMounted(3)
+    const [currentweaknessmuliply, setcurrentweaknessmuliply] = useStateIfMounted(2)
 
     const [showraw, setshowraw] = useStateIfMounted(false)
     const [ailment_tag, setailment_tag] = useStateIfMounted([]);
@@ -246,6 +247,9 @@ function AilmentDataFormatting({
     };
     const handleChangeBuffMuliply = (e) => {
         setcurrentbuffsmuliply(parseInt(e.x));
+    };
+    const handleChangeWeaknessMuliply = (e) => {
+        setcurrentweaknessmuliply(parseInt(e.x));
     };
 
     const handleChangeGroupStacks = (e) => {
@@ -410,6 +414,9 @@ function AilmentDataFormatting({
                     currentgroupstacks={currentgroupstacks}
                     handleChangeGroupStacks={handleChangeGroupStacks}
 
+                    currentweaknessmuliply={currentweaknessmuliply}
+                    handleChangeWeaknessMuliply={handleChangeWeaknessMuliply}
+
                     currenthp={currenthp}
                     handleChangeHP={handleChangeHP}
 
@@ -514,6 +521,7 @@ function AilmentDataFormatting({
                             currentbuffsranks={currentbuffsranks}
                             currentfieldbuffsranks={currentfieldbuffsranks}
                             currentbuffsmuliply={currentbuffsmuliply}
+                            currentweaknessmuliply={currentweaknessmuliply}
                             currentgroupstacks={currentgroupstacks}
                             currenthp={currenthp}
                             charactersleft={charactersleft}
@@ -550,6 +558,7 @@ function AilmentDataFormatting({
                                     currentbuffsmuliply={currentbuffsmuliply}
                                     currentfieldbuffsranks={currentfieldbuffsranks}
                                     currentgroupstacks={currentgroupstacks}
+                                    currentweaknessmuliply={currentweaknessmuliply}
                                     currenthp={currenthp}
                                     charactersleft={charactersleft}
                                     characterskb={characterskb}

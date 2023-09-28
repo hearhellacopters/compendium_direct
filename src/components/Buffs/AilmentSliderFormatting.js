@@ -48,6 +48,9 @@ export default function AilmentSliderFormatting({
 
     characterskb,
     handleChangeCharactersKB,
+
+    currentweaknessmuliply,
+    handleChangeWeaknessMuliply
 }){
 
     if(ailment_data && ailment_data.is_state == true || sliders && Object.keys(sliders).length == 0){
@@ -66,7 +69,8 @@ export default function AilmentSliderFormatting({
         sliders.stacks == false &&
         sliders.currenthp == false &&
         sliders.charactersleft == false &&
-        sliders.characterskb == false
+        sliders.characterskb == false &&
+        sliders.weaknessmuliply == false
         ){
         return ""
     }
@@ -179,6 +183,19 @@ export default function AilmentSliderFormatting({
                         styles={SilderStyleDebuff}
                         onChange={handleChangeDebuffMuliply}
                         x={currentdebuffsmuliply}
+                        xmin={1}
+                        xmax={9}
+                    />
+                </div>
+                : ""}
+            {sliders.weaknessmuliply == true ?
+                <div className="sliderspacer">
+                    <div className="rankspacer">{`Weakness: ${currentweaknessmuliply - 1} / ${8}`}</div>
+                    <Slider
+                        axis="x"
+                        styles={SilderStyleDebuff}
+                        onChange={handleChangeWeaknessMuliply}
+                        x={currentweaknessmuliply}
                         xmin={1}
                         xmax={9}
                     />

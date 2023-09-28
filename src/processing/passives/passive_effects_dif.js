@@ -58,6 +58,7 @@ export default function passive_effects_dif(
                     1, //currenthp,
                     1, //charactersleft,
                     1, //characterskb,
+                    1, //currentweaknessmuliply
                     make_spacer(buffs, i)
                 )
             ))

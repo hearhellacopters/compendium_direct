@@ -74,6 +74,7 @@ export default function AilmentDataFormattingEnemy({
     const [currenthp, setcurrenthp] = useState(100)
     const [charactersleft, setcharactersleft] = useStateIfMounted(2)
     const [characterskb, setcharacterskb] = useStateIfMounted(3)
+    const [currentweaknessmuliply, setcurrentweaknessmuliply] = useStateIfMounted(2)
 
     const handleChangeLevel = (e) => {
         setcurrentlevel(parseInt(e.x));
@@ -112,6 +113,9 @@ export default function AilmentDataFormattingEnemy({
     };
     const handleChangeTurns = (e) => {
         setcurrentturns(parseInt(e.x));
+    };
+    const handleChangeWeaknessMuliply = (e) => {
+        setcurrentweaknessmuliply(parseInt(e.x));
     };
 
     const handleChangeRank = (e) => {
@@ -233,6 +237,9 @@ export default function AilmentDataFormattingEnemy({
                     charactersleft={charactersleft}
                     handleChangeCharactersLeft={handleChangeCharactersLeft}
 
+                    currentweaknessmuliply={currentweaknessmuliply}
+                    handleChangeWeaknessMuliply={handleChangeWeaknessMuliply}
+
                     characterskb={characterskb}
                     handleChangeCharactersKB={handleChangeCharactersKB}
                 />
@@ -278,6 +285,7 @@ export default function AilmentDataFormattingEnemy({
                             currentbuffsranks={currentbuffsranks}
                             currentfieldbuffsranks={currentfieldbuffsranks}
                             currentbuffsmuliply={currentbuffsmuliply}
+                            currentweaknessmuliply={currentweaknessmuliply}
                             currentgroupstacks={currentgroupstacks}
                             currenthp={currenthp}
                             charactersleft={charactersleft}
@@ -308,6 +316,7 @@ export default function AilmentDataFormattingEnemy({
                                     currentbuffsranks={currentbuffsranks}
                                     currentbuffsmuliply={currentbuffsmuliply}
                                     currentfieldbuffsranks={currentfieldbuffsranks}
+                                    currentweaknessmuliply={currentweaknessmuliply}
                                     currentgroupstacks={currentgroupstacks}
                                     currenthp={currenthp}
                                     charactersleft={charactersleft}

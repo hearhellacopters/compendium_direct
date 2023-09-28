@@ -82,6 +82,7 @@ export default function AilmentFieldAttached({
                 currenthp={currentrank}
                 charactersleft={currentrank}
                 characterskb={currentrank}
+                currentweaknessmuliply={currentrank}
                 formatting={formatting}
                 castlocation={castlocation == undefined ? false : castlocation}
                 hide_type={hide_type}
