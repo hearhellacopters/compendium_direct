@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ScrollHere from './components/ScrollHere.js';
 import Tippy from './components/TippyDefaults.js';
 import { Link, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -12,11 +13,14 @@ export default function Summons({
 }){
 
   const [locator, setLocator] = useState(capitalize(match.params.id));
+  const [scrollhere, setscrollhere] = useState(<></>) 
 
   const urls = ["", "Ifrit", "Shiva", "Ramuh", "Leviathan", "Brothers", "Pandemonium", "Diabolos", "Alexander", "Odin", "Bahamut", "Chocobo", "Sylph", "Mog"]
 
   useEffect(() => {
     setLocator(capitalize(match.params.id))
+    setscrollhere(<span className="storyscroll_offset" id="scrollhere"><ScrollHere></ScrollHere></span>)
+    setTimeout(() => setscrollhere(<></>), 1000);
     // eslint-disable-next-line
   }, [match])
 
@@ -168,6 +172,9 @@ export default function Summons({
                     <li alt="Chocobo" onClick={chocobobutton} className={`${locator == "Chocobo" ? "gemactive" : "geminactive"} ChocoboIcon summonsgem`} ></li>
                   </Tippy>
                 </Link>
+                {locator != ""?
+                  scrollhere
+                :""}
                 <Link to={`/bonuses/sylph`}>
                   <Tippy content={"Sylph"}>
                     <li alt="Sylph" onClick={sylphbutton} className={`${locator == "Sylph" ? "gemactive" : "geminactive"} SylphIcon summonsgem`} ></li>

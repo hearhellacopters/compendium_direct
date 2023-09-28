@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import ScrollHere from '../ScrollHere.js';
 import ReplacerCharacter from '../ReplacerCharacter.js';
 import SummonPassiveFormatting from './SummonPassiveFormatting.js'
 import { LazyLoadImage, trackWindowScroll } from 'react-lazy-load-image-component';
@@ -63,9 +62,7 @@ function SummonsFormatting({
   
   return (
     <div>
-      {showFilter == true ?
-        <ScrollHere /> : ""}
-      <div className="suminfoholder" id="scrollhere">
+      <div className="suminfoholder" >
         <div className="sumtitle">
           {summons.SummonName}
           {summons.JPName != null ?

@@ -17,7 +17,7 @@ export default function TalkUintFormatting({
     talk_index,
     soundfx,
     handleselectmusic,
-    ProcessedMusic
+    ProcessedMusic,
 }){
 
     var {action_type,

@@ -50,6 +50,7 @@ function TalkFormatting({
     useEffect(() => {
         settalk_data([])
         setactive({})
+        setbad_ver()
     },[ver])
 
     const make_active =(data)=>{

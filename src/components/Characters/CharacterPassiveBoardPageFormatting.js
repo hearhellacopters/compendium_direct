@@ -123,7 +123,7 @@ function CharacterPassiveBoardPageFormatting({
   }
 
   const FREXTbutton = () => {
-    if(activeFREXT){
+    if(activeFREXT == false){
       clear_filter()
       setactiveFREXT(true)
     } else {

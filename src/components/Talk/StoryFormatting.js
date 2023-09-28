@@ -5,10 +5,10 @@ import DefaultTippy from '../TippyDefaults.js';
 import { useDispatch, useSelector } from "react-redux";
 import { setFalse, setTrue } from '../../redux/ducks/jptoggle.js'
 import { getQuery, getQueryStringVal, useQueryParam } from '../URLParams.js'
-import ScrollHere from "../ScrollHere";
 import TalkUintFormatting from "./TalkUnitFormatting";
 import { ObjectView } from 'react-object-view'
 import OhNo from "../OhNo";
+import ScrollHere from '../ScrollHere'
 
 export default function StoryFormatting({
     talk,
@@ -19,12 +19,23 @@ export default function StoryFormatting({
     handleselectmusic,
     bad_ver,
     talk_data,
-    ProcessedMusic
+    ProcessedMusic,
+    loading_done
 }){
 
     const dispatch = useDispatch();
 
     const [type,settype] = useState(talk.battle_id == undefined ? "talk" : "battle")
+    const [scrollhere, setscrollhere] = useState(<></>) 
+    const [run_once, setrun_once ] = useState(false)
+
+    const make_run = ()=>{
+        if(run_once == false){
+            setrun_once(true)
+            setscrollhere(<div className="storyscroll_offset" id="scrollhere"><ScrollHere></ScrollHere></div>)
+            setTimeout(() => setscrollhere(<></>), 500);
+        }
+    }
 
     const [showraw, setshowraw] = useState(false)
 
@@ -104,7 +115,7 @@ export default function StoryFormatting({
             })
             if(arr_char.length != 0){
                 return(
-                    <><ScrollHere id="scrollhere"/><div className="single_info">This scene includes {joinWithCommasAndAnd(arr_char)}</div>--</>
+                    <><div className="single_info">This scene includes {joinWithCommasAndAnd(arr_char)}</div>--</>
                 )
             } else {
                 return "" 
@@ -114,31 +125,33 @@ export default function StoryFormatting({
         }
     }
 
-    if(active.id == talk.id){
-        return(
+    return(
+        <>
+        <div
+        className="talk_bar_holder talk_click"
+        onClick={()=>make_active(talk)}
+        >
+            <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/storybar_l.png)","--width":"33px"}} className="talk_storybar_l"/>
+            <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/storybar_c.png)"}}  className="talk_storybar_c">
+            {ReplacerCharacter(`${format_cleaner(talk.battle_id != undefined?"\bTa":"\bTb")}`)}&nbsp;{ReplacerCharacter(talk.name)}
+            </div>
+            <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/storybar_r.png)","--width":"33px"}}  className="talk_storybar_r"/>
+            {scrollhere}
+        </div>
+        {active.id == talk.id ?
             <>
+            {talk.jpname != undefined ?
             <div
-            className="talk_bar_holder talk_click"
-            onClick={()=>make_active(talk)}
+            onClick={showmeraw}
+            className="talk_bar_holder non_talk" style={{marginBottom:"5px"}}
             >
                 
                 <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/storybar_l.png)","--width":"33px"}} className="talk_storybar_l"/>
                 <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/storybar_c.png)"}}  className="talk_storybar_c">
-                {ReplacerCharacter(`${format_cleaner(talk.battle_id != undefined?"\bTa":"\bTb")}`)}&nbsp;{ReplacerCharacter(talk.name)}
+                {ReplacerCharacter(`${format_cleaner(talk.battle_id != undefined?"\bTa":"\bTb")}`)}&nbsp;{ReplacerCharacter(talk.jpname)}
                 </div>
                 <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/storybar_r.png)","--width":"33px"}}  className="talk_storybar_r"/>
             </div>
-            {talk.jpname != undefined ?
-                <div
-                onClick={showmeraw}
-                className="talk_bar_holder non_talk" style={{marginBottom:"5px"}}
-                >
-                    <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/storybar_l.png)","--width":"33px"}} className="talk_storybar_l"/>
-                    <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/storybar_c.png)"}}  className="talk_storybar_c">
-                    {ReplacerCharacter(`${format_cleaner(talk.battle_id != undefined?"\bTa":"\bTb")}`)}&nbsp;{ReplacerCharacter(talk.jpname)}
-                    </div>
-                    <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/storybar_r.png)","--width":"33px"}}  className="talk_storybar_r"/>
-                </div>
             :""}
             {talk.char_ids != undefined ?
                 make_includes(talk.char_ids)
@@ -163,7 +176,10 @@ export default function StoryFormatting({
                     soundfx={soundfx}
                     ProcessedMusic={ProcessedMusic}
                     handleselectmusic={handleselectmusic}
-                />
+                    loading_done={loading_done}
+                >
+                    {(talk_data.length - 1) == i ? make_run() :""}
+                </TalkUintFormatting>
             ))
             :""}
             {showraw == true ?
@@ -180,20 +196,8 @@ export default function StoryFormatting({
                 </span>
             : ""}
             </>
-        )
-    } else {
-        return(
-            <div
-            className="talk_bar_holder talk_click"
-            onClick={()=>make_active(talk)}
-            >
-                <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/storybar_l.png)","--width":"33px"}} className="talk_storybar_l"/>
-                <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/storybar_c.png)"}}  className="talk_storybar_c">
-                {ReplacerCharacter(`${format_cleaner(talk.battle_id != undefined?"\bTa":"\bTb")}`)}&nbsp;{ReplacerCharacter(talk.name)}
-                </div>
-                <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/storybar_r.png)","--width":"33px"}}  className="talk_storybar_r"/>
-            </div>
-        )
-    }
+        :""}
+        </>
+    )
     
 }
