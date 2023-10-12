@@ -294,10 +294,12 @@ export default function TalkUintFormatting({
             case 25:
                 action = `Chooses ${choose_amnt} of the next ${ofthenext} displays`
                 display = true
+                unit = ""
                 break;
             case 27:
                 action = `Chooses ${choose_amnt} of the next ${ofthenext} displays`
                 display = true
+                unit = ""
                 break;
             default:
                 break;
