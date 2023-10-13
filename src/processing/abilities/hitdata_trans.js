@@ -152,9 +152,10 @@ export default function hitdata_trans(
     ability_target_str = ability_target_id_data[ability_target_id] && ability_target_id_data[ability_target_id].ability_target_id
 
     //effect_value_type_id_value_trans
-    if (effect_value_type_id_value_trans != "hide" && effect_value_type_id_value_trans != "hide_replace" ) {
+    if (!(effect_value_type_id_value_trans == "hide" || effect_value_type_id_value_trans == "hide_replace")) {
         effect_value_type_str = value_type_pull && value_type_pull.effect_value_type_id
-    } else if(effect_value_type_id_value_trans == "hide_replace"){
+    }
+    if(effect_value_type_id_value_trans == "hide_replace"){
         effect_str = effect_str.replace(/of \[effect_value_type\]/gm,"[effect_value_type]")
         m_nARG = m_nARG.toLocaleString("en-US")
     } else  if (effect_value_type_id_value_trans == "m_nARG_replace") {

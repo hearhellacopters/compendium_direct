@@ -10,6 +10,7 @@ export default class Flip extends React.Component {
 
   componentDidMount() {
     this._tickInstance = Tick.DOM.create(this._tickRef.current, {
+      credits:false,
       value: this.props.value,
       view:
       // definition for top level tick element
