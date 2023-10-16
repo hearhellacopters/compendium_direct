@@ -496,7 +496,7 @@ function EventsFormatting({
                                         <Sphere_Passive_Ability_Formatting
                                             key={i}
                                             passive_ability={passive.passive}
-                                            ver={ver}
+                                            ver={match.tempdate == true ? "JP":"GL"}
                                             loc={undefined}
                                             file={"exskill"}
                                             Single={true}
