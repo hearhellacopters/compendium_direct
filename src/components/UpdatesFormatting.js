@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import DefaultTippy from './TippyDefaults.js'
-import EventListing from '../components/Events/SingleEventsFormatting.js'
+import SingleEventsFormatting from '../components/Events/SingleEventsFormatting.js'
 import CharacterFaceFormatting from '../components/Characters/CharacterFaceFormatting.js';
 import EnemyListingsDirect from '../components/Enemy/EnemyListing.js'
 import BannersFormatting from '../components/Events/SingleBannersFormatting.js'
@@ -81,7 +81,11 @@ function UpdateFormatting({ match, jptoggledata, scrollPosition  }){
             <div className="">
               <div className="featuredbanner">Updated Events</div>
               {match.EventList.map(events => (
-                <EventListing key={events.eventindex} match={events} permapage={false} />
+                <SingleEventsFormatting 
+                key={events.eventindex} 
+                match={events} 
+                permapage={false} 
+                />
               ))}
             </div> : ""}
           {showupdate == true &&

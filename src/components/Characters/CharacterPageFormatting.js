@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from "react-redux";
 import DefaultTippy from '../TippyDefaults.js';
 import { Link } from 'react-router-dom'
-import EventListing from '../Events/SingleEventsFormatting.js'
+import SingleEventsFormatting from '../Events/SingleEventsFormatting.js'
 import CommunityCharacterGuideFormatting from './CharacterCommunityGuideFormatting.js'
 import { TiArrowSortedDown } from 'react-icons/ti';
 import { TiArrowSortedUp } from 'react-icons/ti';
@@ -589,7 +589,7 @@ export default function CharacterPageFormatting({
           <ul className="singleventholder nolist">
             <div className="similarbanner addbordertop addborderbottom">Featured Events</div>
             {events.map(events => (
-              <EventListing
+              <SingleEventsFormatting
                 key={events.eventindex}
                 match={events}
                 jptoggledata={jptoggledata}

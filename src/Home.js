@@ -5,7 +5,7 @@ import { setFalse, setTrue } from './redux/ducks/jptoggle'
 import ReplacerCharacter from './components/ReplacerCharacter';
 import { Helmet } from 'react-helmet-async';
 import DefaultTippy from './components/TippyDefaults.js'
-import EventListing from './components/Events/SingleEventsFormatting.js'
+import SingleEventsFormatting from './components/Events/SingleEventsFormatting.js'
 import CharacterFaceFormatting from './components/Characters/CharacterFaceFormatting';
 import EnemyListingsDirect from './components/Enemy/EnemyListing'
 import BannersFormatting from './components/Events/SingleBannersFormatting.js'
@@ -254,7 +254,10 @@ export default function Home({
                 <div className="">
                   <div className="featuredbanner">Updated Events</div>
                   {lastupdate.EventList.map(events => (
-                    <EventListing key={events.eventindex} match={events} permapage={false} />
+                    <SingleEventsFormatting 
+                    key={events.eventindex} 
+                    match={events} 
+                    permapage={false} />
                   ))}
                 </div>
               }

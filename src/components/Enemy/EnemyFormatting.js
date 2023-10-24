@@ -3,7 +3,7 @@ import { useStateIfMounted } from 'use-state-if-mounted';
 import { useDispatch } from "react-redux";
 import { Link } from 'react-router-dom'
 import LevelsFormatting from './LevelsFormatting.js'
-import EventListing from '../Events/SingleEventsFormatting.js'
+import SingleEventsFormatting from '../Events/SingleEventsFormatting.js'
 import { Helmet } from 'react-helmet-async';
 import ResistIcon from './ResistIcons.js';
 import DefaultTippy from '../../components/TippyDefaults.js';
@@ -1088,7 +1088,10 @@ function EnemyFormatting({
                             scrollPosition={scrollPosition}
                             placeholder={<div className='titlemainupdateholder'/>}
                             >
-                                <EventListing key={i} match={events} permapage={false} />
+                                <SingleEventsFormatting 
+                                key={i} 
+                                match={events} 
+                                permapage={false} />
                             </LazyLoadComponent>
                             
                         ))}
