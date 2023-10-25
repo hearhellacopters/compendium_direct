@@ -173,8 +173,8 @@ export default function App(){
               <Route path="/characters/forcetime/" element={<CharactersForceTimePage />} />
               <Route path="/characters/skins/wardrobe/" exact element={<CharactersWardrobePage />} />
               <Route path="/characters/skins/weapons/" exact element={<WeaponSkins />} />
-              <Route path="/characters/wardrobe" element={<Navigate replace to="/characters/skins/wardrobe/" />} />
-              <Route path="/characters/skins" element={<Navigate replace to="/characters/skins/wardrobe/" />} />
+              <Route path="/characters/wardrobe" element={<Navigate replace to="/characters/skins/wardrobe" />} />
+              <Route path="/characters/skins" element={<Navigate replace to="/characters/skins/wardrobe" />} />
               <Route path="/characters/:id" exact element={<Character loc="character" />} />
               <Route path="/characters/:id/buffs/" exact element={<Character loc="buffs" />} />
               <Route path="/characters/:id/spheres" exact element={<Character loc="spheres" />} />

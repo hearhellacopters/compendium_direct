@@ -3612,7 +3612,7 @@ export default function Characters({
             <span className="subtext">Force</span>
           </Link>
           {" / "}
-          <Link className="whitecolor" to={"/characters/skin/wardrobe"}>
+          <Link className="whitecolor" to={"/characters/wardrobe"}>
             <span className="subtext">Skins page</span>
           </Link>
         </div>
