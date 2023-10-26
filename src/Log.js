@@ -9,6 +9,12 @@ export default function log () {
                 <h1>Update Log</h1>
                 <div className="creditsholder">
                 <div className="filterholderflair" >
+                        v7.0.1
+                    </div>
+                    <ul className="creditslist">
+                        - Added Force Change Charger class<br />
+                    </ul>
+                <div className="filterholderflair" >
                         v7.0
                     </div>
                     <ul className="creditslist">

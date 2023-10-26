@@ -195,6 +195,7 @@ export default function Characters({
   const [FollowUp_Start_Of_Next, setFollowUp_Start_Of_Next] = useState(getQueryStringVal("FollowUp_Start_Of_Next") != null ? true : false);
   const [FollowUp_Action_On_Enemy, setFollowUp_Action_On_Enemy] = useState(getQueryStringVal("FollowUp_Action_On_Enemy") != null ? true : false);
   const [Target_Lock, setTarget_Lock] = useState(getQueryStringVal("Target_Lock") != null ? true : false);
+  const [Charger, setCharger] = useState(getQueryStringVal("Charger") != null ? true : false);
 
   const [loop, setLoop] = useStateIfMounted(false);
   const [reverse, setReverse] = useState(getQueryStringVal("rev") != null ? true : false);
@@ -326,6 +327,7 @@ export default function Characters({
   const [Special_Buffsearch, setSpecial_Buffsearch] = useQueryParam("Special_Buff", "");
   const [BRV_Damage_Capsearch, setBRV_Damage_Capsearch] = useQueryParam("BRV_Damage_Cap", "");
   const [Target_Locksearch, setTarget_Locksearch] = useQueryParam("Target_Lock", "");
+  const [Chargersearch, setChargersearch] = useQueryParam("Charger", "");
 
   const [FireImperilsearch, setFireImperilsearch] = useQueryParam("FireImperil", "");
   const [IceImperilsearch, setIceImperilsearch] = useQueryParam("IceImperil", "");
@@ -1263,6 +1265,12 @@ export default function Characters({
         );
         filterholder.push(...filteredout);
       }
+      if (Charger == true) {
+        const filteredout = rawData.filter(
+          (chars) => chars[`${ver}traits`] && chars[`${ver}traits`]["Charger"] === true
+        );
+        filterholder.push(...filteredout);
+      }
 
       if (filterholder.length === 0) {
         filterholder.push(...rawData);
@@ -1285,7 +1293,7 @@ export default function Characters({
       setSearchResults(getcharacterfilter);
       setListDisplay(getcharacterfilter);
     }
-  }, [ver, jptoggledata, BRV_Damage_Cap, Board5Flag, Special_Buff, BRVHP_Upgrade, FE50BoardFlag, Target_Lock, Free_Ability, Stacked_Buff_Five, BuffPrevent, FollowUp_Action_On_Enemy, FollowUp_Start_Of_Next, FollowUp_Extension, FollowUp_Before_Ability, FollowUp_Before_Player_Turn, Trap_After_Trigger, Trap_Before_Turn, Stacked_Buff, EX_MAX_Party, BRV_Absorb, BRV_Ratio, Turn_Interrupter, Continuous_Turns, Launch_Support, FollowUp_By_Other, BRV_Wont_Below, Debuff_Gold, Debuff_Evade, Blind, FRFlag, FRBoardFlag, Cannot_Break, FollowUp, Ally_Turn_Manipulator, Self_Harm, Break_Reset, RealmSort, JPSort, HPSort, INTBRVSort, MAXBRVSort, ATKSort, DEFSort, SPDSort, NameSort, Buff_Extension, rawData, searchTerm, HP_Damage_Up, Non_Elemental, Stacked_Debuff, KO_Prevent, Reviver, SevenStarArmor, Debuff_Break, Ignore_DEF, Evade, CritRateUp, clearFilter, TwoAbilitiesRecover, merge, BRVRegen, BRVDamageResist, Dagger, Sword, Greatsword, Staff, Gun, Fist, Throwing, Spear, Bow, Whip, Other, RedCrystal, BlueCrystal, YellowCrystal, GreenCrystal, BlackCrystal, WhiteCrystal, SevenStarPlusArmor, BTPlusFlag, LDBoardFlag, BTFlag, LDFlag, MaxLevel, ActiveRework, Magic, Ranged, Melee, ASlot, BSlot, CSlot, DSlot, ESlot, Fire, Ice, Thunder, Water, Earth, Wind, Dark, Holy, Tank, Debuffer, BRVResistDown, MagicImperil, RangedImperil, MeleeImperil, WindImperil, FireImperil, ThunderImperil, HolyImperil, IceImperil, WaterImperil, EarthImperil, DarkImperil, ThreeDelay, FourDebuff, FiftyHPHealAbility, SixBuffs, Battery, BRVControl, BRVPoison, BRVShield, Cleanse, Counter, DarkEnchant, Delay, Disable, Dispel, EarthEnchant, FireEnchant, ForceBreak, HolyEnchant, HPDamageResist, HPHealAbility, HPPoison, HPRegen, IceEnchant, Launcher, ThunderEnchant, Trap, WaterEnchant, WindEnchant, DeleteTurns, HPResistDown, condFilter, reverse]);
+  }, [ver, jptoggledata, Charger, BRV_Damage_Cap, Board5Flag, Special_Buff, BRVHP_Upgrade, FE50BoardFlag, Target_Lock, Free_Ability, Stacked_Buff_Five, BuffPrevent, FollowUp_Action_On_Enemy, FollowUp_Start_Of_Next, FollowUp_Extension, FollowUp_Before_Ability, FollowUp_Before_Player_Turn, Trap_After_Trigger, Trap_Before_Turn, Stacked_Buff, EX_MAX_Party, BRV_Absorb, BRV_Ratio, Turn_Interrupter, Continuous_Turns, Launch_Support, FollowUp_By_Other, BRV_Wont_Below, Debuff_Gold, Debuff_Evade, Blind, FRFlag, FRBoardFlag, Cannot_Break, FollowUp, Ally_Turn_Manipulator, Self_Harm, Break_Reset, RealmSort, JPSort, HPSort, INTBRVSort, MAXBRVSort, ATKSort, DEFSort, SPDSort, NameSort, Buff_Extension, rawData, searchTerm, HP_Damage_Up, Non_Elemental, Stacked_Debuff, KO_Prevent, Reviver, SevenStarArmor, Debuff_Break, Ignore_DEF, Evade, CritRateUp, clearFilter, TwoAbilitiesRecover, merge, BRVRegen, BRVDamageResist, Dagger, Sword, Greatsword, Staff, Gun, Fist, Throwing, Spear, Bow, Whip, Other, RedCrystal, BlueCrystal, YellowCrystal, GreenCrystal, BlackCrystal, WhiteCrystal, SevenStarPlusArmor, BTPlusFlag, LDBoardFlag, BTFlag, LDFlag, MaxLevel, ActiveRework, Magic, Ranged, Melee, ASlot, BSlot, CSlot, DSlot, ESlot, Fire, Ice, Thunder, Water, Earth, Wind, Dark, Holy, Tank, Debuffer, BRVResistDown, MagicImperil, RangedImperil, MeleeImperil, WindImperil, FireImperil, ThunderImperil, HolyImperil, IceImperil, WaterImperil, EarthImperil, DarkImperil, ThreeDelay, FourDebuff, FiftyHPHealAbility, SixBuffs, Battery, BRVControl, BRVPoison, BRVShield, Cleanse, Counter, DarkEnchant, Delay, Disable, Dispel, EarthEnchant, FireEnchant, ForceBreak, HolyEnchant, HPDamageResist, HPHealAbility, HPPoison, HPRegen, IceEnchant, Launcher, ThunderEnchant, Trap, WaterEnchant, WindEnchant, DeleteTurns, HPResistDown, condFilter, reverse]);
 
   //Merge filter
   useEffect(() => {
@@ -1423,7 +1431,8 @@ export default function Characters({
         Special_Buff: Special_Buff,
         Board5Flag: Board5Flag,
         BRV_Damage_Cap: BRV_Damage_Cap,
-        Target_Lock: Target_Lock
+        Target_Lock: Target_Lock,
+        Charger:Charger,
       };
       const filtermerge = rawData.filter((oneChar) => {
         return Object.entries(charType)
@@ -1448,9 +1457,7 @@ export default function Characters({
       setSearchResults(getcharacterfilter);
       setListDisplay(getcharacterfilter);
     }
-  }, [jptoggledata, ver, BRV_Damage_Cap, Board5Flag, Target_Lock, BRVHP_Upgrade, FE50BoardFlag, Special_Buff, Free_Ability, Stacked_Buff_Five, BuffPrevent, FollowUp_Action_On_Enemy, FollowUp_Start_Of_Next, FollowUp_Extension, FollowUp_Before_Ability, FollowUp_Before_Player_Turn, Trap_After_Trigger, Trap_Before_Turn, Stacked_Buff, EX_MAX_Party, BRV_Absorb, BRV_Ratio, Turn_Interrupter, Continuous_Turns, Launch_Support, FollowUp_By_Other, BRV_Wont_Below, Debuff_Gold, Debuff_Evade, Blind, Cannot_Break, FRBoardFlag, FRFlag, FollowUp, Ally_Turn_Manipulator, Self_Harm, Break_Reset, RealmSort, JPSort, HPSort, INTBRVSort, MAXBRVSort, ATKSort, DEFSort, SPDSort, Buff_Extension, rawData, searchTerm, HP_Damage_Up, Non_Elemental, Stacked_Debuff, KO_Prevent, Reviver, SevenStarArmor, Debuff_Break, Ignore_DEF, Evade, CritRateUp, clearFilter, TwoAbilitiesRecover, merge, BRVRegen, BRVDamageResist, Dagger, Sword, Greatsword, Staff, Gun, Fist, Throwing, Spear, Bow, Whip, Other, RedCrystal, BlueCrystal, YellowCrystal, GreenCrystal, BlackCrystal, WhiteCrystal, SevenStarPlusArmor, BTPlusFlag, LDBoardFlag, BTFlag, LDFlag, MaxLevel, Magic, Ranged, Melee, ASlot, BSlot, CSlot, DSlot, ESlot, Fire, Ice, Thunder, Water, Earth, Wind, Dark, Holy, Tank, Debuffer, BRVResistDown, MagicImperil, RangedImperil, MeleeImperil, WindImperil, FireImperil, ThunderImperil, HolyImperil, IceImperil, WaterImperil, EarthImperil, DarkImperil, ThreeDelay, FourDebuff, FiftyHPHealAbility, SixBuffs, Battery, BRVControl, BRVPoison, BRVShield, Cleanse, Counter, DarkEnchant, Delay, Disable, Dispel, EarthEnchant, FireEnchant, ForceBreak, HolyEnchant, HPDamageResist, HPHealAbility, HPPoison, HPRegen, IceEnchant, Launcher, ThunderEnchant, Trap, WaterEnchant, WindEnchant, DeleteTurns, HPResistDown, condFilter, reverse]);
-
-
+  }, [jptoggledata, ver, Charger, BRV_Damage_Cap, Board5Flag, Target_Lock, BRVHP_Upgrade, FE50BoardFlag, Special_Buff, Free_Ability, Stacked_Buff_Five, BuffPrevent, FollowUp_Action_On_Enemy, FollowUp_Start_Of_Next, FollowUp_Extension, FollowUp_Before_Ability, FollowUp_Before_Player_Turn, Trap_After_Trigger, Trap_Before_Turn, Stacked_Buff, EX_MAX_Party, BRV_Absorb, BRV_Ratio, Turn_Interrupter, Continuous_Turns, Launch_Support, FollowUp_By_Other, BRV_Wont_Below, Debuff_Gold, Debuff_Evade, Blind, Cannot_Break, FRBoardFlag, FRFlag, FollowUp, Ally_Turn_Manipulator, Self_Harm, Break_Reset, RealmSort, JPSort, HPSort, INTBRVSort, MAXBRVSort, ATKSort, DEFSort, SPDSort, Buff_Extension, rawData, searchTerm, HP_Damage_Up, Non_Elemental, Stacked_Debuff, KO_Prevent, Reviver, SevenStarArmor, Debuff_Break, Ignore_DEF, Evade, CritRateUp, clearFilter, TwoAbilitiesRecover, merge, BRVRegen, BRVDamageResist, Dagger, Sword, Greatsword, Staff, Gun, Fist, Throwing, Spear, Bow, Whip, Other, RedCrystal, BlueCrystal, YellowCrystal, GreenCrystal, BlackCrystal, WhiteCrystal, SevenStarPlusArmor, BTPlusFlag, LDBoardFlag, BTFlag, LDFlag, MaxLevel, Magic, Ranged, Melee, ASlot, BSlot, CSlot, DSlot, ESlot, Fire, Ice, Thunder, Water, Earth, Wind, Dark, Holy, Tank, Debuffer, BRVResistDown, MagicImperil, RangedImperil, MeleeImperil, WindImperil, FireImperil, ThunderImperil, HolyImperil, IceImperil, WaterImperil, EarthImperil, DarkImperil, ThreeDelay, FourDebuff, FiftyHPHealAbility, SixBuffs, Battery, BRVControl, BRVPoison, BRVShield, Cleanse, Counter, DarkEnchant, Delay, Disable, Dispel, EarthEnchant, FireEnchant, ForceBreak, HolyEnchant, HPDamageResist, HPHealAbility, HPPoison, HPRegen, IceEnchant, Launcher, ThunderEnchant, Trap, WaterEnchant, WindEnchant, DeleteTurns, HPResistDown, condFilter, reverse]);
 
   //buttons
   const Magicbutton = () => {
@@ -2539,6 +2546,14 @@ export default function Characters({
     }
     setTarget_Lock((prevValue) => !prevValue);
   };
+  const Chargerbutton = () => {
+    if (Charger == false) {
+      setChargersearch("true")
+    } else {
+      setChargersearch("")
+    }
+    setCharger((prevValue) => !prevValue);
+  };
 
   const NameSortbutton = () => {
     if (NameSort == false) {
@@ -2592,102 +2607,6 @@ export default function Characters({
       dispatch(setFalse())
     }
     setJPSort((prevValue) => !prevValue);
-  };
-  const HPSortbutton = () => {
-    if (HPSort == false) {
-      setSortsearch("HP")
-      setINTBRVSort(false)
-      setINTBRVSort(false)
-      setATKSort(false)
-      setDEFSort(false)
-      setSPDSort(false)
-      setRealmSort(false)
-      setJPSort(false)
-      setNameSort(false)
-    } else {
-      setSortsearch("")
-    }
-    setHPSort((prevValue) => !prevValue);
-  };
-  const INTBRVSortbutton = () => {
-    if (INTBRVSort == false) {
-      setSortsearch("INTBRV")
-      setHPSort(false)
-      setMAXBRVSort(false)
-      setATKSort(false)
-      setDEFSort(false)
-      setSPDSort(false)
-      setRealmSort(false)
-      setJPSort(false)
-      setNameSort(false)
-    } else {
-      setSortsearch("")
-    }
-    setINTBRVSort((prevValue) => !prevValue);
-  };
-  const MAXBRVSortbutton = () => {
-    if (MAXBRVSort == false) {
-      setSortsearch("MAXBRV")
-      setHPSort(false)
-      setINTBRVSort(false)
-      setATKSort(false)
-      setDEFSort(false)
-      setSPDSort(false)
-      setRealmSort(false)
-      setJPSort(false)
-      setNameSort(false)
-    } else {
-      setSortsearch("")
-    }
-    setMAXBRVSort((prevValue) => !prevValue);
-  };
-  const ATKSortbutton = () => {
-    if (ATKSort == false) {
-      setSortsearch("ATK")
-      setHPSort(false)
-      setINTBRVSort(false)
-      setMAXBRVSort(false)
-      setDEFSort(false)
-      setSPDSort(false)
-      setRealmSort(false)
-      setJPSort(false)
-      setNameSort(false)
-    } else {
-      setSortsearch("")
-    }
-    setATKSort((prevValue) => !prevValue);
-  };
-  const DEFSortbutton = () => {
-    if (DEFSort == false) {
-      setSortsearch("DEF")
-      setHPSort(false)
-      setINTBRVSort(false)
-      setMAXBRVSort(false)
-      setATKSort(false)
-      setSPDSort(false)
-      setRealmSort(false)
-      setJPSort(false)
-      setNameSort(false)
-    } else {
-      setSortsearch("")
-    }
-    setDEFSort((prevValue) => !prevValue);
-  };
-  const SPDSortbutton = () => {
-    if (SPDSort == false) {
-      setSortsearch("SPD")
-      setHPSort(false)
-      setINTBRVSort(false)
-      setMAXBRVSort(false)
-      setATKSort(false)
-      setDEFSort(false)
-      setRealmSort(false)
-      setJPSort(false)
-      setNameSort(false)
-    } else {
-      setSortsearch("")
-    }
-    setSPDSort((prevValue) => !prevValue);
   };
 
   const togglemerge = () => {
@@ -2906,6 +2825,7 @@ export default function Characters({
     setBRV_Damage_Cap(false)
     setspoilers(false)
     setTarget_Lock(false)
+    setCharger(false)
 
     setMagicsearch("")
     setRangedsearch("")
@@ -3035,6 +2955,7 @@ export default function Characters({
     setStacked_Buff_Fivesearch('')
     setBRV_Damage_Capsearch('')
     setTarget_Locksearch('')
+    setChargersearch('')
 
     setMaxLevelsearch("")
     setActiveReworksearch("")
@@ -3512,6 +3433,9 @@ export default function Characters({
               </Tippy>
               <Tippy content={roles[`BRVHP_Upgrade`].name}>
                 <li className={`${BRVHP_Upgrade ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BRVHP_Upgradebutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRVHP_Upgrade`].url}.png)` }}></li>
+              </Tippy>
+              <Tippy content={roles[`Charger`].name}>
+                <li className={`${Charger ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Chargerbutton} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Charger`].url}.png)` }}></li>
               </Tippy>
             </ul>
             <div className="similarbanner">Gear Level</div>

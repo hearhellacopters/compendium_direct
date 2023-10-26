@@ -556,5 +556,9 @@
     "Buff_Gold": {
         "name": "Gold Framed Buffs",
         "url": "roles/Role_Buff_Gold"
+    },
+    "Charger": {
+        "name": "Force Gauge Charger",
+        "url": "roles/Charger"
     }
 }
