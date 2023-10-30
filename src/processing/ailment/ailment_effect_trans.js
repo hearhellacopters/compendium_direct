@@ -105,6 +105,13 @@ export default function ailment_effect_trans(
         effectstr = effectstr && effectstr.replace(/\[value1\]/gm, val_edit_typestr)
     }
 
+    if (val_edit_type == 49) {
+        effectstr = effectstr && effectstr.replace(/\+\[value1\]|\[value1\]/gm, val_edit_typestr)
+        var rank1ail4 = AilmentNames[val_specify]
+        var rank1strail2 = `//${rank1ail4 && rank1ail4.icon}// [${rank1ail4 && rank1ail4.name}]`
+        effectstr = effectstr && effectstr.replace(/\[val_specify\]/gm, rank1strail2)
+    }
+
     if (effect_id == 53) {
         var effect53trpull = EffectID53[parseInt(`${ailment_id}-${effect_num}`)]
         if (effect53trpull && effect53trpull.true_effect_id_number != -1) {
@@ -2314,7 +2321,7 @@ export default function ailment_effect_trans(
                 var rank1value2ailment3 = tables[`rank${i}`].value1 && Math.floor((tables[`rank${i}`].value1 % 10000) / 100)
                 var rank1value3ailment3 = tables[`rank${i}`].value1 && Math.floor( tables[`rank${i}`].value1 % 100);
                 var rank1ail3 = tables[`rank${i}`].value1 && AilmentNames[rank1value1ailment3]
-                var icon1 = rank1ail3 && rank1ail3.icon && rank1value2ailment3 != 0 ? ailment_level_icon(rank1ail3,rank1value2ailment3) : rank1ail3.icon
+                var icon1 = rank1ail3 == undefined ? "" : rank1ail3.icon && rank1value2ailment3 != 0 ? ailment_level_icon(rank1ail3,rank1value2ailment3) : rank1ail3.icon
                 var rank1strailailment3 = `//${icon1}// [${rank1ail3 && rank1ail3.name}] - #${rank1value1ailment3}`
                 if (rank1strailailment3 == "[undefined] - #0") {
                     rank1strailailment3 = undefined
