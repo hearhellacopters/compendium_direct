@@ -6,6 +6,7 @@ import { getJPToggle } from '../redux/ducks/jptoggle';
 import { getMasterIndex } from '../redux/ducks/master_index';
 import CallCharReworksHandOff from '../handoff/CharReworksHandoff';
 import Loading from '../processing/Loading'
+import  { getQuery } from '../components/URLParams.js'
 import { Navigate } from 'react-router-dom';
 
 export default function CallCharReworks(){
@@ -58,10 +59,14 @@ export default function CallCharReworks(){
 
     const filtered = ProcessedCharacters && ProcessedCharacters[Access[match.params.id]]
 
+    const { pathname } = window.location;
+    const query = getQuery();
+    const url = `${pathname}?${query.toString()}`;
+
     return (
         Access != undefined && ProcessedCharacters != undefined && jptoggledata != undefined && master_index != undefined ?
             filtered == undefined ?
-                <Navigate replace to="/404" />
+                <Navigate replace to="/404" state={{loc:url}} />
                 :
                 <CallCharReworksHandOff
                     match={match}

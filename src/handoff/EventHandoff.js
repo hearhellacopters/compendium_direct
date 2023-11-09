@@ -10,6 +10,7 @@ import ScrolltoTop from '../components/ScrollToTop.js'
 import { ImArrowRight } from 'react-icons/im';
 import { ImArrowLeft } from 'react-icons/im';
 import { FaShareSquare } from 'react-icons/fa';
+import { getQuery } from '../components/URLParams'
 
 export default function EventHandoff({ 
     match, 
@@ -47,8 +48,12 @@ export default function EventHandoff({
     });
 
     if (filtered.length === 0) {
+        
+        const { pathname } = window.location;
+        const query = getQuery();
+        const url = `${pathname}?${query.toString()}`;
         return (
-            <Navigate replace to="/404" />
+            <Navigate replace to="/404" state={{loc:url}}/>
         )
 
     } else {

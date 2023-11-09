@@ -5,7 +5,7 @@ import { TiArrowSortedDown } from 'react-icons/ti';
 import { TiArrowSortedUp } from 'react-icons/ti';
 import Tippy from './components/TippyDefaults.js';
 import EquipmentPassivesFormatting from './components/Gear/EquipmentPassivesFormatting.js';
-import {getQueryStringVal, useQueryParam } from './components/URLParams.js'
+import  {getQueryStringVal, useQueryParam, getQuery } from './components/URLParams.js'
 import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 
 function UltimaWeapons({
@@ -393,8 +393,11 @@ function UltimaWeapons({
       </div>
     )
   } else {
+    const { pathname } = window.location;
+    const query = getQuery();
+    const url = `${pathname}?${query.toString()}`;
     return (
-      <Navigate replace to="/404" />
+      <Navigate replace to="/404" state={{loc:url}}/>
     )
   }
 }

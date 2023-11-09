@@ -3,6 +3,7 @@ import ScrollHere from './components/ScrollHere.js';
 import Tippy from './components/TippyDefaults.js';
 import { Link, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import  {getQuery } from './components/URLParams.js'
 import SummonsFormatting from './components/Summons/SummonsFormatting';
 
 export default function Summons({
@@ -37,8 +38,11 @@ export default function Summons({
   });
 
   if (filtered.length === 0 && match.params.id != "crystal") {
+    const { pathname } = window.location;
+    const query = getQuery();
+    const url = `${pathname}?${query.toString()}`;
     return (
-      <Navigate replace to="/404" />
+      <Navigate replace to="/404" state={{loc:url}}/>
     )
   } else {
 

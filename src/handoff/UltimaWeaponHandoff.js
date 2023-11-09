@@ -4,6 +4,7 @@ import UltimaWeaponPageFormatting from '../UltimaWeapons';
 import { Navigate } from 'react-router-dom';
 import { getUltimaWeapon } from '../redux/ducks/ultimaweapon';
 import Loading from '../components/Loading'
+import { getQuery } from '../components/URLParams'
 
 export default function UltimaWeaponHandoff({ match }){
 
@@ -31,8 +32,12 @@ export default function UltimaWeaponHandoff({ match }){
                 <Loading />
         )
     } else {
+
+        const { pathname } = window.location;
+        const query = getQuery();
+        const url = `${pathname}?${query.toString()}`;
         return (
-            <Navigate replace to="/404" />
+            <Navigate replace to="/404" state={{loc:url}}/>
         )
 
     }

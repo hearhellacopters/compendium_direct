@@ -4,11 +4,10 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom'
 import ScrolltoTop from '../components/ScrollToTop.js'
 import { Navigate } from 'react-router-dom';
-import { ImArrowRight } from 'react-icons/im';
-import { ImArrowLeft } from 'react-icons/im';
 import { FaShareSquare } from 'react-icons/fa';
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import TalkFormatting from "../components/Talk/TalkFormatting.js";
+import { getQuery } from '../components/URLParams'
 
 export default function StoryHandoff({ 
     ver,
@@ -20,9 +19,14 @@ export default function StoryHandoff({
     const talk_pull = talk[match.params.id]
 
     if(talk_pull == undefined){
+        
+        const { pathname } = window.location;
+        const query = getQuery();
+        const url = `${pathname}?${query.toString()}`;
         return (
-            <Navigate replace to="/404" />
+            <Navigate replace to="/404" state={{loc:url}}/>
         )
+        
     }
 
     const url = window.location.href

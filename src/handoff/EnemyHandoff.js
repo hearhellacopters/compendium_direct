@@ -4,6 +4,7 @@ import DevSwitch from '../redux/DevSwitch.js'
 import { Navigate } from 'react-router-dom';
 import axios from "axios";
 import Loading from '../components/Loading.js'
+import { getQuery } from '../components/URLParams'
 
 export default function EnemyHandoff({ 
     match, 
@@ -46,9 +47,14 @@ export default function EnemyHandoff({
 
 
     if (filtered == undefined || filtered.enemy_id == undefined) {
+       
+        const { pathname } = window.location;
+        const query = getQuery();
+        const url = `${pathname}?${query.toString()}`;
         return (
-            <Navigate replace to="/404" />
+            <Navigate replace to="/404" state={{loc:url}}/>
         )
+        
     }
 
     const enemyLevels = ProcessedLevels.filter(function (ef) {

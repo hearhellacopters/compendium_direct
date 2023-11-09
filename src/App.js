@@ -73,6 +73,7 @@ const JukeBoxMini = React.lazy(() => import('./callpages/CallJukeBoxMini.js'));
 const Forecast = React.lazy(() => import('./callpages/CallForecast.js'));
 const Notices = React.lazy(() => import('./callpages/CallNotices.js'));
 const Story = React.lazy(() => import('./callpages/CallStory.js'));
+const { getQuery } = React.lazy(() => import('./components/URLParams.js'));
 
 export default function App(){
 
@@ -239,7 +240,13 @@ class ErrorBoundary extends React.Component {
   }
   render() {
     if (this.state.hasError) {
-      return <div className='content'><h1>Something went wrong.</h1></div>;
+      const { pathname } = window.location;
+      const query = getQuery();
+      const url = `${pathname}?${query.toString()}`;
+      return <div className='content'>
+        <h1>Something went wrong.</h1>
+        <div className='subheader infolocation'>Location: {url}</div>
+        </div>;
     }
     return this.props.children;
   }

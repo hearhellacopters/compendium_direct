@@ -5,6 +5,7 @@ import CharacterReworks from '../formatting/Characters/CharacterPageReworks';
 import Loading from '../processing/Loading'
 import DevSwitch from '../redux/DevSwitch';
 import { Navigate } from 'react-router-dom';
+import { getQuery } from '../components/URLParams'
 
 export default function CharReworksHandoff({ 
     match, 
@@ -37,8 +38,12 @@ export default function CharReworksHandoff({
     }, [match])
 
     if (filtered.CharID == undefined) {
+
+        const { pathname } = window.location;
+        const query = getQuery();
+        const url = `${pathname}?${query.toString()}`;
         return (
-            <Navigate replace to="/404" />
+            <Navigate replace to="/404" state={{loc:url}}/>
         )
     }
 

@@ -6,6 +6,7 @@ import { getJPToggle } from '../redux/ducks/jptoggle';
 import CharacterPageSingleFormatting from '../components/Characters/CharacterPageSingleFormatting';
 import { getEventsIndex } from '../redux/ducks/eventsIndex';
 import { getCharGuide } from '../redux/ducks/CharGuide';
+import  { getQuery } from '../components/URLParams.js'
 import Loading from '../components/Loading'
 //direct
 
@@ -96,6 +97,10 @@ export default function CallCharacter ({
 
     const filtered = ProcessedCharacters && ProcessedCharacters[Access[match.params.id]]
 
+    const { pathname } = window.location;
+    const query = getQuery();
+    const url = `${pathname}?${query.toString()}`;
+
     return (
         jptoggledata != undefined &&
             ProcessedEventsIndex != undefined &&
@@ -112,7 +117,7 @@ export default function CallCharacter ({
                     <UltimaWeaponHandoff match={match} />
                     :
                     filtered == undefined ?
-                        <Navigate replace to="/404" />
+                        <Navigate replace to="/404" state={{loc:url}}/>
                         :
                         match.params.id == "forcetime" ?
                             <ForceTimeHandoff
