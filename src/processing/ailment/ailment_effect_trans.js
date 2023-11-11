@@ -108,7 +108,7 @@ export default function ailment_effect_trans(
     if (val_edit_type == 49) {
         effectstr = effectstr && effectstr.replace(/\+\[value1\]|\[value1\]/gm, val_edit_typestr)
         var rank1ail4 = AilmentNames[val_specify]
-        var rank1strail2 = `//${rank1ail4 && rank1ail4.icon}// [${rank1ail4 && rank1ail4.name}]`
+        var rank1strail2 = `//${rank1ail4 && rank1ail4.icon}// [${rank1ail4 && rank1ail4.name}] #${val_specify}`
         effectstr = effectstr && effectstr.replace(/\[val_specify\]/gm, rank1strail2)
     }
 
