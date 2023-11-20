@@ -23,7 +23,7 @@ export default function LoadHelper(){
     const make_error = ()=>{
         const message = window.localStorage.getItem("err_mes")
         if(message!= undefined){
-            return <span className='center'>
+            return <span style={{maxWidth:"450px"}} className='center'>
                     <ObjectView 
                     options={
                         {
@@ -56,8 +56,9 @@ export default function LoadHelper(){
                             We recommend <a className="updatelink" rel="noreferrer noopener" target="_blank" href={`https://www.google.com/chrome/`}>Google Chrome Browser</a><br />
                             for maximum compatibility<br /><br />
                             If issues persistent, please notify <a className="updatelink" rel="noreferrer noopener" href="https://drive.google.com/open?id=1IJE93eDUcKIEKuQH0jwMZ7WaWVcrldUqbc6EyEZRrzs" target="_blank">admins</a><br />
+                            <br/>
+                            {make_error()}
                         </div>
-                        {make_error()}
                     </div>
                 </div>
             </div>
