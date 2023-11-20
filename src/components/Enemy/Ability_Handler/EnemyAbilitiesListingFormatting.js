@@ -9,6 +9,8 @@ import DevSwitch from '../../../redux/DevSwitch'
 import axios from "axios";
 import Option_Pars_Enemy from './OptionParsFormattingEnemy.js';
 import ailment_level_icon from '../../../processing/ailment/ailment_level_icon.js';
+import { _error } from '../../../redux/sagas/handlers/_error_state_add.js';
+import { _error_remove } from '../../../redux/sagas/handlers/_error_state_remove.js';
 
 export default function EnemyAbilitiesListingFormattingDirect({ match }){
 
@@ -30,17 +32,19 @@ export default function EnemyAbilitiesListingFormattingDirect({ match }){
         if (DevSwitch == true && currentenemyid != null && getdesc == true && abilitiespull == undefined) {
             axios.get(`http://localhost:3001/data/enemies/abilities_direct/desc/${currentenemyid}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setabilitiespull(response)
+                _error_remove(`enemies_abilities_direct_desc_${currentenemyid}`);
+                setabilitiespull(response);
             }).catch(function (err) {
-                console.log(err)
+                _error(`enemies_abilities_direct_desc_${currentenemyid}`, err.message);
             })
         }
         if (DevSwitch == false && currentenemyid != null && getdesc == true && abilitiespull == undefined) {
             axios.get(`https://www.dissidiacompendium.com/data/enemies/abilities_direct/desc/${currentenemyid}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setabilitiespull(response)
+                _error_remove(`enemies_abilities_direct_desc_${currentenemyid}`);
+                setabilitiespull(response);
             }).catch(function (err) {
-                console.log(err)
+                _error(`enemies_abilities_direct_desc_${currentenemyid}`, err.message);
             })
         }
     }, [currentenemyid, getdesc, abilitiespull, setabilitiespull])

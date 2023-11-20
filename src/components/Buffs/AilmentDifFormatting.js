@@ -15,6 +15,8 @@ import makediff from "../../processing/makediff";
 import AilmentSliderFormatting from "./AilmentSliderFormatting";
 import ailment_data_handler from "../../processing/ailment/ailment_data_handler";
 import ailment_level_icon from "../../processing/ailment/ailment_level_icon";
+import { _error } from "../../redux/sagas/handlers/_error_state_add";
+import { _error_remove } from "../../redux/sagas/handlers/_error_state_remove";
 
 function AilmentDifFormatting({
     buff_new,
@@ -147,18 +149,20 @@ function AilmentDifFormatting({
                 if (DevSwitch == true) {
                     axios.get(`http://localhost:3005/data/_dir/ailmenttextonion/${onion_passoff}`, { 'muteHttpExceptions': true }).then((res) => {
                         const response = res.data;
-                        setsetdesc(response[ver_new])
+                        _error_remove(`ailmenttextonion_${onion_passoff}`);
+                        setsetdesc(response[ver_new]);
                     }).catch(function (err) {
-                        console.log(err)
-                        setsetdesc("")
+                        _error(`ailmenttextonion_${onion_passoff}`, err.message);
+                        setsetdesc("");
                     })
                 } else {
                     axios.get(`https://www.dissidiacompendium.com/data/_dir/ailmenttextonion/${onion_passoff}.json`, { 'muteHttpExceptions': true }).then((res) => {
                         const response = res.data;
-                        setsetdesc(response[ver_new])
+                        _error_remove(`ailmenttextonion_${onion_passoff}`);
+                        setsetdesc(response[ver_new]);
                     }).catch(function (err) {
-                        console.log(err)
-                        setsetdesc("")
+                        _error(`ailmenttextonion_${onion_passoff}`, err.message);
+                        setsetdesc("");
                     })
                 }
             } else {
@@ -166,18 +170,20 @@ function AilmentDifFormatting({
                     if (DevSwitch == true) {
                         axios.get(`http://localhost:3005/data/_dir/ailmenttext/${buff_new.id}`, { 'muteHttpExceptions': true }).then((res) => {
                             const response = res.data;
-                            setsetdesc(response[ver_new])
+                            _error_remove(`ailmenttext_${buff_new.id}`);
+                            setsetdesc(response[ver_new]);
                         }).catch(function (err) {
-                            console.log(err)
-                            setsetdesc("")
+                            _error(`ailmenttext__${buff_new.id}`, err.message);
+                            setsetdesc("");
                         })
                     } else {
                         axios.get(`https://www.dissidiacompendium.com/data/_dir/ailmenttext/${buff_new.id}.json`, { 'muteHttpExceptions': true }).then((res) => {
                             const response = res.data;
-                            setsetdesc(response[ver_new])
+                            _error_remove(`ailmenttext_${buff_new.id}`);
+                            setsetdesc(response[ver_new]);
                         }).catch(function (err) {
-                            console.log(err)
-                            setsetdesc("")
+                            _error(`ailmenttext__${buff_new.id}`, err.message);
+                            setsetdesc("");
                         })
                     }
                 }

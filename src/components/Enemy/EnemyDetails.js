@@ -17,6 +17,8 @@ import ReplacerEnemyDesc from '../ReplacerEnemyDesc';
 import roles from '../../processing/ailment/ailment_tags.json'
 import Tippy from '../TippyDefaults.js';
 import EnemyGuide from './EnemyGuide';
+import { _error } from '../../redux/sagas/handlers/_error_state_add.js';
+import { _error_remove } from '../../redux/sagas/handlers/_error_state_remove.js';
 
 function EnemyDetailsDirect({ 
     match, 
@@ -329,147 +331,163 @@ function EnemyDetailsDirect({
         if (DevSwitch == true && activeDesc == true && getDesc == undefined) {
             axios.get(`http://localhost:3001/data/enemies_desc/${match.battle_enemy_id}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setgetDesc(response)
+                _error_remove(`enemies_desc_${match.battle_enemy_id}`);
+                setgetDesc(response);
             }).catch(function (err) {
-                console.log(err)
+                _error(`enemies_desc_${match.battle_enemy_id}`, err.message);
             })
         }
         if (DevSwitch == false && activeDesc == true && getDesc == undefined) {
             axios.get(`https://www.dissidiacompendium.com/data/enemies_desc/${match.battle_enemy_id}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setgetDesc(response)
+                _error_remove(`enemies_desc_${match.battle_enemy_id}`);
+                setgetDesc(response);
             }).catch(function (err) {
-                console.log(err)
+                _error(`enemies_desc_${match.battle_enemy_id}`, err.message);
             })
         }
         //casts
         if (DevSwitch == true && activeCast == true && getCast == undefined) {
             axios.get(`http://localhost:3001/data/enemies_casts/${match.battle_enemy_id}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setgetCast(response)
+                _error_remove(`enemies_casts_${match.battle_enemy_id}`);
+                setgetCast(response);
             }).catch(function (err) {
-                console.log(err)
+                _error(`enemies_casts_${match.battle_enemy_id}`, err.message);
             })
         }
         if (DevSwitch == false && activeCast == true && getCast == undefined) {
             axios.get(`https://www.dissidiacompendium.com/data/enemies_casts/${match.battle_enemy_id}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setgetCast(response)
+                _error_remove(`enemies_casts_${match.battle_enemy_id}`);
+                setgetCast(response);
             }).catch(function (err) {
-                console.log(err)
+                _error(`enemies_casts_${match.battle_enemy_id}`, err.message);
             })
         }
         //force
         if (DevSwitch == true && activeForce == true && getForce == undefined) {
             axios.get(`http://localhost:3001/data/enemies_force/${match.battle_enemy_id}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setgetForce(response)
+                _error_remove(`enemies_force_${match.battle_enemy_id}`);
+                setgetForce(response);
             }).catch(function (err) {
-                console.log(err)
+                _error(`enemies_force_${match.battle_enemy_id}`, err.message);
             })
         }
         if (DevSwitch == false && activeForce == true && getForce == undefined) {
             axios.get(`https://www.dissidiacompendium.com/data/enemies_force/${match.battle_enemy_id}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setgetForce(response)
+                _error_remove(`enemies_force_${match.battle_enemy_id}`);
+                setgetForce(response);
             }).catch(function (err) {
-                console.log(err)
+                _error(`enemies_force_${match.battle_enemy_id}`, err.message);
             })
         }
         //Graphic
         if (DevSwitch == true && activeGraphic == true && getGraphic == undefined) {
             axios.get(`http://localhost:3001/data/enemies_info/${match.battle_enemy_id}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setgetGraphic(response)
+                _error_remove(`enemies_info_${match.battle_enemy_id}`);
+                setgetGraphic(response);
             }).catch(function (err) {
-                console.log(err)
+                _error(`enemies_info_${match.battle_enemy_id}`, err.message);
             })
         }
         if (DevSwitch == false && activeGraphic == true && getGraphic == undefined) {
             axios.get(`https://www.dissidiacompendium.com/data/enemies_info/${match.battle_enemy_id}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setgetGraphic(response)
+                _error_remove(`enemies_info_${match.battle_enemy_id}`);
+                setgetGraphic(response);
             }).catch(function (err) {
-                console.log(err)
+                _error(`enemies_info_${match.battle_enemy_id}`, err.message);
             })
         }
         //Orb
         if (DevSwitch == true && activeOrb == true && getOrb == undefined) {
             axios.get(`http://localhost:3001/data/enemies_orb/${match.battle_enemy_id}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setgetOrb(response)
+                _error_remove(`enemies_orb_${match.battle_enemy_id}`);
+                setgetOrb(response);
             }).catch(function (err) {
-                console.log(err)
+                _error(`enemies_orb_${match.battle_enemy_id}`, err.message);
             })
         }
         if (DevSwitch == false && activeOrb == true && getOrb == undefined) {
             axios.get(`https://www.dissidiacompendium.com/data/enemies_orb/${match.battle_enemy_id}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setgetOrb(response)
+                _error_remove(`enemies_orb_${match.battle_enemy_id}`);
+                setgetOrb(response);
             }).catch(function (err) {
-                console.log(err)
+                _error(`enemies_orb_${match.battle_enemy_id}`, err.message);
             })
         }
         //Summons
         if (DevSwitch == true && activeSummons == true && getSummons == undefined) {
             axios.get(`http://localhost:3001/data/enemies_summons/${match.battle_enemy_id}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setgetSummons(response)
+                _error_remove(`enemies_summons_${match.battle_enemy_id}`);
+                setgetSummons(response);
             }).catch(function (err) {
-                console.log(err)
+                _error(`enemies_summons_${match.battle_enemy_id}`, err.message);
             })
         }
         if (DevSwitch == false && activeSummons == true && getSummons == undefined) {
             axios.get(`https://www.dissidiacompendium.com/data/enemies_summons/${match.battle_enemy_id}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setgetSummons(response)
+                _error_remove(`enemies_summons_${match.battle_enemy_id}`);
+                setgetSummons(response);
             }).catch(function (err) {
-                console.log(err)
+                _error(`enemies_summons_${match.battle_enemy_id}`, err.message);
             })
         }
         //Levels
         if (DevSwitch == true && activeStats == true && getStats == undefined) {
             axios.get(`http://localhost:3001/data/enemies_level/${match.battle_enemy_id}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setgetStats(response)
+                _error_remove(`enemies_level_${match.battle_enemy_id}`);
+                setgetStats(response);
             }).catch(function (err) {
-                console.log(err)
+                _error(`enemies_level_${match.battle_enemy_id}`, err.message);
             })
         }
         if (DevSwitch == false && activeStats == true && getStats == undefined) {
             axios.get(`https://www.dissidiacompendium.com/data/enemies_level/${match.battle_enemy_id}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setgetStats(response)
+                _error_remove(`enemies_level_${match.battle_enemy_id}`);
+                setgetStats(response);
             }).catch(function (err) {
-                console.log(err)
+                _error(`enemies_level_${match.battle_enemy_id}`, err.message);
             })
         }
         //Abilities
         if (activeAbilities == true && getAbilities == undefined && ProcessedLevels != undefined) {
             const filtered = ProcessedLevels.filter(self => self.enemyID == match.enemy_id).reverse()
             if (filtered.length == 0) {
-                setgetAbilities([])
+                setgetAbilities([]);
             } else {
-                setgetAbilities(filtered)
+                setgetAbilities(filtered);
             }
         }
         //guide
         if (DevSwitch == true && activeGuide == true && getGuide == undefined) {
             axios.get(`http://localhost:3001/data/enemies_guide/${match.QuestIDs[ForcetimeTab]}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setgetGuide(response)
+                _error_remove(`enemies_guide_${match.QuestIDs[ForcetimeTab]}`);
+                setgetGuide(response);
             }).catch(function (err) {
-                console.log(err)
-                setgetGuide({})
+                _error(`enemies_guide_${match.QuestIDs[ForcetimeTab]}`, err.message);
+                setgetGuide({});
             })
         }
         if (DevSwitch == false && activeGuide == true && getGuide == undefined) {
             axios.get(`https://www.dissidiacompendium.com/data/enemies_guide/${match.QuestIDs[ForcetimeTab]}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setgetGuide(response)
+                _error_remove(`enemies_guide_${match.QuestIDs[ForcetimeTab]}`);
+                setgetGuide(response);
             }).catch(function (err) {
-                console.log(err)
-                setgetGuide({})
+                _error(`enemies_guide_${match.QuestIDs[ForcetimeTab]}`, err.message);
+                setgetGuide({});
             })
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps

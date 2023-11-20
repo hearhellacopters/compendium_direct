@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
 import Random from '../processing/random'
+import { ObjectView } from 'react-object-view'
 import {getQuery} from './URLParams'
 
 export default function LoadHelper(){
@@ -18,6 +19,24 @@ export default function LoadHelper(){
     const { pathname } = window.location;
     const query = getQuery();
     const url = `${pathname}?${query.toString()}`;
+
+    const make_error = ()=>{
+        const message = window.localStorage.getItem("err_mes")
+        if(message!= undefined){
+            return <span className='center'>
+                    <ObjectView 
+                    options={
+                        {
+                            hideDataTypes: true,
+                            expandLevel: 1
+                        }
+                        }
+                    data={JSON.parse(message)} 
+                    />
+                </span>
+        }
+        return  ""
+    }
 
     return (
         timeout == false
@@ -38,6 +57,7 @@ export default function LoadHelper(){
                             for maximum compatibility<br /><br />
                             If issues persistent, please notify <a className="updatelink" rel="noreferrer noopener" href="https://drive.google.com/open?id=1IJE93eDUcKIEKuQH0jwMZ7WaWVcrldUqbc6EyEZRrzs" target="_blank">admins</a><br />
                         </div>
+                        {make_error()}
                     </div>
                 </div>
             </div>

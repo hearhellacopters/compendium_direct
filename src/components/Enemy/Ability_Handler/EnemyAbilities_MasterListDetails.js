@@ -3,6 +3,8 @@ import { useStateIfMounted } from "use-state-if-mounted";
 import DevSwitch from '../../../redux/DevSwitch'
 import EnemyAbilityHandoff from './EnemyAbilitiesListing';
 import axios from "axios";
+import { _error } from '../../../redux/sagas/handlers/_error_state_add';
+import { _error_remove } from '../../../redux/sagas/handlers/_error_state_remove';
 
 export default function EnemyAbilities_MasterListDetails({
     ai,
@@ -17,33 +19,37 @@ export default function EnemyAbilities_MasterListDetails({
         if (DevSwitch == true && enemy_id != undefined) {
             axios.get(`http://localhost:3001/data/enemies/abilities_direct/${enemy_id}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setenemyabilities(response)
+                _error_remove(`enemies_abilities_direct_${enemy_id}`);
+                setenemyabilities(response);
             }).catch(function (err) {
-                console.log(err)
+                _error(`enemies_abilities_direct_${enemy_id}`, err.message);
             })
         }
         if (DevSwitch == false && enemy_id != undefined) {
             axios.get(`https://www.dissidiacompendium.com/data/enemies/abilities_direct/${enemy_id}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setenemyabilities(response)
+                _error_remove(`enemies_abilities_direct_${enemy_id}`);
+                setenemyabilities(response);
             }).catch(function (err) {
-                console.log(err)
+                _error(`enemies_abilities_direct_${enemy_id}`, err.message);
             })
         }
         if (DevSwitch == true && ai != undefined) {
             axios.get(`http://localhost:3001/data/enemies/AI/${ai}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setenemyai(response)
+                _error_remove(`enemies_ai_${ai}`);
+                setenemyai(response);
             }).catch(function (err) {
-                console.log(err)
+                _error(`enemies_ai_${ai}`, err.message);
             })
         }
         if (DevSwitch == false && ai != undefined) {
             axios.get(`https://www.dissidiacompendium.com/data/enemies/AI/${ai}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setenemyai(response)
+                _error_remove(`enemies_ai_${ai}`);
+                setenemyai(response);
             }).catch(function (err) {
-                console.log(err)
+                _error(`enemies_ai_${ai}`, err.message);
             })
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps

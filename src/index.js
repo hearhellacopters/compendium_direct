@@ -7,6 +7,8 @@ import App from './App';
 const container = document.getElementById('root');
 const root = createRoot(container);
 
+window.localStorage.setItem('err_mes', "{}")
+
 root.render(
   <Provider store={store}>
     <App />

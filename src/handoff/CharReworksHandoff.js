@@ -5,7 +5,9 @@ import CharacterReworks from '../formatting/Characters/CharacterPageReworks';
 import Loading from '../processing/Loading'
 import DevSwitch from '../redux/DevSwitch';
 import { Navigate } from 'react-router-dom';
-import { getQuery } from '../components/URLParams'
+import { getQuery } from '../components/URLParams';
+import { _error } from '../redux/sagas/handlers/_error_state_add';
+import { _error_remove } from '../redux/sagas/handlers/_error_state_remove';
 
 export default function CharReworksHandoff({ 
     match, 
@@ -21,17 +23,19 @@ export default function CharReworksHandoff({
         if (DevSwitch == true && filtered.CharID != undefined) {
             axios.get(`http://localhost:3001/data/reworks/${filtered.CharID}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
+                _error_remove(`rework_${filtered.CharID}`);
                 setProcessedReworks(response)
             }).catch(function (err) {
-                console.log(err)
+                _error(`rework_${filtered.CharID}`, err.message);
             })
         }
         if (DevSwitch == false && filtered.CharID != undefined) {
             axios.get(`https://www.dissidiacompendium.com/data/reworks/${filtered.CharID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
+                _error_remove(`rework_${filtered.CharID}`);
                 setProcessedReworks(response)
             }).catch(function (err) {
-                console.log(err)
+                _error(`rework_${filtered.CharID}`, err.message);
             })
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps

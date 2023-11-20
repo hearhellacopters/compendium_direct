@@ -28,6 +28,8 @@ import CharacterPageFormatting from './CharacterPageFormatting.js';
 import CharacterReworks from './CharacterPageReworks.js'
 import CharacterPageCommunity from './CharacterPageCommunity.js';
 import UseOnClickOutside from '../UseOnClickOutside.js';
+import { _error } from '../../redux/sagas/handlers/_error_state_add.js';
+import { _error_remove } from '../../redux/sagas/handlers/_error_state_remove.js';
 
 export default function CharacterPageSingleFormatting({
     Access,
@@ -159,20 +161,22 @@ export default function CharacterPageSingleFormatting({
             setProcessedReworks(undefined)
             axios.get(`http://localhost:3001/data/reworks/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setProcessedReworks(selected_char.ActiveRework == true ? response : [])
-                setpreviousIDrework(selectedCharaID + ver)
+                _error_remove(`reworks_${selectedCharaID}`);
+                setProcessedReworks(selected_char.ActiveRework == true ? response : []);
+                setpreviousIDrework(selectedCharaID + ver);
             }).catch(function (err) {
-                console.log(err)
+                _error(`reworks_${selectedCharaID}`, err.message);
             })
         }
         if (DevSwitch == false && loc == "reworks" && previousIDrework != `${selectedCharaID}${ver}` && selectedCharaID != undefined) {
             setProcessedReworks(undefined)
             axios.get(`https://www.dissidiacompendium.com/data/reworks/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setProcessedReworks(selected_char.ActiveRework == true ? response : [])
-                setpreviousIDrework(selectedCharaID + ver)
+                _error_remove(`reworks_${selectedCharaID}`);
+                setProcessedReworks(selected_char.ActiveRework == true ? response : []);
+                setpreviousIDrework(selectedCharaID + ver);
             }).catch(function (err) {
-                console.log(err)
+                _error(`reworks_${selectedCharaID}`, err.message);
             })
         }
         //profile
@@ -180,36 +184,40 @@ export default function CharacterPageSingleFormatting({
             setProcessedVoices(undefined)
             axios.get(`http://localhost:3001/data/characters/voice/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setProcessedVoices(response)
-                setpreviousIDprofile(selectedCharaID + ver)
+                _error_remove(`voice_${selectedCharaID}`);
+                setProcessedVoices(response);
+                setpreviousIDprofile(selectedCharaID + ver);
             }).catch(function (err) {
-                console.log(err)
+                _error(`voice_${selectedCharaID}`, err.message);
             })
             setCharStickers(undefined)
             axios.get(`http://localhost:3001/data/characters/stickers/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setCharStickers(response)
-                setpreviousIDprofile(selectedCharaID + ver)
+                _error_remove(`stickers_${selectedCharaID}`);
+                setCharStickers(response);
+                setpreviousIDprofile(selectedCharaID + ver);
             }).catch(function (err) {
-                console.log(err)
+                _error(`stickers_${selectedCharaID}`, err.message);
             })
         }
         if (DevSwitch == false && loc == "character" && previousIDprofile != `${selectedCharaID}${ver}` && selectedCharaID != undefined) {
             setProcessedVoices(undefined)
             axios.get(`https://www.dissidiacompendium.com/data/characters/voice/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setProcessedVoices(response)
-                setpreviousIDprofile(selectedCharaID + ver)
+                _error_remove(`voice_${selectedCharaID}`);
+                setProcessedVoices(response);
+                setpreviousIDprofile(selectedCharaID + ver);
             }).catch(function (err) {
-                console.log(err)
+                _error(`voice_${selectedCharaID}`, err.message);
             })
             setCharStickers(undefined)
             axios.get(`https://www.dissidiacompendium.com/data/characters/stickers/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setCharStickers(response)
-                setpreviousIDprofile(selectedCharaID + ver)
+                _error_remove(`stickers_${selectedCharaID}`);
+                setCharStickers(response);
+                setpreviousIDprofile(selectedCharaID + ver);
             }).catch(function (err) {
-                console.log(err)
+                _error(`stickers_${selectedCharaID}`, err.message);
             })
         }
         //event
@@ -217,42 +225,46 @@ export default function CharacterPageSingleFormatting({
             seteventdata(undefined)
             axios.get(`http://localhost:3005/data/events/${ver}New/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                seteventdata(response)
-                setpreviousIDevent(selectedCharaID + ver)
+                _error_remove(`events_new_${ver}_${selectedCharaID}`);
+                seteventdata(response);
+                setpreviousIDevent(selectedCharaID + ver);
             }).catch(function (err) {
-                console.log(err)
+                _error(`events_new_${ver}_${selectedCharaID}`, err.message);
             })
         }
         if (DevSwitch == false && loc == "events" && previousIDevent != `${selectedCharaID}${ver}` && ProcessedCharacters[selectedCharaID][`${ver}basic`] == true && ProcessedCharacters[selectedCharaID][`${ver}events`] == true) {
             seteventdata(undefined)
             axios.get(`https://www.dissidiacompendium.com/data/_dir/_m/events/${ver}New/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                seteventdata(response)
-                setpreviousIDevent(selectedCharaID + ver)
+                _error_remove(`events_new_${ver}_${selectedCharaID}`);
+                seteventdata(response);
+                setpreviousIDevent(selectedCharaID + ver);
             }).catch(function (err) {
-                console.log(err)
+                _error(`events_new_${ver}_${selectedCharaID}`, err.message);
             })
         }
         //spheres
         if (DevSwitch == true && loc == "spheres" && previousIDspheres != `${selectedCharaID}${ver}` && ProcessedCharacters[selectedCharaID][`${ver}basic`] == true && ProcessedCharacters[selectedCharaID][`${ver}spheres`] == true) {
             axios.get(`http://localhost:3005/data/ex_skill/${ver}New/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setspheresdata(response)
-                setprofiledata(selected_char)
-                setpreviousIDspheres(selectedCharaID + ver)
+                _error_remove(`ex_skill_new_${ver}_${selectedCharaID}`);
+                setspheresdata(response);
+                setprofiledata(selected_char);
+                setpreviousIDspheres(selectedCharaID + ver);
 
             }).catch(function (err) {
-                console.log(err)
+                _error(`ex_skill_new_${ver}_${selectedCharaID}`, err.message);
             })
         }
         if (DevSwitch == false && loc == "spheres" && previousIDspheres != `${selectedCharaID}${ver}` && ProcessedCharacters[selectedCharaID][`${ver}basic`] == true && ProcessedCharacters[selectedCharaID][`${ver}spheres`] == true) {
             axios.get(`https://www.dissidiacompendium.com/data/_dir/_m/ex_skill/${ver}New/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setspheresdata(response)
-                setprofiledata(selected_char)
-                setpreviousIDspheres(selectedCharaID + ver)
+                _error_remove(`ex_skill_new_${ver}_${selectedCharaID}`);
+                setspheresdata(response);
+                setprofiledata(selected_char);
+                setpreviousIDspheres(selectedCharaID + ver);
             }).catch(function (err) {
-                console.log(err)
+                _error(`ex_skill_new_${ver}_${selectedCharaID}`, err.message);
             })
         }
         //sum_fix_passive
@@ -260,20 +272,22 @@ export default function CharacterPageSingleFormatting({
             setboarddata(undefined)
             axios.get(`http://localhost:3005/data/sum_fix_passive/${ver}New/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setboarddata(response)
-                setpreviousIDboard(selectedCharaID + ver)
+                _error_remove(`sum_fix_passive_new_${ver}_${selectedCharaID}`);
+                setboarddata(response);
+                setpreviousIDboard(selectedCharaID + ver);
             }).catch(function (err) {
-                console.log(err)
+                _error(`sum_fix_passive_new_${ver}_${selectedCharaID}`, err.message);
             })
         }
         if (DevSwitch == false && loc == "passives" && match.params.type == "boards" && previousIDboard != `${selectedCharaID}${ver}` && ProcessedCharacters[selectedCharaID][`${ver}basic`] == true && ProcessedCharacters[selectedCharaID][`${ver}sum_fix`] == true) {
             setboarddata(undefined)
             axios.get(`https://www.dissidiacompendium.com/data/_dir/_m/sum_fix_passive/${ver}New/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setboarddata(response)
-                setpreviousIDboard(selectedCharaID + ver)
+                _error_remove(`sum_fix_passive_new_${ver}_${selectedCharaID}`);
+                setboarddata(response);
+                setpreviousIDboard(selectedCharaID + ver);
             }).catch(function (err) {
-                console.log(err)
+                _error(`sum_fix_passive_new_${ver}_${selectedCharaID}`, err.message);
             })
         }
         //gear
@@ -281,20 +295,22 @@ export default function CharacterPageSingleFormatting({
             setequipmentdata(undefined)
             axios.get(`http://localhost:3005/data/equipment_passive_character/${ver}New/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setequipmentdata(response)
-                setpreviousIDequipment(selectedCharaID + ver)
+                _error_remove(`equipment_passive_character_new_${ver}_${selectedCharaID}`);
+                setequipmentdata(response);
+                setpreviousIDequipment(selectedCharaID + ver);
             }).catch(function (err) {
-                console.log(err)
+                _error(`equipment_passive_character_new_${ver}_${selectedCharaID}`, err.message);
             })
         }
         if (DevSwitch == false && loc == "gear" && previousIDequipment != `${selectedCharaID}${ver}` && ProcessedCharacters[selectedCharaID][`${ver}basic`] == true && ProcessedCharacters[selectedCharaID][`${ver}gear`] == true) {
             setequipmentdata(undefined)
             axios.get(`https://www.dissidiacompendium.com/data/_dir/_m/equipment_passive_character/${ver}New/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setequipmentdata(response)
-                setpreviousIDequipment(selectedCharaID + ver)
+                _error_remove(`equipment_passive_character_new_${ver}_${selectedCharaID}`);
+                setequipmentdata(response);
+                setpreviousIDequipment(selectedCharaID + ver);
             }).catch(function (err) {
-                console.log(err)
+                _error(`equipment_passive_character_new_${ver}_${selectedCharaID}`, err.message);
             })
         }
         //link
@@ -302,22 +318,24 @@ export default function CharacterPageSingleFormatting({
             setlinkeddata(undefined)
             axios.get(`http://localhost:3005/data/link_chara/${ver}New/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setlinkeddata(response)
-                setpreviousIDlink(selectedCharaID + ver)
+                _error_remove(`link_chara_new_${ver}_${selectedCharaID}`);
+                setlinkeddata(response);
+                setpreviousIDlink(selectedCharaID + ver);
             }).catch(function (err) {
-                setlinkeddata([])
-                console.log(err)
+                setlinkeddata([]);
+                _error(`link_chara_new_${ver}_${selectedCharaID}`, err.message);
             })
         }
         if (DevSwitch == false && loc == "passives" && match.params.type == "force" && previousIDlink != `${selectedCharaID}${ver}` && ProcessedCharacters[selectedCharaID][`${ver}basic`] == true && ProcessedCharacters[selectedCharaID][`${ver}link`] == true) {
             setlinkeddata(undefined)
             axios.get(`https://www.dissidiacompendium.com/data/_dir/_m/link_chara/${ver}New/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setlinkeddata(response)
-                setpreviousIDlink(selectedCharaID + ver)
+                _error_remove(`link_chara_new_${ver}_${selectedCharaID}`);
+                setlinkeddata(response);
+                setpreviousIDlink(selectedCharaID + ver);
             }).catch(function (err) {
-                setlinkeddata([])
-                console.log(err.response.status)
+                setlinkeddata([]);
+                _error(`link_chara_new_${ver}_${selectedCharaID}`, err.message);
             })
         }
         //crystal
@@ -325,20 +343,22 @@ export default function CharacterPageSingleFormatting({
             setcpassivedata(undefined)
             axios.get(`http://localhost:3005/data/crystal_awakening_chara/${ver}New/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setcpassivedata(response)
-                setpreviousIDcpassive(selectedCharaID + ver)
+                _error_remove(`crystal_awakening_chara_new_${ver}_${selectedCharaID}`);
+                setcpassivedata(response);
+                setpreviousIDcpassive(selectedCharaID + ver);
             }).catch(function (err) {
-                console.log(err)
+                _error(`crystal_awakening_chara_new_${ver}_${selectedCharaID}`, err.message);
             })
         }
         if (DevSwitch == false && loc == "passives" && match.params.type == "crystal" && previousIDcpassive != `${selectedCharaID}${ver}` && ProcessedCharacters[selectedCharaID][`${ver}basic`] == true && ProcessedCharacters[selectedCharaID][`${ver}crystal`] == true) {
             setcpassivedata(undefined)
             axios.get(`https://www.dissidiacompendium.com/data/_dir/_m/crystal_awakening_chara/${ver}New/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setcpassivedata(response)
-                setpreviousIDcpassive(selectedCharaID + ver)
+                _error_remove(`crystal_awakening_chara_new_${ver}_${selectedCharaID}`);
+                setcpassivedata(response);
+                setpreviousIDcpassive(selectedCharaID + ver);
             }).catch(function (err) {
-                console.log(err)
+                _error(`crystal_awakening_chara_new_${ver}_${selectedCharaID}`, err.message);
             })
         }
         //exp
@@ -346,20 +366,22 @@ export default function CharacterPageSingleFormatting({
             setexpdata(undefined)
             axios.get(`http://localhost:3005/data/chara_level_ability/${ver}New/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setexpdata(response)
-                setpreviousIDexp(selectedCharaID + ver)
+                _error_remove(`chara_level_ability_new_${ver}_${selectedCharaID}`);
+                setexpdata(response);
+                setpreviousIDexp(selectedCharaID + ver);
             }).catch(function (err) {
-                console.log(err)
+                _error(`chara_level_ability_new_${ver}_${selectedCharaID}`, err.message);
             })
         }
         if (DevSwitch == false && loc == "passives" && match.params.type == "exp" && previousIDexp != `${selectedCharaID}${ver}` && ProcessedCharacters[selectedCharaID][`${ver}basic`] == true && ProcessedCharacters[selectedCharaID][`${ver}exp`] == true) {
             setexpdata(undefined)
             axios.get(`https://www.dissidiacompendium.com/data/_dir/_m/chara_level_ability/${ver}New/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setexpdata(response)
-                setpreviousIDexp(selectedCharaID + ver)
+                _error_remove(`chara_level_ability_new_${ver}_${selectedCharaID}`);
+                setexpdata(response);
+                setpreviousIDexp(selectedCharaID + ver);
             }).catch(function (err) {
-                console.log(err)
+                _error(`chara_level_ability_new_${ver}_${selectedCharaID}`, err.message);
             })
         }
         //art
@@ -367,20 +389,22 @@ export default function CharacterPageSingleFormatting({
             setartdata(undefined)
             axios.get(`http://localhost:3005/data/art_passive_bycharacter/${ver}New/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setartdata(response)
-                setpreviousIDart(selectedCharaID + ver)
+                _error_remove(`art_passive_bycharacter_new_${ver}_${selectedCharaID}`);
+                setartdata(response);
+                setpreviousIDart(selectedCharaID + ver);
             }).catch(function (err) {
-                console.log(err)
+                _error(`art_passive_bycharacter_new_${ver}_${selectedCharaID}`, err.message);
             })
         }
         if (DevSwitch == false && loc == "passives" && match.params.type == "arts" && previousIDart != `${selectedCharaID}${ver}` && ProcessedCharacters[selectedCharaID][`${ver}basic`] == true && ProcessedCharacters[selectedCharaID][`${ver}art`] == true) {
             setartdata(undefined)
             axios.get(`https://www.dissidiacompendium.com/data/_dir/_m/art_passive_bycharacter/${ver}New/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setartdata(response)
-                setpreviousIDart(selectedCharaID + ver)
+                _error_remove(`art_passive_bycharacter_new_${ver}_${selectedCharaID}`);
+                setartdata(response);
+                setpreviousIDart(selectedCharaID + ver);
             }).catch(function (err) {
-                console.log(err)
+                _error(`art_passive_bycharacter_new_${ver}_${selectedCharaID}`, err.message);
             })
         }
         //ability
@@ -388,36 +412,40 @@ export default function CharacterPageSingleFormatting({
             setabilitydata(undefined)
             axios.get(`http://localhost:3005/data/character_ability_character/${ver}New/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setabilitydata(response)
-                setpreviousIDability(selectedCharaID + ver)
+                _error_remove(`character_ability_character_new_${ver}_${selectedCharaID}`);
+                setabilitydata(response);
+                setpreviousIDability(selectedCharaID + ver);
             }).catch(function (err) {
-                console.log(err)
+                _error(`character_ability_character_new_${ver}_${selectedCharaID}`, err.message);
             })
             setbuffdata(undefined)
             axios.get(`http://localhost:3005/data/ailmentdefault_character/${ver}New/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setbuffdata(response)
-                setpreviousIDability(selectedCharaID + ver)
+                _error_remove(`ailmentdefault_character_new_${ver}_${selectedCharaID}`);
+                setbuffdata(response);
+                setpreviousIDability(selectedCharaID + ver);
             }).catch(function (err) {
-                console.log(err)
+                _error(`ailmentdefault_character_new_${ver}_${selectedCharaID}`, err.message);
             })
         }
         if (DevSwitch == false && loc == "abilities" && previousIDability != `${selectedCharaID}${ver}` && ProcessedCharacters[selectedCharaID][`${ver}basic`] == true && ProcessedCharacters[selectedCharaID][`${ver}abilities`] == true) {
             setabilitydata(undefined)
             axios.get(`https://www.dissidiacompendium.com/data/_dir/_m/character_ability_character/${ver}New/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setabilitydata(response)
-                setpreviousIDability(selectedCharaID + ver)
+                _error_remove(`character_ability_character_new_${ver}_${selectedCharaID}`);
+                setabilitydata(response);
+                setpreviousIDability(selectedCharaID + ver);
             }).catch(function (err) {
-                console.log(err)
+                _error(`character_ability_character_new_${ver}_${selectedCharaID}`, err.message);
             })
             setbuffdata(undefined)
             axios.get(`https://www.dissidiacompendium.com/data/_dir/_m/ailmentdefault_character/${ver}New/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setbuffdata(response)
-                setpreviousIDability(selectedCharaID + ver)
+                _error_remove(`ailmentdefault_character_new_${ver}_${selectedCharaID}`);
+                setbuffdata(response);
+                setpreviousIDability(selectedCharaID + ver);
             }).catch(function (err) {
-                console.log(err)
+                _error(`ailmentdefault_character_new_${ver}_${selectedCharaID}`, err.message);
             })
         }
         //buffs
@@ -425,37 +453,40 @@ export default function CharacterPageSingleFormatting({
             setabilitydata(undefined)
             axios.get(`http://localhost:3005/data/character_ability_character/${ver}New/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setabilitydata(response)
-                setpreviousIDability(selectedCharaID + ver)
+                _error_remove(`character_ability_character_new_${ver}_${selectedCharaID}`);
+                setabilitydata(response);
+                setpreviousIDability(selectedCharaID + ver);
             }).catch(function (err) {
-                console.log(err)
+                _error(`character_ability_character_new_${ver}_${selectedCharaID}`, err.message);
             })
             setbuffdata(undefined)
             axios.get(`http://localhost:3005/data/ailmentdefault_character/${ver}New/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setbuffdata(response)
-                setpreviousIDability(selectedCharaID + ver)
+                _error_remove(`ailmentdefault_character_new_${ver}_${selectedCharaID}`);
+                setbuffdata(response);
+                setpreviousIDability(selectedCharaID + ver);
             }).catch(function (err) {
-                console.log(err)
+                _error(`ailmentdefault_character_new_${ver}_${selectedCharaID}`, err.message);
             })
         }
         if (DevSwitch == false && loc == "buffs" && previousIDability != `${selectedCharaID}${ver}` && ProcessedCharacters[selectedCharaID][`${ver}basic`] == true && ProcessedCharacters[selectedCharaID][`${ver}buffs`] == true) {
             setabilitydata(undefined)
             axios.get(`https://www.dissidiacompendium.com/data/_dir/_m/character_ability_character/${ver}New/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setabilitydata(response)
-                setpreviousIDability(selectedCharaID + ver)
+                _error_remove(`character_ability_character_new_${ver}_${selectedCharaID}`);
+                setabilitydata(response);
+                setpreviousIDability(selectedCharaID + ver);
             }).catch(function (err) {
-                console.log(err)
+                _error(`character_ability_character_new_${ver}_${selectedCharaID}`, err.message);
             })
             setbuffdata(undefined)
             axios.get(`https://www.dissidiacompendium.com/data/_dir/_m/ailmentdefault_character/${ver}New/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setbuffdata(response)
-                setpreviousIDability(selectedCharaID + ver)
-
+                _error_remove(`ailmentdefault_character_new_${ver}_${selectedCharaID}`);
+                setbuffdata(response);
+                setpreviousIDability(selectedCharaID + ver);
             }).catch(function (err) {
-                console.log(err)
+                _error(`ailmentdefault_character_new_${ver}_${selectedCharaID}`, err.message);
             })
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps

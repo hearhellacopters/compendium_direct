@@ -19,6 +19,8 @@ import { FaUndoAlt } from 'react-icons/fa'
 import MissionFormatting from './components/Missions/MissionFormatting';
 import PanelFormatting from './components/Missions/PanelFormatting';
 import Select from 'react-select';
+import { _error } from './redux/sagas/handlers/_error_state_add';
+import { _error_remove } from './redux/sagas/handlers/_error_state_remove';
 
 export default function Missions({
     jptoggledata
@@ -48,9 +50,10 @@ export default function Missions({
         if(rawData.length == 0){
             axios.get(`https://www.dissidiacompendium.com/data/_dir/missions/${JP==true?"JP":"GL"}${banerDisplayTerm}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
+                _error_remove(`missions_${JP==true?"JP":"GL"}_${banerDisplayTerm}`);
                 setrawData(response)
             }).catch(function (err) {
-                console.log(err)
+                _error(`missions_${JP==true?"JP":"GL"}_${banerDisplayTerm}`, err.message);
                 setrawData([])
             })
         }

@@ -530,6 +530,9 @@ function AbilityPars({
 
                     {character_ability.FR == true && ProcessedCharacters != undefined?
                         ProcessedCharacters[character_ability.charaID] &&
+                            ProcessedCharacters[character_ability.charaID].FR_Partner_dir != undefined ?
+                            ReplacerCharacter(`Summons ${ProcessedCharacters[character_ability.charaID].FR_Partner_dir}\n`,form)
+                            :
                             ProcessedCharacters[character_ability.charaID].FR_Partner != undefined &&
                             char_id[ProcessedCharacters[character_ability.charaID].FR_Partner] != undefined ?
                             ReplacerCharacter(`Summons ${char_id[ProcessedCharacters[character_ability.charaID].FR_Partner].CharacterName}\n`,form)

@@ -10,6 +10,8 @@ import StoryFormatting from "./StoryFormatting";
 import { Link } from "react-router-dom";
 import { LazyLoadImage, trackWindowScroll } from "react-lazy-load-image-component";
 import axios from 'axios';
+import { _error } from "../../redux/sagas/handlers/_error_state_add.js";
+import { _error_remove } from "../../redux/sagas/handlers/_error_state_remove.js";
 
 function TalkFormatting({
     ver,
@@ -61,10 +63,11 @@ function TalkFormatting({
             if(data && data[ver] == true){
                 axios.get(`https://www.dissidiacompendium.com/data/talk/${ver}/${data.battle_id != undefined ? "battle_event_"+data.battle_id.toString().padStart(3, '0') : "talk_event_"+data.talk_id.toString().padStart(3, '0')}.json`, { 'muteHttpExceptions': true }).then((res) => {
                     const response = res.data;
-                    setactive(data)
-                    settalk_data(response)
+                    _error_remove(`talk_${ver}_${data.battle_id != undefined ? "battle_event_"+data.battle_id.toString().padStart(3, '0') : "talk_event_"+data.talk_id.toString().padStart(3, '0')}`);
+                    setactive(data);
+                    settalk_data(response);
                 }).catch(function (err) {
-                    console.log(err)
+                    _error(`talk_${ver}_${data.battle_id != undefined ? "battle_event_"+data.battle_id.toString().padStart(3, '0') : "talk_event_"+data.talk_id.toString().padStart(3, '0')}`, err.message);
                 })
             } else {
                 setactive(data)

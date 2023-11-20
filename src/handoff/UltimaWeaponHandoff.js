@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import UltimaWeaponPageFormatting from '../UltimaWeapons';
 import { Navigate } from 'react-router-dom';
 import { getUltimaWeapon } from '../redux/ducks/ultimaweapon';
-import Loading from '../components/Loading'
-import { getQuery } from '../components/URLParams'
+import Loading from '../components/Loading';
+import { getQuery } from '../components/URLParams';
 
 export default function UltimaWeaponHandoff({ match }){
 

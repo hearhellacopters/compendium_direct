@@ -14,10 +14,12 @@ import MissionFormatting from '../Missions/MissionFormatting.js';
 import Sphere_Passive_Ability_Formatting from '../Passives/PassiveSphereFormatting.js';
 import { useDispatch, useSelector } from "react-redux";
 import { getJPToggle } from '../../redux/ducks/jptoggle.js';
-import Tippy from '../TippyDefaults.js'
-import { ObjectView } from 'react-object-view'
+import Tippy from '../TippyDefaults.js';
+import { ObjectView } from 'react-object-view';
 import { ImWarning } from 'react-icons/im';
 import TalkFormatting from '../Talk/TalkFormatting.js';
+import { _error } from '../../redux/sagas/handlers/_error_state_add.js';
+import { _error_remove } from '../../redux/sagas/handlers/_error_state_remove.js';
 
 //direct
 
@@ -68,10 +70,11 @@ function EventsFormatting({
        if(showingshoplist == true && match.shop != undefined && shopdata.length == 0){
             axios.get(`https://www.dissidiacompendium.com/data/_dir/shops/${match.tempdate == true ? "JP":"GL"}/${match.shop}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setshopdata(response)
+                _error_remove(`shops_${match.tempdate == true ? "JP":"GL"}_${match.shop}`);
+                setshopdata(response);
             }).catch(function (err) {
-                console.log(err)
-                setshopdata([])
+                _error(`shops_${match.tempdate == true ? "JP":"GL"}_${match.shop}`, err.message);
+                setshopdata([]);
             })
         }
     },[match,showingshoplist,shopdata])
@@ -80,10 +83,11 @@ function EventsFormatting({
         if(showingmissionlist == true && match.missions == true && missiondata.length == 0){
              axios.get(`https://www.dissidiacompendium.com/data/_dir/missions/${match.tempdate == true ? "JP":"GL"}fields/${match.field_id}.json`, { 'muteHttpExceptions': true }).then((res) => {
                  const response = res.data;
-                 setmissiondata(response)
+                 _error_remove(`shops_${match.tempdate == true ? "JP":"GL"}_${match.shop}`);
+                 setmissiondata(response);
              }).catch(function (err) {
-                 console.log(err)
-                 setmissiondata([])
+                _error(`shops_${match.tempdate == true ? "JP":"GL"}_${match.shop}`, err.message);
+                 setmissiondata([]);
              })
          }
      },[match,showingmissionlist,missiondata])

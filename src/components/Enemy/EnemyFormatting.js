@@ -25,7 +25,9 @@ import cleaner from '../../processing/format_cleaner.js';
 import { setTrue, setFalse } from '../../redux/ducks/jptoggle.js';
 import axios from "axios";
 import EnemyGuide from './EnemyGuide.js';
-import { ObjectView } from 'react-object-view'
+import { ObjectView } from 'react-object-view';
+import { _error } from '../../redux/sagas/handlers/_error_state_add.js';
+import { _error_remove } from '../../redux/sagas/handlers/_error_state_remove.js';
 
 function EnemyFormatting({ 
     match, 
@@ -443,19 +445,21 @@ function EnemyFormatting({
         if (DevSwitch == true && abilities == "guide" && getGuide == undefined) {
             axios.get(`http://localhost:3001/data/enemies_guide/${enemy.QuestIDs[ForcetimeTab]}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setgetGuide(response)
+                _error_remove(`enemies_guide_${enemy.QuestIDs[ForcetimeTab]}`);
+                setgetGuide(response);
             }).catch(function (err) {
-                console.log(err)
-                setgetGuide({})
+                _error(`enemies_guide_${enemy.QuestIDs[ForcetimeTab]}`, err.message);
+                setgetGuide({});
             })
         }
         if (DevSwitch == false && abilities == "guide" && getGuide == undefined) {
             axios.get(`https://www.dissidiacompendium.com/data/enemies_guide/${enemy.QuestIDs[ForcetimeTab]}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
-                setgetGuide(response)
+                _error_remove(`enemies_guide_${enemy.QuestIDs[ForcetimeTab]}`);
+                setgetGuide(response);
             }).catch(function (err) {
-                console.log(err)
-                setgetGuide({})
+                _error(`enemies_guide_${enemy.QuestIDs[ForcetimeTab]}`, err.message);
+                setgetGuide({});
             })
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps

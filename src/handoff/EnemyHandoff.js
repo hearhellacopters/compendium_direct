@@ -3,8 +3,10 @@ import EnemyFormattingDirect from '../components/Enemy/EnemyFormatting.js'
 import DevSwitch from '../redux/DevSwitch.js'
 import { Navigate } from 'react-router-dom';
 import axios from "axios";
-import Loading from '../components/Loading.js'
-import { getQuery } from '../components/URLParams'
+import Loading from '../components/Loading.js';
+import { getQuery } from '../components/URLParams';
+import { _error } from '../redux/sagas/handlers/_error_state_add.js';
+import { _error_remove } from '../redux/sagas/handlers/_error_state_remove.js';
 
 export default function EnemyHandoff({ 
     match, 
@@ -27,17 +29,19 @@ export default function EnemyHandoff({
         if (DevSwitch == true && filtered && filtered.battle_enemy_id != undefined) {
             axios.get(`http://localhost:3001/data/enemies_direct/${filtered.battle_enemy_id}`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
+                _error_remove(`enemies_direct_${filtered.battle_enemy_id}`);
                 setbattle_enemy(response)
             }).catch(function (err) {
-                console.log(err)
+                _error(`enemies_direct_${filtered.battle_enemy_id}`, err.message);
             })
         }
         if (DevSwitch == false && filtered && filtered.battle_enemy_id != undefined) {
             axios.get(`https://www.dissidiacompendium.com/data/enemies_direct/${filtered.battle_enemy_id}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
+                _error_remove(`enemies_direct_${filtered.battle_enemy_id}`);
                 setbattle_enemy(response)
             }).catch(function (err) {
-                console.log(err)
+                _error(`enemies_direct_${filtered.battle_enemy_id}`, err.message);
             })
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps

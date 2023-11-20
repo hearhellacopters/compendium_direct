@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import CharacterWardrobePage from '../Wardrobe';
 import { Navigate } from 'react-router-dom';
 import { getCharacters } from '../redux/ducks/characters';
-import Loading from '../components/Loading'
-import { getQuery } from '../components/URLParams'
+import Loading from '../components/Loading';
+import { getQuery } from '../components/URLParams';
 
 export default function WardrobeHandoff({ match }){
 

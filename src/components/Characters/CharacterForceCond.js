@@ -13,7 +13,20 @@ function CharacterForceCond({
     scrollPosition 
 }){
 
-    const Partner = match.FR_Partner == undefined ? ProcessedCharacters[1] : ProcessedCharacters[match.FR_Partner]
+    var Partner = ProcessedCharacters[1]
+
+    if(match.FR_Partner != undefined){
+        Partner = ProcessedCharacters[match.FR_Partner]
+    }
+
+    if(match.FR_Partner_dir != undefined){
+        Partner = {
+            CharacterName: match.FR_Partner_dir,
+            ShortName: match.FR_Partner_dir.replace(/ /g, "").replace(/,/g, "").replace(/'/g, "").replace(/&/g, "").toLowerCase(),
+            CharacterURLName: match.FR_Partner_dir.replace(/ /g, "").replace(/,/g, "").replace(/'/g, "").replace(/&/g, ""),
+            no_link:true,
+        }
+    }
 
     const [columns, setcolumns] = useStateIfMounted(`${window.innerWidth == undefined ? 2 : window.innerWidth > 799 ? 3 : window.innerWidth > 349 ? 2 : 1}`)
     const [run_helpers, setrun_helpers] = useStateIfMounted(false)
@@ -133,6 +146,17 @@ function CharacterForceCond({
                             </Link>
                         </div>
                         <div className="faceandiconholder">
+                            {Partner.no_link == true?
+                                <div className="faceholder">
+                                    <LazyLoadImage 
+                                    scrollPosition={scrollPosition}
+                                    effect="opacity" 
+                                    alt={Partner && Partner.CharacterName} 
+                                    className="faceicon" 
+                                    src={Partner && `https://dissidiacompendium.com/images/static/characters/${Partner.CharacterURLName}/face.png`} />
+                                    <div className="facetext">{`${Partner && Partner.CharacterName == "Cloud of Darkness" ? "CoD" : Partner && Partner.CharacterName == "Warrior of Light" ? "WoL" : Partner && Partner.CharacterName}`}</div>
+                                </div>
+                            :
                             <Link to={`/characters/${Partner.ShortName}`}>
                                 <div className="faceholder">
                                     <LazyLoadImage 
@@ -144,6 +168,7 @@ function CharacterForceCond({
                                     <div className="facetext">{`${Partner && Partner.CharacterName == "Cloud of Darkness" ? "CoD" : Partner && Partner.CharacterName == "Warrior of Light" ? "WoL" : Partner && Partner.CharacterName}`}</div>
                                 </div>
                             </Link>
+                            }
                         </div>
                     </div>
                 </div>
