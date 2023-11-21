@@ -31,6 +31,9 @@ export default function AilmentSliderFormatting({
     currentbuffsmuliply,
     handleChangeBuffMuliply,
 
+    currentbuffsmuliplysolo,
+    handleChangeBuffMuliplySolo,
+
     currentenemies,
     handleChangeEnemies,
 
@@ -64,6 +67,7 @@ export default function AilmentSliderFormatting({
         sliders.fieldbuffsrank == false &&
         sliders.buffsrank == false &&
         sliders.buffsmuliply == false &&
+        sliders.buffsmuliplysolo == false &&
         sliders.groupstacks == false &&
         sliders.enemies == false &&
         sliders.stacks == false &&
@@ -234,6 +238,18 @@ export default function AilmentSliderFormatting({
                         x={currentbuffsmuliply}
                         xmin={1}
                         xmax={19}
+                    />
+                </div>
+                : ""}
+            {sliders.buffsmuliplysolo == true ?
+                <div className="sliderspacer">
+                    <div className="rankspacer">{`Attacker's Buffs: ${currentbuffsmuliplysolo - 1} / ${6}`}</div>
+                    <Slider
+                        styles={SilderStyleBuff}
+                        onChange={handleChangeBuffMuliplySolo}
+                        x={currentbuffsmuliplysolo}
+                        xmin={1}
+                        xmax={7}
                     />
                 </div>
                 : ""}

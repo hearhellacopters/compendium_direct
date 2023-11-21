@@ -207,6 +207,7 @@ function AilmentDifFormatting({
     const [currentbuffsranks, setcurrentbuffsranks] = useStateIfMounted(19)
     const [currentfieldbuffsranks, setcurrentfieldbuffsranks] = useStateIfMounted(7)
     const [currentbuffsmuliply, setcurrentbuffsmuliply] = useStateIfMounted(19)
+    const [currentbuffsmuliplysolo, setcurrentbuffsmuliplysolo] = useStateIfMounted(7)
     const [currentstacks, setcurrentstacks] = useStateIfMounted(5)
     const [currentenemies, setcurrentenemies] = useStateIfMounted(3)
     const [currentgroupstacks, setcurrentgroupstacks] = useStateIfMounted(5)
@@ -237,6 +238,9 @@ function AilmentDifFormatting({
     };
     const handleChangeBuffMuliply = (e) => {
         setcurrentbuffsmuliply(parseInt(e.x));
+    };
+    const handleChangeBuffMuliplySolo = (e) => {
+        setcurrentbuffsmuliplysolo(parseInt(e.x));
     };
     const handleChangeWeaknessMuliply = (e) => {
         setcurrentweaknessmuliply(parseInt(e.x));
@@ -373,6 +377,9 @@ function AilmentDifFormatting({
                     currentbuffsmuliply={currentbuffsmuliply}
                     handleChangeBuffMuliply={handleChangeBuffMuliply}
 
+                    currentbuffsmuliplysolo={currentbuffsmuliplysolo}
+                    handleChangeBuffMuliplySolo={handleChangeBuffMuliplySolo}
+
                     currentweaknessmuliply={currentweaknessmuliply}
                     handleChangeWeaknessMuliply={handleChangeWeaknessMuliply}
 
@@ -416,6 +423,7 @@ function AilmentDifFormatting({
                         currentbuffsranks_passoff={currentbuffsranks}
                         currentfieldbuffsranks_passoff={currentfieldbuffsranks}
                         currentbuffsmuliply_passoff={currentbuffsmuliply}
+                        currentbuffsmuliplysolo_passoff={currentbuffsmuliplysolo}
                         currentstacks_passoff={currentstacks}
                         currentenemies_passoff={currentenemies}
                         currentgroupstacks_passoff={currentgroupstacks}

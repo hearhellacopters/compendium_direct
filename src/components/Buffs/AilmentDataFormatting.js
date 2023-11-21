@@ -195,6 +195,7 @@ function AilmentDataFormatting({
     const [currentbuffsranks, setcurrentbuffsranks] = useStateIfMounted(19)
     const [currentfieldbuffsranks, setcurrentfieldbuffsranks] = useStateIfMounted(7)
     const [currentbuffsmuliply, setcurrentbuffsmuliply] = useStateIfMounted(19)
+    const [currentbuffsmuliplysolo, setcurrentbuffsmuliplysolo] = useStateIfMounted(7)
     const [currentstacks, setcurrentstacks] = useStateIfMounted(5)
     const [currentenemies, setcurrentenemies] = useStateIfMounted(3)
     const [currentgroupstacks, setcurrentgroupstacks] = useStateIfMounted(5)
@@ -253,6 +254,9 @@ function AilmentDataFormatting({
     };
     const handleChangeBuffMuliply = (e) => {
         setcurrentbuffsmuliply(parseInt(e.x));
+    };
+    const handleChangeBuffMuliplySolo = (e) => {
+        setcurrentbuffsmuliplysolo(parseInt(e.x));
     };
     const handleChangeWeaknessMuliply = (e) => {
         setcurrentweaknessmuliply(parseInt(e.x));
@@ -411,6 +415,9 @@ function AilmentDataFormatting({
                     currentbuffsmuliply={currentbuffsmuliply}
                     handleChangeBuffMuliply={handleChangeBuffMuliply}
 
+                    currentbuffsmuliplysolo={currentbuffsmuliplysolo}
+                    handleChangeBuffMuliplySolo={handleChangeBuffMuliplySolo}
+
                     currentenemies={currentenemies}
                     handleChangeEnemies={handleChangeEnemies}
 
@@ -527,6 +534,7 @@ function AilmentDataFormatting({
                             currentbuffsranks={currentbuffsranks}
                             currentfieldbuffsranks={currentfieldbuffsranks}
                             currentbuffsmuliply={currentbuffsmuliply}
+                            currentbuffsmuliplysolo={currentbuffsmuliplysolo}
                             currentweaknessmuliply={currentweaknessmuliply}
                             currentgroupstacks={currentgroupstacks}
                             currenthp={currenthp}
@@ -562,6 +570,7 @@ function AilmentDataFormatting({
                                     currentdebuffsmuliply={currentdebuffsmuliply}
                                     currentbuffsranks={currentbuffsranks}
                                     currentbuffsmuliply={currentbuffsmuliply}
+                                    currentbuffsmuliplysolo={currentbuffsmuliplysolo}
                                     currentfieldbuffsranks={currentfieldbuffsranks}
                                     currentgroupstacks={currentgroupstacks}
                                     currentweaknessmuliply={currentweaknessmuliply}

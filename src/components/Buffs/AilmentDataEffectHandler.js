@@ -17,6 +17,7 @@ export default function AilmentDataEffectHandler({
     currentbuffsranks,
     currentfieldbuffsranks,
     currentbuffsmuliply,
+    currentbuffsmuliplysolo,
     currentgroupstacks,
     currenthp,
     charactersleft,
@@ -139,7 +140,7 @@ export default function AilmentDataEffectHandler({
                 set_max_brv_cap_value(Math.round(((displayrank.value1 / 100) + 1) * 99999))
             }
         }
-    }, [override, rank, set_max_brv_cap, set_brv_cap,displayrank,setdisplayrank, set_brv_cap_value, set_max_brv_cap_value, currentbuffsmuliply, currentdebuffsranks2, characterskb, currentdebuffsmuliply, currentweaknessmuliply, castlocation, currenthp, charactersleft, currentgroupstacks, currentfieldbuffsranks, currentbuffsranks, currentdebuffsranks, currentenemies, currentstacks, currentturns, slider, currentrank, effect_id, currentlevel, setrank])
+    }, [override, rank, set_max_brv_cap, set_brv_cap,displayrank,setdisplayrank, set_brv_cap_value, set_max_brv_cap_value, currentbuffsmuliply, currentbuffsmuliplysolo, currentdebuffsranks2, characterskb, currentdebuffsmuliply, currentweaknessmuliply, castlocation, currenthp, charactersleft, currentgroupstacks, currentfieldbuffsranks, currentbuffsranks, currentdebuffsranks, currentenemies, currentstacks, currentturns, slider, currentrank, effect_id, currentlevel, setrank])
 
     useEffect(()=>{
         if (effect_id && effect_id.multiply == true) {
@@ -151,12 +152,16 @@ export default function AilmentDataEffectHandler({
                 const holder = rank && rank.value1 * (currentbuffsmuliply - 1)
                 setdisplayrank({ value1: holder })
             }
+            if (effect_id && effect_id.multiplyslider == "buffsmuliplysolo") {
+                const holder = rank && rank.value1 * (currentbuffsmuliplysolo - 1)
+                setdisplayrank({ value1: holder })
+            }
             if (effect_id && effect_id.multiplyslider == "weaknessmuliply") {
                 const holder = rank && rank.value1 * (currentweaknessmuliply - 1)
                 setdisplayrank({ value1: holder })
             }
         }
-    },[rank, setdisplayrank,effect_id,currentbuffsmuliply,currentdebuffsmuliply, currentweaknessmuliply])
+    },[rank, setdisplayrank,effect_id,currentbuffsmuliply,currentdebuffsmuliply, currentbuffsmuliplysolo, currentweaknessmuliply])
 
     const [cond_str, setcond_str] = useStateIfMounted()
     const [eff_str, seteff_str] = useStateIfMounted()

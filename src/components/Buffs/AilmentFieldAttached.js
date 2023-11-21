@@ -78,6 +78,7 @@ export default function AilmentFieldAttached({
                 currentbuffsranks={currentrank}
                 currentfieldbuffsranks={currentrank}
                 currentbuffsmuliply={currentrank}
+                currentbuffsmuliplysolo={currentrank}
                 currentgroupstacks={currentrank}
                 currenthp={currentrank}
                 charactersleft={currentrank}

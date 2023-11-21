@@ -68,6 +68,7 @@ export default function AilmentDataFormattingEnemy({
     const [currentbuffsranks, setcurrentbuffsranks] = useStateIfMounted(19)
     const [currentfieldbuffsranks, setcurrentfieldbuffsranks] = useStateIfMounted(7)
     const [currentbuffsmuliply, setcurrentbuffsmuliply] = useStateIfMounted(19)
+    const [currentbuffsmuliplysolo, setcurrentbuffsmuliplysolo] = useStateIfMounted(7)
     const [currentstacks, setcurrentstacks] = useStateIfMounted(5)
     const [currentenemies, setcurrentenemies] = useStateIfMounted(3)
     const [currentgroupstacks, setcurrentgroupstacks] = useStateIfMounted(5)
@@ -99,7 +100,9 @@ export default function AilmentDataFormattingEnemy({
     const handleChangeBuffMuliply = (e) => {
         setcurrentbuffsmuliply(parseInt(e.x));
     };
-
+    const handleChangeBuffMuliplySolo = (e) => {
+        setcurrentbuffsmuliplysolo(parseInt(e.x));
+    };
     const handleChangeGroupStacks = (e) => {
         setcurrentgroupstacks(parseInt(e.x));
     };
@@ -222,6 +225,9 @@ export default function AilmentDataFormattingEnemy({
                     currentbuffsmuliply={currentbuffsmuliply}
                     handleChangeBuffMuliply={handleChangeBuffMuliply}
 
+                    currentbuffsmuliplysolo={currentbuffsmuliplysolo}
+                    handleChangeBuffMuliplySolo={handleChangeBuffMuliplySolo}
+
                     currentenemies={currentenemies}
                     handleChangeEnemies={handleChangeEnemies}
 
@@ -285,6 +291,7 @@ export default function AilmentDataFormattingEnemy({
                             currentbuffsranks={currentbuffsranks}
                             currentfieldbuffsranks={currentfieldbuffsranks}
                             currentbuffsmuliply={currentbuffsmuliply}
+                            currentbuffsmuliplysolo={currentbuffsmuliplysolo}
                             currentweaknessmuliply={currentweaknessmuliply}
                             currentgroupstacks={currentgroupstacks}
                             currenthp={currenthp}
@@ -315,6 +322,7 @@ export default function AilmentDataFormattingEnemy({
                                     currentdebuffsmuliply={currentdebuffsmuliply}
                                     currentbuffsranks={currentbuffsranks}
                                     currentbuffsmuliply={currentbuffsmuliply}
+                                    currentbuffsmuliplysolo={currentbuffsmuliplysolo}
                                     currentfieldbuffsranks={currentfieldbuffsranks}
                                     currentweaknessmuliply={currentweaknessmuliply}
                                     currentgroupstacks={currentgroupstacks}

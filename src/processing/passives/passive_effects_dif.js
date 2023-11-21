@@ -1,6 +1,4 @@
-import require_trans from './require_trans.js'
 import passive_ability_handler from './passive_ability_handler.js'
-import passive_effect_trans from "./passive_effect_trans.js"
 import ailment_field_effect_trans from '../ailment/ailment_field_effect_trans.js'
 import ailment_data_pars_dif from '../ailment/ailment_data_pars_dif.js'
 
@@ -54,6 +52,7 @@ export default function passive_effects_dif(
                     1, //currentbuffsranks,
                     1, //currentfieldbuffsranks,
                     1, //currentbuffsmuliply,
+                    1, //currentbuffsmuliplysolo,
                     1, //currentgroupstacks,
                     1, //currenthp,
                     1, //charactersleft,
