@@ -9,6 +9,12 @@ export default function log () {
                 <h1>Update Log</h1>
                 <div className="creditsholder">
                 <div className="filterholderflair" >
+                        v7.1
+                    </div>
+                    <ul className="creditslist">
+                        - Added Non-Gear Level classes to character page<br />
+                    </ul>
+                <div className="filterholderflair" >
                         v7.0.1
                     </div>
                     <ul className="creditslist">
