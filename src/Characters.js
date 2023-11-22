@@ -1254,7 +1254,7 @@ export default function Characters({
         NoFR: NoFR,
         NoFRBoard: NoFRBoard,
         NoBT: NoBT,
-        NoFR50: NoFE50,
+        NoFE50: NoFE50,
 
         Fire_Damage: Fire,
         Ice_Damage: Ice,
