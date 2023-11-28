@@ -77,35 +77,30 @@ export default function hitdata_handler(
         }
     }
 
-    var after_each_except_last;
+    var after_each_except_last; //adds to each
 
     const hitreturn = {
         hit_pars: {}
     }
+
     var hit_counter = 0
     for (let index = 0; index < 40; index++) {
         const hit_data = caller[`hit_data_id${index == 0 ? "" : `_${index}`}`]
-        if(hit_data != undefined && hit_data.effect_id == 279
+        if(hit_data != undefined && hit_effect_id[hit_data.effect_id] && hit_effect_id[hit_data.effect_id].after_each_except_last == true
             ){
-            after_each_except_last = {
-                a_target: hit_data.a_target,
-                m_nARG: hit_data.m_nARG,
-                overflow: hit_data.overflow
-            }
+            after_each_except_last = hit_data
         }
         if(hit_data != undefined && after_each_except_last != undefined){
             Object.assign(hit_data,{after_each_except_last: after_each_except_last})
         }
-        if (hit_data == undefined ||
+        if (!(hit_data == undefined ||
             hit_data.hitdata_id == -1 ||
             hit_data.hitdata_id == 518 || //blanks
-            hit_data.effect_id == 279 || // after_each_except_last
+            hit_data && hit_effect_id[hit_data.effect_id] && hit_effect_id[hit_data.effect_id].after_each_except_last == true||
             (hit_data.effect_id == 37 && hit_data.m_nARG_4 == 2809) || //hide models
             (hit_data.effect_id == 275 && hit_data.m_nARG == 2771)  //casts hide models
-            || check_hidden(hit_data && hit_data.effect_id, debugging)
+            || check_hidden(hit_data && hit_data.effect_id, debugging))
         ) {
-            //do nothing
-        } else {
             var hit_data_id_pars = ""
             if (hit_data == undefined) {
                 hit_counter = hit_counter + 1

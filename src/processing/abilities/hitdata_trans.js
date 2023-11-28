@@ -154,7 +154,7 @@ export default function hitdata_trans(
     //effect_value_type_id_value_trans
     if (!(effect_value_type_id_value_trans == "hide" || effect_value_type_id_value_trans == "hide_replace")) {
         effect_value_type_str = value_type_pull && value_type_pull.effect_value_type_id
-    }
+    } 
     if(effect_value_type_id_value_trans == "hide_replace"){
         effect_str = effect_str.replace(/of \[effect_value_type\]/gm,"[effect_value_type]")
         m_nARG = m_nARG.toLocaleString("en-US")
@@ -709,14 +709,25 @@ export default function hitdata_trans(
             break;
     }
 
-    var after_each_except_last = ""
+    var after_each_except_last;
     //increase after each
     if(atk_type == "HP" && hit_data.after_each_except_last != undefined){
-        const str = `Increases ${hit_data.after_each_except_last && hit_data.after_each_except_last.a_target != 2 ? ability_target_id_data[hit_data.after_each_except_last.a_target] && ability_target_id_data[hit_data.after_each_except_last.a_target].ability_target_id+" " :""}BRV by ${hit_data.after_each_except_last.m_nARG}% of HP Damage dealt after each HP Attack, except last`
-        after_each_except_last = str
-        if(hit_data.after_each_except_last.overflow != undefined && ove_str == ""){
-            after_each_except_last = `${str}\nAllows for ${hit_data.after_each_except_last.overflow}% Gained MAX BRV Overflow`
-        } 
+        after_each_except_last = hitdata_trans(
+            hit_data.after_each_except_last,
+        
+            master_index,
+            ver,
+        
+            faf,
+            kcon,
+            kcon_1,
+            kid,
+            kid_1,
+            bdlur,
+            mblur,
+        
+            power,
+            hit_num)
     }
 
     var hit_return = {
@@ -729,7 +740,9 @@ export default function hitdata_trans(
         ove_str: ove_str == "" ? undefined : ove_str,
         mcap_str: mcap_str == "" ? undefined : mcap_str,
         brvcap_str: brvcap_str == "" ? undefined : brvcap_str,
-        after_each_except_last: after_each_except_last == "" ? undefined : after_each_except_last,
+        after_each_except_last: after_each_except_last == undefined ? undefined : after_each_except_last.eff_str,
+        after_each_except_last_ove: after_each_except_last == undefined ? undefined : after_each_except_last.ove_str,
+        after_each_except_last_end_str: after_each_except_last == undefined ? undefined : " after each HP Attack, except last",
         hit_num: hit_num,
         hitdata_id: hit_data.hitdata_id
     }

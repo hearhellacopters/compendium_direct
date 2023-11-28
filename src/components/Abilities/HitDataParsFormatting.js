@@ -61,6 +61,37 @@ export default function HitDataParsFormatting({
         }
     }
 
+    if(hit_data.after_each_except_last != undefined){
+        if(hit_data.eff_str == hit_data.after_each_except_last){
+            hit_data.after_each_except_last_end_str = ` after each HP Attack`
+            hit_data.eff_str = undefined
+        } else
+        if(hit_data.pot_hp_str == hit_data.after_each_except_last){
+            hit_data.after_each_except_last_end_str = ` after each HP Attack`
+            hit_data.pot_hp_str = undefined
+        } else
+        if(hit_data.eff_hp_str == hit_data.after_each_except_last){
+            hit_data.after_each_except_last_end_str = ` after each HP Attack`
+            hit_data.eff_hp_str = undefined
+        } else
+        if(hit_data.eff_add_str == hit_data.after_each_except_last){
+            hit_data.after_each_except_last_end_str = ` after each HP Attack`
+            hit_data.eff_add_str = undefined
+        } else
+        if(hit_data.eff_add_str_2 == hit_data.after_each_except_last){
+            hit_data.after_each_except_last_end_str = ` after each HP Attack`
+            hit_data.eff_add_str_2 = undefined
+        } else
+        if(hit_data.eff_det_str == hit_data.after_each_except_last){
+            hit_data.after_each_except_last_end_str = ` after each HP Attack`
+            hit_data.eff_det_str = undefined
+        } else
+        if(hit_data.eff_det_str_2 == hit_data.after_each_except_last){
+            hit_data.after_each_except_last_end_str = ` after each HP Attack`
+            hit_data.eff_det_str_2 = undefined
+        }
+    }
+
     if (hit_data.show == true || hit_data.show == undefined) {
         return (
             <>
@@ -75,7 +106,7 @@ export default function HitDataParsFormatting({
                 {hit_data.eff_before_hp_str != undefined ? ReplacerCharacter(`${hit_data.eff_before_hp_str} before ${hit_data.times_count == undefined ? "" : `last `}HP Attack\n`,form): ""}
                 {hit_data.eff_hp_str != undefined ? ReplacerCharacter(`${hit_data.eff_hp_str}${hit_data.times_count == undefined ? "" : `, on each HP Attack`}\n`,form) : ""}
                 {hit_data.pot_hp_str != undefined ? ReplacerCharacter(`${hit_data.pot_hp_str}${hit_data.times_count == undefined ? "" : `, on each HP Attack`}\n`,form) : ""}
-                {hit_data.after_each_except_last != undefined ? ReplacerCharacter(hit_data.after_each_except_last+"\n",form) : ""}
+                {hit_data.after_each_except_last != undefined ? ReplacerCharacter(`${hit_data.after_each_except_last}${hit_data.after_each_except_last_end_str}\n${hit_data.after_each_except_last_ovr!=undefined?hit_data.after_each_except_last_ovr+"\n":""}`,form) : ""}
                 {hit_data.eff_add_str != undefined ? ReplacerCharacter(`${hit_data.eff_add_str}${hit_data.times_count == undefined ? "" : ` after each HP Attack${hit_data.except_last == true ? ", except last" : ""}`}\n`,form) : ""}
                 {hit_data.eff_add_str_2 != undefined ? ReplacerCharacter(`${hit_data.eff_add_str_2}${hit_data.times_count == undefined ? "" : ` after each HP Attack${hit_data.except_last_2 == true ? ", except last" : ""}`}\n`,form) : ""}
                 {hit_data.eff_det_str != undefined ? ReplacerCharacter(hit_data.eff_det_str+"\n",form) : ""}
