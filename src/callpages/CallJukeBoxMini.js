@@ -114,7 +114,7 @@ export default function CallJukeBoxMini(){
   const rawData = isIterable(ProcessedMusic) && ProcessedMusic.map(music => (
     {
       MusicKey: music.MusicKey,
-      musicSrc: `https://cdn.discordapp.com/attachments/658884508493414420/${music.URL}/${music.File}`,
+      musicSrc: `https://dissidiacompendium.com/mus//${music.URL}/${music.File}`,
       name: music.Label,
       cover: "https://dissidiacompendium.com/images/static/site/logo512.png",
       singer: music.FFTitle
