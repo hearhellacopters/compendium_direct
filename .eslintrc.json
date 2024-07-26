@@ -19,5 +19,8 @@
         "no-unused-vars": "off",
         "no-case-declarations": "off",
         "no-control-regex": "off"
+    },
+    "parserOptions": {
+        "sourceType": "module"
     }
 }

@@ -535,13 +535,13 @@ function Story({
                                 onChange={handleChange}
                                 onKeyDown={handleKeyDown}
                             />
+                            {searchTerm === "" ? "" :
+                                <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
                             <span className="Spoilerbackground">
                                 <Tippy content="World Map" className="tooltip" >
                                 <span onClick={mapsbutton} ><BsFillImageFill size={"1.5rem"} className={`mapsicon ${maps ? "pastsmallinactive" : "pastsmallactive"}`}/></span>
                                 </Tippy>
                             </span>
-                            {searchTerm === "" ? "" :
-                                <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
                         </div>
                     </div>
                 : 
