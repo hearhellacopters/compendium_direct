@@ -73,6 +73,9 @@ export default function ailment_slider_handler(
         if(ValType[val_types[`val_type${end}`]] && ValType[val_types[`val_type${end}`]].slidertype != undefined){
             sliders[ValType[val_types[`val_type${end}`]].slidertype] = true
         }
+        if(ValEditType[val_types[`val_edit_type${end}`]] && ValEditType[val_types[`val_edit_type${end}`]].multiplyslider != undefined){
+            sliders[ValEditType[val_types[`val_edit_type${end}`]].multiplyslider] = true
+        }
     }
 
     if (max_level != 0) {
