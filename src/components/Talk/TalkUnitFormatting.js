@@ -50,8 +50,8 @@ export default function TalkUintFormatting({
             emote = undefined
         }
 
-        if((EV_index != undefined && EV_index != -1) && (stl_image != undefined && stl_image != -1)){
-            EV_index = `https://dissidiacompendium.com/images/static/talk/${stl_image}/${EV_index}.mp3`
+        if((EV_index != undefined && EV_index != -1) && (unit_id != undefined && unit_id != -1)){
+            EV_index = `https://dissidiacompendium.com/images/static/talk/${unit_id}/${EV_index}.mp3`
         } else {
             EV_index = undefined
         }
