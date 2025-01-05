@@ -194,7 +194,7 @@ function PassiveSphereFormatting({
                                     effect="opacity" 
                                     className="sphereicon" 
                                     alt={`${sphere} sphere`} 
-                                    src={`https://dissidiacompendium.com/images/static/icons/spheres/Sphere${sphere}.png`} />
+                                    src={`./images/static/icons/spheres/Sphere${sphere}.png`} />
                                 </div>
                             </div>
                         </div>
@@ -348,7 +348,7 @@ function PassiveSphereFormatting({
                                                 <DefaultTippy content={
                                                     buff.name == "" ? `Unknown ${buff.id}` : ReplacerCharacter(buff.name && buff.name,form)
                                                 }>
-                                                    <img alt={buff.name} className="clicky abilitybufficon" src={`https://dissidiacompendium.com/images/static/icons/buff/${ailment_level_icon(buff,buff.aarg1)}.png`} />
+                                                    <img alt={buff.name} className="clicky abilitybufficon" src={`./images/static/icons/buff/${ailment_level_icon(buff,buff.aarg1)}.png`} />
                                                 </DefaultTippy>
                                             </div>
                                         </li>
@@ -390,7 +390,7 @@ function PassiveSphereFormatting({
                                     return <li className={`abilitybufficonsholder`} key={`${buff.name}`}>
                                         <div className="biconspacer" >
                                             <DefaultTippy content={buff.name}>
-                                                <img alt={buff.name} className="abilitybufficon" src={`https://dissidiacompendium.com/images/static/icons/buff/${buff.url}.png`} />
+                                                <img alt={buff.name} className="abilitybufficon" src={`./images/static/icons/buff/${buff.url}.png`} />
                                             </DefaultTippy>
                                         </div>
                                     </li>

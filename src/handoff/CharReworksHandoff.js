@@ -21,7 +21,7 @@ export default function CharReworksHandoff({
 
     useEffect(() => {
         if (DevSwitch == true && filtered.CharID != undefined) {
-            axios.get(`http://localhost:3001/data/reworks/${filtered.CharID}`, { 'muteHttpExceptions': true }).then((res) => {
+            axios.get(`data/reworks/${filtered.CharID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
                 _error_remove(`rework_${filtered.CharID}`);
                 setProcessedReworks(response)

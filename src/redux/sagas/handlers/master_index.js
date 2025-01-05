@@ -1,9 +1,9 @@
 import { call, put } from "redux-saga/effects";
-import { setMasterIndex } from "../../ducks/master_index";
-import { requestGetMasterIndex } from "../requests/master_index";
-import {_error} from './_error_state_add';
-import {_error_remove} from './_error_state_remove';
-import isJson from "./_JSON_CHECK";
+import { setMasterIndex } from "../../ducks/master_index.js";
+import { requestGetMasterIndex } from "../requests/master_index.js";
+import {_error} from './_error_state_add.js';
+import {_error_remove} from './_error_state_remove.js';
+import isJson from "./_JSON_CHECK.js";
 
 export function* handleGetMasterIndex(action) {
   try {

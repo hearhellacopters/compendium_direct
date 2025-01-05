@@ -135,7 +135,7 @@ function AilmentDataFormatting({
         if (ailment_data && ailment_data.id && showdesc == true) {
             if (onion_passoff != undefined) {
                 if (DevSwitch == true) {
-                    axios.get(`http://localhost:3005/data/_dir/ailmenttextonion/${onion_passoff}`, { 'muteHttpExceptions': true }).then((res) => {
+                    axios.get(`data/_dir/ailmenttextonion/${onion_passoff}.json`, { 'muteHttpExceptions': true }).then((res) => {
                         const response = res.data;
                         _error_remove(`ailmenttextonion_${onion_passoff}`);
                         setsetdesc(response[ver]);
@@ -156,7 +156,7 @@ function AilmentDataFormatting({
             } else {
                 if (ailment_data.onion == undefined) {
                     if (DevSwitch == true) {
-                        axios.get(`http://localhost:3005/data/_dir/ailmenttext/${ailment_data.id}`, { 'muteHttpExceptions': true }).then((res) => {
+                        axios.get(`data/_dir/ailmenttext/${ailment_data.id}.json`, { 'muteHttpExceptions': true }).then((res) => {
                             const response = res.data;
                             _error_remove(`ailmenttext_${ailment_data.id}`);
                             setsetdesc(response[ver]);
@@ -345,7 +345,7 @@ function AilmentDataFormatting({
                         <div className="faceandiconholder">
                             <CharacterFaceFormatting char_id={char_id} id={ailment_data.chara_id} link={link} />
                             <div onClick={showmeraw} className="infoiconholder2">
-                                <img className="bufficon" alt={ailment_data.name && ailment_data.name} src={`https://dissidiacompendium.com/images/static/icons/buff/${ailment_level_icon(ailment_data,currentlevel)}.png`} />
+                                <img className="bufficon" alt={ailment_data.name && ailment_data.name} src={`./images/static/icons/buff/${ailment_level_icon(ailment_data,currentlevel)}.png`} />
                             </div>
                         </div>
                     </div>
@@ -358,7 +358,7 @@ function AilmentDataFormatting({
                     <div className={character_face != true ? "flexdisplay" :"infotitle2"}>
                         {character_face != true?
                             <div onClick={showmeraw} className="solo_buff_icon">
-                                <img className="bufficon2" alt={ailment_data.name && ailment_data.name} src={`https://dissidiacompendium.com/images/static/icons/buff/${ailment_level_icon(ailment_data,currentlevel)}.png`} />
+                                <img className="bufficon2" alt={ailment_data.name && ailment_data.name} src={`./images/static/icons/buff/${ailment_level_icon(ailment_data,currentlevel)}.png`} />
                             </div>
                         :
                         ""
@@ -690,7 +690,7 @@ function AilmentDataFormatting({
                                     return <li className={`abilitybufficonsholder ${buff.id == attachedbuff.id ? "buffactive" : ""}`} key={buff.id}>
                                         <div className="biconspacer" onClick={() => buffattachedselect(buff)} >
                                             <DefaultTippy content={ReplacerCharacter(buff.name,form)}>
-                                                <img alt={buff.name} className="clicky abilitybufficon" src={`https://dissidiacompendium.com/images/static/icons/buff/${buff.icon}.png`} />
+                                                <img alt={buff.name} className="clicky abilitybufficon" src={`./images/static/icons/buff/${buff.icon}.png`} />
                                             </DefaultTippy>
                                         </div>
                                     </li>
@@ -733,7 +733,7 @@ function AilmentDataFormatting({
                                     return <li className={`abilitybufficonsholder`} key={`${buff.name}-1`}>
                                         <div className="biconspacer" >
                                             <DefaultTippy content={buff.name}>
-                                                <img alt={buff.name} className="abilitybufficon" src={`https://dissidiacompendium.com/images/static/icons/${buff.url}.png`} />
+                                                <img alt={buff.name} className="abilitybufficon" src={`./images/static/icons/${buff.url}.png`} />
                                             </DefaultTippy>
                                         </div>
                                     </li>
@@ -747,7 +747,7 @@ function AilmentDataFormatting({
                                     return <li className={`abilitybufficonsholder`} key={`${buff.name}-2`}>
                                         <div className="biconspacer" >
                                             <DefaultTippy content={buff.name}>
-                                                <img alt={buff.name} className="abilitybufficon" src={`https://dissidiacompendium.com/images/static/icons/${buff.url}.png`} />
+                                                <img alt={buff.name} className="abilitybufficon" src={`./images/static/icons/${buff.url}.png`} />
                                             </DefaultTippy>
                                         </div>
                                     </li>

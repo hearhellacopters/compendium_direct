@@ -19,7 +19,7 @@ import PassiveAbilityFormatting from './components/Passives/PassiveAbilityFormat
 import PassiveArtFormatting from './components/Passives/PassiveArtFormatting';
 import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 
-import { setFalse, setTrue } from './redux/ducks/jptoggle'
+import { setFalse, setTrue } from './redux/ducks/jptoggle.js'
 
 function Passives ({
   ProcessedPassives,
@@ -1034,7 +1034,7 @@ function Passives ({
                   key={passive.order}
                   scrollPosition={scrollPosition}
                   placeholder={<div className="buffunit infoholder" style={{ minHeight: `250px` }}>
-                    <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                    <img className="loadingbardots" src="./images/static/site/loading.gif"/>
                   </div>
                     }
                   >
@@ -1058,7 +1058,7 @@ function Passives ({
                   key={passive.order}
                   scrollPosition={scrollPosition}
                   placeholder={<div className="buffunit infoholder" style={{ minHeight: `250px` }}>
-                    <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                    <img className="loadingbardots" src="./images/static/site/loading.gif"/>
                   </div>
                     }
                   >

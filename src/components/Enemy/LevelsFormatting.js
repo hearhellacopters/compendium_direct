@@ -142,16 +142,16 @@ export default function LevelsFormatting({
                 <div className="secondaryholder">
                     <div className="secondaryholdertag">
                         <DefaultTippy content={<span>Knockback<br />Defence</span>}>
-                            <img alt="launch" className="launchimg" src="https://dissidiacompendium.com/images/static/icons/misc/Launch.png" />
+                            <img alt="launch" className="launchimg" src="./images/static/icons/misc/Launch.png" />
                         </DefaultTippy>
                         {chase}
                     </div>
                     <div className="secondaryholdertag">
-                        <div className="enemyexpholder"><img className="EXP" alt="EXP" src="https://dissidiacompendium.com/images/static/icons/misc/EXP.png" /></div>
+                        <div className="enemyexpholder"><img className="EXP" alt="EXP" src="./images/static/icons/misc/EXP.png" /></div>
                         <span className={`${flash}`} >{stats && stats.exp_}</span>
                     </div>
                     <div className="secondaryholdertag">
-                        <div className="enemyexpholder"><img alt="Gill" className="gillimg" src="https://dissidiacompendium.com/images/static/icons/misc/Gold.png" /></div>
+                        <div className="enemyexpholder"><img alt="Gill" className="gillimg" src="./images/static/icons/misc/Gold.png" /></div>
                         <span className={`${flash}`} >{stats && stats.money_}</span>
                     </div>
                 </div>

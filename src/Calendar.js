@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from "react-redux";
-import { setFalse, setTrue } from './redux/ducks/jptoggle'
+import { setFalse, setTrue } from './redux/ducks/jptoggle.js'
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import CalendarMonthView from './components/Events/month_view/CalendarMonthView';

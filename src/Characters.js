@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
 import { useDispatch } from "react-redux";
-import { setFalse, setTrue } from './redux/ducks/jptoggle'
+import { setFalse, setTrue } from './redux/ducks/jptoggle.js'
 import Tippy from './components/TippyDefaults.js';
 import { Helmet } from 'react-helmet-async';
 import Select from 'react-select';
@@ -1947,271 +1947,271 @@ export default function Characters({
             <div className="similarbanner">Attacking</div>
             <ul className="bufftypes">
               <Tippy content={roles[`Magic_Imperil`].name}>
-                <li className={`${MagicImperil ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(MagicImperil,setMagicImperilsearch,setMagicImperil)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Magic_Imperil`].url}.png)` }}></li>
+                <li className={`${MagicImperil ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(MagicImperil,setMagicImperilsearch,setMagicImperil)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Magic_Imperil`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Melee_Imperil`].name}>
-                <li className={`${MeleeImperil ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(MeleeImperil,setMeleeImperilsearch,setMeleeImperil)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Melee_Imperil`].url}.png)` }}></li>
+                <li className={`${MeleeImperil ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(MeleeImperil,setMeleeImperilsearch,setMeleeImperil)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Melee_Imperil`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Ranged_Imperil`].name}>
-                <li className={`${RangedImperil ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(RangedImperil,setRangedImperilsearch,setRangedImperil)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Ranged_Imperil`].url}.png)` }}></li>
+                <li className={`${RangedImperil ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(RangedImperil,setRangedImperilsearch,setRangedImperil)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Ranged_Imperil`].url}.png")` }}></li>
               </Tippy>
             </ul>
             <br />
             <ul className="bufftypes">
               <Tippy content={roles[`Fire_Enchant`].name}>
-                <li className={`${FireEnchant ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(FireEnchant,setFireEnchantsearch,setFireEnchant)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Fire_Enchant`].url}.png)` }}></li>
+                <li className={`${FireEnchant ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(FireEnchant,setFireEnchantsearch,setFireEnchant)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Fire_Enchant`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Ice_Enchant`].name}>
-                <li className={`${IceEnchant ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(IceEnchant,setIceEnchantsearch,setIceEnchant)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Ice_Enchant`].url}.png)` }}></li>
+                <li className={`${IceEnchant ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(IceEnchant,setIceEnchantsearch,setIceEnchant)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Ice_Enchant`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Thunder_Enchant`].name}>
-                <li className={`${ThunderEnchant ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(ThunderEnchant,setThunderEnchantsearch,setThunderEnchant)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Thunder_Enchant`].url}.png)` }}></li>
+                <li className={`${ThunderEnchant ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(ThunderEnchant,setThunderEnchantsearch,setThunderEnchant)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Thunder_Enchant`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Water_Enchant`].name}>
-                <li className={`${WaterEnchant ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(WaterEnchant,setWaterEnchantsearch,setWaterEnchant)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Water_Enchant`].url}.png)` }}></li>
+                <li className={`${WaterEnchant ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(WaterEnchant,setWaterEnchantsearch,setWaterEnchant)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Water_Enchant`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Earth_Enchant`].name}>
-                <li className={`${EarthEnchant ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(EarthEnchant,setEarthEnchantsearch,setEarthEnchant)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Earth_Enchant`].url}.png)` }}></li>
+                <li className={`${EarthEnchant ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(EarthEnchant,setEarthEnchantsearch,setEarthEnchant)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Earth_Enchant`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Wind_Enchant`].name}>
-                <li className={`${WindEnchant ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(WindEnchant,setWindEnchantsearch,setWindEnchant)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Wind_Enchant`].url}.png)` }}></li>
+                <li className={`${WindEnchant ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(WindEnchant,setWindEnchantsearch,setWindEnchant)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Wind_Enchant`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Dark_Enchant`].name}>
-                <li className={`${DarkEnchant ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(DarkEnchant,setDarkEnchantsearch,setDarkEnchant)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Dark_Enchant`].url}.png)` }}></li>
+                <li className={`${DarkEnchant ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(DarkEnchant,setDarkEnchantsearch,setDarkEnchant)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Dark_Enchant`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Holy_Enchant`].name}>
-                <li className={`${HolyEnchant ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(HolyEnchant,setHolyEnchantsearch,setHolyEnchant)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Holy_Enchant`].url}.png)` }}></li>
+                <li className={`${HolyEnchant ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(HolyEnchant,setHolyEnchantsearch,setHolyEnchant)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Holy_Enchant`].url}.png")` }}></li>
               </Tippy>
             </ul>
             <br />
             <ul className="bufftypes">
               <Tippy content={roles[`Fire_Imperil`].name}>
-                <li className={`${FireImperil ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(FireImperil,setFireImperilsearch,setFireImperil)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Fire_Imperil`].url}.png)` }}></li>
+                <li className={`${FireImperil ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(FireImperil,setFireImperilsearch,setFireImperil)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Fire_Imperil`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Ice_Imperil`].name}>
-                <li className={`${IceImperil ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(IceImperil,setIceImperilsearch,setIceImperil)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Ice_Imperil`].url}.png)` }}></li>
+                <li className={`${IceImperil ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(IceImperil,setIceImperilsearch,setIceImperil)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Ice_Imperil`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Thunder_Imperil`].name}>
-                <li className={`${ThunderImperil ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(ThunderImperil,setThunderImperilsearch,setThunderImperil)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Thunder_Imperil`].url}.png)` }}></li>
+                <li className={`${ThunderImperil ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(ThunderImperil,setThunderImperilsearch,setThunderImperil)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Thunder_Imperil`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Water_Imperil`].name}>
-                <li className={`${WaterImperil ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(WaterImperil,setWaterImperilsearch,setWaterImperil)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Water_Imperil`].url}.png)` }}></li>
+                <li className={`${WaterImperil ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(WaterImperil,setWaterImperilsearch,setWaterImperil)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Water_Imperil`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Earth_Imperil`].name}>
-                <li className={`${EarthImperil ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(EarthImperil,setEarthImperilsearch,setEarthImperil)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Earth_Imperil`].url}.png)` }}></li>
+                <li className={`${EarthImperil ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(EarthImperil,setEarthImperilsearch,setEarthImperil)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Earth_Imperil`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Wind_Imperil`].name}>
-                <li className={`${WindImperil ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(WindImperil,setWindImperilsearch,setWindImperil)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Wind_Imperil`].url}.png)` }}></li>
+                <li className={`${WindImperil ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(WindImperil,setWindImperilsearch,setWindImperil)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Wind_Imperil`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Dark_Imperil`].name}>
-                <li className={`${DarkImperil ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(DarkImperil,setDarkImperilsearch,setDarkImperil)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Dark_Imperil`].url}.png)` }}></li>
+                <li className={`${DarkImperil ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(DarkImperil,setDarkImperilsearch,setDarkImperil)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Dark_Imperil`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Holy_Imperil`].name}>
-                <li className={`${HolyImperil ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(HolyImperil,setHolyImperilsearch,setHolyImperil)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Holy_Imperil`].url}.png)` }}></li>
+                <li className={`${HolyImperil ? "filteractive" : "filterinactive"} spheresbutton`} onClick={()=>button(HolyImperil,setHolyImperilsearch,setHolyImperil)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Holy_Imperil`].url}.png")` }}></li>
               </Tippy>
             </ul>
             <br />
             <ul className="characterclasses">
               <Tippy content={roles[`Launcher`].name}>
-                <li className={`${Launcher ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Launcher,setLaunchersearch,setLauncher)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Launcher`].url}.png)` }}></li>
+                <li className={`${Launcher ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Launcher,setLaunchersearch,setLauncher)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Launcher`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Launch_Support`].name}>
-                <li className={`${Launch_Support ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Launch_Support,setLaunch_Supportsearch,setLaunch_Support)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Launch_Support`].url}.png)` }}></li>
+                <li className={`${Launch_Support ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Launch_Support,setLaunch_Supportsearch,setLaunch_Support)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Launch_Support`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Force_Break`].name}>
-                <li className={`${ForceBreak ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(ForceBreak,setForceBreaksearch,setForceBreak)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Force_Break`].url}.png)` }}></li>
+                <li className={`${ForceBreak ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(ForceBreak,setForceBreaksearch,setForceBreak)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Force_Break`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Crit_Rate_Up`].name}>
-                <li className={`${CritRateUp ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(CritRateUp,setCritRateUpsearch,setCritRateUp)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Crit_Rate_Up`].url}.png)` }}></li>
+                <li className={`${CritRateUp ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(CritRateUp,setCritRateUpsearch,setCritRateUp)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Crit_Rate_Up`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Ignore_DEF`].name}>
-                <li className={`${Ignore_DEF ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Ignore_DEF,setIgnore_DEFsearch,setIgnore_DEF)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Ignore_DEF`].url}.png)` }}></li>
+                <li className={`${Ignore_DEF ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Ignore_DEF,setIgnore_DEFsearch,setIgnore_DEF)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Ignore_DEF`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Continuous_Turns`].name}>
-                <li className={`${Continuous_Turns ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Continuous_Turns,setContinuous_Turnssearch,setContinuous_Turns)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Continuous_Turns`].url}.png)` }}></li>
+                <li className={`${Continuous_Turns ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Continuous_Turns,setContinuous_Turnssearch,setContinuous_Turns)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Continuous_Turns`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Turn_Interrupter`].name}>
-                <li className={`${Turn_Interrupter ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Turn_Interrupter,setTurn_Interruptersearch,setTurn_Interrupter)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Turn_Interrupter`].url}.png)` }}></li>
+                <li className={`${Turn_Interrupter ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Turn_Interrupter,setTurn_Interruptersearch,setTurn_Interrupter)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Turn_Interrupter`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Ally_Turn_Manipulator`].name}>
-                <li className={`${Ally_Turn_Manipulator ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Ally_Turn_Manipulator,setAlly_Turn_Manipulatorsearch,setAlly_Turn_Manipulator)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Ally_Turn_Manipulator`].url}.png)` }}></li>
+                <li className={`${Ally_Turn_Manipulator ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Ally_Turn_Manipulator,setAlly_Turn_Manipulatorsearch,setAlly_Turn_Manipulator)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Ally_Turn_Manipulator`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`BRV_Ratio`].name}>
-                <li className={`${BRV_Ratio ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(BRV_Ratio,setBRV_Ratiosearch,setBRV_Ratio)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRV_Ratio`].url}.png)` }}></li>
+                <li className={`${BRV_Ratio ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(BRV_Ratio,setBRV_Ratiosearch,setBRV_Ratio)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`BRV_Ratio`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`HP_Damage_Up_Party`].name}>
-                <li className={`${HP_Damage_Up ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(HP_Damage_Up,setHP_Damage_Upsearch,setHP_Damage_Up)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`HP_Damage_Up_Party`].url}.png)` }}></li>
+                <li className={`${HP_Damage_Up ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(HP_Damage_Up,setHP_Damage_Upsearch,setHP_Damage_Up)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`HP_Damage_Up_Party`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`BRV_Damage_Cap`].name}>
-                <li className={`${BRV_Damage_Cap ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(BRV_Damage_Cap,setBRV_Damage_Capsearch,setBRV_Damage_Cap)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRV_Damage_Cap`].url}.png)` }}></li>
+                <li className={`${BRV_Damage_Cap ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(BRV_Damage_Cap,setBRV_Damage_Capsearch,setBRV_Damage_Cap)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`BRV_Damage_Cap`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`EX_MAX_Party`].name}>
-                <li className={`${EX_MAX_Party ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(EX_MAX_Party,setEX_MAX_Partysearch,setEX_MAX_Party)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`EX_MAX_Party`].url}.png)` }}></li>
+                <li className={`${EX_MAX_Party ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(EX_MAX_Party,setEX_MAX_Partysearch,setEX_MAX_Party)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`EX_MAX_Party`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Debuffer`].name}>
-                <li className={`${Debuffer ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Debuffer,setDebuffersearch,setDebuffer)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Debuffer`].url}.png)` }}></li>
+                <li className={`${Debuffer ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Debuffer,setDebuffersearch,setDebuffer)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Debuffer`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`BRV_Resist_Down`].name}>
-                <li className={`${BRVResistDown ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(BRVResistDown,setBRVResistDownsearch,setBRVResistDown)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRV_Resist_Down`].url}.png)` }}></li>
+                <li className={`${BRVResistDown ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(BRVResistDown,setBRVResistDownsearch,setBRVResistDown)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`BRV_Resist_Down`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`HP_Resist_Down`].name}>
-                <li className={`${HPResistDown ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(HPResistDown,setHPResistDownsearch,setHPResistDown)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`HP_Resist_Down`].url}.png)` }}></li>
+                <li className={`${HPResistDown ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(HPResistDown,setHPResistDownsearch,setHPResistDown)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`HP_Resist_Down`].url}.png")` }}></li>
               </Tippy>
             </ul>
             <div className="similarbanner">Healing</div>
             <ul className="characterclasses">
               <Tippy content={roles[`Cleanse`].name}>
-                <li className={`${Cleanse ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Cleanse,setCleansesearch,setCleanse)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Cleanse`].url}.png)` }}></li>
+                <li className={`${Cleanse ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Cleanse,setCleansesearch,setCleanse)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Cleanse`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Battery`].name}>
-                <li className={`${Battery ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Battery,setBatterysearch,setBattery)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Battery`].url}.png)` }}></li>
+                <li className={`${Battery ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Battery,setBatterysearch,setBattery)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Battery`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Reviver`].name}>
-                <li className={`${Reviver ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Reviver,setReviversearch,setReviver)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Reviver`].url}.png)` }}></li>
+                <li className={`${Reviver ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Reviver,setReviversearch,setReviver)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Reviver`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`KO_Prevent`].name}>
-                <li className={`${KO_Prevent ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(KO_Prevent,setKO_Preventsearch,setKO_Prevent)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`KO_Prevent`].url}.png)` }}></li>
+                <li className={`${KO_Prevent ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(KO_Prevent,setKO_Preventsearch,setKO_Prevent)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`KO_Prevent`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`BRV_Regen`].name}>
-                <li className={`${BRVRegen ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(BRVRegen,setBRVRegensearch,setBRVRegen)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRV_Regen`].url}.png)` }}></li>
+                <li className={`${BRVRegen ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(BRVRegen,setBRVRegensearch,setBRVRegen)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`BRV_Regen`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`HP_Regen`].name}>
-                <li className={`${HPRegen ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(HPRegen,setHPRegensearch,setHPRegen)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`HP_Regen`].url}.png)` }}></li>
+                <li className={`${HPRegen ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(HPRegen,setHPRegensearch,setHPRegen)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`HP_Regen`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`HP_Heal_Ability`].name}>
-                <li className={`${HPHealAbility ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(HPHealAbility,setHPHealAbilitysearch,setHPHealAbility)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`HP_Heal_Ability`].url}.png)` }}></li>
+                <li className={`${HPHealAbility ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(HPHealAbility,setHPHealAbilitysearch,setHPHealAbility)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`HP_Heal_Ability`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Two_Abilities_Recover`].name}>
-                <li className={`${TwoAbilitiesRecover ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(TwoAbilitiesRecover,setTwoAbilitiesRecoversearch,setTwoAbilitiesRecover)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Two_Abilities_Recover`].url}.png)` }}></li>
+                <li className={`${TwoAbilitiesRecover ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(TwoAbilitiesRecover,setTwoAbilitiesRecoversearch,setTwoAbilitiesRecover)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Two_Abilities_Recover`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Buff_Extension`].name}>
-                <li className={`${Buff_Extension ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Buff_Extension,setBuff_Extensionsearch,setBuff_Extension)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Buff_Extension`].url}.png)` }}></li>
+                <li className={`${Buff_Extension ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Buff_Extension,setBuff_Extensionsearch,setBuff_Extension)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Buff_Extension`].url}.png")` }}></li>
               </Tippy>
             </ul>
             <div className="similarbanner">Additional Attacks</div>
             <ul className="characterclasses">
               <Tippy content={roles[`Trap`].name}>
-                <li className={`${Trap ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Trap,setTrapsearch,setTrap)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Trap`].url}.png)` }}></li>
+                <li className={`${Trap ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Trap,setTrapsearch,setTrap)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Trap`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Trap_After_Trigger`].name}>
-                <li className={`${Trap_After_Trigger ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Trap_After_Trigger,setTrap_After_Triggersearch,setTrap_After_Trigger)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Trap_After_Trigger`].url}.png)` }}></li>
+                <li className={`${Trap_After_Trigger ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Trap_After_Trigger,setTrap_After_Triggersearch,setTrap_After_Trigger)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Trap_After_Trigger`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Trap_Before_Turn`].name}>
-                <li className={`${Trap_Before_Turn ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Trap_Before_Turn,setTrap_Before_Turnsearch,setTrap_Before_Turn)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Trap_Before_Turn`].url}.png)` }}></li>
+                <li className={`${Trap_Before_Turn ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Trap_Before_Turn,setTrap_Before_Turnsearch,setTrap_Before_Turn)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Trap_Before_Turn`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Counter`].name}>
-                <li className={`${Counter ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Counter,setCountersearch,setCounter)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Counter`].url}.png)` }}></li>
+                <li className={`${Counter ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Counter,setCountersearch,setCounter)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Counter`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`FollowUp`].name}>
-                <li className={`${FollowUp ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(FollowUp,setFollowUpsearch,setFollowUp)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`FollowUp`].url}.png)` }}></li>
+                <li className={`${FollowUp ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(FollowUp,setFollowUpsearch,setFollowUp)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`FollowUp`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`FollowUp_Before_Player_Turn`].name}>
-                <li className={`${FollowUp_Before_Player_Turn ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(FollowUp_Before_Player_Turn,setFollowUp_Before_Player_Turnsearch,setFollowUp_Before_Player_Turn)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`FollowUp_Before_Player_Turn`].url}.png)` }}></li>
+                <li className={`${FollowUp_Before_Player_Turn ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(FollowUp_Before_Player_Turn,setFollowUp_Before_Player_Turnsearch,setFollowUp_Before_Player_Turn)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`FollowUp_Before_Player_Turn`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`FollowUp_Before_Ability`].name}>
-                <li className={`${FollowUp_Before_Ability ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(FollowUp_Before_Ability,setFollowUp_Before_Abilitysearch,setFollowUp_Before_Ability)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`FollowUp_Before_Ability`].url}.png)` }}></li>
+                <li className={`${FollowUp_Before_Ability ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(FollowUp_Before_Ability,setFollowUp_Before_Abilitysearch,setFollowUp_Before_Ability)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`FollowUp_Before_Ability`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`FollowUp_Extension`].name}>
-                <li className={`${FollowUp_Extension ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(FollowUp_Extension,setFollowUp_Extensionsearch,setFollowUp_Extension)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`FollowUp_Extension`].url}.png)` }}></li>
+                <li className={`${FollowUp_Extension ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(FollowUp_Extension,setFollowUp_Extensionsearch,setFollowUp_Extension)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`FollowUp_Extension`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`FollowUp_Start_Of_Next`].name}>
-                <li className={`${FollowUp_Start_Of_Next ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(FollowUp_Start_Of_Next,setFollowUp_Start_Of_Nextsearch,setFollowUp_Start_Of_Next)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`FollowUp_Start_Of_Next`].url}.png)` }}></li>
+                <li className={`${FollowUp_Start_Of_Next ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(FollowUp_Start_Of_Next,setFollowUp_Start_Of_Nextsearch,setFollowUp_Start_Of_Next)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`FollowUp_Start_Of_Next`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`FollowUp_Action_On_Enemy`].name}>
-                <li className={`${FollowUp_Action_On_Enemy ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(FollowUp_Action_On_Enemy,setFollowUp_Action_On_Enemysearch,setFollowUp_Action_On_Enemy)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`FollowUp_Action_On_Enemy`].url}.png)` }}></li>
+                <li className={`${FollowUp_Action_On_Enemy ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(FollowUp_Action_On_Enemy,setFollowUp_Action_On_Enemysearch,setFollowUp_Action_On_Enemy)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`FollowUp_Action_On_Enemy`].url}.png")` }}></li>
               </Tippy>
             </ul>
             <div className="similarbanner">Defending</div>
             <ul className="characterclasses">
               <Tippy content={roles[`Target_Lock`].name}>
-                <li className={`${Target_Lock ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Target_Lock,setTarget_Locksearch,setTarget_Lock)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Target_Lock`].url}.png)` }}></li>
+                <li className={`${Target_Lock ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Target_Lock,setTarget_Locksearch,setTarget_Lock)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Target_Lock`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Cover`].name}>
-                <li className={`${Tank ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Tank,setTanksearch,setTank)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Cover`].url}.png)` }}></li>
+                <li className={`${Tank ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Tank,setTanksearch,setTank)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Cover`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Evade`].name}>
-                <li className={`${Evade ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Evade,setEvadesearch,setEvade)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Evade`].url}.png)` }}></li>
+                <li className={`${Evade ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Evade,setEvadesearch,setEvade)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Evade`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`BRV_Shield`].name}>
-                <li className={`${BRVShield ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(BRVShield,setBRVShieldsearch,setBRVShield)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRV_Shield`].url}.png)` }}></li>
+                <li className={`${BRVShield ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(BRVShield,setBRVShieldsearch,setBRVShield)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`BRV_Shield`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Cannot_Break`].name}>
-                <li className={`${Cannot_Break ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Cannot_Break,setCannot_Breaksearch,setCannot_Break)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Cannot_Break`].url}.png)` }}></li>
+                <li className={`${Cannot_Break ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Cannot_Break,setCannot_Breaksearch,setCannot_Break)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Cannot_Break`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`BRV_Damage_Resist`].name}>
-                <li className={`${BRVDamageResist ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(BRVDamageResist,setBRVDamageResistsearch,setBRVDamageResist)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRV_Damage_Resist`].url}.png)` }}></li>
+                <li className={`${BRVDamageResist ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(BRVDamageResist,setBRVDamageResistsearch,setBRVDamageResist)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`BRV_Damage_Resist`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`HP_Damage_Resist`].name}>
-                <li className={`${HPDamageResist ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(HPDamageResist,setHPDamageResistsearch,setHPDamageResist)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`HP_Damage_Resist`].url}.png)` }}></li>
+                <li className={`${HPDamageResist ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(HPDamageResist,setHPDamageResistsearch,setHPDamageResist)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`HP_Damage_Resist`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Debuff_Evade`].name}>
-                <li className={`${Debuff_Evade ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Debuff_Evade,setDebuff_Evadesearch,setDebuff_Evade)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Debuff_Evade`].url}.png)` }}></li>
+                <li className={`${Debuff_Evade ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Debuff_Evade,setDebuff_Evadesearch,setDebuff_Evade)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Debuff_Evade`].url}.png")` }}></li>
               </Tippy>
             </ul>
             <div className="similarbanner">Interference</div>
             <ul className="characterclasses">
               <Tippy content={roles[`Delay`].name}>
-                <li className={`${Delay ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Delay,setDelaysearch,setDelay)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Delay`].url}.png)` }}></li>
+                <li className={`${Delay ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Delay,setDelaysearch,setDelay)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Delay`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Three_Delay`].name}>
-                <li className={`${ThreeDelay ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(ThreeDelay,setThreeDelaysearch,setThreeDelay)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Three_Delay`].url}.png)` }}></li>
+                <li className={`${ThreeDelay ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(ThreeDelay,setThreeDelaysearch,setThreeDelay)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Three_Delay`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Delete_Turns`].name}>
-                <li className={`${DeleteTurns ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(DeleteTurns,setDeleteTurnssearch,setDeleteTurns)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Delete_Turns`].url}.png)` }}></li>
+                <li className={`${DeleteTurns ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(DeleteTurns,setDeleteTurnssearch,setDeleteTurns)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Delete_Turns`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Dispel`].name}>
-                <li className={`${Dispel ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Dispel,setDispelsearch,setDispel)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Dispel`].url}.png)` }}></li>
+                <li className={`${Dispel ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Dispel,setDispelsearch,setDispel)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Dispel`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`BuffPrevent`].name}>
-                <li className={`${BuffPrevent ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(BuffPrevent,setBuffPreventsearch,setBuffPrevent)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BuffPrevent`].url}.png)` }}></li>
+                <li className={`${BuffPrevent ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(BuffPrevent,setBuffPreventsearch,setBuffPrevent)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`BuffPrevent`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Break_Reset`].name}>
-                <li className={`${Break_Reset ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Break_Reset,setBreak_Resetsearch,setBreak_Reset)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Break_Reset`].url}.png)` }}></li>
+                <li className={`${Break_Reset ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Break_Reset,setBreak_Resetsearch,setBreak_Reset)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Break_Reset`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`BRV_Poison`].name}>
-                <li className={`${BRVPoison ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(BRVPoison,setBRVPoisonsearch,setBRVPoison)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRV_Poison`].url}.png)` }}></li>
+                <li className={`${BRVPoison ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(BRVPoison,setBRVPoisonsearch,setBRVPoison)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`BRV_Poison`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`HP_Poison`].name}>
-                <li className={`${HPPoison ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(HPPoison,setHPPoisonsearch,setHPPoison)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`HP_Poison`].url}.png)` }}></li>
+                <li className={`${HPPoison ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(HPPoison,setHPPoisonsearch,setHPPoison)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`HP_Poison`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`BRV_Control`].name}>
-                <li className={`${BRVControl ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(BRVControl,setBRVControlsearch,setBRVControl)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRV_Control`].url}.png)` }}></li>
+                <li className={`${BRVControl ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(BRVControl,setBRVControlsearch,setBRVControl)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`BRV_Control`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Disable`].name}>
-                <li className={`${Disable ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Disable,setDisablesearch,setDisable)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Disable`].url}.png)` }}></li>
+                <li className={`${Disable ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Disable,setDisablesearch,setDisable)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Disable`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Blind`].name}>
-                <li className={`${Blind ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Blind,setBlindsearch,setBlind)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Blind`].url}.png)` }}></li>
+                <li className={`${Blind ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Blind,setBlindsearch,setBlind)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Blind`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Debuff_Gold`].name}>
-                <li className={`${Debuff_Gold ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Debuff_Gold,setDebuff_Goldsearch,setDebuff_Gold)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Debuff_Gold`].url}.png)` }}></li>
+                <li className={`${Debuff_Gold ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Debuff_Gold,setDebuff_Goldsearch,setDebuff_Gold)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Debuff_Gold`].url}.png")` }}></li>
               </Tippy>
             </ul>
             <div className="similarbanner">Other</div>
             <ul className="characterclasses">
               <Tippy content={roles[`Special_Buff`].name}>
-                <li className={`${Special_Buff ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Special_Buff,setSpecial_Buffsearch,setSpecial_Buff)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Special_Buff`].url}.png)` }}></li>
+                <li className={`${Special_Buff ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Special_Buff,setSpecial_Buffsearch,setSpecial_Buff)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Special_Buff`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Stacked_Debuff`].name}>
-                <li className={`${Stacked_Debuff ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Stacked_Debuff,setStacked_Debuffsearch,setStacked_Debuff)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Stacked_Debuff`].url}.png)` }}></li>
+                <li className={`${Stacked_Debuff ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Stacked_Debuff,setStacked_Debuffsearch,setStacked_Debuff)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Stacked_Debuff`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Stacked_Buff`].name}>
-                <li className={`${Stacked_Buff ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Stacked_Buff,setStacked_Buffsearch,setStacked_Buff)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Stacked_Buff`].url}.png)` }}></li>
+                <li className={`${Stacked_Buff ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Stacked_Buff,setStacked_Buffsearch,setStacked_Buff)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Stacked_Buff`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Stacked_Buff_Five`].name}>
-                <li className={`${Stacked_Buff_Five ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Stacked_Buff_Five,setStacked_Buff_Fivesearch,setStacked_Buff_Five)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Stacked_Buff_Five`].url}.png)` }}></li>
+                <li className={`${Stacked_Buff_Five ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Stacked_Buff_Five,setStacked_Buff_Fivesearch,setStacked_Buff_Five)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Stacked_Buff_Five`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Free_Ability`].name}>
-                <li className={`${Free_Ability ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Free_Ability,setFree_Abilitysearch,setFree_Ability)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Free_Ability`].url}.png)` }}></li>
+                <li className={`${Free_Ability ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Free_Ability,setFree_Abilitysearch,setFree_Ability)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Free_Ability`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Self_Harm`].name}>
-                <li className={`${Self_Harm ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Self_Harm,setSelf_Harmsearch,setSelf_Harm)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Self_Harm`].url}.png)` }}></li>
+                <li className={`${Self_Harm ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Self_Harm,setSelf_Harmsearch,setSelf_Harm)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Self_Harm`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`BRVHP_Upgrade`].name}>
-                <li className={`${BRVHP_Upgrade ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(BRVHP_Upgrade,setBRVHP_Upgradesearch,setBRVHP_Upgrade)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`BRVHP_Upgrade`].url}.png)` }}></li>
+                <li className={`${BRVHP_Upgrade ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(BRVHP_Upgrade,setBRVHP_Upgradesearch,setBRVHP_Upgrade)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`BRVHP_Upgrade`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={roles[`Charger`].name}>
-                <li className={`${Charger ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Charger,setChargersearch,setCharger)} style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[`Charger`].url}.png)` }}></li>
+                <li className={`${Charger ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={()=>button(Charger,setChargersearch,setCharger)} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[`Charger`].url}.png")` }}></li>
               </Tippy>
             </ul>
             <div className="similarbanner">Gear Level</div>

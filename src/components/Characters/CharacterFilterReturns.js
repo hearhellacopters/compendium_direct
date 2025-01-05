@@ -93,9 +93,9 @@ function CharacterFilterReturns({
         }
 
         if (spoilers == false && chars[`${ver}basic`] == false) {
-            return `https://dissidiacompendium.com/images/static/icons/misc/spoilercard2.png`
+            return `./images/static/icons/misc/spoilercard2.png`
         } else {
-            return `https://dissidiacompendium.com/images/static/characters/${chars.CharacterURLName}/cc${fr}${bt}.png`
+            return `./images/static/characters/${chars.CharacterURLName}/cc${fr}${bt}.png`
         }
     }
 

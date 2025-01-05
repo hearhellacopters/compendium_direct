@@ -159,7 +159,7 @@ export default function CharacterPageSingleFormatting({
         //rework
         if (DevSwitch == true && loc == "reworks" && previousIDrework != `${selectedCharaID}${ver}` && selectedCharaID != undefined) {
             setProcessedReworks(undefined)
-            axios.get(`http://localhost:3001/data/reworks/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
+            axios.get(`data/reworks/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
                 _error_remove(`reworks_${selectedCharaID}`);
                 setProcessedReworks(selected_char.ActiveRework == true ? response : []);
@@ -182,7 +182,7 @@ export default function CharacterPageSingleFormatting({
         //profile
         if (DevSwitch == true && loc == "character" && previousIDprofile != `${selectedCharaID}${ver}` && selectedCharaID != undefined) {
             setProcessedVoices(undefined)
-            axios.get(`http://localhost:3001/data/characters/voice/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
+            axios.get(`data/characters/voice/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
                 _error_remove(`voice_${selectedCharaID}`);
                 setProcessedVoices(response);
@@ -191,7 +191,7 @@ export default function CharacterPageSingleFormatting({
                 _error(`voice_${selectedCharaID}`, err.message);
             })
             setCharStickers(undefined)
-            axios.get(`http://localhost:3001/data/characters/stickers/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
+            axios.get(`data/characters/stickers/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
                 _error_remove(`stickers_${selectedCharaID}`);
                 setCharStickers(response);
@@ -223,7 +223,7 @@ export default function CharacterPageSingleFormatting({
         //event
         if (DevSwitch == true && loc == "events" && previousIDevent != `${selectedCharaID}${ver}` && ProcessedCharacters[selectedCharaID][`${ver}basic`] == true && ProcessedCharacters[selectedCharaID][`${ver}events`] == true) {
             seteventdata(undefined)
-            axios.get(`http://localhost:3005/data/events/${ver}New/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
+            axios.get(`data/_dir/_m/events/${ver}New/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
                 _error_remove(`events_new_${ver}_${selectedCharaID}`);
                 seteventdata(response);
@@ -245,7 +245,7 @@ export default function CharacterPageSingleFormatting({
         }
         //spheres
         if (DevSwitch == true && loc == "spheres" && previousIDspheres != `${selectedCharaID}${ver}` && ProcessedCharacters[selectedCharaID][`${ver}basic`] == true && ProcessedCharacters[selectedCharaID][`${ver}spheres`] == true) {
-            axios.get(`http://localhost:3005/data/ex_skill/${ver}New/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
+            axios.get(`data/_dir/_m/ex_skill/${ver}New/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
                 _error_remove(`ex_skill_new_${ver}_${selectedCharaID}`);
                 setspheresdata(response);
@@ -270,7 +270,7 @@ export default function CharacterPageSingleFormatting({
         //sum_fix_passive
         if (DevSwitch == true && loc == "passives" && match.params.type == "boards" && previousIDboard != `${selectedCharaID}${ver}` && ProcessedCharacters[selectedCharaID][`${ver}basic`] == true && ProcessedCharacters[selectedCharaID][`${ver}sum_fix`] == true) {
             setboarddata(undefined)
-            axios.get(`http://localhost:3005/data/sum_fix_passive/${ver}New/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
+            axios.get(`data/_dir/_m/sum_fix_passive/${ver}New/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
                 _error_remove(`sum_fix_passive_new_${ver}_${selectedCharaID}`);
                 setboarddata(response);
@@ -293,7 +293,7 @@ export default function CharacterPageSingleFormatting({
         //gear
         if (DevSwitch == true && loc == "gear" && previousIDequipment != `${selectedCharaID}${ver}` && ProcessedCharacters[selectedCharaID][`${ver}basic`] == true && ProcessedCharacters[selectedCharaID][`${ver}gear`] == true) {
             setequipmentdata(undefined)
-            axios.get(`http://localhost:3005/data/equipment_passive_character/${ver}New/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
+            axios.get(`data/_dir/_m/equipment_passive_character/${ver}New/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
                 _error_remove(`equipment_passive_character_new_${ver}_${selectedCharaID}`);
                 setequipmentdata(response);
@@ -316,7 +316,7 @@ export default function CharacterPageSingleFormatting({
         //link
         if (DevSwitch == true && loc == "passives" && match.params.type == "force" && previousIDlink != `${selectedCharaID}${ver}` && ProcessedCharacters[selectedCharaID][`${ver}basic`] == true && ProcessedCharacters[selectedCharaID][`${ver}link`] == true) {
             setlinkeddata(undefined)
-            axios.get(`http://localhost:3005/data/link_chara/${ver}New/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
+            axios.get(`data/_dir/_m/link_chara/${ver}New/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
                 _error_remove(`link_chara_new_${ver}_${selectedCharaID}`);
                 setlinkeddata(response);
@@ -341,7 +341,7 @@ export default function CharacterPageSingleFormatting({
         //crystal
         if (DevSwitch == true && loc == "passives" && match.params.type == "crystal" && previousIDcpassive != `${selectedCharaID}${ver}` && ProcessedCharacters[selectedCharaID][`${ver}basic`] == true && ProcessedCharacters[selectedCharaID][`${ver}crystal`] == true) {
             setcpassivedata(undefined)
-            axios.get(`http://localhost:3005/data/crystal_awakening_chara/${ver}New/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
+            axios.get(`data/_dir/_m/crystal_awakening_chara/${ver}New/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
                 _error_remove(`crystal_awakening_chara_new_${ver}_${selectedCharaID}`);
                 setcpassivedata(response);
@@ -364,7 +364,7 @@ export default function CharacterPageSingleFormatting({
         //exp
         if (DevSwitch == true && loc == "passives" && match.params.type == "exp" && previousIDexp != `${selectedCharaID}${ver}` && ProcessedCharacters[selectedCharaID][`${ver}basic`] == true && ProcessedCharacters[selectedCharaID][`${ver}exp`] == true) {
             setexpdata(undefined)
-            axios.get(`http://localhost:3005/data/chara_level_ability/${ver}New/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
+            axios.get(`data/_dir/_m/chara_level_ability/${ver}New/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
                 _error_remove(`chara_level_ability_new_${ver}_${selectedCharaID}`);
                 setexpdata(response);
@@ -387,7 +387,7 @@ export default function CharacterPageSingleFormatting({
         //art
         if (DevSwitch == true && loc == "passives" && match.params.type == "arts" && previousIDart != `${selectedCharaID}${ver}` && ProcessedCharacters[selectedCharaID][`${ver}basic`] == true && ProcessedCharacters[selectedCharaID][`${ver}art`] == true) {
             setartdata(undefined)
-            axios.get(`http://localhost:3005/data/art_passive_bycharacter/${ver}New/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
+            axios.get(`data/_dir/_m/art_passive_bycharacter/${ver}New/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
                 _error_remove(`art_passive_bycharacter_new_${ver}_${selectedCharaID}`);
                 setartdata(response);
@@ -410,7 +410,7 @@ export default function CharacterPageSingleFormatting({
         //ability
         if (DevSwitch == true && loc == "abilities" && previousIDability != `${selectedCharaID}${ver}` && ProcessedCharacters[selectedCharaID][`${ver}basic`] == true && ProcessedCharacters[selectedCharaID][`${ver}abilities`] == true) {
             setabilitydata(undefined)
-            axios.get(`http://localhost:3005/data/character_ability_character/${ver}New/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
+            axios.get(`data/_dir/_m/character_ability_character/${ver}New/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
                 _error_remove(`character_ability_character_new_${ver}_${selectedCharaID}`);
                 setabilitydata(response);
@@ -419,7 +419,7 @@ export default function CharacterPageSingleFormatting({
                 _error(`character_ability_character_new_${ver}_${selectedCharaID}`, err.message);
             })
             setbuffdata(undefined)
-            axios.get(`http://localhost:3005/data/ailmentdefault_character/${ver}New/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
+            axios.get(`data/_dir/_m/ailmentdefault_character/${ver}New/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
                 _error_remove(`ailmentdefault_character_new_${ver}_${selectedCharaID}`);
                 setbuffdata(response);
@@ -451,7 +451,7 @@ export default function CharacterPageSingleFormatting({
         //buffs
         if (DevSwitch == true && loc == "buffs" && previousIDability != `${selectedCharaID}${ver}` && ProcessedCharacters[selectedCharaID][`${ver}basic`] == true && ProcessedCharacters[selectedCharaID][`${ver}buffs`] == true) {
             setabilitydata(undefined)
-            axios.get(`http://localhost:3005/data/character_ability_character/${ver}New/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
+            axios.get(`data/_dir/_m/character_ability_character/${ver}New/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
                 _error_remove(`character_ability_character_new_${ver}_${selectedCharaID}`);
                 setabilitydata(response);
@@ -460,7 +460,7 @@ export default function CharacterPageSingleFormatting({
                 _error(`character_ability_character_new_${ver}_${selectedCharaID}`, err.message);
             })
             setbuffdata(undefined)
-            axios.get(`http://localhost:3005/data/ailmentdefault_character/${ver}New/${selectedCharaID}`, { 'muteHttpExceptions': true }).then((res) => {
+            axios.get(`data/_dir/_m/ailmentdefault_character/${ver}New/${selectedCharaID}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
                 _error_remove(`ailmentdefault_character_new_${ver}_${selectedCharaID}`);
                 setbuffdata(response);

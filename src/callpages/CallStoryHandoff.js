@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
-import { getJPToggle } from '../redux/ducks/jptoggle';
+import { getJPToggle } from '../redux/ducks/jptoggle.js';
 import { getTalkIndex } from '../redux/ducks/talk_index.js';
 import { getTalk } from '../redux/ducks/talk.js';
 
-import StoryHandoff from '../handoff/StoryHandoff';
-import Loading from '../components/Loading'
+import StoryHandoff from '../handoff/StoryHandoff.js';
+import Loading from '../components/Loading.js'
 
 export default function CallStory(){
 

@@ -409,7 +409,7 @@ function PassiveAbilityFormatting({
                                                 <DefaultTippy content={
                                                     buff.name == "" ? `Unknown ${buff.id}` : add_formatting(buff.name && buff.name, "tl")
                                                 }>
-                                                    <img alt={buff.name} className="clicky abilitybufficon" src={`https://dissidiacompendium.com/images/static/icons/buff/${ailment_level_icon(buff,buff.aarg1)}.png`} />
+                                                    <img alt={buff.name} className="clicky abilitybufficon" src={`./images/static/icons/buff/${ailment_level_icon(buff,buff.aarg1)}.png`} />
                                                 </DefaultTippy>
                                             </div>
                                         </li>

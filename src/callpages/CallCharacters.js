@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { getCharacters } from '../redux/ducks/characters';
-import { getJPToggle } from '../redux/ducks/jptoggle';
-import Character from '../Characters';
-import Loading from '../components/Loading'
+import { getCharacters } from '../redux/ducks/characters.js';
+import { getJPToggle } from '../redux/ducks/jptoggle.js';
+import Character from '../Characters.js';
+import Loading from '../components/Loading.js'
 
 export default function CallCharacters(){
 

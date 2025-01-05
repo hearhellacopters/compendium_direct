@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
-import { getCrystalPassives } from '../redux/ducks/crystalpassives';
-import { getCrystalAbilities } from '../redux/ducks/crystalabilities';
-import { getJPToggle } from '../redux/ducks/jptoggle';
-import CrystalPassivesPage from '../CrystalPassives';
-import CrystalAbilityPage from '../CrystalAbility';
+import { getCrystalPassives } from '../redux/ducks/crystalpassives.js';
+import { getCrystalAbilities } from '../redux/ducks/crystalabilities.js';
+import { getJPToggle } from '../redux/ducks/jptoggle.js';
+import CrystalPassivesPage from '../CrystalPassives.js';
+import CrystalAbilityPage from '../CrystalAbility.js';
 
 import { getMasterIndex } from '../redux/ducks/master_index';
 
@@ -88,7 +88,7 @@ export default function CallCrystalBrilliance(){
                 master_index={master_index}
             />
             :
-            <div className=""><h1><img className="loadingbardots" src={"https://dissidiacompendium.com/images/static/site/loading.gif"}></img></h1></div>
+            <div className=""><h1><img className="loadingbardots" src={"./images/static/site/loading.gif"}></img></h1></div>
     )
 
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
 import { useDispatch } from "react-redux";
-import { setFalse, setTrue } from './redux/ducks/jptoggle'
+import { setFalse, setTrue } from './redux/ducks/jptoggle.js'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async';
 import Tippy from './components/TippyDefaults'
@@ -21,6 +21,7 @@ import PanelFormatting from './components/Missions/PanelFormatting';
 import Select from 'react-select';
 import { _error } from './redux/sagas/handlers/_error_state_add';
 import { _error_remove } from './redux/sagas/handlers/_error_state_remove';
+import DevSwitch from './redux/DevSwitch.js';
 
 export default function Missions({
     jptoggledata
@@ -48,17 +49,28 @@ export default function Missions({
 
     useEffect(()=>{
         if(rawData.length == 0){
-            axios.get(`https://www.dissidiacompendium.com/data/_dir/missions/${JP==true?"JP":"GL"}${banerDisplayTerm}.json`, { 'muteHttpExceptions': true }).then((res) => {
-                const response = res.data;
-                _error_remove(`missions_${JP==true?"JP":"GL"}_${banerDisplayTerm}`);
-                setrawData(response)
-            }).catch(function (err) {
-                _error(`missions_${JP==true?"JP":"GL"}_${banerDisplayTerm}`, err.message);
-                setrawData([])
-            })
+            if(DevSwitch){
+                axios.get(`data/_dir/missions/${JP==true?"JP":"GL"}${banerDisplayTerm}.json`, { 'muteHttpExceptions': true }).then((res) => {
+                    const response = res.data;
+                    _error_remove(`missions_${JP==true?"JP":"GL"}_${banerDisplayTerm}`);
+                    setrawData(response)
+                }).catch(function (err) {
+                    _error(`missions_${JP==true?"JP":"GL"}_${banerDisplayTerm}`, err.message);
+                    setrawData([])
+                })
+            } else {
+                axios.get(`https://www.dissidiacompendium.com/data/_dir/missions/${JP==true?"JP":"GL"}${banerDisplayTerm}.json`, { 'muteHttpExceptions': true }).then((res) => {
+                    const response = res.data;
+                    _error_remove(`missions_${JP==true?"JP":"GL"}_${banerDisplayTerm}`);
+                    setrawData(response)
+                }).catch(function (err) {
+                    _error(`missions_${JP==true?"JP":"GL"}_${banerDisplayTerm}`, err.message);
+                    setrawData([])
+                })
+            }
         }
          // eslint-disable-next-line
-    },[rawData,banerDisplayTerm,JP,setbanerDisplayTerm])
+    },[banerDisplayTerm,JP,setbanerDisplayTerm])
 
     const [showFilter, setShowFilter] = useState(getQueryStringVal("filter") != null ? true : false);
     const [clearFilter, setclearFilter] = useStateIfMounted(false);
@@ -159,64 +171,64 @@ export default function Missions({
             item_id: 19,
             item_type: 18,
             name: 'Providence Core',
-            value: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_lb_material/19.png`} alt={'Providence Core'}/>{'Providence Core'}</span>,
-            label: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_lb_material/19.png`} alt={'Providence Core'}/>{'Providence Core'}</span>
+            value: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/19.png`} alt={'Providence Core'}/>{'Providence Core'}</span>,
+            label: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/19.png`} alt={'Providence Core'}/>{'Providence Core'}</span>
         },
         {
             id:2,
             item_id: 20,
             item_type: 18,
             name: 'High Power Stone',
-            value: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_lb_material/20.png`} alt={'High Power Stone'}/>{'High Power Stone'}</span>,
-            label: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_lb_material/20.png`} alt={'High Power Stone'}/>{'High Power Stone'}</span>
+            value: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/20.png`} alt={'High Power Stone'}/>{'High Power Stone'}</span>,
+            label: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/20.png`} alt={'High Power Stone'}/>{'High Power Stone'}</span>
         },
         {
             id:3,
             item_id: 1,
             item_type: 37,
             name: 'Force Stone Fragment',
-            value: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_link_stone/1.png`} alt={'Force Stone Fragment'}/>{'Force Stone Fragment'}</span>,
-            label: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_link_stone/1.png`} alt={'Force Stone Fragment'}/>{'Force Stone Fragment'}</span>
+            value: <span><img className='inline-buff' src={`./images/static/items/mst_link_stone/1.png`} alt={'Force Stone Fragment'}/>{'Force Stone Fragment'}</span>,
+            label: <span><img className='inline-buff' src={`./images/static/items/mst_link_stone/1.png`} alt={'Force Stone Fragment'}/>{'Force Stone Fragment'}</span>
         },
         {
             id:4,
             item_id: -2,
             item_type: 41,
             name: 'Polychromatic Sparkle',
-            value: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_crystal_point/-2.png`} alt={'Polychromatic Sparkle'}/>{'Polychromatic Sparkle'}</span>,
-            label: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_crystal_point/-2.png`} alt={'Polychromatic Sparkle'}/>{'Polychromatic Sparkle'}</span>
+            value: <span><img className='inline-buff' src={`./images/static/items/mst_crystal_point/-2.png`} alt={'Polychromatic Sparkle'}/>{'Polychromatic Sparkle'}</span>,
+            label: <span><img className='inline-buff' src={`./images/static/items/mst_crystal_point/-2.png`} alt={'Polychromatic Sparkle'}/>{'Polychromatic Sparkle'}</span>
         },
         {
             id:5,
             item_id: 15,
             item_type: 18,
             name: 'Fragment of Ruins Miracles',
-            value: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_lb_material/15.png`} alt={'Fragment of Ruin\'s Miracles'}/>{'Fragment of Ruin\'s Miracles'}</span>,
-            label: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_lb_material/15.png`} alt={'Fragment of Ruin\'s Miracles'}/>{'Fragment of Ruin\'s Miracles'}</span>
+            value: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/15.png`} alt={'Fragment of Ruin\'s Miracles'}/>{'Fragment of Ruin\'s Miracles'}</span>,
+            label: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/15.png`} alt={'Fragment of Ruin\'s Miracles'}/>{'Fragment of Ruin\'s Miracles'}</span>
         },
         {
             id:6,
             item_id: 17,
             item_type: 18,
             name: 'Ruins Ultima Nugget',
-            value: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_lb_material/17.png`} alt={'Ruin\'s Ultima Nugget'}/>{'Ruin\'s Ultima Nugget'}</span>,
-            label: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_lb_material/17.png`} alt={'Ruin\'s Ultima Nugget'}/>{'Ruin\'s Ultima Nugget'}</span>
+            value: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/17.png`} alt={'Ruin\'s Ultima Nugget'}/>{'Ruin\'s Ultima Nugget'}</span>,
+            label: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/17.png`} alt={'Ruin\'s Ultima Nugget'}/>{'Ruin\'s Ultima Nugget'}</span>
         },
         {
             id:7,
             item_id: 11,
             item_type: 18,
             name: 'Fragment of Refuges Miracles',
-            value: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_lb_material/11.png`} alt={'Fragment of Refuge\'s Miracles'}/>{'Fragment of Refuge\'s Miracles'}</span>,
-            label: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_lb_material/11.png`} alt={'Fragment of Refuge\'s Miracles'}/>{'Fragment of Refuge\'s Miracles'}</span>
+            value: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/11.png`} alt={'Fragment of Refuge\'s Miracles'}/>{'Fragment of Refuge\'s Miracles'}</span>,
+            label: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/11.png`} alt={'Fragment of Refuge\'s Miracles'}/>{'Fragment of Refuge\'s Miracles'}</span>
         },
         {
             id:8,
             item_id: 13,
             item_type: 18,
             name: 'Refuges Ultima Nugget',
-            value: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_lb_material/13.png`} alt={'Refuge\'s Ultima Nugget'}/>{'Refuge\'s Ultima Nugget'}</span>,
-            label: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_lb_material/13.png`} alt={'Refuge\'s Ultima Nugget'}/>{'Refuge\'s Ultima Nugget'}</span>
+            value: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/13.png`} alt={'Refuge\'s Ultima Nugget'}/>{'Refuge\'s Ultima Nugget'}</span>,
+            label: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/13.png`} alt={'Refuge\'s Ultima Nugget'}/>{'Refuge\'s Ultima Nugget'}</span>
         }
     ]
 
@@ -232,64 +244,64 @@ export default function Missions({
                 item_id: 19,
                 item_type: 18,
                 name: 'Providence Core',
-                value: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_lb_material/19.png`} alt={'Providence Core'}/>{'Providence Core'}</span>,
-                label: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_lb_material/19.png`} alt={'Providence Core'}/>{'Providence Core'}</span>
+                value: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/19.png`} alt={'Providence Core'}/>{'Providence Core'}</span>,
+                label: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/19.png`} alt={'Providence Core'}/>{'Providence Core'}</span>
             },
             {
                 id:2,
                 item_id: 20,
                 item_type: 18,
                 name: 'High Power Stone',
-                value: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_lb_material/20.png`} alt={'High Power Stone'}/>{'High Power Stone'}</span>,
-                label: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_lb_material/20.png`} alt={'High Power Stone'}/>{'High Power Stone'}</span>
+                value: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/20.png`} alt={'High Power Stone'}/>{'High Power Stone'}</span>,
+                label: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/20.png`} alt={'High Power Stone'}/>{'High Power Stone'}</span>
             },
             {
                 id:3,
                 item_id: 1,
                 item_type: 37,
                 name: 'Force Stone Fragment',
-                value: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_link_stone/1.png`} alt={'Force Stone Fragment'}/>{'Force Stone Fragment'}</span>,
-                label: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_link_stone/1.png`} alt={'Force Stone Fragment'}/>{'Force Stone Fragment'}</span>
+                value: <span><img className='inline-buff' src={`./images/static/items/mst_link_stone/1.png`} alt={'Force Stone Fragment'}/>{'Force Stone Fragment'}</span>,
+                label: <span><img className='inline-buff' src={`./images/static/items/mst_link_stone/1.png`} alt={'Force Stone Fragment'}/>{'Force Stone Fragment'}</span>
             },
             {
                 id:4,
                 item_id: -2,
                 item_type: 41,
                 name: 'Polychromatic Sparkle',
-                value: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_crystal_point/-2.png`} alt={'Polychromatic Sparkle'}/>{'Polychromatic Sparkle'}</span>,
-                label: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_crystal_point/-2.png`} alt={'Polychromatic Sparkle'}/>{'Polychromatic Sparkle'}</span>
+                value: <span><img className='inline-buff' src={`./images/static/items/mst_crystal_point/-2.png`} alt={'Polychromatic Sparkle'}/>{'Polychromatic Sparkle'}</span>,
+                label: <span><img className='inline-buff' src={`./images/static/items/mst_crystal_point/-2.png`} alt={'Polychromatic Sparkle'}/>{'Polychromatic Sparkle'}</span>
             },
             {
                 id:5,
                 item_id: 15,
                 item_type: 18,
                 name: 'Fragment of Ruins Miracles',
-                value: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_lb_material/15.png`} alt={'Fragment of Ruin\'s Miracles'}/>{'Fragment of Ruin\'s Miracles'}</span>,
-                label: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_lb_material/15.png`} alt={'Fragment of Ruin\'s Miracles'}/>{'Fragment of Ruin\'s Miracles'}</span>
+                value: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/15.png`} alt={'Fragment of Ruin\'s Miracles'}/>{'Fragment of Ruin\'s Miracles'}</span>,
+                label: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/15.png`} alt={'Fragment of Ruin\'s Miracles'}/>{'Fragment of Ruin\'s Miracles'}</span>
             },
             {
                 id:6,
                 item_id: 17,
                 item_type: 18,
                 name: 'Ruins Ultima Nugget',
-                value: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_lb_material/17.png`} alt={'Ruin\'s Ultima Nugget'}/>{'Ruin\'s Ultima Nugget'}</span>,
-                label: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_lb_material/17.png`} alt={'Ruin\'s Ultima Nugget'}/>{'Ruin\'s Ultima Nugget'}</span>
+                value: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/17.png`} alt={'Ruin\'s Ultima Nugget'}/>{'Ruin\'s Ultima Nugget'}</span>,
+                label: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/17.png`} alt={'Ruin\'s Ultima Nugget'}/>{'Ruin\'s Ultima Nugget'}</span>
             },
             {
                 id:7,
                 item_id: 11,
                 item_type: 18,
                 name: 'Fragment of Refuges Miracles',
-                value: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_lb_material/11.png`} alt={'Fragment of Refuge\'s Miracles'}/>{'Fragment of Refuge\'s Miracles'}</span>,
-                label: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_lb_material/11.png`} alt={'Fragment of Refuge\'s Miracles'}/>{'Fragment of Refuge\'s Miracles'}</span>
+                value: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/11.png`} alt={'Fragment of Refuge\'s Miracles'}/>{'Fragment of Refuge\'s Miracles'}</span>,
+                label: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/11.png`} alt={'Fragment of Refuge\'s Miracles'}/>{'Fragment of Refuge\'s Miracles'}</span>
             },
             {
                 id:8,
                 item_id: 13,
                 item_type: 18,
                 name: 'Refuges Ultima Nugget',
-                value: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_lb_material/13.png`} alt={'Refuge\'s Ultima Nugget'}/>{'Refuge\'s Ultima Nugget'}</span>,
-                label: <span><img className='inline-buff' src={`https://dissidiacompendium.com/images/static/items/mst_lb_material/13.png`} alt={'Refuge\'s Ultima Nugget'}/>{'Refuge\'s Ultima Nugget'}</span>
+                value: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/13.png`} alt={'Refuge\'s Ultima Nugget'}/>{'Refuge\'s Ultima Nugget'}</span>,
+                label: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/13.png`} alt={'Refuge\'s Ultima Nugget'}/>{'Refuge\'s Ultima Nugget'}</span>
             }
         ]
         //type params
@@ -856,11 +868,10 @@ export default function Missions({
     const showfilterbutton = () => {
         if (showFilter == false) {
             setFiltersearch("true")
-            setShowFilter(true)
-        } else {
+          } else {
             setFiltersearch("")
-            setShowFilter(false)
-        }
+          }
+          setShowFilter((prevValue) => !prevValue);
     }
 
     //load more
@@ -964,7 +975,7 @@ export default function Missions({
                 <h1>{JP == false ? "GL " : "JP "}Events</h1>
                 <div className="subheader">Use filters to limit returns</div>
                 <div className="charfilterspacer" />
-                <div key="filter1" onClick={showfilterbutton} className="charfilter"><span className="filterstext"></span>{showFilter ? <TiArrowSortedUp className="uparrow" /> : <TiArrowSortedDown className="downarrow" />}</div>
+                <div onClick={showfilterbutton} className="charfilter" id={showFilter ? "filteropen" : "filterclosed"}><span className="filterstext"></span>{showFilter ? <TiArrowSortedUp className="uparrow" /> : <TiArrowSortedDown className="downarrow" />}</div>
                 {showFilter == false ?
                     <div className="event-search-reverse-holder">
                         <span className={`${JP == true ? "jponlybackground" : "GLonlybackground"}`}>
@@ -989,7 +1000,7 @@ export default function Missions({
                     </div>
                 : 
     
-                    <div className="filterholder noselect">
+                    <div className="filterholder noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
                         <div className="similarbanner">{`${JP == true?"JP":"GL"} Version`}</div>
                         <div className="filterholderflair">
                             <ul className="eventtypes">

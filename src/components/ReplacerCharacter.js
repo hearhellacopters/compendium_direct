@@ -89,7 +89,7 @@ const span_formatting = (match, i, number) =>{
         return <span key={`3-${i}-${number}`} className={`inline ${match}`}></span>
     }
     return (
-        <img key={`3-${i}-${number}`} className={"inline-buff"} src={`https://dissidiacompendium.com/images/static/icons/geartype/${match}.png`} />
+        <img key={`3-${i}-${number}`} className={"inline-buff"} src={`./images/static/icons/geartype/${match}.png`} />
     )
 }
 
@@ -171,13 +171,13 @@ export default function ReplacerCharacter(text, options){
     replacement = replacement == "" ? "" : reactStringReplace(replacement, /\/\/(.*?)\/\//, (match, i) => {
         number = number + 1
         return (
-            <img key={`17-${i}-${number}`} className={"inline-buff"} src={`https://dissidiacompendium.com/images/static/icons/buff/${match}.png`} />
+            <img key={`17-${i}-${number}`} className={"inline-buff"} src={`./images/static/icons/buff/${match}.png`} />
         )
     })
     replacement = replacement == "" ? "" : reactStringReplace(replacement, /\\\\(.*?)\\\\/, (match, i) => {
         number = number + 1
         return (
-            <img key={`17-${i}-${number}`} className={"inline-buff"} src={`https://dissidiacompendium.com/images/static/gaiji/${match}.png`} />
+            <img key={`17-${i}-${number}`} className={"inline-buff"} src={`./images/static/gaiji/${match}.png`} />
         )
     })
     replacement = replacement == "" ? "" : reactStringReplace(replacement, /([0-9]*\.[0-9]+%|[0-9]+%)/, (match, i) => {

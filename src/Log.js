@@ -1,5 +1,5 @@
 import React from 'react'
-import { MdRecordVoiceOver }from 'react-icons/md';
+import { MdRecordVoiceOver }from 'react-icons/md/index.esm.js';
 import { Link } from 'react-router-dom'
 
 export default function log () {

@@ -22,7 +22,7 @@ import { setUpdate } from './redux/ducks/playlist'
 import { addTrack } from './redux/ducks/playlist'
 import { setMusicKey } from './redux/ducks/playindex'
 import { getPlayList } from './redux/ducks/playlist'
-import { setFalse, setTrue } from './redux/ducks/jptoggle'
+import { setFalse, setTrue } from './redux/ducks/jptoggle.js'
 
 export default function JukeBox({ 
   ProcessedMusic, 

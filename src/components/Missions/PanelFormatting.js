@@ -142,12 +142,12 @@ function PanelFormatting({
         if(item.bg != undefined){
             return (
                 <span onClick={() => missionselect([master])} className="panel-reward-holder">
-                <img className={`panel-reward reward_${loc}`} src={`https://dissidiacompendium.com/images/static/items/bg/${item.bg}.png`} alt={"reward-bg"}/>
+                <img className={`panel-reward reward_${loc}`} src={`./images/static/items/bg/${item.bg}.png`} alt={"reward-bg"}/>
                 <div className={`panel-item item${item.star != undefined ? "_s": ""}_${loc}`}>
-                    <img className={`panel-item-icon`} src={`https://dissidiacompendium.com/images/static/${item.image}`} alt={"reward-item"}/>
+                    <img className={`panel-item-icon`} src={`./images/static/${item.image}`} alt={"reward-item"}/>
                 </div>
                 {item.star != undefined ?
-                    <img className={`panel-star star_${loc}`} src={`https://dissidiacompendium.com/images/static/items/stars/${item.star}.png`} alt={"reward-item"}/>
+                    <img className={`panel-star star_${loc}`} src={`./images/static/items/stars/${item.star}.png`} alt={"reward-item"}/>
                 :""}
                 <div className={`panel-amount amount_${loc}`}>{`${item.points == true ? `${amount(item.item_num)}pt` : `x${amount(item.item_num)}`}`}</div>
                 </span>
@@ -156,7 +156,7 @@ function PanelFormatting({
             return (
                 <span onClick={() => missionselect([master])} className="panel-reward-holder">
                 <div className={`panel-reward reward_${loc}`}>
-                    <img className={`panel-item-icon`} src={`https://dissidiacompendium.com/images/static/${item.image}`} alt={"reward-item"}/>
+                    <img className={`panel-item-icon`} src={`./images/static/${item.image}`} alt={"reward-item"}/>
                 </div>
                 {item.item_num != 1?
                 <div className={`panel-amount amount_${loc}`}>{`${item.points == true ? `${amount(item.item_num)}pt` : `x${amount(item.item_num)}`}`}</div>
@@ -207,16 +207,16 @@ function PanelFormatting({
             </div>
             <div className="eventholder">
                 <div className="panel_dyn">
-                    <img className={`withshadow panel-bg`} src={'https://dissidiacompendium.com/images/static/items/panels/bg.png'} alt={"bg"} />
-                    <img className={`panel-header`} src={'https://dissidiacompendium.com/images/static/items/panels/header.png'} alt={"header"} />
+                    <img className={`withshadow panel-bg`} src={'./images/static/items/panels/bg.png'} alt={"bg"} />
+                    <img className={`panel-header`} src={'./images/static/items/panels/header.png'} alt={"header"} />
                     <div className="panel-title" onClick={showmeraw}>{panel.title}</div>
                     <div className="panel-page">{panel.page}</div>
                     {calculateTimeDifference(currenttime,panel.reward_receive_date,panel.term_to_date)}
                     <div onClick={() => missionselect(missions_clears)} className="panel-clear-bn">Clears</div>
 
-                    <img className="panel-bg_1_3" src={'https://dissidiacompendium.com/images/static/items/panels/board.png'} alt={"bg_1_3"} />
-                    <img className="panel-bg_1_2" src={'https://dissidiacompendium.com/images/static/items/panels/board.png'} alt={"bg_1_2"} />
-                    <img className="panel-bg_1_1" src={'https://dissidiacompendium.com/images/static/items/panels/board.png'} alt={"bg_1_1"} />
+                    <img className="panel-bg_1_3" src={'./images/static/items/panels/board.png'} alt={"bg_1_3"} />
+                    <img className="panel-bg_1_2" src={'./images/static/items/panels/board.png'} alt={"bg_1_2"} />
+                    <img className="panel-bg_1_1" src={'./images/static/items/panels/board.png'} alt={"bg_1_1"} />
                     
                     {make_reward(spot1_1 && spot1_1.rewards && spot1_1.rewards.length > 1 ? ArrayChest : spot1_1.rewards && spot1_1.rewards[0] ,"1_1",spot1_1)}
                     {make_reward(spot1_2 && spot1_2.rewards && spot1_2.rewards.length > 1 ? ArrayChest : spot1_2.rewards && spot1_2.rewards[0] ,"1_2",spot1_2)}
@@ -229,9 +229,9 @@ function PanelFormatting({
                     <div onClick={() => missionselect([spot1_3])} className="panel-box   box_1_3">{ReplacerCharacter(format_cleaner(pre_filter(spot1_3[`${ver == "JP" ? "trans" : "description"}`])))}</div>
                     <div className="total-box total_1_3">{ReplacerCharacter(format_cleaner(pre_filter(spot1_3.total)))}</div>
 
-                    <img className="panel-bg_2_3" src={'https://dissidiacompendium.com/images/static/items/panels/board.png'} alt={"bg_2_3"} />
-                    <img className="panel-bg_2_2" src={'https://dissidiacompendium.com/images/static/items/panels/board.png'} alt={"bg_2_2"} />
-                    <img className="panel-bg_2_1" src={'https://dissidiacompendium.com/images/static/items/panels/board.png'} alt={"bg_2_1"} />
+                    <img className="panel-bg_2_3" src={'./images/static/items/panels/board.png'} alt={"bg_2_3"} />
+                    <img className="panel-bg_2_2" src={'./images/static/items/panels/board.png'} alt={"bg_2_2"} />
+                    <img className="panel-bg_2_1" src={'./images/static/items/panels/board.png'} alt={"bg_2_1"} />
 
                     {make_reward(spot2_1 && spot2_1.rewards && spot2_1.rewards.length > 1 ? ArrayChest : spot2_1.rewards && spot2_1.rewards[0] ,"2_1",spot2_1)}
                     {make_reward(spot2_2 && spot2_2.rewards && spot2_2.rewards.length > 1 ? ArrayChest : spot2_2.rewards && spot2_2.rewards[0] ,"2_2",spot2_2)}
@@ -244,9 +244,9 @@ function PanelFormatting({
                     <div onClick={() => missionselect([spot2_3])} className="panel-box   box_2_3">{ReplacerCharacter(format_cleaner(pre_filter(spot2_3[`${ver == "JP" ? "trans" : "description"}`])))}</div>
                     <div className="total-box total_2_3">{ReplacerCharacter(format_cleaner(pre_filter(spot2_3.total)))}</div>
 
-                    <img className="panel-bg_3_3" src={'https://dissidiacompendium.com/images/static/items/panels/board.png'} alt={"bg_3_3"} />
-                    <img className="panel-bg_3_2" src={'https://dissidiacompendium.com/images/static/items/panels/board.png'} alt={"bg_3_2"} />
-                    <img className="panel-bg_3_1" src={'https://dissidiacompendium.com/images/static/items/panels/board.png'} alt={"bg_3_1"} />
+                    <img className="panel-bg_3_3" src={'./images/static/items/panels/board.png'} alt={"bg_3_3"} />
+                    <img className="panel-bg_3_2" src={'./images/static/items/panels/board.png'} alt={"bg_3_2"} />
+                    <img className="panel-bg_3_1" src={'./images/static/items/panels/board.png'} alt={"bg_3_1"} />
 
                     {make_reward(spot3_1 && spot3_1.rewards && spot3_1.rewards.length > 1 ? ArrayChest : spot3_1.rewards && spot3_1.rewards[0] ,"3_1",spot3_1)}
                     {make_reward(spot3_2 && spot3_2.rewards && spot3_2.rewards.length > 1 ? ArrayChest : spot3_2.rewards && spot3_2.rewards[0] ,"3_2",spot3_2)}

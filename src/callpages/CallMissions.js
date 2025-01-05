@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { getJPToggle } from '../redux/ducks/jptoggle';
-import Missions from '../Missions';
-import Loading from '../components/Loading'
+import { getJPToggle } from '../redux/ducks/jptoggle.js';
+import Missions from '../Missions.js';
+import Loading from '../components/Loading.js'
 
 export default function CallMissions(){
 

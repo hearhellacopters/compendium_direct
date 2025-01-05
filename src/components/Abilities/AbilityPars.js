@@ -16,7 +16,7 @@ import times_handler from '../../processing/abilities/hitdata_times_handler.js'
 import ReplacerCharacter from '../ReplacerCharacter'
 import { useDispatch, useSelector } from "react-redux";
 import { getTransNames } from '../../redux/ducks/transnames';
-import { MdRecordVoiceOver }from 'react-icons/md';
+import { MdRecordVoiceOver }from 'react-icons/md/index.esm.js';
 import ability_rank_trans from '../../processing/abilities/ability_rank_trans'
 import { ObjectView } from 'react-object-view'
 import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
@@ -154,7 +154,7 @@ function AbilityPars({
     const playvoice =()=>{
         if(playingaudio != true && character_ability.voice_index != undefined){
             try {
-                const myAudioElement = new Audio(`https://dissidiacompendium.com/images/static/characters/${char_id[character_ability.charaID] && char_id[character_ability.charaID].CharacterURLName}/voice/${character_ability.voice_index}.mp3`)
+                const myAudioElement = new Audio(`./images/static/characters/${char_id[character_ability.charaID] && char_id[character_ability.charaID].CharacterURLName}/voice/${character_ability.voice_index}.mp3`)
                 myAudioElement.volume = volume
                 myAudioElement.style.display = "none"
                 myAudioElement.addEventListener("canplaythrough", (event) => {
@@ -313,12 +313,12 @@ function AbilityPars({
                         {hide_chara == true ? "" :
                             character_ability.enemyID == undefined ?"":
                             <div className='faceholder'>
-                                <img alt={character_ability.enemyID} className={`enemy_make_face`} src={`https://dissidiacompendium.com/images/static/enemy/face/stl_mon_face_${(character_ability.enemyID-1).toString().padStart(4, '0')}out.png`} />
+                                <img alt={character_ability.enemyID} className={`enemy_make_face`} src={`./images/static/enemy/face/stl_mon_face_${(character_ability.enemyID-1).toString().padStart(4, '0')}out.png`} />
                             </div>
                         }
                         {summon && character_ability.Name != undefined ? 
                             <div className='faceholder'>
-                                <img alt={character_ability.Name} className={`enemy_make_face`} src={`https://dissidiacompendium.com/images/static/icons/summons/face/${character_ability.Name}_Face.png`} />
+                                <img alt={character_ability.Name} className={`enemy_make_face`} src={`./images/static/icons/summons/face/${character_ability.Name}_Face.png`} />
                             </div>
                         : ""}
                         <div className={hide_chara == true ? "enemyabilityiconholder" :"abilityiconholder"} onClick={showmeraw} >
@@ -326,7 +326,7 @@ function AbilityPars({
                                 <img
                                 className="abilityicon" 
                                 alt={Name} 
-                                src={`https://dissidiacompendium.com/images/static/${IconURL}.png`} />
+                                src={`./images/static/${IconURL}.png`} />
                                 {use_num.full == "∞" || enemy || summon ? "" : <div className={
                                     typeof use_num.full == "string" ? "abilityblspeed" :
                                     character_ability.Crystal == true && use_num.full != 0 ? "saholder_crystal" :
@@ -809,7 +809,7 @@ function AbilityPars({
                                                 <Tippy content={
                                                     ReplacerCharacter(buffs.name,form)
                                                 }>
-                                                    <img alt={buffs.name} className={`clicky abilitybufficon `} src={`https://dissidiacompendium.com/images/static/icons/buff/${ailment_level_icon(buffs,buffs.aarg1)}.png`} />
+                                                    <img alt={buffs.name} className={`clicky abilitybufficon `} src={`./images/static/icons/buff/${ailment_level_icon(buffs,buffs.aarg1)}.png`} />
                                                 </Tippy>
                                             </div>
                                         </li>
@@ -833,7 +833,7 @@ function AbilityPars({
                                                         <DefaultTippy content={
                                                             cast.name === "" ? ReplacerCharacter(`Unknown ${cast.id}`,form) : ReplacerCharacter(cast.name,form)
                                                         }>
-                                                            <img alt={cast.name} className="clicky abilitybufficon" src={`https://dissidiacompendium.com/images/static/icons/buff/${ailment_level_icon(cast,buffs.arg1)}.png`} />
+                                                            <img alt={cast.name} className="clicky abilitybufficon" src={`./images/static/icons/buff/${ailment_level_icon(cast,buffs.arg1)}.png`} />
                                                         </DefaultTippy>
                                                     </div>
                                                 </li>
@@ -857,7 +857,7 @@ function AbilityPars({
                                                 <DefaultTippy content={
                                                     cast.name === "" ? ReplacerCharacter(`Unknown ${cast.id}`,form) : ReplacerCharacter(cast.name,form)
                                                 }>
-                                                    <img alt={cast.name} className="clicky abilitybufficon" src={`https://dissidiacompendium.com/images/static/icons/buff/${cast.icon}.png`} />
+                                                    <img alt={cast.name} className="clicky abilitybufficon" src={`./images/static/icons/buff/${cast.icon}.png`} />
                                                 </DefaultTippy>
                                             </div>
                                         </li>

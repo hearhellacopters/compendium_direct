@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from "react-redux";
 import Tippy from './components/TippyDefaults'
-import { setFalse, setTrue } from './redux/ducks/jptoggle'
+import { setFalse, setTrue } from './redux/ducks/jptoggle.js'
 import ReplacerCharacter from './components/ReplacerCharacter';
 import { Helmet } from 'react-helmet-async';
 import DefaultTippy from './components/TippyDefaults.js'
@@ -292,7 +292,7 @@ export default function Home({
                           <li key={summons.SummonID}>
                             <Link to={`/bonuses/${summons.SummonNameShort}`}>
                               <DefaultTippy content={summons.SummonName}>
-                                <img alt={summons.SummonName} className="summonimglink" src={`https://dissidiacompendium.com/images/static/icons/summons/face/${summons.SummonFace}`} />
+                                <img alt={summons.SummonName} className="summonimglink" src={`./images/static/icons/summons/face/${summons.SummonFace}`} />
                               </DefaultTippy>
                             </Link>
                           </li>

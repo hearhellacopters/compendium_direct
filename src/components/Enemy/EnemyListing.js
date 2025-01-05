@@ -30,7 +30,7 @@ function EnemyListing({
                     effect="opacity" 
                     className="enemycard" 
                     alt={match.Name} 
-                    src={"https://dissidiacompendium.com/images/static/enemy/face/" + match.url}/>
+                    src={"./images/static/enemy/face/" + match.url}/>
                 </li>
             </Tippy>
             <Tippy content="JP Only" className="tooltip" >

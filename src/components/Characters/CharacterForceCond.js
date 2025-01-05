@@ -82,7 +82,7 @@ function CharacterForceCond({
                                 RealmPars: self3.RealmPars,
                                 Sort: self3.Sort,
                                 ShortName: self3.ShortName,
-                                CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${self3.CharacterURLName}/face.png`,
+                                CharacterFaceURL: `/images/static/characters/${self3.CharacterURLName}/face.png`,
                                 CharacterName: self3.CharacterName,
                                 CharID: self3.CharID,
                                 CrystalColor: self3.CrystalColor,
@@ -103,7 +103,7 @@ function CharacterForceCond({
                             RealmPars: single.RealmPars,
                             Sort: single.Sort,
                             ShortName: single.ShortName,
-                            CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${single.CharacterURLName}/face.png`,
+                            CharacterFaceURL: `/images/static/characters/${single.CharacterURLName}/face.png`,
                             CharacterName: single.CharacterName,
                             CharID: self.CharID,
                             CrystalColor: single.CrystalColor,
@@ -140,7 +140,7 @@ function CharacterForceCond({
                                     effect="opacity" 
                                     alt={match.CharacterName} 
                                     className="faceicon" 
-                                    src={`https://dissidiacompendium.com/images/static/characters/${match.CharacterURLName}/face.png`} />
+                                    src={`/images/static/characters/${match.CharacterURLName}/face.png`} />
                                     <div className="facetext">{`${match.CharacterName == "Cloud of Darkness" ? "CoD" : match.CharacterName == "Warrior of Light" ? "WoL" : match.CharacterName}`}</div>
                                 </div>
                             </Link>
@@ -153,7 +153,7 @@ function CharacterForceCond({
                                     effect="opacity" 
                                     alt={Partner && Partner.CharacterName} 
                                     className="faceicon" 
-                                    src={Partner && `https://dissidiacompendium.com/images/static/characters/${Partner.CharacterURLName}/face.png`} />
+                                    src={Partner && `/images/static/characters/${Partner.CharacterURLName}/face.png`} />
                                     <div className="facetext">{`${Partner && Partner.CharacterName == "Cloud of Darkness" ? "CoD" : Partner && Partner.CharacterName == "Warrior of Light" ? "WoL" : Partner && Partner.CharacterName}`}</div>
                                 </div>
                             :
@@ -164,7 +164,7 @@ function CharacterForceCond({
                                     effect="opacity" 
                                     alt={Partner && Partner.CharacterName} 
                                     className="faceicon" 
-                                    src={Partner && `https://dissidiacompendium.com/images/static/characters/${Partner.CharacterURLName}/face.png`} />
+                                    src={Partner && `/images/static/characters/${Partner.CharacterURLName}/face.png`} />
                                     <div className="facetext">{`${Partner && Partner.CharacterName == "Cloud of Darkness" ? "CoD" : Partner && Partner.CharacterName == "Warrior of Light" ? "WoL" : Partner && Partner.CharacterName}`}</div>
                                 </div>
                             </Link>
@@ -202,7 +202,7 @@ function CharacterForceCond({
 
                                             {self.roles.map((self3, i) => (
                                                 <Tippy key={i} content={roles[self3] && roles[self3].name}>
-                                                    <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[self3] && roles[self3].url}.png)` }}>
+                                                    <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[self3] && roles[self3].url}.png")` }}>
                                                     </span>
                                                 </Tippy>
                                             ))}

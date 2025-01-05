@@ -364,7 +364,7 @@ function UltimaWeapons({
                 key={gear.equip_id}
                   scrollPosition={scrollPosition}
                   placeholder={<div className='infoholder' style={{ minHeight: "350px" }}>
-                                  <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                                  <img className="loadingbardots" src="./images/static/site/loading.gif"/>
                               </div>
                                   }
                 >

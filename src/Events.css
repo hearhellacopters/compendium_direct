@@ -253,7 +253,7 @@
 }
 
 .loadbanners {
-  background-image: url(https://dissidiacompendium.com/images/static/icons/buttons/svg/green-button.svg);
+  background-image: url("./images/static/icons/buttons/svg/green-button.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -361,7 +361,7 @@
 }
 
 .pastevents {
-  content: url(https://dissidiacompendium.com/images/static/icons/misc/backevents1.svg);
+  content: url("./images/static/icons/misc/backevents1.svg");
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -378,7 +378,7 @@
 }
 
 .futureevents {
-  content: url(https://dissidiacompendium.com/images/static/icons/misc/forwardevents1.svg);
+  content: url("./images/static/icons/misc/forwardevents1.svg");
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -594,114 +594,114 @@
 /* Icons */
 
 .Weekly {
-  background-image: url('https://dissidiacompendium.com/images/static/banners/icons/banners/Weekly.png');
+  background-image: url("./images/static/banners/icons/banners/Weekly.png");
 }
 
 .Special {
-  background-image: url('https://dissidiacompendium.com/images/static/banners/icons/banners/Special.png');
+  background-image: url("./images/static/banners/icons/banners/Special.png");
 }
 
 .EventsBanner {
-  background-image: url('https://dissidiacompendium.com/images/static/banners/icons/banners/Event.png');
+  background-image: url("./images/static/banners/icons/banners/Event.png");
 }
 
 .Campaign {
-  background-image: url('https://dissidiacompendium.com/images/static/banners/icons/banners/Campaign.png');
+  background-image: url("./images/static/banners/icons/banners/Campaign.png");
 }
 
 .Story {
-  background-image: url('https://dissidiacompendium.com/images/static/banners/icons/banners/Story.png');
+  background-image: url("./images/static/banners/icons/banners/Story.png");
 }
 
 .SixMan {
-  background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/6Man3.png');
+  background-image: url("./images/static/banners/icons/mission/6Man3.png");
 }
 
 .AbyssButton {
-  background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Abyss.png');
+  background-image: url("./images/static/banners/icons/mission/Abyss.png");
 }
 
 .ActOne {
-  background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Act1.png');
+  background-image: url("./images/static/banners/icons/mission/Act1.png");
 }
 
 .ActTwo {
-  background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Act2.png');
+  background-image: url("./images/static/banners/icons/mission/Act2.png");
 }
 
 .ActThree {
-  background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Act3.png');
+  background-image: url("./images/static/banners/icons/mission/Act3.png");
 }
 
 .ActFour {
-  background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Act4.png');
+  background-image: url("./images/static/banners/icons/mission/Act4.png");
 }
 
 .BossRush {
-  background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/BossRush.png');
+  background-image: url("./images/static/banners/icons/mission/BossRush.png");
 }
 
 .DimensionsEnd {
-  background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/DimensionsEnd.png');
+  background-image: url("./images/static/banners/icons/mission/DimensionsEnd.png");
 }
 
 .Events {
-  background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Events.png');
+  background-image: url("./images/static/banners/icons/mission/Events.png");
 }
 
 .HereticButton {
-  background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Heretic.png');
+  background-image: url("./images/static/banners/icons/mission/Heretic.png");
 }
 
 .Hunts {
-  background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Hunts.png');
+  background-image: url("./images/static/banners/icons/mission/Hunts.png");
 }
 
 .Memorial {
-  background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/MemorialQuest2.png');
+  background-image: url("./images/static/banners/icons/mission/MemorialQuest2.png");
 }
 .MemorialCal {
-  content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/MemorialQuest2.png');
+  content: url("./images/static/banners/icons/mission/MemorialQuest2.png");
 }
 
 .LostChapters {
-  background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/LostChapters.png');
+  background-image: url("./images/static/banners/icons/mission/LostChapters.png");
 }
 
 .MissionDungeon {
-  background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/MissionDungeon.png');
+  background-image: url("./images/static/banners/icons/mission/MissionDungeon.png");
 }
 
 .RaidButton {
-  background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Raid.png');
+  background-image: url("./images/static/banners/icons/mission/Raid.png");
 }
 
 .TalkButton{
-  background-image: url('https://dissidiacompendium.com/images/static/banners/icons/misc/TalkEvents.png')
+  background-image: url("./images/static/icons/misc/TalkEvents.png")
 }
 
 .Lufeniaplus {
-  background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Lufenia+.png');
+  background-image: url("./images/static/banners/icons/mission/Lufenia+.png");
 }
 
 .WorldofIllusions {
-  background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/WorldofIllusions.png');
+  background-image: url("./images/static/banners/icons/mission/WorldofIllusions.png");
 }
 
 .JPOnly {
-  background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/JPOnly.png');
+  background-image: url("./images/static/banners/icons/mission/JPOnly.png");
 }
 
 .PastEvents {
-  background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/PastEvents.png');
+  background-image: url("./images/static/banners/icons/mission/PastEvents.png");
 }
 
 .FutureEvents {
-  background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/ForwardEvents.png');
+  background-image: url("./images/static/banners/icons/mission/ForwardEvents.png");
 }
 
 .EntangledWills {
-  background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/EntangledWills.png');
+  background-image: url("./images/static/banners/icons/mission/EntangledWills.png");
 }
 
 .eventimage {
@@ -935,7 +935,7 @@
 }
 
 .loadmorespheres {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/buttons/svg/blue-button.svg");
+  background-image: url("./images/static/icons/buttons/svg/blue-button.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;

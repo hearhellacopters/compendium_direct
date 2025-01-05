@@ -1,10 +1,10 @@
 import React, { useEffect, useState, Suspense } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom';
+import { BrowserRouter, HashRouter , Route, Routes, Link, Navigate } from 'react-router-dom';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { useDispatch, useSelector } from "react-redux";
 import { getJPToggle } from './redux/ducks/jptoggle.js';
 import { getQueryStringVal, useQueryParam } from './components/URLParams.js'
-import { setFalse, setTrue } from './redux/ducks/jptoggle'
+import { setFalse, setTrue } from './redux/ducks/jptoggle.js'
 import Loading from './components/Loading.js'
 import Nav from'./Nav.js';
 import DevSwitch from './redux/DevSwitch.js';
@@ -31,16 +31,16 @@ import './Passives.css';
 import './Spheres.css';
 import './Summons.css';
 import './Talk.css';
-import './components/Characters/CharacterPage.css';
-import './components/Enemy/EnemyFormatting.css';
-import './components/Enemy/LevelsFormatting.css';
-import './components/Direct.css';
+import './CharacterPage.css';
+import './EnemyFormatting.css';
+import './LevelsFormatting.css';
+import './Direct.css';
 import './components/SilderStyle.css';
 import './components/tickDown.css';
 import './components/ticker.css';
 
 const NotFoundPage = React.lazy(() => import('./404.js'));
-const Footer = React.lazy(() => import('./Footer'));
+const Footer = React.lazy(() => import('./Footer.js'));
 const Home = React.lazy(() => import('./callpages/CallHome.js'));
 const Events = React.lazy(() => import('./callpages/CallEvents.js'));
 const Banners = React.lazy(() => import('./callpages/CallBanners.js'));
@@ -127,13 +127,14 @@ export default function App(){
       <Helmet>
         <title>Dissidia Compendium</title>
       </Helmet>
-      <Router >
+      <HashRouter >
         <header id="header-bg">
           <div className="headerimagelink" >
             {DevSwitch == true ?
-              <div className="devfloat">
-                DEV
-              </div>
+              ""
+              //<div className="devfloat">
+               // DEV
+              //</div>
               : ""}
             <div className="minifloat clicky noselect" onClick={jponlybutton}>
               {jponly == true ?
@@ -159,6 +160,7 @@ export default function App(){
             <Suspense fallback={<Loading/>}>
             <Routes>
               <Route path="/" exact element={<Home />} />
+              <Route path="/index" exact element={<Home />} />
               <Route path="/events" exact element={<Events />} />
               <Route path="/events/banners" exact element={<Banners />} />
               <Route path="/events/missions" exact element={<Missions />} />
@@ -221,7 +223,7 @@ export default function App(){
           </ErrorBoundary>
         </div>
         <Footer />
-      </Router>
+      </HashRouter>
     </HelmetProvider>
   );
 

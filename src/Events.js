@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
 import { useDispatch } from "react-redux";
-import { setFalse, setTrue } from './redux/ducks/jptoggle'
+import { setFalse, setTrue } from './redux/ducks/jptoggle.js'
 import Tippy from './components/TippyDefaults.js';
 import { Helmet } from 'react-helmet-async';
 import Select from 'react-select';
@@ -39,7 +39,7 @@ export default function Events({
   const [jponly, setJPonly] = useState(jptoggledata);
   const [pastevents, setPastEvents] = useState(getQueryStringVal("past") != null ? true : false);
   const [rawData, setrawData] = useState(ProcessedEvents)
-  const [reverse, setReverse] = useState(getQueryStringVal("rev") != null ? true : false);
+  const [reverse, setReverse] = useState(getQueryStringVal("rev") != null ? false : true);
 
   const [actone, setActOne] = useState(getQueryStringVal("act1") != null ? true : false);
   const [acttwo, setActTwo] = useState(getQueryStringVal("act2") != null ? true : false);
@@ -152,34 +152,34 @@ export default function Events({
   // prefilter
   useEffect(() => {
     const filterholder = [];
-    if (pastevents === false) {
-
-      if (jponly === false) {
-        //gl
-        const filteredevents = ProcessedEvents.filter((item) => {
-          return new Date().getTime() <= new Date(item.outdate)
-        }).filter((item) => {
-          return item.tempdate == false
-        }).sort((a, b) => reverse ? new Date(b.indate).getTime() - new Date(a.indate).getTime() : new Date(a.indate).getTime() - new Date(b.indate).getTime());
-        filterholder.push(...filteredevents);
-        const filteredevents2 = filterholder.filter((item) => {
-          return item.tempdate === false
-        })
-        setrawData(filteredevents2);
-
-      } else {
-        //jp
-        const filteredevents = ProcessedEvents.filter((item) => {
-          return new Date().getTime() <= new Date(item.JPoutdate)
-        }).filter((item) => {
-          return item.url1 != "jp/event/eventtitletemp1out.png"
-        }).sort((a, b) => reverse ? new Date(a.JPindate).getTime() - new Date(b.JPindate).getTime() : new Date(b.JPindate).getTime() - new Date(a.JPindate).getTime());
-        filterholder.push(...filteredevents);
-        setrawData(filterholder);
-
-      }
-
-    } else {
+    //if (pastevents === false) {
+    //
+    //  if (jponly === false) {
+    //    //gl
+    //    const filteredevents = ProcessedEvents.filter((item) => {
+    //      return new Date().getTime() <= new Date(item.outdate)
+    //    }).filter((item) => {
+    //      return item.tempdate == false
+    //    }).sort((a, b) => reverse ? new Date(b.indate).getTime() - new Date(a.indate).getTime() : new Date(a.indate).getTime() - new Date(b.indate).getTime());
+    //    filterholder.push(...filteredevents);
+    //    const filteredevents2 = filterholder.filter((item) => {
+    //      return item.tempdate === false
+    //    })
+    //    setrawData(filteredevents2);
+    //
+    //  } else {
+    //    //jp
+    //    const filteredevents = ProcessedEvents.filter((item) => {
+    //      return new Date().getTime() <= new Date(item.JPoutdate)
+    //    }).filter((item) => {
+    //      return item.url1 != "jp/event/eventtitletemp1out.png"
+    //    }).sort((a, b) => reverse ? new Date(a.JPindate).getTime() - new Date(b.JPindate).getTime() : new Date(b.JPindate).getTime() - new Date(a.JPindate).getTime());
+    //    filterholder.push(...filteredevents);
+    //    setrawData(filterholder);
+    //
+    //  }
+    //
+    //} else {
 
       if (jponly === false) {
         const filteredevents = ProcessedEvents.filter(item=>item.tempdate === false).sort((a, b) => reverse ? new Date(b.indate).getTime() - new Date(a.indate).getTime() : new Date(a.indate).getTime() - new Date(b.indate).getTime())
@@ -189,7 +189,7 @@ export default function Events({
         setrawData(filteredevents);
       }
       
-    }
+    //}
   }, [ProcessedEvents, jponly, pastevents, reverse]);
 
   //filter
@@ -485,9 +485,9 @@ export default function Events({
   };
   const reversebutton = () => {
     if (reverse == false) {
-      setReversesearch("true")
-    } else {
       setReversesearch("")
+    } else {
+      setReversesearch("false")
     }
     setLoop(true);
     setReverse((prevValue) => !prevValue);
@@ -577,7 +577,7 @@ export default function Events({
   //clear
   const resetbutton = () => {
     setclearFilter(true)
-    setReverse(false)
+    setReverse(true)
     setPastEvents(false);
     setActOne(false)
     setActTwo(false)

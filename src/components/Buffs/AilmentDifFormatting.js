@@ -147,7 +147,7 @@ function AilmentDifFormatting({
         if (buff_new && buff_new.id && showdesc == true) {
             if (onion_passoff != undefined) {
                 if (DevSwitch == true) {
-                    axios.get(`http://localhost:3005/data/_dir/ailmenttextonion/${onion_passoff}`, { 'muteHttpExceptions': true }).then((res) => {
+                    axios.get(`data/_dir/ailmenttextonion/${onion_passoff}.json`, { 'muteHttpExceptions': true }).then((res) => {
                         const response = res.data;
                         _error_remove(`ailmenttextonion_${onion_passoff}`);
                         setsetdesc(response[ver_new]);
@@ -168,7 +168,7 @@ function AilmentDifFormatting({
             } else {
                 if (buff_new.onion == undefined) {
                     if (DevSwitch == true) {
-                        axios.get(`http://localhost:3005/data/_dir/ailmenttext/${buff_new.id}`, { 'muteHttpExceptions': true }).then((res) => {
+                        axios.get(`data/_dir/ailmenttext/${buff_new.id}.json`, { 'muteHttpExceptions': true }).then((res) => {
                             const response = res.data;
                             _error_remove(`ailmenttext_${buff_new.id}`);
                             setsetdesc(response[ver_new]);
@@ -314,7 +314,7 @@ function AilmentDifFormatting({
                         <div className="faceandiconholder">
                             <CharacterFaceFormatting char_id={char_id} id={buff_new.chara_id}/>
                             <div onClick={showmeraw} className="infoiconholder2">
-                                <img className="bufficon" alt={buff_new.name && buff_new.name} src={`https://dissidiacompendium.com/images/static/icons/buff/${ailment_level_icon(buff_new,currentlevel)}.png`} />
+                                <img className="bufficon" alt={buff_new.name && buff_new.name} src={`./images/static/icons/buff/${ailment_level_icon(buff_new,currentlevel)}.png`} />
                             </div>
                         </div>
                     </div>
@@ -327,7 +327,7 @@ function AilmentDifFormatting({
                     <div className={character_face != true ? "flexdisplay" :"infotitle2"}>
                         {character_face != true?
                             <div onClick={showmeraw} className="solo_buff_icon">
-                                <img className="bufficon2" alt={buff_new.name && buff_new.name} src={`https://dissidiacompendium.com/images/static/icons/buff/${ailment_level_icon(buff_new,currentlevel)}.png`} />
+                                <img className="bufficon2" alt={buff_new.name && buff_new.name} src={`./images/static/icons/buff/${ailment_level_icon(buff_new,currentlevel)}.png`} />
                             </div>
                         :
                         ""

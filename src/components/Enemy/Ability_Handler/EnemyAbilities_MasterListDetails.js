@@ -17,7 +17,7 @@ export default function EnemyAbilities_MasterListDetails({
 
     useEffect(() => {
         if (DevSwitch == true && enemy_id != undefined) {
-            axios.get(`http://localhost:3001/data/enemies/abilities_direct/${enemy_id}`, { 'muteHttpExceptions': true }).then((res) => {
+            axios.get(`data/enemies/abilities_direct/${enemy_id}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
                 _error_remove(`enemies_abilities_direct_${enemy_id}`);
                 setenemyabilities(response);
@@ -35,7 +35,7 @@ export default function EnemyAbilities_MasterListDetails({
             })
         }
         if (DevSwitch == true && ai != undefined) {
-            axios.get(`http://localhost:3001/data/enemies/AI/${ai}`, { 'muteHttpExceptions': true }).then((res) => {
+            axios.get(`data/enemies/AI/${ai}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
                 _error_remove(`enemies_ai_${ai}`);
                 setenemyai(response);

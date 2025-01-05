@@ -98,13 +98,13 @@ export default function EnemyAbilitiesFormatting({
                 <div className="infotitleholder">
                     {nolink == true ?
                         <div className="enemyabilityiconholder">
-                            <img onClick={handleClick} className="abilityicon" alt={abilitiespull.Name} src={`https://dissidiacompendium.com/images/static/icons/buttons/ability/${change_color(abilitiespull.IconURL)}`} />
+                            <img onClick={handleClick} className="abilityicon" alt={abilitiespull.Name} src={`./images/static/icons/buttons/ability/${change_color(abilitiespull.IconURL)}`} />
                         </div>
                         :
                         abilitiespull.IconURL != undefined ?
                             <div className="enemyabilityiconholder">
                                 <Link className="abilityurlholder" to={`/bestiary/enemies/${abilitiespull.battle_enemy_id}`}>
-                                    <img className="abilityicon" alt={abilitiespull.Name} src={`https://dissidiacompendium.com/images/static/icons/buttons/ability/${change_color(abilitiespull.IconURL)}`} />
+                                    <img className="abilityicon" alt={abilitiespull.Name} src={`./images/static/icons/buttons/ability/${change_color(abilitiespull.IconURL)}`} />
                                 </Link>
                             </div> : ""
                     }
@@ -326,7 +326,7 @@ export default function EnemyAbilitiesFormatting({
                                     <div className="biconspacer" onClick={() => buffselect(buffs)} >
                                         <Tippy content={
                                             buffs.name && ReplacerCharacter(buffs.name)}>
-                                            <img alt={buffs.name} className={`clicky abilitybufficon `} src={`https://dissidiacompendium.com/images/static/icons/buff/${ailment_level_icon(buffs,buffs.arg1)}.png`} />
+                                            <img alt={buffs.name} className={`clicky abilitybufficon `} src={`./images/static/icons/buff/${ailment_level_icon(buffs,buffs.arg1)}.png`} />
                                         </Tippy>
                                     </div>
                                 </li>;

@@ -1,8 +1,8 @@
 import React, { useState, useRef} from 'react';
 import { useSelector } from "react-redux";
 import { useLocation, Link } from 'react-router-dom';
-import { GiHamburgerMenu } from 'react-icons/gi';
-import UseOnClickOutside from './components/UseOnClickOutside';
+import { GiHamburgerMenu } from 'react-icons/gi/index.esm.js';
+import UseOnClickOutside from './components/UseOnClickOutside.js';
 
 export default function Nav(){
 

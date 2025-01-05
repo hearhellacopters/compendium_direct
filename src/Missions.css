@@ -1,21 +1,21 @@
 .DailyMission{
-    background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Daily.png');
+    background-image: url("./images/static/banners/icons/mission/Daily.png");
 }
 
 .PlayerMission{
-    background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Player.png');
+    background-image: url("./images/static/banners/icons/mission/Player.png");
 }
 
 .PanelMission {
-    background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Panel.png');
+    background-image: url("./images/static/banners/icons/mission/Panel.png");
 }
 
 .UltimaMission {
-    background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Ultima.png');
+    background-image: url("./images/static/banners/icons/mission/Ultima.png");
 }
 
 .SingleMission {
-    background-image: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Single.png');
+    background-image: url("./images/static/banners/icons/mission/Single.png");
 }
 
 .panel_dyn{
@@ -193,7 +193,7 @@
     display: flex;
     text-align: left;
     color: #331801;
-    font-family: 'Open Sans';
+    font-family: "Open Sans";
     text-shadow: none !important;
     font-size: clamp(.6vw, 1vw, 14px);
     width: 19.2%;
@@ -249,7 +249,7 @@
     position: absolute;
     display: flex;
     color: #331801;
-    font-family: 'Open Sans';
+    font-family: "Open Sans";
     text-shadow: none !important;
     flex-direction: column-reverse;
     align-content: flex-end;
@@ -610,7 +610,7 @@
         display: block;
         text-align: left;
         color: #331801;
-        font-family: 'Open Sans';
+        font-family: "Open Sans";
         font-weight: 800;
         font-size: clamp(1.8vw, 2vw, 14px);
         text-shadow: none !important;

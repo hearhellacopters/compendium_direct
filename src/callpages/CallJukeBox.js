@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { getJukeBox } from '../redux/ducks/jukebox';
-import { getPlaying } from '../redux/ducks/playing';
-import { getPlayVolume } from '../redux/ducks/playvolume';
-import { getPlayIndex } from '../redux/ducks/playindex';
-import { getMusicKey } from '../redux/ducks/playindex';
-import { getPlayList } from '../redux/ducks/playlist'
-import JukeBox from '../JukeBox'
-import Loading from '../components/Loading'
+import { getJukeBox } from '../redux/ducks/jukebox.js';
+import { getPlaying } from '../redux/ducks/playing.js';
+import { getPlayVolume } from '../redux/ducks/playvolume.js';
+import { getPlayIndex } from '../redux/ducks/playindex.js';
+import { getMusicKey } from '../redux/ducks/playindex.js';
+import { getPlayList } from '../redux/ducks/playlist.js'
+import JukeBox from '../JukeBox.js'
+import Loading from '../components/Loading.js'
 
 export default function CallJukeBoxPage(){
 
@@ -69,9 +69,9 @@ export default function CallJukeBoxPage(){
     const rawData = isIterable(ProcessedMusic) && ProcessedMusic.map(music => (
         {
             MusicKey: music.MusicKey,
-            musicSrc: `https://dissidiacompendium.com/mus/${music.File}`,
+            musicSrc: `./mus/${music.File}`,
             name: music.Label,
-            cover: "https://dissidiacompendium.com/images/static/site/logo512.png",
+            cover: "./images/static/site/logo512.png",
             singer: music.FFTitle
         }
     )).reverse()

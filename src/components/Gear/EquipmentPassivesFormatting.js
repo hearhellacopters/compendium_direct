@@ -130,14 +130,14 @@ function EquipmentPassivesFormatting ({
                             scrollPosition={scrollPosition}
                             effect="opacity" 
                             className={`gearimage${link != undefined ? " clicky" : ""}`} 
-                            src={`https://dissidiacompendium.com/images/static${gearurl}`} />
+                            src={`./images/static${gearurl}`} />
                             :
                             <Link to={`/characters/${getname.toLowerCase()}/${link}`}>
                                 <LazyLoadImage 
                                 scrollPosition={scrollPosition}
                                 effect="opacity" 
                                 className={`gearimage${link != undefined ? " clicky" : ""}`} 
-                                src={`https://dissidiacompendium.com/images/static${gearurl}`} />
+                                src={`./images/static${gearurl}`} />
                             </Link>
                         }
                     </div>

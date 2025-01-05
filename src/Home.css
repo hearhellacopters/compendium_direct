@@ -48,7 +48,7 @@
 }
 
 .squallsmile {
-    content: url("https://dissidiacompendium.com/images/static/icons/misc/squallsmile.png");
+    content: url("./images/static/icons/misc/squallsmile.png");
     display: inline-block;
     vertical-align: middle;
     background-size: contain;
@@ -57,35 +57,35 @@
 }
 
 .vayne {
-    content: url("https://dissidiacompendium.com/images/static/icons/misc/vayne2.png");
+    content: url("./images/static/icons/misc/vayne2.png");
     display: block;
     background-size: contain;
     height: 35px;
 }
 
 .stragocrazy {
-    content: url("https://dissidiacompendium.com/images/static/icons/misc/stragocrazy2.png");
+    content: url("./images/static/icons/misc/stragocrazy2.png");
     display: block;
     background-size: contain;
     height: 35px;
 }
 
 .liliwink {
-    content: url("https://dissidiacompendium.com/images/static/icons/misc/liliwink2.png");
+    content: url("./images/static/icons/misc/liliwink2.png");
     display: block;
     background-size: contain;
     height: 35px;
 }
 
 .alisaie {
-    content: url("https://dissidiacompendium.com/images/static/icons/misc/alisaie2.png");
+    content: url("./images/static/icons/misc/alisaie2.png");
     display: block;
     background-size: contain;
     height: 35px;
 }
 
 .aphmau {
-    content: url("https://dissidiacompendium.com/images/static/icons/misc/aphmau2.png");
+    content: url("./images/static/icons/misc/aphmau2.png");
     display: block;
     background-size: contain;
     height: 35px;
@@ -193,7 +193,7 @@
 }
 
 .discord {
-    content: url("https://dissidiacompendium.com/images/static/icons/misc/DiscordWhite.svg");
+    content: url("./images/static/icons/misc/DiscordWhite.svg");
     height: 2em;
     margin-bottom: -.8em;
     margin-top: -3em;
@@ -209,7 +209,7 @@
 }
 
 .discordcredit {
-    content: url("https://dissidiacompendium.com/images/static/icons/misc/Discord-Wordmark-White.svg");
+    content: url("./images/static/icons/misc/Discord-Wordmark-White.svg");
     height: 1em;
     margin-bottom: -.1em;
     margin-top: -.5em;
@@ -381,7 +381,7 @@
 }
 
 .jpflagupdate {
-    content: url(https://dissidiacompendium.com/images/static/icons/misc/japan.svg);
+    content: url("./images/static/icons/misc/japan.svg");
     display: inline-block;
     vertical-align: middle;
     background-size: contain;
@@ -391,7 +391,7 @@
 }
 
 .jpflagtick {
-    content: url(https://dissidiacompendium.com/images/static/icons/misc/japan.svg);
+    content: url("./images/static/icons/misc/japan.svg");
     display: inline-block;
     vertical-align: middle;
     background-size: contain;
@@ -406,7 +406,7 @@
 }
 
 .jpflagcharcard {
-    content: url(https://dissidiacompendium.com/images/static/icons/misc/japan.svg);
+    content: url("./images/static/icons/misc/japan.svg");
     display: inline-block;
     vertical-align: middle;
     background-size: contain;

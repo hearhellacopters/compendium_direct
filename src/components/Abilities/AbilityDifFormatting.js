@@ -1,24 +1,25 @@
 import React, { useEffect } from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
-import { useDispatch, useSelector } from "react-redux";
-import translater from '../../processing/translater_characters'
-import { getTransNames } from '../../redux/ducks/transnames';
-import command_dif from '../../processing/abilities/command_dif'
-import options_dif from '../../processing/abilities/options_dif';
-import CharacterFaceFormatting from '../Characters/CharacterFaceFormatting'
-import ability_icon_maker from '../../processing/abilities/ability_icon_maker'
+import Tippy from '../TippyDefaults.js'
 import { ObjectView } from 'react-object-view'
-import Tippy from '../TippyDefaults'
-import Format_Cleaner from '../../processing/format_cleaner'
-import ReplacerCharacter from '../ReplacerCharacter'
-import { MdRecordVoiceOver }from 'react-icons/md';
-import ability_rank_trans from '../../processing/abilities/ability_rank_trans'
-import AilmentDataFormatting from '../Buffs/AilmentDataFormatting'
-import AilmentDifFormatting from '../Buffs/AilmentDifFormatting';
-import makediff from '../../processing/makediff';
-import ability_use_maker from '../../processing/abilities/ability_use_maker';
-import ailment_level_icon from '../../processing/ailment/ailment_level_icon';
+import { useDispatch, useSelector } from "react-redux";
 import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
+import { MdRecordVoiceOver }from 'react-icons/md/index.esm.js';
+import translater from '../../processing/translater_characters.js'
+import { getTransNames } from '../../redux/ducks/transnames.js';
+import command_dif from '../../processing/abilities/command_dif.js'
+import options_dif from '../../processing/abilities/options_dif.js';
+import CharacterFaceFormatting from '../Characters/CharacterFaceFormatting.js'
+import ability_icon_maker from '../../processing/abilities/ability_icon_maker.js'
+import Format_Cleaner from '../../processing/format_cleaner.js'
+import ReplacerCharacter from '../ReplacerCharacter.js'
+import ability_rank_trans from '../../processing/abilities/ability_rank_trans.js'
+import AilmentDataFormatting from '../Buffs/AilmentDataFormatting.js'
+import AilmentDifFormatting from '../Buffs/AilmentDifFormatting.js';
+import makediff from '../../processing/makediff.js';
+import ability_use_maker from '../../processing/abilities/ability_use_maker.js';
+import ailment_level_icon from '../../processing/ailment/ailment_level_icon.js';
+
 
 function AbilityDifFormatting({
     command_old,
@@ -251,7 +252,7 @@ function AbilityDifFormatting({
     const playvoice =()=>{
         if(playingaudio != true && character_ability.voice_index != undefined){
             try {
-                const myAudioElement = new Audio(`https://dissidiacompendium.com/images/static/characters/${char_id[character_ability.charaID] && char_id[character_ability.charaID].CharacterURLName}/voice/${character_ability.voice_index}.mp3`)
+                const myAudioElement = new Audio(`./images/static/characters/${char_id[character_ability.charaID] && char_id[character_ability.charaID].CharacterURLName}/voice/${character_ability.voice_index}.mp3`)
                 myAudioElement.volume = volume
                 myAudioElement.style.display = "none"
                 myAudioElement.addEventListener("canplaythrough", (event) => {
@@ -284,7 +285,7 @@ function AbilityDifFormatting({
                         <CharacterFaceFormatting char_id={char_id} id={character_ability.charaID} loc={undefined} />
                         <div className="abilityiconholder" onClick={showmeraw}>
                             <div className="abilityurlholder">
-                                <img className="abilityicon" alt={Name} src={`https://dissidiacompendium.com/images/static/${IconURL}.png`} />
+                                <img className="abilityicon" alt={Name} src={`./images/static/${IconURL}.png`} />
                                 <div className={
                                     typeof use_num.full == "string" ? "abilityblspeed" :
                                         character_ability.FR == true && use_num.full != 0 ? "saholderg" :
@@ -540,7 +541,7 @@ function AbilityDifFormatting({
                                                 <Tippy content={
                                                     ReplacerCharacter(buffs.name && buffs.name,from)
                                                 }>
-                                                    <img alt={buffs.name} className={`clicky abilitybufficon `} src={`https://dissidiacompendium.com/images/static/icons/buff/${ailment_level_icon(buffs,buffs.aarg1)}.png`} />
+                                                    <img alt={buffs.name} className={`clicky abilitybufficon `} src={`./images/static/icons/buff/${ailment_level_icon(buffs,buffs.aarg1)}.png`} />
                                                 </Tippy>
                                             </div>
                                         </li>

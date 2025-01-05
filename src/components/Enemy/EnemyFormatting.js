@@ -152,7 +152,7 @@ function EnemyFormatting({
                                     RealmPars: single.RealmPars,
                                     Sort: single.Sort,
                                     ShortName: single.ShortName,
-                                    CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${single.CharacterURLName}/face.png`,
+                                    CharacterFaceURL: `./images/static/characters/${single.CharacterURLName}/face.png`,
                                     CharacterName: single.CharacterName,
                                     CharID: self.CharID,
                                     CrystalColor: single.CrystalColor,
@@ -186,7 +186,7 @@ function EnemyFormatting({
                                     RealmPars: self3.RealmPars,
                                     Sort: self3.Sort,
                                     ShortName: self3.ShortName,
-                                    CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${self3.CharacterURLName}/face.png`,
+                                    CharacterFaceURL: `./images/static/characters/${self3.CharacterURLName}/face.png`,
                                     CharacterName:self3.CharacterName,
                                     CharID: self3.CharID,
                                     CrystalColor: self3.CrystalColor,
@@ -220,7 +220,7 @@ function EnemyFormatting({
                                     RealmPars: self3.RealmPars,
                                     Sort: self3.Sort,
                                     ShortName: self3.ShortName,
-                                    CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${self3.CharacterURLName}/face.png`,
+                                    CharacterFaceURL: `./images/static/characters/${self3.CharacterURLName}/face.png`,
                                     CharacterName: self3.CharacterName,
                                     CharID: self3.CharID,
                                     CrystalColor: self3.CrystalColor,
@@ -253,7 +253,7 @@ function EnemyFormatting({
                                 RealmPars: self3.RealmPars,
                                 Sort: self3.Sort,
                                 ShortName: self3.ShortName,
-                                CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${self3.CharacterURLName}/face.png`,
+                                CharacterFaceURL: `./images/static/characters/${self3.CharacterURLName}/face.png`,
                                 CharacterName:self3.CharacterName,
                                 CharID: self3.CharID,
                                 CrystalColor: self3.CrystalColor,
@@ -278,7 +278,7 @@ function EnemyFormatting({
                             RealmPars: single.RealmPars,
                             Sort: single.Sort,
                             ShortName: single.ShortName,
-                            CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${single.CharacterURLName}/face.png`,
+                            CharacterFaceURL: `./images/static/characters/${single.CharacterURLName}/face.png`,
                             CharacterName: single.CharacterName,
                             CharID: self.CharID,
                             CrystalColor: single.CrystalColor,
@@ -443,7 +443,7 @@ function EnemyFormatting({
 
     useEffect(() => {
         if (DevSwitch == true && abilities == "guide" && getGuide == undefined) {
-            axios.get(`http://localhost:3001/data/enemies_guide/${enemy.QuestIDs[ForcetimeTab]}`, { 'muteHttpExceptions': true }).then((res) => {
+            axios.get(`data/enemies_guide/${enemy.QuestIDs[ForcetimeTab]}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
                 _error_remove(`enemies_guide_${enemy.QuestIDs[ForcetimeTab]}`);
                 setgetGuide(response);
@@ -528,7 +528,7 @@ function EnemyFormatting({
                         onClick={handleClick} 
                         className={`enemyimage ${enemy.SummonFlag1 == true ? "spansummon" : ""}`} 
                         alt={enemy.Name} 
-                        src={"https://dissidiacompendium.com/images/static/enemy/face/" + enemy.url} />
+                        src={"./images/static/enemy/face/" + enemy.url} />
                         <div className={`elementsholder elements1 ${enemy.ElementsFlag === true ? "" : "nodisplayenemy"}`}>
                             <div className="elementtext">Elements</div>
                             <div className="elementholder">
@@ -577,7 +577,7 @@ function EnemyFormatting({
                                                 effect="opacity" 
                                                 className="similarenemycard" 
                                                 alt={summonedenemy1.Name} 
-                                                src={"https://dissidiacompendium.com/images/static/enemy/face/" + summonedenemy1.url} />
+                                                src={"./images/static/enemy/face/" + summonedenemy1.url} />
                                             </Link>
                                         </li>
                                     </DefaultTippy>
@@ -591,7 +591,7 @@ function EnemyFormatting({
                                                     effect="opacity"
                                                     className="similarenemycard" 
                                                     alt={summonedenemy2.Name} 
-                                                    src={"https://dissidiacompendium.com/images/static/enemy/face/" + summonedenemy2.url} />
+                                                    src={"./images/static/enemy/face/" + summonedenemy2.url} />
                                                 </Link>
                                             </li>
                                         </DefaultTippy>}
@@ -700,7 +700,7 @@ function EnemyFormatting({
                                         effect="opacity" 
                                         className="damagetypeimage" 
                                         alt="Melee" 
-                                        src="https://dissidiacompendium.com/images/static/icons/buttons/ability/Ability_Melee_BRV_Blue.png" />
+                                        src="./images/static/icons/buttons/ability/Ability_Melee_BRV_Blue.png" />
                                         <ResistIcon attack="attack" resist={enemy.Melee} />
                                     </div>
                                     <div className="attacktypeholder">
@@ -709,7 +709,7 @@ function EnemyFormatting({
                                         effect="opacity" 
                                         className="damagetypeimage" 
                                         alt="Ranged" 
-                                        src="https://dissidiacompendium.com/images/static/icons/buttons/ability/Ability_Ranged_BRV_Blue.png" />
+                                        src="./images/static/icons/buttons/ability/Ability_Ranged_BRV_Blue.png" />
                                         <ResistIcon attack="attack" resist={enemy.Ranged} />
                                     </div>
                                     <div className="attacktypeholder">
@@ -718,7 +718,7 @@ function EnemyFormatting({
                                         effect="opacity" 
                                         className="damagetypeimage" 
                                         alt="Magic" 
-                                        src="https://dissidiacompendium.com/images/static/icons/buttons/ability/Ability_Magic_BRV_Blue.png" />
+                                        src="./images/static/icons/buttons/ability/Ability_Magic_BRV_Blue.png" />
                                         <ResistIcon attack="attack" resist={enemy.Magic} />
                                     </div>
                                 </div>
@@ -770,7 +770,7 @@ function EnemyFormatting({
                                 effect="opacity" 
                                 alt="orb" 
                                 className="orbicon2" 
-                                src={`https://dissidiacompendium.com/images/static/icons/misc/Shinryu1.png`} />
+                                src={`./images/static/icons/misc/Shinryu1.png`} />
                             </div>
                             <div className="orbcondtext">
                                 {enemy.ForceTime.map((self,i) => (
@@ -837,7 +837,7 @@ function EnemyFormatting({
                                 effect="opacity" 
                                 alt="orb" 
                                 className="orbicon" 
-                                src={`https://dissidiacompendium.com/images/static/icons/misc/43${enemy.LufeniaPlusFlag == true ? "+" : ""}.png`} />
+                                src={`./images/static/icons/misc/43${enemy.LufeniaPlusFlag == true ? "+" : ""}.png`} />
                                 {enemy.LufeniaStartCounter === undefined ? "" :
                                     <div>
                                         <span className="textsafe">Start count: <span className="values">{enemy.LufeniaStartCounter}</span></span>
@@ -877,7 +877,7 @@ function EnemyFormatting({
 
                                         {self.roles.map((self3, i) => (
                                             <Tippy key={i} content={roles[self3] && roles[self3].name}>
-                                                <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[self3] && roles[self3].url}.png)` }}>
+                                                <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url(./images/static/icons/${roles[self3] && roles[self3].url}.png)` }}>
                                                 </span>
                                             </Tippy>
                                         ))}
@@ -902,7 +902,7 @@ function EnemyFormatting({
 
                                         {self.roles.map((self3, i) => (
                                             <Tippy key={i} content={roles[self3] && roles[self3].name}>
-                                                <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[self3] && roles[self3].url}.png)` }}>
+                                                <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url(./images/static/icons/${roles[self3] && roles[self3].url}.png)` }}>
                                                 </span>
                                             </Tippy>
                                         ))}
@@ -931,7 +931,7 @@ function EnemyFormatting({
                                         effect="opacity" 
                                         className="enemycard" 
                                         alt={summonedenemy1.Name} 
-                                        src={"https://dissidiacompendium.com/images/static/enemy/face/" + summonedenemy1.url} />
+                                        src={"./images/static/enemy/face/" + summonedenemy1.url} />
                                     </Link>
                                 </li>
                             </DefaultTippy>
@@ -945,7 +945,7 @@ function EnemyFormatting({
                                             effect="opacity" 
                                             className="enemycard" 
                                             alt={summonedenemy2.Name} 
-                                            src={"https://dissidiacompendium.com/images/static/enemy/face/" + summonedenemy2.url} />
+                                            src={"./images/static/enemy/face/" + summonedenemy2.url} />
                                         </Link>
                                     </li>
                                 </DefaultTippy>}
@@ -969,7 +969,7 @@ function EnemyFormatting({
                                     <li className={`abilitybufficonsholder ${selectedbuff.unq_id == buffs.unq_id ? "buffactive" : ""}`} key={i}>
                                         <div className="biconspacer" onClick={() => buffselect(buffs)} >
                                             <Tippy content={buffs.name && ReplacerCharacter(buffs.cast_str + ` #${buffs.id}`)}>
-                                                <img alt={buffs.name} className={`clicky abilitybufficon `} src={`https://dissidiacompendium.com/images/static/icons/buff/${buffs.icon}.png`} />
+                                                <img alt={buffs.name} className={`clicky abilitybufficon `} src={`./images/static/icons/buff/${buffs.icon}.png`} />
                                             </Tippy>
                                         </div>
                                     </li>
@@ -1076,8 +1076,8 @@ function EnemyFormatting({
                     {abilities == "infographic" && enemy.Infographic != undefined ?
                         enemy.Infographic.map((self,i)=> (
                             <div key={i}>
-                                <a target="_blank" rel="noreferrer" href={`https://dissidiacompendium.com/images/static/info/${self}.png`}>
-                                    <img className="infoimg withshadow clicky" src={`https://dissidiacompendium.com/images/static/info/${self}.png`} />
+                                <a target="_blank" rel="noreferrer" href={`./images/static/info/${self}.png`}>
+                                    <img className="infoimg withshadow clicky" src={`./images/static/info/${self}.png`} />
                                 </a>
                             </div>
                         ))

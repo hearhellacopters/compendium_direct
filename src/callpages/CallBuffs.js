@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
-import { getCharacters } from '../redux/ducks/characters';
-import { getJPToggle } from '../redux/ducks/jptoggle';
-import Loading from '../components/Loading'
+import { getCharacters } from '../redux/ducks/characters.js';
+import { getJPToggle } from '../redux/ducks/jptoggle.js';
+import Loading from '../components/Loading.js'
 //direct
 
-import { getMasterIndex } from '../redux/ducks/master_index';
+import { getMasterIndex } from '../redux/ducks/master_index.js';
 
-import { getJPGameListAilment } from '../redux/ducks/JP/gamelist_ailment';
-import { getGLGameListAilment } from '../redux/ducks/GL/gamelist_ailment';
+import { getJPGameListAilment } from '../redux/ducks/JP/gamelist_ailment.js';
+import { getGLGameListAilment } from '../redux/ducks/GL/gamelist_ailment.js';
 
-import Buffs from '../Buffs';
+import Buffs from '../Buffs.js';
 
 export default function CallBuffs(){
 

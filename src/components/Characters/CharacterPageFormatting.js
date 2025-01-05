@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from "react-redux";
-import DefaultTippy from '../TippyDefaults.js';
-import { Link } from 'react-router-dom'
-import SingleEventsFormatting from '../Events/SingleEventsFormatting.js'
-import CommunityCharacterGuideFormatting from './CharacterCommunityGuideFormatting.js'
+import { useStateIfMounted } from 'use-state-if-mounted';
+import { ObjectView } from 'react-object-view';
+import { Link } from 'react-router-dom';
 import { TiArrowSortedDown } from 'react-icons/ti';
 import { TiArrowSortedUp } from 'react-icons/ti';
+
+import DefaultTippy from '../TippyDefaults.js';
+import SingleEventsFormatting from '../Events/SingleEventsFormatting.js'
+import CommunityCharacterGuideFormatting from './CharacterCommunityGuideFormatting.js'
 import CharacterBrevityProfileFormatting from './CharacterBrevityProfileFormatting.js'
-import TickUp from '../tickUp'
-import { StartsInTimer } from '../Timers'
-import ReplacerCharacter from '../ReplacerCharacter';
-import Role_Maker from './CharacterRoleMarker';
-import { useStateIfMounted } from 'use-state-if-mounted';
+import TickUp from '../tickUp.js'
+import { StartsInTimer } from '../Timers.js'
+import ReplacerCharacter from '../ReplacerCharacter.js';
+import Role_Maker from './CharacterRoleMarker.js';
+
 import Random from '../../processing/random.js';
-import { ObjectView } from 'react-object-view'
+
 
 export default function CharacterPageFormatting({
   match,
@@ -49,7 +52,7 @@ export default function CharacterPageFormatting({
   const onclick = (Voice) => {
     if(playingaudio != true){
       try {
-        const myAudioElement = new Audio(`https://dissidiacompendium.com/images/static/characters/${Voice.chara}/voice/${Voice.voice}.mp3`)
+        const myAudioElement = new Audio(`./images/static/characters/${Voice.chara}/voice/${Voice.voice}.mp3`)
         myAudioElement.volume = volume
         myAudioElement.style.display = "none"
         myAudioElement.load();
@@ -73,7 +76,7 @@ export default function CharacterPageFormatting({
   const onclickvoice = (Voice) => {
     if(playingaudio != true){
       try {
-        const myAudioElement = new Audio(`https://dissidiacompendium.com/images/static/stamps/audio/${Voice}.mp3`)
+        const myAudioElement = new Audio(`./images/static/stamps/audio/${Voice}.mp3`)
         myAudioElement.volume = volume
         myAudioElement.style.display = "none"
         myAudioElement.load();
@@ -98,12 +101,12 @@ export default function CharacterPageFormatting({
 
   const [artworkcount, setartworkcount] = useState(match.ArtworkCount);
   const [currentartwork, setcurrentartwork] = useState(1);
-  const [artwork, setartwork] = useState(`https://dissidiacompendium.com/images/static/characters/${match.CharacterURLName}/c1.png`);
+  const [artwork, setartwork] = useState(`./images/static/characters/${match.CharacterURLName}/c1.png`);
   const [random, setRandom] = useState(1);
   const [events, setevents] = useState([]);
 
   useEffect(() => {
-    setartwork(`https://dissidiacompendium.com/images/static/characters/${match.CharacterURLName}/c1.png`)
+    setartwork(`./images/static/characters/${match.CharacterURLName}/c1.png`)
     setartworkcount(match.ArtworkCount)
     setcurrentartwork(1)
   }, [match])
@@ -302,14 +305,14 @@ export default function CharacterPageFormatting({
         <div className="charimagetoptopholder">
           <div className={`chartopimageholder charbackground${newmatch.CrystalColor}`}>
             <DefaultTippy content={newmatch.Weapon}>
-              <img onClick={showmeraw} className="charweapon" alt="Weapon" src={newmatch.Weapon == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/weapon/Icon_${newmatch.Weapon}.png`} />
+              <img onClick={showmeraw} className="charweapon" alt="Weapon" src={newmatch.Weapon == undefined ? "./images/static/icons/misc/Unknown_icon.png" : `./images/static/icons/weapon/Icon_${newmatch.Weapon}.png`} />
             </DefaultTippy>
             <DefaultTippy content={newmatch.CrystalColor}>
-              <img className="charCystal" alt="Crystal" src={newmatch.CrystalColor == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/crystalcolors/Crystal${newmatch.CrystalColor}_1.png`} />
+              <img className="charCystal" alt="Crystal" src={newmatch.CrystalColor == undefined ? "./images/static/icons/misc/Unknown_icon.png" : `./images/static/icons/crystalcolors/Crystal${newmatch.CrystalColor}_1.png`} />
             </DefaultTippy>
             <ul className="bufftypes sidemain">
               <DefaultTippy content={`Realm ${newmatch.Realm}`}>
-                <img className="classdisplay filterinactive" alt={newmatch.Realm} src={newmatch.Realm == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/realms/name/${newmatch.Realm}.png`}></img>
+                <img className="classdisplay filterinactive" alt={newmatch.Realm} src={newmatch.Realm == undefined ? "./images/static/icons/misc/Unknown_icon.png" : `./images/static/icons/realms/name/${newmatch.Realm}.png`}></img>
               </DefaultTippy>
               {newmatch.Magic == true ?
                 <DefaultTippy content="Magic Damage Type">
@@ -381,26 +384,26 @@ export default function CharacterPageFormatting({
               />
             </ul>
             {newmatch.ArtworkCount > 1 ?
-              <img onClick={() => handleartworkchange(currentartwork)} className="charalts clicky" alt="Stats" src={"https://dissidiacompendium.com/images/static/icons/misc/Costume2.png"} />
+              <img onClick={() => handleartworkchange(currentartwork)} className="charalts clicky" alt="Stats" src={"./images/static/icons/misc/Costume2.png"} />
               : ""}
-            <img className="charstats" alt="Stats" src={"https://dissidiacompendium.com/images/static/icons/stats/star/back.png"} />
-            <img className="charstats" alt="Stats" src={`https://dissidiacompendium.com/images/static/icons/stats/star/HP-${newmatch.HP}.png`} />
-            <img className="charstats" alt="Stats" src={`https://dissidiacompendium.com/images/static/icons/stats/star/INTBRV-${newmatch.INTBRV}.png`} />
-            <img className="charstats" alt="Stats" src={`https://dissidiacompendium.com/images/static/icons/stats/star/MAXBRV-${newmatch.MAXBRV}.png`} />
-            <img className="charstats" alt="Stats" src={`https://dissidiacompendium.com/images/static/icons/stats/star/ATK-${newmatch.ATK}.png`} />
-            <img className="charstats" alt="Stats" src={`https://dissidiacompendium.com/images/static/icons/stats/star/DEF-${newmatch.DEF}.png`} />
-            <img className="charstats" alt="Stats" src={`https://dissidiacompendium.com/images/static/icons/stats/star/SPD-${newmatch.SPD}.png`} />
+            <img className="charstats" alt="Stats" src={"./images/static/icons/stats/star/back.png"} />
+            <img className="charstats" alt="Stats" src={`./images/static/icons/stats/star/HP-${newmatch.HP}.png`} />
+            <img className="charstats" alt="Stats" src={`./images/static/icons/stats/star/INTBRV-${newmatch.INTBRV}.png`} />
+            <img className="charstats" alt="Stats" src={`./images/static/icons/stats/star/MAXBRV-${newmatch.MAXBRV}.png`} />
+            <img className="charstats" alt="Stats" src={`./images/static/icons/stats/star/ATK-${newmatch.ATK}.png`} />
+            <img className="charstats" alt="Stats" src={`./images/static/icons/stats/star/DEF-${newmatch.DEF}.png`} />
+            <img className="charstats" alt="Stats" src={`./images/static/icons/stats/star/SPD-${newmatch.SPD}.png`} />
 
-            <img className="charmanimage" alt={newmatch.CharacterName} src={`https://dissidiacompendium.com/images/static/characters/${newmatch.CharacterURLName}/c${currentartwork}.png`} />
+            <img className="charmanimage" alt={newmatch.CharacterName} src={`./images/static/characters/${newmatch.CharacterURLName}/c${currentartwork}.png`} />
             <div className="spherestop">
               <div className={`sphereletter ${newmatch.SphereSlotLocked == 1 ? "lockedslot" : "unlockedslot"}`}>
-                <img src={newmatch.SphereSlot1Letter == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/spheres/SphereLetter${newmatch.SphereSlot1Letter}.png`} alt={newmatch.Sphere1} />
+                <img src={newmatch.SphereSlot1Letter == undefined ? "./images/static/icons/misc/Unknown_icon.png" : `./images/static/icons/spheres/SphereLetter${newmatch.SphereSlot1Letter}.png`} alt={newmatch.Sphere1} />
               </div>
               <div className={`sphereletter ${newmatch.SphereSlotLocked == 2 ? "lockedslot" : "unlockedslot"}`}>
-                <img src={newmatch.SphereSlot2Letter == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/spheres/SphereLetter${newmatch.SphereSlot2Letter}.png`} alt={newmatch.Sphere2} />
+                <img src={newmatch.SphereSlot2Letter == undefined ? "./images/static/icons/misc/Unknown_icon.png" : `./images/static/icons/spheres/SphereLetter${newmatch.SphereSlot2Letter}.png`} alt={newmatch.Sphere2} />
               </div>
               <div className={`sphereletter ${newmatch.SphereSlotLocked == 3 ? "lockedslot" : "unlockedslot"}`}>
-                <img src={newmatch.SphereSlot3Letter == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/spheres/SphereLetter${newmatch.SphereSlot3Letter}.png`} alt={newmatch.Sphere3} />
+                <img src={newmatch.SphereSlot3Letter == undefined ? "./images/static/icons/misc/Unknown_icon.png" : `./images/static/icons/spheres/SphereLetter${newmatch.SphereSlot3Letter}.png`} alt={newmatch.Sphere3} />
               </div>
             </div>
             {newmatch.JPSynergyStart == undefined && newmatch.GLSynergyStart == undefined ? "" :
@@ -501,9 +504,9 @@ export default function CharacterPageFormatting({
                   </div>
                   <div className="infobase stamppadding Nocolorbase">
                     {stickers.IconGL == undefined ? null :
-                      <img className="stampsicon clicky" onClick={() => onclickvoice(stickers.Voice)} style={stickers.BackgroundColor != null ? { background: `${stickers.BackgroundColor}` } : { background: null }} alt={stickers.name} src={`https://dissidiacompendium.com/images/static/stamps/GL/${stickers.IconGL}${stickers.Animated == true ? ".gif" : ".png"}`}></img>}
+                      <img className="stampsicon clicky" onClick={() => onclickvoice(stickers.Voice)} style={stickers.BackgroundColor != null ? { background: `${stickers.BackgroundColor}` } : { background: null }} alt={stickers.name} src={`./images/static/stamps/GL/${stickers.IconGL}${stickers.Animated == true ? ".gif" : ".png"}`}></img>}
                     {stickers.IconJP == undefined ? null :
-                      <img className="stampsicon clicky" onClick={() => onclickvoice(stickers.Voice)} style={stickers.BackgroundColor != null ? { background: `${stickers.BackgroundColor}` } : { background: null }} alt={stickers.JPName} src={`https://dissidiacompendium.com/images/static/stamps/JP/${stickers.IconJP}${stickers.Animated == true ? ".gif" : ".png"}`}></img>}
+                      <img className="stampsicon clicky" onClick={() => onclickvoice(stickers.Voice)} style={stickers.BackgroundColor != null ? { background: `${stickers.BackgroundColor}` } : { background: null }} alt={stickers.JPName} src={`./images/static/stamps/JP/${stickers.IconJP}${stickers.Animated == true ? ".gif" : ".png"}`}></img>}
                   </div>
                 </div>
               </div>

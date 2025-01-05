@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
-import { getSummons } from '../redux/ducks/summons';
-import { getSummonLevels } from '../redux/ducks/summonlevels';
-import { getSummonPassives } from '../redux/ducks/summonpassives';
-import Summons from '../Summons';
+import { getSummons } from '../redux/ducks/summons.js';
+import { getSummonLevels } from '../redux/ducks/summonlevels.js';
+import { getSummonPassives } from '../redux/ducks/summonpassives.js';
+import Summons from '../Summons.js';
 
-import Loading from '../components/Loading'
+import Loading from '../components/Loading.js'
 
 export default function CallSummons(){
 

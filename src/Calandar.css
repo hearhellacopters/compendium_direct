@@ -28,7 +28,7 @@
 
 .chq-atc--button {
     background-color: transparent;
-    background-image: url(https://dissidiacompendium.com/images/static/icons/buttons/svg/blue-button.svg);
+    background-image: url("./images/static/icons/buttons/svg/blue-button.svg");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -97,75 +97,75 @@
 /*cal buttons*/
 
 .SixManCal {
-    content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/6Man3.png');
+    content: url("./images/static/banners/icons/mission/6Man3.png");
 }
 
 .AbyssButtonCal {
-    content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Abyss.png');
+    content: url("./images/static/banners/icons/mission/Abyss.png");
 }
 
 .ActOneCal {
-    content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Act1.png');
+    content: url("./images/static/banners/icons/mission/Act1.png");
 }
 
 .ActTwoCal {
-    content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Act2.png');
+    content: url("./images/static/banners/icons/mission/Act2.png");
 }
 
 .ActThreeCal {
-    content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Act3.png');
+    content: url("./images/static/banners/icons/mission/Act3.png");
 }
 
 .ActFourCal {
-    content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Act4.png');
+    content: url("./images/static/banners/icons/mission/Act4.png");
 }
 
 .BossRushCal {
-    content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/BossRush.png');
+    content: url("./images/static/banners/icons/mission/BossRush.png");
 }
 
 .DimensionsEndCal {
-    content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/DimensionsEnd.png');
+    content: url("./images/static/banners/icons/mission/DimensionsEnd.png");
 }
 
 .EventsCal {
-    content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Events.png');
+    content: url("./images/static/banners/icons/mission/Events.png");
 }
 
 .BannerOnly {
-    content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Banner.png');
+    content: url("./images/static/banners/icons/mission/Banner.png");
 }
 
 .HereticButtonCal {
-    content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Heretic.png');
+    content: url("./images/static/banners/icons/mission/Heretic.png");
 }
 
 .HuntsCal {
-    content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Hunts.png');
+    content: url("./images/static/banners/icons/mission/Hunts.png");
 }
 
 .LostChaptersCal {
-    content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/LostChapters.png');
+    content: url("./images/static/banners/icons/mission/LostChapters.png");
 }
 
 .MissionDungeonCal {
-    content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/MissionDungeon.png');
+    content: url("./images/static/banners/icons/mission/MissionDungeon.png");
 }
 
 .RaidButtonCal {
-    content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Raid.png');
+    content: url("./images/static/banners/icons/mission/Raid.png");
 }
 
 .LufeniaplusCal {
-    content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/Lufenia+.png');
+    content: url("./images/static/banners/icons/mission/Lufenia+.png");
 }
 
 .WorldofIllusionsCal {
-    content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/WorldofIllusions.png');
+    content: url("./images/static/banners/icons/mission/WorldofIllusions.png");
 }
 
 .EntangledWillsCal {
-    content: url('https://dissidiacompendium.com/images/static/banners/icons/mission/EntangledWills.png');
+    content: url("./images/static/banners/icons/mission/EntangledWills.png");
 }
 
 .buttoncal {

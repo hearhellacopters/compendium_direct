@@ -1,20 +1,20 @@
 import React, { useEffect } from 'react';
 import { useParams, Navigate } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
-import { getCharacters } from '../redux/ducks/characters';
-import { getJPToggle } from '../redux/ducks/jptoggle';
-import CharacterPageSingleFormatting from '../components/Characters/CharacterPageSingleFormatting';
-import { getEventsIndex } from '../redux/ducks/eventsIndex';
-import { getCharGuide } from '../redux/ducks/CharGuide';
+import { getCharacters } from '../redux/ducks/characters.js';
+import { getJPToggle } from '../redux/ducks/jptoggle.js';
+import CharacterPageSingleFormatting from '../components/Characters/CharacterPageSingleFormatting.js';
+import { getEventsIndex } from '../redux/ducks/eventsIndex.js';
+import { getCharGuide } from '../redux/ducks/CharGuide.js';
 import  { getQuery } from '../components/URLParams.js'
-import Loading from '../components/Loading'
+import Loading from '../components/Loading.js'
 //direct
 
-import { getMasterIndex } from '../redux/ducks/master_index';
+import { getMasterIndex } from '../redux/ducks/master_index.js';
 
-import WardrobeHandoff from '../handoff/WardrobeHandoff';
-import ForceTimeHandoff from './CallForceTime';
-import UltimaWeaponHandoff from '../handoff/UltimaWeaponHandoff'
+import WardrobeHandoff from '../handoff/WardrobeHandoff.js';
+import ForceTimeHandoff from './CallForceTime.js';
+import UltimaWeaponHandoff from '../handoff/UltimaWeaponHandoff.js'
 
 export default function CallCharacter ({
     loc

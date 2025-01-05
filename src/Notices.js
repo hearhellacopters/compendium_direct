@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from "react-redux";
-import { setFalse, setTrue } from './redux/ducks/jptoggle'
+import { setFalse, setTrue } from './redux/ducks/jptoggle.js'
 import { useStateIfMounted } from "use-state-if-mounted";
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async';

@@ -18,7 +18,7 @@ import { getQuery, getQueryStringVal, useQueryParam } from './components/URLPara
 import AbilityPars from './components/Abilities/AbilityPars';
 import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 
-import { setFalse, setTrue } from './redux/ducks/jptoggle'
+import { setFalse, setTrue } from './redux/ducks/jptoggle.js'
 
 function Abilities({
     ProcessedAbilities,
@@ -1642,7 +1642,7 @@ function Abilities({
                             scrollPosition={scrollPosition}
                             placeholder={<div className='buffunit'>
                                             <div className="infoholder" style={{ minHeight: "220px" }}>
-                                            <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                                            <img className="loadingbardots" src="./images/static/site/loading.gif"/>
                                             </div>
                                         </div>}
                             >

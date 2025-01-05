@@ -9,7 +9,7 @@ function SingleEventsFormatting({
     scrollPosition 
 }){
     const make_url=(url)=>{
-        return url.replace("https://dissidiacompendium.com/images/static/banners/","")
+        return url.replace("./images/static/banners/","")
     }
     if (match.tempdate != undefined) {
         return (
@@ -23,7 +23,7 @@ function SingleEventsFormatting({
                                     scrollPosition={scrollPosition}
                                     effect="opacity" 
                                     className={`eventimage withshadow ${permapage == false ? "showlink" : ""}`} 
-                                    src={"https://dissidiacompendium.com/images/static/banners/"+make_url(match.url1)} 
+                                    src={"./images/static/banners/"+make_url(match.url1)} 
                                     alt={match.name} />
                                 </div>
                             </Tippy>

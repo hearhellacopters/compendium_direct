@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
-import { getBanners } from '../redux/ducks/banners';
-import BannerHandoff from '../handoff/BannerHandoff';
-import Loading from '../components/Loading'
+import { getBanners } from '../redux/ducks/banners.js';
+import BannerHandoff from '../handoff/BannerHandoff.js';
+import Loading from '../components/Loading.js'
 
 export default function CallBannerHandoff(){
 

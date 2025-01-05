@@ -17,7 +17,7 @@ import { Link } from 'react-router-dom'
 import {BsFillImageFill} from 'react-icons/bs';
 import { getQuery, getQueryStringVal, useQueryParam } from './components/URLParams'
 import { LazyLoadComponent, LazyLoadImage, trackWindowScroll } from 'react-lazy-load-image-component';
-import { setFalse, setTrue } from './redux/ducks/jptoggle'
+import { setFalse, setTrue } from './redux/ducks/jptoggle.js'
 
 function Story({
     ver,
@@ -468,7 +468,7 @@ function Story({
       };
 
     const make_image = (data) =>{
-        var image = `https://dissidiacompendium.com/images/static/banners/${ver.toLowerCase()}/event/eventtitle`
+        var image = `./images/static/banners/${ver.toLowerCase()}/event/eventtitle`
         if(data[`${ver}_banner`] != undefined && data[`${ver}_banner`][0]!= undefined){
             image = image + data[`${ver}_banner`][0] + "out.png"
         } else {
@@ -479,7 +479,7 @@ function Story({
                 key={data.or}
                 effect="opacity"
                 scrollPosition={scrollPosition}
-                placeholder={<img src="https://dissidiacompendium.com/images/static/banners/acts/blank.png" className='teventimage_dummy'/>}
+                placeholder={<img src="./images/static/banners/acts/blank.png" className='teventimage_dummy'/>}
                 >
                     <Tippy key={data.or} content={data.name}>
                         <Link className='teventimage' to={`/story/${data.field_id}`}>
@@ -598,11 +598,11 @@ function Story({
                 }
                 <div className="characterholder">
                     <div className='talk_bar_holder talk_click' onClick={act1button}>
-                        <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/actbar_l.png)","--width":"27px"}} className="talk_storybar_l"/>
-                            <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/actbar_c.png)"}}  className="talk_storybar_c">
+                        <div style={{"background-image":`url("images/static/icons/banners/talk/actbar_l.png")`,"--width":"27px"}} className="talk_storybar_l"/>
+                            <div style={{"background-image":`url("images/static/icons/banners/talk/actbar_c.png")`}}  className="talk_storybar_c">
                                 <span style={{textAlign:"center",width:"100%"}}>{"Story Act 1"}</span>
                             </div>
-                        <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/actbar_r.png)","--width":"27px"}}  className="talk_storybar_r"/>
+                        <div style={{"background-image":`url("images/static/icons/banners/talk/actbar_r.png")`,"--width":"27px"}}  className="talk_storybar_r"/>
                     </div>
                     {act1 == true ?
                         act1display.length != 0 ?
@@ -629,11 +629,11 @@ function Story({
                         "No returns"
                     :""}
                     <div className='talk_bar_holder talk_click' onClick={act2button}>
-                        <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/actbar_l.png)","--width":"27px"}} className="talk_storybar_l"/>
-                            <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/actbar_c.png)"}}  className="talk_storybar_c">
+                        <div style={{"background-image":`url("./images/static/icons/banners/talk/actbar_l.png")`,"--width":"27px"}} className="talk_storybar_l"/>
+                            <div style={{"background-image":`url("./images/static/icons/banners/talk/actbar_c.png")`}}  className="talk_storybar_c">
                                 <span style={{textAlign:"center",width:"100%"}}>{"Story Act 2"}</span>
                             </div>
-                        <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/actbar_r.png)","--width":"27px"}}  className="talk_storybar_r"/>
+                        <div style={{"background-image":`url("./images/static/icons/banners/talk/actbar_r.png")`,"--width":"27px"}}  className="talk_storybar_r"/>
                     </div>
                     {act2 == true ?
                         act2display.length != 0 ?
@@ -660,11 +660,11 @@ function Story({
                         "No returns"
                     :""}
                     <div className='talk_bar_holder talk_click' onClick={act3button}>
-                        <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/actbar_l.png)","--width":"27px"}} className="talk_storybar_l"/>
-                            <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/actbar_c.png)"}}  className="talk_storybar_c">
+                        <div style={{"background-image":`url("images/static/icons/banners/talk/actbar_l.png")`,"--width":"27px"}} className="talk_storybar_l"/>
+                            <div style={{"background-image":`url("images/static/icons/banners/talk/actbar_c.png")`}}  className="talk_storybar_c">
                                 <span style={{textAlign:"center",width:"100%"}}>{"Story Act 3"}</span>
                             </div>
-                        <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/actbar_r.png)","--width":"27px"}}  className="talk_storybar_r"/>
+                        <div style={{"background-image":`url("images/static/icons/banners/talk/actbar_r.png")`,"--width":"27px"}}  className="talk_storybar_r"/>
                     </div>
                     {act3 == true ?
                         act3display.length != 0 ?
@@ -691,11 +691,11 @@ function Story({
                         "No returns"
                     :""}
                     <div className='talk_bar_holder talk_click' onClick={act4button}>
-                        <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/actbar_l.png)","--width":"27px"}} className="talk_storybar_l"/>
-                            <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/actbar_c.png)"}}  className="talk_storybar_c">
+                        <div style={{"background-image":`url("images/static/icons/banners/talk/actbar_l.png")`,"--width":"27px"}} className="talk_storybar_l"/>
+                            <div style={{"background-image":`url("images/static/icons/banners/talk/actbar_c.png")`}}  className="talk_storybar_c">
                                 <span style={{textAlign:"center",width:"100%"}}>{"Story Act 4"}</span>
                             </div>
-                        <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/actbar_r.png)","--width":"27px"}}  className="talk_storybar_r"/>
+                        <div style={{"background-image":`url("images/static/icons/banners/talk/actbar_r.png")`,"--width":"27px"}}  className="talk_storybar_r"/>
                     </div>
                     {act4 == true ?
                         act4display.length != 0 ?
@@ -722,11 +722,11 @@ function Story({
                         "No returns"
                     :""}
                     <div className='talk_bar_holder talk_click' onClick={chaptersbutton}>
-                        <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/chapterbar_l.png)","--width":"27px"}} className="talk_storybar_l"/>
-                            <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/chapterbar_c.png)"}}  className="talk_storybar_c">
+                        <div style={{"background-image":`url("images/static/icons/banners/talk/chapterbar_l.png")`,"--width":"27px"}} className="talk_storybar_l"/>
+                            <div style={{"background-image":`url("images/static/icons/banners/talk/chapterbar_c.png")`}}  className="talk_storybar_c">
                                 <span style={{textAlign:"center",width:"100%"}}>{"Lost Chapters"}</span>
                             </div>
-                        <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/chapterbar_r.png)","--width":"27px"}}  className="talk_storybar_r"/>
+                        <div style={{"background-image":`url("images/static/icons/banners/talk/chapterbar_r.png")`,"--width":"27px"}}  className="talk_storybar_r"/>
                     </div>
                     {chapters == true ?
                         chaptersdisplay.length != 0 ?
@@ -736,11 +736,11 @@ function Story({
                         "No returns"
                     :""}
                     <div className='talk_bar_holder talk_click' onClick={willsbutton}>
-                        <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/chapterbar_l.png)","--width":"27px"}} className="talk_storybar_l"/>
-                            <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/chapterbar_c.png)"}}  className="talk_storybar_c">
+                        <div style={{"background-image":`url("images/static/icons/banners/talk/chapterbar_l.png")`,"--width":"27px"}} className="talk_storybar_l"/>
+                            <div style={{"background-image":`url("images/static/icons/banners/talk/chapterbar_c.png")`}}  className="talk_storybar_c">
                                 <span style={{textAlign:"center",width:"100%"}}>{"Intersecting Wills"}</span>
                             </div>
-                        <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/chapterbar_r.png)","--width":"27px"}}  className="talk_storybar_r"/>
+                        <div style={{"background-image":`url("images/static/icons/banners/talk/chapterbar_r.png")`,"--width":"27px"}}  className="talk_storybar_r"/>
                     </div>
                     {wills == true ?
                         willsdisplay.length != 0 ?
@@ -750,11 +750,11 @@ function Story({
                         "No returns"
                     :""}
                     <div className='talk_bar_holder talk_click' onClick={eventsbutton}>
-                        <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/otherbar_l.png)","--width":"16px"}} className="talk_storybar_l"/>
-                            <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/otherbar_c.png)"}}  className="talk_storybar_c">
+                        <div style={{"background-image":`url("images/static/icons/banners/talk/otherbar_l.png")`,"--width":"16px"}} className="talk_storybar_l"/>
+                            <div style={{"background-image":`url("images/static/icons/banners/talk/otherbar_c.png")`}}  className="talk_storybar_c">
                                 <span style={{textAlign:"center",width:"100%"}}>{"Events"}</span>
                             </div>
-                        <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/otherbar_r.png)","--width":"16px"}}  className="talk_storybar_r"/>
+                        <div style={{"background-image":`url("images/static/icons/banners/talk/otherbar_r.png")`,"--width":"16px"}}  className="talk_storybar_r"/>
                     </div>
                     {events == true ?
                         eventsdisplay.length != 0 ?
@@ -764,11 +764,11 @@ function Story({
                         "No returns"
                     :""}
                     <div className='talk_bar_holder talk_click' onClick={illusionsbutton}>
-                        <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/otherbar_l.png)","--width":"16px"}} className="talk_storybar_l"/>
-                            <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/otherbar_c.png)"}}  className="talk_storybar_c">
+                        <div style={{"background-image":`url("images/static/icons/banners/talk/otherbar_l.png")`,"--width":"16px"}} className="talk_storybar_l"/>
+                            <div style={{"background-image":`url("images/static/icons/banners/talk/otherbar_c.png")`}}  className="talk_storybar_c">
                                 <span style={{textAlign:"center",width:"100%"}}>{"World of Illusions"}</span>
                             </div>
-                        <div style={{"--image":"url(https://dissidiacompendium.com/images/static/icons/banners/talk/otherbar_r.png)","--width":"16px"}}  className="talk_storybar_r"/>
+                        <div style={{"background-image":`url("images/static/icons/banners/talk/otherbar_r.png")`,"--width":"16px"}}  className="talk_storybar_r"/>
                     </div>
                     {illusions == true ?
                         illusionsdisplay.length != 0 ?

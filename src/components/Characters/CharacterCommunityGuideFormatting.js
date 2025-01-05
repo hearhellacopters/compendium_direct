@@ -62,7 +62,7 @@ function CommunityCharacterGuideFormatting({
                         effect="opacity" 
                         className={`ohno${setrandom}`} 
                         alt="oh no" 
-                        src={`https://dissidiacompendium.com/images/static/icons/404/${setrandom}.png`} />
+                        src={`./images/static/icons/404/${setrandom}.png`} />
                         <div className="nolinkstext"><div className="sitsatbottom">Error!</div></div>
                     </div>
                     <div className="infobase Debuffbase centertext warning">There was an issue loading character guide data!
@@ -115,7 +115,7 @@ function CommunityCharacterGuideFormatting({
                             key={`ohno${setrandom}`} 
                             className={`ohno${setrandom}`} 
                             alt="oh no" 
-                            src={`https://dissidiacompendium.com/images/static/icons/404/${setrandom}.png`} />
+                            src={`./images/static/icons/404/${setrandom}.png`} />
                             <div className="nolinkstext"><div className="sitsatbottom"> No Help!</div></div>
                         </div>
                         <div className="infobase Debuffbase centertext warning">Are you a content creator?

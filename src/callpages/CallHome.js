@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { getUpdates } from '../redux/ducks/updates';
-import { getJPToggle } from '../redux/ducks/jptoggle';
-import Home from '../Home';
-import Loading from '../components/Loading'
+import { getUpdates } from '../redux/ducks/updates.js';
+import { getJPToggle } from '../redux/ducks/jptoggle.js';
+import Home from '../Home.js';
+import Loading from '../components/Loading.js'
 
 export default function CallHome(){
 

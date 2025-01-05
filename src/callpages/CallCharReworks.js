@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
-import { getCharacters } from '../redux/ducks/characters';
-import { getJPToggle } from '../redux/ducks/jptoggle';
-import { getMasterIndex } from '../redux/ducks/master_index';
-import CallCharReworksHandOff from '../handoff/CharReworksHandoff';
-import Loading from '../processing/Loading'
+import { getCharacters } from '../redux/ducks/characters.js';
+import { getJPToggle } from '../redux/ducks/jptoggle.js';
+import { getMasterIndex } from '../redux/ducks/master_index.js';
+import CallCharReworksHandOff from '../handoff/CharReworksHandoff.js';
+import Loading from '../processing/Loading.js'
 import  { getQuery } from '../components/URLParams.js'
 import { Navigate } from 'react-router-dom';
 

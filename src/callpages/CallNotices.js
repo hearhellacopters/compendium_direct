@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { getNotices } from '../redux/ducks/notices';
-import { getJPToggle } from '../redux/ducks/jptoggle';
-import Notices from '../Notices';
-import Loading from '../components/Loading'
+import { getNotices } from '../redux/ducks/notices.js';
+import { getJPToggle } from '../redux/ducks/jptoggle.js';
+import Notices from '../Notices.js';
+import Loading from '../components/Loading.js'
 
 export default function CallNotices(){
 

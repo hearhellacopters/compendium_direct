@@ -119,7 +119,7 @@ function BannersFormatting({
                                 scrollPosition={scrollPosition}
                                 effect="opacity"
                                 className={`bannerimage withshadow ${permapage == false ? "showlink" : ""}`} 
-                                src={"https://dissidiacompendium.com/images/static/banners/"+match.url1} 
+                                src={"./images/static/banners/"+match.url1} 
                                 alt={match.name} />
                             </Link>
                             :
@@ -127,7 +127,7 @@ function BannersFormatting({
                             scrollPosition={scrollPosition}
                             effect="opacity" 
                             className={`bannerimage withshadow ${permapage == false ? "showlink" : ""}`} 
-                            src={"https://dissidiacompendium.com/images/static/banners/"+match.url1} 
+                            src={"./images/static/banners/"+match.url1} 
                             alt={match.name} />
                         :
                         <div className="eventtabs">
@@ -139,8 +139,8 @@ function BannersFormatting({
                                         effect="opacity" 
                                         className={`bannerimage ${permapage == false ? "showlink" : ""}`} 
                                         src={
-                                            bannerdisplay == "Banner1" ? "https://dissidiacompendium.com/images/static/banners/"+match.url1 :
-                                                bannerdisplay == "Banner2" ? "https://dissidiacompendium.com/images/static/banners/"+match.url2 :
+                                            bannerdisplay == "Banner1" ? "./images/static/banners/"+match.url1 :
+                                                bannerdisplay == "Banner2" ? "./images/static/banners/"+match.url2 :
                                                     ""
                                         } 
                                         alt={match.name} />
@@ -150,8 +150,8 @@ function BannersFormatting({
                                     effect="opacity" 
                                     className={`bannerimage ${permapage == false ? "showlink" : ""}`} 
                                     src={
-                                        bannerdisplay == "Banner1" ? "https://dissidiacompendium.com/images/static/banners/"+match.url1 :
-                                            bannerdisplay == "Banner2" ? "https://dissidiacompendium.com/images/static/banners/"+match.url2 :
+                                        bannerdisplay == "Banner1" ? "./images/static/banners/"+match.url1 :
+                                            bannerdisplay == "Banner2" ? "./images/static/banners/"+match.url2 :
                                                 ""
                                     } 
                                     alt={match.name} />
@@ -196,7 +196,7 @@ function BannersFormatting({
                                         scrollPosition={scrollPosition}
                                         effect="opacity" 
                                         className={`eventimage withshadow showlink`} 
-                                        src={"https://dissidiacompendium.com/images/static/banners/"+match.event.url1} 
+                                        src={"./images/static/banners/"+match.event.url1} 
                                         alt={match.event.name} />
                                         <div className="bannername">{match.event.name}</div>
                                     </Link>

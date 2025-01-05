@@ -78,8 +78,8 @@ function SummonsFormatting({
             effect="opacity" 
             className="sumimg" 
             alt={summons.SummonName} 
-            src={"https://dissidiacompendium.com/images/static/icons/summons/face/" + summons.SummonFace} />
-            <img className={`${summons.SummonName == "Odin" ? "sumelehelper" : summons.SummonName == "Bahamut" ? "sumelehelper" : summons.SummonName == "Chocobo" ? "sumelehelper" : "nohelper"} sumele`} alt={summons.ElementIcon} src={"https://dissidiacompendium.com/images/static/icons/" + summons.ElementIcon} />
+            src={"./images/static/icons/summons/face/" + summons.SummonFace} />
+            <img className={`${summons.SummonName == "Odin" ? "sumelehelper" : summons.SummonName == "Bahamut" ? "sumelehelper" : summons.SummonName == "Chocobo" ? "sumelehelper" : "nohelper"} sumele`} alt={summons.ElementIcon} src={"./images/static/icons/" + summons.ElementIcon} />
             <span className="sumlv">LV.{searchTerm}</span>
             <input
               className="sumslider"

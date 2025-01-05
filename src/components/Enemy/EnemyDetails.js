@@ -141,7 +141,7 @@ function EnemyDetailsDirect({
                                         RealmPars: single.RealmPars,
                                         Sort: single.Sort,
                                         ShortName: single.ShortName,
-                                        CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${single.CharacterURLName}/face.png`,
+                                        CharacterFaceURL: `./images/static/characters/${single.CharacterURLName}/face.png`,
                                         CharacterName: single.CharacterName,
                                         CharID: self.CharID,
                                         CrystalColor: self.CrystalColor,
@@ -175,7 +175,7 @@ function EnemyDetailsDirect({
                                         RealmPars: self3.RealmPars,
                                         Sort: self3.Sort,
                                         ShortName: self3.ShortName,
-                                        CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${self3.CharacterURLName}/face.png`,
+                                        CharacterFaceURL: `./images/static/characters/${self3.CharacterURLName}/face.png`,
                                         CharacterName: self3.CharacterName,
                                         CharID: self3.CharID,
                                         CrystalColor: self3.CrystalColor,
@@ -209,7 +209,7 @@ function EnemyDetailsDirect({
                                         RealmPars: self3.RealmPars,
                                         Sort: self3.Sort,
                                         ShortName: self3.ShortName,
-                                        CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${self3.CharacterURLName}/face.png`,
+                                        CharacterFaceURL: `./images/static/characters/${self3.CharacterURLName}/face.png`,
                                         CharacterName: self3.CharacterName,
                                         CharID: self3.CharID,
                                         CrystalColor: self3.CrystalColor,
@@ -242,7 +242,7 @@ function EnemyDetailsDirect({
                                     RealmPars: self3.RealmPars,
                                     Sort: self3.Sort,
                                     ShortName: self3.ShortName,
-                                    CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${self3.CharacterURLName}/face.png`,
+                                    CharacterFaceURL: `./images/static/characters/${self3.CharacterURLName}/face.png`,
                                     CharacterName: self3.CharacterName,
                                     CharID: self3.CharID,
                                     CrystalColor: self3.CrystalColor,
@@ -267,7 +267,7 @@ function EnemyDetailsDirect({
                                 RealmPars: single.RealmPars,
                                 Sort: single.Sort,
                                 ShortName: single.ShortName,
-                                CharacterFaceURL: `https://dissidiacompendium.com/images/static/characters/${single.CharacterURLName}/face.png`,
+                                CharacterFaceURL: `./images/static/characters/${single.CharacterURLName}/face.png`,
                                 CharacterName: single.CharacterName,
                                 CharID: self.CharID,
                                 CrystalColor: single.CrystalColor,
@@ -329,7 +329,7 @@ function EnemyDetailsDirect({
     useEffect(() => {
         //desc
         if (DevSwitch == true && activeDesc == true && getDesc == undefined) {
-            axios.get(`http://localhost:3001/data/enemies_desc/${match.battle_enemy_id}`, { 'muteHttpExceptions': true }).then((res) => {
+            axios.get(`data/enemies_desc/${match.battle_enemy_id}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
                 _error_remove(`enemies_desc_${match.battle_enemy_id}`);
                 setgetDesc(response);
@@ -348,7 +348,7 @@ function EnemyDetailsDirect({
         }
         //casts
         if (DevSwitch == true && activeCast == true && getCast == undefined) {
-            axios.get(`http://localhost:3001/data/enemies_casts/${match.battle_enemy_id}`, { 'muteHttpExceptions': true }).then((res) => {
+            axios.get(`data/enemies_casts/${match.battle_enemy_id}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
                 _error_remove(`enemies_casts_${match.battle_enemy_id}`);
                 setgetCast(response);
@@ -367,7 +367,7 @@ function EnemyDetailsDirect({
         }
         //force
         if (DevSwitch == true && activeForce == true && getForce == undefined) {
-            axios.get(`http://localhost:3001/data/enemies_force/${match.battle_enemy_id}`, { 'muteHttpExceptions': true }).then((res) => {
+            axios.get(`data/enemies_force/${match.battle_enemy_id}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
                 _error_remove(`enemies_force_${match.battle_enemy_id}`);
                 setgetForce(response);
@@ -386,7 +386,7 @@ function EnemyDetailsDirect({
         }
         //Graphic
         if (DevSwitch == true && activeGraphic == true && getGraphic == undefined) {
-            axios.get(`http://localhost:3001/data/enemies_info/${match.battle_enemy_id}`, { 'muteHttpExceptions': true }).then((res) => {
+            axios.get(`data/enemies_info/${match.battle_enemy_id}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
                 _error_remove(`enemies_info_${match.battle_enemy_id}`);
                 setgetGraphic(response);
@@ -405,7 +405,7 @@ function EnemyDetailsDirect({
         }
         //Orb
         if (DevSwitch == true && activeOrb == true && getOrb == undefined) {
-            axios.get(`http://localhost:3001/data/enemies_orb/${match.battle_enemy_id}`, { 'muteHttpExceptions': true }).then((res) => {
+            axios.get(`data/enemies_orb/${match.battle_enemy_id}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
                 _error_remove(`enemies_orb_${match.battle_enemy_id}`);
                 setgetOrb(response);
@@ -424,7 +424,7 @@ function EnemyDetailsDirect({
         }
         //Summons
         if (DevSwitch == true && activeSummons == true && getSummons == undefined) {
-            axios.get(`http://localhost:3001/data/enemies_summons/${match.battle_enemy_id}`, { 'muteHttpExceptions': true }).then((res) => {
+            axios.get(`data/enemies_summons/${match.battle_enemy_id}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
                 _error_remove(`enemies_summons_${match.battle_enemy_id}`);
                 setgetSummons(response);
@@ -443,7 +443,7 @@ function EnemyDetailsDirect({
         }
         //Levels
         if (DevSwitch == true && activeStats == true && getStats == undefined) {
-            axios.get(`http://localhost:3001/data/enemies_level/${match.battle_enemy_id}`, { 'muteHttpExceptions': true }).then((res) => {
+            axios.get(`data/enemies_level/${match.battle_enemy_id}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
                 _error_remove(`enemies_level_${match.battle_enemy_id}`);
                 setgetStats(response);
@@ -471,7 +471,7 @@ function EnemyDetailsDirect({
         }
         //guide
         if (DevSwitch == true && activeGuide == true && getGuide == undefined) {
-            axios.get(`http://localhost:3001/data/enemies_guide/${match.QuestIDs[ForcetimeTab]}`, { 'muteHttpExceptions': true }).then((res) => {
+            axios.get(`data/enemies_guide/${match.QuestIDs[ForcetimeTab]}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
                 _error_remove(`enemies_guide_${match.QuestIDs[ForcetimeTab]}`);
                 setgetGuide(response);
@@ -674,7 +674,7 @@ function EnemyDetailsDirect({
                             scrollPosition={scrollPosition}
                             className="enemycard" 
                             alt={match.Name}
-                            src={"https://dissidiacompendium.com/images/static/enemy/face/" + match.url} effect="opacity" />
+                            src={"./images/static/enemy/face/" + match.url} effect="opacity" />
                         </li>
                     </DefaultTippy>
                     <DefaultTippy content="JP Only" className="tooltip" >
@@ -835,7 +835,7 @@ function EnemyDetailsDirect({
                                 <li className={`abilitybufficonsholder ${selectedbuff.unq_id == buffs.unq_id ? "buffactive" : ""}`} key={buffs.unq_id}>
                                     <div className="biconspacer" onClick={() => buffselect(buffs)} >
                                         <DefaultTippy content={buffs.name && ReplacerCharacter(buffs.cast_str + ` #${buffs.id}`)}>
-                                            <img alt={buffs.name} className={`clicky abilitybufficon `} src={`https://dissidiacompendium.com/images/static/icons/buff/${buffs.icon}.png`} />
+                                            <img alt={buffs.name} className={`clicky abilitybufficon `} src={`./images/static/icons/buff/${buffs.icon}.png`} />
                                         </DefaultTippy>
                                     </div>
                                 </li>
@@ -862,7 +862,7 @@ function EnemyDetailsDirect({
                             effect="opacity" 
                             alt="orb" 
                             className="orbicon2"
-                            src={`https://dissidiacompendium.com/images/static/icons/misc/Shinryu1.png`} />
+                            src={`./images/static/icons/misc/Shinryu1.png`} />
                         </div>
                         <div className="orbcondtext">
                             {getForce.ForceTime.map((self,i) => (
@@ -921,7 +921,7 @@ function EnemyDetailsDirect({
                                     </Link><br />
                                     {self.roles.map((self3,i) => (
                                         <Tippy key={i} content={roles[self3] && roles[self3].name}>
-                                            <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[self3] && roles[self3].url}.png)` }}>
+                                            <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[self3] && roles[self3].url}.png")` }}>
                                             </span>
                                         </Tippy>
                                     ))}
@@ -944,7 +944,7 @@ function EnemyDetailsDirect({
                                     </Link><br />
                                     {self.roles.map((self3,i) => (
                                         <Tippy key={i} content={roles[self3] && roles[self3].name}>
-                                            <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[self3] && roles[self3].url}.png)` }}>
+                                            <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[self3] && roles[self3].url}.png")` }}>
                                             </span>
                                         </Tippy>
                                     ))}
@@ -960,8 +960,8 @@ function EnemyDetailsDirect({
                 <div className="enemyholderdesc normalfont margtop lighterblue">
                     {getGraphic == undefined ? "" : getGraphic.map(self => (
                         <div key={self}>
-                            <a target="_blank" rel="noreferrer" href={`https://dissidiacompendium.com/images/static/info/${self}.png`}>
-                                <img className="infoimg withshadow clicky" src={`https://dissidiacompendium.com/images/static/info/${self}.png`} />
+                            <a target="_blank" rel="noreferrer" href={`./images/static/info/${self}.png`}>
+                                <img className="infoimg withshadow clicky" src={`./images/static/info/${self}.png`} />
                             </a>
                         </div>
                     ))}
@@ -980,7 +980,7 @@ function EnemyDetailsDirect({
                                 effect="opacity" 
                                 alt="orb" 
                                 className="orbicon" 
-                                src={`https://dissidiacompendium.com/images/static/icons/misc/43${enemy.LufeniaPlusFlag == true ? "+" : ""}.png`} />
+                                src={`./images/static/icons/misc/43${enemy.LufeniaPlusFlag == true ? "+" : ""}.png`} />
                                 {getOrb.LufeniaStartCounter === undefined ? "" :
                                     <div>
                                         <span className="textsafe">Start count: <span className="values">{getOrb.LufeniaStartCounter}</span></span>
@@ -1017,7 +1017,7 @@ function EnemyDetailsDirect({
                                             </Link><br />
                                             {self.roles.map((self3,i) => (
                                                 <Tippy key={i} content={roles[self3] && roles[self3].name}>
-                                                    <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[self3] && roles[self3].url}.png)` }}>
+                                                    <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[self3] && roles[self3].url}.png")` }}>
                                                     </span>
                                                 </Tippy>
                                             ))}
@@ -1040,7 +1040,7 @@ function EnemyDetailsDirect({
                                             </Link><br />
                                             {self.roles.map((self3,i) => (
                                                 <Tippy key={i} content={roles[self3] && roles[self3].name}>
-                                                    <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${roles[self3] && roles[self3].url}.png)` }}>
+                                                    <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[self3] && roles[self3].url}.png")` }}>
                                                     </span>
                                                 </Tippy>
                                             ))}
@@ -1059,7 +1059,7 @@ function EnemyDetailsDirect({
                             <DefaultTippy content={<span>{getSummons.SummonID1.Name}<br />ID: {getSummons.SummonID1.battle_enemy_id}</span>} className="tooltip" >
                                 <li>
                                     <Link to={`/bestiary/enemies/${getSummons.SummonID1.battle_enemy_id}`}>
-                                        <img className="enemycard" alt={getSummons.SummonID1.Name} src={"https://dissidiacompendium.com/images/static/enemy/face/" + getSummons.SummonID1.url} />
+                                        <img className="enemycard" alt={getSummons.SummonID1.Name} src={"./images/static/enemy/face/" + getSummons.SummonID1.url} />
                                     </Link>
                                 </li>
                             </DefaultTippy>
@@ -1068,7 +1068,7 @@ function EnemyDetailsDirect({
                                 <DefaultTippy content={<span>{getSummons.SummonID2.Name}<br />ID: {getSummons.SummonID2.battle_enemy_id}</span>} className="tooltip" >
                                     <li>
                                         <Link to={`/bestiary/enemies/${getSummons.SummonID2.battle_enemy_id}`}>
-                                            <img className="enemycard" alt={getSummons.SummonID2.Name} src={"https://dissidiacompendium.com/images/static/enemy/face/" + getSummons.SummonID2.url} />
+                                            <img className="enemycard" alt={getSummons.SummonID2.Name} src={"./images/static/enemy/face/" + getSummons.SummonID2.url} />
                                         </Link>
                                     </li>
                                 </DefaultTippy>}

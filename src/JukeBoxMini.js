@@ -223,7 +223,9 @@ export default function JukeBoxMini({
         getAudioInstance={(instance) => {
           setplayerinstance(instance)
         }}
+        locale={{openText: ''}}
         key={1}
+        openText={''}
         clearPriorAudioLists={true}
         showMediaSession
         onAudioPlay={(audioInfo) => handleplay(audioInfo)}

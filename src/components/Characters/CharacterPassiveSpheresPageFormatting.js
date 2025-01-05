@@ -24,13 +24,13 @@ function PassiveSpheresPageFormatting({
                 <div className="singlesubbanner">{profiledata.CharacterName}{"'s Spheres"}</div>
                 <div className="sphereletterholder filterholderflair somepadding">
                     <div className={`sphereletter ${profiledata.SphereSlotLocked == 1 ? "lockedslot" : "unlockedslot"}`}>
-                        <img src={profiledata.SphereSlot1Letter == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/spheres/SphereLetter${profiledata.SphereSlot1Letter}.png`} alt={profiledata.Sphere1} />
+                        <img src={profiledata.SphereSlot1Letter == undefined ? "./images/static/icons/misc/Unknown_icon.png" : `./images/static/icons/spheres/SphereLetter${profiledata.SphereSlot1Letter}.png`} alt={profiledata.Sphere1} />
                     </div>
                     <div className={`sphereletter ${profiledata.SphereSlotLocked == 2 ? "lockedslot" : "unlockedslot"}`}>
-                        <img src={profiledata.SphereSlot2Letter == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/spheres/SphereLetter${profiledata.SphereSlot2Letter}.png`} alt={profiledata.Sphere2} />
+                        <img src={profiledata.SphereSlot2Letter == undefined ? "./images/static/icons/misc/Unknown_icon.png" : `./images/static/icons/spheres/SphereLetter${profiledata.SphereSlot2Letter}.png`} alt={profiledata.Sphere2} />
                     </div>
                     <div className={`sphereletter ${profiledata.SphereSlotLocked == 3 ? "lockedslot" : "unlockedslot"}`}>
-                        <img src={profiledata.SphereSlot3Letter == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/spheres/SphereLetter${profiledata.SphereSlot3Letter}.png`} alt={profiledata.Sphere3} />
+                        <img src={profiledata.SphereSlot3Letter == undefined ? "./images/static/icons/misc/Unknown_icon.png" : `./images/static/icons/spheres/SphereLetter${profiledata.SphereSlot3Letter}.png`} alt={profiledata.Sphere3} />
                     </div>
                 </div>
             </div>
@@ -75,7 +75,7 @@ function PassiveSpheresPageFormatting({
                                                 scrollPosition={scrollPosition}
                                                 effect="opacity" 
                                                 className={`eventimage withshadow showlink`} 
-                                                src={match && "https://dissidiacompendium.com/images/static/banners/"+match.url} 
+                                                src={match && "./images/static/banners/"+match.url} 
                                                 alt={match && match.label} />
                                             </div>
                                         </Tippy>

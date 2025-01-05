@@ -16,7 +16,7 @@ function WeaponSkinsFormatting({
             <div className="infoholder">
                 <div className="geartoplevel">
                     <div className="gearimageholder centeralign">
-                        <LazyLoadImage effect="opacity" className="gearimage" alt={weapon_data.name} src={`https://www.dissidiacompendium.com/images/static/characters/skins/${weapon_data.id}.png`} />
+                        <LazyLoadImage effect="opacity" className="gearimage" alt={weapon_data.name} src={`/images/static/characters/skins/${weapon_data.id}.png`} />
                     </div>
                 </div>
                 <div className='gearinfonameholder Nocolorbanner'>

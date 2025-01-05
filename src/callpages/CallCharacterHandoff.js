@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
-import { getCharacters } from '../redux/ducks/characters';
-import { getCharGuide } from '../redux/ducks/CharGuide';
-import { getJPToggle } from '../redux/ducks/jptoggle';
+import { getCharacters } from '../redux/ducks/characters.js';
+import { getCharGuide } from '../redux/ducks/CharGuide.js';
+import { getJPToggle } from '../redux/ducks/jptoggle.js';
 import CharacterHandoff from '../handoff/CharacterHandoff.js';
-import Loading from '../processing/Loading'
+import Loading from '../processing/Loading.js'
 
 export default function CallCharacterHandoff(){
 

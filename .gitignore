@@ -10,6 +10,11 @@
 
 # production
 /build
+/dist
+
+# image folder
+/src/images
+/images
 
 # misc
 .DS_Store

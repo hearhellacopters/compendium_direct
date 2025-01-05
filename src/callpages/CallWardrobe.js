@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
-import { getCharacters } from '../redux/ducks/characters';
-import Wardrobe from '../Wardrobe';
-import Loading from '../components/Loading'
+import { getCharacters } from '../redux/ducks/characters.js';
+import Wardrobe from '../Wardrobe.js';
+import Loading from '../components/Loading.js'
 
 export default function CallWardrobe(){
 

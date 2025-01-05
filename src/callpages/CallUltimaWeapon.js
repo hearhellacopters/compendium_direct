@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
-import { getUltimaWeapon } from '../redux/ducks/ultimaweapon';
-import { getJPToggle } from '../redux/ducks/jptoggle';
-import UltimaWeaponPageFormatting from '../UltimaWeapons';
-import Loading from '../components/Loading'
+import { getUltimaWeapon } from '../redux/ducks/ultimaweapon.js';
+import { getJPToggle } from '../redux/ducks/jptoggle.js';
+import UltimaWeaponPageFormatting from '../UltimaWeapons.js';
+import Loading from '../components/Loading.js'
 
-import { getMasterIndex } from '../redux/ducks/master_index';
+import { getMasterIndex } from '../redux/ducks/master_index.js';
 
 export default function CallUltimaWeapon(){
 

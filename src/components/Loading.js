@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
-import Random from '../processing/random'
+import Random from '../processing/random.js'
 import { ObjectView } from 'react-object-view'
-import {getQuery} from './URLParams'
+import {getQuery} from './URLParams.js'
 
 export default function LoadHelper(){
 
@@ -41,14 +41,14 @@ export default function LoadHelper(){
     return (
         timeout == false
             ?
-            <div className="content loading2"><h1><img className="loadingbardots" src={"https://dissidiacompendium.com/images/static/site/loading.gif"}></img></h1></div>
+            <div className="content loading2"><h1><img className="loadingbardots" src={"./images/static/site/loading.gif"}></img></h1></div>
             :
             <div className="content loading2">
-                <h1><img className="loadingbardots" src={"https://dissidiacompendium.com/images/static/site/loading.gif"}></img></h1>
+                <h1><img className="loadingbardots" src={"./images/static/site/loading.gif"}></img></h1>
                 <div className='subheader infolocation'>Location: {url}</div>
                 <div className="filterholder">
                     <div className="filterholderflair" >
-                        <div className="nolinksholder"><img alt="oh no" src={`https://dissidiacompendium.com/images/static/icons/404/${randomimage}.png`} />
+                        <div className="nolinksholder"><img alt="oh no" src={`./images/static/icons/404/${randomimage}.png`} />
                         </div>
                         <div className="infobase Debuffbase centertext warning">
                             Loading is taking longer than normal<br />

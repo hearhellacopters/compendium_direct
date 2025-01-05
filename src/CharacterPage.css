@@ -108,19 +108,19 @@
 }
 
 .upcomingbutton {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/upcoming.png")
+    background-image: url("./images/static/icons/geartype/upcoming.png")
 }
 
 .artpassivedirect {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/artpass_direct.png")
+    background-image: url("./images/static/icons/geartype/artpass_direct.png")
 }
 
 .eventsdirect {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/events_direct.png")
+    background-image: url("./images/static/icons/geartype/events_direct.png")
 }
 
 .enemiesforcharbutton {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/enemies.png")
+    background-image: url("./images/static/icons/geartype/enemies.png")
 }
 
 .chartopimageholder {
@@ -284,7 +284,7 @@
 }
 
 .JPReworkbutton {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/roles/Role_RW.png");
+    background-image: url("./images/static/icons/roles/Role_RW.png");
     background-size: contain;
 }
 
@@ -337,32 +337,32 @@
 }
 
 .reworkicon {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/rework.png");
+    background-image: url("./images/static/icons/geartype/rework.png");
     display: inline-block;
 }
 
 .reworktab {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/rework2.png");
+    background-image: url("./images/static/icons/geartype/rework2.png");
     display: inline-block;
 }
 
 .reworktabred {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/rework2red.png");
+    background-image: url("./images/static/icons/geartype/rework2red.png");
     display: inline-block;
 }
 
 .reworktab_direct {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/rework2_direct.png");
+    background-image: url("./images/static/icons/geartype/rework2_direct.png");
     display: inline-block;
 }
 
 .reworktabred_direct {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/rework2red_direct.png");
+    background-image: url("./images/static/icons/geartype/rework2red_direct.png");
     display: inline-block;
 }
 
 .gemicon {
-    content: url(https://dissidiacompendium.com/images/static/icons/misc/LimitBreakSmall.png);
+    content: url("./images/static/icons/misc/LimitBreakSmall.png");
     vertical-align: middle;
     background-size: contain;
     height: 20px;
@@ -413,7 +413,7 @@
 }
 
 .arm7aicon {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/7a.png");
+    background-image: url("./images/static/icons/geartype/7a.png");
     display: inline-block;
 }
 
@@ -636,95 +636,95 @@
 }
 
 .profilebutton {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/profile.png");
+    background-image: url("./images/static/icons/geartype/profile.png");
 }
 
 .buffsdebuffsbutton {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/buffsdebuffs.png");
+    background-image: url("./images/static/icons/geartype/buffsdebuffs.png");
 }
 
 .descbuttons {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/desc.png");
+    background-image: url("./images/static/icons/geartype/desc.png");
 }
 
 .abilitiesbutton {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/abilities.png");
+    background-image: url("./images/static/icons/geartype/abilities.png");
 }
 
 .directabilitiesbutton {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/abilities_direct.png");
+    background-image: url("./images/static/icons/geartype/abilities_direct.png");
 }
 
 .directcrystalpassives {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/cpassives_direct.png")
+    background-image: url("./images/static/icons/geartype/cpassives_direct.png")
 }
 
 .directexppassives {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/exp_direct.png")
+    background-image: url("./images/static/icons/geartype/exp_direct.png")
 }
 
 .directprofile {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/profile_direct.png")
+    background-image: url("./images/static/icons/geartype/profile_direct.png")
 }
 
 .directpassives {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/passives_direct.png")
+    background-image: url("./images/static/icons/geartype/passives_direct.png")
 }
 
 .communityprofile {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/community_direct.png")
+    background-image: url("./images/static/icons/geartype/community_direct.png")
 }
 
 .bpassivesbutton {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/bpassives_direct.png")
+    background-image: url("./images/static/icons/geartype/bpassives_direct.png")
 }
 
 .linkbutton {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard_direct.png");
+    background-image: url("./images/static/icons/geartype/frboard_direct.png");
 }
 
 .summonsbutton {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/summons.png");
+    background-image: url("./images/static/icons/geartype/summons.png");
 }
 
 .statsbutton {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/stats.png");
+    background-image: url("./images/static/icons/geartype/stats.png");
 }
 
 .orbsbutton {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/orb.png");
+    background-image: url("./images/static/icons/geartype/orb.png");
 }
 
 .forcesbutton {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/force.png");
+    background-image: url("./images/static/icons/geartype/force.png");
 }
 
 .guidebutton {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/guide.png");
+    background-image: url("./images/static/icons/geartype/guide.png");
 }
 
 .graphicbutton {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/graphic.png");
+    background-image: url("./images/static/icons/geartype/graphic.png");
 }
 
 .passivesbutton {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/passives.png");
+    background-image: url("./images/static/icons/geartype/passives.png");
 }
 
 .gearbutton {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/gear.png");
+    background-image: url("./images/static/icons/geartype/gear.png");
 }
 
 .eventspagebutton {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/events.png");
+    background-image: url("./images/static/icons/geartype/events.png");
 }
 
 .directspherespagebutton {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/spheres_direct.png");
+    background-image: url("./images/static/icons/geartype/spheres_direct.png");
 }
 
 .spherespagebutton {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/spheres.png");
+    background-image: url("./images/static/icons/geartype/spheres.png");
 }
 
 .characterpageshare {

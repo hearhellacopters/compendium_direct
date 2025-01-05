@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { getEnemyBuffsDirect } from '../redux/ducks/enemybuffs_direct';
-import EnemyBuffs from '../EnemyBuffs';
-import Loading from '../components/Loading'
+import { getEnemyBuffsDirect } from '../redux/ducks/enemybuffs_direct.js';
+import EnemyBuffs from '../EnemyBuffs.js';
+import Loading from '../components/Loading.js'
 
 export default function CallEnemyBuffs() {
 

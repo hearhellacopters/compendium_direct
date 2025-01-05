@@ -11,7 +11,7 @@ a:-moz-focusring {
 }
 
 .Locked{
-  content: url(https://dissidiacompendium.com/images/static/icons/misc/locked.png);
+  content: url("./images/static/icons/misc/locked.png");
   background-size: contain;
   width: 1.2em;
   height: 1.2em;
@@ -24,7 +24,7 @@ a:-moz-focusring {
 }
 
 .Unlocked{
-  content: url(https://dissidiacompendium.com/images/static/icons/misc/unlocked.png);
+  content: url("./images/static/icons/misc/unlocked.png");
   background-size: contain;
   width: 1.2em;
   height: 1.2em;
@@ -37,7 +37,7 @@ a:-moz-focusring {
 }
 
 .Perfect{
-  background-image: url(https://dissidiacompendium.com/images/static/icons/misc/perfect.png);
+  background-image: url("./images/static/icons/misc/perfect.png");
   background-size: contain;
   width: 4em;
   height: 1.2em;
@@ -70,7 +70,7 @@ a:-moz-focusring {
 }
 
 .force_background::before {
-  content: ' ';
+  content: " ";
   display: block;
   position: absolute;
   left: 10px;
@@ -78,7 +78,7 @@ a:-moz-focusring {
   width: 106px;
   height: 80px;
   opacity: 0.3;
-  background-image: url(https://dissidiacompendium.com/images/static/icons/misc/force.png);
+  background-image: url("./images/static/icons/misc/force.png");
   background-repeat: no-repeat;
   background-position: 50% 0;
   background-size: cover;
@@ -162,11 +162,20 @@ a:-moz-focusring {
   color: white
 }
 
+.music-player:hover{
+  filter: invert(100%) drop-shadow(1px 0 0 #e5ff00) drop-shadow(0 1px 0 #e5ff00) drop-shadow(0 -1px 0 #e5ff00) drop-shadow(-1px 0 0 #e5ff00);
+  transition: .3s ease color;
+} 
+
 @media (hover: hover) {
   .whitecolor:hover {
     color: yellow;
     transition: .3s ease color;
   }
+  .music-player:hover{
+    filter: invert(100%) drop-shadow(1px 0 0 #e5ff00) drop-shadow(0 1px 0 #e5ff00) drop-shadow(0 -1px 0 #e5ff00) drop-shadow(-1px 0 0 #e5ff00);
+    transition: .3s ease color;
+  } 
 }
 
 .react-json-view {
@@ -219,7 +228,7 @@ a:-moz-focusring {
 }
 
 .previouspage {
-  background-image: url(https://dissidiacompendium.com/images/static/icons/buttons/svg/blue-circle.svg);
+  background-image: url("./images/static/icons/buttons/svg/blue-circle.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -236,7 +245,7 @@ a:-moz-focusring {
 }
 
 .previousbutton {
-  background-image: url(https://dissidiacompendium.com/images/static/icons/buttons/svg/green-circle.svg);
+  background-image: url("./images/static/icons/buttons/svg/green-circle.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -258,7 +267,7 @@ a:-moz-focusring {
 }
 
 .nextbutton {
-  background-image: url(https://dissidiacompendium.com/images/static/icons/buttons/svg/green-circle.svg);
+  background-image: url("./images/static/icons/buttons/svg/green-circle.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -391,7 +400,7 @@ a:-moz-focusring {
 }
 
 .sharebutton {
-  background-image: url(https://dissidiacompendium.com/images/static/icons/buttons/svg/green-button.svg);
+  background-image: url("./images/static/icons/buttons/svg/green-button.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -414,7 +423,7 @@ a:-moz-focusring {
 }
 
 .jpflage {
-  content: url(https://dissidiacompendium.com/images/static/icons/misc/japan.svg);
+  content: url("./images/static/icons/misc/japan.svg");
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -554,31 +563,31 @@ h3 {
   font-size: 18px;
 }
 
-.tippy-box[data-theme~='new-white-boarder'] {
+.tippy-box[data-theme~="new-white-boarder"] {
   background-color: white;
   color: black;
   border: solid 2px black;
 }
 
-.tippy-box[data-theme~='new-white-boarder'][data-placement^='top']>.tippy-arrow::before {
+.tippy-box[data-theme~="new-white-boarder"][data-placement^="top"]>.tippy-arrow::before {
   color: white;
   filter: drop-shadow(0px 2px 0px black);
   -webkit-filter: drop-shadow(0px 2px 0px black);
 }
 
-.tippy-box[data-theme~='new-white-boarder'][data-placement^='bottom']>.tippy-arrow::before {
+.tippy-box[data-theme~="new-white-boarder"][data-placement^="bottom"]>.tippy-arrow::before {
   color: white;
   filter: drop-shadow(0px -2px 0px black);
   -webkit-filter: drop-shadow(0px -2px 0px black);
 }
 
-.tippy-box[data-theme~='new-white-boarder'][data-placement^='left']>.tippy-arrow::before {
+.tippy-box[data-theme~="new-white-boarder"][data-placement^="left"]>.tippy-arrow::before {
   color: white;
   filter: drop-shadow(2px 0px 0px black);
   -webkit-filter: drop-shadow(2px 0px 0px black);
 }
 
-.tippy-box[data-theme~='new-white-boarder'][data-placement^='right']>.tippy-arrow::before {
+.tippy-box[data-theme~="new-white-boarder"][data-placement^="right"]>.tippy-arrow::before {
   color: white;
   filter: drop-shadow(-2px 0px 0px black);
   -webkit-filter: drop-shadow(-2px 0px 0px black);
@@ -1223,7 +1232,7 @@ h3 {
 /*loadmore button*/
 
 .loadmore {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/buttons/svg/blue-button.svg");
+  background-image: url("./images/static/icons/buttons/svg/blue-button.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -1578,7 +1587,7 @@ h3 {
 }
 
 .check {
-  background-image: url(https://dissidiacompendium.com/images/static/icons/misc/check.png);
+  background-image: url("./images/static/icons/misc/check.png");
   height: 25px;
   width: 25px;
   background-repeat: no-repeat;
@@ -1587,7 +1596,7 @@ h3 {
 }
 
 .uncheck {
-  background-image: url(https://dissidiacompendium.com/images/static/icons/misc/uncheck.png);
+  background-image: url("./images/static/icons/misc/uncheck.png");
   height: 25px;
   width: 25px;
   background-repeat: no-repeat;
@@ -1688,7 +1697,7 @@ h3 {
 }
 
 .Gil{
-  content: url(https://dissidiacompendium.com/images/static/items/game_index/1.png);
+  content: url("./images/static/items/game_index/1.png");
   background-size: contain;
   width: 1.2em;
   height: 1.2em;
@@ -1701,7 +1710,7 @@ h3 {
 }
 
 .DISSIDIAPoints{
-  content: url(https://dissidiacompendium.com/images/static/items/game_index/3.png);
+  content: url("./images/static/items/game_index/3.png");
   background-size: contain;
   width: 1.2em;
   height: 1.2em;
@@ -1714,7 +1723,7 @@ h3 {
 }
 
 .CP{
-  content: url(https://dissidiacompendium.com/images/static/icons/misc/CP.png);
+  content: url("./images/static/icons/misc/CP.png");
   background-size: contain;
   width: 1.8em;
   height: 1.1em;
@@ -1727,7 +1736,7 @@ h3 {
 }
 
 .CPIcon {
-  content: url(https://dissidiacompendium.com/images/static/icons/misc/CP.png);
+  content: url("./images/static/icons/misc/CP.png");
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -1763,170 +1772,170 @@ h3 {
 
 /*button pulls*/
 .wpbtplusbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/bt+m.png");
+  background-image: url("./images/static/icons/geartype/bt+m.png");
 }
 
 .wpbtbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/bt.png");
+  background-image: url("./images/static/icons/geartype/bt.png");
 }
 
 .wpfrbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/fr.png");
+  background-image: url("./images/static/icons/geartype/fr.png");
 }
 
 .communitybutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/community.png");
+  background-image: url("./images/static/icons/geartype/community.png");
 }
 
 .directbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/direct.png");
+  background-image: url("./images/static/icons/geartype/direct.png");
 }
 
 .gifbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/gif.png");
+  background-image: url("./images/static/icons/geartype/gif.png");
 }
 
 
 /*gear icons*/
 
 .ultimabutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ultimanew.png");
+  background-image: url("./images/static/icons/geartype/ultimanew.png");
 }
 
 .cl90button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv90.png");
+  background-image: url("./images/static/icons/geartype/lv90.png");
 }
 
 .cl85button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv85.png");
+  background-image: url("./images/static/icons/geartype/lv85.png");
 }
 
 .cl88button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv85.png");
+  background-image: url("./images/static/icons/geartype/lv85.png");
 }
 
 .cl88button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv88.png");
+  background-image: url("./images/static/icons/geartype/lv88.png");
 }
 
 .ldcall1button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ldcall2.png");
+  background-image: url("./images/static/icons/geartype/ldcall2.png");
 }
 
 .ldcall2button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ldcall3.png");
+  background-image: url("./images/static/icons/geartype/ldcall3.png");
 }
 
 .ench4cbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ench4c.png");
+  background-image: url("./images/static/icons/geartype/ench4c.png");
 }
 
 .ench4extbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ench4ext.png");
+  background-image: url("./images/static/icons/geartype/ench4ext.png");
 }
 
 .ench4cextbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ench4cext.png");
+  background-image: url("./images/static/icons/geartype/ench4cext.png");
 }
 
 .call1button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/call1.png");
+  background-image: url("./images/static/icons/geartype/call1.png");
 }
 
 .call2button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/call2.png");
+  background-image: url("./images/static/icons/geartype/call2.png");
 }
 
 .artpassbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/art.png");
+  background-image: url("./images/static/icons/geartype/art.png");
 }
 
 .crystalsub {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/crystal.png");
+  background-image: url("./images/static/icons/geartype/crystal.png");
 }
 
 .skinbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/skin.png");
+  background-image: url("./images/static/icons/geartype/skin.png");
 }
 
 .cl1button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/cl1.png");
+  background-image: url("./images/static/icons/geartype/cl1.png");
 }
 
 .cl5button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv5.png");
+  background-image: url("./images/static/icons/geartype/lv5.png");
 }
 
 .cl10button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv10.png");
+  background-image: url("./images/static/icons/geartype/lv10.png");
 }
 
 .cl15button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv15.png");
+  background-image: url("./images/static/icons/geartype/lv15.png");
 }
 
 .cl20button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv20.png");
+  background-image: url("./images/static/icons/geartype/lv20.png");
 }
 
 .cl25button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv25.png");
+  background-image: url("./images/static/icons/geartype/lv25.png");
 }
 
 .cl30button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv30.png");
+  background-image: url("./images/static/icons/geartype/lv30.png");
 }
 
 .cl35button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv35.png");
+  background-image: url("./images/static/icons/geartype/lv35.png");
 }
 
 .cl40button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv40.png");
+  background-image: url("./images/static/icons/geartype/lv40.png");
 }
 
 .cl45button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv45.png");
+  background-image: url("./images/static/icons/geartype/lv45.png");
 }
 
 .cl50button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv50.png");
+  background-image: url("./images/static/icons/geartype/lv50.png");
 }
 
 .cl54button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv54.png");
+  background-image: url("./images/static/icons/geartype/lv54.png");
 }
 
 .cl55button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv55.png");
+  background-image: url("./images/static/icons/geartype/lv55.png");
 }
 
 .cl58button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv58.png");
+  background-image: url("./images/static/icons/geartype/lv58.png");
 }
 
 .cl60button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv60.png");
+  background-image: url("./images/static/icons/geartype/lv60.png");
 }
 
 .cl65button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv65.png");
+  background-image: url("./images/static/icons/geartype/lv65.png");
 }
 
 .cl68button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv68.png");
+  background-image: url("./images/static/icons/geartype/lv68.png");
 }
 
 .cl70button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv70.png");
+  background-image: url("./images/static/icons/geartype/lv70.png");
 }
 
 .cl75button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv75.png");
+  background-image: url("./images/static/icons/geartype/lv75.png");
 }
 
 .ultimaorb {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/SmallUltimaOrb.png");
+  background-image: url("./images/static/icons/misc/SmallUltimaOrb.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -1940,7 +1949,7 @@ h3 {
 }
 
 .frshard {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/ForceShardMini.png");
+  background-image: url("./images/static/icons/misc/ForceShardMini.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -1954,7 +1963,7 @@ h3 {
 }
 
 .frstone {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/ForceStoneMini.png");
+  background-image: url("./images/static/icons/misc/ForceStoneMini.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -1968,7 +1977,7 @@ h3 {
 }
 
 .hiorbm {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/HighOrbMini.png");
+  background-image: url("./images/static/icons/misc/HighOrbMini.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -1982,7 +1991,7 @@ h3 {
 }
 
 .cryspark {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/cry_points/white.png");
+  background-image: url("./images/static/icons/cry_points/white.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -1996,7 +2005,7 @@ h3 {
 }
 
 .Gem {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/Gem.png");
+  background-image: url("./images/static/icons/misc/Gem.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -2008,7 +2017,7 @@ h3 {
 }
 
 .crynode {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/cry_points/node.png");
+  background-image: url("./images/static/icons/cry_points/node.png");
   height: 28px;
   width: 15px;
   margin-left: 3px;
@@ -2024,7 +2033,7 @@ h3 {
 }
 
 .crypnode {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/cry_points/pnode.png");
+  background-image: url("./images/static/icons/cry_points/pnode.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -2038,7 +2047,7 @@ h3 {
 }
 
 .orbm {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/OrbMini.png");
+  background-image: url("./images/static/icons/misc/OrbMini.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -2052,7 +2061,7 @@ h3 {
 }
 
 .gorbm {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/GearOrbMini.png");
+  background-image: url("./images/static/icons/misc/GearOrbMini.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -2066,7 +2075,7 @@ h3 {
 }
 
 .bpointm {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/BoardPointMini.png");
+  background-image: url("./images/static/icons/misc/BoardPointMini.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -2093,31 +2102,31 @@ h3 {
 }
 
 .cl78button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv78.png");
+  background-image: url("./images/static/icons/geartype/lv78.png");
 }
 
 .cl80button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/lv80.png");
+  background-image: url("./images/static/icons/geartype/lv80.png");
 }
 
 .armbloombutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/bloom2.png");
+  background-image: url("./images/static/icons/geartype/bloom2.png");
 }
 
 .arm4abutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/4a.png");
+  background-image: url("./images/static/icons/geartype/4a.png");
 }
 
 .arm7abutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/7a.png");
+  background-image: url("./images/static/icons/geartype/7a.png");
 }
 
 .arm7aplusbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/7a+.png");
+  background-image: url("./images/static/icons/geartype/7a+.png");
 }
 
 .arm35abutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/35a.png");
+  background-image: url("./images/static/icons/geartype/35a.png");
 }
 
 .creditslist {
@@ -2147,172 +2156,172 @@ h3 {
 }
 
 .armhgplusbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/hg+.png");
+  background-image: url("./images/static/icons/geartype/hg+.png");
 }
 
 .armhgbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/hg.png");
+  background-image: url("./images/static/icons/geartype/hg.png");
 }
 
 .hpattackiconbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/hp.png");
+  background-image: url("./images/static/icons/geartype/hp.png");
   display: inline-block;
 }
 
 .hpplusattackiconbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/hp+.png");
+  background-image: url("./images/static/icons/geartype/hp+.png");
   display: inline-block;
 }
 
 .brvattackiconbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/brv+.png");
+  background-image: url("./images/static/icons/geartype/brv+.png");
   display: inline-block;
 }
 
 .brvplusbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/brv+.png");
+  background-image: url("./images/static/icons/geartype/brv+.png");
 }
 
 .hpplusbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/hp+.png");
+  background-image: url("./images/static/icons/geartype/hp+.png");
 }
 
 .crypass_abutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/crypass_a.png");
+  background-image: url("./images/static/icons/geartype/crypass_a.png");
 }
 
 .crypass_dbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/crypass_d.png");
+  background-image: url("./images/static/icons/geartype/crypass_d.png");
 }
 .crypass_ubutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/crypass_u.png");
+  background-image: url("./images/static/icons/geartype/crypass_u.png");
 }
 
 .wpwoibutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/woi.png");
+  background-image: url("./images/static/icons/geartype/woi.png");
 }
 
 .wpntbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/nt.png");
+  background-image: url("./images/static/icons/geartype/nt.png");
 }
 
 .wpdarkbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/dark.png");
+  background-image: url("./images/static/icons/geartype/dark.png");
 }
 
 .wp35button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/35w.png");
+  background-image: url("./images/static/icons/geartype/35w.png");
 }
 
 .wp15button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/15.png");
+  background-image: url("./images/static/icons/geartype/15.png");
   display: inline-block;
 }
 
 .aaabilityButton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/abuff.png");
+  background-image: url("./images/static/icons/geartype/abuff.png");
   display: inline-block;
 }
 
 .wp4wbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/4w.png");
+  background-image: url("./images/static/icons/geartype/4w.png");
   display: inline-block;
 }
 
 .board1button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ench1.png");
+  background-image: url("./images/static/icons/geartype/ench1.png");
 }
 
 .board2button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ench2.png");
+  background-image: url("./images/static/icons/geartype/ench2.png");
 }
 
 .board3button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ench3.png");
+  background-image: url("./images/static/icons/geartype/ench3.png");
 }
 
 .board4button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ench4.png");
+  background-image: url("./images/static/icons/geartype/ench4.png");
 }
 
 .boardfrbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard_edit.png");
+  background-image: url("./images/static/icons/geartype/frboard_edit.png");
 }
 
 .board5button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ench5.png");
+  background-image: url("./images/static/icons/geartype/ench5.png");
 }
 
 .board5echobutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ench5echo.png");
+  background-image: url("./images/static/icons/geartype/ench5echo.png");
 }
 
 
 .board5extbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ench5ext.png");
+  background-image: url("./images/static/icons/geartype/ench5ext.png");
 }
 
 .wpexbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ex.png");
+  background-image: url("./images/static/icons/geartype/ex.png");
 }
 
 .wpexplusbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ex+.png");
+  background-image: url("./images/static/icons/geartype/ex+.png");
 }
 .ver_gl {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ver_gl.png");
+  background-image: url("./images/static/icons/geartype/ver_gl.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 .ver_jp {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ver_jp.png");
+  background-image: url("./images/static/icons/geartype/ver_jp.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 .wpldbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/ld.png");
+  background-image: url("./images/static/icons/geartype/ld.png");
 }
 
 .frbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/fr.png");
+  background-image: url("./images/static/icons/geartype/fr.png");
 }
 
 .fe50button {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard50.png");
+  background-image: url("./images/static/icons/geartype/frboard50.png");
 }
 
 .startbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/starting.png");
+  background-image: url("./images/static/icons/geartype/starting.png");
 }
 
 .frboardbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/frboard_edit.png");
+  background-image: url("./images/static/icons/geartype/frboard_edit.png");
 }
 
 .NewChar {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/new2.png");
+  background-image: url("./images/static/icons/geartype/new2.png");
 }
 
 .musicadd {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/add.png");
+  background-image: url("./images/static/icons/geartype/add.png");
 }
 
 .musicset {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/set.png");
+  background-image: url("./images/static/icons/geartype/set.png");
 }
 
 .charvoice {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/voice.png");
+  background-image: url("./images/static/icons/geartype/voice.png");
 }
 
 .charintro {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/intro.png");
+  background-image: url("./images/static/icons/geartype/intro.png");
 }
 
 .charstamps {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/stamps.png");
+  background-image: url("./images/static/icons/geartype/stamps.png");
 }
 
 .subtextinfo {
@@ -2338,7 +2347,7 @@ h3 {
 }
 
 .NewChar2 {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/new2.png");
+  background-image: url("./images/static/icons/geartype/new2.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -2365,33 +2374,33 @@ h3 {
 /*icons*/
 
 .HP {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/HP.png");
+  background-image: url("./images/static/icons/misc/HP.png");
   width: 2.5em;
   height: 1.1em;
 }
 
 .Capped {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/Capped.png");
+  background-image: url("./images/static/icons/misc/Capped.png");
   background-position: center;
   width: 60px;
   height: 32px;
 }
 
 .BRV {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/BRV.png");
+  background-image: url("./images/static/icons/misc/BRV.png");
   width: 2.5em;
   height: 1.1em;
 }
 
 .BREAK {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/BREAK.png");
+  background-image: url("./images/static/icons/misc/BREAK.png");
   width: 3.5em;
   height: 1em;
   margin-top: -0.28em;
 }
 
 .Melee {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/type/Type_Melee.png");
+  background-image: url("./images/static/icons/type/Type_Melee.png");
   height: 1.5em;
   width: 2.5em;
   margin: -0.2em;
@@ -2400,73 +2409,73 @@ h3 {
 }
 
 .Instant {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/type/Type_Instant.png");
+  background-image: url("./images/static/icons/type/Type_Instant.png");
   width: 24px;
   height: 24px;
 }
 
 .NoEX {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/noexcharge.png");
+  background-image: url("./images/static/icons/misc/noexcharge.png");
   width: 24px;
   height: 24px;
 }
 
 .NoSummon {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/nosummon.png");
+  background-image: url("./images/static/icons/misc/nosummon.png");
   width: 24px;
   height: 24px;
 }
 
 .Free {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/free.png");
+  background-image: url("./images/static/icons/misc/free.png");
   width: 24px;
   height: 24px;
 }
 
 .NoFree {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/nofree.png");
+  background-image: url("./images/static/icons/misc/nofree.png");
   width: 24px;
   height: 24px;
 }
 
 .Group {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/type/Type_Group.png");
+  background-image: url("./images/static/icons/type/Type_Group.png");
   width: 24px;
   height: 24px;
 }
 
 .Heals {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/type/Type_Heals.png");
+  background-image: url("./images/static/icons/type/Type_Heals.png");
   width: 24px;
   height: 24px;
 }
 
 .IgnoreDEF {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/IgnoreDEF.png");
+  background-image: url("./images/static/icons/misc/IgnoreDEF.png");
   width: 24px;
   height: 24px;
 }
 
 .Traps {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/type/Type_Trap.png");
+  background-image: url("./images/static/icons/type/Type_Trap.png");
   width: 24px;
   height: 24px;
 }
 
 .Counters {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/type/Type_FollowUp.png");
+  background-image: url("./images/static/icons/type/Type_FollowUp.png");
   width: 24px;
   height: 24px;
 }
 
 .FollowUp {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/type/Type_Fist.png");
+  background-image: url("./images/static/icons/type/Type_Fist.png");
   width: 24px;
   height: 24px;
 }
 
 .Magic {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/type/Type_Magic.png");
+  background-image: url("./images/static/icons/type/Type_Magic.png");
   height: 1.5em;
   width: 1.5em;
   margin-top: -0.2em;
@@ -2476,7 +2485,7 @@ h3 {
 }
 
 .Ranged {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/type/Type_Ranged.png");
+  background-image: url("./images/static/icons/type/Type_Ranged.png");
   height: 1.5em;
   width: 2.5em;
   margin: -0.2em;
@@ -2487,55 +2496,55 @@ h3 {
 /*elements*/
 
 .Fire {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Fire.png");
+  background-image: url("./images/static/icons/elements/Fire.png");
   width: 24px;
   height: 24px;
 }
 
 .Dark {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Dark.png");
+  background-image: url("./images/static/icons/elements/Dark.png");
   width: 24px;
   height: 24px;
 }
 
 .Earth {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Earth.png");
+  background-image: url("./images/static/icons/elements/Earth.png");
   width: 24px;
   height: 24px;
 }
 
 .Holy {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Holy.png");
+  background-image: url("./images/static/icons/elements/Holy.png");
   width: 24px;
   height: 24px;
 }
 
 .Ice {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Ice.png");
+  background-image: url("./images/static/icons/elements/Ice.png");
   width: 24px;
   height: 24px;
 }
 
 .Thunder {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Thunder.png");
+  background-image: url("./images/static/icons/elements/Thunder.png");
   width: 24px;
   height: 24px;
 }
 
 .Water {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Water.png");
+  background-image: url("./images/static/icons/elements/Water.png");
   width: 24px;
   height: 24px;
 }
 
 .Wind {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/elements/Wind.png");
+  background-image: url("./images/static/icons/elements/Wind.png");
   width: 24px;
   height: 24px;
 }
 
 .EX {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/exgaugem.png");
+  background-image: url("./images/static/icons/misc/exgaugem.png");
   width: 24px;
   height: 24px;
   background-repeat: no-repeat;
@@ -2547,7 +2556,7 @@ h3 {
 }
 
 .Melees {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/Melees.png");
+  background-image: url("./images/static/icons/misc/Melees.png");
   width: 42px;
   height: 42px;
   background-repeat: no-repeat;
@@ -2559,7 +2568,7 @@ h3 {
 }
 
 .Rangeds {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/Rangeds.png");
+  background-image: url("./images/static/icons/misc/Rangeds.png");
   width: 42px;
   height: 42px;
   background-repeat: no-repeat;
@@ -2571,7 +2580,7 @@ h3 {
 }
 
 .Magics {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/Magics.png");
+  background-image: url("./images/static/icons/misc/Magics.png");
   width: 42px;
   height: 42px;
   background-repeat: no-repeat;
@@ -2585,74 +2594,74 @@ h3 {
 /*sort buttons*/
 
 .HPSortbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/sort/HP.png");
+  background-image: url("./images/static/icons/geartype/sort/HP.png");
 }
 
 .ATKSortbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/sort/ATK.png");
+  background-image: url("./images/static/icons/geartype/sort/ATK.png");
 }
 
 .DEFSortbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/sort/DEF.png");
+  background-image: url("./images/static/icons/geartype/sort/DEF.png");
 }
 
 .INTBRVSortbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/sort/INTBRV.png");
+  background-image: url("./images/static/icons/geartype/sort/INTBRV.png");
 }
 
 .MAXBRVSortbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/sort/MAXBRV.png");
+  background-image: url("./images/static/icons/geartype/sort/MAXBRV.png");
 }
 
 .SPDSortbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/sort/SPD.png");
+  background-image: url("./images/static/icons/geartype/sort/SPD.png");
 }
 
 .RealmSortbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/sort/REALM.png");
+  background-image: url("./images/static/icons/geartype/sort/REALM.png");
 }
 
 .NameSortbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/sort/Name.png");
+  background-image: url("./images/static/icons/geartype/sort/Name.png");
 }
 
 .JPSortbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/sort/JP.png");
+  background-image: url("./images/static/icons/geartype/sort/JP.png");
 }
 
 /*sort buttons*/
 
 .armoriconbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/weapon/Armors.png");
+  background-image: url("./images/static/icons/weapon/Armors.png");
 }
 
 .weaponbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/weapon/Weapons.png");
+  background-image: url("./images/static/icons/weapon/Weapons.png");
   background-size: contain;
 }
 
 .othersbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/weapon/Other.png");
+  background-image: url("./images/static/icons/weapon/Other.png");
   background-size: contain;
 }
 
 .spearsbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/weapon/Spear.png");
+  background-image: url("./images/static/icons/weapon/Spear.png");
   background-size: contain;
 }
 
 .throwbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/weapon/Boomerang.png");
+  background-image: url("./images/static/icons/weapon/Boomerang.png");
   background-size: contain;
 }
 
 .fistbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/weapon/Gloves.png");
+  background-image: url("./images/static/icons/weapon/Gloves.png");
   background-size: contain;
 }
 
 .knockbackbutton {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/knockback.png");
+  background-image: url("./images/static/icons/geartype/knockback.png");
   background-size: contain;
 }
 
@@ -2751,13 +2760,13 @@ h3 {
 /*enemy buffs*/
 
 .KnockBack {
-  background-image: url(https://dissidiacompendium.com/images/static/icons/misc/Launch.png);
+  background-image: url("./images/static/icons/misc/Launch.png");
   width: 36px;
   height: 20px;
 }
 
 .smallpassive {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/Passive_small.png");
+  background-image: url("./images/static/icons/misc/Passive_small.png");
   width: 48px;
   height: 24px;
   display: inline-block;
@@ -2767,7 +2776,7 @@ h3 {
 }
 
 .mini_ability {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/mini_ability.png");
+  background-image: url("./images/static/icons/misc/mini_ability.png");
   width: 48px;
   height: 24px;
   display: inline-block;
@@ -2777,7 +2786,7 @@ h3 {
 }
 
 .smallstatus {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/status_small.png");
+  background-image: url("./images/static/icons/misc/status_small.png");
   width: 48px;
   height: 24px;
   display: inline-block;
@@ -2787,7 +2796,7 @@ h3 {
 }
 
 .smallspecial {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/small_special.png");
+  background-image: url("./images/static/icons/misc/small_special.png");
   width: 48px;
   height: 24px;
   display: inline-block;
@@ -2797,67 +2806,67 @@ h3 {
 }
 
 .lb0 {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/limits/0LB.png");
+  background-image: url("./images/static/icons/geartype/limits/0LB.png");
   width: 32px;
   height: 31px;
 }
 
 .lb1 {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/limits/1LB.png");
+  background-image: url("./images/static/icons/geartype/limits/1LB.png");
   width: 32px;
   height: 31px;
 }
 
 .lb2 {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/limits/2LB.png");
+  background-image: url("./images/static/icons/geartype/limits/2LB.png");
   width: 32px;
   height: 31px;
 }
 
 .lb3 {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/limits/3LB.png");
+  background-image: url("./images/static/icons/geartype/limits/3LB.png");
   width: 32px;
   height: 31px;
 }
 
 .lb05 {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/limits/0LB5.png");
+  background-image: url("./images/static/icons/geartype/limits/0LB5.png");
   width: 40px;
   height: 31px;
 }
 
 .lb15 {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/limits/1LB5.png");
+  background-image: url("./images/static/icons/geartype/limits/1LB5.png");
   width: 40px;
   height: 31px;
 }
 
 .lb25 {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/limits/2LB5.png");
+  background-image: url("./images/static/icons/geartype/limits/2LB5.png");
   width: 40px;
   height: 31px;
 }
 
 .lb35 {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/limits/3LB5.png");
+  background-image: url("./images/static/icons/geartype/limits/3LB5.png");
   width: 40px;
   height: 31px;
 }
 
 .lb45 {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/limits/4LB5.png");
+  background-image: url("./images/static/icons/geartype/limits/4LB5.png");
   width: 40px;
   height: 31px;
 }
 
 .lb55 {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/limits/5LB5.png");
+  background-image: url("./images/static/icons/geartype/limits/5LB5.png");
   width: 40px;
   height: 31px;
 }
 
 .mlb {
-  background-image: url("https://dissidiacompendium.com/images/static/icons/misc/MLB.png");
+  background-image: url("./images/static/icons/misc/MLB.png");
   width: 32px;
   height: 31px;
 }
@@ -2917,7 +2926,7 @@ h3 {
 
 .gemselected {
   display: none;
-  content: url(https://dissidiacompendium.com/images/static/icons/misc/LimitBreakSmall.png);
+  content: url("./images/static/icons/misc/LimitBreakSmall.png");
   vertical-align: middle;
   background-size: contain;
   height: 20px;
@@ -2926,7 +2935,7 @@ h3 {
 }
 
 .gemcredits {
-  content: url(https://dissidiacompendium.com/images/static/icons/misc/LimitBreakSmall.png);
+  content: url("./images/static/icons/misc/LimitBreakSmall.png");
   vertical-align: middle;
   background-size: contain;
   height: 20px;
@@ -2961,162 +2970,162 @@ h3 {
 }
 
 .Debuff_Breakbutton {
-  background-image: url(https://dissidiacompendium.com/images/static/icons/roles/Role_Debuff_Break.png);
+  background-image: url("./images/static/icons/roles/Role_Debuff_Break.png");
   background-size: contain;
 }
 
 .Stacked_Debuffbutton {
-  background-image: url(https://dissidiacompendium.com/images/static/icons/roles/Role_Stacked_Debuff.png);
+  background-image: url("./images/static/icons/roles/Role_Stacked_Debuff.png");
   background-size: contain;
 }
 
 .Break_Resetbutton {
-  background-image: url(https://dissidiacompendium.com/images/static/icons/roles/Role_BreakReset.png);
+  background-image: url("./images/static/icons/roles/Role_BreakReset.png");
   background-size: contain;
 }
 
 .Non_Elementalbutton {
-  background-image: url(https://dissidiacompendium.com/images/static/icons/roles/Role_Non-Elemental.png);
+  background-image: url("./images/static/icons/roles/Role_Non-Elemental.png");
   background-size: contain;
 }
 
 .HP_Damage_Upbutton {
-  background-image: url(https://dissidiacompendium.com/images/static/icons/roles/Role_HP_Damage_Up.png);
+  background-image: url("./images/static/icons/roles/Role_HP_Damage_Up.png");
   background-size: contain;
 }
 
 .Buff_Extensionbutton {
-  background-image: url(https://dissidiacompendium.com/images/static/icons/roles/Role_Buff_Extension.png);
+  background-image: url("./images/static/icons/roles/Role_Buff_Extension.png");
   background-size: contain;
 }
 
 .Self_Harmbutton {
-  background-image: url(https://dissidiacompendium.com/images/static/icons/roles/Role_Self_Harm.png);
+  background-image: url("./images/static/icons/roles/Role_Self_Harm.png");
   background-size: contain;
 }
 
 .Ally_Turn_Manipulatorbutton {
-  background-image: url(https://dissidiacompendium.com/images/static/icons/roles/Role_Ally_Turn_Manipulator.png);
+  background-image: url("./images/static/icons/roles/Role_Ally_Turn_Manipulator.png");
   background-size: contain;
 }
 
 .FollowUpbutton {
-  background-image: url(https://dissidiacompendium.com/images/static/icons/roles/Role_Icon_FollowUp.png);
+  background-image: url("./images/static/icons/roles/Role_Icon_FollowUp.png");
   background-size: contain;
 }
 
 .Cannot_Breakbutton {
-  background-image: url(https://dissidiacompendium.com/images/static/icons/roles/Role_Cannot_Break.png);
+  background-image: url("./images/static/icons/roles/Role_Cannot_Break.png");
   background-size: contain;
 }
 
 .Blindbutton {
-  background-image: url(https://www.dissidiacompendium.com/images/static/icons/debuff/debuff_glasses_unframed.png);
+  background-image: url("./images/static/icons/debuff/debuff_glasses_unframed.png");
   background-size: contain;
 }
 
 .Debuff_Evadebutton {
-  background-image: url(https://www.dissidiacompendium.com/images/static/icons/roles/Role_Debuff_Evade.png);
+  background-image: url("./images/static/icons/roles/Role_Debuff_Evade.png");
   background-size: contain;
 }
 
 .Debuff_Goldbutton {
-  background-image: url(https://www.dissidiacompendium.com/images/static/icons/roles/Role_Debuff_Gold.png);
+  background-image: url("./images/static/icons/roles/Role_Debuff_Gold.png");
   background-size: contain;
 }
 
 .BRV_Wont_Belowbutton {
-  background-image: url(https://www.dissidiacompendium.com/images/static/icons/roles/Role_BRV_Hold.png);
+  background-image: url("./images/static/icons/roles/Role_BRV_Hold.png");
   background-size: contain;
 }
 
 .FollowUp_By_Otherbutton {
-  background-image: url(https://www.dissidiacompendium.com/images/static/icons/roles/Role_Icon_FollowUp_By_Others.png);
+  background-image: url("./images/static/icons/roles/Role_Icon_FollowUp_By_Others.png");
   background-size: contain;
 }
 
 .Launch_Supportbutton {
-  background-image: url(https://www.dissidiacompendium.com/images/static/icons/roles/Role_Icon_Knock_Back_Support.png);
+  background-image: url("./images/static/icons/roles/Role_Icon_Knock_Back_Support.png");
   background-size: contain;
 }
 
 .Continuous_Turnsbutton {
-  background-image: url(https://www.dissidiacompendium.com/images/static/icons/roles/Role_Continuous_Turns.png);
+  background-image: url("./images/static/icons/roles/Role_Continuous_Turns.png");
   background-size: contain;
 }
 
 .Turn_Interrupterbutton {
-  background-image: url(https://www.dissidiacompendium.com/images/static/icons/roles/Role_Turn_Interrupter.png);
+  background-image: url("./images/static/icons/roles/Role_Turn_Interrupter.png");
   background-size: contain;
 }
 
 .BRV_Ratiobutton {
-  background-image: url(https://www.dissidiacompendium.com/images/static/icons/roles/Role_BRV_Ratio.png);
+  background-image: url("./images/static/icons/roles/Role_BRV_Ratio.png");
   background-size: contain;
 }
 
 .BRV_Absorbbutton {
-  background-image: url(https://www.dissidiacompendium.com/images/static/icons/roles/Role_BRV_Absorb.png);
+  background-image: url("./images/static/icons/roles/Role_BRV_Absorb.png");
   background-size: contain;
 }
 
 .EX_MAX_Partybutton {
-  background-image: url(https://www.dissidiacompendium.com/images/static/icons/roles/Role_EX_Gauge.png);
+  background-image: url("./images/static/icons/roles/Role_EX_Gauge.png");
   background-size: contain;
 }
 
 .Stacked_Buffbutton {
-  background-image: url(https://www.dissidiacompendium.com/images/static/icons/buff/buff_up1_unframed.png);
+  background-image: url("./images/static/icons/buff/buff_up1_unframed.png");
   background-size: contain;
 }
 
 .Stacked_Buff_Fivebutton {
-  background-image: url(https://www.dissidiacompendium.com/images/static/icons/buff/buff_up5_unframed.png);
+  background-image: url("./images/static/icons/buff/buff_up5_unframed.png");
   background-size: contain;
 }
 
 .Trap_After_Triggerbutton {
-  background-image: url(https://www.dissidiacompendium.com/images/static/icons/roles/Role_Trap_After.png);
+  background-image: url("./images/static/icons/roles/Role_Trap_After.png");
   background-size: contain;
 }
 
 .Trap_Before_Turnbutton {
-  background-image: url(https://www.dissidiacompendium.com/images/static/icons/roles/Role_Trap_Before.png);
+  background-image: url("./images/static/icons/roles/Role_Trap_Before.png");
   background-size: contain;
 }
 
 .FollowUp_Before_Player_Turnbutton {
-  background-image: url(https://www.dissidiacompendium.com/images/static/icons/roles/Role_Before_Player_Turn.png);
+  background-image: url("./images/static/icons/roles/Role_Before_Player_Turn.png");
   background-size: contain;
 }
 
 .FollowUp_Before_Abilitybutton {
-  background-image: url(https://www.dissidiacompendium.com/images/static/icons/roles/Role_Before_Ability_Attack.png);
+  background-image: url("./images/static/icons/roles/Role_Before_Ability_Attack.png");
   background-size: contain;
 }
 
 .FollowUp_Extensionbutton {
-  background-image: url(https://www.dissidiacompendium.com/images/static/icons/roles/Role_Ability_Extension_FollowUp.png);
+  background-image: url("./images/static/icons/roles/Role_Ability_Extension_FollowUp.png");
   background-size: contain;
 }
 
 .FollowUp_Start_Of_Nextbutton {
-  background-image: url(https://www.dissidiacompendium.com/images/static/icons/roles/Role_Start_Of_Next_Turn.png);
+  background-image: url("./images/static/icons/roles/Role_Start_Of_Next_Turn.png");
   background-size: contain;
 }
 
 .FollowUp_Action_On_Enemybutton {
-  background-image: url(https://www.dissidiacompendium.com/images/static/icons/roles/Role_Action_Against_Enemy_FollowUp.png);
+  background-image: url("./images/static/icons/roles/Role_Action_Against_Enemy_FollowUp.png");
   background-size: contain;
 }
 
 .Free_Abilitybutton {
-  background-image: url(https://www.dissidiacompendium.com/images/static/icons/buff/buff_double_unframed.png);
+  background-image: url("./images/static/icons/buff/buff_double_unframed.png");
   background-size: contain;
 }
 
 .Special_Buffbutton {
-  background-image: url(https://www.dissidiacompendium.com/images/static/icons/roles/Role_Special_Buff.png);
+  background-image: url("./images/static/icons/roles/Role_Special_Buff.png");
   background-size: contain;
 }
 
@@ -3287,7 +3296,7 @@ h3 {
 }
 
 .mod_icon{
-  background-image: url(https://dissidiacompendium.com/images/static/icons/misc/modify_ailment.png);
+  background-image: url("./images/static/icons/misc/modify_ailment.png");
   width: 3em;
   height: 2em;
   display: inline-block;

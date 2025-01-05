@@ -11,7 +11,7 @@ export default function CharacterRoleMarker({
         <>
             {lower == true ?
                 <DefaultTippy content={`Realm ${base.Realm}`}>
-                    <img className="classdisplay filterinactive" alt={base.Realm} src={base.Realm == undefined ? "https://dissidiacompendium.com/images/static/icons/misc/Unknown_icon.png" : `https://dissidiacompendium.com/images/static/icons/realms/name/${base.Realm}.png`}></img>
+                    <img className="classdisplay filterinactive" alt={base.Realm} src={base.Realm == undefined ? "./images/static/icons/misc/Unknown_icon.png" : `./images/static/icons/realms/name/${base.Realm}.png`}></img>
                 </DefaultTippy>
                 : ``}
             {lower == true && newmatch.Magic == true ?
@@ -81,7 +81,7 @@ export default function CharacterRoleMarker({
                             <li className="classdisplay filterinactive"
                                 style={{
                                     backgroundSize: "contain",
-                                    backgroundImage: `url(https://dissidiacompendium.com/images/static/icons/${ailment_tags[key].url}.png)`
+                                    backgroundImage: `url("./images/static/icons/${ailment_tags[key].url}.png")`
                                 }}
                             ></li>
                         </DefaultTippy>

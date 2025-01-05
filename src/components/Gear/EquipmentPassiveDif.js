@@ -111,7 +111,7 @@ function EquipmentPassiveDif({
                         scrollPosition={scrollPosition}
                         effect="opacity" 
                         className={`gearimage`} 
-                        src={`https://dissidiacompendium.com/images/static/${gearurl}`} />
+                        src={`./images/static/${gearurl}`} />
                     </div>
                     <table className="statstablenonmoble statframe tablenonmobile withshadow">
                         <thead className="statsflair ">

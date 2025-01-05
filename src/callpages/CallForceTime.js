@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
-import { getCharacters } from '../redux/ducks/characters';
-import { getJPToggle } from '../redux/ducks/jptoggle';
-import FRPageFormatting from '../ForceTime';
-import Loading from '../components/Loading'
+import { getCharacters } from '../redux/ducks/characters.js';
+import { getJPToggle } from '../redux/ducks/jptoggle.js';
+import FRPageFormatting from '../ForceTime.js';
+import Loading from '../components/Loading.js'
 
 export default function CallForceTime(){
 

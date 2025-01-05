@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { getJPCalendar } from '../redux/ducks/jpcalendar';
-import { getEvents } from '../redux/ducks/events';
-import { getBanners } from '../redux/ducks/banners';
-import { getJPToggle } from '../redux/ducks/jptoggle';
-import Calendar from '../Calendar';
-import Loading from '../components/Loading'
+import { getJPCalendar } from '../redux/ducks/jpcalendar.js';
+import { getEvents } from '../redux/ducks/events.js';
+import { getBanners } from '../redux/ducks/banners.js';
+import { getJPToggle } from '../redux/ducks/jptoggle.js';
+import Calendar from '../Calendar.js';
+import Loading from '../components/Loading.js'
 
 export default function CallCalendar(){
 

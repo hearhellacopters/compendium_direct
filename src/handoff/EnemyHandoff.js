@@ -27,7 +27,7 @@ export default function EnemyHandoff({
 
     useEffect(() => {
         if (DevSwitch == true && filtered && filtered.battle_enemy_id != undefined) {
-            axios.get(`http://localhost:3001/data/enemies_direct/${filtered.battle_enemy_id}`, { 'muteHttpExceptions': true }).then((res) => {
+            axios.get(`data/enemies_direct/${filtered.battle_enemy_id}.json`, { 'muteHttpExceptions': true }).then((res) => {
                 const response = res.data;
                 _error_remove(`enemies_direct_${filtered.battle_enemy_id}`);
                 setbattle_enemy(response)

@@ -46,10 +46,10 @@ export default function CharacterEventFormatting({
 
     const [selected, setselected] = useState(self.images && self.images[0] || 0)
 
-    const [url, seturl] = useState(`https://dissidiacompendium.com/images/static/banners/${ver.toLowerCase()}/event/eventtitle${images[0]}out.png`)
+    const [url, seturl] = useState(`./images/static/banners/${ver.toLowerCase()}/event/eventtitle${images[0]}out.png`)
 
     useEffect(() => {
-        seturl(`https://dissidiacompendium.com/images/static/banners/${ver.toLowerCase()}/event/eventtitle${selected}out.png`)
+        seturl(`./images/static/banners/${ver.toLowerCase()}/event/eventtitle${selected}out.png`)
     }, [selected, ver])
 
     const [showcharacters, setshowcharacters] = useState(false)

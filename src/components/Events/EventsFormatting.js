@@ -20,20 +20,21 @@ import { ImWarning } from 'react-icons/im';
 import TalkFormatting from '../Talk/TalkFormatting.js';
 import { _error } from '../../redux/sagas/handlers/_error_state_add.js';
 import { _error_remove } from '../../redux/sagas/handlers/_error_state_remove.js';
+import DevSwitch from '../../redux/DevSwitch.js';
 
 //direct
 
 import { getJPGameListSphere } from '../../redux/ducks/JP/gamelist_sphere.js';
 import { getGLGameListSphere } from '../../redux/ducks/GL/gamelist_sphere.js';
 
-function EventsFormatting({ 
-    match, 
-    permapage, 
-    EventGuideData, 
+function EventsFormatting({
+    match,
+    permapage,
+    EventGuideData,
     master_index,
     talk_index,
-    scrollPosition 
-}){
+    scrollPosition
+}) {
 
     const char_id = master_index.charid
     const hide_other = window.innerWidth != undefined && window.innerWidth < 799 ? permapage == true ? false : true : false
@@ -54,8 +55,8 @@ function EventsFormatting({
     const [showingstorylist, setshowingstorylist] = useState(false)
     const [showingshoplist, setshowingshoplist] = useState(false)
     const [spheres_holder, setspheres_holder] = useState()
-    const [shopdata,setshopdata] = useState([])
-    const [missiondata,setmissiondata] = useState([])
+    const [shopdata, setshopdata] = useState([])
+    const [missiondata, setmissiondata] = useState([])
 
     useEffect(() => {
         setshowingsphereslist(false)
@@ -64,33 +65,55 @@ function EventsFormatting({
         setshowingstorylist(false)
         setmissiondata([])
         setshopdata([])
-    },[match])
+    }, [match])
 
     useEffect(() => {
-       if(showingshoplist == true && match.shop != undefined && shopdata.length == 0){
-            axios.get(`https://www.dissidiacompendium.com/data/_dir/shops/${match.tempdate == true ? "JP":"GL"}/${match.shop}.json`, { 'muteHttpExceptions': true }).then((res) => {
-                const response = res.data;
-                _error_remove(`shops_${match.tempdate == true ? "JP":"GL"}_${match.shop}`);
-                setshopdata(response);
-            }).catch(function (err) {
-                _error(`shops_${match.tempdate == true ? "JP":"GL"}_${match.shop}`, err.message);
-                setshopdata([]);
-            })
+        if (showingshoplist == true && match.shop != undefined && shopdata.length == 0) {
+            if (DevSwitch) {
+                axios.get(`data/_dir/shops/${match.tempdate == true ? "JP" : "GL"}/${match.shop}.json`, { 'muteHttpExceptions': true }).then((res) => {
+                    const response = res.data;
+                    _error_remove(`shops_${match.tempdate == true ? "JP" : "GL"}_${match.shop}`);
+                    setshopdata(response);
+                }).catch(function (err) {
+                    _error(`shops_${match.tempdate == true ? "JP" : "GL"}_${match.shop}`, err.message);
+                    setshopdata([]);
+                })
+            } else {
+                axios.get(`https://www.dissidiacompendium.com/data/_dir/shops/${match.tempdate == true ? "JP" : "GL"}/${match.shop}.json`, { 'muteHttpExceptions': true }).then((res) => {
+                    const response = res.data;
+                    _error_remove(`shops_${match.tempdate == true ? "JP" : "GL"}_${match.shop}`);
+                    setshopdata(response);
+                }).catch(function (err) {
+                    _error(`shops_${match.tempdate == true ? "JP" : "GL"}_${match.shop}`, err.message);
+                    setshopdata([]);
+                })
+            }
         }
-    },[match,showingshoplist,shopdata])
+    }, [match, showingshoplist, shopdata])
 
     useEffect(() => {
-        if(showingmissionlist == true && match.missions == true && missiondata.length == 0){
-             axios.get(`https://www.dissidiacompendium.com/data/_dir/missions/${match.tempdate == true ? "JP":"GL"}fields/${match.field_id}.json`, { 'muteHttpExceptions': true }).then((res) => {
-                 const response = res.data;
-                 _error_remove(`shops_${match.tempdate == true ? "JP":"GL"}_${match.shop}`);
-                 setmissiondata(response);
-             }).catch(function (err) {
-                _error(`shops_${match.tempdate == true ? "JP":"GL"}_${match.shop}`, err.message);
-                 setmissiondata([]);
-             })
-         }
-     },[match,showingmissionlist,missiondata])
+        if (showingmissionlist == true && match.missions == true && missiondata.length == 0) {
+            if (DevSwitch) {
+                axios.get(`data/_dir/missions/${match.tempdate == true ? "JP" : "GL"}fields/${match.field_id}.json`, { 'muteHttpExceptions': true }).then((res) => {
+                    const response = res.data;
+                    _error_remove(`shops_${match.tempdate == true ? "JP" : "GL"}_${match.shop}`);
+                    setmissiondata(response);
+                }).catch(function (err) {
+                    _error(`shops_${match.tempdate == true ? "JP" : "GL"}_${match.shop}`, err.message);
+                    setmissiondata([]);
+                })
+            } else {
+                axios.get(`https://www.dissidiacompendium.com/data/_dir/missions/${match.tempdate == true ? "JP" : "GL"}fields/${match.field_id}.json`, { 'muteHttpExceptions': true }).then((res) => {
+                    const response = res.data;
+                    _error_remove(`shops_${match.tempdate == true ? "JP" : "GL"}_${match.shop}`);
+                    setmissiondata(response);
+                }).catch(function (err) {
+                    _error(`shops_${match.tempdate == true ? "JP" : "GL"}_${match.shop}`, err.message);
+                    setmissiondata([]);
+                })
+            }
+        }
+    }, [match, showingmissionlist, missiondata])
 
     useEffect(() => {
         if (match.bannercount != 0 && match.banners && match.banners.length != 0) {
@@ -200,27 +223,27 @@ function EventsFormatting({
         setver(jptoggledata == true ? "JP" : "GL")
     }, [jptoggledata, match, showingsphereslist, ProcessedSpheres])
 
-    const showSpheres=()=>{
+    const showSpheres = () => {
         setshowingstorylist(false)
         setshowingmissionlist(false)
         setshowingshoplist(false)
         setshowingsphereslist((prevValue) => !prevValue)
     }
 
-    const showMissions=()=>{
+    const showMissions = () => {
         setshowingstorylist(false)
         setshowingmissionlist((prevValue) => !prevValue)
         setshowingshoplist(false)
         setshowingsphereslist(false)
     }
 
-    const showShop=()=>{
+    const showShop = () => {
         setshowingstorylist(false)
         setshowingmissionlist(false)
         setshowingshoplist((prevValue) => !prevValue)
         setshowingsphereslist(false)
     }
-    const showStory=()=>{
+    const showStory = () => {
         setshowingstorylist((prevValue) => !prevValue)
         setshowingmissionlist(false)
         setshowingshoplist(false)
@@ -256,8 +279,8 @@ function EventsFormatting({
                 {currenttime >= new Date(match.outdate) ? (
                     match.permanent == true ? (
                         <LazyLoadComponent
-                        scrollPosition={scrollPosition}
-                        placeholder={<div className='EventHolder'/>}
+                            scrollPosition={scrollPosition}
+                            placeholder={<div className='EventHolder' />}
                         >
                             <div className='EventHolder'>
                                 <div className="tickholder greencolor">
@@ -268,8 +291,8 @@ function EventsFormatting({
                         </LazyLoadComponent>
                     ) : (
                         <LazyLoadComponent
-                        scrollPosition={scrollPosition}
-                        placeholder={<div className='EventHolder'/>}
+                            scrollPosition={scrollPosition}
+                            placeholder={<div className='EventHolder' />}
                         >
                             <div className='EventHolder'>
                                 <div className="tickholder redcolor">
@@ -281,8 +304,8 @@ function EventsFormatting({
                     )
                 ) : match.tempdate == true ?
                     <LazyLoadComponent
-                    scrollPosition={scrollPosition}
-                    placeholder={<div className='EventHolder'/>}
+                        scrollPosition={scrollPosition}
+                        placeholder={<div className='EventHolder' />}
                     >
                         <div className='EventHolder'>
                             <div className="greencolor">
@@ -304,8 +327,8 @@ function EventsFormatting({
                     </LazyLoadComponent>
                     : currenttime <= new Date(match.indate) ? (
                         <LazyLoadComponent
-                        scrollPosition={scrollPosition}
-                        placeholder={<div className='EventHolder'/>}
+                            scrollPosition={scrollPosition}
+                            placeholder={<div className='EventHolder' />}
                         >
                             <div className='EventHolder'>
                                 <StartsInTimer expiryTimestamp={new Date(match.indate)} JPFlag={false} />
@@ -314,8 +337,8 @@ function EventsFormatting({
                         </LazyLoadComponent>
                     ) : match.permanent == false ? (
                         <LazyLoadComponent
-                        scrollPosition={scrollPosition}
-                        placeholder={<div className='EventHolder'/>}
+                            scrollPosition={scrollPosition}
+                            placeholder={<div className='EventHolder' />}
                         >
                             <div className='EventHolder'>
                                 <EndsInTimer expiryTimestamp={new Date(match.outdate)} JPFlag={false} />
@@ -325,8 +348,8 @@ function EventsFormatting({
                     )
                         : (
                             <LazyLoadComponent
-                            scrollPosition={scrollPosition}
-                            placeholder={<div className='EventHolder'/>}
+                                scrollPosition={scrollPosition}
+                                placeholder={<div className='EventHolder' />}
                             >
                                 <div className='EventHolder'>
                                     <div className="tickholder greencolor">
@@ -352,50 +375,50 @@ function EventsFormatting({
                     {match.url2 == undefined ?
                         permapage == false ?
                             <Link to={`../events/${match.eventindex}`}>
-                                <LazyLoadImage 
-                                scrollPosition={scrollPosition}
-                                effect="opacity" 
-                                className={`eventimage withshadow ${permapage == false ? "showlink" : ""}`} 
-                                src={"https://dissidiacompendium.com/images/static/banners/"+match.url1} 
-                                alt={match.name} />
+                                <LazyLoadImage
+                                    scrollPosition={scrollPosition}
+                                    effect="opacity"
+                                    className={`eventimage withshadow ${permapage == false ? "showlink" : ""}`}
+                                    src={"./images/static/banners/" + match.url1}
+                                    alt={match.name} />
                             </Link>
                             :
-                            <LazyLoadImage 
-                            scrollPosition={scrollPosition}
-                            effect="opacity" 
-                            className={`eventimage withshadow ${permapage == false ? "showlink" : ""}`} 
-                            src={"https://dissidiacompendium.com/images/static/banners/"+match.url1} 
-                            alt={match.name} />
+                            <LazyLoadImage
+                                scrollPosition={scrollPosition}
+                                effect="opacity"
+                                className={`eventimage withshadow ${permapage == false ? "showlink" : ""}`}
+                                src={"./images/static/banners/" + match.url1}
+                                alt={match.name} />
                         :
                         <div className="eventtabs">
                             <div className="eventwithbackgorundtabs withshadow">
                                 {permapage == false ?
                                     <Link to={`../events/${match.eventindex}`}>
-                                        <LazyLoadImage 
-                                        scrollPosition={scrollPosition}
-                                        effect="opacity" 
-                                        className={`eventimage ${permapage == false ? "showlink" : ""}`} 
-                                        src={
-                                            eventURL == "Event1" ? "https://dissidiacompendium.com/images/static/banners/"+match.url1 :
-                                                eventURL == "Event2" ? "https://dissidiacompendium.com/images/static/banners/"+match.url2 :
-                                                    eventURL == "Event3" ? "https://dissidiacompendium.com/images/static/banners/"+match.url3 :
-                                                        eventURL == "Event4" ? "https://dissidiacompendium.com/images/static/banners/"+match.url4 :
-                                                            ""
-                                        } 
-                                        alt={match.name} />
+                                        <LazyLoadImage
+                                            scrollPosition={scrollPosition}
+                                            effect="opacity"
+                                            className={`eventimage ${permapage == false ? "showlink" : ""}`}
+                                            src={
+                                                eventURL == "Event1" ? "./images/static/banners/" + match.url1 :
+                                                    eventURL == "Event2" ? "./images/static/banners/" + match.url2 :
+                                                        eventURL == "Event3" ? "./images/static/banners/" + match.url3 :
+                                                            eventURL == "Event4" ? "./images/static/banners/" + match.url4 :
+                                                                ""
+                                            }
+                                            alt={match.name} />
                                     </Link> :
-                                    <LazyLoadImage 
-                                    scrollPosition={scrollPosition}
-                                    effect="opacity" 
-                                    className={`eventimage ${permapage == false ? "showlink" : ""}`} 
-                                    src={
-                                        eventURL == "Event1" ? "https://dissidiacompendium.com/images/static/banners/"+match.url1 :
-                                            eventURL == "Event2" ? "https://dissidiacompendium.com/images/static/banners/"+match.url2 :
-                                                eventURL == "Event3" ? "https://dissidiacompendium.com/images/static/banners/"+match.url3 :
-                                                    eventURL == "Event4" ? "https://dissidiacompendium.com/images/static/banners/"+match.url4 :
-                                                        ""
-                                    } 
-                                    alt={match.name} />
+                                    <LazyLoadImage
+                                        scrollPosition={scrollPosition}
+                                        effect="opacity"
+                                        className={`eventimage ${permapage == false ? "showlink" : ""}`}
+                                        src={
+                                            eventURL == "Event1" ? "./images/static/banners/" + match.url1 :
+                                                eventURL == "Event2" ? "./images/static/banners/" + match.url2 :
+                                                    eventURL == "Event3" ? "./images/static/banners/" + match.url3 :
+                                                        eventURL == "Event4" ? "./images/static/banners/" + match.url4 :
+                                                            ""
+                                        }
+                                        alt={match.name} />
                                 }
                             </div>
                             {match.url3 == undefined ?
@@ -437,242 +460,242 @@ function EventsFormatting({
                         </div>
                     }
                     {match.BTChar != undefined ?
-                            <BackMaker char_id={char_id} match={match.BTChar}/>
+                        <BackMaker char_id={char_id} match={match.BTChar} />
                         : ""}
                     {hide_other != true ?
-                    <>
-                    {match.SpheresList.length != 0 || match.missions == true || match.shop != undefined || match.talk != undefined?
-                        <div className="znone">
-                            <div className="featuredbanner">
-                                Story / Stores / Missions
-                            </div>
-                            <div className='storeholder'>
-                                {match.talk != undefined ?
-                                    <Tippy content={"Story"}>
-                                        <img src={'https://dissidiacompendium.com/images/static/icons/misc/TalkEvents.png'} alt="Story" onClick={showStory} className={`storeicon${showingstorylist == true ? "-active":""}`}/>
-                                    </Tippy>
-                                :""}
-                                {match.shop != undefined ?
-                                    <Tippy content={"Store"}>
-                                        <img src={'https://dissidiacompendium.com/images/static/icons/misc/ShopStore.png'} alt="Shop Store" onClick={showShop} className={`storeicon${showingshoplist == true && shopdata.length != 0 ? "-active":""}`}/>
-                                    </Tippy>
-                                :""}
-                                {match.SpheresList.length != 0 ?
-                                    <Tippy content={"Spheres"}>
-                                        <img src={'https://dissidiacompendium.com/images/static/icons/misc/SphereStore.png'} alt="Spheres Store" onClick={showSpheres} className={`storeicon${showingsphereslist ==true ? "-active":""}`}/>
-                                    </Tippy>
-                                :""}
-                                {match.missions == true ?
-                                    <Tippy content={"Missions"}>
-                                        <img src={'https://dissidiacompendium.com/images/static/icons/misc/MissionsMenu.png'} alt="Missions" onClick={showMissions} className={`storeicon${showingmissionlist ==true && missiondata.length != 0? "-active":""}`}/>
-                                    </Tippy>
-                                :""}
-                                {showingmissionlist == true && missiondata.length !=0 ?
-                                    <div className={`rewards_limit`}>
-                                        {missiondata.map((mission, i) => {
-                                            return(
-                                            <MissionFormatting
-                                            key={`${match.field_id}-${i}`}
-                                            mission={mission}
-                                            solo={false}
-                                            no_field={true}
-                                            ver={match.tempdate == true? "JP":"GL"}
-                                            />
-                                            )
-                                        })}
+                        <>
+                            {match.SpheresList.length != 0 || match.missions == true || match.shop != undefined || match.talk != undefined ?
+                                <div className="znone">
+                                    <div className="featuredbanner">
+                                        Story / Stores / Missions
                                     </div>
-                                :""}
-                                {showingshoplist == true && shopdata.length !=0 ?
-                                    <MissionFormatting
-                                    mission={{rewards:shopdata}}
-                                    solo={false}
-                                    costs={true}
-                                    ver={match.tempdate == true? "JP":"GL"}
-                                    />
-                                :""}
-                            </div>
-                            {master_index != undefined &&
-                                ver != undefined &&
-                                showingsphereslist == true &&
-                                spheres_holder != undefined ?
-                                <div className="sphereslistholder">
-                                    {spheres_holder.map((passive, i) => (
-                                        <Sphere_Passive_Ability_Formatting
-                                            key={i}
-                                            passive_ability={passive.passive}
-                                            ver={match.tempdate == true ? "JP":"GL"}
-                                            loc={undefined}
-                                            file={"exskill"}
-                                            Single={true}
+                                    <div className='storeholder'>
+                                        {match.talk != undefined ?
+                                            <Tippy content={"Story"}>
+                                                <img src={'./images/static/icons/misc/TalkEvents.png'} alt="Story" onClick={showStory} className={`storeicon${showingstorylist == true ? "-active" : ""}`} />
+                                            </Tippy>
+                                            : ""}
+                                        {match.shop != undefined ?
+                                            <Tippy content={"Store"}>
+                                                <img src={'./images/static/icons/misc/ShopStore.png'} alt="Shop Store" onClick={showShop} className={`storeicon${showingshoplist == true && shopdata.length != 0 ? "-active" : ""}`} />
+                                            </Tippy>
+                                            : ""}
+                                        {match.SpheresList.length != 0 ?
+                                            <Tippy content={"Spheres"}>
+                                                <img src={'./images/static/icons/misc/SphereStore.png'} alt="Spheres Store" onClick={showSpheres} className={`storeicon${showingsphereslist == true ? "-active" : ""}`} />
+                                            </Tippy>
+                                            : ""}
+                                        {match.missions == true ?
+                                            <Tippy content={"Missions"}>
+                                                <img src={'./images/static/icons/misc/MissionsMenu.png'} alt="Missions" onClick={showMissions} className={`storeicon${showingmissionlist == true && missiondata.length != 0 ? "-active" : ""}`} />
+                                            </Tippy>
+                                            : ""}
+                                        {showingmissionlist == true && missiondata.length != 0 ?
+                                            <div className={`rewards_limit`}>
+                                                {missiondata.map((mission, i) => {
+                                                    return (
+                                                        <MissionFormatting
+                                                            key={`${match.field_id}-${i}`}
+                                                            mission={mission}
+                                                            solo={false}
+                                                            no_field={true}
+                                                            ver={match.tempdate == true ? "JP" : "GL"}
+                                                        />
+                                                    )
+                                                })}
+                                            </div>
+                                            : ""}
+                                        {showingshoplist == true && shopdata.length != 0 ?
+                                            <MissionFormatting
+                                                mission={{ rewards: shopdata }}
+                                                solo={false}
+                                                costs={true}
+                                                ver={match.tempdate == true ? "JP" : "GL"}
+                                            />
+                                            : ""}
+                                    </div>
+                                    {master_index != undefined &&
+                                        ver != undefined &&
+                                        showingsphereslist == true &&
+                                        spheres_holder != undefined ?
+                                        <div className="sphereslistholder">
+                                            {spheres_holder.map((passive, i) => (
+                                                <Sphere_Passive_Ability_Formatting
+                                                    key={i}
+                                                    passive_ability={passive.passive}
+                                                    ver={match.tempdate == true ? "JP" : "GL"}
+                                                    loc={undefined}
+                                                    file={"exskill"}
+                                                    Single={true}
 
-                                            master_index={master_index}
+                                                    master_index={master_index}
 
-                                            sphere_type={passive.sphere_type}
-                                            sphere_letter={passive.ex_category_id}
-                                            release={passive.start_date}
+                                                    sphere_type={passive.sphere_type}
+                                                    sphere_letter={passive.ex_category_id}
+                                                    release={passive.start_date}
 
-                                            formatting={true}
+                                                    formatting={true}
 
-                                            banner_color={"newblue"}
-                                            base_color={"bluebase"}
-                                            raw={passive}
+                                                    banner_color={"newblue"}
+                                                    base_color={"bluebase"}
+                                                    raw={passive}
 
-                                            link={"spheres"}
-                                        />
-                                    ))}
-                                </div> 
-                            : ""}
-                            {talk_index != undefined &&
-                                match.talk != undefined &&
-                                ver != undefined &&
-                                showingstorylist == true ?
-                                <TalkFormatting
-                                    key={`${ver}-${match.talk.id}`}
-                                    ver={ver}
-                                    talk_index={talk_index}
-                                    talk={match.talk}
-                                /> 
-                            : ""}
-                        </div>
-                    : ""}
-                    {match.EnemyList.length != 0 && match.EnemyListGL == undefined && match.EnemyListJP == undefined ?
-                        <div className="znone">
-                            <div className="enemyunits" >
-                                <div className="featuredbanner">Featured Enemies</div>
-                                <ul className="enemyevents">
-                                    {match.EnemyList.map(Enemy => (
-                                        <EnemyListingDirect key={Enemy.key} match={Enemy} />
-                                    ))}
-                                </ul>
-                            </div>
-                        </div> : ""
-                    }
-                    {match.EnemyListGL != undefined || match.EnemyListJP != undefined ?
-                        <div className="znone">
-                            <div className="enemyunits" >
-                                {match.EnemyListGL != undefined ?
-                                <>
-                                <div className="featuredbanner"><span className="emoji">🌎</span> Enemies</div>
-                                <ul className="enemyevents">
-                                    {match.EnemyListGL.map(Enemy => (
-                                        Enemy.close_date && new Date(Enemy.close_date) > currenttime ?
-                                        <EnemyListingDirect key={Enemy.key} match={Enemy} />
-                                        :""
-                                    ))}
-                                </ul>
-                                </>
-                                :""}
-                                {match.EnemyListJP != undefined ?
-                                    <>
-                                    <div className="featuredbanner"><span style={{marginRight:"3px"}} className='jpflagtick'/>{' Enemies'}</div>
-                                    <ul className="enemyevents">
-                                        {jptoggledata == false && spoilers == false ?
-                                        <div style={{paddingTop:"5px",cursor:"pointer",display:"inline-block"}} id="red" className='' onClick={toggle_spoilers}>
-                                            <ImWarning className='jpsmallinactive'></ImWarning>
-                                            {" SPOILER WARNING "}
-                                            <ImWarning className='jpsmallinactive'></ImWarning><br />
-                                            <span className='updatelink'>- Click to show -</span>
+                                                    link={"spheres"}
+                                                />
+                                            ))}
                                         </div>
-                                        :
-                                        match.EnemyListJP.map(Enemy => (
-                                            Enemy.close_date && new Date(Enemy.close_date) > currenttime ?
-                                            <EnemyListingDirect key={Enemy.key} match={Enemy} />
-                                            :""
-                                        ))
-                                        }
-                                    </ul>
-                                    </>
-                                :""}
-                            </div>
-                        </div>
-                    :""}
-                    {match.CharList.length != 0 ?
-                        <div className="zone">
-                            <div className="featuredbanner">Featured Characters</div>
-                            <div className="charholderflair" style={{ minHeight: "40px" }}>
-                                <ul className="CharListHolder">
-                                    <LazyLoadComponent
-                                    scrollPosition={scrollPosition}
-                                    >
-                                        {match.CharList.map((char,i) => (
-                                            <CharacterFaceFormatting key={i} match={char} BTUnit={match.BTChar} />
-                                        ))
-                                        }
-                                    </LazyLoadComponent>
-                                </ul>
-                            </div>
-                        </div>
-                        : ""
-                    }
-
-                    {showingLinks == false ? "" :
-                        <CommunityEventGuidesFormatting index={match.eventindex} EventGuideData={EventGuideData} />
-                    }
-                    {<div className="eventbuttons">
-                        <div className="loadbanners" onClick={() => setShowingLinks((prevValue) => !prevValue)}>Community Help</div>
-                        {totalbannercount == 0 ? "" :
-                            <div className="loadbanners" onClick={() => setShowingBanners((prevValue) => !prevValue)}>Show Banner</div>}
-                    </div>}
-                    {showingBanners == false ?
-                        totalbannercount == 0 ? "" :
-                            showingBanners == false || showingLinks == false ? "" :
-                                <div className="banneroneventholder"  >
-                                    <div className="loadbanners" onClick={() => setShowingLinks((prevValue) => !prevValue)}>Community Help</div>
-                                    {match.bannercount == 0 ? "" : <div className="loadbanners" onClick={() => setShowingBanners((prevValue) => !prevValue)}>Show Banner</div>}
+                                        : ""}
+                                    {talk_index != undefined &&
+                                        match.talk != undefined &&
+                                        ver != undefined &&
+                                        showingstorylist == true ?
+                                        <TalkFormatting
+                                            key={`${ver}-${match.talk.id}`}
+                                            ver={ver}
+                                            talk_index={talk_index}
+                                            talk={match.talk}
+                                        />
+                                        : ""}
                                 </div>
-                        :
-                        <div className="bannerholdertabs">
-                            {totalbannercount == 0 || selectedbanner == undefined ? "" :
-                                totalbannercount == 1 ?
-                                    <Link to={`../events/banners/${selectedbanner.bannerindex}`}>
-                                        <LazyLoadImage 
-                                        scrollPosition={scrollPosition}
-                                        effect="opacity" 
-                                        className={`bannerimage showlink`} 
-                                        src={selectedbanner.url} 
-                                        alt={selectedbanner.name} />
-                                        <div className="bannername">{selectedbanner.name}</div>
-                                    </Link> :
-                                    <div className="eventwithbackgorundtabs">
-                                        <Link to={`/events/banners/${selectedbanner.bannerindex}`}>
-                                            <LazyLoadImage 
-                                            scrollPosition={scrollPosition}
-                                            effect="opacity" 
-                                            className={`bannerimage showlink`} 
-                                            src={selectedbanner.url} 
-                                            alt={selectedbanner.name} />
-                                            <div className="bannername">{selectedbanner.name}</div></Link>
-                                    </div>}
-                            {totalbannercount == 1 ? "" :
-                                totalbannercount >= 1 ?
-                                    <ul className="eventablist">
-                                        {match.banners.map((self, i) => (
-                                            <li key={i} onClick={() => handleSelectBanner(self, `Banner${i + 1}`)} className={bannerdisplay == `Banner${i + 1}` ? "activeeventtab" : "inactiveeventtab"} >
-                                                {`Banner${i + 1}`}
-                                            </li>
-                                        ))}
-                                    </ul> : ""}
-                            {totalbannercount == 0 ? "" : <div className="loadbanners bottomspace" onClick={() => setShowingBanners(false)}>Hide Banner</div>}
-                        </div>
-                    }
-                    </>
-                    :""}
+                                : ""}
+                            {match.EnemyList.length != 0 && match.EnemyListGL == undefined && match.EnemyListJP == undefined ?
+                                <div className="znone">
+                                    <div className="enemyunits" >
+                                        <div className="featuredbanner">Featured Enemies</div>
+                                        <ul className="enemyevents">
+                                            {match.EnemyList.map(Enemy => (
+                                                <EnemyListingDirect key={Enemy.key} match={Enemy} />
+                                            ))}
+                                        </ul>
+                                    </div>
+                                </div> : ""
+                            }
+                            {match.EnemyListGL != undefined || match.EnemyListJP != undefined ?
+                                <div className="znone">
+                                    <div className="enemyunits" >
+                                        {match.EnemyListGL != undefined ?
+                                            <>
+                                                <div className="featuredbanner"><span className="emoji">🌎</span> Enemies</div>
+                                                <ul className="enemyevents">
+                                                    {match.EnemyListGL.map(Enemy => (
+                                                        Enemy.close_date && new Date(Enemy.close_date) > currenttime ?
+                                                            <EnemyListingDirect key={Enemy.key} match={Enemy} />
+                                                            : ""
+                                                    ))}
+                                                </ul>
+                                            </>
+                                            : ""}
+                                        {match.EnemyListJP != undefined ?
+                                            <>
+                                                <div className="featuredbanner"><span style={{ marginRight: "3px" }} className='jpflagtick' />{' Enemies'}</div>
+                                                <ul className="enemyevents">
+                                                    {jptoggledata == false && spoilers == false ?
+                                                        <div style={{ paddingTop: "5px", cursor: "pointer", display: "inline-block" }} id="red" className='' onClick={toggle_spoilers}>
+                                                            <ImWarning className='jpsmallinactive'></ImWarning>
+                                                            {" SPOILER WARNING "}
+                                                            <ImWarning className='jpsmallinactive'></ImWarning><br />
+                                                            <span className='updatelink'>- Click to show -</span>
+                                                        </div>
+                                                        :
+                                                        match.EnemyListJP.map(Enemy => (
+                                                            Enemy.close_date && new Date(Enemy.close_date) > currenttime ?
+                                                                <EnemyListingDirect key={Enemy.key} match={Enemy} />
+                                                                : ""
+                                                        ))
+                                                    }
+                                                </ul>
+                                            </>
+                                            : ""}
+                                    </div>
+                                </div>
+                                : ""}
+                            {match.CharList.length != 0 ?
+                                <div className="zone">
+                                    <div className="featuredbanner">Featured Characters</div>
+                                    <div className="charholderflair" style={{ minHeight: "40px" }}>
+                                        <ul className="CharListHolder">
+                                            <LazyLoadComponent
+                                                scrollPosition={scrollPosition}
+                                            >
+                                                {match.CharList.map((char, i) => (
+                                                    <CharacterFaceFormatting key={i} match={char} BTUnit={match.BTChar} />
+                                                ))
+                                                }
+                                            </LazyLoadComponent>
+                                        </ul>
+                                    </div>
+                                </div>
+                                : ""
+                            }
+
+                            {showingLinks == false ? "" :
+                                <CommunityEventGuidesFormatting index={match.eventindex} EventGuideData={EventGuideData} />
+                            }
+                            {<div className="eventbuttons">
+                                <div className="loadbanners" onClick={() => setShowingLinks((prevValue) => !prevValue)}>Community Help</div>
+                                {totalbannercount == 0 ? "" :
+                                    <div className="loadbanners" onClick={() => setShowingBanners((prevValue) => !prevValue)}>Show Banner</div>}
+                            </div>}
+                            {showingBanners == false ?
+                                totalbannercount == 0 ? "" :
+                                    showingBanners == false || showingLinks == false ? "" :
+                                        <div className="banneroneventholder"  >
+                                            <div className="loadbanners" onClick={() => setShowingLinks((prevValue) => !prevValue)}>Community Help</div>
+                                            {match.bannercount == 0 ? "" : <div className="loadbanners" onClick={() => setShowingBanners((prevValue) => !prevValue)}>Show Banner</div>}
+                                        </div>
+                                :
+                                <div className="bannerholdertabs">
+                                    {totalbannercount == 0 || selectedbanner == undefined ? "" :
+                                        totalbannercount == 1 ?
+                                            <Link to={`../events/banners/${selectedbanner.bannerindex}`}>
+                                                <LazyLoadImage
+                                                    scrollPosition={scrollPosition}
+                                                    effect="opacity"
+                                                    className={`bannerimage showlink`}
+                                                    src={selectedbanner.url}
+                                                    alt={selectedbanner.name} />
+                                                <div className="bannername">{selectedbanner.name}</div>
+                                            </Link> :
+                                            <div className="eventwithbackgorundtabs">
+                                                <Link to={`/events/banners/${selectedbanner.bannerindex}`}>
+                                                    <LazyLoadImage
+                                                        scrollPosition={scrollPosition}
+                                                        effect="opacity"
+                                                        className={`bannerimage showlink`}
+                                                        src={selectedbanner.url}
+                                                        alt={selectedbanner.name} />
+                                                    <div className="bannername">{selectedbanner.name}</div></Link>
+                                            </div>}
+                                    {totalbannercount == 1 ? "" :
+                                        totalbannercount >= 1 ?
+                                            <ul className="eventablist">
+                                                {match.banners.map((self, i) => (
+                                                    <li key={i} onClick={() => handleSelectBanner(self, `Banner${i + 1}`)} className={bannerdisplay == `Banner${i + 1}` ? "activeeventtab" : "inactiveeventtab"} >
+                                                        {`Banner${i + 1}`}
+                                                    </li>
+                                                ))}
+                                            </ul> : ""}
+                                    {totalbannercount == 0 ? "" : <div className="loadbanners bottomspace" onClick={() => setShowingBanners(false)}>Hide Banner</div>}
+                                </div>
+                            }
+                        </>
+                        : ""}
                 </div>
             </div>
             {showraw == true ?
                 <span className='react-json-view'>
-                <ObjectView 
-                options={
-                    {
-                        hideDataTypes: true,
-                        expandLevel: 1
-                    }
-                    }
-                data={match} />
+                    <ObjectView
+                        options={
+                            {
+                                hideDataTypes: true,
+                                expandLevel: 1
+                            }
+                        }
+                        data={match} />
                 </span>
-            : ""}
+                : ""}
         </li>
     )
 }
 
-export default trackWindowScroll (EventsFormatting) 
+export default trackWindowScroll(EventsFormatting) 

@@ -18,7 +18,7 @@ import { getQuery, getQueryStringVal, useQueryParam } from './components/URLPara
 import EquipmentPassivesFormatting from './components/Gear/EquipmentPassivesFormatting';
 import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component';
 
-import { setFalse, setTrue } from './redux/ducks/jptoggle'
+import { setFalse, setTrue } from './redux/ducks/jptoggle.js'
  
 function Gear({
     ProcessedGear,
@@ -1321,7 +1321,7 @@ function Gear({
                                 key={`${gear.equip_id}-${gear.chara_id}`}
                                 scrollPosition={scrollPosition}
                                 placeholder={<div className='infoholder' style={{ minHeight: "350px" }}>
-                                                <img className="loadingbardots" src="https://dissidiacompendium.com/images/static/site/loading.gif"/>
+                                                <img className="loadingbardots" src="./images/static/site/loading.gif"/>
                                             </div>
                                                 }
                             >

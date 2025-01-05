@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { setFalse, setTrue } from '../../redux/ducks/jptoggle'
-import { getJPToggle } from '../../redux/ducks/jptoggle';
+import { getJPToggle, setFalse, setTrue } from '../../redux/ducks/jptoggle.js'
 import DefaultTippy from '../../components/TippyDefaults.js';
 import { Link } from 'react-router-dom'
 import { CopyToClipboard } from 'react-copy-to-clipboard'

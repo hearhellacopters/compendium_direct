@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useStateIfMounted } from "use-state-if-mounted";
 import { useDispatch } from "react-redux";
-import { setFalse, setTrue } from './redux/ducks/jptoggle'
+import { setFalse, setTrue } from './redux/ducks/jptoggle.js'
 import Tippy from './components/TippyDefaults.js';
 import { Helmet } from 'react-helmet-async';
 import Select from 'react-select';
@@ -18,11 +18,11 @@ import { getQuery, getQueryStringVal, useQueryParam } from './components/URLPara
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { FaShareSquare } from 'react-icons/fa';
 
-export default function Events({ 
-  ProcessedBanners, 
-  ProcessedCharacters, 
-  jptoggledata 
-}){
+export default function Events({
+  ProcessedBanners,
+  ProcessedCharacters,
+  jptoggledata
+}) {
 
   const dispatch = useDispatch();
 
@@ -36,51 +36,51 @@ export default function Events({
   const [jponly, setJPonly] = useState(jptoggledata);
   const [pastevents, setPastEvents] = useState(getQueryStringVal("past") != null ? true : false);
   const [prefilterlist, setPrefilterlist] = useState([])
-  const [reverse, setReverse] = useState(getQueryStringVal("rev") != null ? true : false);
+  const [reverse, setReverse] = useState(getQueryStringVal("rev") != null ? false : true);
 
   const [rawData, setrawData] = useState(ProcessedBanners)
 
   //prefilter
   useEffect(() => {
     const filterholder = [];
-    if (pastevents === false) {
+    //if (pastevents === false) {
+//
+    //  if (jponly === false) {
+    //    //gl
+    //    const filteredevents = ProcessedBanners.filter((item) => {
+    //      return new Date().getTime() <= new Date(item.outdate)
+    //    }).filter((item) => {
+    //      return item.tempdate == false
+    //    }).sort((a, b) => reverse ? new Date(b.indate).getTime() - new Date(a.indate).getTime() : new Date(a.indate).getTime() - new Date(b.indate).getTime());
+    //    filterholder.push(...filteredevents);
+    //    const filteredevents2 = filterholder.filter((item) => {
+    //      return item.tempdate === false
+    //    })
+    //    setrawData(filteredevents2);
+//
+    //  } else {
+    //    //jp
+    //    const filteredevents = ProcessedBanners.filter((item) => {
+    //      return new Date().getTime() <= new Date(item.JPoutdate)
+    //    }).filter((item) => {
+    //      return item.url1 != "jp/pull/stl_banner_l_g_tex_temp1out.png"
+    //    }).sort((a, b) => reverse ? new Date(a.JPindate).getTime() - new Date(b.JPindate).getTime() : new Date(b.JPindate).getTime() - new Date(a.JPindate).getTime());
+    //    filterholder.push(...filteredevents);
+    //    setrawData(filterholder);
+//
+    //  }
+//
+    //} else {
 
       if (jponly === false) {
-        //gl
-        const filteredevents = ProcessedBanners.filter((item) => {
-          return new Date().getTime() <= new Date(item.outdate)
-        }).filter((item) => {
-          return item.tempdate == false
-        }).sort((a, b) => reverse ? new Date(b.indate).getTime() - new Date(a.indate).getTime() : new Date(a.indate).getTime() - new Date(b.indate).getTime());
-        filterholder.push(...filteredevents);
-        const filteredevents2 = filterholder.filter((item) => {
-          return item.tempdate === false
-        })
-        setrawData(filteredevents2);
-
-      } else {
-        //jp
-        const filteredevents = ProcessedBanners.filter((item) => {
-          return new Date().getTime() <= new Date(item.JPoutdate)
-        }).filter((item) => {
-          return item.url1 != "jp/pull/stl_banner_l_g_tex_temp1out.png"
-        }).sort((a, b) => reverse ? new Date(a.JPindate).getTime() - new Date(b.JPindate).getTime() : new Date(b.JPindate).getTime() - new Date(a.JPindate).getTime());
-        filterholder.push(...filteredevents);
-        setrawData(filterholder);
-
-      }
-
-    } else {
-
-      if (jponly === false) {
-        const filteredevents = ProcessedBanners.filter(item=>item.tempdate === false).sort((a, b) => reverse ? new Date(b.indate).getTime() - new Date(a.indate).getTime() : new Date(a.indate).getTime() - new Date(b.indate).getTime())
+        const filteredevents = ProcessedBanners.filter(item => item.tempdate === false).sort((a, b) => reverse ? new Date(b.indate).getTime() - new Date(a.indate).getTime() : new Date(a.indate).getTime() - new Date(b.indate).getTime())
         setrawData(filteredevents);
       } else {
         const filteredevents = ProcessedBanners.sort((a, b) => reverse ? b.bannerindex - a.bannerindex : a.bannerindex - b.bannerindex)
         setrawData(filteredevents);
       }
 
-    }
+    //}
   }, [ProcessedBanners, jponly, pastevents, reverse]);
 
   const [events, setEvents] = useState(getQueryStringVal("event") != null ? true : false);
@@ -289,9 +289,9 @@ export default function Events({
 
   const reversebutton = () => {
     if (reverse == false) {
-      setReversesearch("true")
-    } else {
       setReversesearch("")
+    } else {
+      setReversesearch("false")
     }
     setLoop(true);
     setReverse((prevValue) => !prevValue);
@@ -378,7 +378,7 @@ export default function Events({
 
   const resetbutton = () => {
     setclearFilter(true);
-    setReverse(false)
+    setReverse(true)
     setPastEvents(false);
     setEvents(false);
     setStory(false);
@@ -450,74 +450,74 @@ export default function Events({
                 <IoMdCloseCircleOutline onClick={clearSearch} className="eventclearsearch"></IoMdCloseCircleOutline>}
             </div>
           </div>
-          : 
-        <div className="filterholder noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
-          <div className="similarbanner">Multiple filters can be active</div>
-          <div className="filterholderflair">
-            <ul className="bannertypes">
-              <li alt="Events" onClick={eventsbutton} className={`${events ? "filteractive" : "filterinactive"} EventsBanner bannerbutton`}></li>
-              <li alt="Story" onClick={storybutton} className={`${story ? "filteractive" : "filterinactive"} Story bannerbutton`} ></li>
-              <li alt="Campaign" onClick={campaignbutton} className={`${campaign ? "filteractive" : "filterinactive"} Campaign bannerbutton`} ></li>
-              <li alt="Special" onClick={specialbutton} className={`${special ? "filteractive" : "filterinactive"} Special bannerbutton`} ></li>
-              <li alt="Weekly" onClick={weeklybutton} className={`${weekly ? "filteractive" : "filterinactive"} Weekly bannerbutton`} ></li>
-            </ul>
-            <div className="similarbanner">Additional Events</div>
-            <ul className="eventtypes">
-              <Tippy content="Upcoming JP" className="tooltip" >
-                <li alt="Upcoming JP" onClick={jponlybutton} className={`${jponly ? "filteractive" : "filterinactive"} JPOnly eventbutton`} ></li>
-              </Tippy>
-              <Tippy content="Past Events" className="tooltip" >
-                <li alt="Past Events" onClick={pastbutton} className={`${pastevents ? "filteractive" : "filterinactive"} PastEvents eventbutton`}></li>
-              </Tippy>
-            </ul>
-            <div className="similarbanner">Refine</div>
-            <div className="typeholder">
-              <Select
-                defaultValue={Typesearch != "" ? { value: Typesearch, label: Typesearch } : null}
-                key={Typesearch}
-                isSearchable={true}
-                placeholder="Character Select..."
-                className='typecontainer'
-                classNamePrefix="typetext"
-                onChange={characterSelect}
-                options={typeListArray}
-                isClearable={true}
-              />
-            </div>
-            <div className="search-reverse-holder">
-              <div className="search-holder">
-                <IoSearch className="innersearchicon" />
-                <input
-                  className="search-bar"
-                  type="text"
-                  id="search2"
-                  placeholder="Banner Name"
-                  value={searchdisplay}
-                  onChange={handleChange}
-                  onKeyDown={handleKeyDown}
+          :
+          <div className="filterholder noselect" id={showFilter ? "showfilteren" : "hiddenfilteren"}>
+            <div className="similarbanner">Multiple filters can be active</div>
+            <div className="filterholderflair">
+              <ul className="bannertypes">
+                <li alt="Events" onClick={eventsbutton} className={`${events ? "filteractive" : "filterinactive"} EventsBanner bannerbutton`}></li>
+                <li alt="Story" onClick={storybutton} className={`${story ? "filteractive" : "filterinactive"} Story bannerbutton`} ></li>
+                <li alt="Campaign" onClick={campaignbutton} className={`${campaign ? "filteractive" : "filterinactive"} Campaign bannerbutton`} ></li>
+                <li alt="Special" onClick={specialbutton} className={`${special ? "filteractive" : "filterinactive"} Special bannerbutton`} ></li>
+                <li alt="Weekly" onClick={weeklybutton} className={`${weekly ? "filteractive" : "filterinactive"} Weekly bannerbutton`} ></li>
+              </ul>
+              <div className="similarbanner">Additional Events</div>
+              <ul className="eventtypes">
+                <Tippy content="Upcoming JP" className="tooltip" >
+                  <li alt="Upcoming JP" onClick={jponlybutton} className={`${jponly ? "filteractive" : "filterinactive"} JPOnly eventbutton`} ></li>
+                </Tippy>
+                <Tippy content="Past Events" className="tooltip" >
+                  <li alt="Past Events" onClick={pastbutton} className={`${pastevents ? "filteractive" : "filterinactive"} PastEvents eventbutton`}></li>
+                </Tippy>
+              </ul>
+              <div className="similarbanner">Refine</div>
+              <div className="typeholder">
+                <Select
+                  defaultValue={Typesearch != "" ? { value: Typesearch, label: Typesearch } : null}
+                  key={Typesearch}
+                  isSearchable={true}
+                  placeholder="Character Select..."
+                  className='typecontainer'
+                  classNamePrefix="typetext"
+                  onChange={characterSelect}
+                  options={typeListArray}
+                  isClearable={true}
                 />
-                {searchTerm === "" ? "" :
-                  <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
               </div>
-              <Tippy content="Reverse Order" className="tooltip" >
-                <div className={`reversebox`} ><i onClick={reversebutton} className={`reversebutton ${loop ? "flip" : ""}`} ><ImSortAmountAsc className={`reversebutton ${reverse ? "" : "nodisplay"}`} /><ImSortAmountDesc className={`reversebutton ${reverse ? "nodisplay" : ""}`} /></i></div>
-              </Tippy>
-            </div>
-            <div>
-              <CopyToClipboard text={url}>
-                <div className="sharebox">
-                  <Tippy content="Link Copied!" inertia={true} animation={"shift-away"} touch={true} arrow={false} trigger={"click"} placement={"top"} duration={[100, 500]}>
-                    <div className="centertext"><FaShareSquare className="shareicon" />&nbsp;Share</div>
-                  </Tippy>
+              <div className="search-reverse-holder">
+                <div className="search-holder">
+                  <IoSearch className="innersearchicon" />
+                  <input
+                    className="search-bar"
+                    type="text"
+                    id="search2"
+                    placeholder="Banner Name"
+                    value={searchdisplay}
+                    onChange={handleChange}
+                    onKeyDown={handleKeyDown}
+                  />
+                  {searchTerm === "" ? "" :
+                    <IoMdCloseCircleOutline onClick={clearSearch} className="clearsearch"></IoMdCloseCircleOutline>}
                 </div>
-              </CopyToClipboard>
-              <Tippy content="Reset Filters" className="tooltip" >
-                <div onClick={resetbutton} className={`clearbox`} ><div className="makecenter">Reset&nbsp;<FaUndoAlt className={`clearbutton ${clearFilter ? "loop" : ""}`} ></FaUndoAlt></div></div>
-              </Tippy>
+                <Tippy content="Reverse Order" className="tooltip" >
+                  <div className={`reversebox`} ><i onClick={reversebutton} className={`reversebutton ${loop ? "flip" : ""}`} ><ImSortAmountAsc className={`reversebutton ${reverse ? "" : "nodisplay"}`} /><ImSortAmountDesc className={`reversebutton ${reverse ? "nodisplay" : ""}`} /></i></div>
+                </Tippy>
+              </div>
+              <div>
+                <CopyToClipboard text={url}>
+                  <div className="sharebox">
+                    <Tippy content="Link Copied!" inertia={true} animation={"shift-away"} touch={true} arrow={false} trigger={"click"} placement={"top"} duration={[100, 500]}>
+                      <div className="centertext"><FaShareSquare className="shareicon" />&nbsp;Share</div>
+                    </Tippy>
+                  </div>
+                </CopyToClipboard>
+                <Tippy content="Reset Filters" className="tooltip" >
+                  <div onClick={resetbutton} className={`clearbox`} ><div className="makecenter">Reset&nbsp;<FaUndoAlt className={`clearbutton ${clearFilter ? "loop" : ""}`} ></FaUndoAlt></div></div>
+                </Tippy>
+              </div>
             </div>
+            <span className="subtext">*featured characters at time of event</span>
           </div>
-          <span className="subtext">*featured characters at time of event</span>
-        </div>
         }
         <ul className="bannertabs">
           <Link to={"/events"}>
@@ -527,7 +527,7 @@ export default function Events({
             <li className={"active"} ><span className="gemselected" />Banners</li>
           </Link>
           <Link to={"../events/missions?panels=true"}>
-              <li className={""} >Missions</li>
+            <li className={""} >Missions</li>
           </Link>
           <Link to={"../events/notices"}>
             <li className={""} >Notices</li>

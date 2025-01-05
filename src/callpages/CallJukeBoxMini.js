@@ -1,23 +1,23 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { getJukeBox } from '../redux/ducks/jukebox';
-import { getPlaying } from '../redux/ducks/playing';
-import { getPlayIndex } from '../redux/ducks/playindex';
-import { getPlayVolume } from '../redux/ducks/playvolume';
-import { getPlayList } from '../redux/ducks/playlist';
-import { setPlayList } from '../redux/ducks/playlist';
-import { setList1 } from '../redux/ducks/playlist';
-import { setList2 } from '../redux/ducks/playlist';
-import { setList3 } from '../redux/ducks/playlist';
-import { getUpdate } from '../redux/ducks/playlist';
-import { getTrackUpdate } from '../redux/ducks/playlist';
-import JukeBoxMini from '../JukeBoxMini'
-import { getList1 } from '../redux/ducks/playlist';
-import { getList2 } from '../redux/ducks/playlist';
-import { getList3 } from '../redux/ducks/playlist';
-import { getRemove } from '../redux/ducks/playlist';
-import { setPlayVolume } from '../redux/ducks/playvolume'
-import { getMusicKey } from '../redux/ducks/playindex'
+import { getJukeBox } from '../redux/ducks/jukebox.js';
+import { getPlaying } from '../redux/ducks/playing.js';
+import { getPlayIndex } from '../redux/ducks/playindex.js';
+import { getPlayVolume } from '../redux/ducks/playvolume.js';
+import { getPlayList } from '../redux/ducks/playlist.js';
+import { setPlayList } from '../redux/ducks/playlist.js';
+import { setList1 } from '../redux/ducks/playlist.js';
+import { setList2 } from '../redux/ducks/playlist.js';
+import { setList3 } from '../redux/ducks/playlist.js';
+import { getUpdate } from '../redux/ducks/playlist.js';
+import { getTrackUpdate } from '../redux/ducks/playlist.js';
+import JukeBoxMini from '../JukeBoxMini.js'
+import { getList1 } from '../redux/ducks/playlist.js';
+import { getList2 } from '../redux/ducks/playlist.js';
+import { getList3 } from '../redux/ducks/playlist.js';
+import { getRemove } from '../redux/ducks/playlist.js';
+import { setPlayVolume } from '../redux/ducks/playvolume.js'
+import { getMusicKey } from '../redux/ducks/playindex.js'
 
 export default function CallJukeBoxMini(){
 

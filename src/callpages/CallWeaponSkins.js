@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
-import { getWeaponSkins } from '../redux/ducks/weapon_skins';
-import CharacterWeaponSkinsPage from '../WeaponGloss';
-import Loading from '../components/Loading'
+import { getWeaponSkins } from '../redux/ducks/weapon_skins.js';
+import CharacterWeaponSkinsPage from '../WeaponGloss.js';
+import Loading from '../components/Loading.js'
 
 export default function CallWeaponSkins(){
 

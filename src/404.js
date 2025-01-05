@@ -22,7 +22,7 @@ export default function NotFound({
                 <div className='subheader infolocation'>Location: {lastloc}</div>
                 <div className="filterholder">
                     <div className="filterholderflair" >
-                        <img alt="oh no" src={`https://dissidiacompendium.com/images/static/icons/404/${randomimage}.png`} />
+                        <img alt="oh no" src={`./images/static/icons/404/${randomimage}.png`} />
                         <br />
                         <Link className="updatelink" to={`/`}>
                             Return Home

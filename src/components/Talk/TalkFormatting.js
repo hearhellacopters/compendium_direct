@@ -12,6 +12,7 @@ import { LazyLoadImage, trackWindowScroll } from "react-lazy-load-image-componen
 import axios from 'axios';
 import { _error } from "../../redux/sagas/handlers/_error_state_add.js";
 import { _error_remove } from "../../redux/sagas/handlers/_error_state_remove.js";
+import DevSwitch from "../../redux/DevSwitch.js";
 
 function TalkFormatting({
     ver,
@@ -21,7 +22,7 @@ function TalkFormatting({
     solo
 }){
 
-    const [changebg,setchangebg] = useState(talk.field_map != undefined ? window.localStorage.getItem("bg") == "true" ? `https://dissidiacompendium.com/images/static/FieldMap/${talk.field_map}.png` : "" : "")
+    const [changebg,setchangebg] = useState(talk.field_map != undefined ? window.localStorage.getItem("bg") == "true" ? `./images/static/FieldMap/${talk.field_map}.png` : "" : "")
 
     useEffect(() => {
         if (typeof (Storage) !== "undefined") {
@@ -61,14 +62,25 @@ function TalkFormatting({
         } else {
             settalk_data([])
             if(data && data[ver] == true){
-                axios.get(`https://www.dissidiacompendium.com/data/talk/${ver}/${data.battle_id != undefined ? "battle_event_"+data.battle_id.toString().padStart(3, '0') : "talk_event_"+data.talk_id.toString().padStart(3, '0')}.json`, { 'muteHttpExceptions': true }).then((res) => {
-                    const response = res.data;
-                    _error_remove(`talk_${ver}_${data.battle_id != undefined ? "battle_event_"+data.battle_id.toString().padStart(3, '0') : "talk_event_"+data.talk_id.toString().padStart(3, '0')}`);
-                    setactive(data);
-                    settalk_data(response);
-                }).catch(function (err) {
-                    _error(`talk_${ver}_${data.battle_id != undefined ? "battle_event_"+data.battle_id.toString().padStart(3, '0') : "talk_event_"+data.talk_id.toString().padStart(3, '0')}`, err.message);
-                })
+                if(DevSwitch){
+                    axios.get(`data/talk/${ver}/${data.battle_id != undefined ? "battle_event_"+data.battle_id.toString().padStart(3, '0') : "talk_event_"+data.talk_id.toString().padStart(3, '0')}.json`, { 'muteHttpExceptions': true }).then((res) => {
+                        const response = res.data;
+                        _error_remove(`talk_${ver}_${data.battle_id != undefined ? "battle_event_"+data.battle_id.toString().padStart(3, '0') : "talk_event_"+data.talk_id.toString().padStart(3, '0')}`);
+                        setactive(data);
+                        settalk_data(response);
+                    }).catch(function (err) {
+                        _error(`talk_${ver}_${data.battle_id != undefined ? "battle_event_"+data.battle_id.toString().padStart(3, '0') : "talk_event_"+data.talk_id.toString().padStart(3, '0')}`, err.message);
+                    })
+                } else {
+                    axios.get(`https://www.dissidiacompendium.com/data/talk/${ver}/${data.battle_id != undefined ? "battle_event_"+data.battle_id.toString().padStart(3, '0') : "talk_event_"+data.talk_id.toString().padStart(3, '0')}.json`, { 'muteHttpExceptions': true }).then((res) => {
+                        const response = res.data;
+                        _error_remove(`talk_${ver}_${data.battle_id != undefined ? "battle_event_"+data.battle_id.toString().padStart(3, '0') : "talk_event_"+data.talk_id.toString().padStart(3, '0')}`);
+                        setactive(data);
+                        settalk_data(response);
+                    }).catch(function (err) {
+                        _error(`talk_${ver}_${data.battle_id != undefined ? "battle_event_"+data.battle_id.toString().padStart(3, '0') : "talk_event_"+data.talk_id.toString().padStart(3, '0')}`, err.message);
+                    })
+                }
             } else {
                 setactive(data)
                 setbad_ver(true)
@@ -103,7 +115,7 @@ function TalkFormatting({
         setTimeout(() => {
             setswitchimg("")
             if(talk.image_amnt != undefined){
-                const bgimage = `https://dissidiacompendium.com/images/static/FieldMap/${talk.field_map}${bgnum==1?"":talk.image_amnt == bgnum-1?"":bgnum-1}.png`
+                const bgimage = `./images/static/FieldMap/${talk.field_map}${bgnum==1?"":talk.image_amnt == bgnum-1?"":bgnum-1}.png`
                 setchangebg(bgimage)
                 if(bgnumber == talk.image_amnt){
                     setbgnumber(1)
@@ -111,7 +123,7 @@ function TalkFormatting({
                     setbgnumber(bgnumber+1);
                 }
             } else {
-                setchangebg(`https://dissidiacompendium.com/images/static/FieldMap/${talk.field_map}.png`)
+                setchangebg(`./images/static/FieldMap/${talk.field_map}.png`)
             }
         }, 300);
     }
@@ -123,7 +135,7 @@ function TalkFormatting({
             window.localStorage.setItem('bg', "false")
         } else {
             setbg(true)
-            setchangebg(talk.field_map != undefined ? `https://dissidiacompendium.com/images/static/FieldMap/${talk.field_map}.png` : "")
+            setchangebg(talk.field_map != undefined ? `./images/static/FieldMap/${talk.field_map}.png` : "")
             window.localStorage.setItem('bg', "true")
         }
     }
@@ -135,7 +147,7 @@ function TalkFormatting({
     }
 
     const make_image = (data) =>{
-        var image = `https://dissidiacompendium.com/images/static/banners/${ver.toLowerCase()}/event/eventtitle`
+        var image = `./images/static/banners/${ver.toLowerCase()}/event/eventtitle`
         if(data[`${ver}_banner`] != undefined && data[`${ver}_banner`][0]!= undefined){
             image = image + data[`${ver}_banner`][0] + "out.png"
         } else {
@@ -159,7 +171,7 @@ function TalkFormatting({
     return (
         <>
         
-        <div className={`talk-bg ${switchimg}`} style={{"--image":`url(${changebg})`,backgroundColor:solo == true ?"#263252":""}}>
+        <div className={`talk-bg ${switchimg}`} style={{"background-image":`url(${changebg})`,backgroundColor:solo == true ?"#263252":""}}>
             <div className="above">
             {solo == true ?
             <>

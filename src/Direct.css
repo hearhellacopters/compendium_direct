@@ -19,7 +19,7 @@
 }
 
 .aex {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/aex.png");
+    background-image: url("./images/static/icons/geartype/aex.png");
     width: 54px;
     height: 27px;
     display: inline-block;
@@ -31,7 +31,7 @@
 }
 
 .bex {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/bex.png");
+    background-image: url("./images/static/icons/geartype/bex.png");
     width: 54px;
     height: 27px;
     display: inline-block;
@@ -43,7 +43,7 @@
 }
 
 .cex {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/cex.png");
+    background-image: url("./images/static/icons/geartype/cex.png");
     width: 54px;
     height: 27px;
     display: inline-block;
@@ -55,7 +55,7 @@
 }
 
 .dex {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/dex.png");
+    background-image: url("./images/static/icons/geartype/dex.png");
     width: 54px;
     height: 27px;
     display: inline-block;
@@ -67,7 +67,7 @@
 }
 
 .eex {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/eex.png");
+    background-image: url("./images/static/icons/geartype/eex.png");
     width: 54px;
     height: 27px;
     display: inline-block;
@@ -79,7 +79,7 @@
 }
 
 .arf {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/arf.png");
+    background-image: url("./images/static/icons/geartype/arf.png");
     width: 54px;
     height: 27px;
     display: inline-block;
@@ -91,7 +91,7 @@
 }
 
 .brf {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/brf.png");
+    background-image: url("./images/static/icons/geartype/brf.png");
     width: 54px;
     height: 27px;
     display: inline-block;
@@ -103,7 +103,7 @@
 }
 
 .crf {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/crf.png");
+    background-image: url("./images/static/icons/geartype/crf.png");
     width: 54px;
     height: 27px;
     display: inline-block;
@@ -115,7 +115,7 @@
 }
 
 .drf {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/drf.png");
+    background-image: url("./images/static/icons/geartype/drf.png");
     width: 54px;
     height: 27px;
     display: inline-block;
@@ -136,7 +136,7 @@
 }
 
 .newstatus {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/misc/status_small.png");
+    background-image: url("./images/static/icons/misc/status_small.png");
     width: 54px;
     height: 27px;
     display: inline-block;
@@ -152,7 +152,7 @@
 }
 
 .erf {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/erf.png");
+    background-image: url("./images/static/icons/geartype/erf.png");
     width: 54px;
     height: 27px;
     display: inline-block;
@@ -199,87 +199,87 @@
 }
 
 .exp1 {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/exp1.png");
+    background-image: url("./images/static/icons/geartype/exp1.png");
 }
 
 .exp5 {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/exp5.png");
+    background-image: url("./images/static/icons/geartype/exp5.png");
 }
 
 .exp10 {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/exp10.png");
+    background-image: url("./images/static/icons/geartype/exp10.png");
 }
 
 .exp15 {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/exp15.png");
+    background-image: url("./images/static/icons/geartype/exp15.png");
 }
 
 .exp20 {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/exp20.png");
+    background-image: url("./images/static/icons/geartype/exp20.png");
 }
 
 .exp25 {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/exp25.png");
+    background-image: url("./images/static/icons/geartype/exp25.png");
 }
 
 .exp30 {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/exp30.png");
+    background-image: url("./images/static/icons/geartype/exp30.png");
 }
 
 .exp35 {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/exp35.png");
+    background-image: url("./images/static/icons/geartype/exp35.png");
 }
 
 .exp40 {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/exp40.png");
+    background-image: url("./images/static/icons/geartype/exp40.png");
 }
 
 .exp45 {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/exp45.png");
+    background-image: url("./images/static/icons/geartype/exp45.png");
 }
 
 .exp50 {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/exp50.png");
+    background-image: url("./images/static/icons/geartype/exp50.png");
 }
 
 .exp55 {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/exp55.png");
+    background-image: url("./images/static/icons/geartype/exp55.png");
 }
 
 .exp60 {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/exp60.png");
+    background-image: url("./images/static/icons/geartype/exp60.png");
 }
 
 .exp65 {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/exp65.png");
+    background-image: url("./images/static/icons/geartype/exp65.png");
 }
 
 .exp70 {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/exp70.png");
+    background-image: url("./images/static/icons/geartype/exp70.png");
 }
 
 .exp75 {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/exp75.png");
+    background-image: url("./images/static/icons/geartype/exp75.png");
 }
 
 .exp80 {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/exp80.png");
+    background-image: url("./images/static/icons/geartype/exp80.png");
 }
 
 .exp85 {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/exp85.png");
+    background-image: url("./images/static/icons/geartype/exp85.png");
 }
 
 .exp90 {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/exp90.png");
+    background-image: url("./images/static/icons/geartype/exp90.png");
 }
 
 .exp95 {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/exp95.png");
+    background-image: url("./images/static/icons/geartype/exp95.png");
 }
 
 .exp100 {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/exp100.png");
+    background-image: url("./images/static/icons/geartype/exp100.png");
 }
 
 .newbluepassive {
@@ -304,7 +304,7 @@
 }
 
 .BoardPointIcon {
-    content: url(https://dissidiacompendium.com/images/static/icons/misc/BoardPoint.png);
+    content: url("./images/static/icons/misc/BoardPoint.png");
     display: inline-block;
     vertical-align: middle;
     background-size: contain;
@@ -356,7 +356,7 @@
 }
 
 .unknown {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/unknown.png");
+    background-image: url("./images/static/icons/geartype/unknown.png");
     width: 54px;
     height: 27px;
     display: inline-block;
@@ -368,7 +368,7 @@
 }
 
 .stats {
-    background-image: url("https://dissidiacompendium.com/images/static/icons/geartype/stats.png");
+    background-image: url("./images/static/icons/geartype/stats.png");
     width: 54px;
     height: 27px;
     display: inline-block;
