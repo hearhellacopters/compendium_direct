@@ -1,7 +1,7 @@
 import electron from 'electron';
-const { app, BrowserWindow } = electron;
 import path from 'path';
-import isDev from 'electron-is-dev';
+const { app, BrowserWindow } = electron;
+let mainWindow = null;
 
 /**
  * Base path where server is running.
@@ -9,15 +9,14 @@ import isDev from 'electron-is-dev';
  * @returns {string} directory name
  */
 function _get_dir_name(){
-    // @ts-ignore
-    if(process.pkg){
-        return path.dirname(process.execPath);
-    } else {
-        return process.cwd();
-    }
+  // @ts-ignore
+  if(process.pkg){
+      return path.dirname(process.execPath);
+  } else {
+      return process.cwd();
+  }
 };
 
-let mainWindow = null;
 app.on('ready', createWindow);
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') {
@@ -31,12 +30,12 @@ app.on('activate', function () {
 });
 function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 1024,
+    width: 1220,
     height: 1024,
     icon: '/favicon.ico',
-    title: "Dissidia Compendium",
+    title: "Dissidia Compendium"
   });
-  mainWindow.loadURL(isDev ? 'http://localhost:3000/' : `file://${path.join(_get_dir_name(), 'index.html')}`);
+  mainWindow.loadURL(path.join(app.getAppPath(), 'index.html'));
   mainWindow.on('closed', function () {
     mainWindow = null
   })

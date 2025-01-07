@@ -1,0 +1,87 @@
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+
+import { getMasterIndex } from '../../redux/ducks/master_index'
+
+import { getAccess } from '../../redux/ducks/access'
+import Categories from '../../subs/Categories'
+import Loading from '../../components/Loading'
+
+const ver = "GL"
+
+import { getGLGameListPassive } from '../../redux/ducks/GL/gamelist_passive'
+
+const GLGameListPassive = ({ match }) => {
+
+    const dispatch = useDispatch();
+
+    const gl_gamelist_passive = useSelector((state) =>
+        state.gl_gamelist_passive.gl_gamelist_passive
+    );
+
+    useEffect(() => {
+        let mounted = true
+        if (mounted && gl_gamelist_passive == undefined) {
+            dispatch(getGLGameListPassive());
+        }
+        return function cleanup() {
+            mounted = false
+        }
+    }, [dispatch, gl_gamelist_passive])
+
+    const Access = useSelector((state) =>
+        state.access.access
+    );
+
+    useEffect(() => {
+        let mounted = true
+        if (mounted && Access == undefined) {
+            dispatch(getAccess());
+        }
+        return function cleanup() {
+            mounted = false
+        }
+    }, [dispatch, Access])
+
+    const master_index = useSelector((state) =>
+        state.master_index.master_index
+    );
+
+    useEffect(() => {
+        let mounted = true
+        if (mounted && master_index == undefined) {
+            dispatch(getMasterIndex());
+        }
+        return function cleanup() {
+            mounted = false
+        }
+    }, [dispatch, master_index])
+
+    return (
+        master_index != undefined &&
+
+            Access != undefined &&
+
+            gl_gamelist_passive != undefined
+
+            ?
+
+            <Categories
+                master_index={master_index}
+
+                Access={Access}
+
+                gamelist_passive={gl_gamelist_passive}
+
+                ver={ver}
+                match={match}
+                loc={"Game List"}
+                file={"passives"}
+            />
+
+            :
+
+            <Loading />
+    )
+}
+export default GLGameListPassive

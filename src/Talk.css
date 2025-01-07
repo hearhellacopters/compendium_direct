@@ -5,6 +5,17 @@
     -moz-transition: opacity 0.3s ease-out;
     -ms-transition: opacity 0.3s ease-out;
     -o-transition: opacity 0.3s ease-out;
+    padding: 5px;
+    background-repeat: repeat-y;
+    background-position: top center;
+    background-size: 100%;
+    backdrop-filter: blur(.1rem);
+    opacity: 1;
+    transition: opacity 0.3s ease-out;
+    -webkit-transition: opacity 0.3s ease-out;
+    -moz-transition: opacity 0.3s ease-out;
+    -ms-transition: opacity 0.3s ease-out;
+    -o-transition: opacity 0.3s ease-out;
 }
 
 .imgchange{
@@ -196,9 +207,6 @@
     transition: ease filter .5s;
 }
 
-.talk-bg{
-    padding: 5px;
-}
 .talk-bg::before { 
     content: "";
     position: absolute;
@@ -214,7 +222,7 @@
     background-repeat: repeat-y;
     background-position: top center;
     background-size: 100%;
-    filter: blur(.1rem);
+    backdrop-filter: blur(.1rem);
     opacity: 1;
     transition: opacity 0.3s ease-out;
     -webkit-transition: opacity 0.3s ease-out;

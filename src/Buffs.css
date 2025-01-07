@@ -48,9 +48,14 @@
     background-image: url("./images/static/icons/geartype/bstate.png");
 }
 
-.hidepad{
+.fullbutton {
+    background-image: url("./images/static/icons/geartype/full.png");
+}
+
+.hidepad {
     padding-top: 11px;
 }
+
 .nodisplay {
     display: none;
 }
@@ -162,200 +167,16 @@ hr {
     flex-wrap: nowrap;
 }
 
-.infoiconholder {
+.infoiconholderbutton {
     width: 58px;
     height: 50px;
     margin: 0px;
-    margin-right: 5px;
-    display: flex;
-    justify-content: center;
-}
-
-.bufficon2 {
-    display: flex;
-    margin: auto;
-    filter: drop-shadow(2px 2px 2px #222);
-    -webkit-filter: drop-shadow(2px 2px 2px #222);
-}
-
-.bufficon {
-    display: flex;
-    margin: auto;
-    filter: drop-shadow(2px 2px 2px #222);
-    -webkit-filter: drop-shadow(2px 2px 2px #222);
-}
-
-.infotitle {
-    font-size: 19px;
-}
-
-.infotitle2 {
-    font-size: 19px;
-    min-height: 40px;
-    margin-left: 70px
-}
-
-.infolocation {
-    color: rgb(167, 167, 167);
-    font-size: 12px;
-}
-
-.infotitleholder {
-    float: left;
-    display: flex;
-    margin-bottom: 3px;
-    padding-left: 5px;
-    padding-right: 0px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    max-width: 185px;
-}
-
-.infobase {
-    padding-left: 8px;
-    padding-right: 5px;
-    margin-top: 5px;
-    list-style: none;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    clear: both;
-    border: solid 3px #d9dade;
-    border-radius: 5px;
-    box-shadow: inset 0px 0px 10px #000000;
-    -webkit-transition: .4s;
-    transition: .4s;
-    min-height: 45px;
-    font-size: 1rem;
-}
-
-.efginfobase {
-    padding-left: 8px;
-    padding-right: 5px;
-    margin-top: 5px;
-    list-style: none;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    clear: both;
-    border: solid 3px #d9dade;
-    border-radius: 5px;
-    box-shadow: inset 0px 0px 10px #000000;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-.orangetext {
-    color: orange;
-}
-
-.orangetext a {
-    color: orange;
-}
-
-@media (hover: hover) {
-    .orangetext a:hover {
-        transition: ease color .3s;
-        color: #f7f91d;
-    }
-}
-
-.blackbase {
-    background-color: #473494;
-}
-
-.buffsholder {
-    padding: 15px !important;
-    list-style: none;
-    padding-top: 8px;
-    background: #43517a;
-    padding-left: 0px;
-    padding-bottom: 8px;
-    box-shadow: inset 5px 0px 4px rgba(0, 0, 0, 0.5), inset -5px 5px 4px rgba(0, 0, 0, 0.5), inset 0px -5px 4px rgba(0, 0, 0, 0.5);
-    border-radius: 19px;
-    clear: both;
-}
-
-.buffunit {
-    -ms-flex-flow: row wrap;
-    flex-flow: row wrap;
-    display: -ms-flexbox;
-    display: flex;
-    margin-top: 10px;
-    background: #1e3758f0;
-    box-shadow: inset 5px 0px 4px rgba(0, 0, 0, 0.5), inset -5px 5px 4px rgba(0, 0, 0, 0.5), inset 0px -5px 4px rgba(0, 0, 0, 0.5);
-    border-radius: 19px;
-}
-
-.wpadding {
-    width: calc(100% - 216px);
-    margin-left: auto;
-}
-
-.nobuffpadding {
-    width: calc(100% - 170px);
-    margin-left: auto;
-}
-
-.abilityiconholder {
-    padding-top: 8px;
-    position: absolute;
-    width: 145px;
-    margin-top: 55px;
-}
-
-.enemyabilityiconholder span {
-    display: block !important;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.enemyabilityiconholder {
-    padding-top: 8px;
-    position: absolute;
-    width: 145px;
-    margin-top: 5px;
-}
-
-.abilityiconholder span {
-    display: block !important;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.abilityicon {
-    width: 112px;
-    height: 80px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    filter: drop-shadow(1px 1px 1px #222);
-    -webkit-filter: drop-shadow(1px 1px 1px #222);
-}
-
-.infonameholder {
-    padding: 5px;
-    padding-left: 8px;
-    border: solid 3px #d9dade;
-    border-radius: 5px;
-    box-shadow: inset 0px 0px 10px #000000;
-}
-
-.blackbanner {
-    background-color: #5d38f1;
-}
-
-.faceandiconholder {
-    justify-content: flex-start;
-    align-items: flex-start;
-    display: flex;
-}
-
-.faceholder {
-    width: 128px;
-    height: 50px;
-    display: block;
-    position: relative;
-    color: white;
-    margin: 0px;
+    display: inline-block;
+    margin-right: 3px;
+    margin-left: 3px;
+    background-repeat: no-repeat;
+    position: static;
+    cursor: pointer;
 }
 
 .Breakbutton {
@@ -463,8 +284,242 @@ hr {
     background-size: contain;
 }
 
-.faceholderpassives {
+.infoiconholder {
+    width: 58px;
+    height: 50px;
+    margin: 0px;
+    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.bufficon2 {
+    display: flex;
+    margin: auto;
+    filter: drop-shadow(2px 2px 2px #222);
+    -webkit-filter: drop-shadow(2px 2px 2px #222);
+}
+
+.bufficon {
+    display: flex;
+    margin: auto;
+    filter: drop-shadow(2px 2px 2px #222);
+    -webkit-filter: drop-shadow(2px 2px 2px #222);
+}
+
+.expandedinfo {
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: pointer;
+    color: #f7f91d;
+}
+
+.infotitle {
+    font-size: 19px;
+}
+
+.infotitle2 {
+    font-size: 19px;
+    min-height: 40px;
+    margin-left: 70px
+}
+
+.infolocation {
+    color: rgb(167, 167, 167);
+    font-size: 12px;
+}
+
+.infotitleholder {
+    float: left;
+    display: flex;
+    margin-bottom: 3px;
+    padding-left: 5px;
+    padding-right: 0px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    max-width: 185px;
+}
+
+.withlimitorbuffs {
+    max-width: 420px;
+}
+
+.infobase {
+    padding-left: 8px;
+    padding-right: 5px;
+    margin-top: 5px;
+    list-style: none;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    clear: both;
+    border: solid 3px #d9dade;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 10px #000000;
+    -webkit-transition: .4s;
+    transition: .4s;
+    min-height: 45px;
+    font-size: 1rem;
+}
+
+.efginfobase {
+    padding-left: 8px;
+    padding-right: 5px;
+    margin-top: 5px;
+    list-style: none;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    clear: both;
+    border: solid 3px #d9dade;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 10px #000000;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.orangetext {
+    color: orange;
+}
+
+.orangetext a {
+    color: orange;
+}
+
+@media (hover: hover) {
+    .orangetext a:hover {
+        transition: ease color .3s;
+        color: #f7f91d;
+    }
+}
+
+.orangebanner {
+    background-color: #f16338
+}
+
+.orangebase {
+    background-color: #943434
+}
+
+.blackbase {
+    background-color: #473494;
+}
+
+.buffsholder {
+    padding: 15px !important;
+    list-style: none;
+    padding-top: 8px;
+    background: #43517a;
+    padding-left: 0px;
+    padding-bottom: 8px;
+    box-shadow: inset 5px 0px 4px rgba(0, 0, 0, 0.5), inset -5px 5px 4px rgba(0, 0, 0, 0.5), inset 0px -5px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 19px;
+    clear: both;
+}
+
+.buffunit {
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 10px;
+    background: #1e3758f0;
+    box-shadow: inset 5px 0px 4px rgba(0, 0, 0, 0.5), inset -5px 5px 4px rgba(0, 0, 0, 0.5), inset 0px -5px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 19px;
+}
+
+.subicon {
+    display: flex;
+    position: absolute;
+}
+
+.wpadding {
+    width: calc(100% - 216px);
+    margin-left: auto;
+}
+
+.nobuffpadding {
+    width: calc(100% - 170px);
+    margin-left: auto;
+}
+
+.abilityiconholder {
+    padding-top: 8px;
+    position: absolute;
     width: 145px;
+    margin-top: 55px;
+}
+
+.toggleforpassives {
+    padding-top: 8px;
+    position: absolute;
+    width: 145px;
+    margin-top: 55px;
+}
+
+.enemyabilityiconholder span {
+    display: block !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.enemyabilityiconholder {
+    padding-top: 8px;
+    position: absolute;
+    width: 145px;
+    margin-top: 5px;
+}
+
+.abilityiconholder span {
+    display: block !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.abilityicon {
+    width: 112px;
+    height: 80px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    filter: drop-shadow(1px 1px 1px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.toggleforpassives {
+    padding-top: 8px;
+    position: absolute;
+    width: 145px;
+    margin-top: 55px;
+}
+
+.infonameholder {
+    padding: 5px;
+    padding-left: 8px;
+    border: solid 3px #d9dade;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 10px #000000;
+}
+
+.infoupperholder {
+    padding: 5px;
+    padding-left: 8px;
+    border: solid 3px #d9dade;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 10px #000000;
+}
+
+.blackbanner {
+    background-color: #5d38f1;
+}
+
+.faceandiconholder {
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+}
+
+.faceholder {
+    width: 128px;
     height: 50px;
     display: block;
     position: relative;
@@ -472,25 +527,21 @@ hr {
     margin: 0px;
 }
 
-.inline{
-    display: inline-block;
-    vertical-align: middle;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    filter: drop-shadow(3px 3px 2px #222);
-    -webkit-filter: drop-shadow(1px 1px 1px #222);
+.abilitybase {
+    min-height: 75px
 }
 
-.inline-buff{
-    max-height: 32px;
-    height: 1.5em;
-    margin-top: -0.15em;
-    margin-bottom: -0.15em;
-    display: inline-block;
-    vertical-align: middle;
-    filter: drop-shadow(1px 1px 1px #222);
-    -webkit-filter: drop-shadow(1px 1px 1px #222);
+.nocostpassivebanner {
+    min-height: 40px;
+}
+
+.faceholderpassives {
+    width: 145px;
+    height: 50px;
+    display: block;
+    position: relative;
+    color: white;
+    margin: 0px;
 }
 
 .saholder {
@@ -517,7 +568,8 @@ hr {
     text-align: center;
     background-repeat: no-repeat;
 }
-.sanumber_crystal{
+
+.sanumber_crystal {
     margin-left: 16px;
     margin-top: 25px;
     display: block;
@@ -609,6 +661,37 @@ hr {
     margin-right: auto;
 }
 
+.inline {
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    filter: drop-shadow(3px 3px 2px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.inline-buff {
+    max-height: 32px;
+    height: 1.5em;
+    margin-top: -0.15em;
+    margin-bottom: -0.15em;
+    display: inline-block;
+    vertical-align: middle;
+    filter: drop-shadow(1px 1px 1px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.orangecolor {
+    color: #e98013;
+}
+
+.faceicon2 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .facetext {
     position: absolute;
     width: 100%;
@@ -630,6 +713,15 @@ hr {
 
 .Buffbase {
     background-color: #346746f0;
+}
+
+.Buffupgradedorg {
+    background: linear-gradient(90deg, #346746f0 0%, #346746f0 16%, rgba(77, 86, 97, 0) 100%);
+    display: block;
+    filter: drop-shadow(1px 1px 1px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+    padding-left: 2px;
+    margin-top: 5px;
 }
 
 .Debuffbanner {
@@ -658,6 +750,10 @@ hr {
 
 .unique {
     color: #d0d093;
+}
+
+.subtextwhite {
+    color: white;
 }
 
 .subtextgold {
@@ -698,6 +794,36 @@ hr {
     margin-left: 3px;
     background-repeat: no-repeat;
     cursor: pointer;
+}
+
+.toggleforbuffs {
+    padding-top: 8px;
+    position: absolute;
+    width: 190px;
+    margin-top: 55px;
+}
+
+.GLtoggle {
+    align-items: center;
+    -moz-filter: drop-shadow(2px 2px 2px #222);
+    -webkit-filter: drop-shadow(2px 2px 2px #222);
+    filter: drop-shadow(2px 2px 2px #222);
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    border: #e2c63b;
+    border-style: solid;
+    background-image: url(".//images/static/icons/misc/toggle.png");
+    border-radius: 34px;
+    margin-left: calc(50% - 30px);
+    margin-right: calc(50% - 30px);
+    -moz-filter: drop-shadow(2px 2px 2px #222);
+    -webkit-filter: drop-shadow(2px 2px 2px #222);
+    filter: drop-shadow(2px 2px 2px #222);
 }
 
 .slider {
@@ -767,29 +893,48 @@ hr {
     width: fit-content;
 }
 
+.small_tags {
+    display: flow-root;
+}
+
 @media (hover: hover) {
     .linktopage:hover {
         color: #f7f91d;
     }
 }
 
+@media (max-width: 825px) {
+    .buffsholder {
+        margin-top: 0px;
+        border-radius: 0 0 19px 19px;
+        box-shadow: none;
+        border-left: solid 3px #7a7a7a;
+        border-right: solid 3px #7a7a7a;
+        border-bottom: solid 3px #7a7a7a;
+    }
+}
+
 @media screen and (max-width: 700px) {
-    .inline-buff{
+    .inline-buff {
         margin-top: 0px;
         margin-bottom: 0px;
     }
-    .bufficon{
+
+    .bufficon {
         padding-top: 10px;
     }
-    .hidepad{
+
+    .hidepad {
         padding-top: 0px;
         margin-left: 5px;
     }
+
     .infotitle2 {
         min-height: 0px;
         font-size: 15px;
         margin-left: 5px;
     }
+
     .fieldeffects {
         height: 24px;
         width: 37px;
@@ -804,12 +949,26 @@ hr {
         display: none;
     }
 
+    .toggleforpassives {
+        padding-left: 5px;
+        padding-top: 8px;
+        position: inherit;
+        width: 60px;
+        margin-top: 5px;
+        align-items: center;
+    }
+
     .saholder_crystal {
         display: none;
     }
 
     .saholderg {
         display: none;
+    }
+
+    .abilityicon {
+        width: 56px;
+        height: 40px;
     }
 
     .abilityiconholder {
@@ -841,6 +1000,21 @@ hr {
         margin-top: 10px;
         margin-left: 0px;
         width: calc(100% - 19px);
+    }
+
+    .infoupperholder {
+        margin-top: 10px;
+        margin-left: 0px;
+        width: calc(100% - 19px);
+    }
+
+    .toggleforbuffs {
+        padding-left: 5px;
+        padding-top: 8px;
+        position: inherit;
+        width: 60px;
+        margin-top: 5px;
+        align-items: center;
     }
 
     .infoiconholder {
@@ -891,6 +1065,14 @@ hr {
         width: auto;
     }
 
+    .infotitleholder {
+        float: none;
+        display: inline;
+        padding-left: 0px;
+        margin: auto;
+        max-width: none;
+    }
+
     .faceandiconholder {
         margin: auto;
         justify-content: center;
@@ -902,15 +1084,16 @@ hr {
     }
 }
 
-.small_tags{
+.small_tags {
     display: flow-root;
 }
 
 @media screen and (max-width: 800px) {
-    .small_tags span{
+    .small_tags span {
         height: 16px;
-	    width: 32px;
+        width: 32px;
     }
+
     .infotitle {
         font-size: 15px;
     }

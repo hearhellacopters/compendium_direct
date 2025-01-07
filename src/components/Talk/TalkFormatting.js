@@ -131,7 +131,7 @@ function TalkFormatting({
     const bgtoggle=()=>{
         if(bg){
             setbg(false)
-            setchangebg(undefined)
+            setchangebg("")
             window.localStorage.setItem('bg', "false")
         } else {
             setbg(true)
@@ -171,7 +171,8 @@ function TalkFormatting({
     return (
         <>
         
-        <div className={`talk-bg ${switchimg}`} style={{"background-image":`url(${changebg})`,backgroundColor:solo == true ?"#263252":""}}>
+        <div className={`talk-bg ${switchimg}`} 
+            style={{backgroundImage:`url(${changebg})`, backgroundColor :solo == true ?"#263252":""}}>
             <div className="above">
             {solo == true ?
             <>

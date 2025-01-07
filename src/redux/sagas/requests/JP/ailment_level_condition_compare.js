@@ -1,0 +1,10 @@
+import axios from "axios";
+import DevSwitch from '../../../DevSwitch'
+
+export function requestGetJPAilmentLevelContCompare() {
+  if (DevSwitch == true) {
+    return axios.get('data/_dir/ailment_level_condition/JPCompare.json', { 'muteHttpExceptions': true })
+  } else {
+    return axios.get('https://www.dissidiacompendium.com/data/_dir/ailment_level_condition/JPCompare.json', { 'muteHttpExceptions': true })
+  }
+}

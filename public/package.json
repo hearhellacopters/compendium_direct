@@ -1,0 +1,45 @@
+{
+    "name": "dissidiacompendium",
+    "version": "7.1.0",
+    "homepage": "./",
+    "main": "electron.js",
+    "description": "Dissidia Compendium Offline",
+    "author": "HearHellacopters",
+    "note": "build in \"type\": \"module\" for electron",
+    "type": "module",
+    "private": true,
+    "scripts": {
+      "build": "electron-builder -c.extraMetadata.main=electron.js"
+    },
+    "build": {
+      "appId": "com.dissidiacompendium.app",
+      "productName": "dissidiacompendium",
+      "copyright": "Copyright © 2025 ${author}",
+      "publish": null,
+      "directories": {
+        "output": "dist"
+      },
+      "files": [
+        "**/*"
+      ],
+      "asar": true,
+      "nodeGypRebuild": false,
+      "npmRebuild": false,
+      "win": {
+        "asar": false,
+        "icon": "./app.ico",
+        "target": [
+          {
+            "target": "portable",
+            "arch": [
+              "x64"
+            ]
+          }
+        ]
+      }
+    },
+    "devDependencies": {
+      "electron": "^33.2.1",
+      "electron-builder": "^25.1.8"
+    }
+  }

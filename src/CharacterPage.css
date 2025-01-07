@@ -1,5 +1,6 @@
 .characterpageholder {
     display: block;
+    transition: all .2s;
     transform-origin: 50% 0;
     padding: 8px;
     background: #43517a;
@@ -11,13 +12,14 @@
     height: auto;
 }
 
-.char_link{
+.char_link {
     display: inline-flex;
     justify-content: center;
     align-items: center;
     margin-left: auto;
     margin-right: auto;
 }
+
 .char_link:hover {
     transform: translateY(-1px);
     color: #f7f91d;
@@ -26,7 +28,8 @@
     transition: all ease 0.3s;
     cursor: pointer;
 }
-.contrl_text{
+
+.contrl_text {
     font-size: 18px !important;
     z-index: 5;
     margin-left: auto;
@@ -37,6 +40,10 @@
     margin-top: auto;
     margin-left: 0.5em;
     margin-bottom: auto;
+}
+
+.limit {
+    background: #e95091;
 }
 
 .autoleft {
@@ -54,7 +61,7 @@
     cursor: pointer;
 }
 
-.EventHolder{
+.EventHolder {
     display: flex;
     flex-wrap: nowrap;
     align-content: center;
@@ -63,7 +70,7 @@
     align-items: center;
 }
 
-.space_left{
+.space_left {
     padding-left: 5px;
 }
 
@@ -97,14 +104,16 @@
     }
 }
 
+.inletter {
+    width: 32px;
+    display: block;
+    height: 32px;
+    margin: auto;
+}
+
 .inactiveeffect {
     color: #7a7a7a !important;
     text-decoration: line-through !important;
-}
-
-.filelistclass {
-    text-align: left;
-    margin-top: 5px;
 }
 
 .upcomingbutton {
@@ -316,7 +325,7 @@
     color: rgb(47, 255, 47);
 }
 
-.orangecolor{
+.orangecolor {
     color: #e98013;
 }
 
@@ -488,6 +497,31 @@
     -webkit-filter: drop-shadow(2px 2px 2px #222);
 }
 
+.mapbox {
+    margin-top: -44px;
+    align-self: center;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    background: linear-gradient(180deg, hsla(0, 0%, 100%, .6392156862745098) 5.73%, rgba(130, 153, 216, .49411764705882355) 29.69%, rgba(39, 241, 207, 0) 47.92%, rgba(39, 241, 207, 0) 52.08%, #224199 81.25%, #2446a5), #2c5ad8 !important;
+    height: 35px;
+    width: 88px;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    border: solid 2px black;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: inset -2px -2px 4px #000000, inset 2px 0px 4px #e4e6e5;
+    filter: drop-shadow(0px 0px 2px #222);
+    -webkit-filter: drop-shadow(0px 0px 2px #222);
+}
+
+.mapbox:active {
+    filter: drop-shadow(0px 0px 2px #222) brightness(.8);
+    -webkit-filter: drop-shadow(0px 0px 2px #222) brightness(.8);
+    transition: all 0s;
+}
+
 .backtopage a {
     color: white;
     transition: ease color .3s;
@@ -627,10 +661,6 @@
     border-radius: 7px 7px 7px 7px;
 }
 
-.limit {
-    background: #e95091;
-}
-
 .margtop {
     margin-top: 10px;
 }
@@ -723,6 +753,27 @@
     background-image: url("./images/static/icons/geartype/spheres_direct.png");
 }
 
+.unknown {
+    background-image: url("./images/static/icons/geartype/unknown.png");
+    width: 3em;
+    max-width: 72px;
+    max-height: 36px;
+    margin: -0.2em;
+    margin-bottom: -0.4em;
+    margin-top: -0.4em;
+    height: 1.8em;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: drop-shadow(1px 1px 1px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.trunrate {
+    color: #2fc765f0
+}
+
 .spherespagebutton {
     background-image: url("./images/static/icons/geartype/spheres.png");
 }
@@ -765,6 +816,7 @@
     display: flex;
     vertical-align: baseline;
     height: 100px;
+    box-shadow: inset 0px -50px 34px -28px #43517a;
 }
 
 .sharefilter {
@@ -787,6 +839,14 @@
 }
 
 @media (hover: hover) {
+    .mapbox:hover {
+        transform: translateY(-1px);
+        transition: all .1s;
+        cursor: pointer;
+        filter: drop-shadow(0px 0px 2px #222) brightness(1.2);
+        -webkit-filter: drop-shadow(0px 0px 2px #222) brightness(1.2);
+    }
+
     .abilitybluesinglebutton:hover {
         filter: brightness(1.2);
         -webkit-filter: brightness(1.2);
@@ -841,6 +901,251 @@
     height: 32px;
 }
 
+.Feature1 {
+    background-image: url("./images/static/icons/DMGType/DMGType_Ranged_Icon.png");
+    background-size: contain;
+}
+
+.Feature2 {
+    background-image: url("./images/static/icons/DMGType/DMGType_Melee_Icon.png");
+    background-size: contain;
+}
+
+.Feature3 {
+    background-image: url("./images/static/icons/DMGType/DMGType_Magic_Icon.png");
+    background-size: contain;
+}
+
+.Feature4 {
+    background-image: url("./images/static/icons/elements/Fire.png");
+    background-size: contain;
+}
+
+.Feature5 {
+    background-image: url("./images/static/icons/elements/Ice.png");
+    background-size: contain;
+}
+
+.Feature6 {
+    background-image: url("./images/static/icons/elements/Thunder.png");
+    background-size: contain;
+}
+
+.Feature7 {
+    background-image: url("./images/static/icons/elements/Wind.png");
+    background-size: contain;
+}
+
+.Feature8 {
+    background-image: url("./images/static/icons/elements/Earth.png");
+    background-size: contain;
+}
+
+.Feature9 {
+    background-image: url("./images/static/icons/elements/Water.png");
+    background-size: contain;
+}
+
+.Feature10 {
+    background-image: url("./images/static/icons/elements/Dark.png");
+    background-size: contain;
+}
+
+.Feature11 {
+    background-image: url("./images/static/icons/elements/Holy.png");
+    background-size: contain;
+}
+
+.Feature12 {
+    background-image: url("./images/static/icons/roles/Role_Enchant.png");
+    background-size: contain;
+}
+
+.Feature13 {
+    background-image: url("./images/static/icons/roles/Role_Icon_Healer.png");
+    background-size: contain;
+}
+
+.Feature14 {
+    background-image: url("./images/static/icons/roles/Role_Icon_Battery.png");
+    background-size: contain;
+}
+
+.Feature15 {
+    background-image: url("./images/static/icons/roles/Role_BRV_Hold.png");
+    background-size: contain;
+}
+
+.Feature16 {
+    background-image: url("./images/static/icons/roles/Role_Cannot_Break.png");
+    background-size: contain;
+}
+
+.Feature17 {
+    background-image: url("./images/static/icons/roles/Role_KO_Prevent.png");
+    background-size: contain;
+}
+
+.Feature18 {
+    background-image: url("./images/static/icons/roles/Role_Trap.png");
+    background-size: contain;
+}
+
+.Feature19 {
+    background-image: url("./images/static/icons/roles/Role_Icon_Counter.png");
+    background-size: contain;
+}
+
+.Feature20 {
+    background-image: url("./images/static/icons/roles/Role_Icon_FollowUp.png");
+    background-size: contain;
+}
+
+.Feature21 {
+    background-image: url("./images/static/icons/roles/Role_Icon_FollowUp_By_Others.png");
+    background-size: contain;
+}
+
+.Feature22 {
+    background-image: url("./images/static/icons/roles/Role_Reviver.png");
+    background-size: contain;
+}
+
+.Feature23 {
+    background-image: url("./images/static/icons/roles/Role_ForcedBreak.png");
+    background-size: contain;
+}
+
+.Feature24 {
+    background-image: url("./images/static/icons/roles/Role_BreakReset.png");
+    background-size: contain;
+}
+
+.Feature25 {
+    background-image: url("./images/static/icons/roles/Role_KnockBack.png");
+    background-size: contain;
+}
+
+.Feature26 {
+    background-image: url("./images/static/icons/roles/Role_Icon_Knock_Back_Support.png");
+    background-size: contain;
+}
+
+.Feature27 {
+    background-image: url("./images/static/icons/roles/Role_DeleteTurns.png");
+    background-size: contain;
+}
+
+.Feature28 {
+    background-image: url("./images/static/icons/roles/Role_Continuous_Turns.png");
+    background-size: contain;
+}
+
+.Feature29 {
+    background-image: url("./images/static/icons/roles/Role_Turn_Interrupter.png");
+    background-size: contain;
+}
+
+.Feature30 {
+    background-image: url("./images/static/icons/roles/Role_Ally_Turn_Manipulator.png");
+    background-size: contain;
+}
+
+.Feature31 {
+    background-image: url("./images/static/icons/roles/Role_BRV_Ratio.png");
+    background-size: contain;
+}
+
+.Feature32 {
+    background-image: url("./images/static/icons/roles/Role_Ignore_DEF.png");
+    background-size: contain;
+}
+
+.Feature33 {
+    background-image: url("./images/static/icons/roles/Role_BRVPoison.png");
+    background-size: contain;
+}
+
+.Feature34 {
+    background-image: url("./images/static/icons/roles/Role_HPPoison.png");
+    background-size: contain;
+}
+
+.Feature35 {
+    background-image: url("./images/static/icons/roles/Role_Icon_Disable.png");
+    background-size: contain;
+}
+
+.Feature36 {
+    background-image: url("./images/static/icons/roles/Role_BRVResist.png");
+    background-size: contain;
+}
+
+.Feature37 {
+    background-image: url("./images/static/icons/roles/Role_BRV_Absorb.png");
+    background-size: contain;
+}
+
+.Feature38 {
+    background-image: url("./images/static/icons/roles/Role_HPResist.png");
+    background-size: contain;
+}
+
+.Feature39 {
+    background-image: url("./images/static/icons/debuff/debuff_glasses_unframed.png");
+    background-size: contain;
+}
+
+.Feature40 {
+    background-image: url("./images/static/icons/buff/buff_dodge_unframed.png");
+    background-size: contain;
+}
+
+.Feature41 {
+    background-image: url("./images/static/icons/roles/Role_Self_Harm.png");
+    background-size: contain;
+}
+
+.Feature42 {
+    background-image: url("./images/static/icons/roles/Role_Cleanser.png");
+    background-size: contain;
+}
+
+.Feature43 {
+    background-image: url("./images/static/icons/roles/Role_Debuff_Evade.png");
+    background-size: contain;
+}
+
+.Feature44 {
+    background-image: url("./images/static/icons/roles/Role_Icon_Dispel.png");
+    background-size: contain;
+}
+
+.Feature45 {
+    background-image: url("./images/static/icons/roles/Role_Icon_BRV-Control.png");
+    background-size: contain;
+}
+
+.Feature46 {
+    background-image: url("./images/static/icons/roles/Role_EX_Gauge.png");
+    background-size: contain;
+}
+
+.Feature47 {
+    background-image: url("./images/static/icons/roles/Role_Debuff_Gold.png");
+    background-size: contain;
+}
+
+.Feature48 {
+    background-image: url("./images/static/icons/buff/buff_up1_unframed.png");
+    background-size: contain;
+}
+
+.Feature49 {
+    background-image: url("./images/static/icons/roles/Role_Stacked_Debuff.png");
+    background-size: contain;
+}
+
 .pagecrystalholder {
     display: flex;
     width: fit-content;
@@ -890,7 +1195,10 @@
     filter: drop-shadow(0px 0px 2px #222);
     -webkit-filter: drop-shadow(0px 0px 2px #222);
     transition: all ease 0.3s;
+}
 
+.newbluepassive {
+    background: #294060
 }
 
 .classcolor {
@@ -903,6 +1211,23 @@
 
 .startingattack {
     background: #626d27
+}
+
+.newstatus {
+    background-image: url("./images/static/icons/misc/status_small.png");
+    width: 54px;
+    height: 27px;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: drop-shadow(1px 1px 1px #222);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+}
+
+.contents {
+    display: inline;
+    text-decoration: underline;
 }
 
 .syngholder {
@@ -1004,7 +1329,123 @@
     }
 }
 
+.eventablist {
+    list-style: none;
+    padding-left: 8px;
+    z-index: 1;
+}
+
+.eventtabs {
+    display: grid;
+    justify-content: center;
+    z-index: -1;
+}
+
+.withshadow {
+    filter: drop-shadow(3px 3px 3px #222);
+    -webkit-filter: drop-shadow(3px 3px 3px #222);
+}
+
+.eventwithbackgorundtabs {
+    margin-top: 5px;
+    background-color: #81a0c9;
+    border: solid 3px #7a7a7a;
+    border-radius: 7px;
+    padding: 5px;
+    box-shadow: inset 5px 0px 4px rgb(0 0 0 / 50%), inset -5px 5px 4px rgb(0 0 0 / 50%), inset 0px -5px 4px rgb(0 0 0 / 50%);
+    z-index: 1;
+}
+
+.inactiveeventtab {
+    border-left: solid 3px #7a7a7a;
+    border-right: solid 3px #7a7a7a;
+    border-bottom: solid 3px #7a7a7a;
+    margin-bottom: 10px;
+    background-color: rgba(30, 55, 88, 0.940205);
+    display: block;
+    margin: 0 3px;
+    margin-bottom: 5px;
+    float: left;
+    white-space: nowrap;
+    border-radius: 0 0 7px 7px;
+    padding-top: 5px;
+    padding-bottom: 6px;
+    padding-right: 5px;
+    padding-left: 5px;
+    box-shadow: 0 -0.2em 4px #0000001a inset;
+    filter: drop-shadow(0px 3px 2px rgba(0, 0, 0, 0.493));
+}
+
+.activeeventtab {
+    border-left: solid 3px #7a7a7a;
+    border-right: solid 3px #7a7a7a;
+    border-bottom: solid 3px #7a7a7a;
+    border-top: solid 12px #81a0c9;
+    background-color: #81a0c9;
+    white-space: nowrap;
+    display: block;
+    float: left;
+    margin: 0 3px;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    border-radius: 0 0 7px 7px;
+    padding-bottom: 5px;
+    padding-top: 8px;
+    padding-right: 5px;
+    padding-left: 5px;
+    box-shadow: 0 0em 0px rgb(0 0 0 / 10%) inset;
+    margin-top: -15px;
+    z-index: 1;
+}
+
+.charholderflair {
+    border-bottom: 2px solid black;
+    margin-top: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    z-index: 1;
+    text-align: center;
+    font-weight: bold;
+    background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #b2b2b4 3.67%, #b2b2b4 96.44%, rgba(30, 55, 88, 0) 100%);
+}
+
+.featuredbanner {
+    border-top: solid black 2px;
+    border-bottom: solid black 2px;
+    padding-top: 10px;
+    z-index: 1;
+    padding-bottom: 10px;
+    background: linear-gradient(90deg, rgba(30, 55, 88, 0) 0%, #3f5b92 3.67%, #3f5b92 96.44%, rgba(30, 55, 88, 0) 100%);
+}
+
+.loadmorespheres {
+    background-image: url("./images/static/icons/buttons/svg/blue-button.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    border: none;
+    filter: drop-shadow(0px 0px 2px #222);
+    -webkit-filter: drop-shadow(0px 0px 2px #222);
+    height: 40px;
+    width: 150px;
+    transition: all ease 0.3s;
+    cursor: pointer;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media (hover: hover) {
+    .loadmorespheres:hover {
+        filter: brightness(1.2);
+        -webkit-filter: brightness(1.2);
+        transition: all ease 0.3s;
+    }
     .bluebutton:hover {
         filter: brightness(1.2);
         -webkit-filter: brightness(1.2);
@@ -1012,7 +1453,36 @@
     }
 }
 
+.loadmorespheres:active {
+    filter: drop-shadow(0px 0px 2px #222) brightness(.8);
+    -webkit-filter: drop-shadow(0px 0px 2px #222) brightness(.8);
+    transition: all 0s;
+}
+
+@media (hover: hover) {
+    .inactiveeventtab:hover {
+        color: #f7f91d;
+        cursor: pointer;
+        transition: .3s ease color;
+    }
+
+    .activeeventtab:hover {
+        color: #f7f91d;
+        cursor: pointer;
+        transition: .3s ease color;
+    }
+}
+
 @media screen and (max-width: 800px) {
+    .facetextlist {
+        font-size: small;
+    }
+
+    .faceiconlist {
+        height: 28px;
+        width: 82px;
+    }
+
     .bluebutton {
         width: 50px;
         margin-left: auto;
