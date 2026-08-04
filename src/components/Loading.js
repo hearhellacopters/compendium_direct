@@ -41,14 +41,14 @@ export default function LoadHelper(){
     return (
         timeout == false
             ?
-            <div className="content loading2"><h1><img className="loadingbardots" src={"./images/static/site/loading.gif"}></img></h1></div>
+            <div className="content loading2"><h1><img className="loadingbardots" src={"/images/static/site/loading.gif"}></img></h1></div>
             :
             <div className="content loading2">
-                <h1><img className="loadingbardots" src={"./images/static/site/loading.gif"}></img></h1>
+                <h1><img className="loadingbardots" src={"/images/static/site/loading.gif"}></img></h1>
                 <div className='subheader infolocation'>Location: {url}</div>
                 <div className="filterholder">
                     <div className="filterholderflair" >
-                        <div className="nolinksholder"><img alt="oh no" src={`./images/static/icons/404/${randomimage}.png`} />
+                        <div className="nolinksholder"><img alt="oh no" src={`/images/static/icons/404/${randomimage}.png`} />
                         </div>
                         <div className="infobase Debuffbase centertext warning">
                             Loading is taking longer than normal<br />

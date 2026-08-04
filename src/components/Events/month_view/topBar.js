@@ -40,19 +40,6 @@ const Container = styled.div`
 `;
 
 export default class TopBar extends Component {
-  static propTypes = {
-    date: PropTypes.instanceOf(moment).isRequired,
-    onPrevClick: PropTypes.func,
-    onNextClick: PropTypes.func,
-    titleTextStyle: PropTypes.object,
-    flag: PropTypes.string
-  };
-
-  static defaultProps = {
-    onPrevClick: () => { },
-    onNextClick: () => { }
-  };
-
   render() {
     const { date, onPrevClick, onNextClick, titleTextStyle, flag } = this.props;
     const PrevArrow =
@@ -85,3 +72,16 @@ export default class TopBar extends Component {
     );
   }
 }
+
+TopBar.propTypes = {
+  date: PropTypes.instanceOf(moment).isRequired,
+  onPrevClick: PropTypes.func,
+  onNextClick: PropTypes.func,
+  titleTextStyle: PropTypes.object,
+  flag: PropTypes.string
+};
+
+TopBar.defaultProps = {
+  onPrevClick: () => { },
+  onNextClick: () => { }
+};

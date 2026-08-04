@@ -1,61 +1,61 @@
 .IfritIcon {
-    content: url("./images/static/icons/summons/unlocked/Summon_Ifrit.png")
+    content: url("/images/static/icons/summons/unlocked/Summon_Ifrit.png")
 }
 
 .ShivaIcon {
-    content: url("./images/static/icons/summons/unlocked/Summon_Shiva.png")
+    content: url("/images/static/icons/summons/unlocked/Summon_Shiva.png")
 }
 
 .RamuhIcon {
-    content: url("./images/static/icons/summons/unlocked/Summon_Ramuh.png")
+    content: url("/images/static/icons/summons/unlocked/Summon_Ramuh.png")
 }
 
 .LeviathanIcon {
-    content: url("./images/static/icons/summons/unlocked/Summon_Leviathan.png")
+    content: url("/images/static/icons/summons/unlocked/Summon_Leviathan.png")
 }
 
 .BrothersIcon {
-    content: url("./images/static/icons/summons/unlocked/Summon_Brothers.png")
+    content: url("/images/static/icons/summons/unlocked/Summon_Brothers.png")
 }
 
 .PandemoniumIcon {
-    content: url("./images/static/icons/summons/unlocked/Summon_Pandemonium.png")
+    content: url("/images/static/icons/summons/unlocked/Summon_Pandemonium.png")
 }
 
 .DiabolosIcon {
-    content: url("./images/static/icons/summons/unlocked/Summon_Diabolos.png")
+    content: url("/images/static/icons/summons/unlocked/Summon_Diabolos.png")
 }
 
 .AlexanderIcon {
-    content: url("./images/static/icons/summons/unlocked/Summon_Alexander.png")
+    content: url("/images/static/icons/summons/unlocked/Summon_Alexander.png")
 }
 
 .OdinIcon {
-    content: url("./images/static/icons/summons/unlocked/Summon_Odin.png")
+    content: url("/images/static/icons/summons/unlocked/Summon_Odin.png")
 }
 
 .BahamutIcon {
-    content: url("./images/static/icons/summons/unlocked/Summon_Bahamut.png")
+    content: url("/images/static/icons/summons/unlocked/Summon_Bahamut.png")
 }
 
 .ChocoboIcon {
-    content: url("./images/static/icons/summons/unlocked/Summon_Chocobo.png")
+    content: url("/images/static/icons/summons/unlocked/Summon_Chocobo.png")
 }
 
 .SylphIcon {
-    content: url("./images/static/icons/summons/unlocked/Summon_Sylph.png")
+    content: url("/images/static/icons/summons/unlocked/Summon_Sylph.png")
 }
 
 .MogIcon {
-    content: url("./images/static/icons/summons/unlocked/Summon_Mog.png")
+    content: url("/images/static/icons/summons/unlocked/Summon_Mog.png")
 }
 
 .all_nodes {
-    content: url("./images/static/icons/summons/unlocked/Summon_Crystals.png")
+    content: url("/images/static/icons/summons/unlocked/Summon_Crystals.png")
 }
 
 .crypoints{
-    background-image: url("./images/static/icons/misc/crypoints.png");
+    background-image: url("/images/static/icons/misc/crypoints.png");
     height: 28px;
     width: 15px;
     margin-left: 3px;

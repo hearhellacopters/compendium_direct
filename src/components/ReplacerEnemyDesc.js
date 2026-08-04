@@ -89,7 +89,7 @@ const span_formatting = (match, i, number) =>{
         return <span key={`3-${i}-${number}`} className={`inline ${match}`}></span>
     }
     return (
-        <img key={`3-${i}-${number}`} className={"inline-buff"} src={`./images/static/icons/geartype/${match}.png`} />
+        <img key={`3-${i}-${number}`} className={"inline-buff"} src={`/images/static/icons/geartype/${match}.png`} />
     )
 }
 
@@ -157,7 +157,7 @@ export default function ReplacerEnemyDesc(text){
     replacement = replacement == "" ? "" : reactStringReplace(replacement, /\/\/(.*?)\/\//, (match, i) => {
         number = number + 1
         return (
-            <img key={`17-${i}-${number}`} className={"inline-buff"} src={`./images/static/icons/buff/${match}.png`} />
+            <img key={`17-${i}-${number}`} className={"inline-buff"} src={`/images/static/icons/buff/${match}.png`} />
         )
     })
     replacement = replacement == undefined ? "" : reactStringReplace(replacement, /(\[.*?\])/, (match, i) => {

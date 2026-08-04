@@ -45,13 +45,13 @@ export default function TalkUintFormatting({
         var display = false;
 
         if(emote != undefined && emote != -1 && emote != 0 ){
-            emote = `./images/static/talk_emote/${emote}.png`
+            emote = `/images/static/talk_emote/${emote}.png`
         } else {
             emote = undefined
         }
 
         if((EV_index != undefined && EV_index != -1) && (unit_id != undefined && unit_id != -1)){
-            EV_index = `./images/static/talk/${unit_id}/${EV_index}.mp3`
+            EV_index = `/images/static/talk/${unit_id}/${EV_index}.mp3`
         } else {
             EV_index = undefined
         }
@@ -68,7 +68,7 @@ export default function TalkUintFormatting({
             bgm = undefined
         }
         if(SE001_b != undefined && SE001_b != -1){
-            SE001_b = `./images/static/talk/SE001_b/${SE001_b}.mp3`
+            SE001_b = `/images/static/talk/SE001_b/${SE001_b}.mp3`
             display = true
         } else {
             SE001_b = undefined
@@ -79,7 +79,7 @@ export default function TalkUintFormatting({
         if(stl_image != undefined && stl_image != -1){
             const check = talk_index.unit_id[stl_image]
             if(check && check.char_id != undefined){
-                stl = `./images/static/talk/${stl_image}/stl_chara_event_${stl_image.toString().padStart(8, '0')}out.png`
+                stl = `/images/static/talk/${stl_image}/stl_chara_event_${stl_image.toString().padStart(8, '0')}out.png`
             }
         }
 
@@ -136,7 +136,7 @@ export default function TalkUintFormatting({
                     break;
                 case 17:
                     if(talk_unit.SE001_b_id != undefined){
-                        SE001_b = `./images/static/talk/SE001_b/${talk_unit.SE001_b_id}.mp3`
+                        SE001_b = `/images/static/talk/SE001_b/${talk_unit.SE001_b_id}.mp3`
                         display = true
                     }
                     break;
@@ -311,10 +311,10 @@ export default function TalkUintFormatting({
                 if(check != undefined && check.char_id != undefined){
                     if(check.char_id != true ){
                         check = check.name.replace(/ /g, "").replace(/,/g, "").replace(/'/g, "").replace(/&/g, "")
-                        AV_index = `./images/static/characters/${check}/voice/${AV_index}.mp3`
+                        AV_index = `/images/static/characters/${check}/voice/${AV_index}.mp3`
                         display = true
                     } else if(check.char_id == true){
-                        AV_index = `./images/static/talk/SE002_b/${AV_index}.mp3`
+                        AV_index = `/images/static/talk/SE002_b/${AV_index}.mp3`
 
                     }
                 }

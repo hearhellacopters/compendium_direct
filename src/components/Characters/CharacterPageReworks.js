@@ -60,7 +60,7 @@ function CharacterPageReworks({
                 <LazyLoadComponent
                 scrollPosition={scrollPosition}
                 placeholder={<div className="infoholder" style={{ minHeight: "250px" }}>
-                                <img className="loadingbardots" src="./images/static/site/loading.gif"/>
+                                <img className="loadingbardots" src="/images/static/site/loading.gif"/>
                             </div>
                   }              
                 >
@@ -73,7 +73,7 @@ function CharacterPageReworks({
                           effect="opacity" 
                           alt={selected_chara.CharacterName} 
                           className={`faceicon`} 
-                          src={selected_chara.CharacterName == undefined ? "./images/static/icons/misc/Unknown_face.png" : `./images/static/characters/${selected_chara.CharacterName.replace(/ /g, "").replace(/,/g, "").replace(/'/g, "").replace(/&/g, "")}/face.png`} />
+                          src={selected_chara.CharacterName == undefined ? "/images/static/icons/misc/Unknown_face.png" : `/images/static/characters/${selected_chara.CharacterName.replace(/ /g, "").replace(/,/g, "").replace(/'/g, "").replace(/&/g, "")}/face.png`} />
                           <div className="facetext">
                             {selected_chara.CharacterName == "Cloud of Darkness" ? "CoD" : selected_chara.CharacterName == "Warrior of Light" ? "WoL" : selected_chara.CharacterName}
                           </div>

@@ -20,7 +20,7 @@ export default function NoticeFormatting({
     return (
         <div key={match.info_id} className="notice_holder clicky">
         <a className='notice_banner' rel="noreferrer noopener" target="_blank" href={urlloc+match.info_id}>
-            <div className='notice_icon whitecolor' style={{backgroundImage: `url(./images/static/icons/banners/notice/${match.info_category_id}.png)`}}>
+            <div className='notice_icon whitecolor' style={{backgroundImage: `url(/images/static/icons/banners/notice/${match.info_category_id}.png)`}}>
                 {notice_text[match.info_category_id]}
             </div>
             {jptoggledata == true ?

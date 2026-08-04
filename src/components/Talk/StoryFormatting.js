@@ -131,11 +131,11 @@ export default function StoryFormatting({
         className="talk_bar_holder talk_click"
         onClick={()=>make_active(talk)}
         >
-            <div style={{"background-image":"url(./images/static/icons/banners/talk/storybar_l.png)","--width":"33px"}} className="talk_storybar_l"/>
-            <div style={{"background-image":"url(./images/static/icons/banners/talk/storybar_c.png)"}}  className="talk_storybar_c">
+            <div style={{"background-image":"url(/images/static/icons/banners/talk/storybar_l.png)","--width":"33px"}} className="talk_storybar_l"/>
+            <div style={{"background-image":"url(/images/static/icons/banners/talk/storybar_c.png)"}}  className="talk_storybar_c">
             {ReplacerCharacter(`${format_cleaner(talk.battle_id != undefined?"\bTa":"\bTb")}`)}&nbsp;{ReplacerCharacter(talk.name)}
             </div>
-            <div style={{"background-image":"url(./images/static/icons/banners/talk/storybar_r.png)","--width":"33px"}}  className="talk_storybar_r"/>
+            <div style={{"background-image":"url(/images/static/icons/banners/talk/storybar_r.png)","--width":"33px"}}  className="talk_storybar_r"/>
             {scrollhere}
         </div>
         {active.id == talk.id ?
@@ -146,11 +146,11 @@ export default function StoryFormatting({
             className="talk_bar_holder non_talk" style={{marginBottom:"5px"}}
             >
                 
-                <div style={{"background-image":"url(./images/static/icons/banners/talk/storybar_l.png)","--width":"33px"}} className="talk_storybar_l"/>
-                <div style={{"background-image":"url(./images/static/icons/banners/talk/storybar_c.png)"}}  className="talk_storybar_c">
+                <div style={{"background-image":"url(/images/static/icons/banners/talk/storybar_l.png)","--width":"33px"}} className="talk_storybar_l"/>
+                <div style={{"background-image":"url(/images/static/icons/banners/talk/storybar_c.png)"}}  className="talk_storybar_c">
                 {ReplacerCharacter(`${format_cleaner(talk.battle_id != undefined?"\bTa":"\bTb")}`)}&nbsp;{ReplacerCharacter(talk.jpname)}
                 </div>
-                <div style={{"background-image":"url(./images/static/icons/banners/talk/storybar_r.png)","--width":"33px"}}  className="talk_storybar_r"/>
+                <div style={{"background-image":"url(/images/static/icons/banners/talk/storybar_r.png)","--width":"33px"}}  className="talk_storybar_r"/>
             </div>
             :""}
             {talk.char_ids != undefined ?

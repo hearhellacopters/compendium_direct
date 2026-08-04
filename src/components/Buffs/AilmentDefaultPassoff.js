@@ -109,7 +109,7 @@ export default function AilmentDefaultPassoff({
                                         <DefaultTippy content={
                                             cast.name === "" ? ReplacerCharacter(`Unknown ${cast.id}`,form) : ReplacerCharacter(cast.name,form)
                                         }>
-                                            <img alt={cast.name} className="clicky abilitybufficon" src={`./images/static/icons/buff/${ailment_level_icon(cast,buffs.arg1)}.png`} />
+                                            <img alt={cast.name} className="clicky abilitybufficon" src={`/images/static/icons/buff/${ailment_level_icon(cast,buffs.arg1)}.png`} />
                                         </DefaultTippy>
                                     </div>
                                 </li>
@@ -130,7 +130,7 @@ export default function AilmentDefaultPassoff({
                                             <DefaultTippy content={
                                                 cast.name === "" ? ReplacerCharacter(`Unknown ${cast.id}`,form) : ReplacerCharacter(cast.name,form)
                                             }>
-                                                <img alt={cast.name} className="clicky abilitybufficon" src={`./images/static/icons/buff/${cast.icon}.png`} />
+                                                <img alt={cast.name} className="clicky abilitybufficon" src={`/images/static/icons/buff/${cast.icon}.png`} />
                                             </DefaultTippy>
                                         </div>
                                     </li>

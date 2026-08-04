@@ -252,7 +252,7 @@ function AbilityDifFormatting({
     const playvoice =()=>{
         if(playingaudio != true && character_ability.voice_index != undefined){
             try {
-                const myAudioElement = new Audio(`./images/static/characters/${char_id[character_ability.charaID] && char_id[character_ability.charaID].CharacterURLName}/voice/${character_ability.voice_index}.mp3`)
+                const myAudioElement = new Audio(`/images/static/characters/${char_id[character_ability.charaID] && char_id[character_ability.charaID].CharacterURLName}/voice/${character_ability.voice_index}.mp3`)
                 myAudioElement.volume = volume
                 myAudioElement.style.display = "none"
                 myAudioElement.addEventListener("canplaythrough", (event) => {
@@ -285,7 +285,7 @@ function AbilityDifFormatting({
                         <CharacterFaceFormatting char_id={char_id} id={character_ability.charaID} loc={undefined} />
                         <div className="abilityiconholder" onClick={showmeraw}>
                             <div className="abilityurlholder">
-                                <img className="abilityicon" alt={Name} src={`./images/static/${IconURL}.png`} />
+                                <img className="abilityicon" alt={Name} src={`/images/static/${IconURL}.png`} />
                                 <div className={
                                     typeof use_num.full == "string" ? "abilityblspeed" :
                                         character_ability.FR == true && use_num.full != 0 ? "saholderg" :
@@ -541,7 +541,7 @@ function AbilityDifFormatting({
                                                 <Tippy content={
                                                     ReplacerCharacter(buffs.name && buffs.name,from)
                                                 }>
-                                                    <img alt={buffs.name} className={`clicky abilitybufficon `} src={`./images/static/icons/buff/${ailment_level_icon(buffs,buffs.aarg1)}.png`} />
+                                                    <img alt={buffs.name} className={`clicky abilitybufficon `} src={`/images/static/icons/buff/${ailment_level_icon(buffs,buffs.aarg1)}.png`} />
                                                 </Tippy>
                                             </div>
                                         </li>

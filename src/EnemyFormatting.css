@@ -234,7 +234,7 @@
 }
 
 .FGaugeMiddle {
-    background-image: url("./images/static/icons/buttons/frgauge/EnemyBarMiddle2.png");
+    background-image: url("/images/static/icons/buttons/frgauge/EnemyBarMiddle2.png");
     background-repeat: no-repeat;
     background-position: center;
     margin-left: 14px;
@@ -244,7 +244,7 @@
 }
 
 .FGaugeMiddleFade {
-    background-image: url("./images/static/icons/buttons/frgauge/EnemyBarMiddleFade2.png");
+    background-image: url("/images/static/icons/buttons/frgauge/EnemyBarMiddleFade2.png");
     background-repeat: no-repeat;
     background-position: center;
     margin-left: 14px;
@@ -558,7 +558,7 @@
 }
 
 .enemybuff {
-    background-image: url("./images/static/icons/buff/buff_personup_unframed.png");
+    background-image: url("/images/static/icons/buff/buff_personup_unframed.png");
     width: 32px;
     height: 32px;
     background-repeat: no-repeat;
@@ -570,7 +570,7 @@
 }
 
 .enemydebuff {
-    background-image: url("./images/static/icons/buff/debuff_persondown_unframed.png");
+    background-image: url("/images/static/icons/buff/debuff_persondown_unframed.png");
     width: 32px;
     height: 32px;
     background-repeat: no-repeat;
@@ -582,7 +582,7 @@
 }
 
 .enemygear {
-    background-image: url("./images/static/icons/roles/Role_EnemyGear.png");
+    background-image: url("/images/static/icons/roles/Role_EnemyGear.png");
     width: 32px;
     height: 32px;
     background-repeat: no-repeat;
@@ -609,7 +609,7 @@
 }
 
 .FireElement {
-    background-image: url("./images/static/icons/elements/Fire.png");
+    background-image: url("/images/static/icons/elements/Fire.png");
     width: 42px;
     height: 42px;
     display: inline-block;
@@ -619,7 +619,7 @@
 }
 
 .DarkElement {
-    background-image: url("./images/static/icons/elements/Dark.png");
+    background-image: url("/images/static/icons/elements/Dark.png");
     width: 42px;
     height: 42px;
     display: inline-block;
@@ -629,7 +629,7 @@
 }
 
 .EarthElement {
-    background-image: url("./images/static/icons/elements/Earth.png");
+    background-image: url("/images/static/icons/elements/Earth.png");
     width: 42px;
     height: 42px;
     display: inline-block;
@@ -639,7 +639,7 @@
 }
 
 .HolyElement {
-    background-image: url("./images/static/icons/elements/Holy.png");
+    background-image: url("/images/static/icons/elements/Holy.png");
     width: 42px;
     height: 42px;
     display: inline-block;
@@ -649,7 +649,7 @@
 }
 
 .IceElement {
-    background-image: url("./images/static/icons/elements/Ice.png");
+    background-image: url("/images/static/icons/elements/Ice.png");
     width: 42px;
     height: 42px;
     display: inline-block;
@@ -659,7 +659,7 @@
 }
 
 .ThunderElement {
-    background-image: url("./images/static/icons/elements/Thunder.png");
+    background-image: url("/images/static/icons/elements/Thunder.png");
     width: 42px;
     height: 42px;
     display: inline-block;
@@ -669,7 +669,7 @@
 }
 
 .WaterElement {
-    background-image: url("./images/static/icons/elements/Water.png");
+    background-image: url("/images/static/icons/elements/Water.png");
     width: 42px;
     height: 42px;
     display: inline-block;
@@ -679,7 +679,7 @@
 }
 
 .WindElement {
-    background-image: url("./images/static/icons/elements/Wind.png");
+    background-image: url("/images/static/icons/elements/Wind.png");
     width: 42px;
     height: 42px;
     display: inline-block;
@@ -712,61 +712,61 @@
 
 .attackresist2 {
     padding-top: 5px;
-    content: url("./images/static/icons/resist/2.png");
+    content: url("/images/static/icons/resist/2.png");
     margin-right: 20px;
 }
 
 .attackresist3 {
     padding-top: 5px;
-    content: url("./images/static/icons/resist/3.png");
+    content: url("/images/static/icons/resist/3.png");
     margin-right: 20px;
 }
 
 .attackresist4 {
     padding-top: 5px;
-    content: url("./images/static/icons/resist/4.png");
+    content: url("/images/static/icons/resist/4.png");
     margin-right: 20px;
 }
 
 .attackresist5 {
     padding-top: 5px;
-    content: url("./images/static/icons/resist/5.png");
+    content: url("/images/static/icons/resist/5.png");
     margin-right: 20px;
 }
 
 .attackresist6 {
     padding-top: 5px;
-    content: url("./images/static/icons/resist/6.png");
+    content: url("/images/static/icons/resist/6.png");
     margin-right: 20px;
 }
 
 .resist2 {
     padding-top: 5px;
-    content: url("./images/static/icons/resist/2.png");
+    content: url("/images/static/icons/resist/2.png");
 }
 
 .resist3 {
     padding-top: 5px;
-    content: url("./images/static/icons/resist/3.png");
+    content: url("/images/static/icons/resist/3.png");
 }
 
 .resist4 {
     padding-top: 5px;
-    content: url("./images/static/icons/resist/4.png");
+    content: url("/images/static/icons/resist/4.png");
 }
 
 .resist5 {
     padding-top: 5px;
-    content: url("./images/static/icons/resist/5.png");
+    content: url("/images/static/icons/resist/5.png");
 }
 
 .resist6 {
     padding-top: 5px;
-    content: url("./images/static/icons/resist/6.png");
+    content: url("/images/static/icons/resist/6.png");
 }
 
 .resist2s {
-    content: url("./images/static/icons/resist/2.png");
+    content: url("/images/static/icons/resist/2.png");
     width: 24px;
     height: 24px;
     display: inline-block;
@@ -775,7 +775,7 @@
 }
 
 .resist3s {
-    content: url("./images/static/icons/resist/3.png");
+    content: url("/images/static/icons/resist/3.png");
     width: 24px;
     height: 24px;
     display: inline-block;
@@ -784,7 +784,7 @@
 }
 
 .resist4s {
-    content: url("./images/static/icons/resist/4.png");
+    content: url("/images/static/icons/resist/4.png");
     width: 24px;
     height: 24px;
     display: inline-block;
@@ -793,7 +793,7 @@
 }
 
 .resist5s {
-    content: url("./images/static/icons/resist/5.png");
+    content: url("/images/static/icons/resist/5.png");
     width: 24px;
     height: 24px;
     display: inline-block;
@@ -802,7 +802,7 @@
 }
 
 .resist6s {
-    content: url("./images/static/icons/resist/6.png");
+    content: url("/images/static/icons/resist/6.png");
     width: 24px;
     height: 24px;
     display: inline-block;
@@ -966,7 +966,7 @@
 }
 
 .all_enemies {
-    background-image: url("./images/static/icons/misc/All_Enemies.png");
+    background-image: url("/images/static/icons/misc/All_Enemies.png");
     width: 30px;
     height: 20px;
     display: inline-block;
@@ -978,7 +978,7 @@
 }
 
 .all_party {
-    background-image: url("./images/static/icons/misc/All_Party.png");
+    background-image: url("/images/static/icons/misc/All_Party.png");
     width: 30px;
     height: 20px;
     display: inline-block;
@@ -1159,7 +1159,7 @@
         z-index: 500;
         color: white;
         text-decoration: none;
-        background-image: url("./images/static/icons/misc/back.png");
+        background-image: url("/images/static/icons/misc/back.png");
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;

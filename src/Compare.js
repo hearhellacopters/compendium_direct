@@ -200,7 +200,7 @@ const Compare = () => {
                 <div className="buffsholder">
 
                     {master_index == undefined ?
-                        <h1><img className="loadingbardots" src={"./images/static/site/loading.gif"}></img></h1>
+                        <h1><img className="loadingbardots" src={"/images/static/site/loading.gif"}></img></h1>
                         :
                         <div className="newmenu">
                             <div className="levelcontainerDev select-container" onClick={hidebutton}>
@@ -333,7 +333,7 @@ const Compare = () => {
                         compare == "Commands" ?
                             <>
                                 <h1>
-                                    <img className="loadingbardots" src={"./images/static/site/loading.gif"}></img>
+                                    <img className="loadingbardots" src={"/images/static/site/loading.gif"}></img>
 
                                 </h1>
                                 Please wait while both full GL and JP Ability data download

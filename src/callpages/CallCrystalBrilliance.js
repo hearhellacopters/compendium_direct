@@ -88,7 +88,7 @@ export default function CallCrystalBrilliance(){
                 master_index={master_index}
             />
             :
-            <div className=""><h1><img className="loadingbardots" src={"./images/static/site/loading.gif"}></img></h1></div>
+            <div className=""><h1><img className="loadingbardots" src={"/images/static/site/loading.gif"}></img></h1></div>
     )
 
 }

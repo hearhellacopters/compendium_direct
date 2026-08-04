@@ -918,7 +918,7 @@ function EquipmentPassiveAbility ({
               key={passive.pa_id}
               scrollPosition={scrollPosition}
               placeholder={<div className="buffunit infoholder" style={{ minHeight: `250px` }}>
-                <img className="loadingbardots" src="./images/static/site/loading.gif"/>
+                <img className="loadingbardots" src="/images/static/site/loading.gif"/>
               </div>
                 }
               >

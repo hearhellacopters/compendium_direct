@@ -1,55 +1,55 @@
 /*Filter icons*/
 
 .abuffButton {
-    background-image: url("./images/static/icons/geartype/abuff.png");
+    background-image: url("/images/static/icons/geartype/abuff.png");
 }
 
 .burstButton {
-    background-image: url("./images/static/icons/geartype/bt.png");
+    background-image: url("/images/static/icons/geartype/bt.png");
 }
 
 .callsButton {
-    background-image: url("./images/static/icons/geartype/calls.png");
+    background-image: url("/images/static/icons/geartype/calls.png");
 }
 
 .exButton {
-    background-image: url("./images/static/icons/geartype/ex.png");
+    background-image: url("/images/static/icons/geartype/ex.png");
 }
 
 .ldButton {
-    background-image: url("./images/static/icons/geartype/ld.png");
+    background-image: url("/images/static/icons/geartype/ld.png");
 }
 
 .startingButton {
-    background-image: url("./images/static/icons/geartype/cl1.png");
+    background-image: url("/images/static/icons/geartype/cl1.png");
 }
 
 .s20Button {
-    background-image: url("./images/static/icons/geartype/lv20.png");
+    background-image: url("/images/static/icons/geartype/lv20.png");
 }
 
 .buffsButton {
-    background-image: url("./images/static/icons/geartype/buffs.png");
+    background-image: url("/images/static/icons/geartype/buffs.png");
 }
 
 .directbuffsButton {
-    background-image: url("./images/static/icons/geartype/buffs_direct.png");
+    background-image: url("/images/static/icons/geartype/buffs_direct.png");
 }
 
 .directgearbutton {
-    background-image: url("./images/static/icons/geartype/gear_direct.png");
+    background-image: url("/images/static/icons/geartype/gear_direct.png");
 }
 
 .debuffsButton {
-    background-image: url("./images/static/icons/geartype/debuffs.png");
+    background-image: url("/images/static/icons/geartype/debuffs.png");
 }
 
 .bstateButton {
-    background-image: url("./images/static/icons/geartype/bstate.png");
+    background-image: url("/images/static/icons/geartype/bstate.png");
 }
 
 .fullbutton {
-    background-image: url("./images/static/icons/geartype/full.png");
+    background-image: url("/images/static/icons/geartype/full.png");
 }
 
 .hidepad {
@@ -83,7 +83,7 @@
 }
 
 .BonusHPDamage {
-    background-image: url("./images/static/icons/misc/HPDamageBonus.png");
+    background-image: url("/images/static/icons/misc/HPDamageBonus.png");
     background-repeat: no-repeat;
     background-size: contain;
     display: block !important;
@@ -103,7 +103,7 @@
 }
 
 .fieldeffects {
-    background-image: url("./images/static/icons/misc/fieldeffects.png");
+    background-image: url("/images/static/icons/misc/fieldeffects.png");
     background-repeat: no-repeat;
     background-size: contain;
     height: 32px;
@@ -180,107 +180,107 @@ hr {
 }
 
 .Breakbutton {
-    background-image: url("./images/static/icons/geartype/break.png");
+    background-image: url("/images/static/icons/geartype/break.png");
     background-size: contain;
 }
 
 .BreakCancelbutton {
-    background-image: url("./images/static/icons/geartype/unbreak.png");
+    background-image: url("/images/static/icons/geartype/unbreak.png");
     background-size: contain;
 }
 
 .IgnoreDEFbutton {
-    background-image: url("./images/static/icons/geartype/defignore.png");
+    background-image: url("/images/static/icons/geartype/defignore.png");
     background-size: contain;
 }
 
 .Cleansebutton {
-    background-image: url("./images/static/icons/geartype/cleanse.png");
+    background-image: url("/images/static/icons/geartype/cleanse.png");
     background-size: contain;
 }
 
 .Delaybutton {
-    background-image: url("./images/static/icons/geartype/delay.png");
+    background-image: url("/images/static/icons/geartype/delay.png");
     background-size: contain;
 }
 
 .Delay3button {
-    background-image: url("./images/static/icons/geartype/delay3.png");
+    background-image: url("/images/static/icons/geartype/delay3.png");
     background-size: contain;
 }
 
 .Deletebutton {
-    background-image: url("./images/static/icons/geartype/delete.png");
+    background-image: url("/images/static/icons/geartype/delete.png");
     background-size: contain;
 }
 
 .Fasterbutton {
-    background-image: url("./images/static/icons/geartype/faster.png");
+    background-image: url("/images/static/icons/geartype/faster.png");
     background-size: contain;
 }
 
 .Slowerbutton {
-    background-image: url("./images/static/icons/geartype/slower.png");
+    background-image: url("/images/static/icons/geartype/slower.png");
     background-size: contain;
 }
 
 .Dispelbutton {
-    background-image: url("./images/static/icons/geartype/dispel.png");
+    background-image: url("/images/static/icons/geartype/dispel.png");
     background-size: contain;
 }
 
 .Healsbutton {
-    background-image: url("./images/static/icons/geartype/heal.png");
+    background-image: url("/images/static/icons/geartype/heal.png");
     background-size: contain;
 }
 
 .BatteryGearbutton {
-    background-image: url("./images/static/icons/geartype/Battery.png");
+    background-image: url("/images/static/icons/geartype/Battery.png");
     background-size: contain;
 }
 
 .Revivebutton {
-    background-image: url("./images/static/icons/geartype/revive.png");
+    background-image: url("/images/static/icons/geartype/revive.png");
     background-size: contain;
 }
 
 .Buff_ExtensionGearbutton {
-    background-image: url("./images/static/icons/geartype/BuffExt.png");
+    background-image: url("/images/static/icons/geartype/BuffExt.png");
     background-size: contain;
 }
 
 .Increasebutton {
-    background-image: url("./images/static/icons/geartype/increaseuse.png");
+    background-image: url("/images/static/icons/geartype/increaseuse.png");
     background-size: contain;
 }
 
 .Increase2button {
-    background-image: url("./images/static/icons/geartype/increaseuse2.png");
+    background-image: url("/images/static/icons/geartype/increaseuse2.png");
     background-size: contain;
 }
 
 .brvhpupgradebutton {
-    background-image: url("./images/static/icons/geartype/BRVHPUpgrade.png");
+    background-image: url("/images/static/icons/geartype/BRVHPUpgrade.png");
     background-size: contain;
 }
 
 .Turn_Manipulator {
-    background-image: url("./images/static/icons/geartype/Ally_Turn.png");
+    background-image: url("/images/static/icons/geartype/Ally_Turn.png");
     background-size: contain;
 }
 
 .Instantbutton {
-    background-image: url("./images/static/icons/geartype/instant.png");
+    background-image: url("/images/static/icons/geartype/instant.png");
     background-size: contain;
 }
 
 .HPHarmbutton {
-    background-image: url("./images/static/icons/geartype/HPHarm.png");
+    background-image: url("/images/static/icons/geartype/HPHarm.png");
     background-size: contain;
 }
 
 .Freebutton {
-    background-image: url("./images/static/icons/geartype/free.png");
+    background-image: url("/images/static/icons/geartype/free.png");
     background-size: contain;
 }
 
@@ -546,7 +546,7 @@ hr {
 
 .saholder {
     display: table;
-    background-image: url("./images/static/icons/misc/saholder.png");
+    background-image: url("/images/static/icons/misc/saholder.png");
     z-index: 2;
     height: 28px;
     width: 42px;
@@ -558,7 +558,7 @@ hr {
 
 .saholder_crystal {
     display: table;
-    background-image: url("./images/static/icons/misc/saholder_crystal.png");
+    background-image: url("/images/static/icons/misc/saholder_crystal.png");
     z-index: 2;
     height: 35px;
     width: 52px;
@@ -579,7 +579,7 @@ hr {
 
 .saholderg {
     display: table;
-    background-image: url("./images/static/icons/misc/saholderg.png");
+    background-image: url("/images/static/icons/misc/saholderg.png");
     z-index: 2;
     height: 28px;
     width: 42px;
@@ -769,7 +769,7 @@ hr {
     height: 34px;
     border: #e2c63b;
     border-style: solid;
-    background-image: url(".//images/static/icons/misc/toggle.png");
+    background-image: url("/images/static/icons/misc/toggle.png");
     border-radius: 34px;
     margin-left: calc(50% - 30px);
     margin-right: calc(50% - 30px);
@@ -785,7 +785,7 @@ hr {
     height: 34px;
     border: #e2c63b;
     border-style: solid;
-    background-image: url(".//images/static/icons/misc/toggle.png");
+    background-image: url("/images/static/icons/misc/toggle.png");
     border-radius: 34px;
     -moz-filter: drop-shadow(2px 2px 2px #222);
     -webkit-filter: drop-shadow(2px 2px 2px #222);
@@ -817,7 +817,7 @@ hr {
     height: 34px;
     border: #e2c63b;
     border-style: solid;
-    background-image: url(".//images/static/icons/misc/toggle.png");
+    background-image: url("/images/static/icons/misc/toggle.png");
     border-radius: 34px;
     margin-left: calc(50% - 30px);
     margin-right: calc(50% - 30px);

@@ -1,11 +1,7 @@
 {
   "name": "dissidiacompendium",
   "version": "7.1.0",
-  "homepage": "./",
-  "main": "build/electron.js",
-  "description": "Dissidia Compendium Offline",
-  "author": "HearHellacopters",
-  "note": "build in \"type\": \"module\" for electron",
+  "homepage": "https://dissidiacompendium.com/",
   "private": true,
   "dependencies": {
     "@pqina/flip": "^1.7.7",
@@ -128,8 +124,9 @@
     "null-loader": "^4.0.1",
     "wait-on": "^8.0.1"
   },
-  "overrides": {
-    "@svgr/webpack": "$@svgr/webpack",
-    "semver": "7.5.3"
+  "allowScripts": {
+    "core-js@3.49.0": true,
+    "core-js-pure@3.49.0": true,
+    "electron@33.4.11": true
   }
 }

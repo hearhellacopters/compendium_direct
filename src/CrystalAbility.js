@@ -327,8 +327,8 @@ function CrystalAbility({
               </div>}
               <div className="similarbanner"><div className='infoclick' onClick={() => { setshowmap((preValue) => !preValue) }}>Map{showmap ? <TiArrowSortedUp className="uparrow" /> : <TiArrowSortedDown className="downarrow" />}</div></div>
               {showmap == false ? <br></br> : 
-              <a target="_blank" rel="noreferrer" href={`./images/static/icons/cry_points/map.png`}>
-                <img className="infoimg withshadow clicky" src={`./images/static/icons/cry_points/map.png`} />
+              <a target="_blank" rel="noreferrer" href={`/images/static/icons/cry_points/map.png`}>
+                <img className="infoimg withshadow clicky" src={`/images/static/icons/cry_points/map.png`} />
               </a>
               }
               <div className="similarbanner">Where to find</div>
@@ -401,7 +401,7 @@ function CrystalAbility({
                     scrollPosition={scrollPosition}
                     placeholder={<div className="buffunit">
                                     <div className="infoholder" style={{ minHeight: "220px" }}>
-                                    <img className="loadingbardots" src="./images/static/site/loading.gif"/>
+                                    <img className="loadingbardots" src="/images/static/site/loading.gif"/>
                                     </div>
                                 </div>}
                     >

@@ -318,7 +318,7 @@ function CharacterPassiveExpPageFormatting({
                 key={passive.cla_id}
                 scrollPosition={scrollPosition}
                 placeholder={<div className="buffunit infoholder" style={{ minHeight: `250px` }}>
-                  <img className="loadingbardots" src="./images/static/site/loading.gif"/>
+                  <img className="loadingbardots" src="/images/static/site/loading.gif"/>
                 </div>
                   }
                 >
@@ -339,7 +339,7 @@ function CharacterPassiveExpPageFormatting({
                 key={passive.cla_id}
                 scrollPosition={scrollPosition}
                 placeholder={<div className="buffunit infoholder" style={{ minHeight: `250px` }}>
-                  <img className="loadingbardots" src="./images/static/site/loading.gif"/>
+                  <img className="loadingbardots" src="/images/static/site/loading.gif"/>
                 </div>
                   }
                 >

@@ -1,17 +1,17 @@
 .lefttagholder {
     height: 32px;
     width: 44px;
-    background-image: url("./images/static/icons/banners/left.png");
+    background-image: url("/images/static/icons/banners/left.png");
 }
 
 .righttagholder {
-    background-image: url("./images/static/icons/banners/right.png");
+    background-image: url("/images/static/icons/banners/right.png");
     height: 32px;
     width: 43px;
 }
 
 .statcenter {
-    background-image: url("./images/static/icons/banners/center.png");
+    background-image: url("/images/static/icons/banners/center.png");
     text-shadow: none;
     color: black;
     text-align: center;
@@ -351,7 +351,7 @@
     padding-right: 10px;
 }
 .greenbutton {
-    background-image: url("./images/static/icons/buttons/svg/green-circle.svg");
+    background-image: url("/images/static/icons/buttons/svg/green-circle.svg");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;

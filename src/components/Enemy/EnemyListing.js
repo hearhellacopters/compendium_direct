@@ -30,21 +30,40 @@ function EnemyListing({
                     effect="opacity" 
                     className="enemycard" 
                     alt={match.Name} 
-                    src={"./images/static/enemy/face/" + match.url}/>
+                    src={"/images/static/enemy/face/" + match.url}/>
                 </li>
             </Tippy>
-            <Tippy content="JP Only" className="tooltip" >
-                <span className={match.JPOnly == true ? "smallJPflag" : ""}></span>
-            </Tippy>
-            <Tippy content="Lufenia" className="tooltip" >
-                <span className={match.LufeniaFlag == true && match.ShinryuFlag != true ? "lufflag" : ""}></span>
-            </Tippy>
-            <Tippy content="Lufenia+" className="tooltip" >
-                <span className={match.LufeniaPlusFlag == true && match.ShinryuFlag != true ? "lufplusflag" : ""}></span>
-            </Tippy>
-            <Tippy content="Shinryu" className="tooltip" >
-                <span className={match.ShinryuFlag == true ? "shinflag" : ""}></span>
-            </Tippy>
+            
+            {(()=>{
+                if(match.JPOnly == true){
+                    return (
+                        <Tippy content="JP Only" className="tooltip" >
+                            <span className="smallJPflag"></span>
+                        </Tippy>
+                    )
+                }
+            })()}
+            {(()=>{
+                if(match.LufeniaFlag == true && match.ShinryuFlag != true ){
+                    return (
+                        <Tippy content="Lufenia" className="tooltip" >
+                            <span className="lufflag"></span>
+                        </Tippy>
+                    )
+                } else if(match.LufeniaPlusFlag == true && match.ShinryuFlag != true){
+                    return (
+                        <Tippy content="Lufenia+" className="tooltip" >
+                            <span className="lufplusflag"></span>
+                        </Tippy>
+                    )
+                } else if(match.ShinryuFlag == true){
+                    return (
+                        <Tippy content="Shinryu" className="tooltip" >
+                            <span className="shinflag"></span>
+                        </Tippy>
+                    )
+                }
+            })()}
         </Link>
     )
 

@@ -1,21 +1,21 @@
 .DailyMission{
-    background-image: url("./images/static/banners/icons/mission/Daily.png");
+    background-image: url("/images/static/banners/icons/mission/Daily.png");
 }
 
 .PlayerMission{
-    background-image: url("./images/static/banners/icons/mission/Player.png");
+    background-image: url("/images/static/banners/icons/mission/Player.png");
 }
 
 .PanelMission {
-    background-image: url("./images/static/banners/icons/mission/Panel.png");
+    background-image: url("/images/static/banners/icons/mission/Panel.png");
 }
 
 .UltimaMission {
-    background-image: url("./images/static/banners/icons/mission/Ultima.png");
+    background-image: url("/images/static/banners/icons/mission/Ultima.png");
 }
 
 .SingleMission {
-    background-image: url("./images/static/banners/icons/mission/Single.png");
+    background-image: url("/images/static/banners/icons/mission/Single.png");
 }
 
 .panel_dyn{

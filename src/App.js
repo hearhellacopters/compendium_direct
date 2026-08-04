@@ -271,14 +271,13 @@ export default function App() {
       <Helmet>
         <title>Dissidia Compendium</title>
       </Helmet>
-      <HashRouter >
+      <BrowserRouter >
         <header id="header-bg">
           <div className="headerimagelink" >
             {DevSwitch == true ?
-              ""
-              //<div className="devfloat">
-              // DEV
-              //</div>
+              <div className="devfloat">
+               DEV
+              </div>
               : ""}
             <div className="minifloat clicky noselect" onClick={jponlybutton}>
               {devSite == true ?
@@ -549,7 +548,6 @@ export default function App() {
               <Suspense fallback={<Loading />}>
                 <Routes>
                   <Route path="/" exact element={<Home />} />
-                  <Route path="/index" exact element={<Home />} />
                   <Route path="/events" exact element={<Events />} />
                   <Route path="/events/banners" exact element={<Banners />} />
                   <Route path="/events/missions" exact element={<Missions />} />
@@ -602,7 +600,7 @@ export default function App() {
                   <Route path="/bestiary/enemies/:id/:level" element={<EnemyHandoff />} />
                   <Route path="/bestiary/enemies/:id/:level/:abilities" element={<EnemyHandoff />} />
                   <Route path="/404" element={<NotFoundPage />} />
-                  <Route path="/credits" element={<Credits />} />
+                  <Route path="/credits" element={<Credits setdevSite={setdevSite} />} />
                   <Route path="/log" element={<Log />} />
                   <Route path="/guide" element={<Navigate replace to="/" />} />
                   <Route path='*' element={<NotFoundPage />} />
@@ -613,7 +611,7 @@ export default function App() {
           }
         </div>
         <Footer devSite={devSite} setdevSite={setdevSite} />
-      </HashRouter>
+      </BrowserRouter>
     </HelmetProvider>
   );
 

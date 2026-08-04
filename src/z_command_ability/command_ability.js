@@ -573,7 +573,7 @@ function CommandAbility ({
                             scrollPosition={scrollPosition}
                             placeholder={<div className="buffunit">
                                             <div className="infoholder" style={{ minHeight: "220px" }}>
-                                            <img className="loadingbardots" src="./images/static/site/loading.gif"/>
+                                            <img className="loadingbardots" src="/images/static/site/loading.gif"/>
                                             </div>
                                         </div>}
                         >

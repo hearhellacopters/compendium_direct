@@ -314,7 +314,7 @@ function AilmentDifFormatting({
                         <div className="faceandiconholder">
                             <CharacterFaceFormatting char_id={char_id} id={buff_new.chara_id}/>
                             <div onClick={showmeraw} className="infoiconholder2">
-                                <img className="bufficon" alt={buff_new.name && buff_new.name} src={`./images/static/icons/buff/${ailment_level_icon(buff_new,currentlevel)}.png`} />
+                                <img className="bufficon" alt={buff_new.name && buff_new.name} src={`/images/static/icons/buff/${ailment_level_icon(buff_new,currentlevel)}.png`} />
                             </div>
                         </div>
                     </div>
@@ -327,7 +327,7 @@ function AilmentDifFormatting({
                     <div className={character_face != true ? "flexdisplay" :"infotitle2"}>
                         {character_face != true?
                             <div onClick={showmeraw} className="solo_buff_icon">
-                                <img className="bufficon2" alt={buff_new.name && buff_new.name} src={`./images/static/icons/buff/${ailment_level_icon(buff_new,currentlevel)}.png`} />
+                                <img className="bufficon2" alt={buff_new.name && buff_new.name} src={`/images/static/icons/buff/${ailment_level_icon(buff_new,currentlevel)}.png`} />
                             </div>
                         :
                         ""

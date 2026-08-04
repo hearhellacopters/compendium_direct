@@ -75,7 +75,7 @@ export default function CommandAbilityStandalone ({
                         <div className="enemyabilityiconholder">
                             <Tippy content="Display Raw" className="tooltip" >
                                 <div className="faceandiconholder clicky" onClick={() => showmeraw(showraw)}>
-                                    <img className="abilityicon" alt={Name} src={`./images/static/${IconURL}.png`} />
+                                    <img className="abilityicon" alt={Name} src={`/images/static/${IconURL}.png`} />
                                 </div>
                             </Tippy>
                         </div> : ""}
@@ -197,7 +197,7 @@ export default function CommandAbilityStandalone ({
                                         <Tippy content={
                                             buffs.name && buffs.name
                                         }>
-                                            <img alt={buffs.name} className={`clicky abilitybufficon `} src={`./images/static/icons/buff/${ailment_level_icon(buffs,buffs.aarg1)}.png`} />
+                                            <img alt={buffs.name} className={`clicky abilitybufficon `} src={`/images/static/icons/buff/${ailment_level_icon(buffs,buffs.aarg1)}.png`} />
                                         </Tippy>
                                     </div>
                                 </li>

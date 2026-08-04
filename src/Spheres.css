@@ -1,29 +1,29 @@
 .aSpheresButton {
-    background-image: url("./images/static/icons/spheres/SphereLetterA.png");
+    background-image: url("/images/static/icons/spheres/SphereLetterA.png");
 }
 
 .bSpheresButton {
-    background-image: url("./images/static/icons/spheres/SphereLetterB.png");
+    background-image: url("/images/static/icons/spheres/SphereLetterB.png");
 }
 
 .cSpheresButton {
-    background-image: url("./images/static/icons/spheres/SphereLetterC.png");
+    background-image: url("/images/static/icons/spheres/SphereLetterC.png");
 }
 
 .dSpheresButton {
-    background-image: url("./images/static/icons/spheres/SphereLetterD.png");
+    background-image: url("/images/static/icons/spheres/SphereLetterD.png");
 }
 
 .eSpheresButton {
-    background-image: url("./images/static/icons/spheres/SphereLetterE.png");
+    background-image: url("/images/static/icons/spheres/SphereLetterE.png");
 }
 
 .exSpheresButton {
-    background-image: url("./images/static/icons/spheres/SphereEX.png");
+    background-image: url("/images/static/icons/spheres/SphereEX.png");
 }
 
 .rfSpheresButton {
-    background-image: url("./images/static/icons/spheres/SphereRF.png");
+    background-image: url("/images/static/icons/spheres/SphereRF.png");
 }
 
 .spheresbutton {

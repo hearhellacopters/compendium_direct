@@ -6,10 +6,10 @@ export default function DirectEventImages ({
 }) {
 
     const [selected, setselected] = useState(images[0])
-    const [url, seturl] = useState(`./images/static/banners/${ver.toLowerCase()}/event/eventtitle${images[0]}out.png`)
+    const [url, seturl] = useState(`/images/static/banners/${ver.toLowerCase()}/event/eventtitle${images[0]}out.png`)
 
     useEffect(() => {
-        seturl(`./images/static/banners/${ver.toLowerCase()}/event/eventtitle${selected}out.png`)
+        seturl(`/images/static/banners/${ver.toLowerCase()}/event/eventtitle${selected}out.png`)
     }, [selected, ver])
 
 

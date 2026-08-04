@@ -657,7 +657,7 @@ function CharacterCrystalPassivesPage ({
                 scrollPosition={scrollPosition}
                 placeholder={<div className="buffunit">
                                 <div className="infoholder" style={{ minHeight: "220px" }}>
-                                <img className="loadingbardots" src="./images/static/site/loading.gif"/>
+                                <img className="loadingbardots" src="/images/static/site/loading.gif"/>
                                 </div>
                             </div>}
                 >
@@ -682,7 +682,7 @@ function CharacterCrystalPassivesPage ({
                   key={passive.cac_id}
                   scrollPosition={scrollPosition}
                   placeholder={<div className="buffunit infoholder" style={{ minHeight: `250px` }}>
-                    <img className="loadingbardots" src="./images/static/site/loading.gif"/>
+                    <img className="loadingbardots" src="/images/static/site/loading.gif"/>
                   </div>
                     }
                   >
@@ -699,7 +699,7 @@ function CharacterCrystalPassivesPage ({
                     key={passive.cac_id}
                     scrollPosition={scrollPosition}
                     placeholder={<div className="buffunit infoholder" style={{ minHeight: `250px` }}>
-                      <img className="loadingbardots" src="./images/static/site/loading.gif"/>
+                      <img className="loadingbardots" src="/images/static/site/loading.gif"/>
                     </div>
                       }
                     >
@@ -716,7 +716,7 @@ function CharacterCrystalPassivesPage ({
                       key={passive.cac_id}
                       scrollPosition={scrollPosition}
                       placeholder={<div className="buffunit infoholder" style={{ minHeight: `250px` }}>
-                        <img className="loadingbardots" src="./images/static/site/loading.gif"/>
+                        <img className="loadingbardots" src="/images/static/site/loading.gif"/>
                       </div>
                         }
                       >
@@ -746,7 +746,7 @@ function CharacterCrystalPassivesPage ({
                         key={passive.cac_id}
                         scrollPosition={scrollPosition}
                         placeholder={<div className="buffunit infoholder" style={{ minHeight: `250px` }}>
-                          <img className="loadingbardots" src="./images/static/site/loading.gif"/>
+                          <img className="loadingbardots" src="/images/static/site/loading.gif"/>
                         </div>
                           }
                         >
@@ -764,7 +764,7 @@ function CharacterCrystalPassivesPage ({
                           scrollPosition={scrollPosition}
                           placeholder={<div className="buffunit">
                                           <div className="infoholder" style={{ minHeight: "220px" }}>
-                                          <img className="loadingbardots" src="./images/static/site/loading.gif"/>
+                                          <img className="loadingbardots" src="/images/static/site/loading.gif"/>
                                           </div>
                                       </div>}
                           >
@@ -790,7 +790,7 @@ function CharacterCrystalPassivesPage ({
                             scrollPosition={scrollPosition}
                             placeholder={<div className="buffunit">
                                             <div className="infoholder" style={{ minHeight: "220px" }}>
-                                            <img className="loadingbardots" src="./images/static/site/loading.gif"/>
+                                            <img className="loadingbardots" src="/images/static/site/loading.gif"/>
                                             </div>
                                         </div>}
                             >
@@ -816,7 +816,7 @@ function CharacterCrystalPassivesPage ({
                               scrollPosition={scrollPosition}
                               placeholder={<div className="buffunit">
                                               <div className="infoholder" style={{ minHeight: "220px" }}>
-                                              <img className="loadingbardots" src="./images/static/site/loading.gif"/>
+                                              <img className="loadingbardots" src="/images/static/site/loading.gif"/>
                                               </div>
                                           </div>}
                               >
@@ -843,7 +843,7 @@ function CharacterCrystalPassivesPage ({
                                 scrollPosition={scrollPosition}
                                 placeholder={<div className="buffunit">
                                                 <div className="infoholder" style={{ minHeight: "220px" }}>
-                                                <img className="loadingbardots" src="./images/static/site/loading.gif"/>
+                                                <img className="loadingbardots" src="/images/static/site/loading.gif"/>
                                                 </div>
                                             </div>}
                                 >

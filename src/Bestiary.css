@@ -70,7 +70,7 @@
 }
 
 .smallJPflag {
-    content: url("./images/static/icons/misc/japan.svg");
+    content: url("/images/static/icons/misc/japan.svg");
     text-decoration: none;
     z-index: 2;
     position: absolute;
@@ -84,7 +84,7 @@
 }
 
 .lufflag {
-    content: url("./images/static/icons/misc/luf.png");
+    content: url("/images/static/icons/misc/luf.png");
     text-decoration: none;
     z-index: 2;
     position: absolute;
@@ -98,7 +98,7 @@
 }
 
 .shinflag {
-    content: url("./images/static/icons/misc/Shinryu2.png");
+    content: url("/images/static/icons/misc/Shinryu2.png");
     text-decoration: none;
     z-index: 2;
     position: absolute;
@@ -112,7 +112,7 @@
 }
 
 .lufplusflag {
-    content: url("./images/static/icons/misc/luf+.png");
+    content: url("/images/static/icons/misc/luf+.png");
     text-decoration: none;
     z-index: 2;
     position: absolute;
@@ -182,51 +182,51 @@
 }
 
 .lufeniaPlusButton {
-    background-image: url("./images/static/enemy/types/Lufenia+2.png");
+    background-image: url("/images/static/enemy/types/Lufenia+2.png");
 }
 
 .dimensionButton {
-    background-image: url("./images/static/enemy/types/Dimension2.png");
+    background-image: url("/images/static/enemy/types/Dimension2.png");
 }
 
 .shinryuButton {
-    background-image: url("./images/static/enemy/types/Shinryu2.png");
+    background-image: url("/images/static/enemy/types/Shinryu2.png");
 }
 
 .spiritusButton {
-    background-image: url("./images/static/enemy/types/Spiritus.png");
+    background-image: url("/images/static/enemy/types/Spiritus.png");
 }
 
 .lufeniaButton {
-    background-image: url("./images/static/enemy/types/Lufenia2.png");
+    background-image: url("/images/static/enemy/types/Lufenia2.png");
 }
 
 .reverseButton {
-    background-image: url("./images/static/enemy/types/Reverse.png");
+    background-image: url("/images/static/enemy/types/Reverse.png");
 }
 
 .lunaticButton {
-    background-image: url("./images/static/enemy/types/Lunatic.png");
+    background-image: url("/images/static/enemy/types/Lunatic.png");
 }
 
 .hereticButton {
-    background-image: url("./images/static/enemy/types/Heretic.png");
+    background-image: url("/images/static/enemy/types/Heretic.png");
 }
 
 .jpButton {
-    background-image: url("./images/static/enemy/types/JPOnly.png");
+    background-image: url("/images/static/enemy/types/JPOnly.png");
 }
 
 .DetailsButton {
-    background-image: url("./images/static/enemy/types/Details.png");
+    background-image: url("/images/static/enemy/types/Details.png");
 }
 
 .glButton {
-    background-image: url("./images/static/enemy/types/GLOnly.png");
+    background-image: url("/images/static/enemy/types/GLOnly.png");
 }
 
 .manikinButton {
-    background-image: url("./images/static/enemy/types/Manikin.png");
+    background-image: url("/images/static/enemy/types/Manikin.png");
 }
 
 @media screen and (max-width: 800px) {

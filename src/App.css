@@ -23,7 +23,7 @@ a:-moz-focusring {
 }
 
 .Locked {
-  content: url("./images/static/icons/misc/locked.png");
+  content: url("/images/static/icons/misc/locked.png");
   background-size: contain;
   width: 1.2em;
   height: 1.2em;
@@ -36,7 +36,7 @@ a:-moz-focusring {
 }
 
 .Unlocked {
-  content: url("./images/static/icons/misc/unlocked.png");
+  content: url("/images/static/icons/misc/unlocked.png");
   background-size: contain;
   width: 1.2em;
   height: 1.2em;
@@ -49,7 +49,7 @@ a:-moz-focusring {
 }
 
 .Perfect {
-  background-image: url("./images/static/icons/misc/perfect.png");
+  background-image: url("/images/static/icons/misc/perfect.png");
   background-size: contain;
   width: 4em;
   height: 1.2em;
@@ -90,7 +90,7 @@ a:-moz-focusring {
   width: 106px;
   height: 80px;
   opacity: 0.3;
-  background-image: url("./images/static/icons/misc/force.png");
+  background-image: url("/images/static/icons/misc/force.png");
   background-repeat: no-repeat;
   background-position: 50% 0;
   background-size: cover;
@@ -189,7 +189,7 @@ a:-moz-focusring {
 }
 
 .mod_icon {
-  background-image: url("./images/static/icons/misc/modify_ailment.png");
+  background-image: url("/images/static/icons/misc/modify_ailment.png");
   width: 3em;
   height: 2em;
   display: inline-block;
@@ -356,7 +356,7 @@ a:-moz-focusring {
   height: 101px;
   width: 200px;
   box-shadow: none;
-  content: url("./images/static/site/CompendiumDirect_Logo_Smaller_maintenance.png");
+  content: url("/images/static/site/CompendiumDirect_Logo_Smaller_maintenance.png");
 }
 
 .songselector {
@@ -577,7 +577,7 @@ a:-moz-focusring {
 
 .chq-atc--button {
   background-color: transparent;
-  background-image: url("./images/static/icons/buttons/svg/blue-button.svg");
+  background-image: url("/images/static/icons/buttons/svg/blue-button.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -607,7 +607,7 @@ a:-moz-focusring {
 
 .chq-atc--gbutton {
   background-color: transparent;
-  background-image: url("./images/static/icons/buttons/svg/green-button.svg");
+  background-image: url("/images/static/icons/buttons/svg/green-button.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -791,7 +791,7 @@ a:-moz-focusring {
 }
 
 .previousbutton {
-  background-image: url("./images/static/icons/buttons/svg/green-circle.svg");
+  background-image: url("/images/static/icons/buttons/svg/green-circle.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -809,7 +809,7 @@ a:-moz-focusring {
 }
 
 .previouspage {
-  background-image: url("./images/static/icons/buttons/svg/blue-circle.svg");
+  background-image: url("/images/static/icons/buttons/svg/blue-circle.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -830,7 +830,7 @@ a:-moz-focusring {
 }
 
 .nextbutton {
-  background-image: url("./images/static/icons/buttons/svg/green-circle.svg");
+  background-image: url("/images/static/icons/buttons/svg/green-circle.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -1022,7 +1022,7 @@ a:-moz-focusring {
 }
 
 .sharebutton {
-  background-image: url("./images/static/icons/buttons/svg/green-button.svg");
+  background-image: url("/images/static/icons/buttons/svg/green-button.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -1045,7 +1045,7 @@ a:-moz-focusring {
 }
 
 .jpflage {
-  content: url("./images/static/icons/misc/japan.svg");
+  content: url("/images/static/icons/misc/japan.svg");
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -1947,7 +1947,7 @@ h3 {
 /*loadmore button*/
 
 .loadmore {
-  background-image: url("./images/static/icons/buttons/svg/blue-button.svg");
+  background-image: url("/images/static/icons/buttons/svg/blue-button.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -2172,11 +2172,11 @@ h3 {
 }
 
 .cpassivesbutton {
-  background-image: url("./images/static/icons/geartype/cpassives_direct.png");
+  background-image: url("/images/static/icons/geartype/cpassives_direct.png");
 }
 
 .expbutton {
-  background-image: url("./images/static/icons/geartype/exp_direct.png");
+  background-image: url("/images/static/icons/geartype/exp_direct.png");
 }
 
 .typetext__indicator-separator {
@@ -2241,7 +2241,7 @@ h3 {
 }
 
 .check {
-  background-image: url("./images/static/icons/misc/check.png");
+  background-image: url("/images/static/icons/misc/check.png");
   height: 25px;
   width: 25px;
   background-repeat: no-repeat;
@@ -2250,7 +2250,7 @@ h3 {
 }
 
 .uncheck {
-  background-image: url("./images/static/icons/misc/uncheck.png");
+  background-image: url("/images/static/icons/misc/uncheck.png");
   height: 25px;
   width: 25px;
   background-repeat: no-repeat;
@@ -2358,7 +2358,7 @@ h3 {
 }
 
 .CPIcon {
-  content: url("./images/static/icons/misc/CP.png");
+  content: url("/images/static/icons/misc/CP.png");
   display: inline-block;
   vertical-align: middle;
   background-size: contain;
@@ -2367,7 +2367,7 @@ h3 {
 }
 
 .CP {
-  content: url("./images/static/icons/misc/CP.png");
+  content: url("/images/static/icons/misc/CP.png");
   background-size: contain;
   width: 1.8em;
   height: 1.1em;
@@ -2408,7 +2408,7 @@ h3 {
 }
 
 .Gil {
-  content: url("./images/static/items/game_index/1.png");
+  content: url("/images/static/items/game_index/1.png");
   background-size: contain;
   width: 1.2em;
   height: 1.2em;
@@ -2421,7 +2421,7 @@ h3 {
 }
 
 .DISSIDIAPoints {
-  content: url("./images/static/items/game_index/3.png");
+  content: url("/images/static/items/game_index/3.png");
   background-size: contain;
   width: 1.2em;
   height: 1.2em;
@@ -2435,53 +2435,53 @@ h3 {
 
 /*button pulls*/
 .wpbtplusbutton {
-  background-image: url("./images/static/icons/geartype/bt+m.png");
+  background-image: url("/images/static/icons/geartype/bt+m.png");
 }
 
 .wpbtbutton {
-  background-image: url("./images/static/icons/geartype/bt.png");
+  background-image: url("/images/static/icons/geartype/bt.png");
 }
 
 .wpfrbutton {
-  background-image: url("./images/static/icons/geartype/fr.png");
+  background-image: url("/images/static/icons/geartype/fr.png");
 }
 
 .communitybutton {
-  background-image: url("./images/static/icons/geartype/community.png");
+  background-image: url("/images/static/icons/geartype/community.png");
 }
 
 .directbutton {
-  background-image: url("./images/static/icons/geartype/direct.png");
+  background-image: url("/images/static/icons/geartype/direct.png");
 }
 
 .newbutton {
-  background-image: url("./images/static/icons/geartype/new.png");
+  background-image: url("/images/static/icons/geartype/new.png");
 }
 
 .specialbutton {
-  background-image: url("./images/static/icons/geartype/special.png");
+  background-image: url("/images/static/icons/geartype/special.png");
 }
 
 .fieldbutton {
-  background-image: url("./images/static/icons/geartype/field.png");
+  background-image: url("/images/static/icons/geartype/field.png");
 }
 
 .gifbutton {
-  background-image: url("./images/static/icons/geartype/gif.png");
+  background-image: url("/images/static/icons/geartype/gif.png");
 }
 
 .combobutton {
-  background-image: url("./images/static/icons/geartype/combo.png");
+  background-image: url("/images/static/icons/geartype/combo.png");
 }
 
 .modifybutton {
-  background-image: url("./images/static/icons/geartype/modify.png");
+  background-image: url("/images/static/icons/geartype/modify.png");
 }
 
 /*gear icons*/
 
 .ultima {
-  background-image: url("./images/static/icons/geartype/ultimanew.png");
+  background-image: url("/images/static/icons/geartype/ultimanew.png");
   width: 54px;
   height: 27px;
   display: inline-block;
@@ -2493,11 +2493,11 @@ h3 {
 }
 
 .ultimabutton {
-  background-image: url("./images/static/icons/geartype/ultimanew.png");
+  background-image: url("/images/static/icons/geartype/ultimanew.png");
 }
 
 .cl90 {
-  background-image: url("./images/static/icons/geartype/lv90.png");
+  background-image: url("/images/static/icons/geartype/lv90.png");
   width: 54px;
   height: 27px;
   display: inline-block;
@@ -2509,15 +2509,15 @@ h3 {
 }
 
 .cl90button {
-  background-image: url("./images/static/icons/geartype/lv90.png");
+  background-image: url("/images/static/icons/geartype/lv90.png");
 }
 
 .cl85button {
-  background-image: url("./images/static/icons/geartype/lv85.png");
+  background-image: url("/images/static/icons/geartype/lv85.png");
 }
 
 .cl85 {
-  background-image: url("./images/static/icons/geartype/lv85.png");
+  background-image: url("/images/static/icons/geartype/lv85.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -2541,11 +2541,11 @@ h3 {
 }
 
 .cl88button {
-  background-image: url("./images/static/icons/geartype/lv85.png");
+  background-image: url("/images/static/icons/geartype/lv85.png");
 }
 
 .cl88 {
-  background-image: url("./images/static/icons/geartype/lv88.png");
+  background-image: url("/images/static/icons/geartype/lv88.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -2562,11 +2562,11 @@ h3 {
 }
 
 .cl88button {
-  background-image: url("./images/static/icons/geartype/lv88.png");
+  background-image: url("/images/static/icons/geartype/lv88.png");
 }
 
 .wpbtplus {
-  background-image: url("./images/static/icons/geartype/bt+m.png");
+  background-image: url("/images/static/icons/geartype/bt+m.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -2583,11 +2583,11 @@ h3 {
 }
 
 .ldcall1button {
-  background-image: url("./images/static/icons/geartype/ldcall2.png");
+  background-image: url("/images/static/icons/geartype/ldcall2.png");
 }
 
 .ldcall1 {
-  background-image: url("./images/static/icons/geartype/ldcall1.png");
+  background-image: url("/images/static/icons/geartype/ldcall1.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -2604,15 +2604,15 @@ h3 {
 }
 
 .ldcall2button {
-  background-image: url("./images/static/icons/geartype/ldcall3.png");
+  background-image: url("/images/static/icons/geartype/ldcall3.png");
 }
 
 .ench4cbutton {
-  background-image: url("./images/static/icons/geartype/ench4c.png");
+  background-image: url("/images/static/icons/geartype/ench4c.png");
 }
 
 .ench4c {
-  background-image: url("./images/static/icons/geartype/ench4c.png");
+  background-image: url("/images/static/icons/geartype/ench4c.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -2629,11 +2629,11 @@ h3 {
 }
 
 .ench4extbutton {
-  background-image: url("./images/static/icons/geartype/ench4ext.png");
+  background-image: url("/images/static/icons/geartype/ench4ext.png");
 }
 
 .board4c {
-  background-image: url("./images/static/icons/geartype/ench4c.png");
+  background-image: url("/images/static/icons/geartype/ench4c.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -2650,7 +2650,7 @@ h3 {
 }
 
 .wpfr {
-  background-image: url("./images/static/icons/geartype/fr.png");
+  background-image: url("/images/static/icons/geartype/fr.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -2667,7 +2667,7 @@ h3 {
 }
 
 .boardfr {
-  background-image: url("./images/static/icons/geartype/frboard.png");
+  background-image: url("/images/static/icons/geartype/frboard.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -2684,7 +2684,7 @@ h3 {
 }
 
 .boardfrh {
-  background-image: url("./images/static/icons/geartype/frboard.png");
+  background-image: url("/images/static/icons/geartype/frboard.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -2701,7 +2701,7 @@ h3 {
 }
 
 .boardfr5 {
-  background-image: url("./images/static/icons/geartype/frboard5.png");
+  background-image: url("/images/static/icons/geartype/frboard5.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -2718,7 +2718,7 @@ h3 {
 }
 
 .boardfr3 {
-  background-image: url("./images/static/icons/geartype/frboard3.png");
+  background-image: url("/images/static/icons/geartype/frboard3.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -2735,7 +2735,7 @@ h3 {
 }
 
 .boardfr8 {
-  background-image: url("./images/static/icons/geartype/frboard8.png");
+  background-image: url("/images/static/icons/geartype/frboard8.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -2752,7 +2752,7 @@ h3 {
 }
 
 .boardfr10 {
-  background-image: url("./images/static/icons/geartype/frboard10.png");
+  background-image: url("/images/static/icons/geartype/frboard10.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -2769,7 +2769,7 @@ h3 {
 }
 
 .boardfr13 {
-  background-image: url("./images/static/icons/geartype/frboard13.png");
+  background-image: url("/images/static/icons/geartype/frboard13.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -2786,7 +2786,7 @@ h3 {
 }
 
 .boardfr15 {
-  background-image: url("./images/static/icons/geartype/frboard15.png");
+  background-image: url("/images/static/icons/geartype/frboard15.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -2803,7 +2803,7 @@ h3 {
 }
 
 .boardfr18 {
-  background-image: url("./images/static/icons/geartype/frboard18.png");
+  background-image: url("/images/static/icons/geartype/frboard18.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -2820,7 +2820,7 @@ h3 {
 }
 
 .boardfr20 {
-  background-image: url("./images/static/icons/geartype/frboard20.png");
+  background-image: url("/images/static/icons/geartype/frboard20.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -2837,7 +2837,7 @@ h3 {
 }
 
 .boardfr23 {
-  background-image: url("./images/static/icons/geartype/frboard23.png");
+  background-image: url("/images/static/icons/geartype/frboard23.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -2854,7 +2854,7 @@ h3 {
 }
 
 .boardfr25 {
-  background-image: url("./images/static/icons/geartype/frboard25.png");
+  background-image: url("/images/static/icons/geartype/frboard25.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -2871,7 +2871,7 @@ h3 {
 }
 
 .boardfr28 {
-  background-image: url("./images/static/icons/geartype/frboard28.png");
+  background-image: url("/images/static/icons/geartype/frboard28.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -2888,7 +2888,7 @@ h3 {
 }
 
 .boardfr30 {
-  background-image: url("./images/static/icons/geartype/frboard30.png");
+  background-image: url("/images/static/icons/geartype/frboard30.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -2905,7 +2905,7 @@ h3 {
 }
 
 .boardfr33 {
-  background-image: url("./images/static/icons/geartype/frboard33.png");
+  background-image: url("/images/static/icons/geartype/frboard33.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -2922,7 +2922,7 @@ h3 {
 }
 
 .boardfr35 {
-  background-image: url("./images/static/icons/geartype/frboard35.png");
+  background-image: url("/images/static/icons/geartype/frboard35.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -2939,7 +2939,7 @@ h3 {
 }
 
 .boardfr38 {
-  background-image: url("./images/static/icons/geartype/frboard38.png");
+  background-image: url("/images/static/icons/geartype/frboard38.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -2956,7 +2956,7 @@ h3 {
 }
 
 .boardfr40 {
-  background-image: url("./images/static/icons/geartype/frboard40.png");
+  background-image: url("/images/static/icons/geartype/frboard40.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -2973,7 +2973,7 @@ h3 {
 }
 
 .boardfr43 {
-  background-image: url("./images/static/icons/geartype/frboard43.png");
+  background-image: url("/images/static/icons/geartype/frboard43.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -2990,7 +2990,7 @@ h3 {
 }
 
 .boardfr45 {
-  background-image: url("./images/static/icons/geartype/frboard45.png");
+  background-image: url("/images/static/icons/geartype/frboard45.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3007,7 +3007,7 @@ h3 {
 }
 
 .boardfr48 {
-  background-image: url("./images/static/icons/geartype/frboard48.png");
+  background-image: url("/images/static/icons/geartype/frboard48.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3024,7 +3024,7 @@ h3 {
 }
 
 .boardfr50 {
-  background-image: url("./images/static/icons/geartype/frboard50.png");
+  background-image: url("/images/static/icons/geartype/frboard50.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3041,7 +3041,7 @@ h3 {
 }
 
 .board4cext {
-  background-image: url("./images/static/icons/geartype/ench4cext.png");
+  background-image: url("/images/static/icons/geartype/ench4cext.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3058,7 +3058,7 @@ h3 {
 }
 
 .board4ext {
-  background-image: url("./images/static/icons/geartype/ench4ext.png");
+  background-image: url("/images/static/icons/geartype/ench4ext.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3082,7 +3082,7 @@ h3 {
 }
 
 .ench5echo {
-  background-image: url("./images/static/icons/geartype/ench5echo.png");
+  background-image: url("/images/static/icons/geartype/ench5echo.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3099,7 +3099,7 @@ h3 {
 }
 
 .ench5ext {
-  background-image: url("./images/static/icons/geartype/ench5ext.png");
+  background-image: url("/images/static/icons/geartype/ench5ext.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3123,7 +3123,7 @@ h3 {
 }
 
 .ench4ext {
-  background-image: url("./images/static/icons/geartype/ench4ext.png");
+  background-image: url("/images/static/icons/geartype/ench4ext.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3147,11 +3147,11 @@ h3 {
 }
 
 .ench4cextbutton {
-  background-image: url("./images/static/icons/geartype/ench4cext.png");
+  background-image: url("/images/static/icons/geartype/ench4cext.png");
 }
 
 .ench4cext {
-  background-image: url("./images/static/icons/geartype/ench4cext.png");
+  background-image: url("/images/static/icons/geartype/ench4cext.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3168,7 +3168,7 @@ h3 {
 }
 
 .ldcall2 {
-  background-image: url("./images/static/icons/geartype/ldcall2.png");
+  background-image: url("/images/static/icons/geartype/ldcall2.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3185,11 +3185,11 @@ h3 {
 }
 
 .call1button {
-  background-image: url("./images/static/icons/geartype/call1.png");
+  background-image: url("/images/static/icons/geartype/call1.png");
 }
 
 .call1 {
-  background-image: url("./images/static/icons/geartype/call1.png");
+  background-image: url("/images/static/icons/geartype/call1.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3206,11 +3206,11 @@ h3 {
 }
 
 .call2button {
-  background-image: url("./images/static/icons/geartype/call2.png");
+  background-image: url("/images/static/icons/geartype/call2.png");
 }
 
 .call2 {
-  background-image: url("./images/static/icons/geartype/call2.png");
+  background-image: url("/images/static/icons/geartype/call2.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3227,7 +3227,7 @@ h3 {
 }
 
 .abuff {
-  background-image: url("./images/static/icons/geartype/abuff.png");
+  background-image: url("/images/static/icons/geartype/abuff.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3244,15 +3244,15 @@ h3 {
 }
 
 .artpassbutton {
-  background-image: url("./images/static/icons/geartype/art.png");
+  background-image: url("/images/static/icons/geartype/art.png");
 }
 
 .artpassc {
-  background-image: url("./images/static/icons/geartype/artpass_direct.png");
+  background-image: url("/images/static/icons/geartype/artpass_direct.png");
 }
 
 .artpass {
-  background-image: url("./images/static/icons/geartype/art.png");
+  background-image: url("/images/static/icons/geartype/art.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3269,15 +3269,15 @@ h3 {
 }
 
 .crystalsub {
-  background-image: url("./images/static/icons/geartype/crystal.png");
+  background-image: url("/images/static/icons/geartype/crystal.png");
 }
 
 .skinbutton {
-  background-image: url("./images/static/icons/geartype/skin.png");
+  background-image: url("/images/static/icons/geartype/skin.png");
 }
 
 .skin {
-  background-image: url("./images/static/icons/geartype/skin.png");
+  background-image: url("/images/static/icons/geartype/skin.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3294,7 +3294,7 @@ h3 {
 }
 
 .startingability {
-  background-image: url("./images/static/icons/geartype/cl1.png");
+  background-image: url("/images/static/icons/geartype/cl1.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3311,11 +3311,11 @@ h3 {
 }
 
 .cl1button {
-  background-image: url("./images/static/icons/geartype/cl1.png");
+  background-image: url("/images/static/icons/geartype/cl1.png");
 }
 
 .cl1 {
-  background-image: url("./images/static/icons/geartype/cl1.png");
+  background-image: url("/images/static/icons/geartype/cl1.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3332,7 +3332,7 @@ h3 {
 }
 
 .cl2 {
-  background-image: url("./images/static/icons/geartype/cl1.png");
+  background-image: url("/images/static/icons/geartype/cl1.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3349,11 +3349,11 @@ h3 {
 }
 
 .cl5button {
-  background-image: url("./images/static/icons/geartype/lv5.png");
+  background-image: url("/images/static/icons/geartype/lv5.png");
 }
 
 .cl5 {
-  background-image: url("./images/static/icons/geartype/lv5.png");
+  background-image: url("/images/static/icons/geartype/lv5.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3370,11 +3370,11 @@ h3 {
 }
 
 .cl10button {
-  background-image: url("./images/static/icons/geartype/lv10.png");
+  background-image: url("/images/static/icons/geartype/lv10.png");
 }
 
 .cl10 {
-  background-image: url("./images/static/icons/geartype/lv10.png");
+  background-image: url("/images/static/icons/geartype/lv10.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3391,11 +3391,11 @@ h3 {
 }
 
 .cl15button {
-  background-image: url("./images/static/icons/geartype/lv15.png");
+  background-image: url("/images/static/icons/geartype/lv15.png");
 }
 
 .cl15 {
-  background-image: url("./images/static/icons/geartype/lv15.png");
+  background-image: url("/images/static/icons/geartype/lv15.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3412,11 +3412,11 @@ h3 {
 }
 
 .cl20button {
-  background-image: url("./images/static/icons/geartype/lv20.png");
+  background-image: url("/images/static/icons/geartype/lv20.png");
 }
 
 .cl20 {
-  background-image: url("./images/static/icons/geartype/lv20.png");
+  background-image: url("/images/static/icons/geartype/lv20.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3433,11 +3433,11 @@ h3 {
 }
 
 .cl25button {
-  background-image: url("./images/static/icons/geartype/lv25.png");
+  background-image: url("/images/static/icons/geartype/lv25.png");
 }
 
 .cl25 {
-  background-image: url("./images/static/icons/geartype/lv25.png");
+  background-image: url("/images/static/icons/geartype/lv25.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3454,11 +3454,11 @@ h3 {
 }
 
 .cl30button {
-  background-image: url("./images/static/icons/geartype/lv30.png");
+  background-image: url("/images/static/icons/geartype/lv30.png");
 }
 
 .cl30 {
-  background-image: url("./images/static/icons/geartype/lv30.png");
+  background-image: url("/images/static/icons/geartype/lv30.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3475,11 +3475,11 @@ h3 {
 }
 
 .cl35button {
-  background-image: url("./images/static/icons/geartype/lv35.png");
+  background-image: url("/images/static/icons/geartype/lv35.png");
 }
 
 .cl35 {
-  background-image: url("./images/static/icons/geartype/lv35.png");
+  background-image: url("/images/static/icons/geartype/lv35.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3496,11 +3496,11 @@ h3 {
 }
 
 .cl40button {
-  background-image: url("./images/static/icons/geartype/lv40.png");
+  background-image: url("/images/static/icons/geartype/lv40.png");
 }
 
 .cl40 {
-  background-image: url("./images/static/icons/geartype/lv40.png");
+  background-image: url("/images/static/icons/geartype/lv40.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3517,11 +3517,11 @@ h3 {
 }
 
 .cl45button {
-  background-image: url("./images/static/icons/geartype/lv45.png");
+  background-image: url("/images/static/icons/geartype/lv45.png");
 }
 
 .cl45 {
-  background-image: url("./images/static/icons/geartype/lv45.png");
+  background-image: url("/images/static/icons/geartype/lv45.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3538,11 +3538,11 @@ h3 {
 }
 
 .cl50button {
-  background-image: url("./images/static/icons/geartype/lv50.png");
+  background-image: url("/images/static/icons/geartype/lv50.png");
 }
 
 .cl50 {
-  background-image: url("./images/static/icons/geartype/lv50.png");
+  background-image: url("/images/static/icons/geartype/lv50.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3559,11 +3559,11 @@ h3 {
 }
 
 .cl54button {
-  background-image: url("./images/static/icons/geartype/lv54.png");
+  background-image: url("/images/static/icons/geartype/lv54.png");
 }
 
 .cl54 {
-  background-image: url("./images/static/icons/geartype/lv54.png");
+  background-image: url("/images/static/icons/geartype/lv54.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3580,11 +3580,11 @@ h3 {
 }
 
 .cl55button {
-  background-image: url("./images/static/icons/geartype/lv55.png");
+  background-image: url("/images/static/icons/geartype/lv55.png");
 }
 
 .cl55 {
-  background-image: url("./images/static/icons/geartype/lv55.png");
+  background-image: url("/images/static/icons/geartype/lv55.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3601,11 +3601,11 @@ h3 {
 }
 
 .cl58button {
-  background-image: url("./images/static/icons/geartype/lv58.png");
+  background-image: url("/images/static/icons/geartype/lv58.png");
 }
 
 .cl58 {
-  background-image: url("./images/static/icons/geartype/lv58.png");
+  background-image: url("/images/static/icons/geartype/lv58.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3622,11 +3622,11 @@ h3 {
 }
 
 .cl60button {
-  background-image: url("./images/static/icons/geartype/lv60.png");
+  background-image: url("/images/static/icons/geartype/lv60.png");
 }
 
 .cl60 {
-  background-image: url("./images/static/icons/geartype/lv60.png");
+  background-image: url("/images/static/icons/geartype/lv60.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3643,11 +3643,11 @@ h3 {
 }
 
 .cl65button {
-  background-image: url("./images/static/icons/geartype/lv65.png");
+  background-image: url("/images/static/icons/geartype/lv65.png");
 }
 
 .cl65 {
-  background-image: url("./images/static/icons/geartype/lv65.png");
+  background-image: url("/images/static/icons/geartype/lv65.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3664,11 +3664,11 @@ h3 {
 }
 
 .cl68button {
-  background-image: url("./images/static/icons/geartype/lv68.png");
+  background-image: url("/images/static/icons/geartype/lv68.png");
 }
 
 .cl68 {
-  background-image: url("./images/static/icons/geartype/lv68.png");
+  background-image: url("/images/static/icons/geartype/lv68.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3685,11 +3685,11 @@ h3 {
 }
 
 .cl70button {
-  background-image: url("./images/static/icons/geartype/lv70.png");
+  background-image: url("/images/static/icons/geartype/lv70.png");
 }
 
 .cl70 {
-  background-image: url("./images/static/icons/geartype/lv70.png");
+  background-image: url("/images/static/icons/geartype/lv70.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3706,11 +3706,11 @@ h3 {
 }
 
 .cl75button {
-  background-image: url("./images/static/icons/geartype/lv75.png");
+  background-image: url("/images/static/icons/geartype/lv75.png");
 }
 
 .cl75 {
-  background-image: url("./images/static/icons/geartype/lv75.png");
+  background-image: url("/images/static/icons/geartype/lv75.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3727,11 +3727,11 @@ h3 {
 }
 
 .cl78button {
-  background-image: url("./images/static/icons/geartype/lv78.png");
+  background-image: url("/images/static/icons/geartype/lv78.png");
 }
 
 .cl78 {
-  background-image: url("./images/static/icons/geartype/lv78.png");
+  background-image: url("/images/static/icons/geartype/lv78.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3748,11 +3748,11 @@ h3 {
 }
 
 .cl80button {
-  background-image: url("./images/static/icons/geartype/lv80.png");
+  background-image: url("/images/static/icons/geartype/lv80.png");
 }
 
 .cl80 {
-  background-image: url("./images/static/icons/geartype/lv80.png");
+  background-image: url("/images/static/icons/geartype/lv80.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3769,11 +3769,11 @@ h3 {
 }
 
 .exspherebutton {
-  background-image: url("./images/static/icons/geartype/exsphere.png");
+  background-image: url("/images/static/icons/geartype/exsphere.png");
 }
 
 .exsphere {
-  background-image: url("./images/static/icons/geartype/exsphere.png");
+  background-image: url("/images/static/icons/geartype/exsphere.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3790,11 +3790,11 @@ h3 {
 }
 
 .armbloombutton {
-  background-image: url("./images/static/icons/geartype/bloom2.png");
+  background-image: url("/images/static/icons/geartype/bloom2.png");
 }
 
 .armbloom {
-  background-image: url("./images/static/icons/geartype/bloom2.png");
+  background-image: url("/images/static/icons/geartype/bloom2.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3811,11 +3811,11 @@ h3 {
 }
 
 .arm4abutton {
-  background-image: url("./images/static/icons/geartype/4a.png");
+  background-image: url("/images/static/icons/geartype/4a.png");
 }
 
 .arm4a {
-  background-image: url("./images/static/icons/geartype/4a.png");
+  background-image: url("/images/static/icons/geartype/4a.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3832,11 +3832,11 @@ h3 {
 }
 
 .arm7abutton {
-  background-image: url("./images/static/icons/geartype/7a.png");
+  background-image: url("/images/static/icons/geartype/7a.png");
 }
 
 .arm7a {
-  background-image: url("./images/static/icons/geartype/7a.png");
+  background-image: url("/images/static/icons/geartype/7a.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3853,11 +3853,11 @@ h3 {
 }
 
 .arm7aplusbutton {
-  background-image: url("./images/static/icons/geartype/7a+.png");
+  background-image: url("/images/static/icons/geartype/7a+.png");
 }
 
 .arm7aplus {
-  background-image: url("./images/static/icons/geartype/7a+.png");
+  background-image: url("/images/static/icons/geartype/7a+.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3874,7 +3874,7 @@ h3 {
 }
 
 .aex {
-  background-image: url("./images/static/icons/geartype/aex.png");
+  background-image: url("/images/static/icons/geartype/aex.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3891,7 +3891,7 @@ h3 {
 }
 
 .bex {
-  background-image: url("./images/static/icons/geartype/bex.png");
+  background-image: url("/images/static/icons/geartype/bex.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3908,7 +3908,7 @@ h3 {
 }
 
 .cex {
-  background-image: url("./images/static/icons/geartype/cex.png");
+  background-image: url("/images/static/icons/geartype/cex.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3925,7 +3925,7 @@ h3 {
 }
 
 .dex {
-  background-image: url("./images/static/icons/geartype/dex.png");
+  background-image: url("/images/static/icons/geartype/dex.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3942,7 +3942,7 @@ h3 {
 }
 
 .eex {
-  background-image: url("./images/static/icons/geartype/eex.png");
+  background-image: url("/images/static/icons/geartype/eex.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3959,7 +3959,7 @@ h3 {
 }
 
 .arf {
-  background-image: url("./images/static/icons/geartype/arf.png");
+  background-image: url("/images/static/icons/geartype/arf.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3976,7 +3976,7 @@ h3 {
 }
 
 .brf {
-  background-image: url("./images/static/icons/geartype/brf.png");
+  background-image: url("/images/static/icons/geartype/brf.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -3993,7 +3993,7 @@ h3 {
 }
 
 .crf {
-  background-image: url("./images/static/icons/geartype/crf.png");
+  background-image: url("/images/static/icons/geartype/crf.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4010,7 +4010,7 @@ h3 {
 }
 
 .drf {
-  background-image: url("./images/static/icons/geartype/drf.png");
+  background-image: url("/images/static/icons/geartype/drf.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4027,7 +4027,7 @@ h3 {
 }
 
 .erf {
-  background-image: url("./images/static/icons/geartype/erf.png");
+  background-image: url("/images/static/icons/geartype/erf.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4044,11 +4044,11 @@ h3 {
 }
 
 .arm35abutton {
-  background-image: url("./images/static/icons/geartype/35a.png");
+  background-image: url("/images/static/icons/geartype/35a.png");
 }
 
 .ultimaorb {
-  background-image: url("./images/static/icons/misc/SmallUltimaOrb.png");
+  background-image: url("/images/static/icons/misc/SmallUltimaOrb.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -4062,7 +4062,7 @@ h3 {
 }
 
 .frshard {
-  background-image: url("./images/static/icons/misc/ForceShardMini.png");
+  background-image: url("/images/static/icons/misc/ForceShardMini.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -4076,7 +4076,7 @@ h3 {
 }
 
 .frstone {
-  background-image: url("./images/static/icons/misc/ForceStoneMini.png");
+  background-image: url("/images/static/icons/misc/ForceStoneMini.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -4090,7 +4090,7 @@ h3 {
 }
 
 .hiorbm {
-  background-image: url("./images/static/icons/misc/HighOrbMini.png");
+  background-image: url("/images/static/icons/misc/HighOrbMini.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -4104,7 +4104,7 @@ h3 {
 }
 
 .cryspark {
-  background-image: url("./images/static/icons/cry_points/white.png");
+  background-image: url("/images/static/icons/cry_points/white.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -4118,7 +4118,7 @@ h3 {
 }
 
 .Gem {
-  background-image: url("./images/static/icons/misc/Gem.png");
+  background-image: url("/images/static/icons/misc/Gem.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -4130,7 +4130,7 @@ h3 {
 }
 
 .crynode {
-  background-image: url("./images/static/icons/cry_points/node.png");
+  background-image: url("/images/static/icons/cry_points/node.png");
   height: 28px;
   width: 15px;
   margin-left: 3px;
@@ -4146,7 +4146,7 @@ h3 {
 }
 
 .crypnode {
-  background-image: url("./images/static/icons/cry_points/pnode.png");
+  background-image: url("/images/static/icons/cry_points/pnode.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -4160,7 +4160,7 @@ h3 {
 }
 
 .orbm {
-  background-image: url("./images/static/icons/misc/OrbMini.png");
+  background-image: url("/images/static/icons/misc/OrbMini.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -4174,7 +4174,7 @@ h3 {
 }
 
 .gorbm {
-  background-image: url("./images/static/icons/misc/GearOrbMini.png");
+  background-image: url("/images/static/icons/misc/GearOrbMini.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -4188,7 +4188,7 @@ h3 {
 }
 
 .bpointm {
-  background-image: url("./images/static/icons/misc/BoardPointMini.png");
+  background-image: url("/images/static/icons/misc/BoardPointMini.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -4211,11 +4211,11 @@ h3 {
 }
 
 .rfspherebutton {
-  background-image: url("./images/static/icons/geartype/rfsphere.png");
+  background-image: url("/images/static/icons/geartype/rfsphere.png");
 }
 
 .rfsphere {
-  background-image: url("./images/static/icons/geartype/rfsphere.png");
+  background-image: url("/images/static/icons/geartype/rfsphere.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4232,11 +4232,11 @@ h3 {
 }
 
 .spassbutton {
-  background-image: url("./images/static/icons/geartype/spass.png");
+  background-image: url("/images/static/icons/geartype/spass.png");
 }
 
 .spass {
-  background-image: url("./images/static/icons/geartype/spass.png");
+  background-image: url("/images/static/icons/geartype/spass.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4253,11 +4253,11 @@ h3 {
 }
 
 .crypass_abutton {
-  background-image: url("./images/static/icons/geartype/crypass_a.png");
+  background-image: url("/images/static/icons/geartype/crypass_a.png");
 }
 
 .crypass_a {
-  background-image: url("./images/static/icons/geartype/crypass_a.png");
+  background-image: url("/images/static/icons/geartype/crypass_a.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4274,11 +4274,11 @@ h3 {
 }
 
 .crypass_dbutton {
-  background-image: url("./images/static/icons/geartype/crypass_d.png");
+  background-image: url("/images/static/icons/geartype/crypass_d.png");
 }
 
 .crypass_d {
-  background-image: url("./images/static/icons/geartype/crypass_d.png");
+  background-image: url("/images/static/icons/geartype/crypass_d.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4295,11 +4295,11 @@ h3 {
 }
 
 .crypass_ubutton {
-  background-image: url("./images/static/icons/geartype/crypass_u.png");
+  background-image: url("/images/static/icons/geartype/crypass_u.png");
 }
 
 .crypass_u {
-  background-image: url("./images/static/icons/geartype/crypass_u.png");
+  background-image: url("/images/static/icons/geartype/crypass_u.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4316,11 +4316,11 @@ h3 {
 }
 
 .exppbutton {
-  background-image: url("./images/static/icons/geartype/expp.png");
+  background-image: url("/images/static/icons/geartype/expp.png");
 }
 
 .expp {
-  background-image: url("./images/static/icons/geartype/expp.png");
+  background-image: url("/images/static/icons/geartype/expp.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4367,7 +4367,7 @@ h3 {
 }
 
 .arm35a {
-  background-image: url("./images/static/icons/geartype/35a.png");
+  background-image: url("/images/static/icons/geartype/35a.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4384,11 +4384,11 @@ h3 {
 }
 
 .armhgplusbutton {
-  background-image: url("./images/static/icons/geartype/hg+.png");
+  background-image: url("/images/static/icons/geartype/hg+.png");
 }
 
 .armhgplus {
-  background-image: url("./images/static/icons/geartype/hg+.png");
+  background-image: url("/images/static/icons/geartype/hg+.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4405,11 +4405,11 @@ h3 {
 }
 
 .armhgbutton {
-  background-image: url("./images/static/icons/geartype/hg.png");
+  background-image: url("/images/static/icons/geartype/hg.png");
 }
 
 .armhg {
-  background-image: url("./images/static/icons/geartype/hg.png");
+  background-image: url("/images/static/icons/geartype/hg.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4426,12 +4426,12 @@ h3 {
 }
 
 .hpattackiconbutton {
-  background-image: url("./images/static/icons/geartype/hp.png");
+  background-image: url("/images/static/icons/geartype/hp.png");
   display: inline-block;
 }
 
 .hpattackicon {
-  background-image: url("./images/static/icons/geartype/hp.png");
+  background-image: url("/images/static/icons/geartype/hp.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4448,17 +4448,17 @@ h3 {
 }
 
 .hpplusattackiconbutton {
-  background-image: url("./images/static/icons/geartype/hp+.png");
+  background-image: url("/images/static/icons/geartype/hp+.png");
   display: inline-block;
 }
 
 .brvattackiconbutton {
-  background-image: url("./images/static/icons/geartype/brv+.png");
+  background-image: url("/images/static/icons/geartype/brv+.png");
   display: inline-block;
 }
 
 .hpplusattackicon {
-  background-image: url("./images/static/icons/geartype/hp+.png");
+  background-image: url("/images/static/icons/geartype/hp+.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4475,15 +4475,15 @@ h3 {
 }
 
 .brvplusbutton {
-  background-image: url("./images/static/icons/geartype/brv+.png");
+  background-image: url("/images/static/icons/geartype/brv+.png");
 }
 
 .hpplusbutton {
-  background-image: url("./images/static/icons/geartype/hp+.png");
+  background-image: url("/images/static/icons/geartype/hp+.png");
 }
 
 .brvattackicon {
-  background-image: url("./images/static/icons/geartype/brv.png");
+  background-image: url("/images/static/icons/geartype/brv.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4500,7 +4500,7 @@ h3 {
 }
 
 .wpbt {
-  background-image: url("./images/static/icons/geartype/bt.png");
+  background-image: url("/images/static/icons/geartype/bt.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4517,7 +4517,7 @@ h3 {
 }
 
 .wpbtplus0 {
-  background-image: url("./images/static/icons/geartype/bt+0.png");
+  background-image: url("/images/static/icons/geartype/bt+0.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4534,7 +4534,7 @@ h3 {
 }
 
 .wpbtplus1 {
-  background-image: url("./images/static/icons/geartype/bt+1.png");
+  background-image: url("/images/static/icons/geartype/bt+1.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4551,7 +4551,7 @@ h3 {
 }
 
 .wpbtplus2 {
-  background-image: url("./images/static/icons/geartype/bt+2.png");
+  background-image: url("/images/static/icons/geartype/bt+2.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4568,7 +4568,7 @@ h3 {
 }
 
 .wpbtplus3 {
-  background-image: url("./images/static/icons/geartype/bt+3.png");
+  background-image: url("/images/static/icons/geartype/bt+3.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4585,11 +4585,11 @@ h3 {
 }
 
 .wpwoibutton {
-  background-image: url("./images/static/icons/geartype/woi.png");
+  background-image: url("/images/static/icons/geartype/woi.png");
 }
 
 .wpwoi {
-  background-image: url("./images/static/icons/geartype/woi.png");
+  background-image: url("/images/static/icons/geartype/woi.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4606,11 +4606,11 @@ h3 {
 }
 
 .wpntbutton {
-  background-image: url("./images/static/icons/geartype/nt.png");
+  background-image: url("/images/static/icons/geartype/nt.png");
 }
 
 .wpnt {
-  background-image: url("./images/static/icons/geartype/nt.png");
+  background-image: url("/images/static/icons/geartype/nt.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4627,11 +4627,11 @@ h3 {
 }
 
 .wpdarkbutton {
-  background-image: url("./images/static/icons/geartype/dark.png");
+  background-image: url("/images/static/icons/geartype/dark.png");
 }
 
 .wpdark {
-  background-image: url("./images/static/icons/geartype/dark.png");
+  background-image: url("/images/static/icons/geartype/dark.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4648,11 +4648,11 @@ h3 {
 }
 
 .wp35button {
-  background-image: url("./images/static/icons/geartype/35w.png");
+  background-image: url("/images/static/icons/geartype/35w.png");
 }
 
 .wp35 {
-  background-image: url("./images/static/icons/geartype/35w.png");
+  background-image: url("/images/static/icons/geartype/35w.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4669,12 +4669,12 @@ h3 {
 }
 
 .wp15button {
-  background-image: url("./images/static/icons/geartype/15.png");
+  background-image: url("/images/static/icons/geartype/15.png");
   display: inline-block;
 }
 
 .wp15 {
-  background-image: url("./images/static/icons/geartype/15.png");
+  background-image: url("/images/static/icons/geartype/15.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4691,12 +4691,12 @@ h3 {
 }
 
 .aaabilityButton {
-  background-image: url("./images/static/icons/geartype/abuff.png");
+  background-image: url("/images/static/icons/geartype/abuff.png");
   display: inline-block;
 }
 
 .aaabilityButton {
-  background-image: url("./images/static/icons/geartype/abuff.png");
+  background-image: url("/images/static/icons/geartype/abuff.png");
   width: 54px;
   height: 27px;
   display: inline-block;
@@ -4708,12 +4708,12 @@ h3 {
 }
 
 .wp4wbutton {
-  background-image: url("./images/static/icons/geartype/4w.png");
+  background-image: url("/images/static/icons/geartype/4w.png");
   display: inline-block;
 }
 
 .wp4w {
-  background-image: url("./images/static/icons/geartype/4w.png");
+  background-image: url("/images/static/icons/geartype/4w.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4730,11 +4730,11 @@ h3 {
 }
 
 .board1button {
-  background-image: url("./images/static/icons/geartype/ench1.png");
+  background-image: url("/images/static/icons/geartype/ench1.png");
 }
 
 .board1 {
-  background-image: url("./images/static/icons/geartype/ench1.png");
+  background-image: url("/images/static/icons/geartype/ench1.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4751,11 +4751,11 @@ h3 {
 }
 
 .board2button {
-  background-image: url("./images/static/icons/geartype/ench2.png");
+  background-image: url("/images/static/icons/geartype/ench2.png");
 }
 
 .board2 {
-  background-image: url("./images/static/icons/geartype/ench2.png");
+  background-image: url("/images/static/icons/geartype/ench2.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4772,11 +4772,11 @@ h3 {
 }
 
 .board3button {
-  background-image: url("./images/static/icons/geartype/ench3.png");
+  background-image: url("/images/static/icons/geartype/ench3.png");
 }
 
 .board3 {
-  background-image: url("./images/static/icons/geartype/ench3.png");
+  background-image: url("/images/static/icons/geartype/ench3.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4793,19 +4793,19 @@ h3 {
 }
 
 .board4button {
-  background-image: url("./images/static/icons/geartype/ench4.png");
+  background-image: url("/images/static/icons/geartype/ench4.png");
 }
 
 .boardfrbutton {
-  background-image: url("./images/static/icons/geartype/frboard_edit.png");
+  background-image: url("/images/static/icons/geartype/frboard_edit.png");
 }
 
 .board5button {
-  background-image: url("./images/static/icons/geartype/ench5.png");
+  background-image: url("/images/static/icons/geartype/ench5.png");
 }
 
 .board5echo {
-  background-image: url("./images/static/icons/geartype/ench5echo.png");
+  background-image: url("/images/static/icons/geartype/ench5echo.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4822,7 +4822,7 @@ h3 {
 }
 
 .board5ext {
-  background-image: url("./images/static/icons/geartype/ench5ext.png");
+  background-image: url("/images/static/icons/geartype/ench5ext.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4839,7 +4839,7 @@ h3 {
 }
 
 .board5 {
-  background-image: url("./images/static/icons/geartype/ench5.png");
+  background-image: url("/images/static/icons/geartype/ench5.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4856,7 +4856,7 @@ h3 {
 }
 
 .ench5 {
-  background-image: url("./images/static/icons/geartype/ench5.png");
+  background-image: url("/images/static/icons/geartype/ench5.png");
   width: 54px;
   height: 27px;
   display: inline-block;
@@ -4868,7 +4868,7 @@ h3 {
 }
 
 .board4 {
-  background-image: url("./images/static/icons/geartype/ench4.png");
+  background-image: url("/images/static/icons/geartype/ench4.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4885,19 +4885,19 @@ h3 {
 }
 
 .board5echobutton {
-  background-image: url("./images/static/icons/geartype/ench5echo.png");
+  background-image: url("/images/static/icons/geartype/ench5echo.png");
 }
 
 .board5extbutton {
-  background-image: url("./images/static/icons/geartype/ench5ext.png");
+  background-image: url("/images/static/icons/geartype/ench5ext.png");
 }
 
 .wpexbutton {
-  background-image: url("./images/static/icons/geartype/ex.png");
+  background-image: url("/images/static/icons/geartype/ex.png");
 }
 
 .wpex {
-  background-image: url("./images/static/icons/geartype/ex.png");
+  background-image: url("/images/static/icons/geartype/ex.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4914,7 +4914,7 @@ h3 {
 }
 
 .wpex0 {
-  background-image: url("./images/static/icons/geartype/ex0.png");
+  background-image: url("/images/static/icons/geartype/ex0.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4931,7 +4931,7 @@ h3 {
 }
 
 .wpex1 {
-  background-image: url("./images/static/icons/geartype/ex1.png");
+  background-image: url("/images/static/icons/geartype/ex1.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4948,7 +4948,7 @@ h3 {
 }
 
 .wpex2 {
-  background-image: url("./images/static/icons/geartype/ex2.png");
+  background-image: url("/images/static/icons/geartype/ex2.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4965,7 +4965,7 @@ h3 {
 }
 
 .wpex3 {
-  background-image: url("./images/static/icons/geartype/ex3.png");
+  background-image: url("/images/static/icons/geartype/ex3.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -4982,11 +4982,11 @@ h3 {
 }
 
 .wpexplusbutton {
-  background-image: url("./images/static/icons/geartype/ex+.png");
+  background-image: url("/images/static/icons/geartype/ex+.png");
 }
 
 .wpexplus {
-  background-image: url("./images/static/icons/geartype/ex+.png");
+  background-image: url("/images/static/icons/geartype/ex+.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -5003,7 +5003,7 @@ h3 {
 }
 
 .wpexplus0 {
-  background-image: url("./images/static/icons/geartype/ex+0.png");
+  background-image: url("/images/static/icons/geartype/ex+0.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -5020,7 +5020,7 @@ h3 {
 }
 
 .wpexplus1 {
-  background-image: url("./images/static/icons/geartype/ex+1.png");
+  background-image: url("/images/static/icons/geartype/ex+1.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -5037,7 +5037,7 @@ h3 {
 }
 
 .wpexplus2 {
-  background-image: url("./images/static/icons/geartype/ex+2.png");
+  background-image: url("/images/static/icons/geartype/ex+2.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -5054,7 +5054,7 @@ h3 {
 }
 
 .wpexplus3 {
-  background-image: url("./images/static/icons/geartype/ex+3.png");
+  background-image: url("/images/static/icons/geartype/ex+3.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -5071,59 +5071,59 @@ h3 {
 }
 
 .ver_gl {
-  background-image: url("./images/static/icons/geartype/ver_gl.png");
+  background-image: url("/images/static/icons/geartype/ver_gl.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 .ver_jp {
-  background-image: url("./images/static/icons/geartype/ver_jp.png");
+  background-image: url("/images/static/icons/geartype/ver_jp.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 .wpldbutton {
-  background-image: url("./images/static/icons/geartype/ld.png");
+  background-image: url("/images/static/icons/geartype/ld.png");
 }
 
 .frbutton {
-  background-image: url("./images/static/icons/geartype/fr.png");
+  background-image: url("/images/static/icons/geartype/fr.png");
 }
 
 .fe50button {
-  background-image: url("./images/static/icons/geartype/frboard50.png");
+  background-image: url("/images/static/icons/geartype/frboard50.png");
 }
 
 .startbutton {
-  background-image: url("./images/static/icons/geartype/starting.png");
+  background-image: url("/images/static/icons/geartype/starting.png");
 }
 
 .frboardbutton {
-  background-image: url("./images/static/icons/geartype/frboard_edit.png");
+  background-image: url("/images/static/icons/geartype/frboard_edit.png");
 }
 
 .NewChar {
-  background-image: url("./images/static/icons/geartype/new2.png");
+  background-image: url("/images/static/icons/geartype/new2.png");
 }
 
 .musicadd {
-  background-image: url("./images/static/icons/geartype/add.png");
+  background-image: url("/images/static/icons/geartype/add.png");
 }
 
 .musicset {
-  background-image: url("./images/static/icons/geartype/set.png");
+  background-image: url("/images/static/icons/geartype/set.png");
 }
 
 .charvoice {
-  background-image: url("./images/static/icons/geartype/voice.png");
+  background-image: url("/images/static/icons/geartype/voice.png");
 }
 
 .charintro {
-  background-image: url("./images/static/icons/geartype/intro.png");
+  background-image: url("/images/static/icons/geartype/intro.png");
 }
 
 .charstamps {
-  background-image: url("./images/static/icons/geartype/stamps.png");
+  background-image: url("/images/static/icons/geartype/stamps.png");
 }
 
 .subtextinfo {
@@ -5149,7 +5149,7 @@ h3 {
 }
 
 .NewChar2 {
-  background-image: url("./images/static/icons/geartype/new2.png");
+  background-image: url("/images/static/icons/geartype/new2.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -5174,7 +5174,7 @@ h3 {
 }
 
 .wpld {
-  background-image: url("./images/static/icons/geartype/ld.png");
+  background-image: url("/images/static/icons/geartype/ld.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -5191,7 +5191,7 @@ h3 {
 }
 
 .wpld0 {
-  background-image: url("./images/static/icons/geartype/ld0.png");
+  background-image: url("/images/static/icons/geartype/ld0.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -5208,7 +5208,7 @@ h3 {
 }
 
 .wpld1 {
-  background-image: url("./images/static/icons/geartype/ld1.png");
+  background-image: url("/images/static/icons/geartype/ld1.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -5225,7 +5225,7 @@ h3 {
 }
 
 .wpld2 {
-  background-image: url("./images/static/icons/geartype/ld2.png");
+  background-image: url("/images/static/icons/geartype/ld2.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -5242,7 +5242,7 @@ h3 {
 }
 
 .wpld3 {
-  background-image: url("./images/static/icons/geartype/ld3.png");
+  background-image: url("/images/static/icons/geartype/ld3.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -5259,7 +5259,7 @@ h3 {
 }
 
 .FR {
-  background-image: url("./images/static/icons/geartype/fr.png");
+  background-image: url("/images/static/icons/geartype/fr.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -5276,7 +5276,7 @@ h3 {
 }
 
 .FRExt {
-  background-image: url("./images/static/icons/geartype/frext.png");
+  background-image: url("/images/static/icons/geartype/frext.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -5293,7 +5293,7 @@ h3 {
 }
 
 .S1 {
-  background-image: url("./images/static/icons/geartype/cl1.png");
+  background-image: url("/images/static/icons/geartype/cl1.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -5310,7 +5310,7 @@ h3 {
 }
 
 .S2 {
-  background-image: url("./images/static/icons/geartype/lv20.png");
+  background-image: url("/images/static/icons/geartype/lv20.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -5327,7 +5327,7 @@ h3 {
 }
 
 .AA {
-  background-image: url("./images/static/icons/geartype/abuff.png");
+  background-image: url("/images/static/icons/geartype/abuff.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -5344,7 +5344,7 @@ h3 {
 }
 
 .EXrank {
-  background-image: url("./images/static/icons/geartype/ex.png");
+  background-image: url("/images/static/icons/geartype/ex.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -5361,7 +5361,7 @@ h3 {
 }
 
 .BT {
-  background-image: url("./images/static/icons/geartype/bt.png");
+  background-image: url("/images/static/icons/geartype/bt.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -5378,7 +5378,7 @@ h3 {
 }
 
 .BTplus {
-  background-image: url("./images/static/icons/geartype/bt+.png");
+  background-image: url("/images/static/icons/geartype/bt+.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -5395,7 +5395,7 @@ h3 {
 }
 
 .Call_75 {
-  background-image: url("./images/static/icons/geartype/call1.png");
+  background-image: url("/images/static/icons/geartype/call1.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -5412,7 +5412,7 @@ h3 {
 }
 
 .Call_LD {
-  background-image: url("./images/static/icons/geartype/call2.png");
+  background-image: url("/images/static/icons/geartype/call2.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -5429,7 +5429,7 @@ h3 {
 }
 
 .LD {
-  background-image: url("./images/static/icons/geartype/ld.png");
+  background-image: url("/images/static/icons/geartype/ld.png");
   width: 3em;
   max-width: 72px;
   max-height: 36px;
@@ -5446,7 +5446,7 @@ h3 {
 }
 
 .EX {
-  background-image: url("./images/static/icons/misc/exgaugem.png");
+  background-image: url("/images/static/icons/misc/exgaugem.png");
   width: 24px;
   height: 24px;
   background-repeat: no-repeat;
@@ -5479,33 +5479,33 @@ h3 {
 /*icons*/
 
 .HP {
-  background-image: url("./images/static/icons/misc/HP.png");
+  background-image: url("/images/static/icons/misc/HP.png");
   width: 2.5em;
   height: 1.1em;
 }
 
 .Capped {
-  background-image: url("./images/static/icons/misc/Capped.png");
+  background-image: url("/images/static/icons/misc/Capped.png");
   background-position: center;
   width: 60px;
   height: 32px;
 }
 
 .BRV {
-  background-image: url("./images/static/icons/misc/BRV.png");
+  background-image: url("/images/static/icons/misc/BRV.png");
   width: 2.5em;
   height: 1.1em;
 }
 
 .BREAK {
-  background-image: url("./images/static/icons/misc/BREAK.png");
+  background-image: url("/images/static/icons/misc/BREAK.png");
   width: 3.5em;
   height: 1em;
   margin-top: -0.28em;
 }
 
 .Melee {
-  background-image: url("./images/static/icons/type/Type_Melee.png");
+  background-image: url("/images/static/icons/type/Type_Melee.png");
   height: 1.5em;
   width: 2.5em;
   margin: -0.2em;
@@ -5514,73 +5514,73 @@ h3 {
 }
 
 .Instant {
-  background-image: url("./images/static/icons/type/Type_Instant.png");
+  background-image: url("/images/static/icons/type/Type_Instant.png");
   width: 24px;
   height: 24px;
 }
 
 .NoEX {
-  background-image: url("./images/static/icons/misc/noexcharge.png");
+  background-image: url("/images/static/icons/misc/noexcharge.png");
   width: 24px;
   height: 24px;
 }
 
 .NoSummon {
-  background-image: url("./images/static/icons/misc/nosummon.png");
+  background-image: url("/images/static/icons/misc/nosummon.png");
   width: 24px;
   height: 24px;
 }
 
 .Free {
-  background-image: url("./images/static/icons/misc/free.png");
+  background-image: url("/images/static/icons/misc/free.png");
   width: 24px;
   height: 24px;
 }
 
 .NoFree {
-  background-image: url("./images/static/icons/misc/nofree.png");
+  background-image: url("/images/static/icons/misc/nofree.png");
   width: 24px;
   height: 24px;
 }
 
 .Group {
-  background-image: url("./images/static/icons/type/Type_Group.png");
+  background-image: url("/images/static/icons/type/Type_Group.png");
   width: 24px;
   height: 24px;
 }
 
 .Heals {
-  background-image: url("./images/static/icons/type/Type_Heals.png");
+  background-image: url("/images/static/icons/type/Type_Heals.png");
   width: 24px;
   height: 24px;
 }
 
 .IgnoreDEF {
-  background-image: url("./images/static/icons/misc/IgnoreDEF.png");
+  background-image: url("/images/static/icons/misc/IgnoreDEF.png");
   width: 24px;
   height: 24px;
 }
 
 .Traps {
-  background-image: url("./images/static/icons/type/Type_Trap.png");
+  background-image: url("/images/static/icons/type/Type_Trap.png");
   width: 24px;
   height: 24px;
 }
 
 .Counters {
-  background-image: url("./images/static/icons/type/Type_FollowUp.png");
+  background-image: url("/images/static/icons/type/Type_FollowUp.png");
   width: 24px;
   height: 24px;
 }
 
 .FollowUp {
-  background-image: url("./images/static/icons/type/Type_Fist.png");
+  background-image: url("/images/static/icons/type/Type_Fist.png");
   width: 24px;
   height: 24px;
 }
 
 .Magic {
-  background-image: url("./images/static/icons/type/Type_Magic.png");
+  background-image: url("/images/static/icons/type/Type_Magic.png");
   height: 1.5em;
   width: 1.5em;
   margin-top: -0.2em;
@@ -5590,7 +5590,7 @@ h3 {
 }
 
 .Ranged {
-  background-image: url("./images/static/icons/type/Type_Ranged.png");
+  background-image: url("/images/static/icons/type/Type_Ranged.png");
   height: 1.5em;
   width: 2.5em;
   margin: -0.2em;
@@ -5601,49 +5601,49 @@ h3 {
 /*elements*/
 
 .Fire {
-  background-image: url("./images/static/icons/elements/Fire.png");
+  background-image: url("/images/static/icons/elements/Fire.png");
   width: 24px;
   height: 24px;
 }
 
 .Dark {
-  background-image: url("./images/static/icons/elements/Dark.png");
+  background-image: url("/images/static/icons/elements/Dark.png");
   width: 24px;
   height: 24px;
 }
 
 .Earth {
-  background-image: url("./images/static/icons/elements/Earth.png");
+  background-image: url("/images/static/icons/elements/Earth.png");
   width: 24px;
   height: 24px;
 }
 
 .Holy {
-  background-image: url("./images/static/icons/elements/Holy.png");
+  background-image: url("/images/static/icons/elements/Holy.png");
   width: 24px;
   height: 24px;
 }
 
 .Ice {
-  background-image: url("./images/static/icons/elements/Ice.png");
+  background-image: url("/images/static/icons/elements/Ice.png");
   width: 24px;
   height: 24px;
 }
 
 .Thunder {
-  background-image: url("./images/static/icons/elements/Thunder.png");
+  background-image: url("/images/static/icons/elements/Thunder.png");
   width: 24px;
   height: 24px;
 }
 
 .Water {
-  background-image: url("./images/static/icons/elements/Water.png");
+  background-image: url("/images/static/icons/elements/Water.png");
   width: 24px;
   height: 24px;
 }
 
 .Wind {
-  background-image: url("./images/static/icons/elements/Wind.png");
+  background-image: url("/images/static/icons/elements/Wind.png");
   width: 24px;
   height: 24px;
 }
@@ -5651,113 +5651,113 @@ h3 {
 /*sort buttons*/
 
 .HPSortbutton {
-  background-image: url("./images/static/icons/geartype/sort/HP.png");
+  background-image: url("/images/static/icons/geartype/sort/HP.png");
 }
 
 .ATKSortbutton {
-  background-image: url("./images/static/icons/geartype/sort/ATK.png");
+  background-image: url("/images/static/icons/geartype/sort/ATK.png");
 }
 
 .DEFSortbutton {
-  background-image: url("./images/static/icons/geartype/sort/DEF.png");
+  background-image: url("/images/static/icons/geartype/sort/DEF.png");
 }
 
 .INTBRVSortbutton {
-  background-image: url("./images/static/icons/geartype/sort/INTBRV.png");
+  background-image: url("/images/static/icons/geartype/sort/INTBRV.png");
 }
 
 .MAXBRVSortbutton {
-  background-image: url("./images/static/icons/geartype/sort/MAXBRV.png");
+  background-image: url("/images/static/icons/geartype/sort/MAXBRV.png");
 }
 
 .SPDSortbutton {
-  background-image: url("./images/static/icons/geartype/sort/SPD.png");
+  background-image: url("/images/static/icons/geartype/sort/SPD.png");
 }
 
 .RealmSortbutton {
-  background-image: url("./images/static/icons/geartype/sort/REALM.png");
+  background-image: url("/images/static/icons/geartype/sort/REALM.png");
 }
 
 .NameSortbutton {
-  background-image: url("./images/static/icons/geartype/sort/Name.png");
+  background-image: url("/images/static/icons/geartype/sort/Name.png");
 }
 
 .JPSortbutton {
-  background-image: url("./images/static/icons/geartype/sort/JP.png");
+  background-image: url("/images/static/icons/geartype/sort/JP.png");
 }
 
 /*sort buttons*/
 
 .armoriconbutton {
-  background-image: url("./images/static/icons/weapon/Armors.png");
+  background-image: url("/images/static/icons/weapon/Armors.png");
 }
 
 .weaponbutton {
-  background-image: url("./images/static/icons/weapon/Weapons.png");
+  background-image: url("/images/static/icons/weapon/Weapons.png");
   background-size: contain;
 }
 
 .othersbutton {
-  background-image: url("./images/static/icons/weapon/Other.png");
+  background-image: url("/images/static/icons/weapon/Other.png");
   background-size: contain;
 }
 
 .spearsbutton {
-  background-image: url("./images/static/icons/weapon/Spear.png");
+  background-image: url("/images/static/icons/weapon/Spear.png");
   background-size: contain;
 }
 
 .bowbutton {
-  background-image: url("./images/static/icons/weapon/Longbow.png");
+  background-image: url("/images/static/icons/weapon/Longbow.png");
   background-size: contain;
 }
 
 .daggerbutton {
-  background-image: url("./images/static/icons/weapon/Dagger.png");
+  background-image: url("/images/static/icons/weapon/Dagger.png");
   background-size: contain;
 }
 
 .swordbutton {
-  background-image: url("./images/static/icons/weapon/Shortsword.png");
+  background-image: url("/images/static/icons/weapon/Shortsword.png");
   background-size: contain;
 }
 
 .greatswordbutton {
-  background-image: url("./images/static/icons/weapon/Longsword.png");
+  background-image: url("/images/static/icons/weapon/Longsword.png");
   background-size: contain;
 }
 
 .whipbutton {
-  background-image: url("./images/static/icons/weapon/Whip.png");
+  background-image: url("/images/static/icons/weapon/Whip.png");
 }
 
 .throwbutton {
-  background-image: url("./images/static/icons/weapon/Boomerang.png");
+  background-image: url("/images/static/icons/weapon/Boomerang.png");
   background-size: contain;
 }
 
 .gunbutton {
-  background-image: url("./images/static/icons/weapon/Pistol.png");
+  background-image: url("/images/static/icons/weapon/Pistol.png");
 }
 
 .fistbutton {
-  background-image: url("./images/static/icons/weapon/Gloves.png");
+  background-image: url("/images/static/icons/weapon/Gloves.png");
   background-size: contain;
 }
 
 .staffbutton {
-  background-image: url("./images/static/icons/weapon/Staff.png");
+  background-image: url("/images/static/icons/weapon/Staff.png");
 }
 
 .knockbackbutton {
-  background-image: url("./images/static/icons/geartype/knockback.png");
+  background-image: url("/images/static/icons/geartype/knockback.png");
   background-size: contain;
 }
 
 /*enemy buffs*/
 
 .buffgil {
-  background-image: url("./images/static/icons/buff/buff_gil_framed.png");
+  background-image: url("/images/static/icons/buff/buff_gil_framed.png");
   width: 46px;
   height: 46px;
   display: inline-block;
@@ -5769,7 +5769,7 @@ h3 {
 }
 
 .buffbubbleframed {
-  background-image: url("./images/static/icons/buff/buff_bubble_framed.png");
+  background-image: url("/images/static/icons/buff/buff_bubble_framed.png");
   width: 32px;
   height: 32px;
   display: inline-block;
@@ -5781,7 +5781,7 @@ h3 {
 }
 
 .buffbubble {
-  background-image: url("./images/static/icons/buff/buff_bubble_unframed.png");
+  background-image: url("/images/static/icons/buff/buff_bubble_unframed.png");
   width: 32px;
   height: 32px;
   display: inline-block;
@@ -5793,7 +5793,7 @@ h3 {
 }
 
 .buffup1framed {
-  background-image: url("./images/static/icons/buff/buff_up1_framed.png");
+  background-image: url("/images/static/icons/buff/buff_up1_framed.png");
   width: 32px;
   height: 32px;
   display: inline-block;
@@ -5805,7 +5805,7 @@ h3 {
 }
 
 .buffup1 {
-  background-image: url("./images/static/icons/buff/buff_up1_unframed.png");
+  background-image: url("/images/static/icons/buff/buff_up1_unframed.png");
   width: 32px;
   height: 32px;
   display: inline-block;
@@ -5817,7 +5817,7 @@ h3 {
 }
 
 .buffpersonupframed {
-  background-image: url("./images/static/icons/buff/buff_personup_framed.png");
+  background-image: url("/images/static/icons/buff/buff_personup_framed.png");
   width: 32px;
   height: 32px;
   display: inline-block;
@@ -5829,7 +5829,7 @@ h3 {
 }
 
 .debufficeframed {
-  background-image: url("./images/static/icons/buff/debuff_ice_framed.png");
+  background-image: url("/images/static/icons/buff/debuff_ice_framed.png");
   width: 32px;
   height: 32px;
   display: inline-block;
@@ -5841,7 +5841,7 @@ h3 {
 }
 
 .debuffdisableframed {
-  background-image: url("./images/static/icons/buff/debuff_disable_framed.png");
+  background-image: url("/images/static/icons/buff/debuff_disable_framed.png");
   width: 32px;
   height: 32px;
   display: inline-block;
@@ -5853,7 +5853,7 @@ h3 {
 }
 
 .debuffpersondownframed {
-  background-image: url("./images/static/icons/debuff/debuff_persondown_framed.png");
+  background-image: url("/images/static/icons/debuff/debuff_persondown_framed.png");
   width: 32px;
   height: 32px;
   display: inline-block;
@@ -5865,7 +5865,7 @@ h3 {
 }
 
 .debuffpersondown {
-  background-image: url("./images/static/icons/debuff/debuff_persondown_unframed.png");
+  background-image: url("/images/static/icons/debuff/debuff_persondown_unframed.png");
   width: 32px;
   height: 32px;
   display: inline-block;
@@ -5877,7 +5877,7 @@ h3 {
 }
 
 .debuffdown1framed {
-  background-image: url("./images/static/icons/debuff/debuff_down1_framed.png");
+  background-image: url("/images/static/icons/debuff/debuff_down1_framed.png");
   width: 32px;
   height: 32px;
   display: inline-block;
@@ -5889,7 +5889,7 @@ h3 {
 }
 
 .debuffdown1 {
-  background-image: url("./images/static/icons/debuff/debuff_down1_unframed.png");
+  background-image: url("/images/static/icons/debuff/debuff_down1_unframed.png");
   width: 32px;
   height: 32px;
   display: inline-block;
@@ -5960,7 +5960,7 @@ h3 {
 }
 
 .MythrilChest {
-  background-image: url("./images/static/icons/misc/MythrilChest.png");
+  background-image: url("/images/static/icons/misc/MythrilChest.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -5974,7 +5974,7 @@ h3 {
 }
 
 .AdamantChest {
-  background-image: url("./images/static/icons/misc/AdamantChest.png");
+  background-image: url("/images/static/icons/misc/AdamantChest.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -5988,7 +5988,7 @@ h3 {
 }
 
 .BronzeChest {
-  background-image: url("./images/static/icons/misc/BronzeChest.png");
+  background-image: url("/images/static/icons/misc/BronzeChest.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -6002,7 +6002,7 @@ h3 {
 }
 
 .SilverChest {
-  background-image: url("./images/static/icons/misc/SilverChest.png");
+  background-image: url("/images/static/icons/misc/SilverChest.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -6016,7 +6016,7 @@ h3 {
 }
 
 .PlatinumChest {
-  background-image: url("./images/static/icons/misc/PlatinumChest.png");
+  background-image: url("/images/static/icons/misc/PlatinumChest.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -6030,7 +6030,7 @@ h3 {
 }
 
 .GoldChest {
-  background-image: url("./images/static/icons/misc/GoldChest.png");
+  background-image: url("/images/static/icons/misc/GoldChest.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -6044,7 +6044,7 @@ h3 {
 }
 
 .RuinUltimaIgnot {
-  background-image: url("./images/static/icons/misc/RuinUltimaIgnot.png");
+  background-image: url("/images/static/icons/misc/RuinUltimaIgnot.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -6058,7 +6058,7 @@ h3 {
 }
 
 .GuardToken {
-  background-image: url("./images/static/icons/misc/GuardToken.png");
+  background-image: url("/images/static/icons/misc/GuardToken.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -6072,7 +6072,7 @@ h3 {
 }
 
 .RuinUltimaNugget {
-  background-image: url("./images/static/icons/misc/RuinUltimaNugget.png");
+  background-image: url("/images/static/icons/misc/RuinUltimaNugget.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -6086,7 +6086,7 @@ h3 {
 }
 
 .RuinAdamantineIgnot {
-  background-image: url("./images/static/icons/misc/RuinAdamantineIgnot.png");
+  background-image: url("/images/static/icons/misc/RuinAdamantineIgnot.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -6100,7 +6100,7 @@ h3 {
 }
 
 .RuinAdamantineBook {
-  background-image: url("./images/static/icons/misc/RuinAdamantineBook.png");
+  background-image: url("/images/static/icons/misc/RuinAdamantineBook.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -6114,7 +6114,7 @@ h3 {
 }
 
 .HighGuardToken {
-  background-image: url("./images/static/icons/misc/7StarArmor.png");
+  background-image: url("/images/static/icons/misc/7StarArmor.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -6128,7 +6128,7 @@ h3 {
 }
 
 .RefugeAdamantineBook {
-  background-image: url("./images/static/icons/misc/RefugeAdamantineBook.png");
+  background-image: url("/images/static/icons/misc/RefugeAdamantineBook.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -6142,7 +6142,7 @@ h3 {
 }
 
 .RefugeAdamantineIgnot {
-  background-image: url("./images/static/icons/misc/RefugeAdamantineIgnot.png");
+  background-image: url("/images/static/icons/misc/RefugeAdamantineIgnot.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -6156,7 +6156,7 @@ h3 {
 }
 
 .RefugeUltimaBook {
-  background-image: url("./images/static/icons/misc/RefugeUltimaBook.png");
+  background-image: url("/images/static/icons/misc/RefugeUltimaBook.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -6170,7 +6170,7 @@ h3 {
 }
 
 .RefugeUltimaIgnot {
-  background-image: url("./images/static/icons/misc/RefugeUltimaIgnot.png");
+  background-image: url("/images/static/icons/misc/RefugeUltimaIgnot.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -6184,7 +6184,7 @@ h3 {
 }
 
 .RuinUltimaBook {
-  background-image: url("./images/static/icons/misc/RuinUltimaBook.png");
+  background-image: url("/images/static/icons/misc/RuinUltimaBook.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -6198,7 +6198,7 @@ h3 {
 }
 
 .SilverChocoboToken {
-  background-image: url("./images/static/icons/misc/SilverChocoboToken.png");
+  background-image: url("/images/static/icons/misc/SilverChocoboToken.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -6212,7 +6212,7 @@ h3 {
 }
 
 .GoldChocoboToken {
-  background-image: url("./images/static/icons/misc/GoldChocoboToken.png");
+  background-image: url("/images/static/icons/misc/GoldChocoboToken.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -6226,7 +6226,7 @@ h3 {
 }
 
 .KupocardsMini1 {
-  background-image: url("./images/static/icons/misc/KupocardsMini1.png");
+  background-image: url("/images/static/icons/misc/KupocardsMini1.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -6240,7 +6240,7 @@ h3 {
 }
 
 .KupocardsMini2 {
-  background-image: url("./images/static/icons/misc/KupocardsMini2.png");
+  background-image: url("/images/static/icons/misc/KupocardsMini2.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -6254,7 +6254,7 @@ h3 {
 }
 
 .KupocardsMini3 {
-  background-image: url("./images/static/icons/misc/KupocardsMini3.png");
+  background-image: url("/images/static/icons/misc/KupocardsMini3.png");
   height: 28px;
   width: 28px;
   margin-bottom: -3px;
@@ -6270,13 +6270,13 @@ h3 {
 /*enemy buffs*/
 
 .KnockBack {
-  background-image: url("./images/static/icons/misc/Launch.png");
+  background-image: url("/images/static/icons/misc/Launch.png");
   width: 36px;
   height: 20px;
 }
 
 .smallpassive {
-  background-image: url("./images/static/icons/misc/Passive_small.png");
+  background-image: url("/images/static/icons/misc/Passive_small.png");
   width: 48px;
   height: 24px;
   display: inline-block;
@@ -6286,7 +6286,7 @@ h3 {
 }
 
 .mini_ability {
-  background-image: url("./images/static/icons/misc/mini_ability.png");
+  background-image: url("/images/static/icons/misc/mini_ability.png");
   width: 48px;
   height: 24px;
   display: inline-block;
@@ -6296,7 +6296,7 @@ h3 {
 }
 
 .smallstatus {
-  background-image: url("./images/static/icons/misc/status_small.png");
+  background-image: url("/images/static/icons/misc/status_small.png");
   width: 48px;
   height: 24px;
   display: inline-block;
@@ -6306,7 +6306,7 @@ h3 {
 }
 
 .smallspecial {
-  background-image: url("./images/static/icons/misc/small_special.png");
+  background-image: url("/images/static/icons/misc/small_special.png");
   width: 48px;
   height: 24px;
   display: inline-block;
@@ -6316,67 +6316,67 @@ h3 {
 }
 
 .lb0 {
-  background-image: url("./images/static/icons/geartype/limits/0LB.png");
+  background-image: url("/images/static/icons/geartype/limits/0LB.png");
   width: 32px;
   height: 31px;
 }
 
 .lb1 {
-  background-image: url("./images/static/icons/geartype/limits/1LB.png");
+  background-image: url("/images/static/icons/geartype/limits/1LB.png");
   width: 32px;
   height: 31px;
 }
 
 .lb2 {
-  background-image: url("./images/static/icons/geartype/limits/2LB.png");
+  background-image: url("/images/static/icons/geartype/limits/2LB.png");
   width: 32px;
   height: 31px;
 }
 
 .lb3 {
-  background-image: url("./images/static/icons/geartype/limits/3LB.png");
+  background-image: url("/images/static/icons/geartype/limits/3LB.png");
   width: 32px;
   height: 31px;
 }
 
 .lb05 {
-  background-image: url("./images/static/icons/geartype/limits/0LB5.png");
+  background-image: url("/images/static/icons/geartype/limits/0LB5.png");
   width: 40px;
   height: 31px;
 }
 
 .lb15 {
-  background-image: url("./images/static/icons/geartype/limits/1LB5.png");
+  background-image: url("/images/static/icons/geartype/limits/1LB5.png");
   width: 40px;
   height: 31px;
 }
 
 .lb25 {
-  background-image: url("./images/static/icons/geartype/limits/2LB5.png");
+  background-image: url("/images/static/icons/geartype/limits/2LB5.png");
   width: 40px;
   height: 31px;
 }
 
 .lb35 {
-  background-image: url("./images/static/icons/geartype/limits/3LB5.png");
+  background-image: url("/images/static/icons/geartype/limits/3LB5.png");
   width: 40px;
   height: 31px;
 }
 
 .lb45 {
-  background-image: url("./images/static/icons/geartype/limits/4LB5.png");
+  background-image: url("/images/static/icons/geartype/limits/4LB5.png");
   width: 40px;
   height: 31px;
 }
 
 .lb55 {
-  background-image: url("./images/static/icons/geartype/limits/5LB5.png");
+  background-image: url("/images/static/icons/geartype/limits/5LB5.png");
   width: 40px;
   height: 31px;
 }
 
 .mlb {
-  background-image: url("./images/static/icons/misc/MLB.png");
+  background-image: url("/images/static/icons/misc/MLB.png");
   width: 32px;
   height: 31px;
 }
@@ -6427,7 +6427,7 @@ h3 {
 
 .gemselected {
   display: none;
-  content: url("./images/static/icons/misc/LimitBreakSmall.png");
+  content: url("/images/static/icons/misc/LimitBreakSmall.png");
   vertical-align: middle;
   background-size: contain;
   height: 20px;
@@ -6436,7 +6436,7 @@ h3 {
 }
 
 .gemcredits {
-  content: url("./images/static/icons/misc/LimitBreakSmall.png");
+  content: url("/images/static/icons/misc/LimitBreakSmall.png");
   vertical-align: middle;
   background-size: contain;
   height: 20px;
@@ -6471,162 +6471,162 @@ h3 {
 }
 
 .Debuff_Breakbutton {
-  background-image: url("./images/static/icons/roles/Role_Debuff_Break.png");
+  background-image: url("/images/static/icons/roles/Role_Debuff_Break.png");
   background-size: contain;
 }
 
 .Stacked_Debuffbutton {
-  background-image: url("./images/static/icons/roles/Role_Stacked_Debuff.png");
+  background-image: url("/images/static/icons/roles/Role_Stacked_Debuff.png");
   background-size: contain;
 }
 
 .Break_Resetbutton {
-  background-image: url("./images/static/icons/roles/Role_BreakReset.png");
+  background-image: url("/images/static/icons/roles/Role_BreakReset.png");
   background-size: contain;
 }
 
 .Non_Elementalbutton {
-  background-image: url("./images/static/icons/roles/Role_Non-Elemental.png");
+  background-image: url("/images/static/icons/roles/Role_Non-Elemental.png");
   background-size: contain;
 }
 
 .HP_Damage_Upbutton {
-  background-image: url("./images/static/icons/roles/Role_HP_Damage_Up.png");
+  background-image: url("/images/static/icons/roles/Role_HP_Damage_Up.png");
   background-size: contain;
 }
 
 .Buff_Extensionbutton {
-  background-image: url("./images/static/icons/roles/Role_Buff_Extension.png");
+  background-image: url("/images/static/icons/roles/Role_Buff_Extension.png");
   background-size: contain;
 }
 
 .Self_Harmbutton {
-  background-image: url("./images/static/icons/roles/Role_Self_Harm.png");
+  background-image: url("/images/static/icons/roles/Role_Self_Harm.png");
   background-size: contain;
 }
 
 .Ally_Turn_Manipulatorbutton {
-  background-image: url("./images/static/icons/roles/Role_Ally_Turn_Manipulator.png");
+  background-image: url("/images/static/icons/roles/Role_Ally_Turn_Manipulator.png");
   background-size: contain;
 }
 
 .FollowUpbutton {
-  background-image: url("./images/static/icons/roles/Role_Icon_FollowUp.png");
+  background-image: url("/images/static/icons/roles/Role_Icon_FollowUp.png");
   background-size: contain;
 }
 
 .Cannot_Breakbutton {
-  background-image: url("./images/static/icons/roles/Role_Cannot_Break.png");
+  background-image: url("/images/static/icons/roles/Role_Cannot_Break.png");
   background-size: contain;
 }
 
 .Blindbutton {
-  background-image: url("./images/static/icons/debuff/debuff_glasses_unframed.png");
+  background-image: url("/images/static/icons/debuff/debuff_glasses_unframed.png");
   background-size: contain;
 }
 
 .Debuff_Evadebutton {
-  background-image: url("./images/static/icons/roles/Role_Debuff_Evade.png");
+  background-image: url("/images/static/icons/roles/Role_Debuff_Evade.png");
   background-size: contain;
 }
 
 .Debuff_Goldbutton {
-  background-image: url("./images/static/icons/roles/Role_Debuff_Gold.png");
+  background-image: url("/images/static/icons/roles/Role_Debuff_Gold.png");
   background-size: contain;
 }
 
 .BRV_Wont_Belowbutton {
-  background-image: url("./images/static/icons/roles/Role_BRV_Hold.png");
+  background-image: url("/images/static/icons/roles/Role_BRV_Hold.png");
   background-size: contain;
 }
 
 .FollowUp_By_Otherbutton {
-  background-image: url("./images/static/icons/roles/Role_Icon_FollowUp_By_Others.png");
+  background-image: url("/images/static/icons/roles/Role_Icon_FollowUp_By_Others.png");
   background-size: contain;
 }
 
 .Launch_Supportbutton {
-  background-image: url("./images/static/icons/roles/Role_Icon_Knock_Back_Support.png");
+  background-image: url("/images/static/icons/roles/Role_Icon_Knock_Back_Support.png");
   background-size: contain;
 }
 
 .Continuous_Turnsbutton {
-  background-image: url("./images/static/icons/roles/Role_Continuous_Turns.png");
+  background-image: url("/images/static/icons/roles/Role_Continuous_Turns.png");
   background-size: contain;
 }
 
 .Turn_Interrupterbutton {
-  background-image: url("./images/static/icons/roles/Role_Turn_Interrupter.png");
+  background-image: url("/images/static/icons/roles/Role_Turn_Interrupter.png");
   background-size: contain;
 }
 
 .BRV_Ratiobutton {
-  background-image: url("./images/static/icons/roles/Role_BRV_Ratio.png");
+  background-image: url("/images/static/icons/roles/Role_BRV_Ratio.png");
   background-size: contain;
 }
 
 .BRV_Absorbbutton {
-  background-image: url("./images/static/icons/roles/Role_BRV_Absorb.png");
+  background-image: url("/images/static/icons/roles/Role_BRV_Absorb.png");
   background-size: contain;
 }
 
 .EX_MAX_Partybutton {
-  background-image: url("./images/static/icons/roles/Role_EX_Gauge.png");
+  background-image: url("/images/static/icons/roles/Role_EX_Gauge.png");
   background-size: contain;
 }
 
 .Stacked_Buffbutton {
-  background-image: url("./images/static/icons/buff/buff_up1_unframed.png");
+  background-image: url("/images/static/icons/buff/buff_up1_unframed.png");
   background-size: contain;
 }
 
 .Stacked_Buff_Fivebutton {
-  background-image: url("./images/static/icons/buff/buff_up5_unframed.png");
+  background-image: url("/images/static/icons/buff/buff_up5_unframed.png");
   background-size: contain;
 }
 
 .Trap_After_Triggerbutton {
-  background-image: url("./images/static/icons/roles/Role_Trap_After.png");
+  background-image: url("/images/static/icons/roles/Role_Trap_After.png");
   background-size: contain;
 }
 
 .Trap_Before_Turnbutton {
-  background-image: url("./images/static/icons/roles/Role_Trap_Before.png");
+  background-image: url("/images/static/icons/roles/Role_Trap_Before.png");
   background-size: contain;
 }
 
 .FollowUp_Before_Player_Turnbutton {
-  background-image: url("./images/static/icons/roles/Role_Before_Player_Turn.png");
+  background-image: url("/images/static/icons/roles/Role_Before_Player_Turn.png");
   background-size: contain;
 }
 
 .FollowUp_Before_Abilitybutton {
-  background-image: url("./images/static/icons/roles/Role_Before_Ability_Attack.png");
+  background-image: url("/images/static/icons/roles/Role_Before_Ability_Attack.png");
   background-size: contain;
 }
 
 .FollowUp_Extensionbutton {
-  background-image: url("./images/static/icons/roles/Role_Ability_Extension_FollowUp.png");
+  background-image: url("/images/static/icons/roles/Role_Ability_Extension_FollowUp.png");
   background-size: contain;
 }
 
 .FollowUp_Start_Of_Nextbutton {
-  background-image: url("./images/static/icons/roles/Role_Start_Of_Next_Turn.png");
+  background-image: url("/images/static/icons/roles/Role_Start_Of_Next_Turn.png");
   background-size: contain;
 }
 
 .FollowUp_Action_On_Enemybutton {
-  background-image: url("./images/static/icons/roles/Role_Action_Against_Enemy_FollowUp.png");
+  background-image: url("/images/static/icons/roles/Role_Action_Against_Enemy_FollowUp.png");
   background-size: contain;
 }
 
 .Free_Abilitybutton {
-  background-image: url("./images/static/icons/buff/buff_double_unframed.png");
+  background-image: url("/images/static/icons/buff/buff_double_unframed.png");
   background-size: contain;
 }
 
 .Special_Buffbutton {
-  background-image: url("./images/static/icons/roles/Role_Special_Buff.png");
+  background-image: url("/images/static/icons/roles/Role_Special_Buff.png");
   background-size: contain;
 }
 
@@ -6666,7 +6666,7 @@ h3 {
 }
 
 .BonusHPDamage2 {
-  background-image: url("./images/static/icons/misc/HPDamageBonus.png");
+  background-image: url("/images/static/icons/misc/HPDamageBonus.png");
   background-repeat: no-repeat;
   background-size: contain;
   display: inline-block;
@@ -6835,7 +6835,7 @@ h3 {
 }
 
 .mod_icon {
-  background-image: url("./images/static/icons/misc/modify_ailment.png");
+  background-image: url("/images/static/icons/misc/modify_ailment.png");
   width: 3em;
   height: 2em;
   display: inline-block;
@@ -7215,7 +7215,7 @@ h3 {
   }
 
   .logom {
-    content: url("./images/static/site/CompendiumDirect_Logo_Smallest_maintenance.png");
+    content: url("/images/static/site/CompendiumDirect_Logo_Smallest_maintenance.png");
     height: 45px;
     width: 134px;
   }

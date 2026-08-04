@@ -126,7 +126,7 @@ function UpdateFormatting({ match, jptoggledata, scrollPosition  }){
                             effect="opacity" 
                             alt={summons.SummonName} 
                             className="summonimglink" 
-                            src={`./images/static/icons/summons/face/${summons.SummonFace}`} />
+                            src={`/images/static/icons/summons/face/${summons.SummonFace}`} />
                           </Link>
                         </DefaultTippy>
                       </li>

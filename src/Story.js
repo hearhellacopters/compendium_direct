@@ -468,7 +468,7 @@ function Story({
       };
 
     const make_image = (data) =>{
-        var image = `./images/static/banners/${ver.toLowerCase()}/event/eventtitle`
+        var image = `/images/static/banners/${ver.toLowerCase()}/event/eventtitle`
         if(data[`${ver}_banner`] != undefined && data[`${ver}_banner`][0]!= undefined){
             image = image + data[`${ver}_banner`][0] + "out.png"
         } else {
@@ -479,7 +479,7 @@ function Story({
                 key={data.or}
                 effect="opacity"
                 scrollPosition={scrollPosition}
-                placeholder={<img src="./images/static/banners/acts/blank.png" className='teventimage_dummy'/>}
+                placeholder={<img src="/images/static/banners/acts/blank.png" className='teventimage_dummy'/>}
                 >
                     <Tippy key={data.or} content={data.name}>
                         <Link className='teventimage' to={`/story/${data.field_id}`}>
@@ -629,11 +629,11 @@ function Story({
                         "No returns"
                     :""}
                     <div className='talk_bar_holder talk_click' onClick={act2button}>
-                        <div style={{"background-image":`url("./images/static/icons/banners/talk/actbar_l.png")`,"--width":"27px"}} className="talk_storybar_l"/>
-                            <div style={{"background-image":`url("./images/static/icons/banners/talk/actbar_c.png")`}}  className="talk_storybar_c">
+                        <div style={{"background-image":`url("/images/static/icons/banners/talk/actbar_l.png")`,"--width":"27px"}} className="talk_storybar_l"/>
+                            <div style={{"background-image":`url("/images/static/icons/banners/talk/actbar_c.png")`}}  className="talk_storybar_c">
                                 <span style={{textAlign:"center",width:"100%"}}>{"Story Act 2"}</span>
                             </div>
-                        <div style={{"background-image":`url("./images/static/icons/banners/talk/actbar_r.png")`,"--width":"27px"}}  className="talk_storybar_r"/>
+                        <div style={{"background-image":`url("/images/static/icons/banners/talk/actbar_r.png")`,"--width":"27px"}}  className="talk_storybar_r"/>
                     </div>
                     {act2 == true ?
                         act2display.length != 0 ?

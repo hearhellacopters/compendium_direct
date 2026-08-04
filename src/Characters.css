@@ -1,173 +1,173 @@
 /*Buttons*/
 
 .magictypebutton {
-    background-image: url("./images/static/icons/geartype/magic.png");
+    background-image: url("/images/static/icons/geartype/magic.png");
     background-size: contain;
 }
 
 .rangedtypebutton {
-    background-image: url("./images/static/icons/geartype/ranged.png");
+    background-image: url("/images/static/icons/geartype/ranged.png");
     background-size: contain;
 }
 
 .meleetypebutton {
-    background-image: url("./images/static/icons/geartype/melee.png");
+    background-image: url("/images/static/icons/geartype/melee.png");
     background-size: contain;
 }
 
 .aoetypebutton {
-    background-image: url("./images/static/icons/geartype/group.png");
+    background-image: url("/images/static/icons/geartype/group.png");
     background-size: contain;
 }
 
 .traptypebutton {
-    background-image: url("./images/static/icons/geartype/trap2.png");
+    background-image: url("/images/static/icons/geartype/trap2.png");
     background-size: contain;
 }
 
 .countertypebutton {
-    background-image: url("./images/static/icons/geartype/counter.png");
+    background-image: url("/images/static/icons/geartype/counter.png");
     background-size: contain;
 }
 
 .followuptypebutton {
-    background-image: url("./images/static/icons/geartype/followup.png");
+    background-image: url("/images/static/icons/geartype/followup.png");
     background-size: contain;
 }
 
 .magicbutton {
-    background-image: url("./images/static/icons/DMGType/DMGType_Magic_Icon.png");
+    background-image: url("/images/static/icons/DMGType/DMGType_Magic_Icon.png");
 }
 
 .meleebutton {
-    background-image: url("./images/static/icons/DMGType/DMGType_Melee_Icon.png");
+    background-image: url("/images/static/icons/DMGType/DMGType_Melee_Icon.png");
 }
 
 .rangedbutton {
-    background-image: url("./images/static/icons/DMGType/DMGType_Ranged_Icon.png");
+    background-image: url("/images/static/icons/DMGType/DMGType_Ranged_Icon.png");
 }
 
 .maxlevel {
-    background-image: url("./images/static/icons/geartype/lv80.png");
+    background-image: url("/images/static/icons/geartype/lv80.png");
 }
 
 .Firebutton {
-    background-image: url("./images/static/icons/elements/Fire.png");
+    background-image: url("/images/static/icons/elements/Fire.png");
     background-size: contain;
 }
 
 .Icebutton {
-    background-image: url("./images/static/icons/elements/Ice.png");
+    background-image: url("/images/static/icons/elements/Ice.png");
     background-size: contain;
 }
 
 .Thunderbutton {
-    background-image: url("./images/static/icons/elements/Thunder.png");
+    background-image: url("/images/static/icons/elements/Thunder.png");
     background-size: contain;
 }
 
 .Waterbutton {
-    background-image: url("./images/static/icons/elements/Water.png");
+    background-image: url("/images/static/icons/elements/Water.png");
     background-size: contain;
 }
 
 .Earthbutton {
-    background-image: url("./images/static/icons/elements/Earth.png");
+    background-image: url("/images/static/icons/elements/Earth.png");
     background-size: contain;
 }
 
 .Windbutton {
-    background-image: url("./images/static/icons/elements/Wind.png");
+    background-image: url("/images/static/icons/elements/Wind.png");
     background-size: contain;
 }
 
 .Darkbutton {
-    background-image: url("./images/static/icons/elements/Dark.png");
+    background-image: url("/images/static/icons/elements/Dark.png");
     background-size: contain;
 }
 
 .Holybutton {
-    background-image: url("./images/static/icons/elements/Holy.png");
+    background-image: url("/images/static/icons/elements/Holy.png");
     background-size: contain;
 }
 
 .reworkbutton {
-    background-image: url("./images/static/icons/geartype/rework.png");
+    background-image: url("/images/static/icons/geartype/rework.png");
     background-size: contain;
 }
 
 .ldcharbutton {
-    background-image: url("./images/static/icons/geartype/ld.png");
+    background-image: url("/images/static/icons/geartype/ld.png");
     background-size: contain;
 }
 
 .frcharbutton {
-    background-image: url("./images/static/icons/geartype/fr.png");
+    background-image: url("/images/static/icons/geartype/fr.png");
     background-size: contain;
 }
 
 .fe50charbutton {
-    background-image: url("./images/static/icons/geartype/frboard50.png");
+    background-image: url("/images/static/icons/geartype/frboard50.png");
     background-size: contain;
 }
 
 .btcharbutton {
-    background-image: url("./images/static/icons/geartype/bt.png");
+    background-image: url("/images/static/icons/geartype/bt.png");
     background-size: contain;
 }
 
 .ldextcharbutton {
-    background-image: url("./images/static/icons/geartype/ench4.png");
+    background-image: url("/images/static/icons/geartype/ench4.png");
     background-size: contain;
 }
 
 .btpluscharbutton {
-    background-image: url("./images/static/icons/geartype/bt+m.png");
+    background-image: url("/images/static/icons/geartype/bt+m.png");
     background-size: contain;
 }
 
 .arm7pluscharbutton {
-    background-image: url("./images/static/icons/geartype/7a+.png");
+    background-image: url("/images/static/icons/geartype/7a+.png");
     background-size: contain;
 }
 
 .arm7charbutton {
-    background-image: url("./images/static/icons/geartype/7a.png");
+    background-image: url("/images/static/icons/geartype/7a.png");
     background-size: contain;
 }
 
 .redcrystalbutton {
-    background-image: url("./images/static/icons/crystalcolors/buttons/Red.png");
+    background-image: url("/images/static/icons/crystalcolors/buttons/Red.png");
     background-size: contain;
 }
 
 .bluecrystalbutton {
-    background-image: url("./images/static/icons/crystalcolors/buttons/Blue.png");
+    background-image: url("/images/static/icons/crystalcolors/buttons/Blue.png");
     background-size: contain;
 }
 
 .greencrystalbutton {
-    background-image: url("./images/static/icons/crystalcolors/buttons/Green.png");
+    background-image: url("/images/static/icons/crystalcolors/buttons/Green.png");
     background-size: contain;
 }
 
 .yellowcrystalbutton {
-    background-image: url("./images/static/icons/crystalcolors/buttons/Yellow.png");
+    background-image: url("/images/static/icons/crystalcolors/buttons/Yellow.png");
     background-size: contain;
 }
 
 .blackcrystalbutton {
-    background-image: url("./images/static/icons/crystalcolors/buttons/Black.png");
+    background-image: url("/images/static/icons/crystalcolors/buttons/Black.png");
     background-size: contain;
 }
 
 .whitecrystalbutton {
-    background-image: url("./images/static/icons/crystalcolors/buttons/White.png");
+    background-image: url("/images/static/icons/crystalcolors/buttons/White.png");
     background-size: contain;
 }
 
 .Daggermini {
-    background-image: url("./images/static/icons/weapon/Dagger.png");
+    background-image: url("/images/static/icons/weapon/Dagger.png");
     background-size: contain;
     width: 20px;
     height: 20px;
@@ -180,7 +180,7 @@
 }
 
 .Swordmini {
-    background-image: url("./images/static/icons/weapon/Shortsword.png");
+    background-image: url("/images/static/icons/weapon/Shortsword.png");
     background-size: contain;
     width: 20px;
     height: 20px;
@@ -193,7 +193,7 @@
 }
 
 .Broadswordmini {
-    background-image: url("./images/static/icons/weapon/Longsword.png");
+    background-image: url("/images/static/icons/weapon/Longsword.png");
     background-size: contain;
     width: 20px;
     height: 20px;
@@ -206,7 +206,7 @@
 }
 
 .Staffmini {
-    background-image: url("./images/static/icons/weapon/Staff.png");
+    background-image: url("/images/static/icons/weapon/Staff.png");
     background-size: contain;
     width: 20px;
     height: 20px;
@@ -219,7 +219,7 @@
 }
 
 .Gunnmini {
-    background-image: url("./images/static/icons/weapon/Pistol.png");
+    background-image: url("/images/static/icons/weapon/Pistol.png");
     background-size: contain;
     width: 20px;
     height: 20px;
@@ -232,7 +232,7 @@
 }
 
 .Fistnmini {
-    background-image: url("./images/static/icons/weapon/Gloves.png");
+    background-image: url("/images/static/icons/weapon/Gloves.png");
     background-size: contain;
     width: 20px;
     height: 20px;
@@ -245,7 +245,7 @@
 }
 
 .Throwingmini{
-    background-image: url("./images/static/icons/weapon/Boomerang.png");
+    background-image: url("/images/static/icons/weapon/Boomerang.png");
     background-size: contain;
     width: 20px;
     height: 20px;
@@ -258,7 +258,7 @@
 }
 
 .Spearmini{
-    background-image: url("./images/static/icons/weapon/Spear.png");
+    background-image: url("/images/static/icons/weapon/Spear.png");
     background-size: contain;
     width: 20px;
     height: 20px;
@@ -271,7 +271,7 @@
 }
 
 .Bowmini{
-    background-image: url("./images/static/icons/weapon/Longbow.png");
+    background-image: url("/images/static/icons/weapon/Longbow.png");
     background-size: contain;
     width: 20px;
     height: 20px;
@@ -284,7 +284,7 @@
 }
 
 .Whipmini{
-    background-image: url("./images/static/icons/weapon/Whip.png");
+    background-image: url("/images/static/icons/weapon/Whip.png");
     background-size: contain;
     width: 20px;
     height: 20px;
@@ -297,7 +297,7 @@
 }
 
 .Othermini{
-    background-image: url("./images/static/icons/weapon/Other.png");
+    background-image: url("/images/static/icons/weapon/Other.png");
     background-size: contain;
     width: 20px;
     height: 20px;
@@ -310,7 +310,7 @@
 }
 
 .Redcrystalmini {
-    background-image: url("./images/static/icons/crystalcolors/buttons/Red.png");
+    background-image: url("/images/static/icons/crystalcolors/buttons/Red.png");
     background-size: contain;
     width: 24px;
     height: 24px;
@@ -321,7 +321,7 @@
 }
 
 .Bluecrystalmini {
-    background-image: url("./images/static/icons/crystalcolors/buttons/Blue.png");
+    background-image: url("/images/static/icons/crystalcolors/buttons/Blue.png");
     background-size: contain;
     width: 24px;
     height: 24px;
@@ -332,7 +332,7 @@
 }
 
 .Greencrystalmini {
-    background-image: url("./images/static/icons/crystalcolors/buttons/Green.png");
+    background-image: url("/images/static/icons/crystalcolors/buttons/Green.png");
     background-size: contain;
     width: 24px;
     height: 24px;
@@ -343,7 +343,7 @@
 }
 
 .Yellowcrystalmini {
-    background-image: url("./images/static/icons/crystalcolors/buttons/Yellow.png");
+    background-image: url("/images/static/icons/crystalcolors/buttons/Yellow.png");
     background-size: contain;
     width: 24px;
     height: 24px;
@@ -354,7 +354,7 @@
 }
 
 .Blackcrystalmini {
-    background-image: url("./images/static/icons/crystalcolors/buttons/Black.png");
+    background-image: url("/images/static/icons/crystalcolors/buttons/Black.png");
     background-size: contain;
     width: 24px;
     height: 24px;
@@ -365,7 +365,7 @@
 }
 
 .Whitecrystalmini {
-    background-image: url("./images/static/icons/crystalcolors/buttons/White.png");
+    background-image: url("/images/static/icons/crystalcolors/buttons/White.png");
     background-size: contain;
     width: 24px;
     height: 24px;
@@ -376,307 +376,307 @@
 }
 
 .daggerbutton {
-    background-image: url("./images/static/icons/weapon/Dagger.png");
+    background-image: url("/images/static/icons/weapon/Dagger.png");
     background-size: contain;
 }
 
 .swordbutton {
-    background-image: url("./images/static/icons/weapon/Shortsword.png");
+    background-image: url("/images/static/icons/weapon/Shortsword.png");
     background-size: contain;
 }
 
 .greatswordbutton {
-    background-image: url("./images/static/icons/weapon/Longsword.png");
+    background-image: url("/images/static/icons/weapon/Longsword.png");
     background-size: contain;
 }
 
 .staffbutton {
-    background-image: url("./images/static/icons/weapon/Staff.png");
+    background-image: url("/images/static/icons/weapon/Staff.png");
     background-size: contain;
 }
 
 .gunbutton {
-    background-image: url("./images/static/icons/weapon/Pistol.png");
+    background-image: url("/images/static/icons/weapon/Pistol.png");
     background-size: contain;
 }
 
 .fistbutton {
-    background-image: url("./images/static/icons/weapon/Gloves.png");
+    background-image: url("/images/static/icons/weapon/Gloves.png");
     background-size: contain;
 }
 
 .throwingbutton {
-    background-image: url("./images/static/icons/weapon/Boomerang.png");
+    background-image: url("/images/static/icons/weapon/Boomerang.png");
     background-size: contain;
 }
 
 .spearbutton {
-    background-image: url("./images/static/icons/weapon/Spear.png");
+    background-image: url("/images/static/icons/weapon/Spear.png");
     background-size: contain;
 }
 
 .bowbutton {
-    background-image: url("./images/static/icons/weapon/Longbow.png");
+    background-image: url("/images/static/icons/weapon/Longbow.png");
     background-size: contain;
 }
 
 .whipbutton {
-    background-image: url("./images/static/icons/weapon/Whip.png");
+    background-image: url("/images/static/icons/weapon/Whip.png");
     background-size: contain;
 }
 
 .otherbutton {
-    background-image: url("./images/static/icons/weapon/Other.png");
+    background-image: url("/images/static/icons/weapon/Other.png");
     background-size: contain;
 }
 
 .Tankbutton {
-    background-image: url("./images/static/icons/roles/Role_Icon_Tank.png");
+    background-image: url("/images/static/icons/roles/Role_Icon_Tank.png");
     background-size: contain;
 }
 
 .BRVControlbutton {
-    background-image: url("./images/static/icons/roles/Role_Icon_BRV-Control.png");
+    background-image: url("/images/static/icons/roles/Role_Icon_BRV-Control.png");
     background-size: contain;
 }
 
 .BRVPoisonbutton {
-    background-image: url("./images/static/icons/roles/Role_BRVPoison.png");
+    background-image: url("/images/static/icons/roles/Role_BRVPoison.png");
     background-size: contain;
 }
 
 .BRVDamageResistbutton {
-    background-image: url("./images/static/icons/roles/Role_BRVResist.png");
+    background-image: url("/images/static/icons/roles/Role_BRVResist.png");
     background-size: contain;
 }
 
 .BRVResistDownbutton {
-    background-image: url("./images/static/icons/roles/Role_BRVResistDown.png");
+    background-image: url("/images/static/icons/roles/Role_BRVResistDown.png");
     background-size: contain;
 }
 
 .BRVShieldbutton {
-    background-image: url("./images/static/icons/roles/Role_BRVShield.png");
+    background-image: url("/images/static/icons/roles/Role_BRVShield.png");
     background-size: contain;
 }
 
 .BRVRegenbutton {
-    background-image: url("./images/static/icons/roles/Role_BRVRegen.png");
+    background-image: url("/images/static/icons/roles/Role_BRVRegen.png");
     background-size: contain;
 }
 
 .Batterybutton {
-    background-image: url("./images/static/icons/roles/Role_Icon_Battery.png");
+    background-image: url("/images/static/icons/roles/Role_Icon_Battery.png");
     background-size: contain;
 }
 
 .Debufferbutton {
-    background-image: url("./images/static/icons/buff/debuff_persondown_unframed.png");
+    background-image: url("/images/static/icons/buff/debuff_persondown_unframed.png");
     background-size: contain;
 }
 
 .Counterbutton {
-    background-image: url("./images/static/icons/roles/Role_Icon_Counter.png");
+    background-image: url("/images/static/icons/roles/Role_Icon_Counter.png");
     background-size: contain;
 }
 
 .DarkEnchantbutton {
-    background-image: url("./images/static/icons/elements/Up/Dark.png");
+    background-image: url("/images/static/icons/elements/Up/Dark.png");
     background-size: contain;
 }
 
 .DarkImperilbutton {
-    background-image: url("./images/static/icons/elements/Down/Dark.png");
+    background-image: url("/images/static/icons/elements/Down/Dark.png");
     background-size: contain;
 }
 
 .HolyEnchantbutton {
-    background-image: url("./images/static/icons/elements/Up/Holy.png");
+    background-image: url("/images/static/icons/elements/Up/Holy.png");
     background-size: contain;
 }
 
 .HolyImperilbutton {
-    background-image: url("./images/static/icons/elements/Down/Holy.png");
+    background-image: url("/images/static/icons/elements/Down/Holy.png");
     background-size: contain;
 }
 
 .WindEnchantbutton {
-    background-image: url("./images/static/icons/elements/Up/Wind.png");
+    background-image: url("/images/static/icons/elements/Up/Wind.png");
     background-size: contain;
 }
 
 .WindImperilbutton {
-    background-image: url("./images/static/icons/elements/Down/Wind.png");
+    background-image: url("/images/static/icons/elements/Down/Wind.png");
     background-size: contain;
 }
 
 .EarthEnchantbutton {
-    background-image: url("./images/static/icons/elements/Up/Earth.png");
+    background-image: url("/images/static/icons/elements/Up/Earth.png");
     background-size: contain;
 }
 
 .EarthImperilbutton {
-    background-image: url("./images/static/icons/elements/Down/Earth.png");
+    background-image: url("/images/static/icons/elements/Down/Earth.png");
     background-size: contain;
 }
 
 .WaterEnchantbutton {
-    background-image: url("./images/static/icons/elements/Up/Water.png");
+    background-image: url("/images/static/icons/elements/Up/Water.png");
     background-size: contain;
 }
 
 .WaterImperilbutton {
-    background-image: url("./images/static/icons/elements/Down/Water.png");
+    background-image: url("/images/static/icons/elements/Down/Water.png");
     background-size: contain;
 }
 
 .ThunderEnchantbutton {
-    background-image: url("./images/static/icons/elements/Up/Thunder.png");
+    background-image: url("/images/static/icons/elements/Up/Thunder.png");
     background-size: contain;
 }
 
 .ThunderImperilbutton {
-    background-image: url("./images/static/icons/elements/Down/Thunder.png");
+    background-image: url("/images/static/icons/elements/Down/Thunder.png");
     background-size: contain;
 }
 
 .IceEnchantbutton {
-    background-image: url("./images/static/icons/elements/Up/Ice.png");
+    background-image: url("/images/static/icons/elements/Up/Ice.png");
     background-size: contain;
 }
 
 .IceImperilbutton {
-    background-image: url("./images/static/icons/elements/Down/Ice.png");
+    background-image: url("/images/static/icons/elements/Down/Ice.png");
     background-size: contain;
 }
 
 .FireEnchantbutton {
-    background-image: url("./images/static/icons/elements/Up/Fire.png");
+    background-image: url("/images/static/icons/elements/Up/Fire.png");
     background-size: contain;
 }
 
 .FireImperilbutton {
-    background-image: url("./images/static/icons/elements/Down/Fire.png");
+    background-image: url("/images/static/icons/elements/Down/Fire.png");
     background-size: contain;
 }
 
 .MagicImperilbutton {
-    background-image: url("./images/static/icons/roles/Role_MagicImperil.png");
+    background-image: url("/images/static/icons/roles/Role_MagicImperil.png");
     background-size: contain;
 }
 
 .MeleeImperilbutton {
-    background-image: url("./images/static/icons/roles/Role_MeleeImperil.png");
+    background-image: url("/images/static/icons/roles/Role_MeleeImperil.png");
     background-size: contain;
 }
 
 .RangedImperilbutton {
-    background-image: url("./images/static/icons/roles/Role_RangedImperil.png");
+    background-image: url("/images/static/icons/roles/Role_RangedImperil.png");
     background-size: contain;
 }
 
 .DebuffDelaybutton {
-    background-image: url("./images/static/icons/roles/Role_DebuffDelayer.png");
+    background-image: url("/images/static/icons/roles/Role_DebuffDelayer.png");
     background-size: contain;
 }
 
 .DeleteTurnsbutton {
-    background-image: url("./images/static/icons/roles/Role_DeleteTurns.png");
+    background-image: url("/images/static/icons/roles/Role_DeleteTurns.png");
     background-size: contain;
 }
 
 .Disablebutton {
-    background-image: url("./images/static/icons/roles/Role_Icon_Disable.png");
+    background-image: url("/images/static/icons/roles/Role_Icon_Disable.png");
     background-size: contain;
 }
 
 .HPHealAbilitybutton {
-    background-image: url("./images/static/icons/roles/Role_HP_Heal_Ability.png");
+    background-image: url("/images/static/icons/roles/Role_HP_Heal_Ability.png");
     background-size: contain;
 }
 
 .FiftyHPHealAbilitybutton {
-    background-image: url("./images/static/icons/roles/Role_Fifty_HP_Heal_Ability.png");
+    background-image: url("/images/static/icons/roles/Role_Fifty_HP_Heal_Ability.png");
     background-size: contain;
 }
 
 .ForceBreakbutton {
-    background-image: url("./images/static/icons/roles/Role_ForcedBreak.png");
+    background-image: url("/images/static/icons/roles/Role_ForcedBreak.png");
     background-size: contain;
 }
 
 .FourDebuffbutton {
-    background-image: url("./images/static/icons/roles/Role_4Debuffer.png");
+    background-image: url("/images/static/icons/roles/Role_4Debuffer.png");
     background-size: contain;
 }
 
 .HPDamageResistbutton {
-    background-image: url("./images/static/icons/roles/Role_HPResist.png");
+    background-image: url("/images/static/icons/roles/Role_HPResist.png");
     background-size: contain;
 }
 
 .HPResistDownbutton {
-    background-image: url("./images/static/icons/roles/Role_HPResistDown.png");
+    background-image: url("/images/static/icons/roles/Role_HPResistDown.png");
     background-size: contain;
 }
 
 .HPPoisonbutton {
-    background-image: url("./images/static/icons/roles/Role_HPPoison.png");
+    background-image: url("/images/static/icons/roles/Role_HPPoison.png");
     background-size: contain;
 }
 
 .HPRegenbutton {
-    background-image: url("./images/static/icons/roles/Role_HPRegen.png");
+    background-image: url("/images/static/icons/roles/Role_HPRegen.png");
     background-size: contain;
 }
 
 .Launcherbutton {
-    background-image: url("./images/static/icons/roles/Role_KnockBack.png");
+    background-image: url("/images/static/icons/roles/Role_KnockBack.png");
     background-size: contain;
 }
 
 .SixBuffsbutton {
-    background-image: url("./images/static/icons/roles/Role_SixBuffs.png");
+    background-image: url("/images/static/icons/roles/Role_SixBuffs.png");
     background-size: contain;
 }
 
 .ThreeDelaybutton {
-    background-image: url("./images/static/icons/roles/Role_3Delay.png");
+    background-image: url("/images/static/icons/roles/Role_3Delay.png");
     background-size: contain;
 }
 
 .Trapbutton {
-    background-image: url("./images/static/icons/roles/Role_Trap.png");
+    background-image: url("/images/static/icons/roles/Role_Trap.png");
     background-size: contain;
 }
 
 .TwoAbilitiesRecoverbutton {
-    background-image: url("./images/static/icons/roles/Role_Two_Abilities_Recover.png");
+    background-image: url("/images/static/icons/roles/Role_Two_Abilities_Recover.png");
     background-size: contain;
 }
 
 .CritRateUpbutton {
-    background-image: url("./images/static/icons/roles/Role_Crit_Rate_Up.png");
+    background-image: url("/images/static/icons/roles/Role_Crit_Rate_Up.png");
     background-size: contain;
 }
 
 .Evadebutton {
-    background-image: url("./images/static/icons/buff/buff_dodge_unframed.png");
+    background-image: url("/images/static/icons/buff/buff_dodge_unframed.png");
     background-size: contain;
 }
 
 .Ignore_DEFbutton {
-    background-image: url("./images/static/icons/roles/Role_Ignore_DEF.png");
+    background-image: url("/images/static/icons/roles/Role_Ignore_DEF.png");
     background-size: contain;
 }
 
 .KO_Preventbutton {
-    background-image: url("./images/static/icons/roles/Role_KO_Prevent.png");
+    background-image: url("/images/static/icons/roles/Role_KO_Prevent.png");
     background-size: contain;
 }
 
 .Reviverbutton {
-    background-image: url("./images/static/icons/roles/Role_Reviver.png");
+    background-image: url("/images/static/icons/roles/Role_Reviver.png");
     background-size: contain;
 }
 
@@ -805,7 +805,7 @@
 }
 
 .bubble1 {
-    content: url("./images/static/icons/misc/bubbles1.png");
+    content: url("/images/static/icons/misc/bubbles1.png");
     position: absolute;
     z-index: 2;
     margin-top: 4px;
@@ -816,7 +816,7 @@
 }
 
 .bubble2 {
-    content: url("./images/static/icons/misc/bubbles2.png");
+    content: url("/images/static/icons/misc/bubbles2.png");
     position: absolute;
     z-index: 2;
     margin-top: 4px;

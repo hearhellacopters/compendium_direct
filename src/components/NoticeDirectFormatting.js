@@ -58,7 +58,7 @@ export default function NoticeDirectFormatting ({ match, ver_ }) {
     return (
         <div className="notice_holder clicky">
         <div className='notice_banner'>
-            <div className='notice_icon' style={{backgroundImage: `url("./images/static/icons/banners/notice/${match.info_category_id}.png")`}}>
+            <div className='notice_icon' style={{backgroundImage: `url("/images/static/icons/banners/notice/${match.info_category_id}.png")`}}>
                 {notice_text[match.info_category_id]}
             </div>
             {ver == "JP" ?

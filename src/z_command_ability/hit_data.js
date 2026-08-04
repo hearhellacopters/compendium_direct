@@ -524,7 +524,7 @@ function HitData ({
               scrollPosition={scrollPosition}
               placeholder={<div className='buffunit' style={{ minHeight: `210px` }}>
                               <div className='infoholder'>
-                              <img className="loadingbardots" src="./images/static/site/loading.gif"/>
+                              <img className="loadingbardots" src="/images/static/site/loading.gif"/>
                               </div>
                           </div>}
             >

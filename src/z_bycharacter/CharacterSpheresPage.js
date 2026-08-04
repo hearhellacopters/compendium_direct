@@ -21,13 +21,13 @@ function CharacterSpheresPage ({
         <div className="singlesubbanner">{profiledata.name}{"'s Spheres"}</div>
         <div className="sphereletterholder filterholderflair somepadding">
           <div className={`sphereletter ${profiledata.SphereSlotLocked == 1 ? "lockedslot" : "unlockedslot"}`}>
-            <img className='inletter' src={profiledata.Sphere1 == undefined ? "./images/static/icons/misc/Unknown_icon.png" : `./images/static/icons/spheres/SphereLetter${profiledata.Sphere1}.png`} alt={profiledata.Sphere1} />
+            <img className='inletter' src={profiledata.Sphere1 == undefined ? "/images/static/icons/misc/Unknown_icon.png" : `/images/static/icons/spheres/SphereLetter${profiledata.Sphere1}.png`} alt={profiledata.Sphere1} />
           </div>
           <div className={`sphereletter ${profiledata.SphereSlotLocked == 2 ? "lockedslot" : "unlockedslot"}`}>
-            <img className='inletter' src={profiledata.Sphere2 == undefined ? "./images/static/icons/misc/Unknown_icon.png" : `./images/static/icons/spheres/SphereLetter${profiledata.Sphere2}.png`} alt={profiledata.Sphere2} />
+            <img className='inletter' src={profiledata.Sphere2 == undefined ? "/images/static/icons/misc/Unknown_icon.png" : `/images/static/icons/spheres/SphereLetter${profiledata.Sphere2}.png`} alt={profiledata.Sphere2} />
           </div>
           <div className={`sphereletter ${profiledata.SphereSlotLocked == 3 ? "lockedslot" : "unlockedslot"}`}>
-            <img className='inletter' src={profiledata.Sphere3 == undefined ? "./images/static/icons/misc/Unknown_icon.png" : `./images/static/icons/spheres/SphereLetter${profiledata.Sphere3}.png`} alt={profiledata.Sphere3} />
+            <img className='inletter' src={profiledata.Sphere3 == undefined ? "/images/static/icons/misc/Unknown_icon.png" : `/images/static/icons/spheres/SphereLetter${profiledata.Sphere3}.png`} alt={profiledata.Sphere3} />
           </div>
         </div>
       </div>
@@ -37,7 +37,7 @@ function CharacterSpheresPage ({
             key={passive.pa_id}
             scrollPosition={scrollPosition}
             placeholder={<div className="buffunit infoholder" style={{ minHeight: `250px` }}>
-              <img className="loadingbardots" src="./images/static/site/loading.gif"/>
+              <img className="loadingbardots" src="/images/static/site/loading.gif"/>
             </div>
               }
             >

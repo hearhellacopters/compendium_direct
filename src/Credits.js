@@ -2,8 +2,12 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom'
 
-export default function Credits(){
-
+export default function Credits({setdevSite}){
+    const devButton = (e) => {
+        if (e.shiftKey) {
+            setdevSite((prevValue) => !prevValue);
+        }
+    }
     return (
         <div className="">
             <Helmet>
@@ -22,7 +26,7 @@ export default function Credits(){
             <div className="content fullheight">
                 <h1>Acknowledgements</h1>
                 <div className="creditsholder">
-                    <div className="filterholderflair" >
+                    <div onClick={devButton} className="filterholderflair" >
                         The Compendium Dev Team would like to thank:
                     </div>
                     <ul className="creditslist">

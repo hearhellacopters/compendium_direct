@@ -2984,283 +2984,283 @@ const GameListAilment = ({
                     <div className="similarbanner">Attacking</div>
                     <ul className="characterclasses">
                         <Tippy content={ailment_tags[`Melee_Imperil`].name}>
-                            <li className={`${MeleeDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={MeleeDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Melee_Imperil`].url}.png")` }}></li>
+                            <li className={`${MeleeDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={MeleeDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Melee_Imperil`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Ranged_Imperil`].name}>
-                            <li className={`${RangedDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={RangedDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Ranged_Imperil`].url}.png")` }}></li>
+                            <li className={`${RangedDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={RangedDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Ranged_Imperil`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Magic_Imperil`].name}>
-                            <li className={`${MagicDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={MagicDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Magic_Imperil`].url}.png")` }}></li>
+                            <li className={`${MagicDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={MagicDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Magic_Imperil`].url}.png")` }}></li>
                         </Tippy>
                         <br />
                         <Tippy content={ailment_tags[`Fire_Enchant`].name}>
-                            <li className={`${Fire ? "filteractive" : "filterinactive"} spheresbutton`} onClick={Firebutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Fire_Enchant`].url}.png")` }}></li>
+                            <li className={`${Fire ? "filteractive" : "filterinactive"} spheresbutton`} onClick={Firebutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Fire_Enchant`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Ice_Enchant`].name}>
-                            <li className={`${Ice ? "filteractive" : "filterinactive"} spheresbutton`} onClick={Icebutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Ice_Enchant`].url}.png")` }}></li>
+                            <li className={`${Ice ? "filteractive" : "filterinactive"} spheresbutton`} onClick={Icebutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Ice_Enchant`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Thunder_Enchant`].name}>
-                            <li className={`${Thunder ? "filteractive" : "filterinactive"} spheresbutton`} onClick={Thunderbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Thunder_Enchant`].url}.png")` }}></li>
+                            <li className={`${Thunder ? "filteractive" : "filterinactive"} spheresbutton`} onClick={Thunderbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Thunder_Enchant`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Wind_Enchant`].name}>
-                            <li className={`${Wind ? "filteractive" : "filterinactive"} spheresbutton`} onClick={Windbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Wind_Enchant`].url}.png")` }}></li>
+                            <li className={`${Wind ? "filteractive" : "filterinactive"} spheresbutton`} onClick={Windbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Wind_Enchant`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Water_Enchant`].name}>
-                            <li className={`${Water ? "filteractive" : "filterinactive"} spheresbutton`} onClick={Waterbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Water_Enchant`].url}.png")` }}></li>
+                            <li className={`${Water ? "filteractive" : "filterinactive"} spheresbutton`} onClick={Waterbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Water_Enchant`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Earth_Enchant`].name}>
-                            <li className={`${Earth ? "filteractive" : "filterinactive"} spheresbutton`} onClick={Earthbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Earth_Enchant`].url}.png")` }}></li>
+                            <li className={`${Earth ? "filteractive" : "filterinactive"} spheresbutton`} onClick={Earthbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Earth_Enchant`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Holy_Enchant`].name}>
-                            <li className={`${Holy ? "filteractive" : "filterinactive"} spheresbutton`} onClick={Holybutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Holy_Enchant`].url}.png")` }}></li>
+                            <li className={`${Holy ? "filteractive" : "filterinactive"} spheresbutton`} onClick={Holybutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Holy_Enchant`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Dark_Enchant`].name}>
-                            <li className={`${Dark ? "filteractive" : "filterinactive"} spheresbutton`} onClick={Darkbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Dark_Enchant`].url}.png")` }}></li>
+                            <li className={`${Dark ? "filteractive" : "filterinactive"} spheresbutton`} onClick={Darkbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Dark_Enchant`].url}.png")` }}></li>
                         </Tippy>
                         <br />
                         <Tippy content={ailment_tags[`Fire_Imperil`].name}>
-                            <li className={`${FireDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={FireDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Fire_Imperil`].url}.png")` }}></li>
+                            <li className={`${FireDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={FireDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Fire_Imperil`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Ice_Imperil`].name}>
-                            <li className={`${IceDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={IceDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Ice_Imperil`].url}.png")` }}></li>
+                            <li className={`${IceDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={IceDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Ice_Imperil`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Thunder_Imperil`].name}>
-                            <li className={`${ThunderDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={ThunderDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Thunder_Imperil`].url}.png")` }}></li>
+                            <li className={`${ThunderDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={ThunderDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Thunder_Imperil`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Wind_Imperil`].name}>
-                            <li className={`${WindDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={WindDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Wind_Imperil`].url}.png")` }}></li>
+                            <li className={`${WindDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={WindDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Wind_Imperil`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Water_Imperil`].name}>
-                            <li className={`${WaterDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={WaterDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Water_Imperil`].url}.png")` }}></li>
+                            <li className={`${WaterDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={WaterDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Water_Imperil`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Earth_Imperil`].name}>
-                            <li className={`${EarthDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={EarthDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Earth_Imperil`].url}.png")` }}></li>
+                            <li className={`${EarthDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={EarthDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Earth_Imperil`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Holy_Imperil`].name}>
-                            <li className={`${HolyDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={HolyDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Holy_Imperil`].url}.png")` }}></li>
+                            <li className={`${HolyDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={HolyDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Holy_Imperil`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Dark_Imperil`].name}>
-                            <li className={`${DarkDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={DarkDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Dark_Imperil`].url}.png")` }}></li>
+                            <li className={`${DarkDown ? "filteractive" : "filterinactive"} spheresbutton`} onClick={DarkDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Dark_Imperil`].url}.png")` }}></li>
                         </Tippy>
                         <br />
                         <Tippy content={ailment_tags[`Launch_Support`].name}>
-                            <li className={`${Launch_Support ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Launch_Supportbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Launch_Support`].url}.png")` }}></li>
+                            <li className={`${Launch_Support ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Launch_Supportbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Launch_Support`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Force_Break`].name}>
-                            <li className={`${Break ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Breakbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Force_Break`].url}.png")` }}></li>
+                            <li className={`${Break ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Breakbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Force_Break`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`CriticalUp`].name}>
-                            <li className={`${CriticalUp ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={CriticalUpbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`CriticalUp`].url}.png")` }}></li>
+                            <li className={`${CriticalUp ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={CriticalUpbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`CriticalUp`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Crit_Rate_Up`].name}>
-                            <li className={`${CriticalRate ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={CriticalRatebutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Crit_Rate_Up`].url}.png")` }}></li>
+                            <li className={`${CriticalRate ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={CriticalRatebutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Crit_Rate_Up`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Ignore_DEF`].name}>
-                            <li className={`${IgnoreDEF ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={IgnoreDEFbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Ignore_DEF`].url}.png")` }}></li>
+                            <li className={`${IgnoreDEF ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={IgnoreDEFbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Ignore_DEF`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Continuous_Turns`].name}>
-                            <li className={`${Continuous_Turns ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Continuous_Turnsbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Continuous_Turns`].url}.png")` }}></li>
+                            <li className={`${Continuous_Turns ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Continuous_Turnsbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Continuous_Turns`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Turn_Interrupter`].name}>
-                            <li className={`${Turn_Interrupter ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Turn_Interrupterbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Turn_Interrupter`].url}.png")` }}></li>
+                            <li className={`${Turn_Interrupter ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Turn_Interrupterbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Turn_Interrupter`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Ally_Turn_Manipulator`].name}>
-                            <li className={`${TurnManip ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={TurnManipbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Ally_Turn_Manipulator`].url}.png")` }}></li>
+                            <li className={`${TurnManip ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={TurnManipbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Ally_Turn_Manipulator`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`HP_Damage_Up_Party`].name}>
-                            <li className={`${HP_Damage_Up ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={HP_Damage_Upbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`HP_Damage_Up_Party`].url}.png")` }}></li>
+                            <li className={`${HP_Damage_Up ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={HP_Damage_Upbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`HP_Damage_Up_Party`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`AddHP`].name}>
-                            <li className={`${AddHP ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={AddHPbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`AddHP`].url}.png")` }}></li>
+                            <li className={`${AddHP ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={AddHPbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`AddHP`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`StolenBRV`].name}>
-                            <li className={`${StolenBRV ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={StolenBRVbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`StolenBRV`].url}.png")` }}></li>
+                            <li className={`${StolenBRV ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={StolenBRVbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`StolenBRV`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`BRV_Damage_Cap`].name}>
-                            <li className={`${CappedBRV ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={CappedBRVbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`BRV_Damage_Cap`].url}.png")` }}></li>
+                            <li className={`${CappedBRV ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={CappedBRVbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`BRV_Damage_Cap`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`EX_MAX`].name}>
-                            <li className={`${EXFill ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={EXFillbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`EX_MAX`].url}.png")` }}></li>
+                            <li className={`${EXFill ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={EXFillbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`EX_MAX`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`EXRate`].name}>
-                            <li className={`${EXRate ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={EXRatebutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`EXRate`].url}.png")` }}></li>
+                            <li className={`${EXRate ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={EXRatebutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`EXRate`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`BRV_Resist_Down`].name}>
-                            <li className={`${BRV_Resist_Down ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BRV_Resist_Downbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`BRV_Resist_Down`].url}.png")` }}></li>
+                            <li className={`${BRV_Resist_Down ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BRV_Resist_Downbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`BRV_Resist_Down`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`HP_Resist_Down`].name}>
-                            <li className={`${HPResistDown ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={HPResistDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`HP_Resist_Down`].url}.png")` }}></li>
+                            <li className={`${HPResistDown ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={HPResistDownbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`HP_Resist_Down`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`BRVCap`].name}>
-                            <li className={`${BRVCap ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BRVCapbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`BRVCap`].url}.png")` }}></li>
+                            <li className={`${BRVCap ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BRVCapbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`BRVCap`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`MAXBRVCap`].name}>
-                            <li className={`${MAXBRVCap ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={MAXBRVCapbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`MAXBRVCap`].url}.png")` }}></li>
+                            <li className={`${MAXBRVCap ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={MAXBRVCapbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`MAXBRVCap`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`ElementalWeak`].name}>
-                            <li className={`${ElementalWeak ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={ElementalWeakbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`ElementalWeak`].url}.png")` }}></li>
+                            <li className={`${ElementalWeak ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={ElementalWeakbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`ElementalWeak`].url}.png")` }}></li>
                         </Tippy>
                     </ul>
                     <div className="similarbanner">Healing</div>
                     <ul className="characterclasses">
                         <Tippy content={ailment_tags[`Cleanse`].name}>
-                            <li className={`${Cleanse ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Cleansebutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Cleanse`].url}.png")` }}></li>
+                            <li className={`${Cleanse ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Cleansebutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Cleanse`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Reviver`].name}>
-                            <li className={`${Reviver ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Reviverbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Reviver`].url}.png")` }}></li>
+                            <li className={`${Reviver ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Reviverbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Reviver`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`KO_Prevent`].name}>
-                            <li className={`${LastStand ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={LastStandbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`KO_Prevent`].url}.png")` }}></li>
+                            <li className={`${LastStand ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={LastStandbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`KO_Prevent`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`HPHealBuff`].name}>
-                            <li className={`${HPHeal ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={HPHealbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`HPHealBuff`].url}.png")` }}></li>
+                            <li className={`${HPHeal ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={HPHealbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`HPHealBuff`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`BRV_Regen`].name}>
-                            <li className={`${BRVRegen ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BRVRegenbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`BRV_Regen`].url}.png")` }}></li>
+                            <li className={`${BRVRegen ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BRVRegenbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`BRV_Regen`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`HP_Regen`].name}>
-                            <li className={`${HPRegen ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={HPRegenbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`HP_Regen`].url}.png")` }}></li>
+                            <li className={`${HPRegen ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={HPRegenbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`HP_Regen`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Gains`].name}>
-                            <li className={`${Gains ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Gainsbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Gains`].url}.png")` }}></li>
+                            <li className={`${Gains ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Gainsbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Gains`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Buff_Extension`].name}>
-                            <li className={`${Buff_Extension ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Buff_Extensionbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Buff_Extension`].url}.png")` }}></li>
+                            <li className={`${Buff_Extension ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Buff_Extensionbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Buff_Extension`].url}.png")` }}></li>
                         </Tippy>
                     </ul>
                     <div className="similarbanner">Additional Attacks</div>
                     <ul className="characterclasses">
                         <Tippy content={ailment_tags[`Trap`].name}>
-                            <li className={`${Trap ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Trapbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Trap`].url}.png")` }}></li>
+                            <li className={`${Trap ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Trapbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Trap`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Trap_After_Trigger`].name}>
-                            <li className={`${Trap_After_Trigger ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Trap_After_Triggerbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Trap_After_Trigger`].url}.png")` }}></li>
+                            <li className={`${Trap_After_Trigger ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Trap_After_Triggerbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Trap_After_Trigger`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Trap_Before_Turn`].name}>
-                            <li className={`${Trap_Before_Turn ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Trap_Before_Turnbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Trap_Before_Turn`].url}.png")` }}></li>
+                            <li className={`${Trap_Before_Turn ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Trap_Before_Turnbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Trap_Before_Turn`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Counter`].name}>
-                            <li className={`${Counter ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Counterbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Counter`].url}.png")` }}></li>
+                            <li className={`${Counter ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Counterbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Counter`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`FollowUp`].name}>
-                            <li className={`${FollowUp ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={FollowUpbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`FollowUp`].url}.png")` }}></li>
+                            <li className={`${FollowUp ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={FollowUpbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`FollowUp`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`FollowUp_Before_Player_Turn`].name}>
-                            <li className={`${FollowUp_Before_Player_Turn ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={FollowUp_Before_Player_Turnbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`FollowUp_Before_Player_Turn`].url}.png")` }}></li>
+                            <li className={`${FollowUp_Before_Player_Turn ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={FollowUp_Before_Player_Turnbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`FollowUp_Before_Player_Turn`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`FollowUp_Before_Ability`].name}>
-                            <li className={`${FollowUp_Before_Ability ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={FollowUp_Before_Abilitybutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`FollowUp_Before_Ability`].url}.png")` }}></li>
+                            <li className={`${FollowUp_Before_Ability ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={FollowUp_Before_Abilitybutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`FollowUp_Before_Ability`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`FollowUp_Extension`].name}>
-                            <li className={`${FollowUp_Extension ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={FollowUp_Extensionbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`FollowUp_Extension`].url}.png")` }}></li>
+                            <li className={`${FollowUp_Extension ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={FollowUp_Extensionbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`FollowUp_Extension`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`FollowUp_Start_Of_Next`].name}>
-                            <li className={`${FollowUp_Start_Of_Next ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={FollowUp_Start_Of_Nextbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`FollowUp_Start_Of_Next`].url}.png")` }}></li>
+                            <li className={`${FollowUp_Start_Of_Next ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={FollowUp_Start_Of_Nextbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`FollowUp_Start_Of_Next`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`FollowUp_Action_On_Enemy`].name}>
-                            <li className={`${FollowUp_Action_On_Enemy ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={FollowUp_Action_On_Enemybutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`FollowUp_Action_On_Enemy`].url}.png")` }}></li>
+                            <li className={`${FollowUp_Action_On_Enemy ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={FollowUp_Action_On_Enemybutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`FollowUp_Action_On_Enemy`].url}.png")` }}></li>
                         </Tippy>
                     </ul>
                     <div className="similarbanner">Defending</div>
                     <ul className="characterclasses">
                         <Tippy content={ailment_tags[`Target_Lock`].name}>
-                            <li className={`${Target_Lock ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Target_Lockbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Target_Lock`].url}.png")` }}></li>
+                            <li className={`${Target_Lock ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Target_Lockbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Target_Lock`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Cover`].name}>
-                            <li className={`${Cover ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Coverbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Cover`].url}.png")` }}></li>
+                            <li className={`${Cover ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Coverbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Cover`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Evade`].name}>
-                            <li className={`${Evade ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Evadebutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Evade`].url}.png")` }}></li>
+                            <li className={`${Evade ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Evadebutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Evade`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`BRV_Shield`].name}>
-                            <li className={`${DMGShield ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={DMGShieldbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`BRV_Shield`].url}.png")` }}></li>
+                            <li className={`${DMGShield ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={DMGShieldbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`BRV_Shield`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`BRV_Damage_Resist`].name}>
-                            <li className={`${BRV_Damage_Resist ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BRV_Damage_Resistbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`BRV_Damage_Resist`].url}.png")` }}></li>
+                            <li className={`${BRV_Damage_Resist ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BRV_Damage_Resistbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`BRV_Damage_Resist`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`HP_Damage_Resist`].name}>
-                            <li className={`${HPResistUp ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={HPResistUpbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`HP_Damage_Resist`].url}.png")` }}></li>
+                            <li className={`${HPResistUp ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={HPResistUpbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`HP_Damage_Resist`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Cannot_Break`].name}>
-                            <li className={`${BreakPrevent ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BreakPreventbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Cannot_Break`].url}.png")` }}></li>
+                            <li className={`${BreakPrevent ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BreakPreventbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Cannot_Break`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Refund`].name}>
-                            <li className={`${Refund ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Refundbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Refund`].url}.png")` }}></li>
+                            <li className={`${Refund ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Refundbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Refund`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`BRVRetain`].name}>
-                            <li className={`${BRVRetain ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BRVRetainbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`BRVRetain`].url}.png")` }}></li>
+                            <li className={`${BRVRetain ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BRVRetainbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`BRVRetain`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Debuff_Evade`].name}>
-                            <li className={`${DebuffResist ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={DebuffResistbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Debuff_Evade`].url}.png")` }}></li>
+                            <li className={`${DebuffResist ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={DebuffResistbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Debuff_Evade`].url}.png")` }}></li>
                         </Tippy>
                     </ul>
                     <div className="similarbanner">Interference</div>
                     <ul className="characterclasses">
                         <Tippy content={ailment_tags[`Delay`].name}>
-                            <li className={`${Delay ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Delaybutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Delay`].url}.png")` }}></li>
+                            <li className={`${Delay ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Delaybutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Delay`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Delete_Turns`].name}>
-                            <li className={`${Delete ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Deletebutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Delete_Turns`].url}.png")` }}></li>
+                            <li className={`${Delete ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Deletebutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Delete_Turns`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`BuffPrevent`].name}>
-                            <li className={`${BuffPrevent ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BuffPreventbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`BuffPrevent`].url}.png")` }}></li>
+                            <li className={`${BuffPrevent ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BuffPreventbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`BuffPrevent`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Dispel`].name}>
-                            <li className={`${Dispel ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Dispelbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Dispel`].url}.png")` }}></li>
+                            <li className={`${Dispel ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Dispelbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Dispel`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Break_Reset`].name}>
-                            <li className={`${BreakCancel ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BreakCancelbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Break_Reset`].url}.png")` }}></li>
+                            <li className={`${BreakCancel ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BreakCancelbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Break_Reset`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`BRV_Poison`].name}>
-                            <li className={`${BRVPoison ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BRVPoisonbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`BRV_Poison`].url}.png")` }}></li>
+                            <li className={`${BRVPoison ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BRVPoisonbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`BRV_Poison`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`HP_Poison`].name}>
-                            <li className={`${HPPoison ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={HPPoisonbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`HP_Poison`].url}.png")` }}></li>
+                            <li className={`${HPPoison ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={HPPoisonbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`HP_Poison`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`BRV_Control`].name}>
-                            <li className={`${BRVFreeze ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BRVFreezebutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`BRV_Control`].url}.png")` }}></li>
+                            <li className={`${BRVFreeze ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={BRVFreezebutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`BRV_Control`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Disable`].name}>
-                            <li className={`${Disable ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Disablebutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Disable`].url}.png")` }}></li>
+                            <li className={`${Disable ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Disablebutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Disable`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Blind`].name}>
-                            <li className={`${Blind ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Blindbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Blind`].url}.png")` }}></li>
+                            <li className={`${Blind ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Blindbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Blind`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Debuff_Gold`].name}>
-                            <li className={`${GoldDebuff ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={GoldDebuffbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Debuff_Gold`].url}.png")` }}></li>
+                            <li className={`${GoldDebuff ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={GoldDebuffbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Debuff_Gold`].url}.png")` }}></li>
                         </Tippy>
                     </ul>
                     <div className="similarbanner">Other</div>
                     <ul className="characterclasses">
                         <Tippy content={ailment_tags[`Special_Buff`].name}>
-                            <li className={`${SpecialBuff ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={SpecialBuffbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Special_Buff`].url}.png")` }}></li>
+                            <li className={`${SpecialBuff ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={SpecialBuffbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Special_Buff`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Stacked_Debuff`].name}>
-                            <li className={`${StackedDebuff ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={StackedDebuffbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Stacked_Debuff`].url}.png")` }}></li>
+                            <li className={`${StackedDebuff ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={StackedDebuffbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Stacked_Debuff`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Stacked_Debuff_Five`].name}>
-                            <li className={`${StackedDebuff5 ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={StackedDebuff5button} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Stacked_Debuff_Five`].url}.png")` }}></li>
+                            <li className={`${StackedDebuff5 ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={StackedDebuff5button} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Stacked_Debuff_Five`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Stacked_Buff`].name}>
-                            <li className={`${StackedBuff ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={StackedBuffbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Stacked_Buff`].url}.png")` }}></li>
+                            <li className={`${StackedBuff ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={StackedBuffbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Stacked_Buff`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Stacked_Buff_Five`].name}>
-                            <li className={`${StackedBuff5 ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={StackedBuff5button} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Stacked_Buff_Five`].url}.png")` }}></li>
+                            <li className={`${StackedBuff5 ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={StackedBuff5button} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Stacked_Buff_Five`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Free_Ability`].name}>
-                            <li className={`${FreeUse ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={FreeUsebutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Free_Ability`].url}.png")` }}></li>
+                            <li className={`${FreeUse ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={FreeUsebutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Free_Ability`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`FreeTurn`].name}>
-                            <li className={`${FreeTurn ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={FreeTurnbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`FreeTurn`].url}.png")` }}></li>
+                            <li className={`${FreeTurn ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={FreeTurnbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`FreeTurn`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Instant`].name}>
-                            <li className={`${Instant ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Instantbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Instant`].url}.png")` }}></li>
+                            <li className={`${Instant ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Instantbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Instant`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Self_Harm`].name}>
-                            <li className={`${Self_Harm ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Self_Harmbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Self_Harm`].url}.png")` }}></li>
+                            <li className={`${Self_Harm ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={Self_Harmbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Self_Harm`].url}.png")` }}></li>
                         </Tippy>
                         <Tippy content={ailment_tags[`Buff_Gold`].name}>
-                            <li className={`${GoldBuff ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={GoldBuffbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${ailment_tags[`Buff_Gold`].url}.png")` }}></li>
+                            <li className={`${GoldBuff ? "filteractive" : "filterinactive"} characterclassesbutton`} onClick={GoldBuffbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${ailment_tags[`Buff_Gold`].url}.png")` }}></li>
                         </Tippy>
                     </ul>
                     <div className="similarbanner">Refine</div>
@@ -3356,7 +3356,7 @@ const GameListAilment = ({
                             scrollPosition={scrollPosition}
                             placeholder={<div className='buffunit' style={{ minHeight: `210px` }}>
                                             <div className='infoholder'>
-                                            <img className="loadingbardots" src="./images/static/site/loading.gif"/>
+                                            <img className="loadingbardots" src="/images/static/site/loading.gif"/>
                                             </div>
                                         </div>}
                         >

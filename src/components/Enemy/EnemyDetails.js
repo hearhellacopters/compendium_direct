@@ -141,7 +141,7 @@ function EnemyDetailsDirect({
                                         RealmPars: single.RealmPars,
                                         Sort: single.Sort,
                                         ShortName: single.ShortName,
-                                        CharacterFaceURL: `./images/static/characters/${single.CharacterURLName}/face.png`,
+                                        CharacterFaceURL: `/images/static/characters/${single.CharacterURLName}/face.png`,
                                         CharacterName: single.CharacterName,
                                         CharID: self.CharID,
                                         CrystalColor: self.CrystalColor,
@@ -175,7 +175,7 @@ function EnemyDetailsDirect({
                                         RealmPars: self3.RealmPars,
                                         Sort: self3.Sort,
                                         ShortName: self3.ShortName,
-                                        CharacterFaceURL: `./images/static/characters/${self3.CharacterURLName}/face.png`,
+                                        CharacterFaceURL: `/images/static/characters/${self3.CharacterURLName}/face.png`,
                                         CharacterName: self3.CharacterName,
                                         CharID: self3.CharID,
                                         CrystalColor: self3.CrystalColor,
@@ -209,7 +209,7 @@ function EnemyDetailsDirect({
                                         RealmPars: self3.RealmPars,
                                         Sort: self3.Sort,
                                         ShortName: self3.ShortName,
-                                        CharacterFaceURL: `./images/static/characters/${self3.CharacterURLName}/face.png`,
+                                        CharacterFaceURL: `/images/static/characters/${self3.CharacterURLName}/face.png`,
                                         CharacterName: self3.CharacterName,
                                         CharID: self3.CharID,
                                         CrystalColor: self3.CrystalColor,
@@ -242,7 +242,7 @@ function EnemyDetailsDirect({
                                     RealmPars: self3.RealmPars,
                                     Sort: self3.Sort,
                                     ShortName: self3.ShortName,
-                                    CharacterFaceURL: `./images/static/characters/${self3.CharacterURLName}/face.png`,
+                                    CharacterFaceURL: `/images/static/characters/${self3.CharacterURLName}/face.png`,
                                     CharacterName: self3.CharacterName,
                                     CharID: self3.CharID,
                                     CrystalColor: self3.CrystalColor,
@@ -267,7 +267,7 @@ function EnemyDetailsDirect({
                                 RealmPars: single.RealmPars,
                                 Sort: single.Sort,
                                 ShortName: single.ShortName,
-                                CharacterFaceURL: `./images/static/characters/${single.CharacterURLName}/face.png`,
+                                CharacterFaceURL: `/images/static/characters/${single.CharacterURLName}/face.png`,
                                 CharacterName: single.CharacterName,
                                 CharID: self.CharID,
                                 CrystalColor: single.CrystalColor,
@@ -674,21 +674,39 @@ function EnemyDetailsDirect({
                             scrollPosition={scrollPosition}
                             className="enemycard" 
                             alt={match.Name}
-                            src={"./images/static/enemy/face/" + match.url} effect="opacity" />
+                            src={"/images/static/enemy/face/" + match.url} effect="opacity" />
                         </li>
                     </DefaultTippy>
-                    <DefaultTippy content="JP Only" className="tooltip" >
-                        <span className={match.JPOnly == true ? "smallJPflag" : ""}></span>
-                    </DefaultTippy>
-                    <DefaultTippy content="Lufenia" className="tooltip" >
-                        <span className={match.LufeniaFlag == true && match.ShinryuFlag != true ? "lufflag" : ""}></span>
-                    </DefaultTippy>
-                    <DefaultTippy content="Lufenia+" className="tooltip" >
-                        <span className={match.LufeniaPlusFlag == true && match.ShinryuFlag != true ? "lufplusflag" : ""}></span>
-                    </DefaultTippy>
-                    <DefaultTippy content="Shinryu" className="tooltip" >
-                        <span className={match.ShinryuFlag == true ? "shinflag" : ""}></span>
-                    </DefaultTippy>
+                    {(()=>{
+                        if(match.JPOnly == true){
+                            return (
+                                <DefaultTippy content="JP Only" className="tooltip" >
+                                    <span className="smallJPflag"></span>
+                                </DefaultTippy>
+                            )
+                        }
+                    })()}
+                    {(()=>{
+                        if(match.LufeniaFlag == true && match.ShinryuFlag != true ){
+                            return (
+                                <DefaultTippy content="Lufenia" className="tooltip" >
+                                    <span className="lufflag"></span>
+                                </DefaultTippy>
+                            )
+                        } else if(match.LufeniaPlusFlag == true && match.ShinryuFlag != true){
+                            return (
+                                <DefaultTippy content="Lufenia+" className="tooltip" >
+                                    <span className="lufplusflag"></span>
+                                </DefaultTippy>
+                            )
+                        } else if(match.ShinryuFlag == true){
+                            return (
+                                <DefaultTippy content="Shinryu" className="tooltip" >
+                                    <span className="shinflag"></span>
+                                </DefaultTippy>
+                            )
+                        }
+                    })()}
                 </Link>
                 {match.ElementsFlag != true ? "" :
                     <div className={`elementsholder2 ${enemy.ElementsFlag === true ? "" : "nodisplayenemy"}`}>
@@ -835,7 +853,7 @@ function EnemyDetailsDirect({
                                 <li className={`abilitybufficonsholder ${selectedbuff.unq_id == buffs.unq_id ? "buffactive" : ""}`} key={buffs.unq_id}>
                                     <div className="biconspacer" onClick={() => buffselect(buffs)} >
                                         <DefaultTippy content={buffs.name && ReplacerCharacter(buffs.cast_str + ` #${buffs.id}`)}>
-                                            <img alt={buffs.name} className={`clicky abilitybufficon `} src={`./images/static/icons/buff/${buffs.icon}.png`} />
+                                            <img alt={buffs.name} className={`clicky abilitybufficon `} src={`/images/static/icons/buff/${buffs.icon}.png`} />
                                         </DefaultTippy>
                                     </div>
                                 </li>
@@ -862,7 +880,7 @@ function EnemyDetailsDirect({
                             effect="opacity" 
                             alt="orb" 
                             className="orbicon2"
-                            src={`./images/static/icons/misc/Shinryu1.png`} />
+                            src={`/images/static/icons/misc/Shinryu1.png`} />
                         </div>
                         <div className="orbcondtext">
                             {getForce.ForceTime.map((self,i) => (
@@ -921,7 +939,7 @@ function EnemyDetailsDirect({
                                     </Link><br />
                                     {self.roles.map((self3,i) => (
                                         <Tippy key={i} content={roles[self3] && roles[self3].name}>
-                                            <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[self3] && roles[self3].url}.png")` }}>
+                                            <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${roles[self3] && roles[self3].url}.png")` }}>
                                             </span>
                                         </Tippy>
                                     ))}
@@ -944,7 +962,7 @@ function EnemyDetailsDirect({
                                     </Link><br />
                                     {self.roles.map((self3,i) => (
                                         <Tippy key={i} content={roles[self3] && roles[self3].name}>
-                                            <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[self3] && roles[self3].url}.png")` }}>
+                                            <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${roles[self3] && roles[self3].url}.png")` }}>
                                             </span>
                                         </Tippy>
                                     ))}
@@ -960,8 +978,8 @@ function EnemyDetailsDirect({
                 <div className="enemyholderdesc normalfont margtop lighterblue">
                     {getGraphic == undefined ? "" : getGraphic.map(self => (
                         <div key={self}>
-                            <a target="_blank" rel="noreferrer" href={`./images/static/info/${self}.png`}>
-                                <img className="infoimg withshadow clicky" src={`./images/static/info/${self}.png`} />
+                            <a target="_blank" rel="noreferrer" href={`/images/static/info/${self}.png`}>
+                                <img className="infoimg withshadow clicky" src={`/images/static/info/${self}.png`} />
                             </a>
                         </div>
                     ))}
@@ -980,7 +998,7 @@ function EnemyDetailsDirect({
                                 effect="opacity" 
                                 alt="orb" 
                                 className="orbicon" 
-                                src={`./images/static/icons/misc/43${enemy.LufeniaPlusFlag == true ? "+" : ""}.png`} />
+                                src={`/images/static/icons/misc/43${enemy.LufeniaPlusFlag == true ? "+" : ""}.png`} />
                                 {getOrb.LufeniaStartCounter === undefined ? "" :
                                     <div>
                                         <span className="textsafe">Start count: <span className="values">{getOrb.LufeniaStartCounter}</span></span>
@@ -1017,7 +1035,7 @@ function EnemyDetailsDirect({
                                             </Link><br />
                                             {self.roles.map((self3,i) => (
                                                 <Tippy key={i} content={roles[self3] && roles[self3].name}>
-                                                    <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[self3] && roles[self3].url}.png")` }}>
+                                                    <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${roles[self3] && roles[self3].url}.png")` }}>
                                                     </span>
                                                 </Tippy>
                                             ))}
@@ -1040,7 +1058,7 @@ function EnemyDetailsDirect({
                                             </Link><br />
                                             {self.roles.map((self3,i) => (
                                                 <Tippy key={i} content={roles[self3] && roles[self3].name}>
-                                                    <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[self3] && roles[self3].url}.png")` }}>
+                                                    <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${roles[self3] && roles[self3].url}.png")` }}>
                                                     </span>
                                                 </Tippy>
                                             ))}
@@ -1059,7 +1077,7 @@ function EnemyDetailsDirect({
                             <DefaultTippy content={<span>{getSummons.SummonID1.Name}<br />ID: {getSummons.SummonID1.battle_enemy_id}</span>} className="tooltip" >
                                 <li>
                                     <Link to={`/bestiary/enemies/${getSummons.SummonID1.battle_enemy_id}`}>
-                                        <img className="enemycard" alt={getSummons.SummonID1.Name} src={"./images/static/enemy/face/" + getSummons.SummonID1.url} />
+                                        <img className="enemycard" alt={getSummons.SummonID1.Name} src={"/images/static/enemy/face/" + getSummons.SummonID1.url} />
                                     </Link>
                                 </li>
                             </DefaultTippy>
@@ -1068,7 +1086,7 @@ function EnemyDetailsDirect({
                                 <DefaultTippy content={<span>{getSummons.SummonID2.Name}<br />ID: {getSummons.SummonID2.battle_enemy_id}</span>} className="tooltip" >
                                     <li>
                                         <Link to={`/bestiary/enemies/${getSummons.SummonID2.battle_enemy_id}`}>
-                                            <img className="enemycard" alt={getSummons.SummonID2.Name} src={"./images/static/enemy/face/" + getSummons.SummonID2.url} />
+                                            <img className="enemycard" alt={getSummons.SummonID2.Name} src={"/images/static/enemy/face/" + getSummons.SummonID2.url} />
                                         </Link>
                                     </li>
                                 </DefaultTippy>}

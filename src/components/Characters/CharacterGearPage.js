@@ -933,7 +933,7 @@ function CharacterGearPage({
                 scrollPosition={scrollPosition }
                 key={gear.equip_id}
                 placeholder={<div className='infoholder' style={{ minHeight: "350px" }}>
-                                <img className="loadingbardots" src="./images/static/site/loading.gif"/>
+                                <img className="loadingbardots" src="/images/static/site/loading.gif"/>
                             </div>
                                 }
                 >

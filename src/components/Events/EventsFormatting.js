@@ -379,7 +379,7 @@ function EventsFormatting({
                                     scrollPosition={scrollPosition}
                                     effect="opacity"
                                     className={`eventimage withshadow ${permapage == false ? "showlink" : ""}`}
-                                    src={"./images/static/banners/" + match.url1}
+                                    src={"/images/static/banners/" + match.url1}
                                     alt={match.name} />
                             </Link>
                             :
@@ -387,7 +387,7 @@ function EventsFormatting({
                                 scrollPosition={scrollPosition}
                                 effect="opacity"
                                 className={`eventimage withshadow ${permapage == false ? "showlink" : ""}`}
-                                src={"./images/static/banners/" + match.url1}
+                                src={"/images/static/banners/" + match.url1}
                                 alt={match.name} />
                         :
                         <div className="eventtabs">
@@ -399,10 +399,10 @@ function EventsFormatting({
                                             effect="opacity"
                                             className={`eventimage ${permapage == false ? "showlink" : ""}`}
                                             src={
-                                                eventURL == "Event1" ? "./images/static/banners/" + match.url1 :
-                                                    eventURL == "Event2" ? "./images/static/banners/" + match.url2 :
-                                                        eventURL == "Event3" ? "./images/static/banners/" + match.url3 :
-                                                            eventURL == "Event4" ? "./images/static/banners/" + match.url4 :
+                                                eventURL == "Event1" ? "/images/static/banners/" + match.url1 :
+                                                    eventURL == "Event2" ? "/images/static/banners/" + match.url2 :
+                                                        eventURL == "Event3" ? "/images/static/banners/" + match.url3 :
+                                                            eventURL == "Event4" ? "/images/static/banners/" + match.url4 :
                                                                 ""
                                             }
                                             alt={match.name} />
@@ -412,10 +412,10 @@ function EventsFormatting({
                                         effect="opacity"
                                         className={`eventimage ${permapage == false ? "showlink" : ""}`}
                                         src={
-                                            eventURL == "Event1" ? "./images/static/banners/" + match.url1 :
-                                                eventURL == "Event2" ? "./images/static/banners/" + match.url2 :
-                                                    eventURL == "Event3" ? "./images/static/banners/" + match.url3 :
-                                                        eventURL == "Event4" ? "./images/static/banners/" + match.url4 :
+                                            eventURL == "Event1" ? "/images/static/banners/" + match.url1 :
+                                                eventURL == "Event2" ? "/images/static/banners/" + match.url2 :
+                                                    eventURL == "Event3" ? "/images/static/banners/" + match.url3 :
+                                                        eventURL == "Event4" ? "/images/static/banners/" + match.url4 :
                                                             ""
                                         }
                                         alt={match.name} />
@@ -472,22 +472,22 @@ function EventsFormatting({
                                     <div className='storeholder'>
                                         {match.talk != undefined ?
                                             <Tippy content={"Story"}>
-                                                <img src={'./images/static/icons/misc/TalkEvents.png'} alt="Story" onClick={showStory} className={`storeicon${showingstorylist == true ? "-active" : ""}`} />
+                                                <img src={'/images/static/icons/misc/TalkEvents.png'} alt="Story" onClick={showStory} className={`storeicon${showingstorylist == true ? "-active" : ""}`} />
                                             </Tippy>
                                             : ""}
                                         {match.shop != undefined ?
                                             <Tippy content={"Store"}>
-                                                <img src={'./images/static/icons/misc/ShopStore.png'} alt="Shop Store" onClick={showShop} className={`storeicon${showingshoplist == true && shopdata.length != 0 ? "-active" : ""}`} />
+                                                <img src={'/images/static/icons/misc/ShopStore.png'} alt="Shop Store" onClick={showShop} className={`storeicon${showingshoplist == true && shopdata.length != 0 ? "-active" : ""}`} />
                                             </Tippy>
                                             : ""}
                                         {match.SpheresList.length != 0 ?
                                             <Tippy content={"Spheres"}>
-                                                <img src={'./images/static/icons/misc/SphereStore.png'} alt="Spheres Store" onClick={showSpheres} className={`storeicon${showingsphereslist == true ? "-active" : ""}`} />
+                                                <img src={'/images/static/icons/misc/SphereStore.png'} alt="Spheres Store" onClick={showSpheres} className={`storeicon${showingsphereslist == true ? "-active" : ""}`} />
                                             </Tippy>
                                             : ""}
                                         {match.missions == true ?
                                             <Tippy content={"Missions"}>
-                                                <img src={'./images/static/icons/misc/MissionsMenu.png'} alt="Missions" onClick={showMissions} className={`storeicon${showingmissionlist == true && missiondata.length != 0 ? "-active" : ""}`} />
+                                                <img src={'/images/static/icons/misc/MissionsMenu.png'} alt="Missions" onClick={showMissions} className={`storeicon${showingmissionlist == true && missiondata.length != 0 ? "-active" : ""}`} />
                                             </Tippy>
                                             : ""}
                                         {showingmissionlist == true && missiondata.length != 0 ?

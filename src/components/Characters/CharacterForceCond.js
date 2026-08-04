@@ -202,7 +202,7 @@ function CharacterForceCond({
 
                                             {self.roles.map((self3, i) => (
                                                 <Tippy key={i} content={roles[self3] && roles[self3].name}>
-                                                    <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/${roles[self3] && roles[self3].url}.png")` }}>
+                                                    <span className="rolesforforce" style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/${roles[self3] && roles[self3].url}.png")` }}>
                                                     </span>
                                                 </Tippy>
                                             ))}

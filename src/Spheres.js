@@ -1082,103 +1082,103 @@ function Spheres({
           <div className="filterholderflair">
             <ul className='characterclasses'>
               <Tippy content={sphere_tags[`AnyBreak`].name}>
-                <li className={`${AnyBreak ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={AnyBreakbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`AnyBreak`].url}.png")` }}></li>
+                <li className={`${AnyBreak ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={AnyBreakbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`AnyBreak`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={sphere_tags[`InflictBreak`].name}>
-                <li className={`${InflictBreak ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={InflictBreakbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`InflictBreak`].url}.png")` }}></li>
+                <li className={`${InflictBreak ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={InflictBreakbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`InflictBreak`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={sphere_tags[`InflictBreakAttackBreak`].name}>
-                <li className={`${InflictBreakAttackBreak ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={InflictBreakAttackBreakbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`InflictBreakAttackBreak`].url}.png")` }}></li>
+                <li className={`${InflictBreakAttackBreak ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={InflictBreakAttackBreakbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`InflictBreakAttackBreak`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={sphere_tags[`AttackBreak`].name}>
-                <li className={`${AttackBreak ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={AttackBreakbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`AttackBreak`].url}.png")` }}></li>
+                <li className={`${AttackBreak ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={AttackBreakbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`AttackBreak`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={sphere_tags[`InflictBreakAttackBreakHPOver100`].name}>
-                <li className={`${InflictBreakAttackBreakHPOver100 ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={InflictBreakAttackBreakHPOver100button} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`InflictBreakAttackBreakHPOver100`].url}.png")` }}></li>
+                <li className={`${InflictBreakAttackBreakHPOver100 ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={InflictBreakAttackBreakHPOver100button} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`InflictBreakAttackBreakHPOver100`].url}.png")` }}></li>
               </Tippy>
               <br />
               <Tippy content={sphere_tags[`GroupCritical`].name}>
-                <li className={`${GroupCritical ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={GroupCriticalbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`GroupCritical`].url}.png")` }}></li>
+                <li className={`${GroupCritical ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={GroupCriticalbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`GroupCritical`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={sphere_tags[`Target1Critical`].name}>
-                <li className={`${Target1Critical ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={Target1Criticalbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`Target1Critical`].url}.png")` }}></li>
+                <li className={`${Target1Critical ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={Target1Criticalbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`Target1Critical`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={sphere_tags[`Critical`].name}>
-                <li className={`${Critical ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={Criticalbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`Critical`].url}.png")` }}></li>
+                <li className={`${Critical ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={Criticalbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`Critical`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={sphere_tags[`HPOver100Critical`].name}>
-                <li className={`${HPOver100Critical ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={HPOver100Criticalbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`HPOver100Critical`].url}.png")` }}></li>
+                <li className={`${HPOver100Critical ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={HPOver100Criticalbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`HPOver100Critical`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={sphere_tags[`MAXBRVOver50`].name}>
-                <li className={`${MAXBRVOver50 ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={MAXBRVOver50button} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`MAXBRVOver50`].url}.png")` }}></li>
+                <li className={`${MAXBRVOver50 ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={MAXBRVOver50button} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`MAXBRVOver50`].url}.png")` }}></li>
               </Tippy>
               <br />
               <Tippy content={sphere_tags[`HPOver100`].name}>
-                <li className={`${HPOver100 ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={HPOver100button} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`HPOver100`].url}.png")` }}></li>
+                <li className={`${HPOver100 ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={HPOver100button} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`HPOver100`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={sphere_tags[`HPOver80`].name}>
-                <li className={`${HPOver80 ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={HPOver80button} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`HPOver80`].url}.png")` }}></li>
+                <li className={`${HPOver80 ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={HPOver80button} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`HPOver80`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={sphere_tags[`HPUnder80`].name}>
-                <li className={`${HPUnder80 ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={HPUnder80button} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`HPUnder80`].url}.png")` }}></li>
+                <li className={`${HPUnder80 ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={HPUnder80button} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`HPUnder80`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={sphere_tags[`FinalWaveHPOver50`].name}>
-                <li className={`${FinalWaveHPOver50 ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={FinalWaveHPOver50button} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`FinalWaveHPOver50`].url}.png")` }}></li>
+                <li className={`${FinalWaveHPOver50 ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={FinalWaveHPOver50button} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`FinalWaveHPOver50`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={sphere_tags[`HPUnder50HPDamage`].name}>
-                <li className={`${HPUnder50HPDamage ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={HPUnder50HPDamagebutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`HPUnder50HPDamage`].url}.png")` }}></li>
+                <li className={`${HPUnder50HPDamage ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={HPUnder50HPDamagebutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`HPUnder50HPDamage`].url}.png")` }}></li>
               </Tippy>
               <br />
               <Tippy content={sphere_tags[`HPDamage`].name}>
-                <li className={`${HPDamage ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={HPDamagebutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`HPDamage`].url}.png")` }}></li>
+                <li className={`${HPDamage ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={HPDamagebutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`HPDamage`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={sphere_tags[`HealedHP`].name}>
-                <li className={`${HealedHP ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={HealedHPbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`HealedHP`].url}.png")` }}></li>
+                <li className={`${HealedHP ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={HealedHPbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`HealedHP`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={sphere_tags[`Weak`].name}>
-                <li className={`${Weak ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={Weakbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`Weak`].url}.png")` }}></li>
+                <li className={`${Weak ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={Weakbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`Weak`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={sphere_tags[`Evade`].name}>
-                <li className={`${Evade ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={Evadebutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`Evade`].url}.png")` }}></li>
+                <li className={`${Evade ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={Evadebutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`Evade`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={sphere_tags[`KnockBack`].name}>
-                <li className={`${KnockBack ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={KnockBackbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`KnockBack`].url}.png")` }}></li>
+                <li className={`${KnockBack ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={KnockBackbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`KnockBack`].url}.png")` }}></li>
               </Tippy>
               <br />
               <Tippy content={sphere_tags[`Target1`].name}>
-                <li className={`${Target1 ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={Target1button} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`Target1`].url}.png")` }}></li>
+                <li className={`${Target1 ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={Target1button} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`Target1`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={sphere_tags[`Group`].name}>
-                <li className={`${Group ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={Groupbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`Group`].url}.png")` }}></li>
+                <li className={`${Group ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={Groupbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`Group`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={sphere_tags[`DebuffedEnemy`].name}>
-                <li className={`${DebuffedEnemy ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={DebuffedEnemybutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`DebuffedEnemy`].url}.png")` }}></li>
+                <li className={`${DebuffedEnemy ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={DebuffedEnemybutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`DebuffedEnemy`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={sphere_tags[`NotTargetingYou`].name}>
-                <li className={`${NotTargetingYou ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={NotTargetingYoubutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`NotTargetingYou`].url}.png")` }}></li>
+                <li className={`${NotTargetingYou ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={NotTargetingYoubutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`NotTargetingYou`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={sphere_tags[`TargetingYou`].name}>
-                <li className={`${TargetingYou ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={TargetingYoubutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`TargetingYou`].url}.png")` }}></li>
+                <li className={`${TargetingYou ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={TargetingYoubutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`TargetingYou`].url}.png")` }}></li>
               </Tippy>
               <br />
               <Tippy content={sphere_tags[`InflictDebuff`].name}>
-                <li className={`${InflictDebuff ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={InflictDebuffbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`InflictDebuff`].url}.png")` }}></li>
+                <li className={`${InflictDebuff ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={InflictDebuffbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`InflictDebuff`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={sphere_tags[`GrantBuff`].name}>
-                <li className={`${GrantBuff ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={GrantBuffbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`GrantBuff`].url}.png")` }}></li>
+                <li className={`${GrantBuff ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={GrantBuffbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`GrantBuff`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={sphere_tags[`WhileBuffed5`].name}>
-                <li className={`${WhileBuffed5 ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={WhileBuffed5button} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`WhileBuffed5`].url}.png")` }}></li>
+                <li className={`${WhileBuffed5 ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={WhileBuffed5button} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`WhileBuffed5`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={sphere_tags[`WhileBuffed3`].name}>
-                <li className={`${WhileBuffed3 ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={WhileBuffed3button} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`WhileBuffed3`].url}.png")` }}></li>
+                <li className={`${WhileBuffed3 ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={WhileBuffed3button} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`WhileBuffed3`].url}.png")` }}></li>
               </Tippy>
               <br />
               <Tippy content={sphere_tags[`Ability`].name}>
-                <li className={`${Ability ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={Abilitybutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`Ability`].url}.png")` }}></li>
+                <li className={`${Ability ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={Abilitybutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`Ability`].url}.png")` }}></li>
               </Tippy>
               <Tippy content={sphere_tags[`BattleStart`].name}>
-                <li className={`${BattleStart ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={BattleStartbutton} style={{ backgroundSize: "contain", backgroundImage: `url("./images/static/icons/buff/${sphere_tags[`BattleStart`].url}.png")` }}></li>
+                <li className={`${BattleStart ? "filteractive" : "filterinactive"} infoiconholderbutton`} onClick={BattleStartbutton} style={{ backgroundSize: "contain", backgroundImage: `url("/images/static/icons/buff/${sphere_tags[`BattleStart`].url}.png")` }}></li>
               </Tippy>
             </ul>
             <div className="similarbanner">Refine</div>
@@ -1287,7 +1287,7 @@ function Spheres({
                 key={passive.pa_id}
                 scrollPosition={scrollPosition}
                 placeholder={<div className="buffunit infoholder" style={{ minHeight: `250px` }}>
-                  <img className="loadingbardots" src="./images/static/site/loading.gif"/>
+                  <img className="loadingbardots" src="/images/static/site/loading.gif"/>
                 </div>
                   }
                 >

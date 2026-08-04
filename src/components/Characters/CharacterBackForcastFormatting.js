@@ -148,7 +148,7 @@ function CharacterBackForcastFormatting({
                 effect="opacity" 
                 alt={match.CharacterName} 
                 className={`CharBackForecast${dimmer == true ? " dim" : ""}`} 
-                src={`./images/static/characters/${match.CharacterName.replace(/ /g, "").replace(/,/g, "").replace(/'/g, "").replace(/&/g, "")}/back.png`} />
+                src={`/images/static/characters/${match.CharacterName.replace(/ /g, "").replace(/,/g, "").replace(/'/g, "").replace(/&/g, "")}/back.png`} />
             </li>
         </Link>
     )

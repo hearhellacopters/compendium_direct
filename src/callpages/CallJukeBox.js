@@ -69,9 +69,9 @@ export default function CallJukeBoxPage(){
     const rawData = isIterable(ProcessedMusic) && ProcessedMusic.map(music => (
         {
             MusicKey: music.MusicKey,
-            musicSrc: `./mus/${music.File}`,
+            musicSrc: `/mus/${music.File}`,
             name: music.Label,
-            cover: "./images/static/site/logo512.png",
+            cover: "/images/static/site/logo512.png",
             singer: music.FFTitle
         }
     )).reverse()

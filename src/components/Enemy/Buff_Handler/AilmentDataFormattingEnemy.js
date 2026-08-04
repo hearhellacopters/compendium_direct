@@ -181,7 +181,7 @@ export default function AilmentDataFormattingEnemy({
                          }>
                     <div className={ "flexdisplay"}>
                         <div className="solo_buff_icon">
-                            <img className="bufficon2" alt={ailment_data.name && ailment_data.name} src={`./images/static/icons/buff/${ailment_level_icon(ailment_data,currentlevel)}.png`} />
+                            <img className="bufficon2" alt={ailment_data.name && ailment_data.name} src={`/images/static/icons/buff/${ailment_level_icon(ailment_data,currentlevel)}.png`} />
                         </div>
                         <span className={"splitrow"}>
                         {ReplacerCharacter(`${ailment_data && ailment_data.name == "" ? `Unknown ${ailment_data.is_buff == 1 ? "buff" : "debuff"}` : ailment_data.name}${ailment_data.is_state == true ? "" : ` - #${ailment_data.id}`}`)}
@@ -358,7 +358,7 @@ export default function AilmentDataFormattingEnemy({
                                     return <li className={`abilitybufficonsholder ${buff.id == attachedbuff.id ? "buffactive" : ""}`} key={buff.id}>
                                         <div className="biconspacer" onClick={() => buffattachedselect(buff)} >
                                             <DefaultTippy content={ReplacerCharacter(buff.name)}>
-                                                <img alt={buff.name} className="clicky abilitybufficon" src={`./images/static/icons/buff/${buff.icon}.png`} />
+                                                <img alt={buff.name} className="clicky abilitybufficon" src={`/images/static/icons/buff/${buff.icon}.png`} />
                                             </DefaultTippy>
                                         </div>
                                     </li>

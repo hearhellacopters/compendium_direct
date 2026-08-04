@@ -169,7 +169,7 @@
     width: 9rem;
     height: 6rem;
     z-index: 1;
-    background-image: url("./images/static/icons/banners/talk/stl_back.png");
+    background-image: url("/images/static/icons/banners/talk/stl_back.png");
 }
 
 .char_talk_face{
@@ -198,7 +198,7 @@
     width: 9rem;
     height: 6rem;
     z-index: 3;
-    background-image: url("./images/static/icons/banners/talk/stl_front.png");
+    background-image: url("/images/static/icons/banners/talk/stl_front.png");
 }
 
 .hide_answer{
@@ -434,7 +434,7 @@
 .worldmap1{
     display: inline-block;
     position: relative;
-    background-image: url("./images/static/FieldMap/WorldMap1.png");
+    background-image: url("/images/static/FieldMap/WorldMap1.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -447,7 +447,7 @@
 .worldmap2{
     display: inline-block;
     position: relative;
-    background-image: url("./images/static/FieldMap/WorldMap2.png");
+    background-image: url("/images/static/FieldMap/WorldMap2.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -460,7 +460,7 @@
 .worldmap3{
     display: inline-block;
     position: relative;
-    background-image: url("./images/static/FieldMap/WorldMap3.png");
+    background-image: url("/images/static/FieldMap/WorldMap3.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -473,7 +473,7 @@
 .worldmap4{
     display: inline-block;
     position: relative;
-    background-image: url("./images/static/FieldMap/WorldMap4.png");
+    background-image: url("/images/static/FieldMap/WorldMap4.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;

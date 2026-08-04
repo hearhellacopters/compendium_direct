@@ -287,7 +287,7 @@ export default function Stickers({
   const onclick = (Voice) => {
     if(playingaudio != true){
       try {
-        const myAudioElement = new Audio(`./images/static/stamps/audio/${Voice}.mp3`)
+        const myAudioElement = new Audio(`/images/static/stamps/audio/${Voice}.mp3`)
         myAudioElement.volume = volume
         myAudioElement.style.display = "none"
         myAudioElement.addEventListener("canplaythrough", (event) => {
@@ -489,9 +489,9 @@ export default function Stickers({
                   </div>
                   <div className="infobase stamppadding Nocolorbase">
                     {stickers.IconGL == undefined ? null :
-                      <img className="stampsicon clicky" onClick={() => onclick(stickers.Voice)} style={stickers.BackgroundColor != null ? { background: `${stickers.BackgroundColor}` } : { background: null }} alt={stickers.name} src={`./images/static/stamps/GL/${stickers.IconGL}${stickers.Animated == true ? ".gif" : ".png"}`}></img>}
+                      <img className="stampsicon clicky" onClick={() => onclick(stickers.Voice)} style={stickers.BackgroundColor != null ? { background: `${stickers.BackgroundColor}` } : { background: null }} alt={stickers.name} src={`/images/static/stamps/GL/${stickers.IconGL}${stickers.Animated == true ? ".gif" : ".png"}`}></img>}
                     {stickers.IconJP == undefined ? null :
-                      <img className="stampsicon clicky" onClick={() => onclick(stickers.Voice)} style={stickers.BackgroundColor != null ? { background: `${stickers.BackgroundColor}` } : { background: null }} alt={stickers.JPName} src={`./images/static/stamps/JP/${stickers.IconJP}${stickers.Animated == true ? ".gif" : ".png"}`}></img>}
+                      <img className="stampsicon clicky" onClick={() => onclick(stickers.Voice)} style={stickers.BackgroundColor != null ? { background: `${stickers.BackgroundColor}` } : { background: null }} alt={stickers.JPName} src={`/images/static/stamps/JP/${stickers.IconJP}${stickers.Animated == true ? ".gif" : ".png"}`}></img>}
                   </div>
                 </div>
               </div>

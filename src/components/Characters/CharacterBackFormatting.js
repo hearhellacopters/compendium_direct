@@ -17,7 +17,7 @@ function CharacterBackFormatting({
             scrollPosition={scrollPosition}
             effect="opacity" 
             className="BTCharacter noselect" 
-            src={`./images/static/characters/${characterpull}/back.png`} 
+            src={`/images/static/characters/${characterpull}/back.png`} 
             alt={characterpull} />
         </div>
     )

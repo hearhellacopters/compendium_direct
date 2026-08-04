@@ -22,7 +22,7 @@ function TalkFormatting({
     solo
 }){
 
-    const [changebg,setchangebg] = useState(talk.field_map != undefined ? window.localStorage.getItem("bg") == "true" ? `./images/static/FieldMap/${talk.field_map}.png` : "" : "")
+    const [changebg,setchangebg] = useState(talk.field_map != undefined ? window.localStorage.getItem("bg") == "true" ? `/images/static/FieldMap/${talk.field_map}.png` : "" : "")
 
     useEffect(() => {
         if (typeof (Storage) !== "undefined") {
@@ -115,7 +115,7 @@ function TalkFormatting({
         setTimeout(() => {
             setswitchimg("")
             if(talk.image_amnt != undefined){
-                const bgimage = `./images/static/FieldMap/${talk.field_map}${bgnum==1?"":talk.image_amnt == bgnum-1?"":bgnum-1}.png`
+                const bgimage = `/images/static/FieldMap/${talk.field_map}${bgnum==1?"":talk.image_amnt == bgnum-1?"":bgnum-1}.png`
                 setchangebg(bgimage)
                 if(bgnumber == talk.image_amnt){
                     setbgnumber(1)
@@ -123,7 +123,7 @@ function TalkFormatting({
                     setbgnumber(bgnumber+1);
                 }
             } else {
-                setchangebg(`./images/static/FieldMap/${talk.field_map}.png`)
+                setchangebg(`/images/static/FieldMap/${talk.field_map}.png`)
             }
         }, 300);
     }
@@ -135,7 +135,7 @@ function TalkFormatting({
             window.localStorage.setItem('bg', "false")
         } else {
             setbg(true)
-            setchangebg(talk.field_map != undefined ? `./images/static/FieldMap/${talk.field_map}.png` : "")
+            setchangebg(talk.field_map != undefined ? `/images/static/FieldMap/${talk.field_map}.png` : "")
             window.localStorage.setItem('bg', "true")
         }
     }
@@ -147,7 +147,7 @@ function TalkFormatting({
     }
 
     const make_image = (data) =>{
-        var image = `./images/static/banners/${ver.toLowerCase()}/event/eventtitle`
+        var image = `/images/static/banners/${ver.toLowerCase()}/event/eventtitle`
         if(data[`${ver}_banner`] != undefined && data[`${ver}_banner`][0]!= undefined){
             image = image + data[`${ver}_banner`][0] + "out.png"
         } else {

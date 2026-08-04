@@ -56,7 +56,7 @@ export default function EnemyAbilitiesListingFormattingDirect({ match }){
                     {match.IconURL != undefined ?
                         <div className="enemyabilityiconholder">
                             <Link className="abilityurlholder" to={`/bestiary/enemies/${match.battle_enemy_id}`}>
-                                <img className="abilityicon" alt={match.Name} src={`./images/static/icons/buttons/ability/${match.IconURL}`} />
+                                <img className="abilityicon" alt={match.Name} src={`/images/static/icons/buttons/ability/${match.IconURL}`} />
                             </Link>
                         </div> : ""}
                 </div>
@@ -128,7 +128,7 @@ export default function EnemyAbilitiesListingFormattingDirect({ match }){
                                 <li className={`abilitybufficonsholder ${selectedbuff.unq_id == buffs.unq_id ? "buffactive" : ""}`} key={buffs.unq_id}>
                                     <div className="biconspacer" onClick={() => buffselect(buffs)} >
                                         <Tippy content={buffs.name && ReplacerCharacter(buffs.name)}>
-                                            <img alt={buffs.name} className={`clicky abilitybufficon `} src={`./images/static/icons/buff/${ailment_level_icon(buffs,buffs.arg1)}.png`} />
+                                            <img alt={buffs.name} className={`clicky abilitybufficon `} src={`/images/static/icons/buff/${ailment_level_icon(buffs,buffs.arg1)}.png`} />
                                         </Tippy>
                                     </div>
                                 </li>

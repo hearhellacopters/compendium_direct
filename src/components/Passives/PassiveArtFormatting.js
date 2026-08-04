@@ -249,7 +249,7 @@ function PassiveArtFormatting({
                                                 <DefaultTippy content={
                                                     buff.name === "" ? `Unknown ${buff.id}` : buff.name
                                                 }>
-                                                    <img alt={buff.name} className="clicky abilitybufficon" src={`./images/static/icons/buff/${ailment_level_icon(buff,buff.aarg1)}.png`} />
+                                                    <img alt={buff.name} className="clicky abilitybufficon" src={`/images/static/icons/buff/${ailment_level_icon(buff,buff.aarg1)}.png`} />
                                                 </DefaultTippy>
                                             </div>
                                         </li>

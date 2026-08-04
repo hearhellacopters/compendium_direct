@@ -292,7 +292,7 @@ export default function Home({
                           <li key={summons.SummonID}>
                             <Link to={`/bonuses/${summons.SummonNameShort}`}>
                               <DefaultTippy content={summons.SummonName}>
-                                <img alt={summons.SummonName} className="summonimglink" src={`./images/static/icons/summons/face/${summons.SummonFace}`} />
+                                <img alt={summons.SummonName} className="summonimglink" src={`/images/static/icons/summons/face/${summons.SummonFace}`} />
                               </DefaultTippy>
                             </Link>
                           </li>

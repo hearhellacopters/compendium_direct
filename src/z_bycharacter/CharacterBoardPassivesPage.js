@@ -506,7 +506,7 @@ function CharacterBoardPassivesPage ({
               scrollPosition={scrollPosition}
               placeholder={<div className="buffunit">
                               <div className="infoholder" style={{ minHeight: "220px" }}>
-                              <img className="loadingbardots" src="./images/static/site/loading.gif"/>
+                              <img className="loadingbardots" src="/images/static/site/loading.gif"/>
                               </div>
                           </div>}
               >
@@ -531,7 +531,7 @@ function CharacterBoardPassivesPage ({
                 key={passive.sfp_id}
                 scrollPosition={scrollPosition}
                 placeholder={<div className="buffunit infoholder" style={{ minHeight: `250px` }}>
-                  <img className="loadingbardots" src="./images/static/site/loading.gif"/>
+                  <img className="loadingbardots" src="/images/static/site/loading.gif"/>
                 </div>
                   }
               >

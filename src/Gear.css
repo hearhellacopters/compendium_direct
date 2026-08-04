@@ -51,7 +51,7 @@
 }
 
 .wpfr0 {
-    background-image: url("./images/static/icons/geartype/fr0.png");
+    background-image: url("/images/static/icons/geartype/fr0.png");
     width: 3em;
     max-width: 72px;
     max-height: 36px;
@@ -68,7 +68,7 @@
 }
 
 .wpfr1 {
-    background-image: url("./images/static/icons/geartype/fr1.png");
+    background-image: url("/images/static/icons/geartype/fr1.png");
     width: 3em;
     max-width: 72px;
     max-height: 36px;
@@ -85,7 +85,7 @@
 }
 
 .wpfr2 {
-    background-image: url("./images/static/icons/geartype/fr2.png");
+    background-image: url("/images/static/icons/geartype/fr2.png");
     width: 3em;
     max-width: 72px;
     max-height: 36px;
@@ -102,7 +102,7 @@
 }
 
 .wpfr3 {
-    background-image: url("./images/static/icons/geartype/fr3.png");
+    background-image: url("/images/static/icons/geartype/fr3.png");
     width: 3em;
     max-width: 72px;
     max-height: 36px;
@@ -142,7 +142,7 @@
 
 .gearsaholder {
     display: table;
-    background-image: url("./images/static/icons/misc/saholder.png");
+    background-image: url("/images/static/icons/misc/saholder.png");
     z-index: 2;
     height: 28px;
     width: 42px;
@@ -462,7 +462,7 @@
 
 .inlinegearsaholder {
     display: table;
-    background-image: url("./images/static/icons/misc/saholder.png");
+    background-image: url("/images/static/icons/misc/saholder.png");
     z-index: 2;
     height: 28px;
     width: 42px;
@@ -474,7 +474,7 @@
 
 .inlinegearsaholderg {
     display: table;
-    background-image: url("./images/static/icons/misc/saholderg.png");
+    background-image: url("/images/static/icons/misc/saholderg.png");
     z-index: 2;
     height: 28px;
     width: 42px;

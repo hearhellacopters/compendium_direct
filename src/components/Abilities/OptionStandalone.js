@@ -54,7 +54,7 @@ export default function OptionStandalone ({
                 {enemy && character_option.enemy_id != undefined ?
                  <div className="infotitleholder">
                     <div className="faceandiconholder">
-                        <img alt={character_option.enemy_id} className={`enemy_make_face`} src={`./images/static/enemy/face/stl_mon_face_${(character_option.enemy_id-1).toString().padStart(4, '0')}out.png`} />
+                        <img alt={character_option.enemy_id} className={`enemy_make_face`} src={`/images/static/enemy/face/stl_mon_face_${(character_option.enemy_id-1).toString().padStart(4, '0')}out.png`} />
                     </div>
                 </div>
                 :""}

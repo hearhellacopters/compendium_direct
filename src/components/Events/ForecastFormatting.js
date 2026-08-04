@@ -127,7 +127,7 @@ function ForecastFormatting({
                                     scrollPosition={scrollPosition}
                                     effect="opacity"
                                     className={`bannerimage withshadow showlink`} 
-                                    src={"./images/static/banners/"+match.url1} 
+                                    src={"/images/static/banners/"+match.url1} 
                                     alt={match.name} />
                                 </Link>
                                 :
@@ -139,8 +139,8 @@ function ForecastFormatting({
                                             effect="opacity" 
                                             className={`bannerimage showlink`} 
                                             src={
-                                                bannerdisplay == "Banner1" ? "./images/static/banners/"+match.url1 :
-                                                    bannerdisplay == "Banner2" ? "./images/static/banners/"+match.url2 :
+                                                bannerdisplay == "Banner1" ? "/images/static/banners/"+match.url1 :
+                                                    bannerdisplay == "Banner2" ? "/images/static/banners/"+match.url2 :
                                                         ""
                                             } 
                                             alt={match.name} />
@@ -194,7 +194,7 @@ function ForecastFormatting({
                                             effect="opacity" 
                                             alt="unknown" 
                                             className={`CharBackForecast`} 
-                                            src={`./images/static/icons/misc/UnknownBack.png`} />
+                                            src={`/images/static/icons/misc/UnknownBack.png`} />
                                             <div className="facetextlist3">Unknown&nbsp;&nbsp;&nbsp;</div>
                                         </li>
                                         : ""}

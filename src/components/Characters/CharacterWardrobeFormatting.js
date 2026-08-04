@@ -52,7 +52,7 @@ function CharacterWardrobeFormatting({
                                     effect="opacity" 
                                     className="charmanimage"
                                     alt={self.CharacterName} 
-                                    src={`./images/static/characters/${self.CharacterURLName}/c${self.key}.png`} />
+                                    src={`/images/static/characters/${self.CharacterURLName}/c${self.key}.png`} />
                                 </Link>
                             </div>
                         </Tippy>
@@ -68,7 +68,7 @@ function CharacterWardrobeFormatting({
                                 effect="opacity" 
                                 className="charmanimage" 
                                 alt={match.CharacterName} 
-                                src={`./images/static/characters/${match.CharacterURLName}/c1.png`} />
+                                src={`/images/static/characters/${match.CharacterURLName}/c1.png`} />
                             </Link>
                         </div>
                     </Tippy>
@@ -85,7 +85,7 @@ function CharacterWardrobeFormatting({
                                     effect="opacity" 
                                     className="charmanimage" 
                                     alt={self.CharacterName} 
-                                    src={`./images/static/characters/${self.CharacterURLName}/c${self.key}.png`} />
+                                    src={`/images/static/characters/${self.CharacterURLName}/c${self.key}.png`} />
                                 </Link>
                             </div>
                         </Tippy>

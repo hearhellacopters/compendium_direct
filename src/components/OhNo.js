@@ -14,7 +14,7 @@ function OhNo ({
                 <div className="noresults">
                     <LazyLoadImage 
                     scrollPosition={scrollPosition}
-                    effect="opacity" key={`ohno${random}`} className={`ohno${random}`} alt="oh no" src={`./images/static/icons/404/${random}.png`} />
+                    effect="opacity" key={`ohno${random}`} className={`ohno${random}`} alt="oh no" src={`/images/static/icons/404/${random}.png`} />
                     <div className="singlenolinkstext"><div className="sitsatbottom">{message1 == undefined ? "No results!" : message1}</div></div>
                 </div>
             </div>

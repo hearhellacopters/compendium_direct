@@ -141,7 +141,7 @@ function CharacterBuffPage ({
                                                 <Tippy content={
                                                     cast.name === "" ? ReplacerCharacter(`Unknown ${cast.id}`,form) : ReplacerCharacter(cast.name,form)
                                                 }>
-                                                    <img alt={cast.name} className="clicky abilitybufficon" src={`./images/static/icons/buff/${ailment_level_icon(cast,buffs.arg1)}.png`} />
+                                                    <img alt={cast.name} className="clicky abilitybufficon" src={`/images/static/icons/buff/${ailment_level_icon(cast,buffs.arg1)}.png`} />
                                                 </Tippy>
                                             </div>
                                         </li>
@@ -162,7 +162,7 @@ function CharacterBuffPage ({
                                                     <Tippy content={
                                                         cast.name === "" ? ReplacerCharacter(`Unknown ${cast.id}`,form) : ReplacerCharacter(cast.name,form)
                                                     }>
-                                                        <img alt={cast.name} className="clicky abilitybufficon" src={`./images/static/icons/buff/${cast.icon}.png`} />
+                                                        <img alt={cast.name} className="clicky abilitybufficon" src={`/images/static/icons/buff/${cast.icon}.png`} />
                                                     </Tippy>
                                                 </div>
                                             </li>
@@ -272,7 +272,7 @@ function CharacterBuffPage ({
                                 scrollPosition={scrollPosition}
                                 placeholder={<div className='buffunit' style={{ minHeight: `210px` }}>
                                                 <div className='infoholder'>
-                                                <img className="loadingbardots" src="./images/static/site/loading.gif"/>
+                                                <img className="loadingbardots" src="/images/static/site/loading.gif"/>
                                                 </div>
                                             </div>}
                             >

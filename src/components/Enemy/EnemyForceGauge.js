@@ -32,11 +32,11 @@ export default function EnemyForceGauge({
     return (
         <div className="EFGaugeHolder">
             <DefaultTippy content={`Active between ${gauge_min}% - ${gauge_max}%`}>
-                <img className="FGaugeTop" alt="FGauge" src={`./images/static/icons/buttons/frgauge/EnemyBarTop${barfill}.png`} />
+                <img className="FGaugeTop" alt="FGauge" src={`/images/static/icons/buttons/frgauge/EnemyBarTop${barfill}.png`} />
             </DefaultTippy>
             <div className="FGaugeMiddle" style={{ clipPath: `polygon(${left_max_top}% 0%, ${right_max_top}% 0%, ${right_max_bottom}% 100%, ${left_max_bottom}% 100%)` }} />
             <div className="FGaugeMiddleFade" style={{ clipPath: `polygon(${left_max_top}% 0%, 100% 0%, 100% 100%, ${left_max_bottom}% 100%)` }} />
-            <img className="FGaugeBottom" alt="FGaugeL" src="./images/static/icons/buttons/frgauge/EnemyBarBottom.png" />
+            <img className="FGaugeBottom" alt="FGaugeL" src="/images/static/icons/buttons/frgauge/EnemyBarBottom.png" />
 
         </div>
     )

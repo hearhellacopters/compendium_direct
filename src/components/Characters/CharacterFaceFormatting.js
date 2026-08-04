@@ -24,7 +24,7 @@ function CharacterFaceFormatting({
                     effect="opacity" 
                     alt={match.CharacterName} 
                     className={`faceiconlist ${BTUnit == match.CharID ? "btgreen" : ""}`} 
-                    src={match.CharacterName == undefined ? "./images/static/icons/misc/Unknown_face.png" : `./images/static/characters/${match.CharacterName.replace(/ /g, "").replace(/,/g, "").replace(/'/g, "").replace(/&/g, "")}/face.png`} />
+                    src={match.CharacterName == undefined ? "/images/static/icons/misc/Unknown_face.png" : `/images/static/characters/${match.CharacterName.replace(/ /g, "").replace(/,/g, "").replace(/'/g, "").replace(/&/g, "")}/face.png`} />
                     <div className="facetextlist">{match.CharacterName == "Cloud of Darkness" ? "CoD" : match.CharacterName == "Warrior of Light" ? "WoL" : match.CharacterName}</div>
                 </li>
             </Link>
@@ -37,14 +37,14 @@ function CharacterFaceFormatting({
         if (char_id[id] == undefined) {
             Object.assign(direct, {
                 CharacterName: `Unknown #${id}`,
-                CharacterFaceURL: "./images/static/icons/misc/Unknown_face.png"
+                CharacterFaceURL: "/images/static/icons/misc/Unknown_face.png"
             })
         }
         if (char_id[id] != undefined) {
             Object.assign(direct, {
                 ShortName: char_id[id].ShortName && char_id[id].ShortName,
                 CharacterName: char_id[id].CharacterName,
-                CharacterFaceURL: `./images/static/characters/${char_id[id] && char_id[id].CharacterName.replace(/ /g, "").replace(/,/g, "").replace(/'/g, "").replace(/&/g, "")}/face.png`
+                CharacterFaceURL: `/images/static/characters/${char_id[id] && char_id[id].CharacterName.replace(/ /g, "").replace(/,/g, "").replace(/'/g, "").replace(/&/g, "")}/face.png`
             })
         }
 
@@ -54,7 +54,7 @@ function CharacterFaceFormatting({
                         effect="opacity" 
                         alt={direct.CharacterName} 
                         className={`faceiconlist`} 
-                        src={direct.CharacterFaceURL == undefined ? "./images/static/icons/misc/Unknown_face.png" : direct.CharacterFaceURL} />
+                        src={direct.CharacterFaceURL == undefined ? "/images/static/icons/misc/Unknown_face.png" : direct.CharacterFaceURL} />
                         <div className="facetextlist">{direct.CharacterName == "Cloud of Darkness" ? "CoD" : direct.CharacterName == "Warrior of Light" ? "WoL" : direct.CharacterName}</div>
                     </li>
 
@@ -64,7 +64,7 @@ function CharacterFaceFormatting({
                             effect="opacity" 
                             alt={direct.CharacterName} 
                             className={`${loc == "gear" ? "gearfaceicon" : "faceicon"}`} 
-                            src={direct.CharacterFaceURL == undefined ? "./images/static/icons/misc/Unknown_face.png" : direct.CharacterFaceURL} />
+                            src={direct.CharacterFaceURL == undefined ? "/images/static/icons/misc/Unknown_face.png" : direct.CharacterFaceURL} />
                             <div className={`${loc == "gear" ? "gearfacetext" : "facetext"}`}>{direct.CharacterName == "Cloud of Darkness" ? "CoD" : direct.CharacterName == "Warrior of Light" ? "WoL" : direct.CharacterName}</div>
                         </div>
 

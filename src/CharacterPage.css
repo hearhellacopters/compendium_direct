@@ -117,19 +117,19 @@
 }
 
 .upcomingbutton {
-    background-image: url("./images/static/icons/geartype/upcoming.png")
+    background-image: url("/images/static/icons/geartype/upcoming.png")
 }
 
 .artpassivedirect {
-    background-image: url("./images/static/icons/geartype/artpass_direct.png")
+    background-image: url("/images/static/icons/geartype/artpass_direct.png")
 }
 
 .eventsdirect {
-    background-image: url("./images/static/icons/geartype/events_direct.png")
+    background-image: url("/images/static/icons/geartype/events_direct.png")
 }
 
 .enemiesforcharbutton {
-    background-image: url("./images/static/icons/geartype/enemies.png")
+    background-image: url("/images/static/icons/geartype/enemies.png")
 }
 
 .chartopimageholder {
@@ -293,7 +293,7 @@
 }
 
 .JPReworkbutton {
-    background-image: url("./images/static/icons/roles/Role_RW.png");
+    background-image: url("/images/static/icons/roles/Role_RW.png");
     background-size: contain;
 }
 
@@ -346,32 +346,32 @@
 }
 
 .reworkicon {
-    background-image: url("./images/static/icons/geartype/rework.png");
+    background-image: url("/images/static/icons/geartype/rework.png");
     display: inline-block;
 }
 
 .reworktab {
-    background-image: url("./images/static/icons/geartype/rework2.png");
+    background-image: url("/images/static/icons/geartype/rework2.png");
     display: inline-block;
 }
 
 .reworktabred {
-    background-image: url("./images/static/icons/geartype/rework2red.png");
+    background-image: url("/images/static/icons/geartype/rework2red.png");
     display: inline-block;
 }
 
 .reworktab_direct {
-    background-image: url("./images/static/icons/geartype/rework2_direct.png");
+    background-image: url("/images/static/icons/geartype/rework2_direct.png");
     display: inline-block;
 }
 
 .reworktabred_direct {
-    background-image: url("./images/static/icons/geartype/rework2red_direct.png");
+    background-image: url("/images/static/icons/geartype/rework2red_direct.png");
     display: inline-block;
 }
 
 .gemicon {
-    content: url("./images/static/icons/misc/LimitBreakSmall.png");
+    content: url("/images/static/icons/misc/LimitBreakSmall.png");
     vertical-align: middle;
     background-size: contain;
     height: 20px;
@@ -422,7 +422,7 @@
 }
 
 .arm7aicon {
-    background-image: url("./images/static/icons/geartype/7a.png");
+    background-image: url("/images/static/icons/geartype/7a.png");
     display: inline-block;
 }
 
@@ -666,95 +666,95 @@
 }
 
 .profilebutton {
-    background-image: url("./images/static/icons/geartype/profile.png");
+    background-image: url("/images/static/icons/geartype/profile.png");
 }
 
 .buffsdebuffsbutton {
-    background-image: url("./images/static/icons/geartype/buffsdebuffs.png");
+    background-image: url("/images/static/icons/geartype/buffsdebuffs.png");
 }
 
 .descbuttons {
-    background-image: url("./images/static/icons/geartype/desc.png");
+    background-image: url("/images/static/icons/geartype/desc.png");
 }
 
 .abilitiesbutton {
-    background-image: url("./images/static/icons/geartype/abilities.png");
+    background-image: url("/images/static/icons/geartype/abilities.png");
 }
 
 .directabilitiesbutton {
-    background-image: url("./images/static/icons/geartype/abilities_direct.png");
+    background-image: url("/images/static/icons/geartype/abilities_direct.png");
 }
 
 .directcrystalpassives {
-    background-image: url("./images/static/icons/geartype/cpassives_direct.png")
+    background-image: url("/images/static/icons/geartype/cpassives_direct.png")
 }
 
 .directexppassives {
-    background-image: url("./images/static/icons/geartype/exp_direct.png")
+    background-image: url("/images/static/icons/geartype/exp_direct.png")
 }
 
 .directprofile {
-    background-image: url("./images/static/icons/geartype/profile_direct.png")
+    background-image: url("/images/static/icons/geartype/profile_direct.png")
 }
 
 .directpassives {
-    background-image: url("./images/static/icons/geartype/passives_direct.png")
+    background-image: url("/images/static/icons/geartype/passives_direct.png")
 }
 
 .communityprofile {
-    background-image: url("./images/static/icons/geartype/community_direct.png")
+    background-image: url("/images/static/icons/geartype/community_direct.png")
 }
 
 .bpassivesbutton {
-    background-image: url("./images/static/icons/geartype/bpassives_direct.png")
+    background-image: url("/images/static/icons/geartype/bpassives_direct.png")
 }
 
 .linkbutton {
-    background-image: url("./images/static/icons/geartype/frboard_direct.png");
+    background-image: url("/images/static/icons/geartype/frboard_direct.png");
 }
 
 .summonsbutton {
-    background-image: url("./images/static/icons/geartype/summons.png");
+    background-image: url("/images/static/icons/geartype/summons.png");
 }
 
 .statsbutton {
-    background-image: url("./images/static/icons/geartype/stats.png");
+    background-image: url("/images/static/icons/geartype/stats.png");
 }
 
 .orbsbutton {
-    background-image: url("./images/static/icons/geartype/orb.png");
+    background-image: url("/images/static/icons/geartype/orb.png");
 }
 
 .forcesbutton {
-    background-image: url("./images/static/icons/geartype/force.png");
+    background-image: url("/images/static/icons/geartype/force.png");
 }
 
 .guidebutton {
-    background-image: url("./images/static/icons/geartype/guide.png");
+    background-image: url("/images/static/icons/geartype/guide.png");
 }
 
 .graphicbutton {
-    background-image: url("./images/static/icons/geartype/graphic.png");
+    background-image: url("/images/static/icons/geartype/graphic.png");
 }
 
 .passivesbutton {
-    background-image: url("./images/static/icons/geartype/passives.png");
+    background-image: url("/images/static/icons/geartype/passives.png");
 }
 
 .gearbutton {
-    background-image: url("./images/static/icons/geartype/gear.png");
+    background-image: url("/images/static/icons/geartype/gear.png");
 }
 
 .eventspagebutton {
-    background-image: url("./images/static/icons/geartype/events.png");
+    background-image: url("/images/static/icons/geartype/events.png");
 }
 
 .directspherespagebutton {
-    background-image: url("./images/static/icons/geartype/spheres_direct.png");
+    background-image: url("/images/static/icons/geartype/spheres_direct.png");
 }
 
 .unknown {
-    background-image: url("./images/static/icons/geartype/unknown.png");
+    background-image: url("/images/static/icons/geartype/unknown.png");
     width: 3em;
     max-width: 72px;
     max-height: 36px;
@@ -775,7 +775,7 @@
 }
 
 .spherespagebutton {
-    background-image: url("./images/static/icons/geartype/spheres.png");
+    background-image: url("/images/static/icons/geartype/spheres.png");
 }
 
 .characterpageshare {
@@ -902,247 +902,247 @@
 }
 
 .Feature1 {
-    background-image: url("./images/static/icons/DMGType/DMGType_Ranged_Icon.png");
+    background-image: url("/images/static/icons/DMGType/DMGType_Ranged_Icon.png");
     background-size: contain;
 }
 
 .Feature2 {
-    background-image: url("./images/static/icons/DMGType/DMGType_Melee_Icon.png");
+    background-image: url("/images/static/icons/DMGType/DMGType_Melee_Icon.png");
     background-size: contain;
 }
 
 .Feature3 {
-    background-image: url("./images/static/icons/DMGType/DMGType_Magic_Icon.png");
+    background-image: url("/images/static/icons/DMGType/DMGType_Magic_Icon.png");
     background-size: contain;
 }
 
 .Feature4 {
-    background-image: url("./images/static/icons/elements/Fire.png");
+    background-image: url("/images/static/icons/elements/Fire.png");
     background-size: contain;
 }
 
 .Feature5 {
-    background-image: url("./images/static/icons/elements/Ice.png");
+    background-image: url("/images/static/icons/elements/Ice.png");
     background-size: contain;
 }
 
 .Feature6 {
-    background-image: url("./images/static/icons/elements/Thunder.png");
+    background-image: url("/images/static/icons/elements/Thunder.png");
     background-size: contain;
 }
 
 .Feature7 {
-    background-image: url("./images/static/icons/elements/Wind.png");
+    background-image: url("/images/static/icons/elements/Wind.png");
     background-size: contain;
 }
 
 .Feature8 {
-    background-image: url("./images/static/icons/elements/Earth.png");
+    background-image: url("/images/static/icons/elements/Earth.png");
     background-size: contain;
 }
 
 .Feature9 {
-    background-image: url("./images/static/icons/elements/Water.png");
+    background-image: url("/images/static/icons/elements/Water.png");
     background-size: contain;
 }
 
 .Feature10 {
-    background-image: url("./images/static/icons/elements/Dark.png");
+    background-image: url("/images/static/icons/elements/Dark.png");
     background-size: contain;
 }
 
 .Feature11 {
-    background-image: url("./images/static/icons/elements/Holy.png");
+    background-image: url("/images/static/icons/elements/Holy.png");
     background-size: contain;
 }
 
 .Feature12 {
-    background-image: url("./images/static/icons/roles/Role_Enchant.png");
+    background-image: url("/images/static/icons/roles/Role_Enchant.png");
     background-size: contain;
 }
 
 .Feature13 {
-    background-image: url("./images/static/icons/roles/Role_Icon_Healer.png");
+    background-image: url("/images/static/icons/roles/Role_Icon_Healer.png");
     background-size: contain;
 }
 
 .Feature14 {
-    background-image: url("./images/static/icons/roles/Role_Icon_Battery.png");
+    background-image: url("/images/static/icons/roles/Role_Icon_Battery.png");
     background-size: contain;
 }
 
 .Feature15 {
-    background-image: url("./images/static/icons/roles/Role_BRV_Hold.png");
+    background-image: url("/images/static/icons/roles/Role_BRV_Hold.png");
     background-size: contain;
 }
 
 .Feature16 {
-    background-image: url("./images/static/icons/roles/Role_Cannot_Break.png");
+    background-image: url("/images/static/icons/roles/Role_Cannot_Break.png");
     background-size: contain;
 }
 
 .Feature17 {
-    background-image: url("./images/static/icons/roles/Role_KO_Prevent.png");
+    background-image: url("/images/static/icons/roles/Role_KO_Prevent.png");
     background-size: contain;
 }
 
 .Feature18 {
-    background-image: url("./images/static/icons/roles/Role_Trap.png");
+    background-image: url("/images/static/icons/roles/Role_Trap.png");
     background-size: contain;
 }
 
 .Feature19 {
-    background-image: url("./images/static/icons/roles/Role_Icon_Counter.png");
+    background-image: url("/images/static/icons/roles/Role_Icon_Counter.png");
     background-size: contain;
 }
 
 .Feature20 {
-    background-image: url("./images/static/icons/roles/Role_Icon_FollowUp.png");
+    background-image: url("/images/static/icons/roles/Role_Icon_FollowUp.png");
     background-size: contain;
 }
 
 .Feature21 {
-    background-image: url("./images/static/icons/roles/Role_Icon_FollowUp_By_Others.png");
+    background-image: url("/images/static/icons/roles/Role_Icon_FollowUp_By_Others.png");
     background-size: contain;
 }
 
 .Feature22 {
-    background-image: url("./images/static/icons/roles/Role_Reviver.png");
+    background-image: url("/images/static/icons/roles/Role_Reviver.png");
     background-size: contain;
 }
 
 .Feature23 {
-    background-image: url("./images/static/icons/roles/Role_ForcedBreak.png");
+    background-image: url("/images/static/icons/roles/Role_ForcedBreak.png");
     background-size: contain;
 }
 
 .Feature24 {
-    background-image: url("./images/static/icons/roles/Role_BreakReset.png");
+    background-image: url("/images/static/icons/roles/Role_BreakReset.png");
     background-size: contain;
 }
 
 .Feature25 {
-    background-image: url("./images/static/icons/roles/Role_KnockBack.png");
+    background-image: url("/images/static/icons/roles/Role_KnockBack.png");
     background-size: contain;
 }
 
 .Feature26 {
-    background-image: url("./images/static/icons/roles/Role_Icon_Knock_Back_Support.png");
+    background-image: url("/images/static/icons/roles/Role_Icon_Knock_Back_Support.png");
     background-size: contain;
 }
 
 .Feature27 {
-    background-image: url("./images/static/icons/roles/Role_DeleteTurns.png");
+    background-image: url("/images/static/icons/roles/Role_DeleteTurns.png");
     background-size: contain;
 }
 
 .Feature28 {
-    background-image: url("./images/static/icons/roles/Role_Continuous_Turns.png");
+    background-image: url("/images/static/icons/roles/Role_Continuous_Turns.png");
     background-size: contain;
 }
 
 .Feature29 {
-    background-image: url("./images/static/icons/roles/Role_Turn_Interrupter.png");
+    background-image: url("/images/static/icons/roles/Role_Turn_Interrupter.png");
     background-size: contain;
 }
 
 .Feature30 {
-    background-image: url("./images/static/icons/roles/Role_Ally_Turn_Manipulator.png");
+    background-image: url("/images/static/icons/roles/Role_Ally_Turn_Manipulator.png");
     background-size: contain;
 }
 
 .Feature31 {
-    background-image: url("./images/static/icons/roles/Role_BRV_Ratio.png");
+    background-image: url("/images/static/icons/roles/Role_BRV_Ratio.png");
     background-size: contain;
 }
 
 .Feature32 {
-    background-image: url("./images/static/icons/roles/Role_Ignore_DEF.png");
+    background-image: url("/images/static/icons/roles/Role_Ignore_DEF.png");
     background-size: contain;
 }
 
 .Feature33 {
-    background-image: url("./images/static/icons/roles/Role_BRVPoison.png");
+    background-image: url("/images/static/icons/roles/Role_BRVPoison.png");
     background-size: contain;
 }
 
 .Feature34 {
-    background-image: url("./images/static/icons/roles/Role_HPPoison.png");
+    background-image: url("/images/static/icons/roles/Role_HPPoison.png");
     background-size: contain;
 }
 
 .Feature35 {
-    background-image: url("./images/static/icons/roles/Role_Icon_Disable.png");
+    background-image: url("/images/static/icons/roles/Role_Icon_Disable.png");
     background-size: contain;
 }
 
 .Feature36 {
-    background-image: url("./images/static/icons/roles/Role_BRVResist.png");
+    background-image: url("/images/static/icons/roles/Role_BRVResist.png");
     background-size: contain;
 }
 
 .Feature37 {
-    background-image: url("./images/static/icons/roles/Role_BRV_Absorb.png");
+    background-image: url("/images/static/icons/roles/Role_BRV_Absorb.png");
     background-size: contain;
 }
 
 .Feature38 {
-    background-image: url("./images/static/icons/roles/Role_HPResist.png");
+    background-image: url("/images/static/icons/roles/Role_HPResist.png");
     background-size: contain;
 }
 
 .Feature39 {
-    background-image: url("./images/static/icons/debuff/debuff_glasses_unframed.png");
+    background-image: url("/images/static/icons/debuff/debuff_glasses_unframed.png");
     background-size: contain;
 }
 
 .Feature40 {
-    background-image: url("./images/static/icons/buff/buff_dodge_unframed.png");
+    background-image: url("/images/static/icons/buff/buff_dodge_unframed.png");
     background-size: contain;
 }
 
 .Feature41 {
-    background-image: url("./images/static/icons/roles/Role_Self_Harm.png");
+    background-image: url("/images/static/icons/roles/Role_Self_Harm.png");
     background-size: contain;
 }
 
 .Feature42 {
-    background-image: url("./images/static/icons/roles/Role_Cleanser.png");
+    background-image: url("/images/static/icons/roles/Role_Cleanser.png");
     background-size: contain;
 }
 
 .Feature43 {
-    background-image: url("./images/static/icons/roles/Role_Debuff_Evade.png");
+    background-image: url("/images/static/icons/roles/Role_Debuff_Evade.png");
     background-size: contain;
 }
 
 .Feature44 {
-    background-image: url("./images/static/icons/roles/Role_Icon_Dispel.png");
+    background-image: url("/images/static/icons/roles/Role_Icon_Dispel.png");
     background-size: contain;
 }
 
 .Feature45 {
-    background-image: url("./images/static/icons/roles/Role_Icon_BRV-Control.png");
+    background-image: url("/images/static/icons/roles/Role_Icon_BRV-Control.png");
     background-size: contain;
 }
 
 .Feature46 {
-    background-image: url("./images/static/icons/roles/Role_EX_Gauge.png");
+    background-image: url("/images/static/icons/roles/Role_EX_Gauge.png");
     background-size: contain;
 }
 
 .Feature47 {
-    background-image: url("./images/static/icons/roles/Role_Debuff_Gold.png");
+    background-image: url("/images/static/icons/roles/Role_Debuff_Gold.png");
     background-size: contain;
 }
 
 .Feature48 {
-    background-image: url("./images/static/icons/buff/buff_up1_unframed.png");
+    background-image: url("/images/static/icons/buff/buff_up1_unframed.png");
     background-size: contain;
 }
 
 .Feature49 {
-    background-image: url("./images/static/icons/roles/Role_Stacked_Debuff.png");
+    background-image: url("/images/static/icons/roles/Role_Stacked_Debuff.png");
     background-size: contain;
 }
 
@@ -1214,7 +1214,7 @@
 }
 
 .newstatus {
-    background-image: url("./images/static/icons/misc/status_small.png");
+    background-image: url("/images/static/icons/misc/status_small.png");
     width: 54px;
     height: 27px;
     display: inline-block;
@@ -1421,7 +1421,7 @@
 }
 
 .loadmorespheres {
-    background-image: url("./images/static/icons/buttons/svg/blue-button.svg");
+    background-image: url("/images/static/icons/buttons/svg/blue-button.svg");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;

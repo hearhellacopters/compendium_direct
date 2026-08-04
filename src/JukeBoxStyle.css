@@ -5,35 +5,35 @@
     vertical-align: middle;
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: url("./images/static/icons/misc/plus_s.png");
+    background-image: url("/images/static/icons/misc/plus_s.png");
 }
 
 .button_addall {
-    background-image: url("./images/static/icons/geartype/play/add.png");
+    background-image: url("/images/static/icons/geartype/play/add.png");
 }
 
 .button_list1 {
-    background-image: url("./images/static/icons/geartype/play/list1.png");
+    background-image: url("/images/static/icons/geartype/play/list1.png");
 }
 
 .button_list2 {
-    background-image: url("./images/static/icons/geartype/play/list2.png");
+    background-image: url("/images/static/icons/geartype/play/list2.png");
 }
 
 .button_list3 {
-    background-image: url("./images/static/icons/geartype/play/list3.png");
+    background-image: url("/images/static/icons/geartype/play/list3.png");
 }
 
 .button_list3 {
-    background-image: url("./images/static/icons/geartype/play/list3.png");
+    background-image: url("/images/static/icons/geartype/play/list3.png");
 }
 
 .button_master {
-    background-image: url("./images/static/icons/geartype/play/master.png");
+    background-image: url("/images/static/icons/geartype/play/master.png");
 }
 
 .button_reset {
-    background-image: url("./images/static/icons/geartype/play/reset.png");
+    background-image: url("/images/static/icons/geartype/play/reset.png");
 }
 
 .songplayerselect {

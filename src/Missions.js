@@ -171,64 +171,64 @@ export default function Missions({
             item_id: 19,
             item_type: 18,
             name: 'Providence Core',
-            value: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/19.png`} alt={'Providence Core'}/>{'Providence Core'}</span>,
-            label: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/19.png`} alt={'Providence Core'}/>{'Providence Core'}</span>
+            value: <span><img className='inline-buff' src={`/images/static/items/mst_lb_material/19.png`} alt={'Providence Core'}/>{'Providence Core'}</span>,
+            label: <span><img className='inline-buff' src={`/images/static/items/mst_lb_material/19.png`} alt={'Providence Core'}/>{'Providence Core'}</span>
         },
         {
             id:2,
             item_id: 20,
             item_type: 18,
             name: 'High Power Stone',
-            value: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/20.png`} alt={'High Power Stone'}/>{'High Power Stone'}</span>,
-            label: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/20.png`} alt={'High Power Stone'}/>{'High Power Stone'}</span>
+            value: <span><img className='inline-buff' src={`/images/static/items/mst_lb_material/20.png`} alt={'High Power Stone'}/>{'High Power Stone'}</span>,
+            label: <span><img className='inline-buff' src={`/images/static/items/mst_lb_material/20.png`} alt={'High Power Stone'}/>{'High Power Stone'}</span>
         },
         {
             id:3,
             item_id: 1,
             item_type: 37,
             name: 'Force Stone Fragment',
-            value: <span><img className='inline-buff' src={`./images/static/items/mst_link_stone/1.png`} alt={'Force Stone Fragment'}/>{'Force Stone Fragment'}</span>,
-            label: <span><img className='inline-buff' src={`./images/static/items/mst_link_stone/1.png`} alt={'Force Stone Fragment'}/>{'Force Stone Fragment'}</span>
+            value: <span><img className='inline-buff' src={`/images/static/items/mst_link_stone/1.png`} alt={'Force Stone Fragment'}/>{'Force Stone Fragment'}</span>,
+            label: <span><img className='inline-buff' src={`/images/static/items/mst_link_stone/1.png`} alt={'Force Stone Fragment'}/>{'Force Stone Fragment'}</span>
         },
         {
             id:4,
             item_id: -2,
             item_type: 41,
             name: 'Polychromatic Sparkle',
-            value: <span><img className='inline-buff' src={`./images/static/items/mst_crystal_point/-2.png`} alt={'Polychromatic Sparkle'}/>{'Polychromatic Sparkle'}</span>,
-            label: <span><img className='inline-buff' src={`./images/static/items/mst_crystal_point/-2.png`} alt={'Polychromatic Sparkle'}/>{'Polychromatic Sparkle'}</span>
+            value: <span><img className='inline-buff' src={`/images/static/items/mst_crystal_point/-2.png`} alt={'Polychromatic Sparkle'}/>{'Polychromatic Sparkle'}</span>,
+            label: <span><img className='inline-buff' src={`/images/static/items/mst_crystal_point/-2.png`} alt={'Polychromatic Sparkle'}/>{'Polychromatic Sparkle'}</span>
         },
         {
             id:5,
             item_id: 15,
             item_type: 18,
             name: 'Fragment of Ruins Miracles',
-            value: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/15.png`} alt={'Fragment of Ruin\'s Miracles'}/>{'Fragment of Ruin\'s Miracles'}</span>,
-            label: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/15.png`} alt={'Fragment of Ruin\'s Miracles'}/>{'Fragment of Ruin\'s Miracles'}</span>
+            value: <span><img className='inline-buff' src={`/images/static/items/mst_lb_material/15.png`} alt={'Fragment of Ruin\'s Miracles'}/>{'Fragment of Ruin\'s Miracles'}</span>,
+            label: <span><img className='inline-buff' src={`/images/static/items/mst_lb_material/15.png`} alt={'Fragment of Ruin\'s Miracles'}/>{'Fragment of Ruin\'s Miracles'}</span>
         },
         {
             id:6,
             item_id: 17,
             item_type: 18,
             name: 'Ruins Ultima Nugget',
-            value: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/17.png`} alt={'Ruin\'s Ultima Nugget'}/>{'Ruin\'s Ultima Nugget'}</span>,
-            label: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/17.png`} alt={'Ruin\'s Ultima Nugget'}/>{'Ruin\'s Ultima Nugget'}</span>
+            value: <span><img className='inline-buff' src={`/images/static/items/mst_lb_material/17.png`} alt={'Ruin\'s Ultima Nugget'}/>{'Ruin\'s Ultima Nugget'}</span>,
+            label: <span><img className='inline-buff' src={`/images/static/items/mst_lb_material/17.png`} alt={'Ruin\'s Ultima Nugget'}/>{'Ruin\'s Ultima Nugget'}</span>
         },
         {
             id:7,
             item_id: 11,
             item_type: 18,
             name: 'Fragment of Refuges Miracles',
-            value: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/11.png`} alt={'Fragment of Refuge\'s Miracles'}/>{'Fragment of Refuge\'s Miracles'}</span>,
-            label: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/11.png`} alt={'Fragment of Refuge\'s Miracles'}/>{'Fragment of Refuge\'s Miracles'}</span>
+            value: <span><img className='inline-buff' src={`/images/static/items/mst_lb_material/11.png`} alt={'Fragment of Refuge\'s Miracles'}/>{'Fragment of Refuge\'s Miracles'}</span>,
+            label: <span><img className='inline-buff' src={`/images/static/items/mst_lb_material/11.png`} alt={'Fragment of Refuge\'s Miracles'}/>{'Fragment of Refuge\'s Miracles'}</span>
         },
         {
             id:8,
             item_id: 13,
             item_type: 18,
             name: 'Refuges Ultima Nugget',
-            value: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/13.png`} alt={'Refuge\'s Ultima Nugget'}/>{'Refuge\'s Ultima Nugget'}</span>,
-            label: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/13.png`} alt={'Refuge\'s Ultima Nugget'}/>{'Refuge\'s Ultima Nugget'}</span>
+            value: <span><img className='inline-buff' src={`/images/static/items/mst_lb_material/13.png`} alt={'Refuge\'s Ultima Nugget'}/>{'Refuge\'s Ultima Nugget'}</span>,
+            label: <span><img className='inline-buff' src={`/images/static/items/mst_lb_material/13.png`} alt={'Refuge\'s Ultima Nugget'}/>{'Refuge\'s Ultima Nugget'}</span>
         }
     ]
 
@@ -244,64 +244,64 @@ export default function Missions({
                 item_id: 19,
                 item_type: 18,
                 name: 'Providence Core',
-                value: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/19.png`} alt={'Providence Core'}/>{'Providence Core'}</span>,
-                label: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/19.png`} alt={'Providence Core'}/>{'Providence Core'}</span>
+                value: <span><img className='inline-buff' src={`/images/static/items/mst_lb_material/19.png`} alt={'Providence Core'}/>{'Providence Core'}</span>,
+                label: <span><img className='inline-buff' src={`/images/static/items/mst_lb_material/19.png`} alt={'Providence Core'}/>{'Providence Core'}</span>
             },
             {
                 id:2,
                 item_id: 20,
                 item_type: 18,
                 name: 'High Power Stone',
-                value: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/20.png`} alt={'High Power Stone'}/>{'High Power Stone'}</span>,
-                label: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/20.png`} alt={'High Power Stone'}/>{'High Power Stone'}</span>
+                value: <span><img className='inline-buff' src={`/images/static/items/mst_lb_material/20.png`} alt={'High Power Stone'}/>{'High Power Stone'}</span>,
+                label: <span><img className='inline-buff' src={`/images/static/items/mst_lb_material/20.png`} alt={'High Power Stone'}/>{'High Power Stone'}</span>
             },
             {
                 id:3,
                 item_id: 1,
                 item_type: 37,
                 name: 'Force Stone Fragment',
-                value: <span><img className='inline-buff' src={`./images/static/items/mst_link_stone/1.png`} alt={'Force Stone Fragment'}/>{'Force Stone Fragment'}</span>,
-                label: <span><img className='inline-buff' src={`./images/static/items/mst_link_stone/1.png`} alt={'Force Stone Fragment'}/>{'Force Stone Fragment'}</span>
+                value: <span><img className='inline-buff' src={`/images/static/items/mst_link_stone/1.png`} alt={'Force Stone Fragment'}/>{'Force Stone Fragment'}</span>,
+                label: <span><img className='inline-buff' src={`/images/static/items/mst_link_stone/1.png`} alt={'Force Stone Fragment'}/>{'Force Stone Fragment'}</span>
             },
             {
                 id:4,
                 item_id: -2,
                 item_type: 41,
                 name: 'Polychromatic Sparkle',
-                value: <span><img className='inline-buff' src={`./images/static/items/mst_crystal_point/-2.png`} alt={'Polychromatic Sparkle'}/>{'Polychromatic Sparkle'}</span>,
-                label: <span><img className='inline-buff' src={`./images/static/items/mst_crystal_point/-2.png`} alt={'Polychromatic Sparkle'}/>{'Polychromatic Sparkle'}</span>
+                value: <span><img className='inline-buff' src={`/images/static/items/mst_crystal_point/-2.png`} alt={'Polychromatic Sparkle'}/>{'Polychromatic Sparkle'}</span>,
+                label: <span><img className='inline-buff' src={`/images/static/items/mst_crystal_point/-2.png`} alt={'Polychromatic Sparkle'}/>{'Polychromatic Sparkle'}</span>
             },
             {
                 id:5,
                 item_id: 15,
                 item_type: 18,
                 name: 'Fragment of Ruins Miracles',
-                value: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/15.png`} alt={'Fragment of Ruin\'s Miracles'}/>{'Fragment of Ruin\'s Miracles'}</span>,
-                label: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/15.png`} alt={'Fragment of Ruin\'s Miracles'}/>{'Fragment of Ruin\'s Miracles'}</span>
+                value: <span><img className='inline-buff' src={`/images/static/items/mst_lb_material/15.png`} alt={'Fragment of Ruin\'s Miracles'}/>{'Fragment of Ruin\'s Miracles'}</span>,
+                label: <span><img className='inline-buff' src={`/images/static/items/mst_lb_material/15.png`} alt={'Fragment of Ruin\'s Miracles'}/>{'Fragment of Ruin\'s Miracles'}</span>
             },
             {
                 id:6,
                 item_id: 17,
                 item_type: 18,
                 name: 'Ruins Ultima Nugget',
-                value: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/17.png`} alt={'Ruin\'s Ultima Nugget'}/>{'Ruin\'s Ultima Nugget'}</span>,
-                label: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/17.png`} alt={'Ruin\'s Ultima Nugget'}/>{'Ruin\'s Ultima Nugget'}</span>
+                value: <span><img className='inline-buff' src={`/images/static/items/mst_lb_material/17.png`} alt={'Ruin\'s Ultima Nugget'}/>{'Ruin\'s Ultima Nugget'}</span>,
+                label: <span><img className='inline-buff' src={`/images/static/items/mst_lb_material/17.png`} alt={'Ruin\'s Ultima Nugget'}/>{'Ruin\'s Ultima Nugget'}</span>
             },
             {
                 id:7,
                 item_id: 11,
                 item_type: 18,
                 name: 'Fragment of Refuges Miracles',
-                value: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/11.png`} alt={'Fragment of Refuge\'s Miracles'}/>{'Fragment of Refuge\'s Miracles'}</span>,
-                label: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/11.png`} alt={'Fragment of Refuge\'s Miracles'}/>{'Fragment of Refuge\'s Miracles'}</span>
+                value: <span><img className='inline-buff' src={`/images/static/items/mst_lb_material/11.png`} alt={'Fragment of Refuge\'s Miracles'}/>{'Fragment of Refuge\'s Miracles'}</span>,
+                label: <span><img className='inline-buff' src={`/images/static/items/mst_lb_material/11.png`} alt={'Fragment of Refuge\'s Miracles'}/>{'Fragment of Refuge\'s Miracles'}</span>
             },
             {
                 id:8,
                 item_id: 13,
                 item_type: 18,
                 name: 'Refuges Ultima Nugget',
-                value: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/13.png`} alt={'Refuge\'s Ultima Nugget'}/>{'Refuge\'s Ultima Nugget'}</span>,
-                label: <span><img className='inline-buff' src={`./images/static/items/mst_lb_material/13.png`} alt={'Refuge\'s Ultima Nugget'}/>{'Refuge\'s Ultima Nugget'}</span>
+                value: <span><img className='inline-buff' src={`/images/static/items/mst_lb_material/13.png`} alt={'Refuge\'s Ultima Nugget'}/>{'Refuge\'s Ultima Nugget'}</span>,
+                label: <span><img className='inline-buff' src={`/images/static/items/mst_lb_material/13.png`} alt={'Refuge\'s Ultima Nugget'}/>{'Refuge\'s Ultima Nugget'}</span>
             }
         ]
         //type params

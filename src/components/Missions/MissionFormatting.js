@@ -101,7 +101,7 @@ function MissionFormatting({
     const playvoice =(item)=>{
         if(playingaudio != true && item.voice != undefined){
             try {
-                const myAudioElement = new Audio(`./images/static/${item.voice}`)
+                const myAudioElement = new Audio(`/images/static/${item.voice}`)
                 myAudioElement.volume = volume
                 myAudioElement.style.display = "none"
                 myAudioElement.addEventListener("canplaythrough", (event) => {
@@ -131,19 +131,19 @@ function MissionFormatting({
                     <div style={{cursor:item.voice!=undefined?"pointer":""}} onClick={()=>playvoice(item)} className={select == false ? `reward-holder ${costs != true ? "floater":"float-left"}` : `reward-list-item`}>                
                     {item.star != undefined ?
                         <span className={`reward_star-holder`}>
-                            <img className={`reward_star`} src={`./images/static/items/stars/${item.star}.png`} alt={"reward-item"}/>
+                            <img className={`reward_star`} src={`/images/static/items/stars/${item.star}.png`} alt={"reward-item"}/>
                         </span>
                     :""}
                     {item.pass == true ?
                         <Tippy content={"Mog Pass Reward"}>
                             <span className={`reward_pass-holder`}>
-                                <img className={`reward_pass`} src={`./images/static/items/PremiumPass.png`} alt={"reward-item"}/>
+                                <img className={`reward_pass`} src={`/images/static/items/PremiumPass.png`} alt={"reward-item"}/>
                             </span>
                         </Tippy>
                     :""}
-                    <img className={`reward_item`} src={`./images/static/${item.image}`} alt={"reward-item"}/>
+                    <img className={`reward_item`} src={`/images/static/${item.image}`} alt={"reward-item"}/>
                     <div className={`reward_amount`}>{`${item.points == true ? `${amount(item.item_num)}pt` : `x${amount(item.item_num)}`}`}</div>
-                    <img className={`reward_bg`} src={`./images/static/items/bg/${item.bg}.png`} alt={"reward-bg"}/>
+                    <img className={`reward_bg`} src={`/images/static/items/bg/${item.bg}.png`} alt={"reward-bg"}/>
                     </div>
                 </Tippy>
             )
@@ -153,10 +153,10 @@ function MissionFormatting({
                     <div style={{cursor:item.voice!=undefined?"pointer":""}} onClick={()=>playvoice(item)} className={select == false ? `reward-holder ${costs != true ? "floater":"float-left"}` : "reward-list-item"}>
                     {item.pass == true ?
                         <span className={`reward_pass-holder`}>
-                            <img className={`reward_pass`} src={`./images/static/items/PremiumPass.png`} alt={"reward-item"}/>
+                            <img className={`reward_pass`} src={`/images/static/items/PremiumPass.png`} alt={"reward-item"}/>
                         </span>
                     :""}
-                    <img className={`reward_item-solo`} src={`./images/static/${item.image}`} alt={"reward-item"}/>
+                    <img className={`reward_item-solo`} src={`/images/static/${item.image}`} alt={"reward-item"}/>
                     {item.item_num != 1?
                         <div className={`reward_amount`}>
                             {`${item.points == true ? `${amount(item.item_num)}pt` : `x${amount(item.item_num)}`}`}
@@ -216,7 +216,7 @@ function MissionFormatting({
                             >
                                 {make_reward(item,false,item.mission_id)}
                                 <div style={{marginTop:"5px"}} className="subtext unique">
-                                    {item.cost.map(self=><div key={self.mission_id}><img  className={"inline-buff"} src={`./images/static/${self.image}`} />{` x${amount(self.item_num)}`}</div>)}
+                                    {item.cost.map(self=><div key={self.mission_id}><img  className={"inline-buff"} src={`/images/static/${self.image}`} />{` x${amount(self.item_num)}`}</div>)}
                                 </div>
                                 <span onClick={showmeraw} className="subtext">
                                     {`Stock: ${item.stock == 0 ? "∞":amount(item.stock)}`}

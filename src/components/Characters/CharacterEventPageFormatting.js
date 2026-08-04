@@ -276,7 +276,7 @@ function CharacterEventPageFormatting({
                 key={key}
                 scrollPosition={scrollPosition}
                 placeholder={<div className='singleeventtitlebanner' style={{ minHeight: "65px" }}>
-                              <img className="loadingbardots" src="./images/static/site/loading.gif"/>
+                              <img className="loadingbardots" src="/images/static/site/loading.gif"/>
                             </div>}
                 >
                 <CharacterEventFormatting
